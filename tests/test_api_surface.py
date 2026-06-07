@@ -6,7 +6,11 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from collector.pubdev_client import PubDevClient
 from collector.pipelines.api_surface import collect_api_surface
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+PROVIDER_API_FIXTURE = REPO_ROOT / "schema" / "examples" / "provider-6.0.5.api.json"
 
 
 @unittest.skipIf(shutil.which("dart") is None, "Dart SDK is required")
@@ -24,9 +28,13 @@ class ApiSurfaceTests(unittest.TestCase):
 
                 class Root<T> extends Base with Shared implements Contract {
                   final String field;
-                  Root(this.field);
+                  final List<String> values;
+                  Root(this.field, this.values);
                   factory Root.named(String value, {required int count, bool flag = false}) => Root(value);
-                  String method(int id, {String label = 'x'}) => field;
+                  String method(int id, {String label = 'x'}) {
+                    _PrivateImpl local = _PrivateImpl();
+                    return field;
+                  }
                   String get title => field;
                   set title(String value) {}
                 }
@@ -85,21 +93,26 @@ class ApiSurfaceTests(unittest.TestCase):
         self.assertIn("Root", root["methods"])
         self.assertIn("Root.named", root["methods"])
         self.assertIn("method", root["methods"])
+        self.assertIn("sig:ctor:Root(pos:req:String,pos:req:List<String>)", root["methods"])
         self.assertIn(
-            "sig:factory:Root.named(pos:req:value:String,named:req:count:int,named:opt:flag:bool=default)",
+            "sig:factory:Root.named(pos:req:String,named:req:count:int,named:opt:flag:bool=default)",
             root["methods"],
         )
         self.assertIn(
-            "sig:method:method(pos:req:id:int,named:opt:label:String=default)",
+            "sig:method:method(pos:req:int,named:opt:label:String=default)",
             root["methods"],
         )
         self.assertIn("field", root["fields"])
+        self.assertIn("values", root["fields"])
         self.assertIn("get:title", root["fields"])
         self.assertIn("set:title", root["fields"])
         self.assertIn("arity:1", root["types"])
         self.assertIn("extends:Base", root["types"])
         self.assertIn("implements:Contract", root["types"])
         self.assertIn("mixes:Shared", root["types"])
+        self.assertNotIn("_PrivateImpl", root["types"])
+        self.assertNotIn("List", root["types"])
+        self.assertNotIn("List<String>", root["types"])
 
         self.assertIn("kind:mixin", classes["Shared"]["types"])
         self.assertIn("on:Base", classes["Shared"]["types"])
@@ -120,7 +133,7 @@ class ApiSurfaceTests(unittest.TestCase):
             top_level["methods"],
         )
         self.assertIn(
-            "sig:setter:publicName(pos:req:value:String)",
+            "sig:setter:publicName(pos:req:String)",
             top_level["methods"],
         )
         self.assertIn("package:sample/sample.dart", classes["PublicApi"]["libraries"])
@@ -155,6 +168,36 @@ class ApiSurfaceTests(unittest.TestCase):
             "package:pkg/pkg.dart",
             first["classes"]["HiddenApi"]["libraries"],
         )
+
+    def test_dangling_self_package_export_does_not_abort_collection(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            package_dir = Path(tmp)
+            _write(
+                package_dir / "lib" / "pkg.dart",
+                """
+                export 'package:pkg/src/missing.dart';
+
+                class Survives {}
+                """,
+            )
+
+            surface = collect_api_surface(package_dir, "pkg")
+
+        self.assertIn("Survives", surface["classes"])
+
+    def test_provider_6_0_5_matches_committed_fixture(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            with PubDevClient(cache_dir=Path(tmp)) as client:
+                lib_dir = client.fetch("provider", "6.0.5")
+            surface = collect_api_surface(lib_dir.parent, "provider")
+
+        expected = json.loads(PROVIDER_API_FIXTURE.read_text(encoding="utf-8"))
+        self.assertEqual(surface, expected)
+        classes = surface["classes"]
+        for name in ("ChangeNotifierProvider", "Provider", "MultiProvider"):
+            with self.subTest(name=name):
+                self.assertIn(name, classes)
+                self.assertTrue(classes[name]["methods"])
 
 
 def _write(path: Path, content: str) -> None:

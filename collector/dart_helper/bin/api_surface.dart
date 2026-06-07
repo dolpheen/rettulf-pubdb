@@ -186,10 +186,14 @@ class _Collector {
             ),
           );
         }
-        _collectTypes(declaration, topLevel.types);
+        _collectTypeAnnotation(declaration.returnType, topLevel.types);
+        _collectCallableTypes(
+          declaration.functionExpression.parameters,
+          topLevel.types,
+        );
       } else if (declaration is TopLevelVariableDeclaration) {
         _collectVariables(declaration.variables, topLevel);
-        _collectTypes(declaration, topLevel.types);
+        _collectTypeAnnotation(declaration.variables.type, topLevel.types);
       } else if (declaration is FunctionTypeAlias) {
         final name = _publicName(declaration.name.lexeme);
         if (name == null) {
@@ -202,7 +206,9 @@ class _Collector {
         topLevel.types.add(
           _callableSignature('typedef', name, declaration.parameters),
         );
-        _collectTypes(declaration, topLevel.types);
+        _collectTypeParameters(declaration.typeParameters, topLevel.types);
+        _collectTypeAnnotation(declaration.returnType, topLevel.types);
+        _collectCallableTypes(declaration.parameters, topLevel.types);
       } else if (declaration is GenericTypeAlias) {
         final name = _publicName(declaration.name.lexeme);
         if (name == null) {
@@ -212,7 +218,8 @@ class _Collector {
         topLevel.types.add(
           'typedef:$name:arity:${declaration.typeParameters?.typeParameters.length ?? 0}',
         );
-        _collectTypes(declaration, topLevel.types);
+        _collectTypeParameters(declaration.typeParameters, topLevel.types);
+        _collectTypeAnnotation(declaration.type, topLevel.types);
       }
     }
     if (!topLevel.isEmpty) {
@@ -233,8 +240,8 @@ class _Collector {
     _collectExtends(declaration.extendsClause?.superclass, surface);
     _collectWith(declaration.withClause, surface);
     _collectImplements(declaration.implementsClause, surface);
+    _collectTypeParameters(declaration.namePart.typeParameters, surface.types);
     _collectClassMembers(declaration.body.members, surface, name);
-    _collectTypes(declaration, surface.types);
   }
 
   void _collectMixin(MixinDeclaration declaration, String libraryUri) {
@@ -249,8 +256,8 @@ class _Collector {
     );
     _collectOn(declaration.onClause, surface);
     _collectImplements(declaration.implementsClause, surface);
+    _collectTypeParameters(declaration.typeParameters, surface.types);
     _collectClassMembers(declaration.body.members, surface, name);
-    _collectTypes(declaration, surface.types);
   }
 
   void _collectEnum(EnumDeclaration declaration, String libraryUri) {
@@ -271,8 +278,8 @@ class _Collector {
     }
     _collectWith(declaration.withClause, surface);
     _collectImplements(declaration.implementsClause, surface);
+    _collectTypeParameters(declaration.namePart.typeParameters, surface.types);
     _collectClassMembers(declaration.body.members, surface, name);
-    _collectTypes(declaration, surface.types);
   }
 
   void _collectExtension(ExtensionDeclaration declaration, String libraryUri) {
@@ -293,8 +300,9 @@ class _Collector {
       'arity:${declaration.typeParameters?.typeParameters.length ?? 0}',
     );
     surface.types.add('on:${_typeSource(onClause.extendedType)}');
+    _collectTypeParameters(declaration.typeParameters, surface.types);
+    _collectTypeAnnotation(onClause.extendedType, surface.types);
     _collectClassMembers(declaration.body.members, surface, name);
-    _collectTypes(declaration, surface.types);
   }
 
   void _collectClassMembers(
@@ -302,6 +310,7 @@ class _Collector {
     _ClassSurface surface,
     String className,
   ) {
+    final fieldTypes = _fieldTypes(members);
     for (final member in members) {
       if (member is ConstructorDeclaration) {
         final name = _constructorName(className, member);
@@ -314,9 +323,14 @@ class _Collector {
             member.factoryKeyword == null ? 'ctor' : 'factory',
             name,
             member.parameters,
+            fieldTypes: fieldTypes,
           ),
         );
-        _collectTypes(member, surface.types);
+        _collectCallableTypes(
+          member.parameters,
+          surface.types,
+          fieldTypes: fieldTypes,
+        );
       } else if (member is MethodDeclaration) {
         final name = _publicName(member.name.lexeme);
         if (name == null) {
@@ -332,10 +346,11 @@ class _Collector {
             _callableSignature('method', name, member.parameters),
           );
         }
-        _collectTypes(member, surface.types);
+        _collectTypeAnnotation(member.returnType, surface.types);
+        _collectCallableTypes(member.parameters, surface.types);
       } else if (member is FieldDeclaration) {
         _collectVariables(member.fields, surface);
-        _collectTypes(member, surface.types);
+        _collectTypeAnnotation(member.fields.type, surface.types);
       }
     }
   }
@@ -360,6 +375,7 @@ class _Collector {
     if (name != null) {
       surface.types.add('extends:$name');
     }
+    _collectTypeAnnotation(type, surface.types);
   }
 
   void _collectWith(WithClause? clause, _ClassSurface surface) {
@@ -371,6 +387,7 @@ class _Collector {
       if (name != null) {
         surface.types.add('mixes:$name');
       }
+      _collectTypeAnnotation(type, surface.types);
     }
   }
 
@@ -383,6 +400,7 @@ class _Collector {
       if (name != null) {
         surface.types.add('implements:$name');
       }
+      _collectTypeAnnotation(type, surface.types);
     }
   }
 
@@ -395,6 +413,7 @@ class _Collector {
       if (name != null) {
         surface.types.add('on:$name');
       }
+      _collectTypeAnnotation(type, surface.types);
     }
   }
 
@@ -418,7 +437,8 @@ class _Collector {
       if (!uri.startsWith(prefix)) {
         return null;
       }
-      return _normalizePath(uri.substring(prefix.length));
+      final path = _normalizePath(uri.substring(prefix.length));
+      return _libFileExists(path) ? path : null;
     }
     final baseParts = ownerPath.split('/')..removeLast();
     for (final part in uri.split('/')) {
@@ -431,7 +451,11 @@ class _Collector {
       }
     }
     final path = _normalizePath(baseParts.join('/'));
-    return File(_join([libDir.path, path])).existsSync() ? path : null;
+    return _libFileExists(path) ? path : null;
+  }
+
+  bool _libFileExists(String relativePath) {
+    return File(_join([libDir.path, relativePath])).existsSync();
   }
 
   _ClassSurface _surface(String name, String libraryUri) {
@@ -559,15 +583,6 @@ class _TypeCollector extends RecursiveAstVisitor<void> {
     }
     super.visitNamedType(node);
   }
-
-  @override
-  void visitAnnotation(Annotation node) {
-    final name = _publicName(node.name.name);
-    if (name != null) {
-      types.add('annotation:$name');
-    }
-    super.visitAnnotation(node);
-  }
 }
 
 class _Options {
@@ -597,10 +612,6 @@ class _Options {
   }
 }
 
-void _collectTypes(AstNode node, Set<String> types) {
-  node.accept(_TypeCollector(types));
-}
-
 String? _constructorName(String className, ConstructorDeclaration declaration) {
   if (declaration.name == null) {
     return className;
@@ -615,33 +626,113 @@ String? _constructorName(String className, ConstructorDeclaration declaration) {
 String _callableSignature(
   String kind,
   String name,
-  FormalParameterList? parameters,
-) {
+  FormalParameterList? parameters, {
+  Map<String, String> fieldTypes = const <String, String>{},
+}) {
   if (parameters == null) {
     return 'sig:$kind:$name()';
   }
   final tokens = <String>[];
   for (final parameter in parameters.parameters) {
-    tokens.add(_parameterToken(parameter));
+    tokens.add(_parameterToken(parameter, fieldTypes: fieldTypes));
   }
   return 'sig:$kind:$name(${tokens.join(',')})';
 }
 
-String _parameterToken(FormalParameter parameter) {
+String _parameterToken(
+  FormalParameter parameter, {
+  required Map<String, String> fieldTypes,
+}) {
   final required = parameter.isRequiredNamed || parameter.isRequiredPositional;
   final named = parameter.isNamed;
   final positional = parameter.isPositional;
   final hasDefault = parameter.defaultClause != null;
-  final name = parameter.name?.lexeme ?? '_';
-  final type = parameter.type?.toSource() ?? 'dynamic';
+  final name = parameter.name?.lexeme;
+  final type = _parameterType(parameter, fieldTypes);
   final shape = named
       ? 'named'
       : positional
       ? 'pos'
       : 'param';
   final req = required ? 'req' : 'opt';
+  final namePart = named && name != null ? ':$name' : '';
+  final typePart = type == null ? '' : ':$type';
   final def = hasDefault ? '=default' : '';
-  return '$shape:$req:$name:$type$def';
+  return '$shape:$req$namePart$typePart$def';
+}
+
+String? _parameterType(
+  FormalParameter parameter,
+  Map<String, String> fieldTypes,
+) {
+  final explicit = parameter.type?.toSource();
+  if (explicit != null) {
+    return explicit;
+  }
+  if (parameter is FieldFormalParameter) {
+    return fieldTypes[parameter.name.lexeme];
+  }
+  return null;
+}
+
+Map<String, String> _fieldTypes(NodeList<ClassMember> members) {
+  final types = <String, String>{};
+  for (final member in members.whereType<FieldDeclaration>()) {
+    final type = member.fields.type?.toSource();
+    if (type == null) {
+      continue;
+    }
+    for (final variable in member.fields.variables) {
+      final name = _publicName(variable.name.lexeme);
+      if (name != null) {
+        types[name] = type;
+      }
+    }
+  }
+  return types;
+}
+
+void _collectCallableTypes(
+  FormalParameterList? parameters,
+  Set<String> types, {
+  Map<String, String> fieldTypes = const <String, String>{},
+}) {
+  if (parameters == null) {
+    return;
+  }
+  for (final parameter in parameters.parameters) {
+    final explicit = parameter.type;
+    if (explicit != null) {
+      _collectTypeAnnotation(explicit, types);
+      continue;
+    }
+    if (parameter is FieldFormalParameter) {
+      _collectTypeName(fieldTypes[parameter.name.lexeme], types);
+    }
+  }
+}
+
+void _collectTypeParameters(TypeParameterList? parameters, Set<String> types) {
+  if (parameters == null) {
+    return;
+  }
+  for (final parameter in parameters.typeParameters) {
+    _collectTypeAnnotation(parameter.bound, types);
+  }
+}
+
+void _collectTypeAnnotation(TypeAnnotation? annotation, Set<String> types) {
+  if (annotation == null) {
+    return;
+  }
+  annotation.accept(_TypeCollector(types));
+}
+
+void _collectTypeName(String? name, Set<String> types) {
+  final normalized = _baseTypeName(name);
+  if (normalized != null && !_isBuiltinType(normalized)) {
+    types.add(normalized);
+  }
 }
 
 String? _publicName(String? value) {
@@ -652,11 +743,15 @@ String? _publicName(String? value) {
 }
 
 String? _typeName(NamedType type) {
-  final name = type.name.lexeme;
-  if (name.isEmpty) {
+  return _baseTypeName(type.name.lexeme);
+}
+
+String? _baseTypeName(String? value) {
+  if (value == null) {
     return null;
   }
-  return name;
+  final name = value.split('<').first.replaceFirst('?', '').trim();
+  return name.isEmpty ? null : name;
 }
 
 String _typeSource(TypeAnnotation type) =>
@@ -705,16 +800,41 @@ String? _topLevelExportName(String token) {
 
 bool _isBuiltinType(String name) {
   return const {
+    'BigInt',
+    'DateTime',
+    'Deprecated',
+    'Duration',
+    'Enum',
+    'Error',
+    'Exception',
+    'Function',
+    'Future',
+    'FutureOr',
+    'Iterable',
+    'Iterator',
+    'List',
+    'Map',
     'Object',
     'Never',
     'Null',
+    'Pattern',
+    'Record',
+    'RegExp',
+    'Runes',
+    'Set',
+    'Sink',
+    'StackTrace',
+    'Stream',
+    'StringBuffer',
+    'Symbol',
+    'Type',
     'bool',
+    'void',
     'double',
     'dynamic',
     'int',
     'num',
     'String',
-    'void',
   }.contains(name);
 }
 

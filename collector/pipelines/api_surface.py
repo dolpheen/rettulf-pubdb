@@ -8,6 +8,7 @@ import os
 import shutil
 import subprocess
 import sys
+import threading
 from pathlib import Path
 from typing import Any
 
@@ -16,6 +17,8 @@ JsonObject = dict[str, Any]
 DEFAULT_TIMEOUT_SECONDS = 120.0
 
 _PUB_GET_DONE: set[Path] = set()
+_COMPILED_HELPERS: set[Path] = set()
+_SETUP_LOCK = threading.Lock()
 
 
 class ApiSurfaceError(RuntimeError):
@@ -41,13 +44,11 @@ def collect_api_surface(
 
     helper_root = Path(helper_dir).resolve() if helper_dir else _default_helper_dir()
     dart = str(dart_executable or _default_dart_executable())
-    _ensure_helper_deps(helper_root, dart, timeout)
+    helper_executable = _ensure_helper_executable(helper_root, dart, timeout)
 
     completed = subprocess.run(
         [
-            dart,
-            "run",
-            "bin/api_surface.dart",
+            str(helper_executable),
             "--package-dir",
             str(root),
             "--package",
@@ -97,11 +98,46 @@ def _sorted_strings(value: object) -> list[str]:
     return sorted(item for item in value if isinstance(item, str) and item)
 
 
-def _ensure_helper_deps(helper_root: Path, dart: str, timeout: float) -> None:
-    if helper_root in _PUB_GET_DONE:
-        return
+def _ensure_helper_executable(helper_root: Path, dart: str, timeout: float) -> Path:
+    executable = helper_root / ".dart_tool" / "rettulf_pubdb" / "api_surface"
+    with _SETUP_LOCK:
+        if helper_root not in _PUB_GET_DONE:
+            _run_setup_command(
+                [dart, "pub", "get"],
+                helper_root,
+                timeout,
+                "api_surface helper pub get failed",
+            )
+            _PUB_GET_DONE.add(helper_root)
+
+        source = helper_root / "bin" / "api_surface.dart"
+        if helper_root not in _COMPILED_HELPERS or _is_stale(executable, source):
+            executable.parent.mkdir(parents=True, exist_ok=True)
+            _run_setup_command(
+                [
+                    dart,
+                    "compile",
+                    "exe",
+                    "bin/api_surface.dart",
+                    "-o",
+                    str(executable),
+                ],
+                helper_root,
+                timeout,
+                "api_surface helper compile failed",
+            )
+            _COMPILED_HELPERS.add(helper_root)
+    return executable
+
+
+def _run_setup_command(
+    command: list[str],
+    helper_root: Path,
+    timeout: float,
+    error_prefix: str,
+) -> None:
     completed = subprocess.run(
-        [dart, "pub", "get"],
+        command,
         cwd=helper_root,
         env=_helper_env(),
         check=False,
@@ -111,8 +147,13 @@ def _ensure_helper_deps(helper_root: Path, dart: str, timeout: float) -> None:
     )
     if completed.returncode != 0:
         detail = completed.stderr.strip() or completed.stdout.strip()
-        raise ApiSurfaceError(f"api_surface helper pub get failed: {detail}")
-    _PUB_GET_DONE.add(helper_root)
+        raise ApiSurfaceError(f"{error_prefix}: {detail}")
+
+
+def _is_stale(output: Path, source: Path) -> bool:
+    if not output.exists():
+        return True
+    return output.stat().st_mtime < source.stat().st_mtime
 
 
 def _helper_env() -> dict[str, str]:
