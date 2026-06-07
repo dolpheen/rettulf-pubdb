@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/dolpheen/rettulf-pubdb/main/schema/_schema.v1.json",
+  "title": "rettulf-pubdb entry (schema v1)",
+  "description": "One pub.dev (package, version) fingerprint entry consumed by rettulf's package identifier. Lives at db/<package>/<version>.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pubdb_schema_version",
+    "package",
+    "version",
+    "collected_at",
+    "api_surface",
+    "source_fingerprint"
+  ],
+  "properties": {
+    "pubdb_schema_version": {
+      "description": "Major schema version. The consumer rejects entries whose major differs from the one it supports.",
+      "const": 1
+    },
+    "package": {
+      "description": "pub.dev package name.",
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "version": {
+      "description": "Exact pub.dev version (semver).",
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+    },
+    "collected_at": {
+      "description": "UTC ISO-8601 timestamp when this entry was collected.",
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+    },
+    "api_surface": {
+      "$ref": "#/$defs/apiSurface"
+    },
+    "source_fingerprint": {
+      "$ref": "#/$defs/fingerprint"
+    },
+    "obfuscated_fingerprint": {
+      "$ref": "#/$defs/fingerprint"
+    },
+    "flutter_variants": {
+      "description": "Optional per-Flutter-version fingerprint variants.",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/flutterVariant"
+      }
+    }
+  },
+  "$defs": {
+    "apiSurface": {
+      "description": "Normalized API surface. Mirrors rettulf api_surface.package_api_surfaces output for a single package.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classes"],
+      "properties": {
+        "classes": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/classSurface"
+          }
+        }
+      }
+    },
+    "classSurface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["libraries", "methods", "fields", "types"],
+      "properties": {
+        "libraries": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "methods": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "fields": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "types": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "fingerprint": {
+      "description": "A structural fingerprint. Sub-shape is intentionally open (additionalProperties) until the collectors (#3/#4/#6) finalize it; strategy + digest are stable.",
+      "type": "object",
+      "required": ["strategy", "digest"],
+      "properties": {
+        "strategy": {"type": "string", "minLength": 1},
+        "digest": {
+          "description": "Hex digest of the normalized fingerprint payload.",
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "libraries": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      },
+      "additionalProperties": true
+    },
+    "flutterVariant": {
+      "type": "object",
+      "required": ["flutter_version", "fingerprint"],
+      "properties": {
+        "flutter_version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.+-]+)?$"
+        },
+        "dart_version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.+-]+)?$"
+        },
+        "fingerprint": {
+          "$ref": "#/$defs/fingerprint"
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}
