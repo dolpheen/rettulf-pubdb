@@ -91,53 +91,33 @@ class ApiSurfaceTests(unittest.TestCase):
             ["package:sample/sample.dart"],
         )
         self.assertIn("Root", root["methods"])
-        self.assertIn("Root.named", root["methods"])
+        self.assertIn("named", root["methods"])
         self.assertIn("method", root["methods"])
-        self.assertIn("sig:ctor:Root(pos:req:String,pos:req:List<String>)", root["methods"])
-        self.assertIn(
-            "sig:factory:Root.named(pos:req:String,named:req:count:int,named:opt:flag:bool=default)",
-            root["methods"],
-        )
-        self.assertIn(
-            "sig:method:method(pos:req:int,named:opt:label:String=default)",
-            root["methods"],
-        )
         self.assertIn("field", root["fields"])
         self.assertIn("values", root["fields"])
         self.assertIn("get:title", root["fields"])
         self.assertIn("set:title", root["fields"])
-        self.assertIn("arity:1", root["types"])
-        self.assertIn("extends:Base", root["types"])
-        self.assertIn("implements:Contract", root["types"])
-        self.assertIn("mixes:Shared", root["types"])
+        self.assertIn("Base", root["types"])
+        self.assertIn("Contract", root["types"])
+        self.assertIn("Shared", root["types"])
         self.assertNotIn("_PrivateImpl", root["types"])
         self.assertNotIn("List", root["types"])
         self.assertNotIn("List<String>", root["types"])
 
-        self.assertIn("kind:mixin", classes["Shared"]["types"])
-        self.assertIn("on:Base", classes["Shared"]["types"])
+        self.assertIn("Base", classes["Shared"]["types"])
         self.assertEqual(classes["VisibleEnum"]["fields"], ["one", "two"])
-        self.assertIn("kind:enum", classes["VisibleEnum"]["types"])
+        self.assertEqual(classes["VisibleEnum"]["types"], [])
         self.assertIn("extensionMethod", classes["RootX"]["methods"])
-        self.assertIn("kind:extension", classes["RootX"]["types"])
-        self.assertIn("on:Root", classes["RootX"]["types"])
+        self.assertIn("Root", classes["RootX"]["types"])
 
         top_level = classes["::"]
         self.assertIn("publicTop", top_level["methods"])
         self.assertIn("get:publicName", top_level["fields"])
         self.assertIn("set:publicName", top_level["fields"])
-        self.assertIn("typedef:PublicAlias", top_level["fields"])
-        self.assertIn("typedef:PublicAlias:arity:0", top_level["types"])
-        self.assertIn(
-            "sig:function:publicTop(named:opt:value:int=default)",
-            top_level["methods"],
-        )
-        self.assertIn(
-            "sig:setter:publicName(pos:req:String)",
-            top_level["methods"],
-        )
+        self.assertNotIn("typedef:PublicAlias", top_level["fields"])
         self.assertIn("package:sample/sample.dart", classes["PublicApi"]["libraries"])
         self.assertIn("package:sample/src/internal.dart", classes["PublicApi"]["libraries"])
+        _assert_no_decorated_tokens(self, surface)
 
     def test_export_hide_and_deterministic_json(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -198,8 +178,40 @@ class ApiSurfaceTests(unittest.TestCase):
             with self.subTest(name=name):
                 self.assertIn(name, classes)
                 self.assertTrue(classes[name]["methods"])
+        _assert_no_decorated_tokens(self, surface)
 
 
 def _write(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")
+
+
+def _assert_no_decorated_tokens(
+    test_case: unittest.TestCase,
+    surface: dict[str, object],
+) -> None:
+    prefixes = (
+        "sig:",
+        "kind:",
+        "arity:",
+        "extends:",
+        "implements:",
+        "mixes:",
+        "on:",
+        "typedef:",
+        "annotation:",
+        "export:",
+    )
+    classes = surface["classes"]
+    assert isinstance(classes, dict)
+    for class_surface in classes.values():
+        assert isinstance(class_surface, dict)
+        for bucket in ("methods", "fields", "types"):
+            values = class_surface[bucket]
+            assert isinstance(values, list)
+            for value in values:
+                assert isinstance(value, str)
+                test_case.assertFalse(
+                    value.startswith(prefixes),
+                    f"unexpected decorated token in {bucket}: {value}",
+                )

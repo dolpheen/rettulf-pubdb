@@ -46,10 +46,9 @@ Each `db/<package>/<version>.json` is one object:
 ```
 
 `api_surface` keeps the same `classes -> {libraries, methods, fields, types}`
-shape that rettulf's `normalize_surface` reads directly. Collector-emitted
-member/type details are encoded as deterministic string tokens inside those
-arrays; `schema/examples/provider-6.0.5.api.json` is the reference fixture for
-that token vocabulary.
+shape and bare-name token vocabulary that rettulf's `normalize_surface` reads
+directly. `schema/examples/provider-6.0.5.api.json` is a raw collector fixture
+for that surface.
 
 ### Schema versioning
 
