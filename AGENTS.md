@@ -42,6 +42,41 @@ entry schema and fail).
 - `*_fingerprint` sub-objects only require `strategy` + a 64-hex `digest`; the
   rest is intentionally open until the collectors (#3/#4/#6) finalize them.
 
+## The consumer contract (verified against rettulf `stage_b/packages/`)
+
+The peer repo is at `../rettulf`. The DB is matched in
+`src/rettulf/stage_b/packages/`; two functions define what the collector must
+emit — read them before changing surface output:
+
+- `api_surface.package_api_surfaces()` — extracts the surface from the **AOT
+  snapshot** (the match *target*). Its output is the vocabulary the DB mirrors.
+- `api_surface.normalize_surface()` — run on **both** the DB entry and the
+  snapshot before comparison; `pubdev_match.match_surface()` then scores.
+
+`normalize_surface` rewrites every surface (DB included): strips `get:`/`set:`
+prefixes → bare name; strips `@<n>` suffixes and a leading `new `; drops `#…`,
+closures, `<anonymous closure>`; drops the 10 builtin type names (`Object Never
+Null bool double dynamic int num String void`); and **drops any `types` entry
+that is not the name of another class in the same surface** (sibling-class
+filter in `_serializable_surface`).
+
+`match_surface` is a **subset test over the snapshot (target)**: every snapshot
+token must be present in the DB candidate (methods matched against candidate
+methods+fields; fields/types by set difference). DB **extras never cause a
+miss**, but they inflate `extra_token_count`, the tiebreaker
+`best_surface_match` uses to choose among subset-matching versions (fewest
+extras wins) and a ranking term for low-confidence matches.
+
+**Rule for the collector:** emit only **bare names the snapshot also produces** —
+plain method / constructor / top-level-function names, plain field names, enum
+values, bare sibling-class names in `types`; use `"::"` for top-level (the
+consumer's `SYNTHETIC_CLASS`). Decorated tokens (`sig:…`, `kind:…`, `arity:…`,
+`extends:/implements:/mixes:/on:…`, `typedef:…`, `annotation:…`, `export:…`) are
+**not** in the snapshot vocabulary: the `types`-bucket ones are silently dropped
+by the sibling filter; the `methods`/`fields`-bucket ones (`sig:…`, `typedef:…`)
+pass through and skew `extra_token_count` → worse version disambiguation. (This
+is the verified basis for the PR #11 review.)
+
 ## Layout
 
 - `schema/` — JSON Schema (`_schema.v1.json`) + `examples/`.
