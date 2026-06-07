@@ -134,7 +134,8 @@ When the user pastes a GitHub issue URL, number, or description and asks to impl
 2. Use the `Agent` tool with `isolation: "worktree"` to do ALL implementation work
 3. The agent should: read relevant code, implement the change, run tests, then create a PR
 4. Include a GitHub closing keyword in the PR body, e.g. `Closes #<number>`, so merging the PR closes the issue automatically
-5. Report the PR URL when done
+5. If the PR is validated and ready for review, mark it ready for review instead of leaving it as a draft
+6. Report the PR URL when done
 
 Never implement features directly on `main`. Always use a worktree agent for isolation.
 
@@ -145,4 +146,3 @@ Never implement features directly on `main`. Always use a worktree agent for iso
 Chaining `cd` before a git command triggers a permission prompt because hooks in the target repo (pre-commit, post-checkout, etc.) can run with shell permissions. `git -C <dir> <command>` runs git as if from that directory without changing the shell's cwd — same result, no prompt.
 
 Applies to worktrees, submodules, or any non-cwd repo.
-
