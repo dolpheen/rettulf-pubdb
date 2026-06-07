@@ -1,12 +1,15 @@
 # collector/
 
-The 24/7 fingerprint collection pipeline. **Not implemented yet** — this
-directory is scaffolding from the bootstrap issue
+The 24/7 fingerprint collection pipeline. This directory started as scaffolding
+from the bootstrap issue
 ([#1](https://github.com/dolpheen/rettulf-pubdb/issues/1)).
+
+Implemented:
+
+- `pubdev_client.py` — pub.dev archive fetcher with a local cache.
 
 Planned contents (tracked separately):
 
-- `#2` — pub.dev archive fetcher + local cache
 - `#3` — API-surface collector (produces the `api_surface` field)
 - `#4` — source-derived structural fingerprint collector (`source_fingerprint`)
 - `#5` — collector daemon: queue + scheduler + atomic commit (`daemon.py`)
