@@ -32,8 +32,20 @@ jobs:
         with:
           python-version: "3.12"
 
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: "stable"
+
       - name: Install collector dependencies
         run: pip install -r collector/requirements.txt
 
+      - name: Install Dart helper dependencies
+        run: dart pub get
+        working-directory: collector/dart_helper
+
+      - name: Analyze Dart helper
+        run: dart analyze
+        working-directory: collector/dart_helper
+
       - name: Run unit tests
-        run: python -m unittest
+        run: python -m unittest discover -v

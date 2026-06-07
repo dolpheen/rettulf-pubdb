@@ -7,10 +7,10 @@ from the bootstrap issue
 Implemented:
 
 - `pubdev_client.py` — pub.dev archive fetcher with a local cache.
+- `pipelines/api_surface.py` — analyzer-backed Dart API-surface collector.
 
 Planned contents (tracked separately):
 
-- `#3` — API-surface collector (produces the `api_surface` field)
 - `#4` — source-derived structural fingerprint collector (`source_fingerprint`)
 - `#5` — collector daemon: queue + scheduler + atomic commit (`daemon.py`)
 - `#6` — obfuscated-build fingerprint variant (`obfuscated_fingerprint`)

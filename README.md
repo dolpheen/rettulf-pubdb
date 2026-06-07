@@ -45,8 +45,10 @@ Each `db/<package>/<version>.json` is one object:
 }
 ```
 
-`api_surface` mirrors rettulf's `api_surface.package_api_surfaces` output for a
-single package, so the consumer's `normalize_surface` reads it directly.
+`api_surface` keeps the same `classes -> {libraries, methods, fields, types}`
+shape and bare-name token vocabulary that rettulf's `normalize_surface` reads
+directly. `schema/examples/provider-6.0.5.api.json` is a raw collector fixture
+for that surface.
 
 ### Schema versioning
 

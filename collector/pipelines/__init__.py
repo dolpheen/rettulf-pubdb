@@ -1,0 +1,1 @@
+"""Collector pipeline entry points."""

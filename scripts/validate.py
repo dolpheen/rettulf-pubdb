@@ -2,10 +2,11 @@
 """Validate rettulf-pubdb entries against schema/_schema.v1.json.
 
 Usage:
-    python scripts/validate.py                 # validate all entries + examples
+    python scripts/validate.py                 # validate all entries + entry examples
     python scripts/validate.py db/dio/5.4.0.json ...   # validate specific files
 
-Entry files are db/<package>/<version>.json plus schema/examples/*.json.
+Entry files are db/<package>/<version>.json plus schema/examples/*.json entry
+examples. Raw API-surface fixtures named *.api.json are skipped by default.
 Meta files under db/ whose name starts with "_" (e.g. db/_index.json,
 db/_top1000.json) are not entries and are skipped.
 
@@ -35,7 +36,11 @@ def entry_files() -> list[Path]:
         for path in sorted((REPO_ROOT / "db").rglob("*.json"))
         if not path.name.startswith("_")
     ]
-    examples = sorted((REPO_ROOT / "schema" / "examples").glob("*.json"))
+    examples = [
+        path
+        for path in sorted((REPO_ROOT / "schema" / "examples").glob("*.json"))
+        if not path.name.endswith(".api.json")
+    ]
     return db_entries + examples
 
 
