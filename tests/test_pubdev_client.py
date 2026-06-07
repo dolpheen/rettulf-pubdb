@@ -49,6 +49,12 @@ def _metadata(
     return {"name": package, "latest": version_info, "versions": [version_info]}
 
 
+class _FailingStream(httpx.SyncByteStream):
+    def __iter__(self):
+        yield b"partial"
+        raise httpx.ReadError("connection dropped")
+
+
 def _process_fetch(
     base_url: str, cache_dir: str, result_queue: multiprocessing.Queue
 ) -> None:
@@ -137,6 +143,41 @@ class PubDevClientTests(unittest.TestCase):
         self.assertEqual(metadata_calls, 2)
         self.assertEqual(sleeps, [2.0])
 
+    def test_429_clamps_large_retry_after(self) -> None:
+        archive = _archive_bytes({"lib/pkg.dart": ""})
+        archive_url = "https://pub.dev/api/archives/pkg-1.0.0.tar.gz"
+        sleeps: list[float] = []
+        metadata_calls = 0
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            nonlocal metadata_calls
+            if request.url.path == "/api/packages/pkg":
+                metadata_calls += 1
+                if metadata_calls == 1:
+                    return httpx.Response(429, headers={"Retry-After": "86400"})
+                return httpx.Response(
+                    200,
+                    json=_metadata("pkg", "1.0.0", archive_url, _sha256(archive)),
+                )
+            if request.url.path == "/api/archives/pkg-1.0.0.tar.gz":
+                return httpx.Response(200, content=archive)
+            return httpx.Response(404)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            http_client = httpx.Client(transport=httpx.MockTransport(handler))
+            with pubdev_client.PubDevClient(
+                cache_dir=Path(tmp),
+                client=http_client,
+                sleep=sleeps.append,
+                backoff_initial=0.01,
+            ) as client:
+                path = client.fetch("pkg", "1.0.0")
+                fetched_file_exists = (path / "pkg.dart").is_file()
+
+        self.assertTrue(fetched_file_exists)
+        self.assertEqual(metadata_calls, 2)
+        self.assertEqual(sleeps, [pubdev_client.MAX_RETRY_AFTER_SECONDS])
+
     def test_5xx_uses_exponential_backoff(self) -> None:
         archive = _archive_bytes({"lib/pkg.dart": ""})
         archive_url = "https://pub.dev/api/archives/pkg-1.0.0.tar.gz"
@@ -171,6 +212,22 @@ class PubDevClientTests(unittest.TestCase):
         self.assertTrue(fetched_file_exists)
         self.assertEqual(metadata_calls, 3)
         self.assertEqual(sleeps, [0.01, 0.02])
+
+    def test_invalid_metadata_json_raises_pubdev_error(self) -> None:
+        def handler(request: httpx.Request) -> httpx.Response:
+            if request.url.path == "/api/packages/pkg":
+                return httpx.Response(200, content=b"{")
+            return httpx.Response(404)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            http_client = httpx.Client(transport=httpx.MockTransport(handler))
+            with pubdev_client.PubDevClient(
+                cache_dir=Path(tmp),
+                client=http_client,
+                sleep=lambda _: None,
+            ) as client:
+                with self.assertRaisesRegex(pubdev_client.PubDevError, "invalid JSON"):
+                    client.fetch("pkg", "1.0.0")
 
     def test_checksum_mismatch_invalidates_cached_archive_and_refetches(self) -> None:
         good_archive = _archive_bytes({"lib/pkg.dart": "fresh"})
@@ -245,6 +302,42 @@ class PubDevClientTests(unittest.TestCase):
 
         self.assertEqual(fetched_content, "fresh")
         self.assertEqual(archive_calls, 2)
+
+    def test_download_stream_error_retries(self) -> None:
+        archive = _archive_bytes({"lib/pkg.dart": "fresh"})
+        archive_url = "https://pub.dev/api/archives/pkg-1.0.0.tar.gz"
+        archive_calls = 0
+        sleeps: list[float] = []
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            nonlocal archive_calls
+            if request.url.path == "/api/packages/pkg":
+                return httpx.Response(
+                    200,
+                    json=_metadata("pkg", "1.0.0", archive_url, _sha256(archive)),
+                )
+            if request.url.path == "/api/archives/pkg-1.0.0.tar.gz":
+                archive_calls += 1
+                if archive_calls == 1:
+                    return httpx.Response(200, stream=_FailingStream())
+                return httpx.Response(200, content=archive)
+            return httpx.Response(404)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            http_client = httpx.Client(transport=httpx.MockTransport(handler))
+            with pubdev_client.PubDevClient(
+                cache_dir=Path(tmp),
+                client=http_client,
+                sleep=sleeps.append,
+                backoff_initial=0.01,
+                max_retries=1,
+            ) as client:
+                path = client.fetch("pkg", "1.0.0")
+                fetched_content = (path / "pkg.dart").read_text()
+
+        self.assertEqual(fetched_content, "fresh")
+        self.assertEqual(archive_calls, 2)
+        self.assertEqual(sleeps, [0.01])
 
     def test_concurrent_process_fetches_do_not_corrupt_cache(self) -> None:
         archive = _archive_bytes({"lib/concurrent_pkg.dart": "library concurrent_pkg;"})

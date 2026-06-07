@@ -34,6 +34,7 @@ DEFAULT_CACHE_DIR = Path.home() / ".cache" / "rettulf-pubdb" / "archives"
 MAX_RETRIES = 5
 INITIAL_BACKOFF_SECONDS = 0.2
 MAX_BACKOFF_SECONDS = 8.0
+MAX_RETRY_AFTER_SECONDS = 120.0
 MARKER_FILE = ".rettulf-pubdb.json"
 
 
@@ -162,6 +163,8 @@ class PubDevClient:
         )
         try:
             data = response.json()
+        except json.JSONDecodeError as exc:
+            raise PubDevError(f"invalid JSON from {package_url}: {exc}") from exc
         finally:
             response.close()
 
@@ -227,19 +230,33 @@ class PubDevClient:
     def _download_archive(self, archive_url: str, archive_path: Path) -> None:
         archive_path.parent.mkdir(parents=True, exist_ok=True)
         tmp_path = archive_path.with_name(f".{archive_path.name}.tmp-{os.getpid()}")
-        try:
+
+        last_error: Exception | None = None
+        for attempt in range(self.max_retries + 1):
             response = self._request("GET", archive_url, stream=True)
             try:
-                with tmp_path.open("wb") as handle:
-                    for chunk in response.iter_bytes():
-                        if chunk:
-                            handle.write(chunk)
+                try:
+                    with tmp_path.open("wb") as handle:
+                        for chunk in response.iter_bytes():
+                            if chunk:
+                                handle.write(chunk)
+                except httpx.RequestError as exc:
+                    last_error = exc
+                    if tmp_path.exists():
+                        tmp_path.unlink()
+                    if attempt >= self.max_retries:
+                        raise PubDevError(
+                            f"download failed for {archive_url}: {exc}"
+                        ) from exc
+                    self._sleep(self._backoff_delay(attempt))
+                    continue
+
+                tmp_path.replace(archive_path)
+                return
             finally:
                 response.close()
-            tmp_path.replace(archive_path)
-        finally:
-            if tmp_path.exists():
-                tmp_path.unlink()
+
+        raise PubDevError(f"download failed for {archive_url}: {last_error}") from last_error
 
     def _extract_archive(
         self,
@@ -310,6 +327,8 @@ class PubDevClient:
                 delay = _retry_after_delay(response.headers.get("Retry-After"))
                 if delay is None:
                     delay = self._backoff_delay(attempt)
+                else:
+                    delay = min(delay, MAX_RETRY_AFTER_SECONDS)
                 response.close()
                 self._sleep(delay)
                 continue

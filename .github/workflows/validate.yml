@@ -21,3 +21,19 @@ jobs:
 
       - name: Validate entries + examples
         run: python scripts/validate.py
+
+  tests:
+    name: Run collector tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install collector dependencies
+        run: pip install -r collector/requirements.txt
+
+      - name: Run unit tests
+        run: python -m unittest
