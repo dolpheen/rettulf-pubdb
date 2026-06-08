@@ -5,6 +5,12 @@ import 'package:analyzer/dart/analysis/features.dart';
 import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
+import 'package:pub_semver/pub_semver.dart';
+
+final _parserFeatureSet = FeatureSet.fromEnableFlags2(
+  sdkLanguageVersion: Version(3, 12, 0),
+  flags: const <String>[],
+);
 
 Future<void> main(List<String> args) async {
   try {
@@ -61,7 +67,7 @@ class _Collector {
       final result = parseString(
         content: file.readAsStringSync(),
         path: file.path,
-        featureSet: FeatureSet.latestLanguageVersion(),
+        featureSet: _parserFeatureSet,
         throwIfDiagnostics: false,
       );
       return result.unit;
@@ -139,7 +145,7 @@ class _SourceFingerprintVisitor extends RecursiveAstVisitor<void> {
       _HierarchyEntry(
         className: name,
         superName: _typeName(node.extendsClause?.superclass) ?? '',
-        fieldsCount: _fieldCount(node.body),
+        fieldsCount: _fieldCount(node),
         methodsCount: _methodCount(node),
       ),
     );
@@ -194,7 +200,7 @@ class _SourceFingerprintVisitor extends RecursiveAstVisitor<void> {
       if (symbol != null) {
         fingerprint.ffiSymbols.add(symbol);
       }
-    } else if (node.target == null) {
+    } else if (_isChannelType(node.methodName.name)) {
       final channelName = _firstStringArgument(node.argumentList);
       if (channelName != null) {
         _addChannel(node.methodName.name, channelName);
@@ -261,6 +267,14 @@ class _SourceFingerprintVisitor extends RecursiveAstVisitor<void> {
   }
 }
 
+bool _isChannelType(String name) {
+  return const {
+    'MethodChannel',
+    'EventChannel',
+    'BasicMessageChannel',
+  }.contains(name);
+}
+
 class _SourceFingerprint {
   final List<_HierarchyEntry> hierarchy = <_HierarchyEntry>[];
   final Set<String> stringLiterals = <String>{};
@@ -308,21 +322,16 @@ class _HierarchyEntry {
 }
 
 class _Options {
-  _Options({required this.packageDir, required this.package});
+  _Options({required this.packageDir});
 
   final Directory packageDir;
-  final String package;
 
   static _Options parse(List<String> args) {
     final packageDir = _option(args, '--package-dir');
-    final package = _option(args, '--package');
     if (packageDir == null || packageDir.isEmpty) {
       throw FormatException('--package-dir is required');
     }
-    if (package == null || package.isEmpty) {
-      throw FormatException('--package is required');
-    }
-    return _Options(packageDir: Directory(packageDir), package: package);
+    return _Options(packageDir: Directory(packageDir));
   }
 
   static String? _option(List<String> args, String name) {
@@ -334,15 +343,28 @@ class _Options {
   }
 }
 
-int _fieldCount(ClassBody body) {
+int _fieldCount(ClassDeclaration declaration) {
+  final namePart = declaration.namePart;
+  var count = namePart is PrimaryConstructorDeclaration
+      ? _fieldFormalCount(namePart.formalParameters)
+      : 0;
+  final body = declaration.body;
   if (body is! BlockClassBody) {
-    return 0;
+    return count;
   }
-  var count = 0;
   for (final member in body.members.whereType<FieldDeclaration>()) {
     count += member.fields.variables.length;
   }
   return count;
+}
+
+int _fieldFormalCount(FormalParameterList parameters) {
+  return parameters.parameters.where(_isPrimaryConstructorField).length;
+}
+
+bool _isPrimaryConstructorField(FormalParameter parameter) {
+  return parameter is FieldFormalParameter ||
+      parameter.constFinalOrVarKeyword != null;
 }
 
 int _methodCount(ClassDeclaration declaration) {

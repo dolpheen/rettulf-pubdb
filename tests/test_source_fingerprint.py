@@ -21,8 +21,14 @@ class SourceFingerprintTests(unittest.TestCase):
 
                 final method = MethodChannel(_methodName);
                 final constMethod = const MethodChannel('const.method.literal');
+                final prefixedMethod = svc.MethodChannel('prefixed.method');
                 final event = EventChannel('event.channel');
+                final prefixedEvent = svc.EventChannel('prefixed.event');
                 final basic = BasicMessageChannel<String>('basic.channel', null);
+                final prefixedBasic = svc.BasicMessageChannel<String>(
+                  'prefixed.basic',
+                  null,
+                );
 
                 @Native<Int Function()>('native_symbol')
                 external int nativeCall();
@@ -53,7 +59,10 @@ class SourceFingerprintTests(unittest.TestCase):
             )
 
             first = collect_source_fingerprint(package_dir, "sample")
-            reruns = [collect_source_fingerprint(package_dir, "sample") for _ in range(2)]
+            reruns = [
+                collect_source_fingerprint(package_dir, "sample")
+                for _ in range(2)
+            ]
 
         self.assertEqual(first, reruns[0])
         self.assertEqual(first, reruns[1])
@@ -62,10 +71,16 @@ class SourceFingerprintTests(unittest.TestCase):
         self.assertRegex(first["hierarchy_hash"], r"^[a-f0-9]{64}$")
         self.assertEqual(
             first["method_channels"],
-            ["const.method.literal", "const.method.var"],
+            ["const.method.literal", "const.method.var", "prefixed.method"],
         )
-        self.assertEqual(first["event_channels"], ["event.channel"])
-        self.assertEqual(first["basic_message_channels"], ["basic.channel"])
+        self.assertEqual(
+            first["event_channels"],
+            ["event.channel", "prefixed.event"],
+        )
+        self.assertEqual(
+            first["basic_message_channels"],
+            ["basic.channel", "prefixed.basic"],
+        )
         self.assertEqual(first["ffi_symbols"], ["lookup_symbol", "native_symbol"])
         self.assertEqual(first["const_classes"], ["Base", "Shape"])
         self.assertIn("hello fixture", first["string_literals"])
@@ -99,6 +114,33 @@ class SourceFingerprintTests(unittest.TestCase):
             second = collect_source_fingerprint(second_dir, "pkg")
 
         self.assertNotEqual(first["hierarchy_hash"], second["hierarchy_hash"])
+
+    def test_primary_constructor_fields_match_explicit_fields(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            primary_dir = root / "primary"
+            classic_dir = root / "classic"
+            _write(
+                primary_dir / "lib" / "pkg.dart",
+                """
+                class Shape(final int value, final int extra);
+                """,
+            )
+            _write(
+                classic_dir / "lib" / "pkg.dart",
+                """
+                class Shape {
+                  final int value;
+                  final int extra;
+                  Shape(this.value, this.extra);
+                }
+                """,
+            )
+
+            primary = collect_source_fingerprint(primary_dir, "pkg")
+            classic = collect_source_fingerprint(classic_dir, "pkg")
+
+        self.assertEqual(primary["hierarchy_hash"], classic["hierarchy_hash"])
 
     def test_empty_sections_are_lists(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

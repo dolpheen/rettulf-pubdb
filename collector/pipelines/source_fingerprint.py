@@ -31,7 +31,7 @@ class SourceFingerprintError(RuntimeError):
 
 def collect_source_fingerprint(
     package_dir: Path | str,
-    package: str,
+    package: str = "",
     *,
     dart_executable: str | Path | None = None,
     helper_dir: Path | str | None = None,
@@ -61,8 +61,6 @@ def collect_source_fingerprint(
             str(helper_executable),
             "--package-dir",
             str(root),
-            "--package",
-            package,
         ],
         cwd=helper_root,
         env=_helper_env(),
@@ -169,14 +167,12 @@ def _sha256_json(value: object) -> str:
 def main(argv: list[str]) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("package_dir", type=Path)
-    parser.add_argument("--package", required=True)
     parser.add_argument("--dart", dest="dart_executable")
     args = parser.parse_args(argv)
 
     try:
         fingerprint = collect_source_fingerprint(
             args.package_dir,
-            args.package,
             dart_executable=args.dart_executable,
         )
     except SourceFingerprintError as exc:
