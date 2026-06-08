@@ -17,7 +17,7 @@ JsonObject = dict[str, Any]
 DEFAULT_TIMEOUT_SECONDS = 120.0
 
 _PUB_GET_DONE: set[Path] = set()
-_COMPILED_HELPERS: set[Path] = set()
+_COMPILED_HELPERS: set[tuple[Path, str]] = set()
 _SETUP_LOCK = threading.Lock()
 
 
@@ -98,35 +98,41 @@ def _sorted_strings(value: object) -> list[str]:
     return sorted(item for item in value if isinstance(item, str) and item)
 
 
-def _ensure_helper_executable(helper_root: Path, dart: str, timeout: float) -> Path:
-    executable = helper_root / ".dart_tool" / "rettulf_pubdb" / "api_surface"
+def _ensure_helper_executable(
+    helper_root: Path,
+    dart: str,
+    timeout: float,
+    helper_name: str = "api_surface",
+) -> Path:
+    executable = helper_root / ".dart_tool" / "rettulf_pubdb" / helper_name
     with _SETUP_LOCK:
         if helper_root not in _PUB_GET_DONE:
             _run_setup_command(
                 [dart, "pub", "get"],
                 helper_root,
                 timeout,
-                "api_surface helper pub get failed",
+                f"{helper_name} helper pub get failed",
             )
             _PUB_GET_DONE.add(helper_root)
 
-        source = helper_root / "bin" / "api_surface.dart"
-        if helper_root not in _COMPILED_HELPERS or _is_stale(executable, source):
+        source = helper_root / "bin" / f"{helper_name}.dart"
+        helper_key = (helper_root, helper_name)
+        if helper_key not in _COMPILED_HELPERS or _is_stale(executable, source):
             executable.parent.mkdir(parents=True, exist_ok=True)
             _run_setup_command(
                 [
                     dart,
                     "compile",
                     "exe",
-                    "bin/api_surface.dart",
+                    f"bin/{helper_name}.dart",
                     "-o",
                     str(executable),
                 ],
                 helper_root,
                 timeout,
-                "api_surface helper compile failed",
+                f"{helper_name} helper compile failed",
             )
-            _COMPILED_HELPERS.add(helper_root)
+            _COMPILED_HELPERS.add(helper_key)
     return executable
 
 
