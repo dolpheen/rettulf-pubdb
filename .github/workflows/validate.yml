@@ -5,6 +5,9 @@ on:
   push:
     branches: [main]
 
+env:
+  RUN_NETWORK_TESTS: ${{ vars.RUN_NETWORK_TESTS }}
+
 jobs:
   schema:
     name: Validate DB entries against schema v1
@@ -49,3 +52,28 @@ jobs:
 
       - name: Run unit tests
         run: python -m unittest discover -v
+
+      - name: Run daemon network smoke
+        if: env.RUN_NETWORK_TESTS == '1'
+        run: |
+          set -euo pipefail
+          git config user.name "rettulf-pubdb CI"
+          git config user.email "actions@github.com"
+
+          before="$(git rev-list --count HEAD)"
+          python -m collector.daemon \
+            --once \
+            --packages provider \
+            --no-push \
+            --no-metrics \
+            --queue-db "$RUNNER_TEMP/queue.db" \
+            --archive-cache-dir "$RUNNER_TEMP/archives"
+          after="$(git rev-list --count HEAD)"
+          test "$after" -eq "$((before + 1))"
+
+          mapfile -t entries < <(
+            git diff-tree --no-commit-id --name-only -r HEAD \
+              | grep '^db/provider/.*\.json$'
+          )
+          test "${#entries[@]}" -eq 1
+          python scripts/validate.py "${entries[0]}"
