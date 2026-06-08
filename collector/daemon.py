@@ -57,6 +57,12 @@ DEFAULT_PUSH_INTERVAL_SECONDS = 300.0
 DEFAULT_TICK_INTERVAL_SECONDS = 60.0
 DEFAULT_DISCOVER_INTERVAL_SECONDS = 3600.0
 STALE_AFTER_DAYS = 30
+DEFAULT_MAX_ATTEMPTS = 5
+INITIAL_FAILURE_BACKOFF_SECONDS = 60.0
+MAX_FAILURE_BACKOFF_SECONDS = 3600.0
+MAX_DISCOVERY_RETRIES = 3
+INITIAL_DISCOVERY_BACKOFF_SECONDS = 0.5
+MAX_DISCOVERY_BACKOFF_SECONDS = 8.0
 
 PRIORITY_MISSING_BASE = 10
 PRIORITY_STALE_BASE = 20
@@ -215,10 +221,17 @@ class MetricsServer:
 
 
 class WorkQueue:
-    def __init__(self, path: Path | str = DEFAULT_QUEUE_DB) -> None:
+    def __init__(
+        self,
+        path: Path | str = DEFAULT_QUEUE_DB,
+        *,
+        max_attempts: int = DEFAULT_MAX_ATTEMPTS,
+    ) -> None:
         self.path = Path(path).expanduser()
+        self.max_attempts = max_attempts
+        self._lock = threading.RLock()
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        self._db = sqlite3.connect(self.path)
+        self._db = sqlite3.connect(self.path, check_same_thread=False)
         self._db.row_factory = sqlite3.Row
         self._db.execute("PRAGMA journal_mode=WAL")
         self._db.execute("PRAGMA busy_timeout=5000")
@@ -226,62 +239,109 @@ class WorkQueue:
         self.reset_in_progress()
 
     def close(self) -> None:
-        self._db.close()
+        with self._lock:
+            self._db.close()
 
     def _init_schema(self) -> None:
-        self._db.executescript(
-            """
-            CREATE TABLE IF NOT EXISTS work_items (
-              package TEXT NOT NULL,
-              version TEXT NOT NULL,
-              variant TEXT NOT NULL,
-              schema_version INTEGER NOT NULL,
-              priority INTEGER NOT NULL,
-              state TEXT NOT NULL,
-              attempts INTEGER NOT NULL DEFAULT 0,
-              created_at TEXT NOT NULL,
-              updated_at TEXT NOT NULL,
-              last_error TEXT,
-              PRIMARY KEY (package, version, variant, schema_version)
-            );
-
-            CREATE INDEX IF NOT EXISTS work_items_ready_idx
-            ON work_items (state, priority, updated_at, package, version, variant);
-            """
-        )
-        self._db.commit()
+        with self._lock:
+            self._db.executescript(
+                """
+                CREATE TABLE IF NOT EXISTS work_items (
+                  package TEXT NOT NULL,
+                  version TEXT NOT NULL,
+                  variant TEXT NOT NULL,
+                  schema_version INTEGER NOT NULL,
+                  priority INTEGER NOT NULL,
+                  state TEXT NOT NULL,
+                  attempts INTEGER NOT NULL DEFAULT 0,
+                  created_at TEXT NOT NULL,
+                  updated_at TEXT NOT NULL,
+                  next_attempt_at TEXT NOT NULL,
+                  last_error TEXT,
+                  PRIMARY KEY (package, version, variant, schema_version)
+                );
+                """
+            )
+            columns = {
+                str(row["name"])
+                for row in self._db.execute("PRAGMA table_info(work_items)")
+            }
+            if "next_attempt_at" not in columns:
+                now = _iso_now()
+                self._db.execute(
+                    "ALTER TABLE work_items ADD COLUMN next_attempt_at TEXT"
+                )
+                self._db.execute(
+                    """
+                    UPDATE work_items
+                    SET next_attempt_at = COALESCE(next_attempt_at, updated_at, ?)
+                    """,
+                    (now,),
+                )
+            self._db.executescript(
+                """
+                DROP INDEX IF EXISTS work_items_ready_idx;
+                CREATE INDEX work_items_ready_idx
+                ON work_items (
+                  state, next_attempt_at, priority, updated_at,
+                  package, version, variant
+                );
+                """
+            )
+            self._db.commit()
 
     def reset_in_progress(self) -> None:
         now = _iso_now()
-        self._db.execute(
-            """
-            UPDATE work_items
-            SET state = 'queued', updated_at = ?
-            WHERE state = 'in_progress'
-            """,
-            (now,),
-        )
-        self._db.commit()
+        with self._lock:
+            self._db.execute(
+                """
+                UPDATE work_items
+                SET state = 'queued', updated_at = ?, next_attempt_at = ?
+                WHERE state = 'in_progress'
+                """,
+                (now, now),
+            )
+            self._db.commit()
 
     def enqueue(self, item: WorkItem) -> None:
         _validate_work_item(item)
         now = _iso_now()
-        with self._db:
+        with self._lock, self._db:
             self._db.execute(
                 """
                 INSERT INTO work_items (
                   package, version, variant, schema_version, priority, state,
-                  attempts, created_at, updated_at
+                  attempts, created_at, updated_at, next_attempt_at
                 )
-                VALUES (?, ?, ?, ?, ?, 'queued', 0, ?, ?)
+                VALUES (?, ?, ?, ?, ?, 'queued', 0, ?, ?, ?)
                 ON CONFLICT(package, version, variant, schema_version) DO UPDATE SET
-                  priority = min(work_items.priority, excluded.priority),
+                  priority = CASE
+                    WHEN work_items.state = 'done'
+                      AND excluded.priority = ? THEN excluded.priority
+                    WHEN work_items.state = 'failed' THEN work_items.priority
+                    ELSE min(work_items.priority, excluded.priority)
+                  END,
                   state = CASE
+                    WHEN work_items.state = 'done'
+                      AND excluded.priority = ? THEN 'queued'
+                    WHEN work_items.state = 'failed' THEN work_items.state
                     WHEN work_items.state IN ('done', 'in_progress') THEN work_items.state
                     ELSE 'queued'
                   END,
+                  attempts = CASE
+                    WHEN work_items.state = 'done'
+                      AND excluded.priority = ? THEN 0
+                    ELSE work_items.attempts
+                  END,
                   updated_at = excluded.updated_at,
-                  last_error = NULL
+                  next_attempt_at = CASE
+                    WHEN work_items.state IN ('failed', 'in_progress') THEN work_items.next_attempt_at
+                    ELSE excluded.next_attempt_at
+                  END,
+                  last_error = CASE
+                    WHEN work_items.state = 'failed' THEN work_items.last_error
+                    ELSE NULL
+                  END
                 """,
                 (
                     item.package,
@@ -291,6 +351,10 @@ class WorkQueue:
                     item.priority,
                     now,
                     now,
+                    now,
+                    PRIORITY_STALE_BASE,
+                    PRIORITY_STALE_BASE,
+                    PRIORITY_STALE_BASE,
                 ),
             )
 
@@ -309,9 +373,11 @@ class WorkQueue:
                 SELECT package, version, variant, schema_version, priority, attempts
                 FROM work_items
                 WHERE state = 'queued'
+                  AND next_attempt_at <= ?
                 ORDER BY priority ASC, updated_at ASC, package ASC, version ASC, variant ASC
                 LIMIT 1
-                """
+                """,
+                (now,),
             ).fetchone()
             if row is None:
                 return None
@@ -319,11 +385,15 @@ class WorkQueue:
             self._db.execute(
                 """
                 UPDATE work_items
-                SET state = 'in_progress', attempts = ?, updated_at = ?
+                SET state = 'in_progress',
+                    attempts = ?,
+                    updated_at = ?,
+                    next_attempt_at = ?
                 WHERE package = ? AND version = ? AND variant = ? AND schema_version = ?
                 """,
                 (
                     attempts,
+                    now,
                     now,
                     row["package"],
                     row["version"],
@@ -342,14 +412,18 @@ class WorkQueue:
 
     def complete(self, item: WorkItem) -> None:
         now = _iso_now()
-        with self._db:
+        with self._lock, self._db:
             self._db.execute(
                 """
                 UPDATE work_items
-                SET state = 'done', updated_at = ?, last_error = NULL
+                SET state = 'done',
+                    updated_at = ?,
+                    next_attempt_at = ?,
+                    last_error = NULL
                 WHERE package = ? AND version = ? AND variant = ? AND schema_version = ?
                 """,
                 (
+                    now,
                     now,
                     item.package,
                     item.version,
@@ -360,15 +434,23 @@ class WorkQueue:
 
     def fail(self, item: WorkItem, error: Exception | str) -> None:
         now = _iso_now()
-        with self._db:
+        state = "failed" if item.attempts >= self.max_attempts else "queued"
+        next_attempt_at = (
+            now
+            if state == "failed"
+            else _iso_after_seconds(_failure_backoff_seconds(item.attempts))
+        )
+        with self._lock, self._db:
             self._db.execute(
                 """
                 UPDATE work_items
-                SET state = 'queued', updated_at = ?, last_error = ?
+                SET state = ?, updated_at = ?, next_attempt_at = ?, last_error = ?
                 WHERE package = ? AND version = ? AND variant = ? AND schema_version = ?
                 """,
                 (
+                    state,
                     now,
+                    next_attempt_at,
                     str(error)[:1000],
                     item.package,
                     item.version,
@@ -378,21 +460,23 @@ class WorkQueue:
             )
 
     def queued_count(self) -> int:
-        row = self._db.execute(
-            "SELECT COUNT(*) AS count FROM work_items WHERE state = 'queued'"
-        ).fetchone()
-        return int(row["count"])
+        with self._lock:
+            row = self._db.execute(
+                "SELECT COUNT(*) AS count FROM work_items WHERE state = 'queued'"
+            ).fetchone()
+            return int(row["count"])
 
     @contextlib.contextmanager
     def _transaction_immediate(self) -> Iterable[None]:
-        self._db.execute("BEGIN IMMEDIATE")
-        try:
-            yield
-        except Exception:
-            self._db.rollback()
-            raise
-        else:
-            self._db.commit()
+        with self._lock:
+            self._db.execute("BEGIN IMMEDIATE")
+            try:
+                yield
+            except Exception:
+                self._db.rollback()
+                raise
+            else:
+                self._db.commit()
 
 
 class PubDevDiscovery:
@@ -402,9 +486,17 @@ class PubDevDiscovery:
         base_url: str = PUB_DEV_URL,
         client: httpx.Client | None = None,
         metrics: Metrics | None = None,
+        sleep: Callable[[float], None] = time.sleep,
+        max_retries: int = MAX_DISCOVERY_RETRIES,
+        backoff_initial: float = INITIAL_DISCOVERY_BACKOFF_SECONDS,
+        backoff_max: float = MAX_DISCOVERY_BACKOFF_SECONDS,
     ) -> None:
         self.base_url = base_url.rstrip("/")
         self.metrics = metrics
+        self._sleep = sleep
+        self.max_retries = max_retries
+        self.backoff_initial = backoff_initial
+        self.backoff_max = backoff_max
         self._client = client or httpx.Client(timeout=30.0, follow_redirects=True)
         self._owns_client = client is None
 
@@ -413,17 +505,8 @@ class PubDevDiscovery:
             self._client.close()
 
     def versions(self, package: str) -> list[str]:
-        response = self._client.get(
-            f"{self.base_url}/api/packages/{quote(package, safe='')}",
-            headers={
-                "Accept": "application/vnd.pub.v2+json",
-                "User-Agent": USER_AGENT,
-            },
-        )
+        response = self._request(package)
         try:
-            if response.status_code == 429 and self.metrics is not None:
-                self.metrics.inc_pubdev_429()
-            response.raise_for_status()
             payload = response.json()
         finally:
             response.close()
@@ -439,6 +522,57 @@ class PubDevDiscovery:
             if isinstance(version, str):
                 result.append(version)
         return result
+
+    def _request(self, package: str) -> httpx.Response:
+        url = f"{self.base_url}/api/packages/{quote(package, safe='')}"
+        last_error: Exception | None = None
+        for attempt in range(self.max_retries + 1):
+            try:
+                response = self._client.get(
+                    url,
+                    headers={
+                        "Accept": "application/vnd.pub.v2+json",
+                        "User-Agent": USER_AGENT,
+                    },
+                )
+            except httpx.RequestError as exc:
+                last_error = exc
+                if attempt >= self.max_retries:
+                    break
+                self._sleep(self._backoff_delay(attempt))
+                continue
+
+            if response.status_code == 429:
+                if self.metrics is not None:
+                    self.metrics.inc_pubdev_429()
+                if attempt >= self.max_retries:
+                    try:
+                        response.raise_for_status()
+                    finally:
+                        response.close()
+                delay = _retry_after_delay(response.headers.get("Retry-After"))
+                if delay is None:
+                    delay = self._backoff_delay(attempt)
+                response.close()
+                self._sleep(min(delay, MAX_DISCOVERY_BACKOFF_SECONDS))
+                continue
+
+            if 500 <= response.status_code <= 599 and attempt < self.max_retries:
+                response.close()
+                self._sleep(self._backoff_delay(attempt))
+                continue
+
+            try:
+                response.raise_for_status()
+            except httpx.HTTPStatusError:
+                response.close()
+                raise
+            return response
+
+        raise RuntimeError(f"pub.dev discovery request failed for {package}: {last_error}") from last_error
+
+    def _backoff_delay(self, attempt: int) -> float:
+        return min(self.backoff_initial * (2**attempt), self.backoff_max)
 
 
 class DefaultPipeline:
@@ -611,7 +745,18 @@ class GitRepository:
             if self.metrics is not None:
                 self.metrics.inc_publish_conflict()
             self._git(["fetch", self.remote, branch])
-            self._git(["rebase", f"{self.remote}/{branch}"])
+            try:
+                self._git(["rebase", f"{self.remote}/{branch}"])
+            except subprocess.CalledProcessError as exc:
+                subprocess.run(
+                    ["git", "-C", str(self.repo_root), "rebase", "--abort"],
+                    check=False,
+                    capture_output=True,
+                    text=True,
+                )
+                raise RuntimeError(
+                    "git rebase failed during publish retry; aborted rebase"
+                ) from exc
             revalidate()
 
     def has_commit_key(self, key: str) -> bool:
@@ -621,8 +766,8 @@ class GitRepository:
                 "-C",
                 str(self.repo_root),
                 "log",
-                "--fixed-strings",
-                f"--grep=pubdb-commit-key: {key}",
+                "--extended-regexp",
+                f"--grep=^pubdb-commit-key: {re.escape(key)}$",
                 "-n",
                 "1",
                 "--format=%H",
@@ -833,7 +978,7 @@ class CollectorDaemon:
         if item is None:
             return False
         try:
-            if self.publisher.complete_if_committed(item):
+            if item.attempts > 1 and self.publisher.complete_if_committed(item):
                 self.queue.complete(item)
                 return True
             entry = self.pipeline.collect(item)
@@ -898,7 +1043,12 @@ def discover_work(
         if not _PACKAGE_RE.match(package):
             continue
         existing_versions = index_versions.get(package, set())
-        for version in discovery.versions(package):
+        try:
+            versions = discovery.versions(package)
+        except Exception as exc:
+            print(f"collector discovery error for {package}: {exc}", file=sys.stderr)
+            continue
+        for version in versions:
             if not _VERSION_RE.match(version):
                 continue
             item = _work_for_version(root, package, version, existing_versions)
@@ -1098,8 +1248,33 @@ def _iso_now() -> str:
     return _utcnow().isoformat(timespec="seconds").replace("+00:00", "Z")
 
 
+def _iso_after_seconds(seconds: float) -> str:
+    return (
+        (_utcnow() + timedelta(seconds=seconds))
+        .isoformat(timespec="seconds")
+        .replace("+00:00", "Z")
+    )
+
+
 def _utcnow() -> datetime:
     return datetime.now(timezone.utc)
+
+
+def _failure_backoff_seconds(attempts: int) -> float:
+    exponent = max(0, attempts - 1)
+    return min(
+        INITIAL_FAILURE_BACKOFF_SECONDS * (2**exponent),
+        MAX_FAILURE_BACKOFF_SECONDS,
+    )
+
+
+def _retry_after_delay(value: str | None) -> float | None:
+    if not value:
+        return None
+    try:
+        return max(0.0, float(value))
+    except ValueError:
+        return None
 
 
 def build_daemon(args: argparse.Namespace) -> CollectorDaemon:

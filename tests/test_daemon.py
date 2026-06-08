@@ -8,6 +8,9 @@ import unittest
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+from unittest import mock
+
+import httpx
 
 from collector import daemon
 
@@ -85,6 +88,64 @@ class WorkQueueTests(unittest.TestCase):
 
             assert claimed is not None
             queue.complete(claimed)
+            self.assertIsNone(queue.dequeue())
+            queue.close()
+
+    def test_stale_done_item_is_requeued(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            queue = daemon.WorkQueue(Path(tmp) / "queue.db")
+            item = daemon.WorkItem("pkg", "1.0.0")
+            queue.enqueue(item)
+            claimed = queue.dequeue()
+            assert claimed is not None
+            queue.complete(claimed)
+
+            queue.enqueue(item)
+            self.assertIsNone(queue.dequeue())
+
+            queue.enqueue(
+                daemon.WorkItem(
+                    "pkg",
+                    "1.0.0",
+                    priority=daemon.PRIORITY_STALE_BASE,
+                )
+            )
+            stale = queue.dequeue()
+            self.assertIsNotNone(stale)
+            assert stale is not None
+            self.assertEqual(stale.priority, daemon.PRIORITY_STALE_BASE)
+            self.assertEqual(stale.attempts, 1)
+            queue.close()
+
+    def test_failure_uses_backoff_then_dead_letters(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            queue = daemon.WorkQueue(Path(tmp) / "queue.db", max_attempts=2)
+            item = daemon.WorkItem("pkg", "1.0.0")
+            queue.enqueue(item)
+
+            first = queue.dequeue()
+            assert first is not None
+            queue.fail(first, "boom")
+            self.assertIsNone(queue.dequeue())
+
+            with queue._lock, queue._db:
+                queue._db.execute(
+                    """
+                    UPDATE work_items
+                    SET next_attempt_at = ?
+                    WHERE package = ? AND version = ?
+                    """,
+                    (daemon._iso_now(), item.package, item.version),
+                )
+
+            second = queue.dequeue()
+            assert second is not None
+            self.assertEqual(second.attempts, 2)
+            queue.fail(second, "still boom")
+            self.assertIsNone(queue.dequeue())
+            self.assertEqual(queue.queued_count(), 0)
+
+            queue.enqueue(item)
             self.assertIsNone(queue.dequeue())
             queue.close()
 
@@ -182,6 +243,89 @@ class MetricsTests(unittest.TestCase):
         self.assertIn("pubdb_pubdev_429_total 1", payload)
         self.assertIn("pubdb_publish_conflict_total 1", payload)
         self.assertIn("pubdb_last_commit_age_seconds 5.000", payload)
+
+    def test_metrics_endpoint_can_read_queue_size_from_server_thread(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            queue = daemon.WorkQueue(Path(tmp) / "queue.db")
+            queue.enqueue(daemon.WorkItem("pkg", "1.0.0"))
+            metrics = daemon.Metrics()
+            server = daemon.MetricsServer(
+                "127.0.0.1",
+                0,
+                lambda: metrics.render(queue_size=queue.queued_count()),
+            )
+            server.start()
+            try:
+                with urllib.request.urlopen(
+                    f"http://127.0.0.1:{server.port}/metrics",
+                    timeout=5,
+                ) as response:
+                    payload = response.read().decode("utf-8")
+            finally:
+                server.stop()
+                queue.close()
+
+        self.assertIn("pubdb_queue_size 1", payload)
+
+
+class DiscoveryTests(unittest.TestCase):
+    def test_pubdev_discovery_retries_429_and_counts_metric(self) -> None:
+        calls = 0
+        sleeps: list[float] = []
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            nonlocal calls
+            calls += 1
+            if calls == 1:
+                return httpx.Response(429, headers={"Retry-After": "2"})
+            return httpx.Response(
+                200,
+                json={
+                    "versions": [
+                        {"version": "1.0.0"},
+                        {"version": "not-semver"},
+                    ]
+                },
+            )
+
+        metrics = daemon.Metrics()
+        client = httpx.Client(transport=httpx.MockTransport(handler))
+        discovery = daemon.PubDevDiscovery(
+            client=client,
+            metrics=metrics,
+            sleep=sleeps.append,
+            max_retries=1,
+        )
+        try:
+            self.assertEqual(discovery.versions("pkg"), ["1.0.0", "not-semver"])
+        finally:
+            discovery.close()
+
+        self.assertEqual(calls, 2)
+        self.assertEqual(metrics.pubdev_429_total, 1)
+        self.assertEqual(sleeps, [2.0])
+
+    def test_discover_work_skips_package_errors(self) -> None:
+        class Discovery:
+            def versions(self, package: str) -> list[str]:
+                if package == "bad_pkg":
+                    raise RuntimeError("temporary failure")
+                return ["1.0.0"]
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "db").mkdir()
+            (root / "db" / "_top1000.json").write_text(
+                json.dumps({"packages": ["bad_pkg", "good_pkg"]}),
+                encoding="utf-8",
+            )
+
+            items = daemon.discover_work(root, Discovery())
+
+        self.assertEqual(
+            items,
+            [daemon.WorkItem("good_pkg", "1.0.0", daemon.BASE_VARIANT)],
+        )
 
 
 class FakePipeline:
@@ -310,7 +454,7 @@ class OnceFlowTests(unittest.TestCase):
             self.assertEqual(index["packages"], {"fake_pkg": ["1.0.0"]})
             queue.close()
 
-    def test_once_skips_collection_when_commit_key_already_exists(self) -> None:
+    def test_retry_skips_collection_when_commit_key_already_exists(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             repo_root = Path(tmp)
             entry_path = repo_root / "db" / "fake_pkg" / "1.0.0.json"
@@ -323,6 +467,10 @@ class OnceFlowTests(unittest.TestCase):
             queue = daemon.WorkQueue(repo_root / "queue.db")
             item = daemon.WorkItem("fake_pkg", "1.0.0")
             queue.enqueue(item)
+            self.assertIsNotNone(queue.dequeue())
+            queue.close()
+
+            queue = daemon.WorkQueue(repo_root / "queue.db")
             metrics = daemon.Metrics()
             validator = daemon.EntryValidator(SCHEMA_PATH)
             writer = daemon.AtomicEntryWriter(repo_root, validator)
@@ -402,3 +550,92 @@ class OnceFlowTests(unittest.TestCase):
             self.assertEqual(publisher.pending_items, [])
             self.assertIsNone(queue.dequeue())
             queue.close()
+
+
+class GitRepositoryTests(unittest.TestCase):
+    def test_has_commit_key_matches_whole_key_line(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            repo_root = Path(tmp)
+            _git(repo_root, "init", "-b", "main")
+            _git(repo_root, "config", "user.name", "Test User")
+            _git(repo_root, "config", "user.email", "test@example.com")
+
+            (repo_root / "first.txt").write_text("first", encoding="utf-8")
+            _git(repo_root, "add", "first.txt")
+            _git(
+                repo_root,
+                "commit",
+                "-m",
+                "first",
+                "-m",
+                "pubdb-commit-key: fake_pkg:1.0.0:base:schema-v10",
+            )
+
+            repository = daemon.GitRepository(repo_root)
+            self.assertFalse(
+                repository.has_commit_key("fake_pkg:1.0.0:base:schema-v1")
+            )
+
+            (repo_root / "second.txt").write_text("second", encoding="utf-8")
+            _git(repo_root, "add", "second.txt")
+            _git(
+                repo_root,
+                "commit",
+                "-m",
+                "second",
+                "-m",
+                "pubdb-commit-key: fake_pkg:1.0.0:base:schema-v1",
+            )
+
+            self.assertTrue(
+                repository.has_commit_key("fake_pkg:1.0.0:base:schema-v1")
+            )
+
+    def test_push_retry_aborts_failed_rebase(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            repo_root = Path(tmp)
+            repository = daemon.GitRepository(repo_root, retries=1)
+            calls: list[list[str]] = []
+
+            def fake_run(
+                command,
+                *,
+                check=False,
+                capture_output=False,
+                text=False,
+            ):
+                calls.append(list(command))
+                if command[-2:] == ["branch", "--show-current"]:
+                    return subprocess.CompletedProcess(command, 0, stdout="main\n")
+                if command[-3:] == ["push", "origin", "HEAD:main"]:
+                    return subprocess.CompletedProcess(
+                        command,
+                        1,
+                        stdout="",
+                        stderr="non-fast-forward",
+                    )
+                if command[-3:] == ["fetch", "origin", "main"]:
+                    return subprocess.CompletedProcess(command, 0)
+                if command[-2:] == ["rebase", "origin/main"]:
+                    raise subprocess.CalledProcessError(1, command)
+                if command[-2:] == ["rebase", "--abort"]:
+                    return subprocess.CompletedProcess(command, 0)
+                raise AssertionError(f"unexpected command: {command}")
+
+            with mock.patch.object(daemon.subprocess, "run", fake_run):
+                with self.assertRaisesRegex(RuntimeError, "aborted rebase"):
+                    repository.push_with_rebase_retry(lambda: None)
+
+        self.assertIn(
+            ["git", "-C", str(repository.repo_root), "rebase", "--abort"],
+            calls,
+        )
+
+
+def _git(repo_root: Path, *args: str) -> None:
+    subprocess.run(
+        ["git", "-C", str(repo_root), *args],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
