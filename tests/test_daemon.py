@@ -117,6 +117,30 @@ class WorkQueueTests(unittest.TestCase):
             self.assertEqual(stale.attempts, 1)
             queue.close()
 
+    def test_done_obfuscated_item_can_be_requeued_when_missing_or_stale(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            queue = daemon.WorkQueue(Path(tmp) / "queue.db")
+            item = daemon.WorkItem(
+                "pkg",
+                "1.0.0",
+                daemon.OBFUSCATED_VARIANT,
+                daemon.PRIORITY_MISSING_OBF,
+            )
+            queue.enqueue(item)
+            claimed = queue.dequeue()
+            assert claimed is not None
+            queue.complete(claimed)
+
+            queue.enqueue(item)
+            requeued = queue.dequeue()
+
+            self.assertIsNotNone(requeued)
+            assert requeued is not None
+            self.assertEqual(requeued.variant, daemon.OBFUSCATED_VARIANT)
+            self.assertEqual(requeued.priority, daemon.PRIORITY_MISSING_OBF)
+            self.assertEqual(requeued.attempts, 1)
+            queue.close()
+
     def test_failure_uses_backoff_then_dead_letters(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             queue = daemon.WorkQueue(Path(tmp) / "queue.db", max_attempts=2)
@@ -326,6 +350,59 @@ class DiscoveryTests(unittest.TestCase):
             items,
             [daemon.WorkItem("good_pkg", "1.0.0", daemon.BASE_VARIANT)],
         )
+
+    def test_discover_work_enqueues_missing_obfuscated_variant_after_base(self) -> None:
+        calls: list[str] = []
+
+        class Discovery:
+            def versions(self, package: str) -> list[str]:
+                calls.append(package)
+                return ["1.0.0"]
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            entry_path = root / "db" / "fake_pkg" / "1.0.0.json"
+            entry_path.parent.mkdir(parents=True)
+            entry = _valid_entry("fake_pkg", "1.0.0")
+            entry["collected_at"] = datetime.now(timezone.utc).isoformat(
+                timespec="seconds"
+            )
+            entry_path.write_text(
+                json.dumps(entry),
+                encoding="utf-8",
+            )
+            (root / "db" / "_index.json").write_text(
+                json.dumps(
+                    {
+                        "pubdb_schema_version": 1,
+                        "generated_at": None,
+                        "packages": {"fake_pkg": ["1.0.0"]},
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            items = daemon.discover_work(root, Discovery())
+
+        self.assertEqual(calls, ["fake_pkg"])
+        self.assertEqual(
+            items,
+            [
+                daemon.WorkItem(
+                    "fake_pkg",
+                    "1.0.0",
+                    daemon.OBFUSCATED_VARIANT,
+                    daemon.PRIORITY_MISSING_OBF,
+                )
+            ],
+        )
+
+    def test_entry_relative_path_uses_obfuscated_variant_filename(self) -> None:
+        path = daemon.entry_relative_path(
+            daemon.WorkItem("fake_pkg", "1.0.0", daemon.OBFUSCATED_VARIANT)
+        )
+
+        self.assertEqual(path.as_posix(), "db/fake_pkg/1.0.0.obf.json")
 
 
 class FakePipeline:

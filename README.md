@@ -21,7 +21,7 @@ Consumer counterpart: [`rettulf#21`](https://github.com/dolpheen/rettulf/issues/
 | `db/<package>/<version>.json` | One fingerprint entry per package version. |
 | `db/_index.json` | Index of available `(package, version)` entries (consumer fetches this first). |
 | `db/_top1000.json` | Collection worklist (top pub.dev packages); filled by a future `scripts/refresh_top1000.py`. |
-| `collector/` | 24/7 collection pipeline (not implemented yet — see `collector/README.md`). |
+| `collector/` | 24/7 collection pipeline (see `collector/README.md`). |
 | `scripts/` | Tooling. `validate.py` validates entries against the schema. |
 | `ops/` | Deployment (systemd / Docker) for the collector. |
 
@@ -40,7 +40,7 @@ Each `db/<package>/<version>.json` is one object:
   "collected_at": "2026-05-20T09:14:02Z",
   "api_surface": { "classes": { /* class -> {libraries, methods, fields, types} */ } },
   "source_fingerprint": { "strategy": "...", "digest": "<sha256 hex>" },
-  "obfuscated_fingerprint": { /* optional */ },
+  "obfuscated_fingerprint": { /* optional; present in .obf.json variants */ },
   "flutter_variants": [ /* optional per-Flutter-version fingerprints */ ]
 }
 ```
@@ -49,6 +49,14 @@ Each `db/<package>/<version>.json` is one object:
 shape and bare-name token vocabulary that rettulf's `normalize_surface` reads
 directly. `schema/examples/provider-6.0.5.api.json` is a raw collector fixture
 for that surface.
+
+Obfuscated-build variants are written as
+`db/<package>/<version>.obf.json`. They keep the same required base entry fields
+and add `obfuscated_fingerprint`, whose stable signals include a
+baseline-subtracted hierarchy hash, string literals, MethodChannel-like names,
+FFI symbols, const-canonicalisation signals, and reachable-surface coverage
+metadata. The collector records `partial: true` when the generated probe covers
+less than the configured public-declaration threshold.
 
 ### Schema versioning
 
