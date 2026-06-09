@@ -30,22 +30,24 @@ class _Collector {
       return _manifest;
     }
 
-    for (final file in _dartFiles()) {
-      _unitFor(_relativePath(file));
-    }
-
-    for (final entry in _units.entries.toList()..sort(_compareUnitEntry)) {
-      if (_isPartFile(entry.value)) {
+    for (final file in _entrypointFiles()) {
+      final relativePath = _relativePath(file);
+      if (_isPartFile(_unitFor(relativePath))) {
         continue;
       }
-      _collectLibrary(entry.key, _libraryUri(entry.key), <String>{});
+      _collectLibrary(
+        relativePath,
+        _libraryUri(relativePath),
+        <String>{},
+        _ExportFilter.empty,
+      );
     }
     return _manifest;
   }
 
-  List<File> _dartFiles() {
+  List<File> _entrypointFiles() {
     return libDir
-        .listSync(recursive: true)
+        .listSync()
         .whereType<File>()
         .where((file) => file.path.endsWith('.dart'))
         .toList()
@@ -70,42 +72,63 @@ class _Collector {
     String relativePath,
     String libraryUri,
     Set<String> visiting,
+    _ExportFilter filter,
   ) {
     final normalized = _normalizePath(relativePath);
-    if (!visiting.add(normalized)) {
+    final visitKey = '$libraryUri::$normalized';
+    if (!visiting.add(visitKey)) {
       return;
     }
 
-    _manifest.libraries.add(libraryUri);
     final unit = _unitFor(normalized);
-    _collectUnitDeclarations(unit, libraryUri);
+    _collectUnitDeclarations(unit, libraryUri, filter);
     for (final partPath in _partPaths(unit, normalized)) {
-      _collectLibrary(partPath, libraryUri, visiting);
+      _collectLibrary(partPath, libraryUri, visiting, filter);
     }
-    visiting.remove(normalized);
+    for (final directive in unit.directives.whereType<ExportDirective>()) {
+      final exportPath = _localUriPath(directive.uri.stringValue, normalized);
+      if (exportPath == null) {
+        continue;
+      }
+      _collectLibrary(
+        exportPath,
+        libraryUri,
+        visiting,
+        filter.combine(_ExportFilter.fromDirective(directive)),
+      );
+    }
+    visiting.remove(visitKey);
   }
 
-  void _collectUnitDeclarations(CompilationUnit unit, String libraryUri) {
+  void _collectUnitDeclarations(
+    CompilationUnit unit,
+    String libraryUri,
+    _ExportFilter filter,
+  ) {
     for (final declaration in unit.declarations) {
       if (declaration is ClassDeclaration) {
-        _collectClass(declaration, libraryUri);
+        _collectClass(declaration, libraryUri, filter);
       } else if (declaration is MixinDeclaration) {
-        _collectMixin(declaration, libraryUri);
+        _collectMixin(declaration, libraryUri, filter);
       } else if (declaration is EnumDeclaration) {
-        _collectEnum(declaration, libraryUri);
+        _collectEnum(declaration, libraryUri, filter);
       } else if (declaration is ExtensionDeclaration) {
-        _collectExtension(declaration, libraryUri);
+        _collectExtension(declaration, libraryUri, filter);
       } else if (declaration is FunctionDeclaration) {
-        _collectTopLevelFunction(declaration, libraryUri);
+        _collectTopLevelFunction(declaration, libraryUri, filter);
       } else if (declaration is TopLevelVariableDeclaration) {
-        _collectTopLevelVariables(declaration, libraryUri);
+        _collectTopLevelVariables(declaration, libraryUri, filter);
       }
     }
   }
 
-  void _collectClass(ClassDeclaration declaration, String libraryUri) {
+  void _collectClass(
+    ClassDeclaration declaration,
+    String libraryUri,
+    _ExportFilter filter,
+  ) {
     final name = _publicName(declaration.namePart.typeName.lexeme);
-    if (name == null) {
+    if (name == null || !filter.includes(name)) {
       return;
     }
     _manifest.add(
@@ -116,8 +139,7 @@ class _Collector {
     );
     for (final member
         in declaration.body.members.whereType<ConstructorDeclaration>()) {
-      if (declaration.abstractKeyword != null &&
-          member.factoryKeyword == null) {
+      if (_isImplicitlyAbstract(declaration) && member.factoryKeyword == null) {
         continue;
       }
       final constructorName = _constructorName(name, member);
@@ -136,9 +158,13 @@ class _Collector {
     _collectStaticMembers(declaration.body.members, libraryUri, name);
   }
 
-  void _collectMixin(MixinDeclaration declaration, String libraryUri) {
+  void _collectMixin(
+    MixinDeclaration declaration,
+    String libraryUri,
+    _ExportFilter filter,
+  ) {
     final name = _publicName(declaration.name.lexeme);
-    if (name == null) {
+    if (name == null || !filter.includes(name)) {
       return;
     }
     _manifest.add(
@@ -150,9 +176,13 @@ class _Collector {
     _collectStaticMembers(declaration.body.members, libraryUri, name);
   }
 
-  void _collectEnum(EnumDeclaration declaration, String libraryUri) {
+  void _collectEnum(
+    EnumDeclaration declaration,
+    String libraryUri,
+    _ExportFilter filter,
+  ) {
     final name = _publicName(declaration.namePart.typeName.lexeme);
-    if (name == null) {
+    if (name == null || !filter.includes(name)) {
       return;
     }
     _manifest.add(
@@ -176,9 +206,13 @@ class _Collector {
     _collectStaticMembers(declaration.body.members, libraryUri, name);
   }
 
-  void _collectExtension(ExtensionDeclaration declaration, String libraryUri) {
+  void _collectExtension(
+    ExtensionDeclaration declaration,
+    String libraryUri,
+    _ExportFilter filter,
+  ) {
     final name = _publicName(declaration.name?.lexeme);
-    if (name == null) {
+    if (name == null || !filter.includes(name)) {
       return;
     }
     _collectStaticMembers(declaration.body.members, libraryUri, name);
@@ -187,9 +221,10 @@ class _Collector {
   void _collectTopLevelFunction(
     FunctionDeclaration declaration,
     String libraryUri,
+    _ExportFilter filter,
   ) {
     final name = _publicName(declaration.name.lexeme);
-    if (name == null || declaration.isSetter) {
+    if (name == null || declaration.isSetter || !filter.includes(name)) {
       return;
     }
     _manifest.add(
@@ -207,10 +242,11 @@ class _Collector {
   void _collectTopLevelVariables(
     TopLevelVariableDeclaration declaration,
     String libraryUri,
+    _ExportFilter filter,
   ) {
     for (final variable in declaration.variables.variables) {
       final name = _publicName(variable.name.lexeme);
-      if (name == null) {
+      if (name == null || !filter.includes(name)) {
         continue;
       }
       _manifest.add(
@@ -325,6 +361,7 @@ class _ProbeManifest {
     required String declaration,
     required String kind,
   }) {
+    libraries.add(library);
     references.putIfAbsent(
       '$library::$expression::$declaration',
       () => _ProbeReference(
@@ -403,6 +440,54 @@ class _Options {
   }
 }
 
+class _ExportFilter {
+  const _ExportFilter({required this.showNames, required this.hideNames});
+
+  static const empty = _ExportFilter(
+    showNames: <String>{},
+    hideNames: <String>{},
+  );
+
+  final Set<String> showNames;
+  final Set<String> hideNames;
+
+  factory _ExportFilter.fromDirective(ExportDirective directive) {
+    final showNames = <String>{};
+    final hideNames = <String>{};
+    for (final combinator in directive.combinators) {
+      if (combinator is ShowCombinator) {
+        showNames.addAll(
+          combinator.shownNames.map((identifier) => identifier.name),
+        );
+      } else if (combinator is HideCombinator) {
+        hideNames.addAll(
+          combinator.hiddenNames.map((identifier) => identifier.name),
+        );
+      }
+    }
+    return _ExportFilter(showNames: showNames, hideNames: hideNames);
+  }
+
+  bool includes(String name) {
+    if (showNames.isNotEmpty && !showNames.contains(name)) {
+      return false;
+    }
+    return !hideNames.contains(name);
+  }
+
+  _ExportFilter combine(_ExportFilter nested) {
+    final showNames = this.showNames.isEmpty
+        ? nested.showNames
+        : nested.showNames.isEmpty
+        ? this.showNames
+        : this.showNames.intersection(nested.showNames);
+    return _ExportFilter(
+      showNames: showNames,
+      hideNames: {...this.hideNames, ...nested.hideNames},
+    );
+  }
+}
+
 String? _constructorName(String className, ConstructorDeclaration declaration) {
   if (declaration.name == null) {
     return className;
@@ -415,6 +500,11 @@ String? _publicName(String? value) {
     return null;
   }
   return value;
+}
+
+bool _isImplicitlyAbstract(ClassDeclaration declaration) {
+  return declaration.abstractKeyword != null ||
+      declaration.sealedKeyword != null;
 }
 
 String _classDeclaration(String name) => 'class:$name';
@@ -432,10 +522,3 @@ String _normalizePath(String path) =>
 String _join(List<String> parts) => parts.join(Platform.pathSeparator);
 
 List<String> _sorted(Set<String> values) => values.toList()..sort();
-
-int _compareUnitEntry(
-  MapEntry<String, CompilationUnit> a,
-  MapEntry<String, CompilationUnit> b,
-) {
-  return a.key.compareTo(b.key);
-}

@@ -322,20 +322,20 @@ class WorkQueue:
                 ON CONFLICT(package, version, variant, schema_version) DO UPDATE SET
                   priority = CASE
                     WHEN work_items.state = 'done'
-                      AND excluded.priority = ? THEN excluded.priority
+                      AND excluded.priority IN (?, ?) THEN excluded.priority
                     WHEN work_items.state = 'failed' THEN work_items.priority
                     ELSE min(work_items.priority, excluded.priority)
                   END,
                   state = CASE
                     WHEN work_items.state = 'done'
-                      AND excluded.priority = ? THEN 'queued'
+                      AND excluded.priority IN (?, ?) THEN 'queued'
                     WHEN work_items.state = 'failed' THEN work_items.state
                     WHEN work_items.state IN ('done', 'in_progress') THEN work_items.state
                     ELSE 'queued'
                   END,
                   attempts = CASE
                     WHEN work_items.state = 'done'
-                      AND excluded.priority = ? THEN 0
+                      AND excluded.priority IN (?, ?) THEN 0
                     ELSE work_items.attempts
                   END,
                   updated_at = excluded.updated_at,
@@ -358,8 +358,11 @@ class WorkQueue:
                     now,
                     now,
                     PRIORITY_STALE_BASE,
+                    PRIORITY_MISSING_OBF,
                     PRIORITY_STALE_BASE,
+                    PRIORITY_MISSING_OBF,
                     PRIORITY_STALE_BASE,
+                    PRIORITY_MISSING_OBF,
                 ),
             )
 
@@ -598,7 +601,7 @@ class DefaultPipeline:
 
     def collect(self, item: WorkItem) -> JsonObject:
         if item.variant == OBFUSCATED_VARIANT:
-            entries = collect_obfuscated_build_entries(
+            return collect_obfuscated_build_entries(
                 item.package,
                 item.version,
                 archive_cache_dir=self.archive_cache_dir,
@@ -606,12 +609,7 @@ class DefaultPipeline:
                 flutter_executable=self.flutter_executable,
                 rettulf_command=self.rettulf_command,
                 timeout=self.obfuscated_timeout,
-            )
-            if len(entries) != 1:
-                raise PipelineError(
-                    f"obfuscated pipeline produced {len(entries)} entries"
-                )
-            return entries[0]
+            )[0]
         if item.variant != BASE_VARIANT:
             raise PipelineError(f"variant pipeline is not implemented: {item.variant}")
         try:

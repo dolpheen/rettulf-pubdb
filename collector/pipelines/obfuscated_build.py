@@ -109,17 +109,12 @@ def collect_obfuscated_build_entries(
         helper_dir=helper_dir,
         timeout=helper_timeout,
     )
-    manifest = collect_probe_manifest(
+    requested_manifest = collect_probe_manifest(
         package_root,
         package,
         dart_executable=dart_executable,
         helper_dir=helper_dir,
         timeout=helper_timeout,
-    )
-    reachable_surface = reachable_surface_metadata(
-        api_surface,
-        manifest,
-        coverage_threshold=coverage_threshold,
     )
 
     runner = command_runner or _run_command
@@ -127,31 +122,42 @@ def collect_obfuscated_build_entries(
     flutter = str(flutter_executable)
 
     with _work_root(work_dir, keep_work_dir=keep_work_dir) as root:
-        baseline_snapshot = _build_probe_snapshot(
+        baseline_snapshot = _cached_baseline_snapshot(
             root,
-            "baseline",
             package=package,
             version=version,
-            manifest=ProbeManifest((), ()),
-            include_package=False,
             flutter_executable=flutter,
             rettulf_command=rettulf,
             timeout=timeout,
             android_abi=android_abi,
             command_runner=runner,
         )
-        target_snapshot = _build_probe_snapshot(
+        target_snapshot, manifest, used_probe_fallback = _build_target_snapshot(
             root,
-            "target",
             package=package,
             version=version,
-            manifest=manifest,
-            include_package=True,
+            manifest=requested_manifest,
             flutter_executable=flutter,
             rettulf_command=rettulf,
             timeout=timeout,
             android_abi=android_abi,
             command_runner=runner,
+        )
+
+    reachable_surface = reachable_surface_metadata(
+        api_surface,
+        manifest,
+        coverage_threshold=coverage_threshold,
+    )
+    if used_probe_fallback:
+        requested_declarations = {
+            reference.declaration for reference in requested_manifest.references
+        }
+        used_declarations = {reference.declaration for reference in manifest.references}
+        reachable_surface["partial"] = True
+        reachable_surface["probe_fallback"] = True
+        reachable_surface["omitted_declarations"] = sorted(
+            requested_declarations - used_declarations
         )
 
     obfuscated_fingerprint = build_obfuscated_fingerprint(
@@ -170,6 +176,225 @@ def collect_obfuscated_build_entries(
             "obfuscated_fingerprint": obfuscated_fingerprint,
         }
     ]
+
+
+def _cached_baseline_snapshot(
+    root: Path,
+    *,
+    package: str,
+    version: str,
+    flutter_executable: str,
+    rettulf_command: Sequence[str],
+    timeout: float,
+    android_abi: str,
+    command_runner: CommandRunner,
+) -> JsonObject:
+    snapshot_path = root / "baseline.snapshot.json"
+    if snapshot_path.is_file():
+        return _read_snapshot_json(snapshot_path)
+    return _build_probe_snapshot(
+        root,
+        "baseline",
+        package=package,
+        version=version,
+        manifest=ProbeManifest((), ()),
+        include_package=False,
+        flutter_executable=flutter_executable,
+        rettulf_command=rettulf_command,
+        timeout=timeout,
+        android_abi=android_abi,
+        command_runner=command_runner,
+    )
+
+
+def _build_target_snapshot(
+    root: Path,
+    *,
+    package: str,
+    version: str,
+    manifest: ProbeManifest,
+    flutter_executable: str,
+    rettulf_command: Sequence[str],
+    timeout: float,
+    android_abi: str,
+    command_runner: CommandRunner,
+) -> tuple[JsonObject, ProbeManifest, bool]:
+    try:
+        snapshot = _build_probe_snapshot(
+            root,
+            "target",
+            package=package,
+            version=version,
+            manifest=manifest,
+            include_package=True,
+            flutter_executable=flutter_executable,
+            rettulf_command=rettulf_command,
+            timeout=timeout,
+            android_abi=android_abi,
+            command_runner=command_runner,
+        )
+        return snapshot, manifest, False
+    except ObfuscatedBuildError as exc:
+        original_error = exc
+
+    fallback = _build_compilable_subset(
+        root,
+        package=package,
+        version=version,
+        references=manifest.references,
+        flutter_executable=flutter_executable,
+        rettulf_command=rettulf_command,
+        timeout=timeout,
+        android_abi=android_abi,
+        command_runner=command_runner,
+        attempt=[0],
+        try_current=False,
+    )
+    if fallback is None:
+        raise original_error
+    snapshot, fallback_manifest = fallback
+    return snapshot, fallback_manifest, True
+
+
+def _build_compilable_subset(
+    root: Path,
+    *,
+    package: str,
+    version: str,
+    references: tuple[ProbeReference, ...],
+    flutter_executable: str,
+    rettulf_command: Sequence[str],
+    timeout: float,
+    android_abi: str,
+    command_runner: CommandRunner,
+    attempt: list[int],
+    try_current: bool = True,
+) -> tuple[JsonObject, ProbeManifest] | None:
+    if not references:
+        return None
+
+    manifest = _manifest_for_references(references)
+    if try_current:
+        candidate = _try_build_manifest(
+            root,
+            package=package,
+            version=version,
+            manifest=manifest,
+            flutter_executable=flutter_executable,
+            rettulf_command=rettulf_command,
+            timeout=timeout,
+            android_abi=android_abi,
+            command_runner=command_runner,
+            attempt=attempt,
+        )
+        if candidate is not None:
+            return candidate, manifest
+
+    if len(references) == 1:
+        return None
+
+    midpoint = len(references) // 2
+    left = _build_compilable_subset(
+        root,
+        package=package,
+        version=version,
+        references=references[:midpoint],
+        flutter_executable=flutter_executable,
+        rettulf_command=rettulf_command,
+        timeout=timeout,
+        android_abi=android_abi,
+        command_runner=command_runner,
+        attempt=attempt,
+    )
+    right = _build_compilable_subset(
+        root,
+        package=package,
+        version=version,
+        references=references[midpoint:],
+        flutter_executable=flutter_executable,
+        rettulf_command=rettulf_command,
+        timeout=timeout,
+        android_abi=android_abi,
+        command_runner=command_runner,
+        attempt=attempt,
+    )
+
+    if left is None:
+        return right
+    if right is None:
+        return left
+
+    combined_manifest = _manifest_for_references(
+        left[1].references + right[1].references
+    )
+    combined_snapshot = _try_build_manifest(
+        root,
+        package=package,
+        version=version,
+        manifest=combined_manifest,
+        flutter_executable=flutter_executable,
+        rettulf_command=rettulf_command,
+        timeout=timeout,
+        android_abi=android_abi,
+        command_runner=command_runner,
+        attempt=attempt,
+    )
+    if combined_snapshot is not None:
+        return combined_snapshot, combined_manifest
+    return left if len(left[1].references) >= len(right[1].references) else right
+
+
+def _try_build_manifest(
+    root: Path,
+    *,
+    package: str,
+    version: str,
+    manifest: ProbeManifest,
+    flutter_executable: str,
+    rettulf_command: Sequence[str],
+    timeout: float,
+    android_abi: str,
+    command_runner: CommandRunner,
+    attempt: list[int],
+) -> JsonObject | None:
+    attempt[0] += 1
+    try:
+        return _build_probe_snapshot(
+            root,
+            f"target-fallback-{attempt[0]}",
+            package=package,
+            version=version,
+            manifest=manifest,
+            include_package=True,
+            flutter_executable=flutter_executable,
+            rettulf_command=rettulf_command,
+            timeout=timeout,
+            android_abi=android_abi,
+            command_runner=command_runner,
+        )
+    except ObfuscatedBuildError:
+        return None
+
+
+def _manifest_for_references(
+    references: tuple[ProbeReference, ...],
+) -> ProbeManifest:
+    return ProbeManifest(
+        libraries=tuple(sorted({reference.library for reference in references})),
+        references=tuple(
+            sorted(references, key=lambda ref: (ref.library, ref.expression, ref.kind))
+        ),
+    )
+
+
+def _read_snapshot_json(path: Path) -> JsonObject:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ObfuscatedBuildError(f"invalid rettulf snapshot JSON: {path}") from exc
+    if not isinstance(payload, dict):
+        raise ObfuscatedBuildError("rettulf snapshot JSON must be an object")
+    return payload
 
 
 def collect_probe_manifest(
@@ -260,8 +485,9 @@ def build_obfuscated_fingerprint(
 ) -> JsonObject:
     """Return schema-compatible ``obfuscated_fingerprint`` JSON."""
     hierarchy = _isolated_hierarchy(target_snapshot, baseline_snapshot)
+    hierarchy_shapes = _portable_hierarchy_shapes(hierarchy)
     signals: JsonObject = {
-        "hierarchy_hash": _sha256_json(hierarchy),
+        "hierarchy_hash": _sha256_json(hierarchy_shapes),
         "class_shape_count": len(hierarchy),
         "string_literals": _subtract_sorted(
             _snapshot_strings(target_snapshot),
@@ -275,7 +501,7 @@ def build_obfuscated_fingerprint(
             _snapshot_ffi_symbols(target_snapshot),
             _snapshot_ffi_symbols(baseline_snapshot),
         ),
-        "const_canonicalization": _subtract_sorted(
+        "const_canonicalization": _subtract_counter_sorted(
             _snapshot_const_canonicalization(target_snapshot),
             _snapshot_const_canonicalization(baseline_snapshot),
         ),
@@ -422,13 +648,7 @@ def _build_probe_snapshot(
         timeout=timeout,
         command_runner=command_runner,
     )
-    try:
-        payload = json.loads(snapshot_path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
-        raise ObfuscatedBuildError(f"invalid rettulf snapshot JSON: {snapshot_path}") from exc
-    if not isinstance(payload, dict):
-        raise ObfuscatedBuildError("rettulf snapshot JSON must be an object")
-    return payload
+    return _read_snapshot_json(snapshot_path)
 
 
 def _render_pubspec(package: str, version: str, include_package: bool) -> str:
@@ -638,6 +858,27 @@ def _isolated_hierarchy(
     )
 
 
+def _portable_hierarchy_shapes(hierarchy: list[JsonObject]) -> list[JsonObject]:
+    shapes = [
+        {
+            "fields_count": int(entry.get("fields_count", 0)),
+            "methods_count": int(entry.get("methods_count", 0)),
+            "interfaces_count": int(entry.get("interfaces_count", 0)),
+            "has_super": bool(entry.get("super")),
+        }
+        for entry in hierarchy
+    ]
+    return sorted(
+        shapes,
+        key=lambda entry: (
+            entry["fields_count"],
+            entry["methods_count"],
+            entry["interfaces_count"],
+            entry["has_super"],
+        ),
+    )
+
+
 def _snapshot_hierarchy(snapshot: JsonObject | None) -> list[JsonObject]:
     if not isinstance(snapshot, dict):
         return []
@@ -762,14 +1003,14 @@ def _snapshot_ffi_symbols(snapshot: JsonObject | None) -> set[str]:
     return symbols
 
 
-def _snapshot_const_canonicalization(snapshot: JsonObject | None) -> set[str]:
+def _snapshot_const_canonicalization(snapshot: JsonObject | None) -> Counter[str]:
     if not isinstance(snapshot, dict):
-        return set()
+        return Counter()
     direct = snapshot.get("const_canonicalization")
     if isinstance(direct, list):
-        return _string_set(direct)
+        return Counter(_string_set(direct))
 
-    values: set[str] = set()
+    values: Counter[str] = Counter()
     closures = snapshot.get("closures")
     if isinstance(closures, list):
         for item in closures:
@@ -777,7 +1018,7 @@ def _snapshot_const_canonicalization(snapshot: JsonObject | None) -> set[str]:
                 continue
             function_id = item.get("function_id")
             if isinstance(function_id, int):
-                values.add(f"closure:{function_id}")
+                values["canonical_closure"] += 1
 
     objects = snapshot.get("objects")
     if isinstance(objects, list):
@@ -785,8 +1026,7 @@ def _snapshot_const_canonicalization(snapshot: JsonObject | None) -> set[str]:
             if not isinstance(item, dict) or item.get("is_canonical") is not True:
                 continue
             obj_type = _clean_string(item.get("type")) or "Object"
-            name = _object_name(item) or str(item.get("id", "unknown"))
-            values.add(f"object:{obj_type}:{name}")
+            values[f"canonical_object:{obj_type}"] += 1
     return values
 
 
@@ -815,6 +1055,12 @@ def _string_set(value: object) -> set[str]:
 
 def _subtract_sorted(values: set[str], baseline: set[str]) -> list[str]:
     return sorted(values - baseline)
+
+
+def _subtract_counter_sorted(values: Counter[str], baseline: Counter[str]) -> list[str]:
+    delta = values.copy()
+    delta.subtract(baseline)
+    return sorted(f"{key}:{count}" for key, count in delta.items() if count > 0)
 
 
 def _list_count(value: object) -> int:

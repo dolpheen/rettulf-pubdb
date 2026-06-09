@@ -117,6 +117,30 @@ class WorkQueueTests(unittest.TestCase):
             self.assertEqual(stale.attempts, 1)
             queue.close()
 
+    def test_done_obfuscated_item_can_be_requeued_when_missing_or_stale(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            queue = daemon.WorkQueue(Path(tmp) / "queue.db")
+            item = daemon.WorkItem(
+                "pkg",
+                "1.0.0",
+                daemon.OBFUSCATED_VARIANT,
+                daemon.PRIORITY_MISSING_OBF,
+            )
+            queue.enqueue(item)
+            claimed = queue.dequeue()
+            assert claimed is not None
+            queue.complete(claimed)
+
+            queue.enqueue(item)
+            requeued = queue.dequeue()
+
+            self.assertIsNotNone(requeued)
+            assert requeued is not None
+            self.assertEqual(requeued.variant, daemon.OBFUSCATED_VARIANT)
+            self.assertEqual(requeued.priority, daemon.PRIORITY_MISSING_OBF)
+            self.assertEqual(requeued.attempts, 1)
+            queue.close()
+
     def test_failure_uses_backoff_then_dead_letters(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             queue = daemon.WorkQueue(Path(tmp) / "queue.db", max_attempts=2)
