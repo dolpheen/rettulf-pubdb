@@ -42,6 +42,11 @@ except ModuleNotFoundError as exc:  # pragma: no cover - surfaced directly
     ) from exc
 
 from collector.pipelines.api_surface import collect_api_surface
+from collector.pipelines.obfuscated_build import (
+    DEFAULT_BUILD_TIMEOUT_SECONDS,
+    OBFUSCATED_VARIANT,
+    collect_obfuscated_build_entries,
+)
 from collector.pipelines.source_fingerprint import collect_source_fingerprint
 from collector.pubdev_client import PUB_DEV_URL, USER_AGENT, PubDevClient, PubDevError
 
@@ -576,10 +581,37 @@ class PubDevDiscovery:
 
 
 class DefaultPipeline:
-    def __init__(self, *, archive_cache_dir: Path | str | None = None) -> None:
+    def __init__(
+        self,
+        *,
+        archive_cache_dir: Path | str | None = None,
+        obfuscated_work_dir: Path | str | None = None,
+        flutter_executable: str | Path = "flutter",
+        rettulf_command: str | Path = "rettulf",
+        obfuscated_timeout: float = DEFAULT_BUILD_TIMEOUT_SECONDS,
+    ) -> None:
         self.archive_cache_dir = archive_cache_dir
+        self.obfuscated_work_dir = obfuscated_work_dir
+        self.flutter_executable = flutter_executable
+        self.rettulf_command = rettulf_command
+        self.obfuscated_timeout = obfuscated_timeout
 
     def collect(self, item: WorkItem) -> JsonObject:
+        if item.variant == OBFUSCATED_VARIANT:
+            entries = collect_obfuscated_build_entries(
+                item.package,
+                item.version,
+                archive_cache_dir=self.archive_cache_dir,
+                work_dir=self.obfuscated_work_dir,
+                flutter_executable=self.flutter_executable,
+                rettulf_command=self.rettulf_command,
+                timeout=self.obfuscated_timeout,
+            )
+            if len(entries) != 1:
+                raise PipelineError(
+                    f"obfuscated pipeline produced {len(entries)} entries"
+                )
+            return entries[0]
         if item.variant != BASE_VARIANT:
             raise PipelineError(f"variant pipeline is not implemented: {item.variant}")
         try:
@@ -1037,7 +1069,11 @@ def discover_work(
 ) -> list[WorkItem]:
     root = Path(repo_root)
     index_versions = _index_versions(root / "db" / "_index.json")
-    tracked = packages or sorted(index_versions) or _top1000_packages(root / "db" / "_top1000.json")
+    tracked = (
+        packages
+        or sorted(index_versions)
+        or _top1000_packages(root / "db" / "_top1000.json")
+    )
     items: list[WorkItem] = []
     for package in tracked:
         if not _PACKAGE_RE.match(package):
@@ -1051,9 +1087,9 @@ def discover_work(
         for version in versions:
             if not _VERSION_RE.match(version):
                 continue
-            item = _work_for_version(root, package, version, existing_versions)
-            if item is not None:
-                items.append(item)
+            items.extend(
+                _work_for_version(root, package, version, existing_versions)
+            )
     return items
 
 
@@ -1071,13 +1107,26 @@ def _work_for_version(
     package: str,
     version: str,
     existing_versions: set[str],
-) -> WorkItem | None:
+) -> list[WorkItem]:
     path = repo_root / "db" / package / f"{version}.json"
     if version not in existing_versions or not path.is_file():
-        return WorkItem(package, version, BASE_VARIANT, PRIORITY_MISSING_BASE)
+        return [WorkItem(package, version, BASE_VARIANT, PRIORITY_MISSING_BASE)]
+    items: list[WorkItem] = []
     if _entry_is_stale(path):
-        return WorkItem(package, version, BASE_VARIANT, PRIORITY_STALE_BASE)
-    return None
+        items.append(WorkItem(package, version, BASE_VARIANT, PRIORITY_STALE_BASE))
+    obfuscated_path = (
+        repo_root / "db" / package / f"{version}.{OBFUSCATED_VARIANT}.json"
+    )
+    if not obfuscated_path.is_file() or _entry_is_stale(obfuscated_path):
+        items.append(
+            WorkItem(
+                package,
+                version,
+                OBFUSCATED_VARIANT,
+                PRIORITY_MISSING_OBF,
+            )
+        )
+    return items
 
 
 def _entry_is_stale(path: Path) -> bool:
@@ -1283,7 +1332,13 @@ def build_daemon(args: argparse.Namespace) -> CollectorDaemon:
     metrics = Metrics()
     queue = WorkQueue(Path(args.queue_db).expanduser())
     discovery: Discovery | None = PubDevDiscovery(metrics=metrics)
-    pipeline = DefaultPipeline(archive_cache_dir=args.archive_cache_dir)
+    pipeline = DefaultPipeline(
+        archive_cache_dir=args.archive_cache_dir,
+        obfuscated_work_dir=args.obfuscated_work_dir,
+        flutter_executable=args.flutter,
+        rettulf_command=args.rettulf,
+        obfuscated_timeout=args.obfuscated_timeout,
+    )
     validator = EntryValidator(_default_schema_path(repo_root))
     writer = AtomicEntryWriter(repo_root, validator)
     lock_path = Path(args.lock_path) if args.lock_path else _default_lock_path(repo_root, cache_root)
@@ -1318,6 +1373,14 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--cache-root", type=Path, default=DEFAULT_CACHE_ROOT)
     parser.add_argument("--queue-db", type=Path, default=DEFAULT_QUEUE_DB)
     parser.add_argument("--archive-cache-dir", type=Path)
+    parser.add_argument("--obfuscated-work-dir", type=Path)
+    parser.add_argument("--flutter", default="flutter")
+    parser.add_argument("--rettulf", default="rettulf")
+    parser.add_argument(
+        "--obfuscated-timeout",
+        type=float,
+        default=DEFAULT_BUILD_TIMEOUT_SECONDS,
+    )
     parser.add_argument("--lock-path", type=Path)
     parser.add_argument("--packages", nargs="*")
     parser.add_argument("--once", action="store_true")

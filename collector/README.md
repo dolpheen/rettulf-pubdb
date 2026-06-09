@@ -11,11 +11,12 @@ Implemented:
 - `pipelines/api_surface.py` — analyzer-backed Dart API-surface collector.
 - `pipelines/source_fingerprint.py` — analyzer-backed source structural
   fingerprint collector.
+- `pipelines/obfuscated_build.py` — Flutter probe-app builder for
+  `db/<package>/<version>.obf.json` obfuscated-build variants.
 
 Planned contents (tracked separately):
 
-- `#6` — obfuscated-build fingerprint variant (`obfuscated_fingerprint`)
 - `#7` — per-Flutter-version variant (`flutter_variants`)
 
-Every entry the collector writes to `db/<package>/<version>.json` must validate
-against `schema/_schema.v1.json` (`python scripts/validate.py`).
+Every entry the collector writes under `db/<package>/` must validate against
+`schema/_schema.v1.json` (`python scripts/validate.py`).
