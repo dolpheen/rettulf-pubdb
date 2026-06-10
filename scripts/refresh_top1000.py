@@ -56,7 +56,9 @@ def fetch_popular(
             payload = _get_json(url, sleep=sleep)
             packages = payload.get("packages")
             if not isinstance(packages, list):
-                break
+                raise RefreshError(
+                    f"unexpected pub.dev response for {url}: no 'packages' list"
+                )
             for item in packages:
                 name = item.get("package") if isinstance(item, dict) else None
                 if not isinstance(name, str) or name in seen or not _PACKAGE_RE.match(name):
@@ -81,7 +83,10 @@ def _get_json(url: str, *, sleep: Callable[[float], None]) -> dict:
         )
         try:
             with urllib.request.urlopen(request, timeout=30) as response:
-                return json.load(response)
+                data = json.load(response)
+            if not isinstance(data, dict):
+                raise RefreshError(f"pub.dev returned non-object JSON for {url}")
+            return data
         except urllib.error.HTTPError as exc:
             last_error = exc
             if exc.code == 429 and attempt < _MAX_RETRIES:

@@ -122,7 +122,7 @@ entrypoint maps them to daemon flags:
 | `NO_PUSH=1` | `--no-push` (collect + commit, no push) | off |
 | `DASHBOARD=0` | `--no-dashboard` (serve /metrics only) | on |
 | `BASE_ONLY=1` | `--base-only` (skip obfuscated + Flutter variants) | off |
-| `PACKAGES` | `--packages` (space-separated allowlist) | top1000 worklist |
+| `PACKAGES` | `--packages` (space-separated allowlist) | worklist + already-indexed packages |
 
 Proxy-only vars (consumed by the `proxy` compose service, not the daemon):
 `COMPOSE_PROFILES=proxy` enables it; `DASHBOARD_DOMAIN`,
@@ -140,9 +140,13 @@ most popular pub.dev packages) **plus** everything already in `db/_index.json`.
 Populate / refresh that worklist with:
 
 ```sh
-python scripts/refresh_top1000.py            # top 1000 -> db/_top1000.json
+python scripts/refresh_top1000.py            # up to --count -> db/_top1000.json
 python scripts/refresh_top1000.py --count 200
 ```
+
+pub.dev's search API caps each query at 100 results and exposes no ranked
+top-1000, so the script unions its ranking axes (popularity, top, like, points,
+downloads) and dedupes — currently ~340 packages, well under `--count 1000`.
 
 Commit the result so the collector (which reads it from its checkout) picks it
 up on the next discovery pass. On the lean image, pair a full worklist with

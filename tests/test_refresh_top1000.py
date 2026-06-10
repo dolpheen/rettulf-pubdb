@@ -47,6 +47,14 @@ class FetchPopularTests(unittest.TestCase):
 
         self.assertEqual(names, ["a", "b", "c"])
 
+    def test_raises_on_unexpected_response_shape(self) -> None:
+        def fake_get_json(url: str, *, sleep) -> dict:
+            return {"unexpected": True}  # no 'packages' list
+
+        with mock.patch.object(refresh_top1000, "_get_json", fake_get_json):
+            with self.assertRaises(refresh_top1000.RefreshError):
+                refresh_top1000.fetch_popular(count=10, sleep=lambda _s: None)
+
     def test_write_worklist_shape_matches_collector_reader(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp) / "_top1000.json"
