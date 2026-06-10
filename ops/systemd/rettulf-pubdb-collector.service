@@ -1,0 +1,29 @@
+# rettulf-pubdb collector — systemd unit.
+#
+# Assumes the repo is cloned at /opt/rettulf-pubdb and ops/docker/.env exists
+# (copied from ops/env.example). Adjust WorkingDirectory if you clone elsewhere.
+# Install:
+#   sudo cp ops/systemd/rettulf-pubdb-collector.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now rettulf-pubdb-collector
+[Unit]
+Description=rettulf-pubdb collector (24/7 pub.dev fingerprint collection)
+Documentation=https://github.com/dolpheen/rettulf-pubdb/blob/main/ops/README.md
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=exec
+WorkingDirectory=/opt/rettulf-pubdb/ops/docker
+# `up` runs attached so container stdout/stderr land in journald.
+ExecStart=/usr/bin/docker compose up --build
+ExecStop=/usr/bin/docker compose down
+Restart=on-failure
+RestartSec=10
+# First boot builds the image and may download Flutter SDKs; don't time it out.
+TimeoutStartSec=0
+TimeoutStopSec=300
+
+[Install]
+WantedBy=multi-user.target

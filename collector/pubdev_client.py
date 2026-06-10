@@ -31,6 +31,7 @@ USER_AGENT = (
 )
 PUB_DEV_URL = "https://pub.dev"
 DEFAULT_CACHE_DIR = Path.home() / ".cache" / "rettulf-pubdb" / "archives"
+DEFAULT_TIMEOUT_SECONDS = 60.0
 MAX_RETRIES = 5
 INITIAL_BACKOFF_SECONDS = 0.2
 MAX_BACKOFF_SECONDS = 8.0
@@ -88,10 +89,11 @@ class PubDevClient:
         max_retries: int = MAX_RETRIES,
         backoff_initial: float = INITIAL_BACKOFF_SECONDS,
         backoff_max: float = MAX_BACKOFF_SECONDS,
+        timeout: float = DEFAULT_TIMEOUT_SECONDS,
     ) -> None:
         self.cache_dir = Path(cache_dir).expanduser() if cache_dir else DEFAULT_CACHE_DIR
         self.base_url = base_url.rstrip("/")
-        self._client = client or httpx.Client(timeout=60.0, follow_redirects=True)
+        self._client = client or httpx.Client(timeout=timeout, follow_redirects=True)
         self._owns_client = client is None
         self._sleep = sleep or time.sleep
         self.max_retries = max_retries

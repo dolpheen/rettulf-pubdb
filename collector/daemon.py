@@ -20,6 +20,8 @@ import subprocess
 import sys
 import threading
 import time
+from concurrent import futures
+from concurrent.futures import Future, ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -61,7 +63,13 @@ from collector.pipelines.flutter_variant import (
     variant_name as flutter_variant_name,
 )
 from collector.pipelines.source_fingerprint import collect_source_fingerprint
-from collector.pubdev_client import PUB_DEV_URL, USER_AGENT, PubDevClient, PubDevError
+from collector.pubdev_client import (
+    DEFAULT_TIMEOUT_SECONDS as DEFAULT_PUBDEV_TIMEOUT_SECONDS,
+    PUB_DEV_URL,
+    USER_AGENT,
+    PubDevClient,
+    PubDevError,
+)
 
 JsonObject = dict[str, Any]
 
@@ -71,6 +79,7 @@ DEFAULT_CACHE_ROOT = Path.home() / ".cache" / "rettulf-pubdb"
 DEFAULT_QUEUE_DB = DEFAULT_CACHE_ROOT / "queue.db"
 DEFAULT_METRICS_PORT = 9305
 DEFAULT_BATCH_SIZE = 10
+DEFAULT_WORKERS = 1
 DEFAULT_PUSH_INTERVAL_SECONDS = 300.0
 DEFAULT_TICK_INTERVAL_SECONDS = 60.0
 DEFAULT_DISCOVER_INTERVAL_SECONDS = 3600.0
@@ -522,6 +531,7 @@ class PubDevDiscovery:
         max_retries: int = MAX_DISCOVERY_RETRIES,
         backoff_initial: float = INITIAL_DISCOVERY_BACKOFF_SECONDS,
         backoff_max: float = MAX_DISCOVERY_BACKOFF_SECONDS,
+        timeout: float = DEFAULT_PUBDEV_TIMEOUT_SECONDS,
     ) -> None:
         self.base_url = base_url.rstrip("/")
         self.metrics = metrics
@@ -529,7 +539,7 @@ class PubDevDiscovery:
         self.max_retries = max_retries
         self.backoff_initial = backoff_initial
         self.backoff_max = backoff_max
-        self._client = client or httpx.Client(timeout=30.0, follow_redirects=True)
+        self._client = client or httpx.Client(timeout=timeout, follow_redirects=True)
         self._owns_client = client is None
 
     def close(self) -> None:
@@ -618,6 +628,7 @@ class DefaultPipeline:
         flutter_executable: str | Path = "flutter",
         rettulf_command: str | Path = "rettulf",
         obfuscated_timeout: float = DEFAULT_BUILD_TIMEOUT_SECONDS,
+        pubdev_timeout: float = DEFAULT_PUBDEV_TIMEOUT_SECONDS,
     ) -> None:
         self.archive_cache_dir = archive_cache_dir
         self.obfuscated_work_dir = obfuscated_work_dir
@@ -626,6 +637,7 @@ class DefaultPipeline:
         self.flutter_executable = flutter_executable
         self.rettulf_command = rettulf_command
         self.obfuscated_timeout = obfuscated_timeout
+        self.pubdev_timeout = pubdev_timeout
 
     def collect(self, item: WorkItem) -> JsonObject:
         if item.variant == OBFUSCATED_VARIANT:
@@ -656,7 +668,10 @@ class DefaultPipeline:
         if item.variant != BASE_VARIANT:
             raise PipelineError(f"variant pipeline is not implemented: {item.variant}")
         try:
-            with PubDevClient(cache_dir=self.archive_cache_dir) as client:
+            with PubDevClient(
+                cache_dir=self.archive_cache_dir,
+                timeout=self.pubdev_timeout,
+            ) as client:
                 lib_dir = client.fetch(item.package, item.version)
         except PubDevError as exc:
             raise PipelineError(str(exc)) from exc
@@ -1048,6 +1063,7 @@ class CollectorDaemon:
         packages: list[str] | None = None,
         tick_interval: float = DEFAULT_TICK_INTERVAL_SECONDS,
         discover_interval: float = DEFAULT_DISCOVER_INTERVAL_SECONDS,
+        workers: int = DEFAULT_WORKERS,
         sleep: Callable[[float], None] = time.sleep,
     ) -> None:
         self.repo_root = Path(repo_root).resolve()
@@ -1059,6 +1075,7 @@ class CollectorDaemon:
         self.packages = packages
         self.tick_interval = tick_interval
         self.discover_interval = discover_interval
+        self.workers = max(1, workers)
         self.sleep = sleep
         self.shutdown = threading.Event()
         self._last_discovery = 0.0
@@ -1080,6 +1097,9 @@ class CollectorDaemon:
                     return 0
                 return 0
 
+            if self.workers > 1:
+                return self._run_concurrent()
+
             while not self.shutdown.is_set():
                 self.discover()
                 processed = self.process_one()
@@ -1092,6 +1112,103 @@ class CollectorDaemon:
             close = getattr(self.discovery, "close", None)
             if callable(close):
                 close()
+
+    def _run_concurrent(self) -> int:
+        """Run the collect/publish loop with ``workers`` collector threads.
+
+        Only ``pipeline.collect`` runs off the main thread; dequeue, staging,
+        flush, and queue/metric bookkeeping stay single-threaded so the
+        publisher and checkout lock keep their serial-mode invariants.
+        """
+        executor = ThreadPoolExecutor(
+            max_workers=self.workers,
+            thread_name_prefix="pubdb-worker",
+        )
+        inflight: dict[Future[JsonObject], WorkItem] = {}
+        try:
+            while not self.shutdown.is_set():
+                self.discover()
+                submitted = self._submit_ready(executor, inflight)
+                if inflight:
+                    done, _ = futures.wait(
+                        inflight,
+                        timeout=self.tick_interval,
+                        return_when=futures.FIRST_COMPLETED,
+                    )
+                    for future in done:
+                        self._publish_collected(inflight.pop(future), future)
+                    self._flush_completed()
+                else:
+                    self._flush_completed()
+                    if not submitted:
+                        self.sleep(self.tick_interval)
+            for future in futures.as_completed(list(inflight)):
+                self._publish_collected(inflight.pop(future), future)
+            self._flush_completed(force=True)
+            return 0
+        finally:
+            executor.shutdown(wait=True)
+
+    def _submit_ready(
+        self,
+        executor: ThreadPoolExecutor,
+        inflight: dict[Future[JsonObject], WorkItem],
+    ) -> bool:
+        """Fill idle worker slots from the queue; return whether any work moved."""
+        progressed = False
+        while len(inflight) < self.workers:
+            item = self.queue.dequeue()
+            if item is None:
+                break
+            progressed = True
+            try:
+                if item.attempts > 1 and self.publisher.complete_if_committed(item):
+                    self.queue.complete(item)
+                    continue
+            except Exception as exc:
+                self.queue.fail(item, exc)
+                print(f"collector error for {item.commit_key}: {exc}", file=sys.stderr)
+                continue
+            inflight[executor.submit(self.pipeline.collect, item)] = item
+        return progressed
+
+    def _publish_collected(
+        self,
+        item: WorkItem,
+        future: Future[JsonObject],
+    ) -> None:
+        """Stage and flush one finished collection on the main thread."""
+        try:
+            entry = future.result()
+        except PipelineSkip as exc:
+            if not self._stage(item, lambda: self.publisher.stage_skip(item, exc.record)):
+                return
+        except Exception as exc:
+            self.queue.fail(item, exc)
+            print(f"collector error for {item.commit_key}: {exc}", file=sys.stderr)
+            return
+        else:
+            if not self._stage(item, lambda: self.publisher.stage_entry(item, entry)):
+                return
+
+        try:
+            completed = self.publisher.flush(force=False)
+        except Exception as exc:
+            print(f"collector publish error: {exc}", file=sys.stderr)
+            return
+        for completed_item in completed:
+            self.queue.complete(completed_item)
+        self.metrics.inc_entries(len(completed))
+
+    def _stage(self, item: WorkItem, stage: Callable[[], None]) -> bool:
+        """Run a staging step; dead-letter the item and return False on failure."""
+        try:
+            stage()
+        except Exception as exc:
+            self.queue.fail(item, exc)
+            print(f"collector error for {item.commit_key}: {exc}", file=sys.stderr)
+            return False
+        return True
 
     def process_one(
         self,
@@ -1457,7 +1574,10 @@ def build_daemon(args: argparse.Namespace) -> CollectorDaemon:
     cache_root = Path(args.cache_root).expanduser()
     metrics = Metrics()
     queue = WorkQueue(Path(args.queue_db).expanduser())
-    discovery: Discovery | None = PubDevDiscovery(metrics=metrics)
+    discovery: Discovery | None = PubDevDiscovery(
+        metrics=metrics,
+        timeout=args.pubdev_timeout,
+    )
     pipeline = DefaultPipeline(
         archive_cache_dir=args.archive_cache_dir,
         obfuscated_work_dir=args.obfuscated_work_dir,
@@ -1466,6 +1586,7 @@ def build_daemon(args: argparse.Namespace) -> CollectorDaemon:
         flutter_executable=args.flutter,
         rettulf_command=args.rettulf,
         obfuscated_timeout=args.obfuscated_timeout,
+        pubdev_timeout=args.pubdev_timeout,
     )
     validator = EntryValidator(_default_schema_path(repo_root))
     writer = AtomicEntryWriter(repo_root, validator)
@@ -1492,6 +1613,7 @@ def build_daemon(args: argparse.Namespace) -> CollectorDaemon:
         packages=args.packages,
         tick_interval=args.tick_interval,
         discover_interval=args.discover_interval,
+        workers=args.workers,
     )
 
 
@@ -1514,6 +1636,18 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--lock-path", type=Path)
     parser.add_argument("--packages", nargs="*")
     parser.add_argument("--once", action="store_true")
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=DEFAULT_WORKERS,
+        help="number of concurrent collector threads (ignored with --once)",
+    )
+    parser.add_argument(
+        "--pubdev-timeout",
+        type=float,
+        default=DEFAULT_PUBDEV_TIMEOUT_SECONDS,
+        help="per-request timeout (seconds) for pub.dev discovery and base archive fetches",
+    )
     parser.add_argument("--batch-size", type=int, default=DEFAULT_BATCH_SIZE)
     parser.add_argument("--push-interval", type=float, default=DEFAULT_PUSH_INTERVAL_SECONDS)
     parser.add_argument("--tick-interval", type=float, default=DEFAULT_TICK_INTERVAL_SECONDS)
