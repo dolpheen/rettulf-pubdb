@@ -117,6 +117,8 @@ entrypoint maps them to daemon flags:
 | `COLLECTOR_PORT` | `--metrics-port` (serves /metrics, /, /api/status; host bind too) | `9305` |
 | `WORKERS` | `--workers` (concurrent collectors) | `4` |
 | `PUBDEV_TIMEOUT` | `--pubdev-timeout` (discovery + base fetch) | `60` |
+| `BATCH_SIZE` | `--batch-size` (entries per commit + push) | `10` |
+| `PUSH_INTERVAL` | `--push-interval` (max seconds between pushes) | `300` |
 | `FLUTTER_CACHE_DIR` | `--flutter-cache-dir` | `/var/cache/rettulf-pubdb/flutter` |
 | `GITHUB_TOKEN` | git HTTPS push credential | — |
 | `NO_PUSH=1` | `--no-push` (collect + commit, no push) | off |

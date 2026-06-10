@@ -772,6 +772,8 @@ class OnceFlowTests(unittest.TestCase):
                 "pubdb-commit-key: fake_pkg:1.0.0:base:schema-v1",
                 git.commits[0],
             )
+            # Collector commits skip the validate CI (they're validated locally).
+            self.assertIn("[skip ci]", git.commits[0].splitlines()[0])
             self.assertEqual(metrics.entries_collected_total, 1)
             self.assertIn("db/fake_pkg/1.0.0.json", git.adds[0])
             self.assertIn("db/_index.json", git.adds[0])

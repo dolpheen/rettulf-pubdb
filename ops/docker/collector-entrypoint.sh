@@ -27,6 +27,8 @@ args=(
 )
 [ -n "${WORKERS:-}" ] && args+=( --workers "$WORKERS" )
 [ -n "${PUBDEV_TIMEOUT:-}" ] && args+=( --pubdev-timeout "$PUBDEV_TIMEOUT" )
+[ -n "${BATCH_SIZE:-}" ] && args+=( --batch-size "$BATCH_SIZE" )
+[ -n "${PUSH_INTERVAL:-}" ] && args+=( --push-interval "$PUSH_INTERVAL" )
 [ -n "${FLUTTER_CACHE_DIR:-}" ] && args+=( --flutter-cache-dir "$FLUTTER_CACHE_DIR" )
 # shellcheck disable=SC2086  # PACKAGES is intentionally word-split into a list.
 [ -n "${PACKAGES:-}" ] && args+=( --packages ${PACKAGES} )
