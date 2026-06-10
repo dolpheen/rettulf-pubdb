@@ -188,6 +188,8 @@ def _cached_baseline_snapshot(
     timeout: float,
     android_abi: str,
     command_runner: CommandRunner,
+    sdk_constraint: str = "^3.12.0",
+    obfuscate: bool = True,
 ) -> JsonObject:
     snapshot_path = root / "baseline.snapshot.json"
     if snapshot_path.is_file():
@@ -204,6 +206,8 @@ def _cached_baseline_snapshot(
         timeout=timeout,
         android_abi=android_abi,
         command_runner=command_runner,
+        sdk_constraint=sdk_constraint,
+        obfuscate=obfuscate,
     )
 
 
@@ -218,6 +222,8 @@ def _build_target_snapshot(
     timeout: float,
     android_abi: str,
     command_runner: CommandRunner,
+    sdk_constraint: str = "^3.12.0",
+    obfuscate: bool = True,
 ) -> tuple[JsonObject, ProbeManifest, bool]:
     try:
         snapshot = _build_probe_snapshot(
@@ -232,6 +238,8 @@ def _build_target_snapshot(
             timeout=timeout,
             android_abi=android_abi,
             command_runner=command_runner,
+            sdk_constraint=sdk_constraint,
+            obfuscate=obfuscate,
         )
         return snapshot, manifest, False
     except ObfuscatedBuildError as exc:
@@ -249,6 +257,8 @@ def _build_target_snapshot(
         command_runner=command_runner,
         attempt=[0],
         try_current=False,
+        sdk_constraint=sdk_constraint,
+        obfuscate=obfuscate,
     )
     if fallback is None:
         raise original_error
@@ -269,6 +279,8 @@ def _build_compilable_subset(
     command_runner: CommandRunner,
     attempt: list[int],
     try_current: bool = True,
+    sdk_constraint: str = "^3.12.0",
+    obfuscate: bool = True,
 ) -> tuple[JsonObject, ProbeManifest] | None:
     if not references:
         return None
@@ -286,6 +298,8 @@ def _build_compilable_subset(
             android_abi=android_abi,
             command_runner=command_runner,
             attempt=attempt,
+            sdk_constraint=sdk_constraint,
+            obfuscate=obfuscate,
         )
         if candidate is not None:
             return candidate, manifest
@@ -305,6 +319,8 @@ def _build_compilable_subset(
         android_abi=android_abi,
         command_runner=command_runner,
         attempt=attempt,
+        sdk_constraint=sdk_constraint,
+        obfuscate=obfuscate,
     )
     right = _build_compilable_subset(
         root,
@@ -317,6 +333,8 @@ def _build_compilable_subset(
         android_abi=android_abi,
         command_runner=command_runner,
         attempt=attempt,
+        sdk_constraint=sdk_constraint,
+        obfuscate=obfuscate,
     )
 
     if left is None:
@@ -338,6 +356,8 @@ def _build_compilable_subset(
         android_abi=android_abi,
         command_runner=command_runner,
         attempt=attempt,
+        sdk_constraint=sdk_constraint,
+        obfuscate=obfuscate,
     )
     if combined_snapshot is not None:
         return combined_snapshot, combined_manifest
@@ -356,6 +376,8 @@ def _try_build_manifest(
     android_abi: str,
     command_runner: CommandRunner,
     attempt: list[int],
+    sdk_constraint: str = "^3.12.0",
+    obfuscate: bool = True,
 ) -> JsonObject | None:
     attempt[0] += 1
     try:
@@ -371,6 +393,8 @@ def _try_build_manifest(
             timeout=timeout,
             android_abi=android_abi,
             command_runner=command_runner,
+            sdk_constraint=sdk_constraint,
+            obfuscate=obfuscate,
         )
     except ObfuscatedBuildError:
         return None
@@ -581,6 +605,8 @@ def _build_probe_snapshot(
     timeout: float,
     android_abi: str,
     command_runner: CommandRunner,
+    sdk_constraint: str = "^3.12.0",
+    obfuscate: bool = True,
 ) -> JsonObject:
     probe_dir = root / name
     if probe_dir.exists():
@@ -602,7 +628,7 @@ def _build_probe_snapshot(
     )
     _write_text(
         probe_dir / "pubspec.yaml",
-        _render_pubspec(package, version, include_package),
+        _render_pubspec(package, version, include_package, sdk_constraint),
     )
     _write_text(probe_dir / "lib" / "main.dart", _render_probe_main(manifest))
 
@@ -613,15 +639,21 @@ def _build_probe_snapshot(
         timeout=timeout,
         command_runner=command_runner,
     )
+    build_command = [
+        flutter_executable,
+        "build",
+        "apk",
+        "--release",
+    ]
+    if obfuscate:
+        build_command.extend(
+            [
+                "--obfuscate",
+                f"--split-debug-info={split_debug_info}",
+            ]
+        )
     _checked_run(
-        [
-            flutter_executable,
-            "build",
-            "apk",
-            "--release",
-            "--obfuscate",
-            f"--split-debug-info={split_debug_info}",
-        ],
+        build_command,
         cwd=probe_dir,
         timeout=timeout,
         command_runner=command_runner,
@@ -651,7 +683,12 @@ def _build_probe_snapshot(
     return _read_snapshot_json(snapshot_path)
 
 
-def _render_pubspec(package: str, version: str, include_package: bool) -> str:
+def _render_pubspec(
+    package: str,
+    version: str,
+    include_package: bool,
+    sdk_constraint: str = "^3.12.0",
+) -> str:
     dependencies = "  flutter:\n    sdk: flutter\n"
     if include_package:
         dependencies += f"  {package}: {version}\n"
@@ -661,7 +698,7 @@ def _render_pubspec(package: str, version: str, include_package: bool) -> str:
         "publish_to: none\n"
         "version: 1.0.0+1\n\n"
         "environment:\n"
-        "  sdk: ^3.12.0\n\n"
+        f"  sdk: {sdk_constraint}\n\n"
         "dependencies:\n"
         f"{dependencies}\n"
         "dev_dependencies:\n"

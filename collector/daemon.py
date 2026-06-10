@@ -47,6 +47,19 @@ from collector.pipelines.obfuscated_build import (
     OBFUSCATED_VARIANT,
     collect_obfuscated_build_entries,
 )
+from collector.pipelines.flutter_variant import (
+    DEFAULT_FLUTTER_CACHE_DIR,
+    FLUTTER_VARIANT_PREFIX,
+    FlutterVariantSkip,
+    FlutterVariantSkipped,
+    collect_flutter_variant_entry,
+    flutter_version_from_variant,
+    has_fresh_skip_record,
+    load_flutter_versions,
+    skip_records_path,
+    upsert_skip_record,
+    variant_name as flutter_variant_name,
+)
 from collector.pipelines.source_fingerprint import collect_source_fingerprint
 from collector.pubdev_client import PUB_DEV_URL, USER_AGENT, PubDevClient, PubDevError
 
@@ -81,6 +94,14 @@ _VARIANT_RE = re.compile(r"^[a-z0-9][a-z0-9_.-]*$")
 
 class PipelineError(RuntimeError):
     """Raised when the injected collector pipeline cannot produce an entry."""
+
+
+class PipelineSkip(RuntimeError):
+    """Raised when a pipeline intentionally skips a variant and records why."""
+
+    def __init__(self, record: JsonObject) -> None:
+        super().__init__(str(record.get("reason", "skipped")))
+        self.record = record
 
 
 @dataclass(frozen=True)
@@ -322,20 +343,20 @@ class WorkQueue:
                 ON CONFLICT(package, version, variant, schema_version) DO UPDATE SET
                   priority = CASE
                     WHEN work_items.state = 'done'
-                      AND excluded.priority IN (?, ?) THEN excluded.priority
+                      AND excluded.priority IN (?, ?, ?) THEN excluded.priority
                     WHEN work_items.state = 'failed' THEN work_items.priority
                     ELSE min(work_items.priority, excluded.priority)
                   END,
                   state = CASE
                     WHEN work_items.state = 'done'
-                      AND excluded.priority IN (?, ?) THEN 'queued'
+                      AND excluded.priority IN (?, ?, ?) THEN 'queued'
                     WHEN work_items.state = 'failed' THEN work_items.state
                     WHEN work_items.state IN ('done', 'in_progress') THEN work_items.state
                     ELSE 'queued'
                   END,
                   attempts = CASE
                     WHEN work_items.state = 'done'
-                      AND excluded.priority IN (?, ?) THEN 0
+                      AND excluded.priority IN (?, ?, ?) THEN 0
                     ELSE work_items.attempts
                   END,
                   updated_at = excluded.updated_at,
@@ -359,10 +380,13 @@ class WorkQueue:
                     now,
                     PRIORITY_STALE_BASE,
                     PRIORITY_MISSING_OBF,
+                    PRIORITY_MISSING_FLUTTER_VARIANT,
                     PRIORITY_STALE_BASE,
                     PRIORITY_MISSING_OBF,
+                    PRIORITY_MISSING_FLUTTER_VARIANT,
                     PRIORITY_STALE_BASE,
                     PRIORITY_MISSING_OBF,
+                    PRIORITY_MISSING_FLUTTER_VARIANT,
                 ),
             )
 
@@ -589,12 +613,16 @@ class DefaultPipeline:
         *,
         archive_cache_dir: Path | str | None = None,
         obfuscated_work_dir: Path | str | None = None,
+        flutter_variant_work_dir: Path | str | None = None,
+        flutter_cache_dir: Path | str | None = None,
         flutter_executable: str | Path = "flutter",
         rettulf_command: str | Path = "rettulf",
         obfuscated_timeout: float = DEFAULT_BUILD_TIMEOUT_SECONDS,
     ) -> None:
         self.archive_cache_dir = archive_cache_dir
         self.obfuscated_work_dir = obfuscated_work_dir
+        self.flutter_variant_work_dir = flutter_variant_work_dir
+        self.flutter_cache_dir = flutter_cache_dir
         self.flutter_executable = flutter_executable
         self.rettulf_command = rettulf_command
         self.obfuscated_timeout = obfuscated_timeout
@@ -610,6 +638,21 @@ class DefaultPipeline:
                 rettulf_command=self.rettulf_command,
                 timeout=self.obfuscated_timeout,
             )[0]
+        flutter_version = flutter_version_from_variant(item.variant)
+        if flutter_version is not None:
+            try:
+                return collect_flutter_variant_entry(
+                    item.package,
+                    item.version,
+                    flutter_version=flutter_version,
+                    archive_cache_dir=self.archive_cache_dir,
+                    work_dir=self.flutter_variant_work_dir,
+                    flutter_cache_dir=self.flutter_cache_dir,
+                    rettulf_command=self.rettulf_command,
+                    timeout=self.obfuscated_timeout,
+                )
+            except FlutterVariantSkipped as exc:
+                raise PipelineSkip(exc.skip.to_json()) from exc
         if item.variant != BASE_VARIANT:
             raise PipelineError(f"variant pipeline is not implemented: {item.variant}")
         try:
@@ -684,6 +727,29 @@ class AtomicEntryWriter:
         index["generated_at"] = _iso_now()
         _atomic_write_json(index_path, index)
         return index_path
+
+    def write_flutter_variant_skip(self, record: JsonObject) -> Path:
+        skip = FlutterVariantSkip(
+            package=str(record["package"]),
+            version=str(record["version"]),
+            flutter_version=str(record["flutter_version"]),
+            reason=str(record["reason"]),
+            collected_at=str(record.get("collected_at") or _iso_now()),
+        )
+        path = skip_records_path(self.repo_root)
+        upsert_skip_record(path, skip)
+        return path
+
+    def has_flutter_variant_skip(self, item: WorkItem) -> bool:
+        flutter_version = flutter_version_from_variant(item.variant)
+        if flutter_version is None:
+            return False
+        return has_fresh_skip_record(
+            skip_records_path(self.repo_root),
+            item.package,
+            item.version,
+            flutter_version,
+        )
 
 
 class CheckoutLock:
@@ -832,8 +898,8 @@ class GitRepository:
 @dataclass
 class _PendingEntry:
     item: WorkItem
-    entry_path: Path
-    index_path: Path
+    paths: tuple[Path, ...]
+    entry_path: Path | None = None
 
 
 class GitPublisher:
@@ -872,8 +938,21 @@ class GitPublisher:
             self._pending.append(
                 _PendingEntry(
                     item=item,
+                    paths=(
+                        entry_path.relative_to(self.repo_root),
+                        index_path.relative_to(self.repo_root),
+                    ),
                     entry_path=entry_path.relative_to(self.repo_root),
-                    index_path=index_path.relative_to(self.repo_root),
+                )
+            )
+
+    def stage_skip(self, item: WorkItem, record: JsonObject) -> None:
+        with self.checkout_lock:
+            skip_path = self.writer.write_flutter_variant_skip(record)
+            self._pending.append(
+                _PendingEntry(
+                    item=item,
+                    paths=(skip_path.relative_to(self.repo_root),),
                 )
             )
 
@@ -894,7 +973,7 @@ class GitPublisher:
             paths = _unique_paths(
                 path
                 for item in pending
-                for path in (item.entry_path, item.index_path)
+                for path in item.paths
             )
             self._revalidate(pending)
             if self.push and self._all_commit_keys_exist(pending):
@@ -915,7 +994,8 @@ class GitPublisher:
 
     def _revalidate(self, pending: list[_PendingEntry]) -> None:
         for item in pending:
-            self.writer.validator.validate_file(self.repo_root / item.entry_path)
+            if item.entry_path is not None:
+                self.writer.validator.validate_file(self.repo_root / item.entry_path)
 
     def _all_commit_keys_exist(self, pending: list[_PendingEntry]) -> bool:
         has_commit_key = getattr(self.git, "has_commit_key", None)
@@ -930,6 +1010,14 @@ class GitPublisher:
 
         relative_path = entry_relative_path(item)
         with self.checkout_lock:
+            if item.variant.startswith(FLUTTER_VARIANT_PREFIX):
+                flutter_version = flutter_version_from_variant(item.variant)
+                if flutter_version is not None and self.writer.has_flutter_variant_skip(item):
+                    if self.push:
+                        self.git.push_with_rebase_retry(
+                            lambda: self.writer.has_flutter_variant_skip(item)
+                        )
+                    return True
             self.writer.validator.validate_file(self.repo_root / relative_path)
             if self.push:
                 self.git.push_with_rebase_retry(
@@ -1011,8 +1099,12 @@ class CollectorDaemon:
             if item.attempts > 1 and self.publisher.complete_if_committed(item):
                 self.queue.complete(item)
                 return True
-            entry = self.pipeline.collect(item)
-            self.publisher.stage_entry(item, entry)
+            try:
+                entry = self.pipeline.collect(item)
+            except PipelineSkip as exc:
+                self.publisher.stage_skip(item, exc.record)
+            else:
+                self.publisher.stage_entry(item, entry)
             completed = self.publisher.flush(force=force_flush)
         except Exception as exc:
             if item in self.publisher.pending_items:
@@ -1064,9 +1156,15 @@ def discover_work(
     repo_root: Path | str,
     discovery: Discovery,
     packages: list[str] | None = None,
+    flutter_versions: list[str] | None = None,
 ) -> list[WorkItem]:
     root = Path(repo_root)
     index_versions = _index_versions(root / "db" / "_index.json")
+    configured_flutter_versions = (
+        flutter_versions
+        if flutter_versions is not None
+        else load_flutter_versions(root / "db" / "_flutter_versions.json")
+    )
     tracked = (
         packages
         or sorted(index_versions)
@@ -1086,7 +1184,13 @@ def discover_work(
             if not _VERSION_RE.match(version):
                 continue
             items.extend(
-                _work_for_version(root, package, version, existing_versions)
+                _work_for_version(
+                    root,
+                    package,
+                    version,
+                    existing_versions,
+                    configured_flutter_versions,
+                )
             )
     return items
 
@@ -1105,6 +1209,7 @@ def _work_for_version(
     package: str,
     version: str,
     existing_versions: set[str],
+    flutter_versions: list[str],
 ) -> list[WorkItem]:
     path = repo_root / "db" / package / f"{version}.json"
     if version not in existing_versions or not path.is_file():
@@ -1122,6 +1227,22 @@ def _work_for_version(
                 version,
                 OBFUSCATED_VARIANT,
                 PRIORITY_MISSING_OBF,
+            )
+        )
+    skip_path = skip_records_path(repo_root)
+    for flutter_version in flutter_versions:
+        variant = flutter_variant_name(flutter_version)
+        variant_path = repo_root / "db" / package / f"{version}.{variant}.json"
+        if variant_path.is_file() and not _entry_is_stale(variant_path):
+            continue
+        if has_fresh_skip_record(skip_path, package, version, flutter_version):
+            continue
+        items.append(
+            WorkItem(
+                package,
+                version,
+                variant,
+                PRIORITY_MISSING_FLUTTER_VARIANT,
             )
         )
     return items
@@ -1333,6 +1454,8 @@ def build_daemon(args: argparse.Namespace) -> CollectorDaemon:
     pipeline = DefaultPipeline(
         archive_cache_dir=args.archive_cache_dir,
         obfuscated_work_dir=args.obfuscated_work_dir,
+        flutter_variant_work_dir=args.flutter_variant_work_dir,
+        flutter_cache_dir=args.flutter_cache_dir,
         flutter_executable=args.flutter,
         rettulf_command=args.rettulf,
         obfuscated_timeout=args.obfuscated_timeout,
@@ -1372,6 +1495,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--queue-db", type=Path, default=DEFAULT_QUEUE_DB)
     parser.add_argument("--archive-cache-dir", type=Path)
     parser.add_argument("--obfuscated-work-dir", type=Path)
+    parser.add_argument("--flutter-variant-work-dir", type=Path)
+    parser.add_argument("--flutter-cache-dir", type=Path, default=DEFAULT_FLUTTER_CACHE_DIR)
     parser.add_argument("--flutter", default="flutter")
     parser.add_argument("--rettulf", default="rettulf")
     parser.add_argument(
