@@ -1,0 +1,33 @@
+# Single-service collector daemon.
+#
+# Variables come from ./.env (copy ops/env.example -> ops/docker/.env). Run via
+# the systemd unit (ops/systemd/) in production, or directly for a smoke test:
+#   docker compose up --build
+name: rettulf-pubdb
+
+services:
+  collector:
+    build:
+      context: ../..
+      dockerfile: ops/docker/Dockerfile.collector
+    image: rettulf-pubdb-collector:latest
+    env_file:
+      - .env
+    environment:
+      # Keep the large per-version Flutter SDK clones on their own volume.
+      FLUTTER_CACHE_DIR: /var/cache/rettulf-pubdb/flutter
+    ports:
+      # Bind /metrics to loopback only; scrape via a tunnel or reverse proxy.
+      - "127.0.0.1:${COLLECTOR_PORT:-9305}:${COLLECTOR_PORT:-9305}"
+    volumes:
+      # The DB git checkout the daemon writes entries to and pushes from.
+      # Must have origin set to an HTTPS github.com URL (GITHUB_TOKEN supplies auth).
+      - "${REPO_CHECKOUT:-../..}:/app"
+      # pub.dev archive cache + the durable SQLite work queue.
+      - "pubdb-cache:/root/.cache/rettulf-pubdb"
+      # Per-Flutter-version SDK clones (sized separately; see ops/README.md).
+      - "flutter-cache:/var/cache/rettulf-pubdb/flutter"
+
+volumes:
+  pubdb-cache:
+  flutter-cache:

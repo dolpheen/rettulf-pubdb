@@ -1,0 +1,66 @@
+# rettulf-pubdb collector — lean runtime image.
+#
+# Ships Python 3.12 + the Dart SDK, which is everything the base + source
+# fingerprint pipeline and pub.dev discovery need. Per the ops/README.md
+# "Flutter-version & obfuscated variants" section, Flutter SDKs are NOT baked:
+# per-version Flutter clones (large, mutable) and the private `rettulf` CLI are
+# an opt-in, runtime/volume concern, so the image stays well under the 3 GB
+# target.
+#
+# Build context is the repository root:
+#   docker build -f ops/docker/Dockerfile.collector -t rettulf-pubdb-collector .
+FROM ubuntu:24.04
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_BREAK_SYSTEM_PACKAGES=1 \
+    DART_SUPPRESS_ANALYTICS=true \
+    PUB_CACHE=/opt/pub-cache \
+    PATH=/usr/lib/dart/bin:/opt/pub-cache/bin:/usr/local/bin:/usr/bin:/bin
+
+# Runtime tooling + the Dart SDK from Google's apt repo (current stable, >=3.12).
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        apt-transport-https \
+        ca-certificates \
+        curl \
+        git \
+        gnupg \
+        python3 \
+        python3-pip \
+        tini \
+    && curl -fsSL https://dl-ssl.google.com/linux/linux_signing_key.pub \
+        | gpg --dearmor -o /usr/share/keyrings/dart.gpg \
+    && echo "deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main" \
+        > /etc/apt/sources.list.d/dart_stable.list \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends dart \
+    && rm -rf /var/lib/apt/lists/* \
+    && dart --version
+
+# Python dependencies for the collector daemon.
+COPY collector/requirements.txt /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt && rm /tmp/requirements.txt
+
+WORKDIR /app
+
+# Warm the Dart analyzer helper's pub cache from the committed lockfile. PUB_CACHE
+# lives outside /app so it survives the runtime bind-mount of the DB checkout.
+COPY collector/dart_helper/pubspec.yaml collector/dart_helper/pubspec.lock /app/collector/dart_helper/
+RUN cd /app/collector/dart_helper && dart pub get
+
+# Bake the collector code so the image is self-contained for `--once` smoke runs.
+# In production this /app tree is shadowed by the mounted DB git checkout.
+COPY collector /app/collector
+COPY scripts /app/scripts
+COPY schema /app/schema
+COPY db /app/db
+
+COPY ops/docker/collector-entrypoint.sh /usr/local/bin/collector-entrypoint.sh
+RUN chmod +x /usr/local/bin/collector-entrypoint.sh
+
+EXPOSE 9305
+
+# tini reaps the Dart/git subprocesses the daemon spawns and forwards SIGTERM.
+ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/collector-entrypoint.sh"]

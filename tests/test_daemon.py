@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+import argparse
 import json
 import subprocess
 import sys
 import tempfile
+import threading
 import unittest
 import urllib.request
 from datetime import datetime, timezone
@@ -901,6 +903,161 @@ class OnceFlowTests(unittest.TestCase):
             self.assertEqual(publisher.pending_items, [])
             self.assertIsNone(queue.dequeue())
             queue.close()
+
+
+class BarrierPipeline:
+    """Collects only when ``parties`` calls run concurrently; proves overlap."""
+
+    def __init__(self, parties: int) -> None:
+        self.barrier = threading.Barrier(parties, timeout=5.0)
+        self.items: list[daemon.WorkItem] = []
+        self._lock = threading.Lock()
+
+    def collect(self, item: daemon.WorkItem) -> dict[str, object]:
+        # Raises BrokenBarrierError (-> dead-letter) if fewer than ``parties``
+        # collectors run at once, so a serial run would fail the test.
+        self.barrier.wait()
+        with self._lock:
+            self.items.append(item)
+        return _valid_entry(item.package, item.version)
+
+
+class ConcurrentRunTests(unittest.TestCase):
+    def _make_collector(
+        self,
+        repo_root: Path,
+        queue: daemon.WorkQueue,
+        pipeline: object,
+        *,
+        workers: int,
+    ) -> tuple[daemon.CollectorDaemon, FakeGit, daemon.Metrics]:
+        (repo_root / "db").mkdir(exist_ok=True)
+        (repo_root / "db" / "_index.json").write_text(
+            json.dumps(
+                {"pubdb_schema_version": 1, "generated_at": None, "packages": {}}
+            ),
+            encoding="utf-8",
+        )
+        metrics = daemon.Metrics()
+        validator = daemon.EntryValidator(SCHEMA_PATH)
+        writer = daemon.AtomicEntryWriter(repo_root, validator)
+        git = FakeGit()
+        publisher = daemon.GitPublisher(
+            repo_root=repo_root,
+            writer=writer,
+            checkout_lock=daemon.CheckoutLock(repo_root / "checkout.lock"),
+            git=git,
+            metrics=metrics,
+            batch_size=100,
+            push_interval=999.0,
+        )
+        collector = daemon.CollectorDaemon(
+            repo_root=repo_root,
+            queue=queue,
+            pipeline=pipeline,
+            publisher=publisher,
+            metrics=metrics,
+            workers=workers,
+            tick_interval=0.01,
+        )
+        # Stop the loop the first time it goes idle (queue + inflight drained).
+        collector.sleep = lambda _seconds: collector.request_shutdown()
+        return collector, git, metrics
+
+    def test_workers_clamped_to_at_least_one(self) -> None:
+        collector = daemon.CollectorDaemon(
+            repo_root=Path("."),
+            queue=mock.Mock(),
+            pipeline=mock.Mock(),
+            publisher=mock.Mock(),
+            metrics=daemon.Metrics(),
+            workers=0,
+        )
+        self.assertEqual(collector.workers, 1)
+
+    def test_concurrent_run_collects_and_publishes_every_item(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            repo_root = Path(tmp)
+            queue = daemon.WorkQueue(repo_root / "queue.db")
+            for index in range(8):
+                queue.enqueue(daemon.WorkItem("fake_pkg", f"1.0.{index}"))
+            collector, git, metrics = self._make_collector(
+                repo_root, queue, FakePipeline(), workers=4
+            )
+
+            self.assertEqual(collector.run(), 0)
+
+            self.assertEqual(metrics.entries_collected_total, 8)
+            self.assertIsNone(queue.dequeue())
+            self.assertEqual(git.pushes, 1)
+            published = {
+                line.split("pubdb-commit-key: ", 1)[1]
+                for commit in git.commits
+                for line in commit.splitlines()
+                if line.startswith("pubdb-commit-key: ")
+            }
+            self.assertEqual(
+                published,
+                {f"fake_pkg:1.0.{index}:base:schema-v1" for index in range(8)},
+            )
+            for index in range(8):
+                entry_path = repo_root / "db" / "fake_pkg" / f"1.0.{index}.json"
+                self.assertTrue(entry_path.is_file())
+            queue.close()
+
+    def test_collectors_actually_run_in_parallel(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            repo_root = Path(tmp)
+            queue = daemon.WorkQueue(repo_root / "queue.db")
+            for index in range(3):
+                queue.enqueue(daemon.WorkItem("fake_pkg", f"2.0.{index}"))
+            pipeline = BarrierPipeline(parties=3)
+            collector, _git, metrics = self._make_collector(
+                repo_root, queue, pipeline, workers=3
+            )
+
+            self.assertEqual(collector.run(), 0)
+
+            # All three only complete if they reached the barrier together.
+            self.assertEqual(metrics.entries_collected_total, 3)
+            self.assertEqual(len(pipeline.items), 3)
+            self.assertIsNone(queue.dequeue())
+            queue.close()
+
+
+class BuildDaemonTests(unittest.TestCase):
+    def test_build_daemon_threads_workers_and_pubdev_timeout(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            args = argparse.Namespace(
+                repo_root=REPO_ROOT,
+                cache_root=Path(tmp),
+                queue_db=Path(tmp) / "queue.db",
+                archive_cache_dir=None,
+                obfuscated_work_dir=None,
+                flutter_variant_work_dir=None,
+                flutter_cache_dir=None,
+                flutter="flutter",
+                rettulf="rettulf",
+                obfuscated_timeout=1.0,
+                pubdev_timeout=12.5,
+                lock_path=None,
+                batch_size=10,
+                push_interval=300.0,
+                tick_interval=60.0,
+                discover_interval=3600.0,
+                workers=3,
+                packages=None,
+                no_push=True,
+            )
+            built = daemon.build_daemon(args)
+            try:
+                self.assertEqual(built.workers, 3)
+                self.assertEqual(built.pipeline.pubdev_timeout, 12.5)
+            finally:
+                built.queue.close()
+                close = getattr(built.discovery, "close", None)
+                if callable(close):
+                    close()
 
 
 class GitRepositoryTests(unittest.TestCase):

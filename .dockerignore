@@ -1,0 +1,24 @@
+# Keep the collector build context small and reproducible.
+.git
+.github
+.claude
+.venv
+venv
+**/__pycache__
+*.py[cod]
+.pytest_cache
+.mypy_cache
+.ruff_cache
+
+# Dart / Flutter build artefacts (helper deps are restored in the image).
+**/.dart_tool
+**/build
+
+# Collector working data / archives — never ship these in the image.
+.cache
+collector/_work
+*.tar.gz
+
+# Docs / OS noise not needed at runtime.
+*.md
+.DS_Store

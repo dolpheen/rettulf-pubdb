@@ -77,3 +77,43 @@ jobs:
           )
           test "${#entries[@]}" -eq 1
           python scripts/validate.py "${entries[0]}"
+
+  docker-smoke:
+    name: Build collector image + --once smoke
+    runs-on: ubuntu-latest
+    # Builds the image (apt/Dart over the network) and hits real pub.dev, so
+    # it only runs when the org/repo opts in via the RUN_NETWORK_TESTS variable.
+    if: ${{ vars.RUN_NETWORK_TESTS == '1' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build collector image
+        run: docker build -f ops/docker/Dockerfile.collector -t rettulf-pubdb-collector:ci .
+
+      - name: Report image size (target < 3 GB)
+        run: docker image ls rettulf-pubdb-collector:ci
+
+      - name: Run --once against pub.dev (no push) and assert a valid entry
+        run: |
+          set -euo pipefail
+          before="$(git rev-list --count HEAD)"
+          docker run --rm \
+            -e NO_PUSH=1 \
+            -e REPO_ROOT=/app \
+            -v "$PWD:/app" \
+            rettulf-pubdb-collector:ci \
+            --once --no-metrics --packages provider
+          after="$(git rev-list --count HEAD)"
+          test "$after" -eq "$((before + 1))"
+
+          mapfile -t entries < <(
+            git diff-tree --no-commit-id --name-only -r HEAD \
+              | grep '^db/provider/.*\.json$'
+          )
+          test "${#entries[@]}" -eq 1
+          pip install -r scripts/requirements.txt
+          python scripts/validate.py "${entries[0]}"
