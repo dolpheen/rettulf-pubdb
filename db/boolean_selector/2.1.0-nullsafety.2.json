@@ -1,0 +1,474 @@
+{
+  "api_surface": {
+    "classes": {
+      "All": {
+        "fields": [
+          "variables"
+        ],
+        "libraries": [
+          "package:boolean_selector/src/all.dart"
+        ],
+        "methods": [
+          "All",
+          "evaluate",
+          "intersection",
+          "toString",
+          "union",
+          "validate"
+        ],
+        "types": [
+          "BooleanSelector"
+        ]
+      },
+      "AndNode": {
+        "fields": [
+          "get:hashCode",
+          "get:span",
+          "get:variables",
+          "left",
+          "right"
+        ],
+        "libraries": [
+          "package:boolean_selector/src/ast.dart"
+        ],
+        "methods": [
+          "==",
+          "AndNode",
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Node",
+          "Visitor"
+        ]
+      },
+      "BooleanSelector": {
+        "fields": [
+          "all",
+          "get:variables",
+          "none"
+        ],
+        "libraries": [
+          "package:boolean_selector/boolean_selector.dart"
+        ],
+        "methods": [
+          "evaluate",
+          "intersection",
+          "parse",
+          "union",
+          "validate"
+        ],
+        "types": [
+          "BooleanSelector"
+        ]
+      },
+      "BooleanSelectorImpl": {
+        "fields": [
+          "get:hashCode",
+          "get:variables"
+        ],
+        "libraries": [
+          "package:boolean_selector/src/impl.dart"
+        ],
+        "methods": [
+          "==",
+          "evaluate",
+          "intersection",
+          "parse",
+          "toString",
+          "union",
+          "validate"
+        ],
+        "types": [
+          "BooleanSelector",
+          "Node"
+        ]
+      },
+      "ConditionalNode": {
+        "fields": [
+          "condition",
+          "get:hashCode",
+          "get:span",
+          "get:variables",
+          "whenFalse",
+          "whenTrue"
+        ],
+        "libraries": [
+          "package:boolean_selector/src/ast.dart"
+        ],
+        "methods": [
+          "==",
+          "ConditionalNode",
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Node",
+          "Visitor"
+        ]
+      },
+      "Evaluator": {
+        "fields": [],
+        "libraries": [
+          "package:boolean_selector/src/evaluator.dart"
+        ],
+        "methods": [
+          "Evaluator",
+          "visitAnd",
+          "visitConditional",
+          "visitNot",
+          "visitOr",
+          "visitVariable"
+        ],
+        "types": [
+          "AndNode",
+          "ConditionalNode",
+          "NotNode",
+          "OrNode",
+          "VariableNode",
+          "Visitor"
+        ]
+      },
+      "IdentifierToken": {
+        "fields": [
+          "name",
+          "span",
+          "type"
+        ],
+        "libraries": [
+          "package:boolean_selector/src/token.dart"
+        ],
+        "methods": [
+          "IdentifierToken",
+          "toString"
+        ],
+        "types": [
+          "Token"
+        ]
+      },
+      "IntersectionSelector": {
+        "fields": [
+          "get:hashCode",
+          "get:variables"
+        ],
+        "libraries": [
+          "package:boolean_selector/src/intersection_selector.dart"
+        ],
+        "methods": [
+          "==",
+          "IntersectionSelector",
+          "evaluate",
+          "intersection",
+          "toString",
+          "union",
+          "validate"
+        ],
+        "types": [
+          "BooleanSelector"
+        ]
+      },
+      "Node": {
+        "fields": [
+          "get:span",
+          "get:variables"
+        ],
+        "libraries": [
+          "package:boolean_selector/src/ast.dart"
+        ],
+        "methods": [
+          "accept"
+        ],
+        "types": [
+          "Visitor"
+        ]
+      },
+      "None": {
+        "fields": [
+          "variables"
+        ],
+        "libraries": [
+          "package:boolean_selector/src/none.dart"
+        ],
+        "methods": [
+          "None",
+          "evaluate",
+          "intersection",
+          "toString",
+          "union",
+          "validate"
+        ],
+        "types": [
+          "BooleanSelector"
+        ]
+      },
+      "NotNode": {
+        "fields": [
+          "child",
+          "get:hashCode",
+          "get:variables",
+          "span"
+        ],
+        "libraries": [
+          "package:boolean_selector/src/ast.dart"
+        ],
+        "methods": [
+          "==",
+          "NotNode",
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Node",
+          "Visitor"
+        ]
+      },
+      "OrNode": {
+        "fields": [
+          "get:hashCode",
+          "get:span",
+          "get:variables",
+          "left",
+          "right"
+        ],
+        "libraries": [
+          "package:boolean_selector/src/ast.dart"
+        ],
+        "methods": [
+          "==",
+          "OrNode",
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Node",
+          "Visitor"
+        ]
+      },
+      "Parser": {
+        "fields": [],
+        "libraries": [
+          "package:boolean_selector/src/parser.dart"
+        ],
+        "methods": [
+          "Parser",
+          "parse"
+        ],
+        "types": [
+          "Node",
+          "Scanner"
+        ]
+      },
+      "RecursiveVisitor": {
+        "fields": [],
+        "libraries": [
+          "package:boolean_selector/src/visitor.dart"
+        ],
+        "methods": [
+          "RecursiveVisitor",
+          "visitAnd",
+          "visitConditional",
+          "visitNot",
+          "visitOr",
+          "visitVariable"
+        ],
+        "types": [
+          "AndNode",
+          "ConditionalNode",
+          "NotNode",
+          "OrNode",
+          "VariableNode",
+          "Visitor"
+        ]
+      },
+      "Scanner": {
+        "fields": [],
+        "libraries": [
+          "package:boolean_selector/src/scanner.dart"
+        ],
+        "methods": [
+          "Scanner",
+          "next",
+          "peek",
+          "scan"
+        ],
+        "types": [
+          "Token",
+          "TokenType"
+        ]
+      },
+      "Token": {
+        "fields": [
+          "span",
+          "type"
+        ],
+        "libraries": [
+          "package:boolean_selector/src/token.dart"
+        ],
+        "methods": [
+          "Token"
+        ],
+        "types": [
+          "TokenType"
+        ]
+      },
+      "TokenType": {
+        "fields": [
+          "and",
+          "colon",
+          "endOfFile",
+          "identifier",
+          "leftParen",
+          "name",
+          "not",
+          "or",
+          "questionMark",
+          "rightParen"
+        ],
+        "libraries": [
+          "package:boolean_selector/src/token.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "UnionSelector": {
+        "fields": [
+          "get:hashCode",
+          "get:variables"
+        ],
+        "libraries": [
+          "package:boolean_selector/src/union_selector.dart"
+        ],
+        "methods": [
+          "==",
+          "UnionSelector",
+          "evaluate",
+          "intersection",
+          "toString",
+          "union",
+          "validate"
+        ],
+        "types": [
+          "BooleanSelector"
+        ]
+      },
+      "Validator": {
+        "fields": [],
+        "libraries": [
+          "package:boolean_selector/src/validator.dart"
+        ],
+        "methods": [
+          "Validator",
+          "visitVariable"
+        ],
+        "types": [
+          "RecursiveVisitor",
+          "VariableNode"
+        ]
+      },
+      "VariableNode": {
+        "fields": [
+          "get:hashCode",
+          "get:variables",
+          "name",
+          "span"
+        ],
+        "libraries": [
+          "package:boolean_selector/src/ast.dart"
+        ],
+        "methods": [
+          "==",
+          "VariableNode",
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Node",
+          "Visitor"
+        ]
+      },
+      "Visitor": {
+        "fields": [],
+        "libraries": [
+          "package:boolean_selector/src/visitor.dart"
+        ],
+        "methods": [
+          "visitAnd",
+          "visitConditional",
+          "visitNot",
+          "visitOr",
+          "visitVariable"
+        ],
+        "types": [
+          "AndNode",
+          "ConditionalNode",
+          "NotNode",
+          "OrNode",
+          "VariableNode"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-10T19:47:19Z",
+  "package": "boolean_selector",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "All",
+      "None",
+      "RecursiveVisitor",
+      "TokenType"
+    ],
+    "digest": "d39eb3b05e56937e78728efe6ee3150abe0b5722a2b755b4b3f0ad5e4d698421",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "4bf12cbd9897c71874fc5e818d2549fe015069cb7d63efefec1b3c2fda3657e3",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "&&",
+      "([ \\t\\n]+|//[^\\n]*(\\n|$))+",
+      "([^/*]|/[^*]|\\*[^/])+",
+      "*/",
+      "../boolean_selector.dart",
+      "/*",
+      "<all>",
+      "<none>",
+      "Expected \")\".",
+      "Expected \":\".",
+      "Expected end of input.",
+      "Expected expression.",
+      "No more tokens.",
+      "Undefined variable.",
+      "[a-zA-Z_-][a-zA-Z0-9_-]*",
+      "and",
+      "ast.dart",
+      "colon",
+      "end of file",
+      "evaluator.dart",
+      "expression",
+      "identifier",
+      "intersection_selector.dart",
+      "left paren",
+      "not",
+      "or",
+      "package:source_span/source_span.dart",
+      "package:string_scanner/string_scanner.dart",
+      "parser.dart",
+      "question mark",
+      "right paren",
+      "scanner.dart",
+      "src/all.dart",
+      "src/impl.dart",
+      "src/none.dart",
+      "token.dart",
+      "union_selector.dart",
+      "validator.dart",
+      "visitor.dart",
+      "||"
+    ]
+  },
+  "version": "2.1.0-nullsafety.2"
+}
