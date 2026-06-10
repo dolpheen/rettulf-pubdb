@@ -1,0 +1,191 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:bloc/bloc.dart",
+          "package:bloc/src/bloc.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Emitter"
+        ]
+      },
+      "Bloc": {
+        "fields": [],
+        "libraries": [
+          "package:bloc/bloc.dart",
+          "package:bloc/src/bloc.dart"
+        ],
+        "methods": [
+          "Bloc",
+          "add",
+          "close",
+          "emit",
+          "on",
+          "onEvent",
+          "onTransition"
+        ],
+        "types": [
+          "BlocBase",
+          "Transition"
+        ]
+      },
+      "BlocBase": {
+        "fields": [
+          "get:isClosed",
+          "get:state",
+          "get:stream"
+        ],
+        "libraries": [
+          "package:bloc/bloc.dart",
+          "package:bloc/src/bloc.dart"
+        ],
+        "methods": [
+          "BlocBase",
+          "addError",
+          "close",
+          "emit",
+          "onChange",
+          "onError"
+        ],
+        "types": [
+          "Change"
+        ]
+      },
+      "BlocObserver": {
+        "fields": [],
+        "libraries": [
+          "package:bloc/bloc.dart",
+          "package:bloc/src/bloc_observer.dart"
+        ],
+        "methods": [
+          "onChange",
+          "onClose",
+          "onCreate",
+          "onError",
+          "onEvent",
+          "onTransition"
+        ],
+        "types": [
+          "Bloc",
+          "BlocBase",
+          "Change",
+          "Transition"
+        ]
+      },
+      "BlocOverrides": {
+        "fields": [
+          "get:blocObserver",
+          "get:current",
+          "get:eventTransformer"
+        ],
+        "libraries": [
+          "package:bloc/bloc.dart",
+          "package:bloc/src/bloc.dart"
+        ],
+        "methods": [
+          "runZoned"
+        ],
+        "types": [
+          "BlocObserver",
+          "BlocOverrides"
+        ]
+      },
+      "Change": {
+        "fields": [
+          "currentState",
+          "get:hashCode",
+          "nextState"
+        ],
+        "libraries": [
+          "package:bloc/bloc.dart",
+          "package:bloc/src/transition.dart"
+        ],
+        "methods": [
+          "==",
+          "Change",
+          "toString"
+        ],
+        "types": []
+      },
+      "Cubit": {
+        "fields": [],
+        "libraries": [
+          "package:bloc/bloc.dart",
+          "package:bloc/src/bloc.dart"
+        ],
+        "methods": [
+          "Cubit"
+        ],
+        "types": [
+          "BlocBase"
+        ]
+      },
+      "Emitter": {
+        "fields": [
+          "get:isDone"
+        ],
+        "libraries": [
+          "package:bloc/bloc.dart",
+          "package:bloc/src/bloc.dart"
+        ],
+        "methods": [
+          "call",
+          "forEach",
+          "onEach"
+        ],
+        "types": []
+      },
+      "Transition": {
+        "fields": [
+          "event",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:bloc/bloc.dart",
+          "package:bloc/src/transition.dart"
+        ],
+        "methods": [
+          "==",
+          "Transition",
+          "toString"
+        ],
+        "types": [
+          "Change"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-10T19:47:04Z",
+  "package": "bloc",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "Change",
+      "Transition",
+      "_FlatMapStreamTransformer",
+      "_Handler"
+    ],
+    "digest": "f7cae4c3bc92ca38652fa21079e6cd1b78c404d9e9dbf7c0ddabfddc2f6a5b32",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "72732f58e963fd3a13f866513af47f5b8c2065a13254fccd79fcca7841ec4fdd",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "\n\n\nAn event handler completed but left pending subscriptions behind.\nThis is most likely due to an unawaited emit.forEach or emit.onEach. \nPlease make sure to await all asynchronous operations within event handlers.\n\n  **BAD**\n  on<Event>((event, emit) {\n    emit.forEach(...);\n  });  \n  \n  **GOOD**\n  on<Event>((event, emit) async {\n    await emit.forEach(...);\n  });\n\n  **GOOD**\n  on<Event>((event, emit) {\n    return emit.forEach(...);\n  });\n\n  **GOOD**\n  on<Event>((event, emit) => emit.forEach(...));\n\n",
+      "\n\n\nemit was called after an event handler completed normally.\nThis is usually due to an unawaited future in an event handler.\nPlease make sure to await all asynchronous operations with event handlers\nand use emit.isDone after asynchronous operations before calling emit() to\nensure the event handler has not completed.\n\n  **BAD**\n  on<Event>((event, emit) {\n    future.whenComplete(() => emit(...));\n  });\n\n  **GOOD**\n  on<Event>((event, emit) async {\n    await future.whenComplete(() => emit(...));\n  });\n",
+      "./src/bloc.dart",
+      "./src/bloc_observer.dart",
+      "./src/transition.dart",
+      "Cannot emit new states after calling close",
+      "dart:async",
+      "package:bloc/bloc.dart",
+      "package:meta/meta.dart"
+    ]
+  },
+  "version": "8.0.0-dev.5"
+}
