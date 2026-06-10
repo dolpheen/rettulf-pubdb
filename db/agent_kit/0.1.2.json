@@ -1,0 +1,693 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/models/agent_event.dart",
+          "package:agent_kit/src/widgets/tool/tool_renderer.dart"
+        ],
+        "methods": [],
+        "types": [
+          "AgentEvent",
+          "ToolCall"
+        ]
+      },
+      "AgentEvent": {
+        "fields": [],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/models/agent_event.dart"
+        ],
+        "methods": [
+          "AgentEvent",
+          "fromJson",
+          "toJson"
+        ],
+        "types": []
+      },
+      "AgentEventBuilder": {
+        "fields": [
+          "builder",
+          "maxEvents",
+          "stream"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/composition/agent_event_builder.dart"
+        ],
+        "methods": [
+          "AgentEventBuilder",
+          "createState"
+        ],
+        "types": [
+          "AgentEvent",
+          "AgentEventBuilder"
+        ]
+      },
+      "AgentKitDensity": {
+        "fields": [
+          "comfortable",
+          "compact"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/theme/agent_kit_theme.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "AgentKitStateColors": {
+        "fields": [
+          "cancelled",
+          "failed",
+          "pending",
+          "running",
+          "success"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/theme/agent_kit_theme.dart"
+        ],
+        "methods": [
+          "AgentKitStateColors"
+        ],
+        "types": []
+      },
+      "AgentKitTheme": {
+        "fields": [
+          "accent",
+          "background",
+          "border",
+          "density",
+          "foreground",
+          "get:cardPadding",
+          "get:gap",
+          "monoFontFamily",
+          "mutedForeground",
+          "radius",
+          "states",
+          "surface"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/theme/agent_kit_theme.dart"
+        ],
+        "methods": [
+          "AgentKitTheme",
+          "dark",
+          "fromColorScheme",
+          "light"
+        ],
+        "types": [
+          "AgentKitDensity",
+          "AgentKitStateColors"
+        ]
+      },
+      "AgentKitThemeScope": {
+        "fields": [
+          "theme"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/theme/agent_kit_theme.dart"
+        ],
+        "methods": [
+          "AgentKitThemeScope",
+          "of",
+          "updateShouldNotify"
+        ],
+        "types": [
+          "AgentKitTheme",
+          "AgentKitThemeScope"
+        ]
+      },
+      "AgentTimeline": {
+        "fields": [
+          "events",
+          "theme"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/widgets/plan/agent_timeline.dart"
+        ],
+        "methods": [
+          "AgentTimeline",
+          "build"
+        ],
+        "types": [
+          "AgentEvent",
+          "AgentKitTheme"
+        ]
+      },
+      "AgentView": {
+        "fields": [
+          "errorBuilder",
+          "maxEvents",
+          "placeholder",
+          "stream",
+          "theme"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/composition/agent_view.dart"
+        ],
+        "methods": [
+          "AgentView",
+          "createState"
+        ],
+        "types": [
+          "AgentKitTheme",
+          "AgentView"
+        ]
+      },
+      "Citation": {
+        "fields": [
+          "get:hashCode",
+          "snippet",
+          "sourceId",
+          "title",
+          "url"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/models/citation.dart"
+        ],
+        "methods": [
+          "==",
+          "Citation",
+          "copyWith",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Citation"
+        ]
+      },
+      "CitationCard": {
+        "fields": [
+          "citation",
+          "index",
+          "onTap",
+          "showFavicon",
+          "theme"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/widgets/citation/citation_card.dart"
+        ],
+        "methods": [
+          "CitationCard",
+          "build"
+        ],
+        "types": [
+          "AgentKitTheme",
+          "Citation"
+        ]
+      },
+      "CitationChip": {
+        "fields": [
+          "citation",
+          "index",
+          "onTap",
+          "theme"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/widgets/citation/citation_chip.dart"
+        ],
+        "methods": [
+          "CitationChip",
+          "build"
+        ],
+        "types": [
+          "AgentKitTheme",
+          "Citation"
+        ]
+      },
+      "CitationEvent": {
+        "fields": [
+          "citations",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/models/agent_event.dart"
+        ],
+        "methods": [
+          "==",
+          "CitationEvent",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "AgentEvent",
+          "Citation"
+        ]
+      },
+      "CitationList": {
+        "fields": [
+          "citations",
+          "onTap",
+          "theme"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/widgets/citation/citation_list.dart"
+        ],
+        "methods": [
+          "CitationList",
+          "build"
+        ],
+        "types": [
+          "AgentKitTheme",
+          "Citation"
+        ]
+      },
+      "PlanEvent": {
+        "fields": [
+          "get:hashCode",
+          "steps"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/models/agent_event.dart"
+        ],
+        "methods": [
+          "==",
+          "PlanEvent",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "AgentEvent",
+          "PlanStep"
+        ]
+      },
+      "PlanProgress": {
+        "fields": [
+          "onCancel",
+          "steps",
+          "theme"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/widgets/plan/plan_progress.dart"
+        ],
+        "methods": [
+          "PlanProgress",
+          "build"
+        ],
+        "types": [
+          "AgentKitTheme",
+          "PlanStep"
+        ]
+      },
+      "PlanStep": {
+        "fields": [
+          "children",
+          "get:hashCode",
+          "id",
+          "label",
+          "state"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/models/plan_step.dart"
+        ],
+        "methods": [
+          "==",
+          "PlanStep",
+          "copyWith",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "PlanStep",
+          "PlanStepState"
+        ]
+      },
+      "PlanStepState": {
+        "fields": [
+          "done",
+          "failed",
+          "get:isTerminal",
+          "pending",
+          "running",
+          "skipped"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/models/plan_step.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ReasoningTrace": {
+        "fields": [
+          "collapsedByDefault",
+          "label",
+          "steps",
+          "theme"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/widgets/thinking/reasoning_trace.dart"
+        ],
+        "methods": [
+          "ReasoningTrace",
+          "createState"
+        ],
+        "types": [
+          "AgentKitTheme",
+          "ReasoningTrace",
+          "ThinkingStep"
+        ]
+      },
+      "ThinkingBubble": {
+        "fields": [
+          "collapsedByDefault",
+          "label",
+          "step",
+          "theme"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/widgets/thinking/thinking_bubble.dart"
+        ],
+        "methods": [
+          "ThinkingBubble",
+          "createState"
+        ],
+        "types": [
+          "AgentKitTheme",
+          "ThinkingBubble",
+          "ThinkingStep"
+        ]
+      },
+      "ThinkingEvent": {
+        "fields": [
+          "get:hashCode",
+          "step"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/models/agent_event.dart"
+        ],
+        "methods": [
+          "==",
+          "ThinkingEvent",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "AgentEvent",
+          "ThinkingStep"
+        ]
+      },
+      "ThinkingStep": {
+        "fields": [
+          "get:hashCode",
+          "isStreaming",
+          "text"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/models/thinking_step.dart"
+        ],
+        "methods": [
+          "==",
+          "ThinkingStep",
+          "copyWith",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ThinkingStep"
+        ]
+      },
+      "ToolCall": {
+        "fields": [
+          "args",
+          "durationMs",
+          "error",
+          "get:hashCode",
+          "id",
+          "name",
+          "result",
+          "state"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/models/tool_call.dart"
+        ],
+        "methods": [
+          "==",
+          "ToolCall",
+          "copyWith",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ToolCall",
+          "ToolCallState"
+        ]
+      },
+      "ToolCallCard": {
+        "fields": [
+          "call",
+          "compact",
+          "initiallyExpanded",
+          "onRetry",
+          "theme"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/widgets/tool/tool_call_card.dart"
+        ],
+        "methods": [
+          "ToolCallCard",
+          "createState"
+        ],
+        "types": [
+          "AgentKitTheme",
+          "ToolCall",
+          "ToolCallCard"
+        ]
+      },
+      "ToolCallEvent": {
+        "fields": [
+          "call",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/models/agent_event.dart"
+        ],
+        "methods": [
+          "==",
+          "ToolCallEvent",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "AgentEvent",
+          "ToolCall"
+        ]
+      },
+      "ToolCallFeed": {
+        "fields": [
+          "calls",
+          "compact",
+          "onRetry",
+          "theme"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/widgets/tool/tool_call_feed.dart"
+        ],
+        "methods": [
+          "ToolCallFeed",
+          "build"
+        ],
+        "types": [
+          "AgentKitTheme",
+          "ToolCall"
+        ]
+      },
+      "ToolCallState": {
+        "fields": [
+          "cancelled",
+          "failed",
+          "get:isTerminal",
+          "pending",
+          "running",
+          "success"
+        ],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/models/tool_call.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ToolRenderer": {
+        "fields": [],
+        "libraries": [
+          "package:agent_kit/agent_kit.dart",
+          "package:agent_kit/src/widgets/tool/tool_renderer.dart"
+        ],
+        "methods": [
+          "clear",
+          "register",
+          "rendererFor",
+          "unregister"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-10T19:27:09Z",
+  "package": "agent_kit",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AgentEvent",
+      "AgentEventBuilder",
+      "AgentKitStateColors",
+      "AgentKitTheme",
+      "AgentKitThemeScope",
+      "AgentTimeline",
+      "AgentView",
+      "Citation",
+      "CitationCard",
+      "CitationChip",
+      "CitationEvent",
+      "CitationList",
+      "PlanEvent",
+      "PlanProgress",
+      "PlanStep",
+      "ReasoningTrace",
+      "ThinkingBubble",
+      "ThinkingEvent",
+      "ThinkingStep",
+      "ToolCall",
+      "ToolCallCard",
+      "ToolCallEvent",
+      "ToolCallFeed",
+      "_Badge",
+      "_Body",
+      "_Favicon",
+      "_Header",
+      "_JsonBlock",
+      "_LabeledBlock",
+      "_PulsingDot",
+      "_ResultPreview",
+      "_StateIcon",
+      "_StepRow",
+      "_TraceLine"
+    ],
+    "digest": "3b9074734bc5775bbdf02afc55d5afe20f633207c9f84eaef491506d27398d42",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "1703b42a88b5b5c775c10332a3c9437bcd2cca3946df73890069006dc2a3eed7",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "  ",
+      "../../models/agent_event.dart",
+      "../../models/citation.dart",
+      "../../models/plan_step.dart",
+      "../../models/thinking_step.dart",
+      "../../models/tool_call.dart",
+      "../../theme/agent_kit_theme.dart",
+      "../citation/citation_list.dart",
+      "../models/agent_event.dart",
+      "../theme/agent_kit_theme.dart",
+      "../thinking/thinking_bubble.dart",
+      "../tool/tool_call_card.dart",
+      "../widgets/plan/agent_timeline.dart",
+      ".gif",
+      ".jpeg",
+      ".jpg",
+      ".png",
+      ".webp",
+      "Cancel",
+      "Retry",
+      "Show reasoning",
+      "Thinking",
+      "args",
+      "arguments",
+      "cancelled",
+      "children",
+      "citation.dart",
+      "citation_card.dart",
+      "citations",
+      "dart:async",
+      "dart:convert",
+      "data",
+      "done",
+      "duration_ms",
+      "error",
+      "failed",
+      "http",
+      "id",
+      "is_streaming",
+      "label",
+      "monospace",
+      "name",
+      "package:flutter/material.dart",
+      "package:flutter/widgets.dart",
+      "package:url_launcher/url_launcher.dart",
+      "plan",
+      "plan_progress.dart",
+      "plan_step.dart",
+      "queued",
+      "result",
+      "running…",
+      "s",
+      "snippet",
+      "source_id",
+      "src/composition/agent_event_builder.dart",
+      "src/composition/agent_view.dart",
+      "src/models/agent_event.dart",
+      "src/models/citation.dart",
+      "src/models/plan_step.dart",
+      "src/models/thinking_step.dart",
+      "src/models/tool_call.dart",
+      "src/theme/agent_kit_theme.dart",
+      "src/widgets/citation/citation_card.dart",
+      "src/widgets/citation/citation_chip.dart",
+      "src/widgets/citation/citation_list.dart",
+      "src/widgets/plan/agent_timeline.dart",
+      "src/widgets/plan/plan_progress.dart",
+      "src/widgets/thinking/reasoning_trace.dart",
+      "src/widgets/thinking/thinking_bubble.dart",
+      "src/widgets/tool/tool_call_card.dart",
+      "src/widgets/tool/tool_call_feed.dart",
+      "src/widgets/tool/tool_renderer.dart",
+      "state",
+      "text",
+      "thinking",
+      "thinking_step.dart",
+      "timeline-cite",
+      "timeline-plan",
+      "timeline-think",
+      "title",
+      "tool_call",
+      "tool_call.dart",
+      "tool_call_card.dart",
+      "tool_renderer.dart",
+      "type",
+      "url"
+    ]
+  },
+  "version": "0.1.2"
+}
