@@ -1162,6 +1162,7 @@ class CollectorDaemon:
         tick_interval: float = DEFAULT_TICK_INTERVAL_SECONDS,
         discover_interval: float = DEFAULT_DISCOVER_INTERVAL_SECONDS,
         workers: int = DEFAULT_WORKERS,
+        base_only: bool = False,
         sleep: Callable[[float], None] = time.sleep,
     ) -> None:
         self.repo_root = Path(repo_root).resolve()
@@ -1174,6 +1175,7 @@ class CollectorDaemon:
         self.tick_interval = tick_interval
         self.discover_interval = discover_interval
         self.workers = max(1, workers)
+        self.base_only = base_only
         self.sleep = sleep
         self.shutdown = threading.Event()
         self._last_discovery = 0.0
@@ -1370,7 +1372,12 @@ class CollectorDaemon:
         if not force and now - self._last_discovery < self.discover_interval:
             return 0
         self._last_discovery = now
-        items = discover_work(self.repo_root, self.discovery, self.packages)
+        items = discover_work(
+            self.repo_root,
+            self.discovery,
+            self.packages,
+            base_only=self.base_only,
+        )
         return self.queue.enqueue_many(items)
 
 
@@ -1379,6 +1386,8 @@ def discover_work(
     discovery: Discovery,
     packages: list[str] | None = None,
     flutter_versions: list[str] | None = None,
+    *,
+    base_only: bool = False,
 ) -> list[WorkItem]:
     root = Path(repo_root)
     index_versions = _index_versions(root / "db" / "_index.json")
@@ -1387,11 +1396,14 @@ def discover_work(
         if flutter_versions is not None
         else load_flutter_versions(root / "db" / "_flutter_versions.json")
     )
-    tracked = (
-        packages
-        or sorted(index_versions)
-        or _top1000_packages(root / "db" / "_top1000.json")
-    )
+    if packages:
+        tracked = packages
+    else:
+        # Track the worklist *and* everything already collected, so new
+        # worklist packages get picked up even once the index is non-empty.
+        tracked = sorted(
+            set(index_versions) | set(_top1000_packages(root / "db" / "_top1000.json"))
+        )
     items: list[WorkItem] = []
     for package in tracked:
         if not _PACKAGE_RE.match(package):
@@ -1412,6 +1424,7 @@ def discover_work(
                     version,
                     existing_versions,
                     configured_flutter_versions,
+                    base_only=base_only,
                 )
             )
     return items
@@ -1432,6 +1445,8 @@ def _work_for_version(
     version: str,
     existing_versions: set[str],
     flutter_versions: list[str],
+    *,
+    base_only: bool = False,
 ) -> list[WorkItem]:
     path = repo_root / "db" / package / f"{version}.json"
     if version not in existing_versions or not path.is_file():
@@ -1439,6 +1454,8 @@ def _work_for_version(
     items: list[WorkItem] = []
     if _entry_is_stale(path):
         items.append(WorkItem(package, version, BASE_VARIANT, PRIORITY_STALE_BASE))
+    if base_only:
+        return items
     obfuscated_path = (
         repo_root / "db" / package / f"{version}.{OBFUSCATED_VARIANT}.json"
     )
@@ -1767,6 +1784,7 @@ def build_daemon(args: argparse.Namespace) -> CollectorDaemon:
         tick_interval=args.tick_interval,
         discover_interval=args.discover_interval,
         workers=args.workers,
+        base_only=args.base_only,
     )
 
 
@@ -1800,6 +1818,11 @@ def main(argv: list[str] | None = None) -> int:
         type=float,
         default=DEFAULT_PUBDEV_TIMEOUT_SECONDS,
         help="per-request timeout (seconds) for pub.dev discovery and base archive fetches",
+    )
+    parser.add_argument(
+        "--base-only",
+        action="store_true",
+        help="only collect base entries; skip obfuscated + Flutter-version variants",
     )
     parser.add_argument("--batch-size", type=int, default=DEFAULT_BATCH_SIZE)
     parser.add_argument("--push-interval", type=float, default=DEFAULT_PUSH_INTERVAL_SECONDS)

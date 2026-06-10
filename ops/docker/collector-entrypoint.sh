@@ -32,5 +32,6 @@ args=(
 [ -n "${PACKAGES:-}" ] && args+=( --packages ${PACKAGES} )
 [ "${NO_PUSH:-0}" = "1" ] && args+=( --no-push )
 [ "${DASHBOARD:-1}" = "0" ] && args+=( --no-dashboard )
+[ "${BASE_ONLY:-0}" = "1" ] && args+=( --base-only )
 
 exec python3 -m collector.daemon "${args[@]}" "$@"

@@ -551,6 +551,70 @@ class DiscoveryTests(unittest.TestCase):
             items,
         )
 
+    def test_discover_work_unions_worklist_with_nonempty_index(self) -> None:
+        class Discovery:
+            def versions(self, package: str) -> list[str]:
+                return ["1.0.0"]
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            entry_path = root / "db" / "fake_pkg" / "1.0.0.json"
+            entry_path.parent.mkdir(parents=True)
+            entry = _valid_entry("fake_pkg", "1.0.0")
+            entry["collected_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+            entry_path.write_text(json.dumps(entry), encoding="utf-8")
+            (root / "db" / "_index.json").write_text(
+                json.dumps(
+                    {"pubdb_schema_version": 1, "generated_at": None, "packages": {"fake_pkg": ["1.0.0"]}}
+                ),
+                encoding="utf-8",
+            )
+            # new_pkg is only in the worklist, not the (non-empty) index.
+            (root / "db" / "_top1000.json").write_text(
+                json.dumps({"packages": ["fake_pkg", "new_pkg"]}), encoding="utf-8"
+            )
+
+            items = daemon.discover_work(root, Discovery())
+
+        # The worklist-only package is picked up despite the index being non-empty.
+        self.assertIn(
+            daemon.WorkItem("new_pkg", "1.0.0", daemon.BASE_VARIANT, daemon.PRIORITY_MISSING_BASE),
+            items,
+        )
+
+    def test_discover_work_base_only_skips_variants(self) -> None:
+        class Discovery:
+            def versions(self, package: str) -> list[str]:
+                return ["1.0.0"]
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            entry_path = root / "db" / "fake_pkg" / "1.0.0.json"
+            entry_path.parent.mkdir(parents=True)
+            entry = _valid_entry("fake_pkg", "1.0.0")
+            entry["collected_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+            entry_path.write_text(json.dumps(entry), encoding="utf-8")
+            (root / "db" / "_index.json").write_text(
+                json.dumps(
+                    {"pubdb_schema_version": 1, "generated_at": None, "packages": {"fake_pkg": ["1.0.0"]}}
+                ),
+                encoding="utf-8",
+            )
+            (root / "db" / "_flutter_versions.json").write_text(
+                json.dumps(["3.44.0"]), encoding="utf-8"
+            )
+
+            normal = daemon.discover_work(root, Discovery())
+            base_only = daemon.discover_work(root, Discovery(), base_only=True)
+
+        # Default mode enqueues the obfuscated variant for the fresh base entry.
+        self.assertIn(
+            daemon.WorkItem("fake_pkg", "1.0.0", daemon.OBFUSCATED_VARIANT, daemon.PRIORITY_MISSING_OBF),
+            normal,
+        )
+        # base-only enqueues nothing for an already-fresh base entry.
+        self.assertEqual(base_only, [])
+
     def test_entry_relative_path_uses_obfuscated_variant_filename(self) -> None:
         path = daemon.entry_relative_path(
             daemon.WorkItem("fake_pkg", "1.0.0", daemon.OBFUSCATED_VARIANT)
@@ -1046,6 +1110,7 @@ class BuildDaemonTests(unittest.TestCase):
                 tick_interval=60.0,
                 discover_interval=3600.0,
                 workers=3,
+                base_only=False,
                 packages=None,
                 no_push=True,
             )
