@@ -1,0 +1,14 @@
+# Caddy config for the collector overview page (opt-in `proxy` profile).
+#
+# Serves the dashboard over automatic HTTPS, gated by HTTP basic auth, and
+# proxies to the loopback-only collector over the compose network. Set
+# DASHBOARD_DOMAIN / DASHBOARD_BASIC_AUTH_USER / DASHBOARD_BASIC_AUTH_HASH in
+# ops/docker/.env. Generate the bcrypt hash with:
+#   docker run --rm caddy caddy hash-password --plaintext 'your-password'
+
+{$DASHBOARD_DOMAIN} {
+	basic_auth {
+		{$DASHBOARD_BASIC_AUTH_USER} {$DASHBOARD_BASIC_AUTH_HASH}
+	}
+	reverse_proxy collector:{$COLLECTOR_PORT:9305}
+}

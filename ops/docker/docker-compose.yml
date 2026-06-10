@@ -1,8 +1,11 @@
-# Single-service collector daemon.
+# Collector daemon + an opt-in TLS/auth reverse proxy for the overview page.
 #
 # Variables come from ./.env (copy ops/env.example -> ops/docker/.env). Run via
 # the systemd unit (ops/systemd/) in production, or directly for a smoke test:
 #   docker compose up --build
+#
+# The `proxy` service only starts when the `proxy` profile is active
+# (COMPOSE_PROFILES=proxy in .env, or `docker compose --profile proxy up`).
 name: rettulf-pubdb
 
 services:
@@ -28,6 +31,26 @@ services:
       # Per-Flutter-version SDK clones (sized separately; see ops/README.md).
       - "flutter-cache:/var/cache/rettulf-pubdb/flutter"
 
+  # TLS + basic-auth reverse proxy for the read-only overview page. Opt-in:
+  # enable with COMPOSE_PROFILES=proxy in .env. The daemon stays loopback-only
+  # on the host; the proxy reaches it over the compose network as `collector`.
+  proxy:
+    image: caddy:2
+    profiles: ["proxy"]
+    depends_on:
+      - collector
+    env_file:
+      - .env
+    ports:
+      - "80:80"     # ACME HTTP-01 challenge + HTTPS redirect
+      - "443:443"   # the dashboard
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data      # issued certificates (persist across restarts)
+      - caddy-config:/config
+
 volumes:
   pubdb-cache:
   flutter-cache:
+  caddy-data:
+  caddy-config:

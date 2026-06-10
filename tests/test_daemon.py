@@ -1060,6 +1060,149 @@ class BuildDaemonTests(unittest.TestCase):
                     close()
 
 
+class StatusSnapshotTests(unittest.TestCase):
+    def _seed(self, root: Path) -> daemon.WorkQueue:
+        (root / "db").mkdir()
+        (root / "db" / "_top1000.json").write_text(
+            json.dumps({"packages": ["provider", "dio", "http"]}), encoding="utf-8"
+        )
+        (root / "db" / "_index.json").write_text(
+            json.dumps(
+                {
+                    "pubdb_schema_version": 1,
+                    "generated_at": None,
+                    "packages": {"provider": ["6.0.5", "6.0.0"]},
+                }
+            ),
+            encoding="utf-8",
+        )
+        queue = daemon.WorkQueue(root / "queue.db")
+        queue.enqueue(daemon.WorkItem("provider", "6.0.5"))
+        queue.enqueue(
+            daemon.WorkItem("dio", "5.4.0", daemon.OBFUSCATED_VARIANT, daemon.PRIORITY_MISSING_OBF)
+        )
+        queue.enqueue(
+            daemon.WorkItem(
+                "http", "1.0.0", "flutter-3.44.0", daemon.PRIORITY_MISSING_FLUTTER_VARIANT
+            )
+        )
+        claimed = queue.dequeue()
+        assert claimed is not None
+        queue.fail(
+            daemon.WorkItem(
+                claimed.package, claimed.version, claimed.variant, attempts=daemon.DEFAULT_MAX_ATTEMPTS
+            ),
+            "boom: kaboom",
+        )
+        return queue
+
+    def test_snapshot_aggregates_queue_metrics_and_coverage(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            queue = self._seed(root)
+            metrics = daemon.Metrics()
+            metrics.inc_entries(7)
+            metrics.inc_pubdev_429()
+            metrics.mark_commit(datetime(2026, 1, 1, tzinfo=timezone.utc))
+
+            snap = daemon.status_snapshot(
+                root,
+                queue,
+                metrics,
+                workers=4,
+                push=False,
+                now=datetime(2026, 1, 1, 0, 0, 30, tzinfo=timezone.utc),
+            )
+            queue.close()
+
+        self.assertEqual(snap["queue"]["by_state"], {
+            "queued": 2, "in_progress": 0, "done": 0, "failed": 1,
+        })
+        self.assertEqual(snap["queue"]["by_variant"], {"base": 1, "obf": 1, "flutter": 1})
+        self.assertEqual(snap["throughput"]["entries_collected_total"], 7)
+        self.assertEqual(snap["throughput"]["pubdev_429_total"], 1)
+        self.assertEqual(snap["throughput"]["last_commit_age_seconds"], 30.0)
+        self.assertEqual(snap["meta"], {
+            "pubdb_schema_version": 1,
+            "generated_at": snap["meta"]["generated_at"],
+            "workers": 4,
+            "push_enabled": False,
+        })
+        self.assertEqual(snap["coverage"]["worklist_packages"], 3)
+        self.assertEqual(snap["coverage"]["packages_with_entries"], 1)
+        self.assertEqual(snap["coverage"]["versions_collected"], 2)
+        self.assertEqual(snap["coverage"]["percent_packages"], 33.3)
+        self.assertEqual(len(snap["recent_failures"]), 1)
+        self.assertEqual(snap["recent_failures"][0]["package"], "provider")
+        self.assertEqual(snap["recent_failures"][0]["last_error"], "boom: kaboom")
+
+    def test_recent_failures_limit(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            queue = daemon.WorkQueue(Path(tmp) / "queue.db")
+            for i in range(5):
+                queue.enqueue(daemon.WorkItem("pkg", f"1.0.{i}"))
+            for _ in range(5):
+                item = queue.dequeue()
+                assert item is not None
+                queue.fail(
+                    daemon.WorkItem(item.package, item.version, attempts=daemon.DEFAULT_MAX_ATTEMPTS),
+                    "x",
+                )
+            self.assertEqual(len(queue.recent_failures(limit=2)), 2)
+            self.assertEqual(len(queue.recent_failures()), 5)
+            queue.close()
+
+
+class DashboardServerTests(unittest.TestCase):
+    def _get(self, port: int, path: str) -> tuple[int, str, str]:
+        try:
+            with urllib.request.urlopen(f"http://127.0.0.1:{port}{path}", timeout=5) as resp:
+                return resp.status, resp.headers.get("Content-Type", ""), resp.read().decode()
+        except urllib.error.HTTPError as exc:  # type: ignore[attr-defined]
+            exc.close()
+            return exc.code, "", ""
+
+    def test_dashboard_serves_html_json_and_metrics(self) -> None:
+        metrics = daemon.Metrics()
+        status = lambda: {"meta": {"workers": 1}, "queue": {}, "throughput": {}, "recent_failures": [], "coverage": {}}  # noqa: E731
+        server = daemon.MetricsServer(
+            "127.0.0.1", 0, lambda: metrics.render(queue_size=0), status=status
+        )
+        server.start()
+        try:
+            code, ctype, body = self._get(server.port, "/")
+            self.assertEqual(code, 200)
+            self.assertIn("text/html", ctype)
+            self.assertIn("rettulf-pubdb collector", body)
+            self.assertIn("/api/status", body)
+
+            code, ctype, body = self._get(server.port, "/api/status")
+            self.assertEqual(code, 200)
+            self.assertIn("application/json", ctype)
+            self.assertEqual(json.loads(body)["meta"]["workers"], 1)
+
+            code, ctype, body = self._get(server.port, "/metrics")
+            self.assertEqual(code, 200)
+            self.assertIn("pubdb_queue_size", body)
+
+            self.assertEqual(self._get(server.port, "/nope")[0], 404)
+        finally:
+            server.stop()
+
+    def test_dashboard_disabled_returns_404_but_metrics_still_served(self) -> None:
+        metrics = daemon.Metrics()
+        server = daemon.MetricsServer(
+            "127.0.0.1", 0, lambda: metrics.render(queue_size=0), status=None
+        )
+        server.start()
+        try:
+            self.assertEqual(self._get(server.port, "/")[0], 404)
+            self.assertEqual(self._get(server.port, "/api/status")[0], 404)
+            self.assertEqual(self._get(server.port, "/metrics")[0], 200)
+        finally:
+            server.stop()
+
+
 class GitRepositoryTests(unittest.TestCase):
     def test_has_commit_key_matches_whole_key_line(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

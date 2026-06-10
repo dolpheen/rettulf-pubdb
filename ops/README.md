@@ -71,6 +71,42 @@ The port is published on `127.0.0.1` only. Scrape it from Prometheus over an
 SSH tunnel (`ssh -L 9305:localhost:9305 <host>`) or a reverse proxy; change it
 with `COLLECTOR_PORT`.
 
+## Overview dashboard
+
+The same port also serves a **read-only web overview** at `/` — live queue
+breakdown (state + variant), throughput/freshness with a collection-rate
+sparkline, recent failures, and worklist coverage — backed by `GET /api/status`
+(JSON). It's a single self-contained page (no external requests) and never
+mutates anything. Disable it with `--no-dashboard` (the entrypoint passes it
+when `DASHBOARD=0`); `/metrics` is unaffected.
+
+Quickest look, no extra setup — SSH-tunnel and open in a browser:
+
+```sh
+ssh -L 9305:localhost:9305 <host>      # then visit http://localhost:9305/
+```
+
+**Expose it publicly (optional)** via the bundled Caddy reverse proxy, which
+terminates TLS (automatic Let's Encrypt) and gates access with HTTP basic auth.
+The daemon itself stays loopback-only and serves no credentials.
+
+```sh
+# 1. Point a DNS A record at this host; open ports 80 + 443.
+# 2. Generate a bcrypt hash for the password:
+docker run --rm caddy caddy hash-password --plaintext 'choose-a-password'
+# 3. In ops/docker/.env set (see env.example):
+#      COMPOSE_PROFILES=proxy
+#      DASHBOARD_DOMAIN=collector.example.com
+#      DASHBOARD_BASIC_AUTH_USER=admin
+#      DASHBOARD_BASIC_AUTH_HASH=<hash from step 2>
+# 4. Restart the service; the `proxy` profile starts Caddy alongside the daemon:
+sudo systemctl restart rettulf-pubdb-collector
+```
+
+Then browse to `https://collector.example.com/` (auth required). The proxy
+reaches the daemon over the compose network as `collector:$COLLECTOR_PORT`, so
+you do **not** need to publish the daemon port beyond loopback.
+
 ## Configuration
 
 All knobs live in `ops/docker/.env` (template: `ops/env.example`). The
@@ -78,13 +114,19 @@ entrypoint maps them to daemon flags:
 
 | Env var | Flag | Default |
 | --- | --- | --- |
-| `COLLECTOR_PORT` | `--metrics-port` (host bind too) | `9305` |
+| `COLLECTOR_PORT` | `--metrics-port` (serves /metrics, /, /api/status; host bind too) | `9305` |
 | `WORKERS` | `--workers` (concurrent collectors) | `4` |
 | `PUBDEV_TIMEOUT` | `--pubdev-timeout` (discovery + base fetch) | `60` |
 | `FLUTTER_CACHE_DIR` | `--flutter-cache-dir` | `/var/cache/rettulf-pubdb/flutter` |
 | `GITHUB_TOKEN` | git HTTPS push credential | — |
 | `NO_PUSH=1` | `--no-push` (collect + commit, no push) | off |
+| `DASHBOARD=0` | `--no-dashboard` (serve /metrics only) | on |
 | `PACKAGES` | `--packages` (space-separated allowlist) | top1000 worklist |
+
+Proxy-only vars (consumed by the `proxy` compose service, not the daemon):
+`COMPOSE_PROFILES=proxy` enables it; `DASHBOARD_DOMAIN`,
+`DASHBOARD_BASIC_AUTH_USER`, `DASHBOARD_BASIC_AUTH_HASH` configure TLS + auth —
+see [Overview dashboard](#overview-dashboard).
 
 `WORKERS` parallelises the slow part (pub.dev fetch + Dart analyze); staging,
 schema validation, commit, and push stay serialised behind the checkout lock,

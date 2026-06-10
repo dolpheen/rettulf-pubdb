@@ -43,6 +43,7 @@ except ModuleNotFoundError as exc:  # pragma: no cover - surfaced directly
         "jsonschema is required (pip install -r collector/requirements.txt)"
     ) from exc
 
+from collector.dashboard import DASHBOARD_HTML
 from collector.pipelines.api_surface import collect_api_surface
 from collector.pipelines.obfuscated_build import (
     DEFAULT_BUILD_TIMEOUT_SECONDS,
@@ -175,6 +176,24 @@ class Metrics:
         with self._lock:
             self.last_commit_at = now or _utcnow()
 
+    def throughput_snapshot(self, *, now: datetime | None = None) -> JsonObject:
+        """Return the counters + last-commit age as a JSON-friendly dict."""
+        now = now or _utcnow()
+        with self._lock:
+            entries = self.entries_collected_total
+            pubdev_429 = self.pubdev_429_total
+            conflicts = self.publish_conflict_total
+            last_commit_at = self.last_commit_at
+        age = -1.0
+        if last_commit_at is not None:
+            age = max(0.0, (now - last_commit_at).total_seconds())
+        return {
+            "entries_collected_total": entries,
+            "pubdev_429_total": pubdev_429,
+            "publish_conflict_total": conflicts,
+            "last_commit_age_seconds": round(age, 3),
+        }
+
     def render(self, *, queue_size: int, now: datetime | None = None) -> str:
         now = now or _utcnow()
         with self._lock:
@@ -214,21 +233,49 @@ class MetricsServer:
         host: str,
         port: int,
         render: Callable[[], str],
+        *,
+        status: Callable[[], JsonObject] | None = None,
     ) -> None:
         self._render = render
+        self._status = status
+
+        def respond(
+            handler_self: BaseHTTPRequestHandler,
+            code: int,
+            body: bytes,
+            content_type: str,
+        ) -> None:
+            handler_self.send_response(code)
+            handler_self.send_header("Content-Type", content_type)
+            handler_self.send_header("Content-Length", str(len(body)))
+            handler_self.end_headers()
+            handler_self.wfile.write(body)
 
         class Handler(BaseHTTPRequestHandler):
             def do_GET(handler_self) -> None:  # noqa: N802 - http.server API
-                if handler_self.path != "/metrics":
-                    handler_self.send_response(404)
-                    handler_self.end_headers()
+                path = handler_self.path.split("?", 1)[0]
+                if path == "/metrics":
+                    respond(
+                        handler_self,
+                        200,
+                        render().encode("utf-8"),
+                        "text/plain; version=0.0.4",
+                    )
                     return
-                payload = render().encode("utf-8")
-                handler_self.send_response(200)
-                handler_self.send_header("Content-Type", "text/plain; version=0.0.4")
-                handler_self.send_header("Content-Length", str(len(payload)))
+                if status is not None and path in ("/", "/index.html"):
+                    respond(
+                        handler_self,
+                        200,
+                        DASHBOARD_HTML.encode("utf-8"),
+                        "text/html; charset=utf-8",
+                    )
+                    return
+                if status is not None and path == "/api/status":
+                    body = json.dumps(status()).encode("utf-8")
+                    respond(handler_self, 200, body, "application/json")
+                    return
+                handler_self.send_response(404)
                 handler_self.end_headers()
-                handler_self.wfile.write(payload)
 
             def log_message(
                 handler_self, format: str, *args: object
@@ -506,6 +553,58 @@ class WorkQueue:
                 "SELECT COUNT(*) AS count FROM work_items WHERE state = 'queued'"
             ).fetchone()
             return int(row["count"])
+
+    def state_counts(self) -> dict[str, int]:
+        """Return work-item counts keyed by state (queued/in_progress/done/failed)."""
+        counts = {"queued": 0, "in_progress": 0, "done": 0, "failed": 0}
+        with self._lock:
+            rows = self._db.execute(
+                "SELECT state, COUNT(*) AS count FROM work_items GROUP BY state"
+            ).fetchall()
+        for row in rows:
+            counts[str(row["state"])] = int(row["count"])
+        return counts
+
+    def variant_counts(self) -> dict[str, int]:
+        """Return non-done work-item counts keyed by variant category."""
+        counts = {"base": 0, "obf": 0, "flutter": 0}
+        with self._lock:
+            rows = self._db.execute(
+                """
+                SELECT variant, COUNT(*) AS count
+                FROM work_items
+                WHERE state != 'done'
+                GROUP BY variant
+                """
+            ).fetchall()
+        for row in rows:
+            counts[_variant_category(str(row["variant"]))] += int(row["count"])
+        return counts
+
+    def recent_failures(self, limit: int = 20) -> list[JsonObject]:
+        """Return the most recently dead-lettered items, newest first."""
+        with self._lock:
+            rows = self._db.execute(
+                """
+                SELECT package, version, variant, attempts, last_error, updated_at
+                FROM work_items
+                WHERE state = 'failed'
+                ORDER BY updated_at DESC
+                LIMIT ?
+                """,
+                (limit,),
+            ).fetchall()
+        return [
+            {
+                "package": str(row["package"]),
+                "version": str(row["version"]),
+                "variant": str(row["variant"]),
+                "attempts": int(row["attempts"]),
+                "last_error": row["last_error"],
+                "updated_at": row["updated_at"],
+            }
+            for row in rows
+        ]
 
     @contextlib.contextmanager
     def _transaction_immediate(self) -> Iterable[None]:
@@ -1422,6 +1521,59 @@ def _top1000_packages(path: Path) -> list[str]:
     return [item for item in packages if isinstance(item, str)]
 
 
+def _variant_category(variant: str) -> str:
+    if variant == OBFUSCATED_VARIANT:
+        return "obf"
+    if variant.startswith(FLUTTER_VARIANT_PREFIX):
+        return "flutter"
+    return "base"
+
+
+def _worklist_coverage(repo_root: Path | str) -> JsonObject:
+    root = Path(repo_root)
+    index = _index_versions(root / "db" / "_index.json")
+    worklist = set(_top1000_packages(root / "db" / "_top1000.json"))
+    packages_with_entries = sum(1 for package in worklist if index.get(package))
+    versions_collected = sum(len(versions) for versions in index.values())
+    percent = (
+        round(100.0 * packages_with_entries / len(worklist), 1) if worklist else 0.0
+    )
+    return {
+        "worklist_packages": len(worklist),
+        "packages_with_entries": packages_with_entries,
+        "packages_collected_total": len(index),
+        "versions_collected": versions_collected,
+        "percent_packages": percent,
+    }
+
+
+def status_snapshot(
+    repo_root: Path | str,
+    queue: WorkQueue,
+    metrics: Metrics,
+    *,
+    workers: int,
+    push: bool,
+    now: datetime | None = None,
+) -> JsonObject:
+    """Aggregate queue, metrics, and worklist coverage into one JSON snapshot."""
+    return {
+        "meta": {
+            "pubdb_schema_version": SCHEMA_VERSION,
+            "generated_at": _iso_now(),
+            "workers": workers,
+            "push_enabled": push,
+        },
+        "queue": {
+            "by_state": queue.state_counts(),
+            "by_variant": queue.variant_counts(),
+        },
+        "throughput": metrics.throughput_snapshot(now=now),
+        "recent_failures": queue.recent_failures(),
+        "coverage": _worklist_coverage(repo_root),
+    }
+
+
 def _read_index(path: Path) -> JsonObject:
     if not path.exists():
         return {
@@ -1656,6 +1808,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--metrics-port", type=int, default=DEFAULT_METRICS_PORT)
     parser.add_argument("--no-metrics", action="store_true")
     parser.add_argument(
+        "--no-dashboard",
+        action="store_true",
+        help="serve /metrics only; disable the read-only HTML overview page",
+    )
+    parser.add_argument(
         "--no-push",
         action="store_true",
         help="commit without pushing; intended for local smoke tests",
@@ -1666,10 +1823,20 @@ def main(argv: list[str] | None = None) -> int:
     daemon.install_signal_handlers()
     metrics_server: MetricsServer | None = None
     if not args.no_metrics:
+        status = None
+        if not args.no_dashboard:
+            status = lambda: status_snapshot(  # noqa: E731
+                daemon.repo_root,
+                daemon.queue,
+                daemon.metrics,
+                workers=daemon.workers,
+                push=daemon.publisher.push,
+            )
         metrics_server = MetricsServer(
             args.metrics_host,
             args.metrics_port,
             lambda: daemon.metrics.render(queue_size=daemon.queue.queued_count()),
+            status=status,
         )
         metrics_server.start()
     try:
