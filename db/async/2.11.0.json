@@ -1,0 +1,939 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/byte_collector.dart",
+          "package:async/src/stream_sink_transformer/handler_transformer.dart",
+          "package:async/src/stream_subscription_transformer.dart",
+          "package:async/src/typed_stream_transformer.dart"
+        ],
+        "methods": [
+          "collectBytes",
+          "collectBytesCancelable",
+          "subscriptionTransformer",
+          "typedStreamTransformer"
+        ],
+        "types": [
+          "CancelableOperation"
+        ]
+      },
+      "AsyncCache": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/async_cache.dart"
+        ],
+        "methods": [
+          "AsyncCache",
+          "ephemeral",
+          "fetch",
+          "fetchStream",
+          "invalidate"
+        ],
+        "types": [
+          "StreamSplitter"
+        ]
+      },
+      "AsyncMemoizer": {
+        "fields": [
+          "get:future",
+          "get:hasRun"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/async_memoizer.dart"
+        ],
+        "methods": [
+          "runOnce"
+        ],
+        "types": []
+      },
+      "CancelableCompleter": {
+        "fields": [
+          "get:isCanceled",
+          "get:isCompleted",
+          "operation"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/cancelable_operation.dart"
+        ],
+        "methods": [
+          "CancelableCompleter",
+          "complete",
+          "completeError",
+          "completeOperation"
+        ],
+        "types": [
+          "CancelableOperation"
+        ]
+      },
+      "CancelableOperation": {
+        "fields": [
+          "get:isCanceled",
+          "get:isCompleted",
+          "get:value"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/cancelable_operation.dart"
+        ],
+        "methods": [
+          "asStream",
+          "cancel",
+          "fromFuture",
+          "fromSubscription",
+          "fromValue",
+          "race",
+          "then",
+          "thenOperation",
+          "valueOrCancellation"
+        ],
+        "types": [
+          "CancelableCompleter",
+          "CancelableOperation"
+        ]
+      },
+      "CaptureSink": {
+        "fields": [],
+        "libraries": [
+          "package:async/src/result/capture_sink.dart"
+        ],
+        "methods": [
+          "CaptureSink",
+          "add",
+          "addError",
+          "close"
+        ],
+        "types": [
+          "Result"
+        ]
+      },
+      "CaptureStreamTransformer": {
+        "fields": [],
+        "libraries": [
+          "package:async/src/result/capture_transformer.dart"
+        ],
+        "methods": [
+          "CaptureStreamTransformer",
+          "bind"
+        ],
+        "types": [
+          "Result"
+        ]
+      },
+      "ChunkedStreamReader": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/chunked_stream_reader.dart"
+        ],
+        "methods": [
+          "ChunkedStreamReader",
+          "cancel",
+          "readChunk",
+          "readStream"
+        ],
+        "types": []
+      },
+      "ChunkedStreamReaderByteStreamExt": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/chunked_stream_reader.dart"
+        ],
+        "methods": [
+          "readBytes"
+        ],
+        "types": [
+          "ChunkedStreamReader"
+        ]
+      },
+      "DelegatingEventSink": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/delegate/event_sink.dart"
+        ],
+        "methods": [
+          "DelegatingEventSink",
+          "add",
+          "addError",
+          "close",
+          "typed"
+        ],
+        "types": []
+      },
+      "DelegatingFuture": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/delegate/future.dart"
+        ],
+        "methods": [
+          "DelegatingFuture",
+          "asStream",
+          "catchError",
+          "then",
+          "timeout",
+          "typed",
+          "whenComplete"
+        ],
+        "types": []
+      },
+      "DelegatingSink": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/delegate/sink.dart"
+        ],
+        "methods": [
+          "DelegatingSink",
+          "add",
+          "close",
+          "typed"
+        ],
+        "types": []
+      },
+      "DelegatingStream": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/delegate/stream.dart"
+        ],
+        "methods": [
+          "DelegatingStream",
+          "typed"
+        ],
+        "types": []
+      },
+      "DelegatingStreamConsumer": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/delegate/stream_consumer.dart"
+        ],
+        "methods": [
+          "DelegatingStreamConsumer",
+          "addStream",
+          "close",
+          "typed"
+        ],
+        "types": []
+      },
+      "DelegatingStreamSink": {
+        "fields": [
+          "get:done"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/delegate/stream_sink.dart"
+        ],
+        "methods": [
+          "DelegatingStreamSink",
+          "add",
+          "addError",
+          "addStream",
+          "close",
+          "typed"
+        ],
+        "types": []
+      },
+      "DelegatingStreamSubscription": {
+        "fields": [
+          "get:isPaused"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/delegate/stream_subscription.dart"
+        ],
+        "methods": [
+          "DelegatingStreamSubscription",
+          "asFuture",
+          "cancel",
+          "onData",
+          "onDone",
+          "onError",
+          "pause",
+          "resume",
+          "typed"
+        ],
+        "types": []
+      },
+      "ErrorResult": {
+        "fields": [
+          "error",
+          "get:asError",
+          "get:asFuture",
+          "get:asValue",
+          "get:hashCode",
+          "get:isError",
+          "get:isValue",
+          "stackTrace"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/result/error.dart"
+        ],
+        "methods": [
+          "==",
+          "ErrorResult",
+          "addTo",
+          "complete",
+          "handle"
+        ],
+        "types": [
+          "ErrorResult",
+          "Result",
+          "ValueResult"
+        ]
+      },
+      "EventSinkBase": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/sink_base.dart"
+        ],
+        "methods": [
+          "add",
+          "addError",
+          "close",
+          "onAdd",
+          "onClose",
+          "onError"
+        ],
+        "types": []
+      },
+      "FutureGroup": {
+        "fields": [
+          "get:future",
+          "get:isClosed",
+          "get:isIdle",
+          "get:onIdle"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/future_group.dart"
+        ],
+        "methods": [
+          "add",
+          "close"
+        ],
+        "types": []
+      },
+      "HandlerTransformer": {
+        "fields": [],
+        "libraries": [
+          "package:async/src/stream_sink_transformer/handler_transformer.dart"
+        ],
+        "methods": [
+          "HandlerTransformer",
+          "bind"
+        ],
+        "types": [
+          "StreamSinkTransformer"
+        ]
+      },
+      "IOSinkBase": {
+        "fields": [
+          "encoding"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/sink_base.dart"
+        ],
+        "methods": [
+          "IOSinkBase",
+          "flush",
+          "onFlush",
+          "write",
+          "writeAll",
+          "writeCharCode",
+          "writeln"
+        ],
+        "types": [
+          "StreamSinkBase"
+        ]
+      },
+      "LazyStream": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/lazy_stream.dart"
+        ],
+        "methods": [
+          "LazyStream",
+          "listen"
+        ],
+        "types": []
+      },
+      "NullStreamSink": {
+        "fields": [
+          "done"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/null_stream_sink.dart"
+        ],
+        "methods": [
+          "NullStreamSink",
+          "add",
+          "addError",
+          "addStream",
+          "close",
+          "error"
+        ],
+        "types": []
+      },
+      "RejectErrorsSink": {
+        "fields": [
+          "get:done"
+        ],
+        "libraries": [
+          "package:async/src/stream_sink_transformer/reject_errors.dart"
+        ],
+        "methods": [
+          "RejectErrorsSink",
+          "add",
+          "addError",
+          "addStream",
+          "close"
+        ],
+        "types": []
+      },
+      "ReleaseSink": {
+        "fields": [],
+        "libraries": [
+          "package:async/src/result/release_sink.dart"
+        ],
+        "methods": [
+          "ReleaseSink",
+          "add",
+          "addError",
+          "close"
+        ],
+        "types": [
+          "Result"
+        ]
+      },
+      "ReleaseStreamTransformer": {
+        "fields": [],
+        "libraries": [
+          "package:async/src/result/release_transformer.dart"
+        ],
+        "methods": [
+          "ReleaseStreamTransformer",
+          "bind"
+        ],
+        "types": [
+          "Result"
+        ]
+      },
+      "RestartableTimer": {
+        "fields": [
+          "get:isActive",
+          "get:tick"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/restartable_timer.dart"
+        ],
+        "methods": [
+          "RestartableTimer",
+          "cancel",
+          "reset"
+        ],
+        "types": []
+      },
+      "Result": {
+        "fields": [
+          "captureSinkTransformer",
+          "captureStreamTransformer",
+          "get:asError",
+          "get:asFuture",
+          "get:asValue",
+          "get:isError",
+          "get:isValue",
+          "releaseSinkTransformer",
+          "releaseStreamTransformer"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/result/result.dart"
+        ],
+        "methods": [
+          "Result",
+          "addTo",
+          "capture",
+          "captureAll",
+          "captureSink",
+          "captureStream",
+          "complete",
+          "error",
+          "flatten",
+          "flattenAll",
+          "release",
+          "releaseSink",
+          "releaseStream",
+          "value"
+        ],
+        "types": [
+          "ErrorResult",
+          "Result",
+          "StreamSinkTransformer",
+          "ValueResult"
+        ]
+      },
+      "ResultFuture": {
+        "fields": [
+          "get:isComplete",
+          "get:result"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/result/future.dart"
+        ],
+        "methods": [
+          "ResultFuture"
+        ],
+        "types": [
+          "DelegatingFuture",
+          "Result"
+        ]
+      },
+      "SingleSubscriptionTransformer": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/single_subscription_transformer.dart"
+        ],
+        "methods": [
+          "SingleSubscriptionTransformer",
+          "bind"
+        ],
+        "types": []
+      },
+      "StreamCloser": {
+        "fields": [
+          "get:isClosed"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/stream_closer.dart"
+        ],
+        "methods": [
+          "bind",
+          "close"
+        ],
+        "types": []
+      },
+      "StreamCompleter": {
+        "fields": [
+          "get:stream"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/stream_completer.dart"
+        ],
+        "methods": [
+          "fromFuture",
+          "setEmpty",
+          "setError",
+          "setSourceStream"
+        ],
+        "types": []
+      },
+      "StreamExtensions": {
+        "fields": [
+          "get:firstOrNull"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/stream_extensions.dart"
+        ],
+        "methods": [
+          "listenAndBuffer",
+          "slices"
+        ],
+        "types": []
+      },
+      "StreamGroup": {
+        "fields": [
+          "get:isClosed",
+          "get:isIdle",
+          "get:onIdle",
+          "get:stream"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/stream_group.dart"
+        ],
+        "methods": [
+          "StreamGroup",
+          "add",
+          "broadcast",
+          "close",
+          "merge",
+          "mergeBroadcast",
+          "remove"
+        ],
+        "types": []
+      },
+      "StreamQueue": {
+        "fields": [
+          "get:eventsDispatched",
+          "get:hasNext",
+          "get:next",
+          "get:peek",
+          "get:rest"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/stream_queue.dart"
+        ],
+        "methods": [
+          "StreamQueue",
+          "cancel",
+          "cancelable",
+          "lookAhead",
+          "skip",
+          "startTransaction",
+          "take",
+          "withTransaction"
+        ],
+        "types": [
+          "CancelableOperation",
+          "Result",
+          "StreamQueue",
+          "StreamQueueTransaction"
+        ]
+      },
+      "StreamQueueTransaction": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/stream_queue.dart"
+        ],
+        "methods": [
+          "commit",
+          "newQueue",
+          "reject"
+        ],
+        "types": [
+          "StreamQueue",
+          "StreamSplitter"
+        ]
+      },
+      "StreamSinkBase": {
+        "fields": [
+          "get:done"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/sink_base.dart"
+        ],
+        "methods": [
+          "addStream",
+          "close"
+        ],
+        "types": [
+          "EventSinkBase"
+        ]
+      },
+      "StreamSinkCompleter": {
+        "fields": [
+          "sink"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/stream_sink_completer.dart"
+        ],
+        "methods": [
+          "fromFuture",
+          "setDestinationSink",
+          "setError"
+        ],
+        "types": []
+      },
+      "StreamSinkExtensions": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/stream_sink_extensions.dart"
+        ],
+        "methods": [
+          "rejectErrors",
+          "transform"
+        ],
+        "types": [
+          "StreamSinkTransformer"
+        ]
+      },
+      "StreamSinkTransformer": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/stream_sink_transformer.dart"
+        ],
+        "methods": [
+          "bind",
+          "fromHandlers",
+          "fromStreamTransformer",
+          "typed"
+        ],
+        "types": [
+          "StreamSinkTransformer"
+        ]
+      },
+      "StreamSplitter": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/stream_splitter.dart"
+        ],
+        "methods": [
+          "StreamSplitter",
+          "close",
+          "split",
+          "splitFrom"
+        ],
+        "types": []
+      },
+      "StreamTransformerWrapper": {
+        "fields": [],
+        "libraries": [
+          "package:async/src/stream_sink_transformer/stream_transformer_wrapper.dart"
+        ],
+        "methods": [
+          "StreamTransformerWrapper",
+          "bind"
+        ],
+        "types": [
+          "StreamSinkTransformer"
+        ]
+      },
+      "StreamZip": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/stream_zip.dart"
+        ],
+        "methods": [
+          "StreamZip",
+          "listen"
+        ],
+        "types": []
+      },
+      "SubscriptionStream": {
+        "fields": [],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/subscription_stream.dart"
+        ],
+        "methods": [
+          "SubscriptionStream",
+          "listen"
+        ],
+        "types": []
+      },
+      "TypeSafeStreamSinkTransformer": {
+        "fields": [],
+        "libraries": [
+          "package:async/src/stream_sink_transformer/typed.dart"
+        ],
+        "methods": [
+          "TypeSafeStreamSinkTransformer",
+          "bind"
+        ],
+        "types": [
+          "StreamSinkTransformer"
+        ]
+      },
+      "TypeSafeStreamSubscription": {
+        "fields": [
+          "get:isPaused"
+        ],
+        "libraries": [
+          "package:async/src/typed/stream_subscription.dart"
+        ],
+        "methods": [
+          "TypeSafeStreamSubscription",
+          "asFuture",
+          "cancel",
+          "onData",
+          "onDone",
+          "onError",
+          "pause",
+          "resume"
+        ],
+        "types": []
+      },
+      "ValueResult": {
+        "fields": [
+          "get:asError",
+          "get:asFuture",
+          "get:asValue",
+          "get:hashCode",
+          "get:isError",
+          "get:isValue",
+          "value"
+        ],
+        "libraries": [
+          "package:async/async.dart",
+          "package:async/src/result/value.dart"
+        ],
+        "methods": [
+          "==",
+          "ValueResult",
+          "addTo",
+          "complete"
+        ],
+        "types": [
+          "ErrorResult",
+          "Result",
+          "ValueResult"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-10T19:44:08Z",
+  "package": "async",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "CaptureStreamTransformer",
+      "ReleaseStreamTransformer",
+      "SingleSubscriptionTransformer",
+      "StreamSinkTransformer",
+      "StreamTransformerWrapper",
+      "_StreamGroupState"
+    ],
+    "digest": "aef283c60d72acef694e16c66f4a9e2f79b10bdaae64ce1810179a08ad55e9f1",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "1c366470d95d34ed8a53b2e851d850a979f9f49a7a5208b44bb5f63ace8f8672",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "../async.dart",
+      "../delegate/future.dart",
+      "../delegate/stream_sink.dart",
+      "../stream_sink_transformer.dart",
+      "../typed/stream_subscription.dart",
+      "A queue with pending requests can't be committed.",
+      "Already cancelled",
+      "Already completed",
+      "Can't add a Stream to a closed StreamGroup.",
+      "Can't call split() on a closed StreamSplitter.",
+      "Cannot add event after closing",
+      "Cannot add event after closing.",
+      "Cannot add event while adding stream.",
+      "Cannot add stream after closing.",
+      "Cannot add stream while adding stream.",
+      "Cannot add to a closed sink.",
+      "Cannot add to a sink while adding a stream.",
+      "Cannot close sink while adding stream.",
+      "Concurrent read operations are not allowed!",
+      "Destination sink already set",
+      "Feature will be removed",
+      "May not be empty",
+      "No elements",
+      "Operation already completed",
+      "Previously used to cache via `fetchStream`",
+      "Previously used to cache via `fetch`",
+      "Queue doesn't belong to this transaction.",
+      "Source stream already set",
+      "Stream has already been listened to.",
+      "StreamSink is bound to a stream",
+      "The FutureGroup is closed.",
+      "This transaction has already been accepted.",
+      "This transaction has already been rejected.",
+      "Use Stream.cast after binding a transformer instead",
+      "Use Stream.cast instead",
+      "Use StreamController<T>(sync: true)..stream.cast<S>().pipe(sink)",
+      "Use future.then((v) => v as T) instead.",
+      "Use stream.cast instead",
+      "Will be removed in future version",
+      "Will be removed in the next major release",
+      "async_memoizer.dart",
+      "byte_collector.dart",
+      "callback",
+      "cancelable_operation.dart",
+      "canceled",
+      "capture_sink.dart",
+      "capture_transformer.dart",
+      "count",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:typed_data",
+      "delegate/stream_subscription.dart",
+      "dormant",
+      "error.dart",
+      "future_group.dart",
+      "length",
+      "listening",
+      "null_stream_sink.dart",
+      "operations",
+      "package:collection/collection.dart",
+      "package:meta/meta.dart",
+      "paused",
+      "release_sink.dart",
+      "release_transformer.dart",
+      "result.dart",
+      "result/result.dart",
+      "size",
+      "src/async_cache.dart",
+      "src/async_memoizer.dart",
+      "src/byte_collector.dart",
+      "src/cancelable_operation.dart",
+      "src/chunked_stream_reader.dart",
+      "src/delegate/event_sink.dart",
+      "src/delegate/future.dart",
+      "src/delegate/sink.dart",
+      "src/delegate/stream.dart",
+      "src/delegate/stream_consumer.dart",
+      "src/delegate/stream_sink.dart",
+      "src/delegate/stream_subscription.dart",
+      "src/future_group.dart",
+      "src/lazy_stream.dart",
+      "src/null_stream_sink.dart",
+      "src/restartable_timer.dart",
+      "src/result/error.dart",
+      "src/result/future.dart",
+      "src/result/result.dart",
+      "src/result/value.dart",
+      "src/single_subscription_transformer.dart",
+      "src/sink_base.dart",
+      "src/stream_closer.dart",
+      "src/stream_completer.dart",
+      "src/stream_extensions.dart",
+      "src/stream_group.dart",
+      "src/stream_queue.dart",
+      "src/stream_sink_completer.dart",
+      "src/stream_sink_extensions.dart",
+      "src/stream_sink_transformer.dart",
+      "src/stream_splitter.dart",
+      "src/stream_subscription_transformer.dart",
+      "src/stream_zip.dart",
+      "src/subscription_stream.dart",
+      "src/typed_stream_transformer.dart",
+      "stream_completer.dart",
+      "stream_sink_transformer.dart",
+      "stream_sink_transformer/handler_transformer.dart",
+      "stream_sink_transformer/reject_errors.dart",
+      "stream_sink_transformer/stream_transformer_wrapper.dart",
+      "stream_sink_transformer/typed.dart",
+      "stream_splitter.dart",
+      "subscription_stream.dart",
+      "value.dart"
+    ]
+  },
+  "version": "2.11.0"
+}

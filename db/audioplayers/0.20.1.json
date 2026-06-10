@@ -1,0 +1,426 @@
+{
+  "api_surface": {
+    "classes": {
+      "AudioCache": {
+        "fields": [
+          "duckAudio",
+          "fixedPlayer",
+          "loadedFiles",
+          "prefix",
+          "respectSilence"
+        ],
+        "libraries": [
+          "package:audioplayers/audioplayers.dart",
+          "package:audioplayers/src/audio_cache.dart"
+        ],
+        "methods": [
+          "AudioCache",
+          "clear",
+          "clearAll",
+          "fetchToMemory",
+          "load",
+          "loadAll",
+          "loadAsFile",
+          "loop",
+          "play",
+          "playBytes"
+        ],
+        "types": [
+          "AudioPlayer",
+          "PlayerMode"
+        ]
+      },
+      "AudioPlayer": {
+        "fields": [
+          "get:onAudioPositionChanged",
+          "get:onDurationChanged",
+          "get:onNotificationPlayerStateChanged",
+          "get:onPlayerCompletion",
+          "get:onPlayerError",
+          "get:onPlayerStateChanged",
+          "get:onSeekComplete",
+          "get:state",
+          "mode",
+          "notificationService",
+          "playerId",
+          "players",
+          "set:notificationState",
+          "set:playingRouteState",
+          "set:state"
+        ],
+        "libraries": [
+          "package:audioplayers/audioplayers.dart",
+          "package:audioplayers/src/audioplayer.dart"
+        ],
+        "methods": [
+          "AudioPlayer",
+          "dispose",
+          "earpieceOrSpeakersToggle",
+          "getCurrentPosition",
+          "getDuration",
+          "invokeMethod",
+          "isLocalUrl",
+          "pause",
+          "platformCallHandler",
+          "play",
+          "playBytes",
+          "release",
+          "resume",
+          "seek",
+          "setPlaybackRate",
+          "setReleaseMode",
+          "setUrl",
+          "setVolume",
+          "stop"
+        ],
+        "types": [
+          "NotificationService",
+          "PlayerMode",
+          "PlayerState",
+          "PlayingRoute",
+          "ReleaseMode"
+        ]
+      },
+      "AudioplayersPlugin": {
+        "fields": [
+          "channel",
+          "players"
+        ],
+        "libraries": [
+          "package:audioplayers/src/audioplayers_web.dart",
+          "package:audioplayers/web/audioplayers_web.dart"
+        ],
+        "methods": [
+          "AudioplayersPlugin",
+          "getOrCreatePlayer",
+          "handleMethodCall",
+          "parseReleaseMode",
+          "registerWith",
+          "setUrl"
+        ],
+        "types": [
+          "ReleaseMode",
+          "WrappedPlayer"
+        ]
+      },
+      "LogLevel": {
+        "fields": [
+          "ERROR",
+          "INFO",
+          "NONE"
+        ],
+        "libraries": [
+          "package:audioplayers/audioplayers.dart",
+          "package:audioplayers/audioplayers_api.dart",
+          "package:audioplayers/src/api/log_level.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LogLevelExtension": {
+        "fields": [],
+        "libraries": [
+          "package:audioplayers/audioplayers.dart",
+          "package:audioplayers/audioplayers_api.dart",
+          "package:audioplayers/src/api/log_level.dart"
+        ],
+        "methods": [
+          "getLevel"
+        ],
+        "types": [
+          "LogLevel"
+        ]
+      },
+      "Logger": {
+        "fields": [
+          "get:logLevel"
+        ],
+        "libraries": [
+          "package:audioplayers/audioplayers.dart",
+          "package:audioplayers/src/logger.dart"
+        ],
+        "methods": [
+          "changeLogLevel",
+          "error",
+          "info",
+          "log"
+        ],
+        "types": [
+          "LogLevel"
+        ]
+      },
+      "NotificationService": {
+        "fields": [
+          "enableNotificationService",
+          "get:onPlayerCommand",
+          "platformChannelInvoke"
+        ],
+        "libraries": [
+          "package:audioplayers/notifications.dart",
+          "package:audioplayers/src/notifications/notification_service.dart"
+        ],
+        "methods": [
+          "NotificationService",
+          "clearNotification",
+          "dispose",
+          "monitorStateChanges",
+          "notifyNextTrack",
+          "notifyPreviousTrack",
+          "setNotification",
+          "startHeadlessService"
+        ],
+        "types": [
+          "PlayerControlCommand",
+          "PlayerState"
+        ]
+      },
+      "PlayerControlCommand": {
+        "fields": [
+          "NEXT_TRACK",
+          "PREVIOUS_TRACK"
+        ],
+        "libraries": [
+          "package:audioplayers/notifications.dart",
+          "package:audioplayers/src/notifications/player_control_command.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PlayerMode": {
+        "fields": [
+          "LOW_LATENCY",
+          "MEDIA_PLAYER"
+        ],
+        "libraries": [
+          "package:audioplayers/audioplayers.dart",
+          "package:audioplayers/audioplayers_api.dart",
+          "package:audioplayers/src/api/player_mode.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PlayerState": {
+        "fields": [
+          "COMPLETED",
+          "PAUSED",
+          "PLAYING",
+          "STOPPED"
+        ],
+        "libraries": [
+          "package:audioplayers/audioplayers.dart",
+          "package:audioplayers/audioplayers_api.dart",
+          "package:audioplayers/src/api/player_state.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PlayingRoute": {
+        "fields": [
+          "EARPIECE",
+          "SPEAKERS"
+        ],
+        "libraries": [
+          "package:audioplayers/audioplayers.dart",
+          "package:audioplayers/audioplayers_api.dart",
+          "package:audioplayers/src/api/playing_route.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PlayingRouteExtensions": {
+        "fields": [],
+        "libraries": [
+          "package:audioplayers/audioplayers.dart",
+          "package:audioplayers/audioplayers_api.dart",
+          "package:audioplayers/src/api/playing_route.dart"
+        ],
+        "methods": [
+          "name",
+          "toggle"
+        ],
+        "types": [
+          "PlayingRoute"
+        ]
+      },
+      "ReleaseMode": {
+        "fields": [
+          "LOOP",
+          "RELEASE",
+          "STOP"
+        ],
+        "libraries": [
+          "package:audioplayers/audioplayers.dart",
+          "package:audioplayers/audioplayers_api.dart",
+          "package:audioplayers/src/api/release_mode.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "WrappedPlayer": {
+        "fields": [
+          "currentPlaybackRate",
+          "currentReleaseMode",
+          "currentUrl",
+          "currentVolume",
+          "isPlaying",
+          "pausedAt",
+          "player",
+          "playerId",
+          "playerTimeUpdateSubscription",
+          "plugin"
+        ],
+        "libraries": [
+          "package:audioplayers/src/audioplayers_web.dart",
+          "package:audioplayers/web/audioplayers_web.dart"
+        ],
+        "methods": [
+          "WrappedPlayer",
+          "pause",
+          "recreateNode",
+          "release",
+          "resume",
+          "seek",
+          "setPlaybackRate",
+          "setReleaseMode",
+          "setUrl",
+          "setVolume",
+          "shouldLoop",
+          "start",
+          "stop"
+        ],
+        "types": [
+          "AudioplayersPlugin",
+          "ReleaseMode"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-10T19:44:23Z",
+  "package": "audioplayers",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "95224f0aa7264d09bec5728114c8471c1a29ef82e6be84fb1c094717b98398ff",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "e95ce812703bdd8ba39001dcb230675fdd3eb556f40d7457ab0fa666d589e1f4",
+    "method_channels": [
+      "xyz.luan/audioplayers",
+      "xyz.luan/audioplayers_callback"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "../api/player_state.dart",
+      "../audioplayers.dart",
+      "../src/audioplayers_web.dart",
+      "/",
+      ":\\",
+      "Fatal Error: Callback lookup failed!",
+      "Not supported",
+      "Only Android is currently supported",
+      "The notifications feature was disabled.",
+      "This method cannot be used on web!",
+      "Unable to lookup callback.",
+      "Unimplemented",
+      "albumTitle",
+      "api/log_level.dart",
+      "api/player_mode.dart",
+      "api/player_state.dart",
+      "api/playing_route.dart",
+      "api/release_mode.dart",
+      "artist",
+      "assets/",
+      "audio.onComplete",
+      "audio.onCurrentPosition",
+      "audio.onDuration",
+      "audio.onError",
+      "audio.onGotNextTrackCommand",
+      "audio.onGotPreviousTrackCommand",
+      "audio.onNotificationBackgroundPlayerStateChanged",
+      "audio.onNotificationPlayerStateChanged",
+      "audio.onSeekComplete",
+      "audioplayer.dart",
+      "audioplayers_api.dart",
+      "backwardSkipInterval",
+      "bytes",
+      "changeLogLevel",
+      "clearNotification",
+      "completed",
+      "dart:async",
+      "dart:html",
+      "dart:io",
+      "dart:typed_data",
+      "dart:ui",
+      "duckAudio",
+      "duration",
+      "earpiece",
+      "earpieceOrSpeakersToggle",
+      "elapsedTime",
+      "enableNextTrackButton",
+      "enablePreviousTrackButton",
+      "file://",
+      "forwardSkipInterval",
+      "getCurrentPosition",
+      "getDuration",
+      "handleKey",
+      "imageUrl",
+      "isLocal",
+      "logger.dart",
+      "mode",
+      "monitorNotificationStateChanges",
+      "notifications/notification_service.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/services.dart",
+      "package:flutter/widgets.dart",
+      "package:flutter_web_plugins/flutter_web_plugins.dart",
+      "package:http/http.dart",
+      "package:path_provider/path_provider.dart",
+      "package:uuid/uuid.dart",
+      "pause",
+      "paused",
+      "play",
+      "playBytes",
+      "playbackRate",
+      "playerId",
+      "player_control_command.dart",
+      "playing",
+      "playingRoute",
+      "position",
+      "recordingActive",
+      "release",
+      "releaseMode",
+      "respectSilence",
+      "resume",
+      "seek",
+      "setNotification",
+      "setPlaybackRate",
+      "setReleaseMode",
+      "setUrl",
+      "setVolume",
+      "speakers",
+      "src/api/log_level.dart",
+      "src/api/player_mode.dart",
+      "src/api/player_state.dart",
+      "src/api/playing_route.dart",
+      "src/api/release_mode.dart",
+      "src/audio_cache.dart",
+      "src/audioplayer.dart",
+      "src/logger.dart",
+      "src/notifications/notification_service.dart",
+      "src/notifications/player_control_command.dart",
+      "startHeadlessService",
+      "stayAwake",
+      "stop",
+      "title",
+      "updateHandleMonitorKey",
+      "url",
+      "value",
+      "volume",
+      "xyz.luan/audioplayers",
+      "xyz.luan/audioplayers_callback"
+    ]
+  },
+  "version": "0.20.1"
+}
