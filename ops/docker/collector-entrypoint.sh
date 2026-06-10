@@ -31,5 +31,6 @@ args=(
 # shellcheck disable=SC2086  # PACKAGES is intentionally word-split into a list.
 [ -n "${PACKAGES:-}" ] && args+=( --packages ${PACKAGES} )
 [ "${NO_PUSH:-0}" = "1" ] && args+=( --no-push )
+[ "${DASHBOARD:-1}" = "0" ] && args+=( --no-dashboard )
 
 exec python3 -m collector.daemon "${args[@]}" "$@"
