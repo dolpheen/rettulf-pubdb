@@ -1071,7 +1071,12 @@ class StatusSnapshotTests(unittest.TestCase):
                 {
                     "pubdb_schema_version": 1,
                     "generated_at": None,
-                    "packages": {"provider": ["6.0.5", "6.0.0"]},
+                    # "leftpad" is NOT in the worklist; its versions must not
+                    # inflate coverage.versions_collected.
+                    "packages": {
+                        "provider": ["6.0.5", "6.0.0"],
+                        "leftpad": ["1.0.0", "1.0.1", "1.0.2"],
+                    },
                 }
             ),
             encoding="utf-8",
@@ -1124,12 +1129,13 @@ class StatusSnapshotTests(unittest.TestCase):
         self.assertEqual(snap["throughput"]["last_commit_age_seconds"], 30.0)
         self.assertEqual(snap["meta"], {
             "pubdb_schema_version": 1,
-            "generated_at": snap["meta"]["generated_at"],
+            "generated_at": "2026-01-01T00:00:30Z",  # honors the passed `now`
             "workers": 4,
             "push_enabled": False,
         })
         self.assertEqual(snap["coverage"]["worklist_packages"], 3)
         self.assertEqual(snap["coverage"]["packages_with_entries"], 1)
+        # provider's 2 versions only; leftpad (off-worklist) is excluded.
         self.assertEqual(snap["coverage"]["versions_collected"], 2)
         self.assertEqual(snap["coverage"]["percent_packages"], 33.3)
         self.assertEqual(len(snap["recent_failures"]), 1)

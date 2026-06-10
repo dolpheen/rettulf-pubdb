@@ -237,7 +237,6 @@ class MetricsServer:
         status: Callable[[], JsonObject] | None = None,
     ) -> None:
         self._render = render
-        self._status = status
 
         def respond(
             handler_self: BaseHTTPRequestHandler,
@@ -1534,14 +1533,15 @@ def _worklist_coverage(repo_root: Path | str) -> JsonObject:
     index = _index_versions(root / "db" / "_index.json")
     worklist = set(_top1000_packages(root / "db" / "_top1000.json"))
     packages_with_entries = sum(1 for package in worklist if index.get(package))
-    versions_collected = sum(len(versions) for versions in index.values())
+    # Scope to worklist packages so off-worklist entries (e.g. from --packages)
+    # don't inflate the coverage section.
+    versions_collected = sum(len(index.get(package, ())) for package in worklist)
     percent = (
         round(100.0 * packages_with_entries / len(worklist), 1) if worklist else 0.0
     )
     return {
         "worklist_packages": len(worklist),
         "packages_with_entries": packages_with_entries,
-        "packages_collected_total": len(index),
         "versions_collected": versions_collected,
         "percent_packages": percent,
     }
@@ -1557,10 +1557,11 @@ def status_snapshot(
     now: datetime | None = None,
 ) -> JsonObject:
     """Aggregate queue, metrics, and worklist coverage into one JSON snapshot."""
+    now = now or _utcnow()
     return {
         "meta": {
             "pubdb_schema_version": SCHEMA_VERSION,
-            "generated_at": _iso_now(),
+            "generated_at": now.isoformat(timespec="seconds").replace("+00:00", "Z"),
             "workers": workers,
             "push_enabled": push,
         },
