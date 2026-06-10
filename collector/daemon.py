@@ -1613,6 +1613,9 @@ def _read_index(path: Path) -> JsonObject:
 def _commit_message(items: list[WorkItem]) -> str:
     title = f"collector: publish {len(items)} pub.dev entr"
     title += "y" if len(items) == 1 else "ies"
+    # The daemon validates every entry locally before committing, so skip the
+    # validate CI on these machine-generated pushes (human PRs still run it).
+    title += " [skip ci]"
     keys = "\n".join(f"pubdb-commit-key: {item.commit_key}" for item in items)
     return f"{title}\n\n{keys}"
 
