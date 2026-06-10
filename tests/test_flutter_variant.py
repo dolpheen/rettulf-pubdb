@@ -10,6 +10,7 @@ from unittest import mock
 from collector.pipelines.flutter_variant import (
     STRATEGY,
     FlutterSdk,
+    FlutterVersionManager,
     FlutterVariantSkip,
     FlutterVariantSkipped,
     collect_flutter_variant_entry,
@@ -56,6 +57,37 @@ class DartSdkCompatibilityTests(unittest.TestCase):
         self.assertTrue(is_dart_sdk_compatible("3.12.0", "^3.0.0"))
         self.assertFalse(is_dart_sdk_compatible("3.12.0", ">=2.12.0 <3.0.0"))
         self.assertFalse(is_dart_sdk_compatible("3.2.0", ">=3.3.0 <4.0.0"))
+
+
+class FlutterVersionManagerTests(unittest.TestCase):
+    def test_incomplete_cache_worktree_is_removed_and_recreated(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            cache_dir = Path(tmp) / "flutter"
+            source = cache_dir / "_src"
+            source.mkdir(parents=True)
+            root = cache_dir / "3.44.0"
+            root.mkdir()
+            (root / "poison").write_text("interrupted install", encoding="utf-8")
+            runner = _FakeInstallRunner(root)
+            manager = FlutterVersionManager(
+                cache_dir=cache_dir,
+                command_runner=runner,
+            )
+
+            sdk = manager.ensure("3.44.0", timeout=1.0)
+
+            self.assertEqual(sdk.dart_version, "3.12.0")
+            self.assertFalse((root / "poison").exists())
+            self.assertTrue((root / "bin" / "flutter").is_file())
+            commands = [" ".join(command) for command, _cwd in runner.commands]
+            self.assertIn(
+                f"git -C {source} worktree remove --force {root}",
+                commands,
+            )
+            self.assertIn(
+                f"git -C {source} worktree add --detach {root} 3.44.0",
+                commands,
+            )
 
 
 class FlutterVariantPipelineTests(unittest.TestCase):
@@ -205,6 +237,39 @@ class _FakeRunner:
                 _target_snapshot() if cwd.name == "target" else _baseline_snapshot()
             )
             out_path.write_text(json.dumps(snapshot), encoding="utf-8")
+        return subprocess.CompletedProcess(command, 0, stdout="", stderr="")
+
+
+class _FakeInstallRunner:
+    def __init__(self, root: Path) -> None:
+        self.root = root
+        self.commands: list[tuple[list[str], Path]] = []
+
+    def __call__(
+        self,
+        command,
+        cwd: Path,
+        timeout: float,
+    ) -> subprocess.CompletedProcess[str]:
+        del timeout
+        command = [str(part) for part in command]
+        self.commands.append((command, cwd))
+        if "worktree" in command and "add" in command:
+            flutter = self.root / "bin" / "flutter"
+            dart = self.root / "bin" / "dart"
+            flutter.parent.mkdir(parents=True, exist_ok=True)
+            flutter.write_text("#!/bin/sh\n", encoding="utf-8")
+            dart.write_text("#!/bin/sh\n", encoding="utf-8")
+        if Path(command[0]).name == "flutter" and command[1:] == [
+            "--version",
+            "--machine",
+        ]:
+            return subprocess.CompletedProcess(
+                command,
+                0,
+                stdout=json.dumps({"dartSdkVersion": "3.12.0"}),
+                stderr="",
+            )
         return subprocess.CompletedProcess(command, 0, stdout="", stderr="")
 
 

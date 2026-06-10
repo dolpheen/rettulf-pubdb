@@ -54,7 +54,7 @@ from collector.pipelines.flutter_variant import (
     FlutterVariantSkipped,
     collect_flutter_variant_entry,
     flutter_version_from_variant,
-    has_fresh_skip_record,
+    has_skip_record,
     load_flutter_versions,
     skip_records_path,
     upsert_skip_record,
@@ -744,7 +744,7 @@ class AtomicEntryWriter:
         flutter_version = flutter_version_from_variant(item.variant)
         if flutter_version is None:
             return False
-        return has_fresh_skip_record(
+        return has_skip_record(
             skip_records_path(self.repo_root),
             item.package,
             item.version,
@@ -1012,10 +1012,13 @@ class GitPublisher:
         with self.checkout_lock:
             if item.variant.startswith(FLUTTER_VARIANT_PREFIX):
                 flutter_version = flutter_version_from_variant(item.variant)
-                if flutter_version is not None and self.writer.has_flutter_variant_skip(item):
+                if (
+                    flutter_version is not None
+                    and self.writer.has_flutter_variant_skip(item)
+                ):
                     if self.push:
                         self.git.push_with_rebase_retry(
-                            lambda: self.writer.has_flutter_variant_skip(item)
+                            lambda: self._require_flutter_variant_skip(item)
                         )
                     return True
             self.writer.validator.validate_file(self.repo_root / relative_path)
@@ -1026,6 +1029,10 @@ class GitPublisher:
                     )
                 )
         return True
+
+    def _require_flutter_variant_skip(self, item: WorkItem) -> None:
+        if not self.writer.has_flutter_variant_skip(item):
+            raise RuntimeError(f"skip record vanished after rebase: {item.commit_key}")
 
 
 class CollectorDaemon:
@@ -1235,7 +1242,7 @@ def _work_for_version(
         variant_path = repo_root / "db" / package / f"{version}.{variant}.json"
         if variant_path.is_file() and not _entry_is_stale(variant_path):
             continue
-        if has_fresh_skip_record(skip_path, package, version, flutter_version):
+        if has_skip_record(skip_path, package, version, flutter_version):
             continue
         items.append(
             WorkItem(

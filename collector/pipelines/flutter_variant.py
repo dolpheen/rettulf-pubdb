@@ -157,12 +157,10 @@ class FlutterVersionManager:
         )
 
     def _install_worktree(self, version: str, root: Path, timeout: float) -> None:
-        if root.exists():
-            raise FlutterVariantError(
-                f"Flutter cache path exists but is incomplete: {root}"
-            )
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         source = self.cache_dir / "_src"
+        if root.exists():
+            self._remove_incomplete_worktree(source, root, timeout)
         if not source.exists():
             self._checked_run(
                 [
@@ -196,6 +194,35 @@ class FlutterVersionManager:
             source,
             timeout,
         )
+
+    def _remove_incomplete_worktree(
+        self,
+        source: Path,
+        root: Path,
+        timeout: float,
+    ) -> None:
+        if source.exists():
+            self.command_runner(
+                [
+                    "git",
+                    "-C",
+                    str(source),
+                    "worktree",
+                    "remove",
+                    "--force",
+                    str(root),
+                ],
+                source,
+                timeout,
+            )
+        if root.is_dir() and not root.is_symlink():
+            shutil.rmtree(root, ignore_errors=True)
+        else:
+            root.unlink(missing_ok=True)
+        if root.exists():
+            raise FlutterVariantError(
+                f"could not remove incomplete Flutter cache path: {root}"
+            )
 
     def _dart_version(self, flutter: Path, root: Path, timeout: float) -> str:
         completed = self._checked_run(
@@ -551,7 +578,7 @@ def upsert_skip_record(path: Path | str, skip: FlutterVariantSkip) -> None:
     )
 
 
-def has_fresh_skip_record(
+def has_skip_record(
     path: Path | str,
     package: str,
     version: str,
@@ -605,11 +632,15 @@ def _branch_allows(dart: Version, branch: str) -> bool:
             continue
         match = _COMPARATOR_RE.match(token)
         if match is None:
+            # Unknown pub constraint syntax may still be buildable; let
+            # Flutter's pub resolver decide instead of recording a permanent skip.
             return True
         operator = match.group(1) or "=="
         try:
             comparators.append((operator, Version.parse(match.group(2))))
         except ValueError:
+            # Same fallback as above: an unparsed constraint should attempt the
+            # build and fail loudly rather than become a permanent skip verdict.
             return True
         index += 1
     return all(

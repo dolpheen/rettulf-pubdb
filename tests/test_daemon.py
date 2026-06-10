@@ -613,6 +613,17 @@ class FakeCommittedGit(FakeGit):
         return key == self.key
 
 
+class FakeSkipVanishGit(FakeCommittedGit):
+    def __init__(self, key: str, skip_path: Path) -> None:
+        super().__init__(key)
+        self.skip_path = skip_path
+
+    def push_with_rebase_retry(self, revalidate) -> None:
+        self.skip_path.unlink()
+        revalidate()
+        self.pushes += 1
+
+
 class FakeFlakyPushGit(FakeGit):
     def __init__(self) -> None:
         super().__init__()
@@ -796,6 +807,48 @@ class OnceFlowTests(unittest.TestCase):
             self.assertEqual(git.pushes, 1)
             self.assertEqual(queue.dequeue(), None)
             queue.close()
+
+    def test_committed_flutter_skip_retry_requires_skip_record_after_rebase(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            repo_root = Path(tmp)
+            skip_path = repo_root / "db" / "_flutter_variant_skips.json"
+            skip_path.parent.mkdir(parents=True)
+            skip_path.write_text(
+                json.dumps(
+                    {
+                        "generated_at": "2026-01-01T00:00:00Z",
+                        "skips": [
+                            {
+                                "package": "fake_pkg",
+                                "version": "1.0.0",
+                                "flutter_version": "3.44.0",
+                                "reason": "unsupported",
+                                "collected_at": "2026-01-01T00:00:00Z",
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            item = daemon.WorkItem(
+                "fake_pkg",
+                "1.0.0",
+                "flutter-3.44.0",
+                daemon.PRIORITY_MISSING_FLUTTER_VARIANT,
+            )
+            validator = daemon.EntryValidator(SCHEMA_PATH)
+            writer = daemon.AtomicEntryWriter(repo_root, validator)
+            git = FakeSkipVanishGit(item.commit_key, skip_path)
+            publisher = daemon.GitPublisher(
+                repo_root=repo_root,
+                writer=writer,
+                checkout_lock=daemon.CheckoutLock(repo_root / "checkout.lock"),
+                git=git,
+                metrics=daemon.Metrics(),
+            )
+
+            with self.assertRaisesRegex(RuntimeError, "skip record vanished"):
+                publisher.complete_if_committed(item)
 
     def test_failed_push_keeps_pending_item_for_retry_without_duplicate_commit(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
