@@ -1,0 +1,411 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:args/args.dart",
+          "package:args/src/arg_results.dart",
+          "package:args/src/option.dart",
+          "package:args/src/utils.dart"
+        ],
+        "methods": [
+          "newArgResults",
+          "newOption",
+          "padRight",
+          "wrapText",
+          "wrapTextAsLines"
+        ],
+        "types": [
+          "ArgParser",
+          "ArgResults",
+          "Option",
+          "OptionType"
+        ]
+      },
+      "AllowAnythingParser": {
+        "fields": [
+          "get:allowTrailingOptions",
+          "get:allowsAnything",
+          "get:commands",
+          "get:options",
+          "get:usage",
+          "get:usageLineLength"
+        ],
+        "libraries": [
+          "package:args/src/allow_anything_parser.dart"
+        ],
+        "methods": [
+          "addCommand",
+          "addFlag",
+          "addMultiOption",
+          "addOption",
+          "addSeparator",
+          "findByAbbreviation",
+          "getDefault",
+          "getUsage",
+          "parse"
+        ],
+        "types": [
+          "ArgParser",
+          "ArgResults",
+          "Option"
+        ]
+      },
+      "ArgParser": {
+        "fields": [
+          "allowTrailingOptions",
+          "commands",
+          "get:allowsAnything",
+          "get:usage",
+          "options",
+          "usageLineLength"
+        ],
+        "libraries": [
+          "package:args/args.dart",
+          "package:args/src/arg_parser.dart"
+        ],
+        "methods": [
+          "ArgParser",
+          "addCommand",
+          "addFlag",
+          "addMultiOption",
+          "addOption",
+          "addSeparator",
+          "allowAnything",
+          "findByAbbreviation",
+          "getDefault",
+          "getUsage",
+          "parse"
+        ],
+        "types": [
+          "ArgParser",
+          "ArgResults",
+          "Option"
+        ]
+      },
+      "ArgParserException": {
+        "fields": [
+          "commands"
+        ],
+        "libraries": [
+          "package:args/args.dart",
+          "package:args/src/arg_parser_exception.dart"
+        ],
+        "methods": [
+          "ArgParserException"
+        ],
+        "types": []
+      },
+      "ArgResults": {
+        "fields": [
+          "arguments",
+          "command",
+          "get:options",
+          "name",
+          "rest"
+        ],
+        "libraries": [
+          "package:args/args.dart",
+          "package:args/src/arg_results.dart"
+        ],
+        "methods": [
+          "[]",
+          "wasParsed"
+        ],
+        "types": [
+          "ArgParser",
+          "ArgResults"
+        ]
+      },
+      "Command": {
+        "fields": [
+          "get:aliases",
+          "get:argParser",
+          "get:argResults",
+          "get:description",
+          "get:globalResults",
+          "get:hidden",
+          "get:invocation",
+          "get:name",
+          "get:parent",
+          "get:runner",
+          "get:subcommands",
+          "get:summary",
+          "get:takesArguments",
+          "get:usage",
+          "get:usageFooter"
+        ],
+        "libraries": [
+          "package:args/command_runner.dart"
+        ],
+        "methods": [
+          "Command",
+          "addSubcommand",
+          "printUsage",
+          "run",
+          "usageException"
+        ],
+        "types": [
+          "ArgParser",
+          "ArgResults",
+          "Command",
+          "CommandRunner"
+        ]
+      },
+      "CommandRunner": {
+        "fields": [
+          "description",
+          "executableName",
+          "get:argParser",
+          "get:commands",
+          "get:invocation",
+          "get:usage",
+          "get:usageFooter"
+        ],
+        "libraries": [
+          "package:args/command_runner.dart"
+        ],
+        "methods": [
+          "CommandRunner",
+          "addCommand",
+          "parse",
+          "printUsage",
+          "run",
+          "runCommand",
+          "usageException"
+        ],
+        "types": [
+          "ArgParser",
+          "ArgResults",
+          "Command"
+        ]
+      },
+      "HelpCommand": {
+        "fields": [
+          "get:description",
+          "get:invocation",
+          "name"
+        ],
+        "libraries": [
+          "package:args/src/help_command.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": [
+          "Command"
+        ]
+      },
+      "Option": {
+        "fields": [
+          "abbr",
+          "allowed",
+          "allowedHelp",
+          "callback",
+          "defaultsTo",
+          "get:abbreviation",
+          "get:defaultValue",
+          "get:isFlag",
+          "get:isMultiple",
+          "get:isSingle",
+          "help",
+          "hide",
+          "name",
+          "negatable",
+          "splitCommas",
+          "type",
+          "valueHelp"
+        ],
+        "libraries": [
+          "package:args/args.dart",
+          "package:args/src/option.dart"
+        ],
+        "methods": [
+          "getOrDefault"
+        ],
+        "types": [
+          "OptionType"
+        ]
+      },
+      "OptionType": {
+        "fields": [
+          "FLAG",
+          "MULTIPLE",
+          "SINGLE",
+          "flag",
+          "multiple",
+          "name",
+          "single"
+        ],
+        "libraries": [
+          "package:args/args.dart",
+          "package:args/src/option.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Parser": {
+        "fields": [
+          "args",
+          "commandName",
+          "get:current",
+          "grammar",
+          "parent",
+          "rest",
+          "results"
+        ],
+        "libraries": [
+          "package:args/src/parser.dart"
+        ],
+        "methods": [
+          "Parser",
+          "parse",
+          "parseAbbreviation",
+          "parseLongOption",
+          "parseShortFlag",
+          "parseSoloOption",
+          "readNextArgAsValue",
+          "setFlag",
+          "setOption",
+          "validate"
+        ],
+        "types": [
+          "ArgParser",
+          "ArgResults",
+          "Option",
+          "Parser"
+        ]
+      },
+      "Usage": {
+        "fields": [
+          "buffer",
+          "columnWidths",
+          "currentColumn",
+          "lineLength",
+          "newlinesNeeded",
+          "numHelpLines",
+          "optionsAndSeparators"
+        ],
+        "libraries": [
+          "package:args/src/usage.dart"
+        ],
+        "methods": [
+          "Usage",
+          "buildAllowedList",
+          "calculateColumnWidths",
+          "generate",
+          "getAbbreviation",
+          "getAllowedTitle",
+          "getLongOption",
+          "newline",
+          "write",
+          "writeLine"
+        ],
+        "types": [
+          "Option"
+        ]
+      },
+      "UsageException": {
+        "fields": [
+          "message",
+          "usage"
+        ],
+        "libraries": [
+          "package:args/command_runner.dart",
+          "package:args/src/usage_exception.dart"
+        ],
+        "methods": [
+          "UsageException",
+          "toString"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-10T19:43:55Z",
+  "package": "args",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "OptionType"
+    ],
+    "digest": "430834c02c3fba0d1b0649b68e7da7a907164e6ee960f5c40262a4d63e8a2dd4",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "ed3485dc1dcdaba81cb54b5e375efed1559b234adfb1b0231e411ddea3e97874",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\n\n",
+      " ",
+      " (default)",
+      "(defaults to ",
+      "(defaults to on)",
+      ")",
+      ",",
+      ", ",
+      "-",
+      "--",
+      "../args.dart",
+      "../command_runner.dart",
+      "Abbreviation cannot be \"-\".",
+      "Abbreviation is an invalid character.",
+      "Abbreviation must be null or have length 1.",
+      "ArgParser.allowAnything().addCommands() isn't supported.",
+      "ArgParser.allowAnything().addFlag() isn't supported.",
+      "ArgParser.allowAnything().addMultiOption() isn't supported.",
+      "ArgParser.allowAnything().addOption() isn't supported.",
+      "ArgParser.allowAnything().addSeparator() isn't supported.",
+      "Cannot specify arguments before a command.",
+      "Global options:",
+      "Name cannot be empty.",
+      "OptionType.flag",
+      "OptionType.multiple",
+      "OptionType.single",
+      "Print this usage information.",
+      "Replaced with get usage. getUsage() will be removed in args 1.0",
+      "Usage:",
+      "Usage: ",
+      "Use OptionType.flag instead.",
+      "Use OptionType.multiple instead.",
+      "Use OptionType.single instead.",
+      "Use abbr instead.",
+      "Use addMultiOption() instead.",
+      "Use defaultsTo instead.",
+      "[",
+      "[ \\t\\r\\n\"'\\\\/]",
+      "]",
+      "^-([a-zA-Z0-9])$",
+      "^-([a-zA-Z0-9]+)(.*)$",
+      "^--([a-zA-Z\\-_0-9]+)(=(.*))?$",
+      "allow_anything_parser.dart",
+      "arg_parser.dart",
+      "arg_parser_exception.dart",
+      "arg_results.dart",
+      "dart:async",
+      "dart:collection",
+      "dart:math",
+      "h",
+      "help",
+      "no-",
+      "option.dart",
+      "parser.dart",
+      "splitCommas may not be set if allowMultiple is false.",
+      "src/arg_parser.dart",
+      "src/arg_parser_exception.dart",
+      "src/arg_results.dart",
+      "src/help_command.dart",
+      "src/option.dart",
+      "src/usage_exception.dart",
+      "src/utils.dart",
+      "sub",
+      "usage.dart",
+      "utils.dart"
+    ]
+  },
+  "version": "1.5.3"
+}
