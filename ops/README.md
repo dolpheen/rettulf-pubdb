@@ -33,9 +33,11 @@ cd /opt/rettulf-pubdb
 cp ops/env.example ops/docker/.env
 sudo --edit ops/docker/.env        # set GITHUB_TOKEN (or NO_PUSH=1 to dry-run)
 
-# 3. Smoke-test before enabling the service (builds image, no push):
-docker compose -f ops/docker/docker-compose.yml run --rm --build \
-  collector --once --no-metrics --packages provider
+# 3. Smoke-test before enabling the service (builds image, never pushes). Run
+#    from ops/docker so Compose loads ops/docker/.env and resolves the relative
+#    bind-mount the same way the systemd unit's WorkingDirectory does:
+(cd ops/docker && docker compose run --rm --build \
+  collector --once --no-metrics --no-push --packages provider)
 git -C /opt/rettulf-pubdb log -1 --stat   # a db/provider/<v>.json commit
 
 # 4. Install + start the service.
