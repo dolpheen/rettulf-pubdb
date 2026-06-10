@@ -121,6 +121,7 @@ entrypoint maps them to daemon flags:
 | `GITHUB_TOKEN` | git HTTPS push credential | — |
 | `NO_PUSH=1` | `--no-push` (collect + commit, no push) | off |
 | `DASHBOARD=0` | `--no-dashboard` (serve /metrics only) | on |
+| `BASE_ONLY=1` | `--base-only` (skip obfuscated + Flutter variants) | off |
 | `PACKAGES` | `--packages` (space-separated allowlist) | top1000 worklist |
 
 Proxy-only vars (consumed by the `proxy` compose service, not the daemon):
@@ -131,6 +132,22 @@ see [Overview dashboard](#overview-dashboard).
 `WORKERS` parallelises the slow part (pub.dev fetch + Dart analyze); staging,
 schema validation, commit, and push stay serialised behind the checkout lock,
 so the published history is still linear.
+
+## Collection worklist
+
+With no `PACKAGES` set, the collector works through `db/_top1000.json` (the
+most popular pub.dev packages) **plus** everything already in `db/_index.json`.
+Populate / refresh that worklist with:
+
+```sh
+python scripts/refresh_top1000.py            # top 1000 -> db/_top1000.json
+python scripts/refresh_top1000.py --count 200
+```
+
+Commit the result so the collector (which reads it from its checkout) picks it
+up on the next discovery pass. On the lean image, pair a full worklist with
+`BASE_ONLY=1` — otherwise every collected version also enqueues an
+obfuscated-build variant that can't be built here and just dead-letters.
 
 ## Disk budget
 
