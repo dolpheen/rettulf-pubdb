@@ -13,10 +13,8 @@ Implemented:
   fingerprint collector.
 - `pipelines/obfuscated_build.py` — Flutter probe-app builder for
   `db/<package>/<version>.obf.json` obfuscated-build variants.
-
-Planned contents (tracked separately):
-
-- `#7` — per-Flutter-version variant (`flutter_variants`)
+- `pipelines/flutter_variant.py` — per-Flutter-stable probe-app builder for
+  `db/<package>/<version>.flutter-<flutter-version>.json` variants.
 
 Every entry the collector writes under `db/<package>/` must validate against
 `schema/_schema.v1.json` (`python scripts/validate.py`).

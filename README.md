@@ -19,8 +19,10 @@ Consumer counterpart: [`rettulf#21`](https://github.com/dolpheen/rettulf/issues/
 | `schema/_schema.v1.json` | JSON Schema (draft 2020-12) for one `(package, version)` entry. |
 | `schema/examples/` | Example entries that must pass validation. |
 | `db/<package>/<version>.json` | One fingerprint entry per package version. |
+| `db/<package>/<version>.flutter-<version>.json` | Per-Flutter-version variant entry. |
 | `db/_index.json` | Index of available `(package, version)` entries (consumer fetches this first). |
 | `db/_top1000.json` | Collection worklist (top pub.dev packages); filled by a future `scripts/refresh_top1000.py`. |
+| `db/_flutter_versions.json` | Stable Flutter releases collected as variants. |
 | `collector/` | 24/7 collection pipeline (see `collector/README.md`). |
 | `scripts/` | Tooling. `validate.py` validates entries against the schema. |
 | `ops/` | Deployment (systemd / Docker) for the collector. |
@@ -57,6 +59,14 @@ baseline-subtracted hierarchy hash, string literals, MethodChannel-like names,
 FFI symbols, const-canonicalisation signals, and reachable-surface coverage
 metadata. The collector records `partial: true` when the generated probe covers
 less than the configured public-declaration threshold.
+
+Flutter-version variants are written as
+`db/<package>/<version>.flutter-<flutter-version>.json`. They keep the same
+required base entry fields and add a single `flutter_variants` item with the
+Flutter version, pinned Dart SDK version, and a non-obfuscated probe
+fingerprint. If a package version is incompatible with a Flutter release's Dart
+SDK pin, the collector records the skip in `db/_flutter_variant_skips.json`
+instead of writing a fingerprint entry.
 
 ### Schema versioning
 

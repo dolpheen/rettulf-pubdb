@@ -141,6 +141,30 @@ class WorkQueueTests(unittest.TestCase):
             self.assertEqual(requeued.attempts, 1)
             queue.close()
 
+    def test_done_flutter_variant_item_can_be_requeued_when_missing(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            queue = daemon.WorkQueue(Path(tmp) / "queue.db")
+            item = daemon.WorkItem(
+                "pkg",
+                "1.0.0",
+                "flutter-3.44.0",
+                daemon.PRIORITY_MISSING_FLUTTER_VARIANT,
+            )
+            queue.enqueue(item)
+            claimed = queue.dequeue()
+            assert claimed is not None
+            queue.complete(claimed)
+
+            queue.enqueue(item)
+            requeued = queue.dequeue()
+
+            self.assertIsNotNone(requeued)
+            assert requeued is not None
+            self.assertEqual(requeued.variant, "flutter-3.44.0")
+            self.assertEqual(requeued.priority, daemon.PRIORITY_MISSING_FLUTTER_VARIANT)
+            self.assertEqual(requeued.attempts, 1)
+            queue.close()
+
     def test_failure_uses_backoff_then_dead_letters(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             queue = daemon.WorkQueue(Path(tmp) / "queue.db", max_attempts=2)
@@ -397,12 +421,147 @@ class DiscoveryTests(unittest.TestCase):
             ],
         )
 
+    def test_discover_work_enqueues_configured_flutter_variants_after_base(self) -> None:
+        class Discovery:
+            def versions(self, package: str) -> list[str]:
+                return ["1.0.0"]
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            entry_path = root / "db" / "fake_pkg" / "1.0.0.json"
+            entry_path.parent.mkdir(parents=True)
+            entry = _valid_entry("fake_pkg", "1.0.0")
+            entry["collected_at"] = datetime.now(timezone.utc).isoformat(
+                timespec="seconds"
+            )
+            entry_path.write_text(
+                json.dumps(entry),
+                encoding="utf-8",
+            )
+            (root / "db" / "_index.json").write_text(
+                json.dumps(
+                    {
+                        "pubdb_schema_version": 1,
+                        "generated_at": None,
+                        "packages": {"fake_pkg": ["1.0.0"]},
+                    }
+                ),
+                encoding="utf-8",
+            )
+            (root / "db" / "_flutter_versions.json").write_text(
+                json.dumps(["3.41.0", "3.44.0"]),
+                encoding="utf-8",
+            )
+
+            items = daemon.discover_work(root, Discovery())
+
+        self.assertEqual(
+            items,
+            [
+                daemon.WorkItem(
+                    "fake_pkg",
+                    "1.0.0",
+                    daemon.OBFUSCATED_VARIANT,
+                    daemon.PRIORITY_MISSING_OBF,
+                ),
+                daemon.WorkItem(
+                    "fake_pkg",
+                    "1.0.0",
+                    "flutter-3.41.0",
+                    daemon.PRIORITY_MISSING_FLUTTER_VARIANT,
+                ),
+                daemon.WorkItem(
+                    "fake_pkg",
+                    "1.0.0",
+                    "flutter-3.44.0",
+                    daemon.PRIORITY_MISSING_FLUTTER_VARIANT,
+                ),
+            ],
+        )
+
+    def test_discover_work_does_not_enqueue_recorded_flutter_skip(self) -> None:
+        class Discovery:
+            def versions(self, package: str) -> list[str]:
+                return ["1.0.0"]
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            entry_path = root / "db" / "fake_pkg" / "1.0.0.json"
+            entry_path.parent.mkdir(parents=True)
+            entry = _valid_entry("fake_pkg", "1.0.0")
+            entry["collected_at"] = datetime.now(timezone.utc).isoformat(
+                timespec="seconds"
+            )
+            entry_path.write_text(
+                json.dumps(entry),
+                encoding="utf-8",
+            )
+            (root / "db" / "_index.json").write_text(
+                json.dumps(
+                    {
+                        "pubdb_schema_version": 1,
+                        "generated_at": None,
+                        "packages": {"fake_pkg": ["1.0.0"]},
+                    }
+                ),
+                encoding="utf-8",
+            )
+            (root / "db" / "_flutter_versions.json").write_text(
+                json.dumps(["3.41.0", "3.44.0"]),
+                encoding="utf-8",
+            )
+            (root / "db" / "_flutter_variant_skips.json").write_text(
+                json.dumps(
+                    {
+                        "generated_at": "2026-01-01T00:00:00Z",
+                        "skips": [
+                            {
+                                "package": "fake_pkg",
+                                "version": "1.0.0",
+                                "flutter_version": "3.41.0",
+                                "reason": "unsupported",
+                                "collected_at": "2026-01-01T00:00:00Z",
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            items = daemon.discover_work(root, Discovery())
+
+        self.assertNotIn(
+            daemon.WorkItem(
+                "fake_pkg",
+                "1.0.0",
+                "flutter-3.41.0",
+                daemon.PRIORITY_MISSING_FLUTTER_VARIANT,
+            ),
+            items,
+        )
+        self.assertIn(
+            daemon.WorkItem(
+                "fake_pkg",
+                "1.0.0",
+                "flutter-3.44.0",
+                daemon.PRIORITY_MISSING_FLUTTER_VARIANT,
+            ),
+            items,
+        )
+
     def test_entry_relative_path_uses_obfuscated_variant_filename(self) -> None:
         path = daemon.entry_relative_path(
             daemon.WorkItem("fake_pkg", "1.0.0", daemon.OBFUSCATED_VARIANT)
         )
 
         self.assertEqual(path.as_posix(), "db/fake_pkg/1.0.0.obf.json")
+
+    def test_entry_relative_path_uses_flutter_variant_filename(self) -> None:
+        path = daemon.entry_relative_path(
+            daemon.WorkItem("fake_pkg", "1.0.0", "flutter-3.44.0")
+        )
+
+        self.assertEqual(path.as_posix(), "db/fake_pkg/1.0.0.flutter-3.44.0.json")
 
 
 class FakePipeline:
@@ -412,6 +571,19 @@ class FakePipeline:
     def collect(self, item: daemon.WorkItem) -> dict[str, object]:
         self.items.append(item)
         return _valid_entry(item.package, item.version)
+
+
+class FakeSkipPipeline:
+    def collect(self, item: daemon.WorkItem) -> dict[str, object]:
+        raise daemon.PipelineSkip(
+            {
+                "package": item.package,
+                "version": item.version,
+                "flutter_version": "3.44.0",
+                "reason": "Dart SDK incompatible",
+                "collected_at": "2026-01-01T00:00:00Z",
+            }
+        )
 
 
 class FakeGit:
@@ -439,6 +611,17 @@ class FakeCommittedGit(FakeGit):
 
     def has_commit_key(self, key: str) -> bool:
         return key == self.key
+
+
+class FakeSkipVanishGit(FakeCommittedGit):
+    def __init__(self, key: str, skip_path: Path) -> None:
+        super().__init__(key)
+        self.skip_path = skip_path
+
+    def push_with_rebase_retry(self, revalidate) -> None:
+        self.skip_path.unlink()
+        revalidate()
+        self.pushes += 1
 
 
 class FakeFlakyPushGit(FakeGit):
@@ -531,6 +714,55 @@ class OnceFlowTests(unittest.TestCase):
             self.assertEqual(index["packages"], {"fake_pkg": ["1.0.0"]})
             queue.close()
 
+    def test_once_records_flutter_variant_skip_and_marks_item_done(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            repo_root = Path(tmp)
+            (repo_root / "db").mkdir()
+
+            queue = daemon.WorkQueue(repo_root / "queue.db")
+            queue.enqueue(
+                daemon.WorkItem(
+                    "fake_pkg",
+                    "1.0.0",
+                    "flutter-3.44.0",
+                    daemon.PRIORITY_MISSING_FLUTTER_VARIANT,
+                )
+            )
+            metrics = daemon.Metrics()
+            validator = daemon.EntryValidator(SCHEMA_PATH)
+            writer = daemon.AtomicEntryWriter(repo_root, validator)
+            git = FakeGit()
+            publisher = daemon.GitPublisher(
+                repo_root=repo_root,
+                writer=writer,
+                checkout_lock=daemon.CheckoutLock(repo_root / "checkout.lock"),
+                git=git,
+                metrics=metrics,
+                batch_size=10,
+                push_interval=999.0,
+            )
+            collector = daemon.CollectorDaemon(
+                repo_root=repo_root,
+                queue=queue,
+                pipeline=FakeSkipPipeline(),
+                publisher=publisher,
+                metrics=metrics,
+            )
+
+            self.assertEqual(collector.run(once=True), 0)
+
+            skip_path = repo_root / "db" / "_flutter_variant_skips.json"
+            payload = json.loads(skip_path.read_text(encoding="utf-8"))
+            self.assertEqual(payload["skips"][0]["flutter_version"], "3.44.0")
+            self.assertEqual(queue.dequeue(), None)
+            self.assertEqual(len(git.commits), 1)
+            self.assertIn("db/_flutter_variant_skips.json", git.adds[0])
+            self.assertIn(
+                "pubdb-commit-key: fake_pkg:1.0.0:flutter-3.44.0:schema-v1",
+                git.commits[0],
+            )
+            queue.close()
+
     def test_retry_skips_collection_when_commit_key_already_exists(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             repo_root = Path(tmp)
@@ -575,6 +807,48 @@ class OnceFlowTests(unittest.TestCase):
             self.assertEqual(git.pushes, 1)
             self.assertEqual(queue.dequeue(), None)
             queue.close()
+
+    def test_committed_flutter_skip_retry_requires_skip_record_after_rebase(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            repo_root = Path(tmp)
+            skip_path = repo_root / "db" / "_flutter_variant_skips.json"
+            skip_path.parent.mkdir(parents=True)
+            skip_path.write_text(
+                json.dumps(
+                    {
+                        "generated_at": "2026-01-01T00:00:00Z",
+                        "skips": [
+                            {
+                                "package": "fake_pkg",
+                                "version": "1.0.0",
+                                "flutter_version": "3.44.0",
+                                "reason": "unsupported",
+                                "collected_at": "2026-01-01T00:00:00Z",
+                            }
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            item = daemon.WorkItem(
+                "fake_pkg",
+                "1.0.0",
+                "flutter-3.44.0",
+                daemon.PRIORITY_MISSING_FLUTTER_VARIANT,
+            )
+            validator = daemon.EntryValidator(SCHEMA_PATH)
+            writer = daemon.AtomicEntryWriter(repo_root, validator)
+            git = FakeSkipVanishGit(item.commit_key, skip_path)
+            publisher = daemon.GitPublisher(
+                repo_root=repo_root,
+                writer=writer,
+                checkout_lock=daemon.CheckoutLock(repo_root / "checkout.lock"),
+                git=git,
+                metrics=daemon.Metrics(),
+            )
+
+            with self.assertRaisesRegex(RuntimeError, "skip record vanished"):
+                publisher.complete_if_committed(item)
 
     def test_failed_push_keeps_pending_item_for_retry_without_duplicate_commit(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
