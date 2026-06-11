@@ -1,0 +1,642 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "boundaryCharacters",
+          "get:zoneClient"
+        ],
+        "libraries": [
+          "package:http/browser_client.dart",
+          "package:http/http.dart",
+          "package:http/io_client.dart",
+          "package:http/src/boundary_characters.dart",
+          "package:http/src/browser_client.dart",
+          "package:http/src/client.dart",
+          "package:http/src/client_stub.dart",
+          "package:http/src/io_client.dart",
+          "package:http/src/mock_client.dart",
+          "package:http/src/multipart_file_io.dart",
+          "package:http/src/multipart_file_stub.dart",
+          "package:http/src/utils.dart",
+          "package:http/testing.dart"
+        ],
+        "methods": [
+          "createClient",
+          "delete",
+          "encodingForContentTypeHeader",
+          "get",
+          "head",
+          "isPlainAscii",
+          "mapToQuery",
+          "multipartFileFromPath",
+          "onDone",
+          "patch",
+          "post",
+          "put",
+          "read",
+          "readBytes",
+          "requiredEncodingForCharset",
+          "runWithClient",
+          "toByteStream",
+          "toUint8List"
+        ],
+        "types": [
+          "BaseClient",
+          "BaseRequest",
+          "ByteStream",
+          "Client",
+          "MultipartFile",
+          "Request",
+          "Response",
+          "StreamedResponse"
+        ]
+      },
+      "Abortable": {
+        "fields": [
+          "abortTrigger"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/abortable.dart"
+        ],
+        "methods": [],
+        "types": [
+          "BaseRequest"
+        ]
+      },
+      "AbortableMultipartRequest": {
+        "fields": [
+          "abortTrigger"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/multipart_request.dart"
+        ],
+        "methods": [
+          "AbortableMultipartRequest"
+        ],
+        "types": [
+          "Abortable",
+          "MultipartRequest"
+        ]
+      },
+      "AbortableRequest": {
+        "fields": [
+          "abortTrigger"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/request.dart"
+        ],
+        "methods": [
+          "AbortableRequest"
+        ],
+        "types": [
+          "Abortable",
+          "Request"
+        ]
+      },
+      "AbortableStreamedRequest": {
+        "fields": [
+          "abortTrigger"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/streamed_request.dart"
+        ],
+        "methods": [
+          "AbortableStreamedRequest"
+        ],
+        "types": [
+          "Abortable",
+          "StreamedRequest"
+        ]
+      },
+      "BaseClient": {
+        "fields": [],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/base_client.dart"
+        ],
+        "methods": [
+          "close",
+          "delete",
+          "get",
+          "head",
+          "patch",
+          "post",
+          "put",
+          "read",
+          "readBytes",
+          "send"
+        ],
+        "types": [
+          "BaseRequest",
+          "Client",
+          "Response",
+          "StreamedResponse"
+        ]
+      },
+      "BaseRequest": {
+        "fields": [
+          "get:contentLength",
+          "get:finalized",
+          "get:followRedirects",
+          "get:maxRedirects",
+          "get:persistentConnection",
+          "headers",
+          "method",
+          "set:contentLength",
+          "set:followRedirects",
+          "set:maxRedirects",
+          "set:persistentConnection",
+          "url"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/base_request.dart"
+        ],
+        "methods": [
+          "BaseRequest",
+          "finalize",
+          "send",
+          "toString"
+        ],
+        "types": [
+          "ByteStream",
+          "StreamedResponse"
+        ]
+      },
+      "BaseResponse": {
+        "fields": [
+          "contentLength",
+          "headers",
+          "isRedirect",
+          "persistentConnection",
+          "reasonPhrase",
+          "request",
+          "statusCode"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/base_response.dart"
+        ],
+        "methods": [
+          "BaseResponse"
+        ],
+        "types": [
+          "BaseRequest"
+        ]
+      },
+      "BaseResponseWithUrl": {
+        "fields": [
+          "url"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/base_response.dart"
+        ],
+        "methods": [],
+        "types": [
+          "BaseResponse"
+        ]
+      },
+      "BrowserClient": {
+        "fields": [
+          "withCredentials"
+        ],
+        "libraries": [
+          "package:http/browser_client.dart",
+          "package:http/src/browser_client.dart"
+        ],
+        "methods": [
+          "close",
+          "send"
+        ],
+        "types": [
+          "BaseClient",
+          "BaseRequest",
+          "StreamedResponse"
+        ]
+      },
+      "ByteStream": {
+        "fields": [],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/byte_stream.dart"
+        ],
+        "methods": [
+          "ByteStream",
+          "bytesToString",
+          "fromBytes",
+          "toBytes",
+          "toStringStream"
+        ],
+        "types": []
+      },
+      "Client": {
+        "fields": [],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/client.dart"
+        ],
+        "methods": [
+          "Client",
+          "close",
+          "delete",
+          "get",
+          "head",
+          "patch",
+          "post",
+          "put",
+          "read",
+          "readBytes",
+          "send"
+        ],
+        "types": [
+          "BaseRequest",
+          "Response",
+          "StreamedResponse"
+        ]
+      },
+      "ClientException": {
+        "fields": [
+          "message",
+          "uri"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/exception.dart"
+        ],
+        "methods": [
+          "ClientException",
+          "toString"
+        ],
+        "types": []
+      },
+      "HeadersWithSplitValues": {
+        "fields": [
+          "get:headersSplitValues"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/base_response.dart"
+        ],
+        "methods": [],
+        "types": [
+          "BaseResponse"
+        ]
+      },
+      "IOClient": {
+        "fields": [],
+        "libraries": [
+          "package:http/io_client.dart",
+          "package:http/src/io_client.dart"
+        ],
+        "methods": [
+          "IOClient",
+          "close",
+          "send"
+        ],
+        "types": [
+          "BaseClient",
+          "BaseRequest",
+          "IOStreamedResponse"
+        ]
+      },
+      "IOStreamedResponse": {
+        "fields": [],
+        "libraries": [
+          "package:http/io_client.dart",
+          "package:http/src/io_streamed_response.dart"
+        ],
+        "methods": [
+          "IOStreamedResponse",
+          "detachSocket"
+        ],
+        "types": [
+          "StreamedResponse"
+        ]
+      },
+      "MockClient": {
+        "fields": [],
+        "libraries": [
+          "package:http/src/mock_client.dart",
+          "package:http/testing.dart"
+        ],
+        "methods": [
+          "MockClient",
+          "pngResponse",
+          "send",
+          "streaming"
+        ],
+        "types": [
+          "BaseClient",
+          "BaseRequest",
+          "Response",
+          "StreamedResponse"
+        ]
+      },
+      "MultipartFile": {
+        "fields": [
+          "contentType",
+          "field",
+          "filename",
+          "get:isFinalized",
+          "length"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/multipart_file.dart"
+        ],
+        "methods": [
+          "MultipartFile",
+          "finalize",
+          "fromBytes",
+          "fromPath",
+          "fromString"
+        ],
+        "types": [
+          "ByteStream",
+          "MultipartFile"
+        ]
+      },
+      "MultipartRequest": {
+        "fields": [
+          "fields",
+          "files",
+          "get:contentLength",
+          "set:contentLength"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/multipart_request.dart"
+        ],
+        "methods": [
+          "MultipartRequest",
+          "finalize"
+        ],
+        "types": [
+          "BaseRequest",
+          "ByteStream"
+        ]
+      },
+      "Request": {
+        "fields": [
+          "get:body",
+          "get:bodyBytes",
+          "get:bodyFields",
+          "get:contentLength",
+          "get:encoding",
+          "set:body",
+          "set:bodyBytes",
+          "set:bodyFields",
+          "set:contentLength",
+          "set:encoding"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/request.dart"
+        ],
+        "methods": [
+          "Request",
+          "finalize"
+        ],
+        "types": [
+          "BaseRequest",
+          "ByteStream"
+        ]
+      },
+      "RequestAbortedException": {
+        "fields": [],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/abortable.dart"
+        ],
+        "methods": [
+          "RequestAbortedException"
+        ],
+        "types": [
+          "ClientException"
+        ]
+      },
+      "Response": {
+        "fields": [
+          "bodyBytes",
+          "get:body"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/response.dart"
+        ],
+        "methods": [
+          "Response",
+          "bytes",
+          "fromStream"
+        ],
+        "types": [
+          "BaseRequest",
+          "BaseResponse",
+          "Response",
+          "StreamedResponse"
+        ]
+      },
+      "RetryClient": {
+        "fields": [],
+        "libraries": [
+          "package:http/retry.dart"
+        ],
+        "methods": [
+          "RetryClient",
+          "close",
+          "send",
+          "withDelays"
+        ],
+        "types": [
+          "BaseClient",
+          "BaseRequest",
+          "BaseResponse",
+          "Client",
+          "StreamedResponse"
+        ]
+      },
+      "StreamedRequest": {
+        "fields": [
+          "get:sink"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/streamed_request.dart"
+        ],
+        "methods": [
+          "StreamedRequest",
+          "finalize"
+        ],
+        "types": [
+          "BaseRequest",
+          "ByteStream"
+        ]
+      },
+      "StreamedResponse": {
+        "fields": [
+          "stream"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/streamed_response.dart"
+        ],
+        "methods": [
+          "StreamedResponse"
+        ],
+        "types": [
+          "BaseResponse",
+          "ByteStream"
+        ]
+      },
+      "StreamedResponseV2": {
+        "fields": [
+          "url"
+        ],
+        "libraries": [
+          "package:http/src/streamed_response.dart"
+        ],
+        "methods": [
+          "StreamedResponseV2"
+        ],
+        "types": [
+          "BaseResponseWithUrl",
+          "StreamedResponse"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:35:52Z",
+  "package": "http",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "ByteStream"
+    ],
+    "digest": "7c5195e01e8c353974dfefe3355c8d53157a26919c26c535b90703ab05caf390",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "4c4095cdda65199cbff1d7ef8a54bcce387f9d714df802a5261729a8cd5b5592",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\r\n",
+      "!#$%&'*+\\-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ^_`abcdefghijklmnopqrstuvwxyz|~",
+      "\"",
+      "%0D%0A",
+      "%22",
+      "&",
+      ",",
+      "--",
+      "--\r\n",
+      "../http.dart",
+      "AbortError",
+      "Can't finalize a finalized MultipartFile.",
+      "Can't finalize a finalized Request.",
+      "Can't modify a finalized Request.",
+      "Cannot access the body fields of a Request without content-type \"application/x-www-form-urlencoded\".",
+      "Cannot create a client without dart:js_interop or dart:io.",
+      "Cannot set the contentLength property of multipart requests.",
+      "Cannot set the contentLength property of non-streaming Request objects.",
+      "DELETE",
+      "GET",
+      "HEAD",
+      "HTTP request failed. Client is already closed.",
+      "MultipartFile is only supported where dart:io is available.",
+      "Not a valid method",
+      "OK",
+      "PATCH",
+      "POST",
+      "PUT",
+      "Request aborted by `abortTrigger`",
+      "TypeError: ",
+      "[ \\t]*,[ \\t]*",
+      "[ \\t]*,[ \\t]*(?=[",
+      "\\r\\n|\\r|\\n",
+      "]+=)",
+      "^[\\w!#%&'*+\\-.^`|~]+$",
+      "^[\\x00-\\x7F]+$",
+      "abortable.dart",
+      "application",
+      "application/x-www-form-urlencoded",
+      "base_client.dart",
+      "base_request.dart",
+      "base_response.dart",
+      "boundary_characters.dart",
+      "browser_client.dart",
+      "byte_stream.dart",
+      "charset",
+      "client.dart",
+      "client_stub.dart",
+      "content-length",
+      "content-type",
+      "dart-http-boundary-",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:io",
+      "dart:js_interop",
+      "dart:math",
+      "dart:typed_data",
+      "error",
+      "exception.dart",
+      "fetch",
+      "follow",
+      "http.dart",
+      "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==",
+      "image/png",
+      "include",
+      "io_client.dart",
+      "io_streamed_response.dart",
+      "json",
+      "method",
+      "multipart_file.dart",
+      "multipart_file_io.dart",
+      "multipart_file_stub.dart",
+      "multipart_request.dart",
+      "no_default_http_client",
+      "no_default_http_client was defined but runWithClient was not used to configure a Client implementation.",
+      "octet-stream",
+      "package:async/async.dart",
+      "package:http_parser/http_parser.dart",
+      "package:meta/meta.dart",
+      "package:web/web.dart",
+      "plain",
+      "request.dart",
+      "response.dart",
+      "retries",
+      "same-origin",
+      "set-cookie",
+      "src/abortable.dart",
+      "src/base_client.dart",
+      "src/base_request.dart",
+      "src/base_response.dart",
+      "src/browser_client.dart",
+      "src/byte_stream.dart",
+      "src/client.dart",
+      "src/exception.dart",
+      "src/io_client.dart",
+      "src/io_streamed_response.dart",
+      "src/mock_client.dart",
+      "src/multipart_file.dart",
+      "src/multipart_request.dart",
+      "src/request.dart",
+      "src/response.dart",
+      "src/streamed_request.dart",
+      "src/streamed_response.dart",
+      "streamed_request.dart",
+      "streamed_response.dart",
+      "text",
+      "utils.dart",
+      "x-www-form-urlencoded"
+    ]
+  },
+  "version": "1.5.0"
+}
