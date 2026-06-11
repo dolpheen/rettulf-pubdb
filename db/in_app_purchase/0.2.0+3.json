@@ -1,0 +1,919 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "callbackChannel",
+          "channel",
+          "kConsumptionFailedErrorCode",
+          "kOnPurchasesUpdated",
+          "kPurchaseErrorCode",
+          "kRestoredPurchaseErrorCode"
+        ],
+        "libraries": [
+          "package:in_app_purchase/billing_client_wrappers.dart",
+          "package:in_app_purchase/in_app_purchase.dart",
+          "package:in_app_purchase/src/billing_client_wrappers/billing_client_wrapper.dart",
+          "package:in_app_purchase/src/channel.dart",
+          "package:in_app_purchase/src/in_app_purchase/purchase_details.dart"
+        ],
+        "methods": [],
+        "types": [
+          "PurchasesResultWrapper"
+        ]
+      },
+      "AppStoreConnection": {
+        "fields": [
+          "get:instance",
+          "get:observer",
+          "get:purchaseUpdatedStream"
+        ],
+        "libraries": [
+          "package:in_app_purchase/src/in_app_purchase/app_store_connection.dart"
+        ],
+        "methods": [
+          "buyConsumable",
+          "buyNonConsumable",
+          "completePurchase",
+          "consumePurchase",
+          "isAvailable",
+          "queryPastPurchases",
+          "queryProductDetails",
+          "refreshPurchaseVerificationData"
+        ],
+        "types": [
+          "AppStoreConnection",
+          "BillingResponse",
+          "InAppPurchaseConnection",
+          "ProductDetailsResponse",
+          "PurchaseDetails",
+          "PurchaseParam",
+          "PurchaseVerificationData",
+          "QueryPurchaseDetailsResponse",
+          "SKPaymentQueueWrapper",
+          "SKTransactionObserverWrapper"
+        ]
+      },
+      "BillingClient": {
+        "fields": [],
+        "libraries": [
+          "package:in_app_purchase/billing_client_wrappers.dart",
+          "package:in_app_purchase/src/billing_client_wrappers/billing_client_wrapper.dart"
+        ],
+        "methods": [
+          "BillingClient",
+          "callHandler",
+          "consumeAsync",
+          "endConnection",
+          "isReady",
+          "launchBillingFlow",
+          "queryPurchaseHistory",
+          "queryPurchases",
+          "querySkuDetails",
+          "startConnection"
+        ],
+        "types": [
+          "BillingResponse",
+          "PurchasesResultWrapper",
+          "SkuDetailsResponseWrapper",
+          "SkuType"
+        ]
+      },
+      "BillingResponse": {
+        "fields": [
+          "billingUnavailable",
+          "developerError",
+          "error",
+          "featureNotSupported",
+          "itemAlreadyOwned",
+          "itemNotOwned",
+          "itemUnavailable",
+          "ok",
+          "serviceDisconnected",
+          "serviceUnavailable",
+          "userCanceled"
+        ],
+        "libraries": [
+          "package:in_app_purchase/billing_client_wrappers.dart",
+          "package:in_app_purchase/src/billing_client_wrappers/billing_client_wrapper.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "BillingResponseConverter": {
+        "fields": [],
+        "libraries": [
+          "package:in_app_purchase/src/billing_client_wrappers/enum_converters.dart"
+        ],
+        "methods": [
+          "BillingResponseConverter",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "BillingResponse"
+        ]
+      },
+      "GooglePlayConnection": {
+        "fields": [
+          "billingClient",
+          "get:instance",
+          "get:purchaseUpdatedStream"
+        ],
+        "libraries": [
+          "package:in_app_purchase/src/in_app_purchase/google_play_connection.dart"
+        ],
+        "methods": [
+          "buyConsumable",
+          "buyNonConsumable",
+          "completePurchase",
+          "consumePurchase",
+          "didChangeAppLifecycleState",
+          "isAvailable",
+          "queryPastPurchases",
+          "queryProductDetails",
+          "refreshPurchaseVerificationData",
+          "reset"
+        ],
+        "types": [
+          "BillingClient",
+          "BillingResponse",
+          "GooglePlayConnection",
+          "InAppPurchaseConnection",
+          "ProductDetailsResponse",
+          "PurchaseDetails",
+          "PurchaseParam",
+          "PurchaseVerificationData",
+          "QueryPurchaseDetailsResponse"
+        ]
+      },
+      "IAPError": {
+        "fields": [
+          "code",
+          "details",
+          "message",
+          "source"
+        ],
+        "libraries": [
+          "package:in_app_purchase/in_app_purchase.dart",
+          "package:in_app_purchase/src/in_app_purchase/in_app_purchase_connection.dart"
+        ],
+        "methods": [
+          "IAPError"
+        ],
+        "types": [
+          "IAPSource"
+        ]
+      },
+      "IAPSource": {
+        "fields": [
+          "AppStore",
+          "GooglePlay"
+        ],
+        "libraries": [
+          "package:in_app_purchase/in_app_purchase.dart",
+          "package:in_app_purchase/src/in_app_purchase/in_app_purchase_connection.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "InAppPurchaseConnection": {
+        "fields": [
+          "get:instance",
+          "get:purchaseUpdatedStream"
+        ],
+        "libraries": [
+          "package:in_app_purchase/in_app_purchase.dart",
+          "package:in_app_purchase/src/in_app_purchase/in_app_purchase_connection.dart"
+        ],
+        "methods": [
+          "buyConsumable",
+          "buyNonConsumable",
+          "completePurchase",
+          "consumePurchase",
+          "isAvailable",
+          "queryPastPurchases",
+          "queryProductDetails",
+          "refreshPurchaseVerificationData"
+        ],
+        "types": [
+          "BillingResponse",
+          "InAppPurchaseConnection",
+          "ProductDetailsResponse",
+          "PurchaseDetails",
+          "PurchaseParam",
+          "PurchaseVerificationData",
+          "QueryPurchaseDetailsResponse"
+        ]
+      },
+      "ProductDetails": {
+        "fields": [
+          "description",
+          "id",
+          "price",
+          "skProduct",
+          "skuDetail",
+          "title"
+        ],
+        "libraries": [
+          "package:in_app_purchase/in_app_purchase.dart",
+          "package:in_app_purchase/src/in_app_purchase/product_details.dart"
+        ],
+        "methods": [
+          "ProductDetails",
+          "fromSKProduct",
+          "fromSkuDetails"
+        ],
+        "types": [
+          "SKProductWrapper",
+          "SkuDetailsWrapper"
+        ]
+      },
+      "ProductDetailsResponse": {
+        "fields": [
+          "error",
+          "notFoundIDs",
+          "productDetails"
+        ],
+        "libraries": [
+          "package:in_app_purchase/in_app_purchase.dart",
+          "package:in_app_purchase/src/in_app_purchase/product_details.dart"
+        ],
+        "methods": [
+          "ProductDetailsResponse"
+        ],
+        "types": [
+          "IAPError",
+          "ProductDetails"
+        ]
+      },
+      "PurchaseDetails": {
+        "fields": [
+          "billingClientPurchase",
+          "error",
+          "productID",
+          "purchaseID",
+          "skPaymentTransaction",
+          "status",
+          "transactionDate",
+          "verificationData"
+        ],
+        "libraries": [
+          "package:in_app_purchase/in_app_purchase.dart",
+          "package:in_app_purchase/src/in_app_purchase/purchase_details.dart"
+        ],
+        "methods": [
+          "PurchaseDetails",
+          "fromPurchase",
+          "fromSKTransaction"
+        ],
+        "types": [
+          "IAPError",
+          "PurchaseStatus",
+          "PurchaseVerificationData",
+          "PurchaseWrapper",
+          "SKPaymentTransactionWrapper"
+        ]
+      },
+      "PurchaseParam": {
+        "fields": [
+          "applicationUserName",
+          "productDetails",
+          "sandboxTesting"
+        ],
+        "libraries": [
+          "package:in_app_purchase/in_app_purchase.dart",
+          "package:in_app_purchase/src/in_app_purchase/purchase_details.dart"
+        ],
+        "methods": [
+          "PurchaseParam"
+        ],
+        "types": [
+          "ProductDetails"
+        ]
+      },
+      "PurchaseStatus": {
+        "fields": [
+          "error",
+          "pending",
+          "purchased"
+        ],
+        "libraries": [
+          "package:in_app_purchase/in_app_purchase.dart",
+          "package:in_app_purchase/src/in_app_purchase/purchase_details.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PurchaseVerificationData": {
+        "fields": [
+          "localVerificationData",
+          "serverVerificationData",
+          "source"
+        ],
+        "libraries": [
+          "package:in_app_purchase/in_app_purchase.dart",
+          "package:in_app_purchase/src/in_app_purchase/purchase_details.dart"
+        ],
+        "methods": [
+          "PurchaseVerificationData"
+        ],
+        "types": [
+          "IAPSource"
+        ]
+      },
+      "PurchaseWrapper": {
+        "fields": [
+          "get:hashCode",
+          "isAutoRenewing",
+          "orderId",
+          "originalJson",
+          "packageName",
+          "purchaseTime",
+          "purchaseToken",
+          "signature",
+          "sku"
+        ],
+        "libraries": [
+          "package:in_app_purchase/billing_client_wrappers.dart",
+          "package:in_app_purchase/src/billing_client_wrappers/purchase_wrapper.dart"
+        ],
+        "methods": [
+          "==",
+          "PurchaseWrapper",
+          "fromJson"
+        ],
+        "types": []
+      },
+      "PurchasesResultWrapper": {
+        "fields": [
+          "get:hashCode",
+          "purchasesList",
+          "responseCode"
+        ],
+        "libraries": [
+          "package:in_app_purchase/billing_client_wrappers.dart",
+          "package:in_app_purchase/src/billing_client_wrappers/purchase_wrapper.dart"
+        ],
+        "methods": [
+          "==",
+          "PurchasesResultWrapper",
+          "fromJson"
+        ],
+        "types": [
+          "BillingResponse",
+          "PurchaseWrapper"
+        ]
+      },
+      "QueryPurchaseDetailsResponse": {
+        "fields": [
+          "error",
+          "pastPurchases"
+        ],
+        "libraries": [
+          "package:in_app_purchase/in_app_purchase.dart",
+          "package:in_app_purchase/src/in_app_purchase/purchase_details.dart"
+        ],
+        "methods": [
+          "QueryPurchaseDetailsResponse"
+        ],
+        "types": [
+          "IAPError",
+          "PurchaseDetails"
+        ]
+      },
+      "SKError": {
+        "fields": [
+          "code",
+          "domain",
+          "userInfo"
+        ],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/sk_payment_queue_wrapper.dart",
+          "package:in_app_purchase/store_kit_wrappers.dart"
+        ],
+        "methods": [
+          "==",
+          "SKError",
+          "fromJson"
+        ],
+        "types": []
+      },
+      "SKPaymentQueueWrapper": {
+        "fields": [],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/sk_payment_queue_wrapper.dart",
+          "package:in_app_purchase/store_kit_wrappers.dart"
+        ],
+        "methods": [
+          "SKPaymentQueueWrapper",
+          "addPayment",
+          "canMakePayments",
+          "finishTransaction",
+          "restoreTransactions",
+          "setTransactionObserver"
+        ],
+        "types": [
+          "SKPaymentQueueWrapper",
+          "SKPaymentTransactionWrapper",
+          "SKPaymentWrapper",
+          "SKTransactionObserverWrapper"
+        ]
+      },
+      "SKPaymentTransactionStateWrapper": {
+        "fields": [
+          "deferred",
+          "failed",
+          "purchased",
+          "purchasing",
+          "restored"
+        ],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/sk_payment_transaction_wrappers.dart",
+          "package:in_app_purchase/store_kit_wrappers.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SKPaymentTransactionWrapper": {
+        "fields": [
+          "error",
+          "originalTransaction",
+          "payment",
+          "transactionIdentifier",
+          "transactionState",
+          "transactionTimeStamp"
+        ],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/sk_payment_transaction_wrappers.dart",
+          "package:in_app_purchase/store_kit_wrappers.dart"
+        ],
+        "methods": [
+          "==",
+          "SKPaymentTransactionWrapper",
+          "fromJson",
+          "toString"
+        ],
+        "types": [
+          "SKError",
+          "SKPaymentTransactionStateWrapper",
+          "SKPaymentTransactionWrapper",
+          "SKPaymentWrapper"
+        ]
+      },
+      "SKPaymentWrapper": {
+        "fields": [
+          "applicationUsername",
+          "productIdentifier",
+          "quantity",
+          "requestData",
+          "simulatesAskToBuyInSandbox"
+        ],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/sk_payment_queue_wrapper.dart",
+          "package:in_app_purchase/store_kit_wrappers.dart"
+        ],
+        "methods": [
+          "==",
+          "SKPaymentWrapper",
+          "fromJson",
+          "toMap",
+          "toString"
+        ],
+        "types": []
+      },
+      "SKPriceLocaleWrapper": {
+        "fields": [
+          "currencySymbol"
+        ],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/sk_product_wrapper.dart",
+          "package:in_app_purchase/store_kit_wrappers.dart"
+        ],
+        "methods": [
+          "==",
+          "SKPriceLocaleWrapper",
+          "fromJson"
+        ],
+        "types": []
+      },
+      "SKProductDiscountPaymentMode": {
+        "fields": [
+          "freeTrail",
+          "payAsYouGo",
+          "payUpFront"
+        ],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/sk_product_wrapper.dart",
+          "package:in_app_purchase/store_kit_wrappers.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SKProductDiscountWrapper": {
+        "fields": [
+          "numberOfPeriods",
+          "paymentMode",
+          "price",
+          "priceLocale",
+          "subscriptionPeriod"
+        ],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/sk_product_wrapper.dart",
+          "package:in_app_purchase/store_kit_wrappers.dart"
+        ],
+        "methods": [
+          "==",
+          "SKProductDiscountWrapper",
+          "fromJson"
+        ],
+        "types": [
+          "SKPriceLocaleWrapper",
+          "SKProductDiscountPaymentMode",
+          "SKProductSubscriptionPeriodWrapper"
+        ]
+      },
+      "SKProductSubscriptionPeriodWrapper": {
+        "fields": [
+          "numberOfUnits",
+          "unit"
+        ],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/sk_product_wrapper.dart",
+          "package:in_app_purchase/store_kit_wrappers.dart"
+        ],
+        "methods": [
+          "==",
+          "SKProductSubscriptionPeriodWrapper",
+          "fromJson"
+        ],
+        "types": [
+          "SKSubscriptionPeriodUnit"
+        ]
+      },
+      "SKProductWrapper": {
+        "fields": [
+          "introductoryPrice",
+          "localizedDescription",
+          "localizedTitle",
+          "price",
+          "priceLocale",
+          "productIdentifier",
+          "subscriptionGroupIdentifier",
+          "subscriptionPeriod"
+        ],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/sk_product_wrapper.dart",
+          "package:in_app_purchase/store_kit_wrappers.dart"
+        ],
+        "methods": [
+          "==",
+          "SKProductWrapper",
+          "fromJson"
+        ],
+        "types": [
+          "SKPriceLocaleWrapper",
+          "SKProductDiscountWrapper",
+          "SKProductSubscriptionPeriodWrapper"
+        ]
+      },
+      "SKReceiptManager": {
+        "fields": [],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/sk_receipt_manager.dart",
+          "package:in_app_purchase/store_kit_wrappers.dart"
+        ],
+        "methods": [
+          "retrieveReceiptData"
+        ],
+        "types": []
+      },
+      "SKRequestMaker": {
+        "fields": [],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/sk_request_maker.dart",
+          "package:in_app_purchase/store_kit_wrappers.dart"
+        ],
+        "methods": [
+          "startProductRequest",
+          "startRefreshReceiptRequest"
+        ],
+        "types": [
+          "SkProductResponseWrapper"
+        ]
+      },
+      "SKSubscriptionPeriodUnit": {
+        "fields": [
+          "day",
+          "month",
+          "week",
+          "year"
+        ],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/sk_product_wrapper.dart",
+          "package:in_app_purchase/store_kit_wrappers.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SKTransactionObserverWrapper": {
+        "fields": [],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/sk_payment_transaction_wrappers.dart",
+          "package:in_app_purchase/store_kit_wrappers.dart"
+        ],
+        "methods": [
+          "paymentQueueRestoreCompletedTransactionsFinished",
+          "removedTransactions",
+          "restoreCompletedTransactionsFailed",
+          "shouldAddStorePayment",
+          "updatedTransactions"
+        ],
+        "types": [
+          "SKError",
+          "SKPaymentTransactionWrapper",
+          "SKPaymentWrapper",
+          "SKProductWrapper"
+        ]
+      },
+      "SKTransactionStatusConverter": {
+        "fields": [],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/enum_converters.dart"
+        ],
+        "methods": [
+          "SKTransactionStatusConverter",
+          "fromJson",
+          "toJson",
+          "toPurchaseStatus"
+        ],
+        "types": [
+          "PurchaseStatus",
+          "SKPaymentTransactionStateWrapper"
+        ]
+      },
+      "SkProductResponseWrapper": {
+        "fields": [
+          "invalidProductIdentifiers",
+          "products"
+        ],
+        "libraries": [
+          "package:in_app_purchase/src/store_kit_wrappers/sk_product_wrapper.dart",
+          "package:in_app_purchase/store_kit_wrappers.dart"
+        ],
+        "methods": [
+          "==",
+          "SkProductResponseWrapper",
+          "fromJson"
+        ],
+        "types": [
+          "SKProductWrapper"
+        ]
+      },
+      "SkuDetailsResponseWrapper": {
+        "fields": [
+          "get:hashCode",
+          "responseCode",
+          "skuDetailsList"
+        ],
+        "libraries": [
+          "package:in_app_purchase/billing_client_wrappers.dart",
+          "package:in_app_purchase/src/billing_client_wrappers/sku_details_wrapper.dart"
+        ],
+        "methods": [
+          "==",
+          "SkuDetailsResponseWrapper",
+          "fromJson"
+        ],
+        "types": [
+          "BillingResponse",
+          "SkuDetailsWrapper"
+        ]
+      },
+      "SkuDetailsWrapper": {
+        "fields": [
+          "description",
+          "freeTrialPeriod",
+          "get:hashCode",
+          "introductoryPrice",
+          "introductoryPriceCycles",
+          "introductoryPriceMicros",
+          "introductoryPricePeriod",
+          "isRewarded",
+          "price",
+          "priceAmountMicros",
+          "priceCurrencyCode",
+          "sku",
+          "subscriptionPeriod",
+          "title",
+          "type"
+        ],
+        "libraries": [
+          "package:in_app_purchase/billing_client_wrappers.dart",
+          "package:in_app_purchase/src/billing_client_wrappers/sku_details_wrapper.dart"
+        ],
+        "methods": [
+          "==",
+          "SkuDetailsWrapper",
+          "fromJson"
+        ],
+        "types": [
+          "SkuType"
+        ]
+      },
+      "SkuType": {
+        "fields": [
+          "inapp",
+          "subs"
+        ],
+        "libraries": [
+          "package:in_app_purchase/billing_client_wrappers.dart",
+          "package:in_app_purchase/src/billing_client_wrappers/billing_client_wrapper.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SkuTypeConverter": {
+        "fields": [],
+        "libraries": [
+          "package:in_app_purchase/src/billing_client_wrappers/enum_converters.dart"
+        ],
+        "methods": [
+          "SkuTypeConverter",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "SkuType"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:38:44Z",
+  "package": "in_app_purchase",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "BillingResponseConverter",
+      "SKTransactionStatusConverter",
+      "SkuTypeConverter"
+    ],
+    "digest": "24ecf07c4b07483722ea0282037f26525bf05e7779f4fc4d07f4c32b5f401ca9",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "1c03976388ed22d542e9a70f579ab61f52398899c5fb94ea7bf832a0011ad369",
+    "method_channels": [
+      "plugins.flutter.io/in_app_purchase",
+      "plugins.flutter.io/in_app_purchase_callback"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      ", ",
+      "-[InAppPurchasePlugin addPayment:result:]",
+      "-[InAppPurchasePlugin finishTransaction:result:]",
+      "-[InAppPurchasePlugin refreshReceipt:result:]",
+      "-[InAppPurchasePlugin restoreTransactions:result:]",
+      "-[InAppPurchasePlugin retrieveReceiptData:result:]",
+      "-[InAppPurchasePlugin startProductRequest:result:]",
+      "-[SKPaymentQueue canMakePayments:]",
+      "../../billing_client_wrappers.dart",
+      "../channel.dart",
+      "./in_app_purchase_connection.dart",
+      "./product_details.dart",
+      "./purchase_details.dart",
+      "BillingClient#consumeAsync(String, ConsumeResponseListener)",
+      "BillingClient#endConnection()",
+      "BillingClient#isReady()",
+      "BillingClient#launchBillingFlow(Activity, BillingFlowParams)",
+      "BillingClient#queryPurchaseHistoryAsync(String, PurchaseHistoryResponseListener)",
+      "BillingClient#queryPurchases(String)",
+      "BillingClient#querySkuDetailsAsync(SkuDetailsParams, SkuDetailsResponseListener)",
+      "BillingClient#startConnection(BillingClientStateListener)",
+      "BillingClientStateListener#onBillingServiceDisconnected()",
+      "InAppPurchase plugin only works on Android and iOS.",
+      "Map must not be null.",
+      "On iOS, we should always auto consume",
+      "PurchasesUpdatedListener#onPurchasesUpdated(int, List<Purchase>)",
+      "StoreKit: Failed to get response from platform.",
+      "The method <refreshPurchaseVerificationData> only works on iOS.",
+      "[in_app_purchase]: (Fatal)The observer has not been set but we received a purchase transaction notification. Please ensure the observer has been set using `setTransactionObserver`. Make sure the observer is added right at the App Launch.",
+      "[in_app_purchase]: Trying to add a payment without an observer. One must be set using `SkPaymentQueueWrapper.setTransactionObserver` before the app launches.",
+      "accountId",
+      "app_store_connection.dart",
+      "applicationUsername",
+      "billing_client_wrapper.dart",
+      "code",
+      "complete purchase is not available on Android",
+      "consume purchase is not available on Android",
+      "consume_purchase_failed",
+      "currencySymbol",
+      "dart:async",
+      "dart:io",
+      "dart:ui",
+      "description",
+      "domain",
+      "enum_converters.dart",
+      "enum_converters.g.dart",
+      "error",
+      "freeTrialPeriod",
+      "google_play_connection.dart",
+      "handle",
+      "in_app_purchase_connection.dart",
+      "inapp",
+      "introductoryPrice",
+      "introductoryPriceCycles",
+      "introductoryPriceMicros",
+      "introductoryPricePeriod",
+      "invalidProductIdentifiers",
+      "isAutoRenewing",
+      "isRewarded",
+      "localizedDescription",
+      "localizedTitle",
+      "numberOfPeriods",
+      "numberOfUnits",
+      "orderId",
+      "originalJson",
+      "originalTransaction",
+      "package:collection/collection.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/services.dart",
+      "package:flutter/widgets.dart",
+      "package:in_app_purchase/billing_client_wrappers.dart",
+      "package:in_app_purchase/in_app_purchase.dart",
+      "package:in_app_purchase/src/billing_client_wrappers/purchase_wrapper.dart",
+      "package:in_app_purchase/src/channel.dart",
+      "package:in_app_purchase/src/in_app_purchase/purchase_details.dart",
+      "package:in_app_purchase/src/store_kit_wrappers/enum_converters.dart",
+      "package:in_app_purchase/src/store_kit_wrappers/sk_payment_transaction_wrappers.dart",
+      "package:in_app_purchase/store_kit_wrappers.dart",
+      "package:json_annotation/json_annotation.dart",
+      "packageName",
+      "payment",
+      "paymentMode",
+      "paymentQueueRestoreCompletedTransactionsFinished",
+      "plugins.flutter.io/in_app_purchase",
+      "plugins.flutter.io/in_app_purchase_callback",
+      "price",
+      "priceAmountMicros",
+      "priceCurrencyCode",
+      "priceLocale",
+      "product",
+      "productIdentifier",
+      "product_details.dart",
+      "products",
+      "purchaseTime",
+      "purchaseToken",
+      "purchase_error",
+      "purchase_wrapper.dart",
+      "purchase_wrapper.g.dart",
+      "purchasesList",
+      "quantity",
+      "removedTransactions",
+      "requestData",
+      "response",
+      "responseCode",
+      "restoreCompletedTransactionsFailed",
+      "restore_transactions_failed",
+      "shouldAddStorePayment",
+      "signature",
+      "simulatesAskToBuyInSandbox",
+      "sk_payment_queue_wrapper.dart",
+      "sk_payment_queue_wrapper.g.dart",
+      "sk_payment_transaction_wrappers.dart",
+      "sk_payment_transaction_wrappers.g.dart",
+      "sk_product_wrapper.dart",
+      "sk_product_wrapper.g.dart",
+      "sku",
+      "skuDetailsList",
+      "skuType",
+      "sku_details_wrapper.dart",
+      "sku_details_wrapper.g.dart",
+      "skusList",
+      "src/billing_client_wrappers/billing_client_wrapper.dart",
+      "src/billing_client_wrappers/purchase_wrapper.dart",
+      "src/billing_client_wrappers/sku_details_wrapper.dart",
+      "src/in_app_purchase/in_app_purchase_connection.dart",
+      "src/in_app_purchase/product_details.dart",
+      "src/in_app_purchase/purchase_details.dart",
+      "src/store_kit_wrappers/sk_payment_queue_wrapper.dart",
+      "src/store_kit_wrappers/sk_payment_transaction_wrappers.dart",
+      "src/store_kit_wrappers/sk_product_wrapper.dart",
+      "src/store_kit_wrappers/sk_receipt_manager.dart",
+      "src/store_kit_wrappers/sk_request_maker.dart",
+      "storekit_no_response",
+      "subs",
+      "subscriptionGroupIdentifier",
+      "subscriptionPeriod",
+      "title",
+      "transactionIdentifier",
+      "transactionState",
+      "transactionTimeStamp",
+      "type",
+      "unit",
+      "updatedTransactions",
+      "userInfo"
+    ]
+  },
+  "version": "0.2.0+3"
+}
