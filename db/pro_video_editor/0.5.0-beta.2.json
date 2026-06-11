@@ -1,0 +1,783 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:pro_video_editor/pro_video_editor.dart",
+          "package:pro_video_editor/shared/utils/converters.dart",
+          "package:pro_video_editor/shared/utils/file_constructor_utils.dart",
+          "package:pro_video_editor/shared/utils/parser/double_parser.dart",
+          "package:pro_video_editor/shared/utils/parser/int_parser.dart",
+          "package:pro_video_editor/shared/utils/parser/size_parser.dart"
+        ],
+        "methods": [
+          "ensureFileInstance",
+          "fetchVideoAsUint8List",
+          "fetchVideoToFile",
+          "loadAssetVideoAsUint8List",
+          "readFileAsUint8List",
+          "safeParseDouble",
+          "safeParseInt",
+          "safeParseSize",
+          "tryParseDouble",
+          "tryParseInt",
+          "writeAssetVideoToFile",
+          "writeMemoryVideoToFile"
+        ],
+        "types": [
+          "File"
+        ]
+      },
+      "CanvasToBlobFuture": {
+        "fields": [],
+        "libraries": [
+          "package:pro_video_editor/core/utils/web_canvas_utils.dart"
+        ],
+        "methods": [
+          "toBlobAsync"
+        ],
+        "types": []
+      },
+      "Directory": {
+        "fields": [
+          "get:path",
+          "get:systemTemp"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/platform/io/io_helper.dart",
+          "package:pro_video_editor/core/platform/io/io_web.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Directory"
+        ]
+      },
+      "EditorVideo": {
+        "fields": [
+          "assetPath",
+          "byteArray",
+          "file",
+          "get:hasAssetPath",
+          "get:hasBytes",
+          "get:hasFile",
+          "get:hasNetworkUrl",
+          "get:hashCode",
+          "get:type",
+          "get:typePreferredFile",
+          "networkUrl"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/video/editor_video_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "==",
+          "asset",
+          "autoSource",
+          "copyWith",
+          "file",
+          "memory",
+          "network",
+          "safeByteArray",
+          "safeFilePath"
+        ],
+        "types": [
+          "EditorVideo",
+          "EditorVideoType",
+          "File"
+        ]
+      },
+      "EditorVideoType": {
+        "fields": [
+          "asset",
+          "file",
+          "memory",
+          "network"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/video/editor_video_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ExportTransform": {
+        "fields": [
+          "flipX",
+          "flipY",
+          "get:hashCode",
+          "get:isEmpty",
+          "get:isNotEmpty",
+          "height",
+          "rotateTurns",
+          "scaleX",
+          "scaleY",
+          "width",
+          "x",
+          "y"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/video/export_transform_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "==",
+          "ExportTransform",
+          "copyWith",
+          "toMap"
+        ],
+        "types": [
+          "ExportTransform"
+        ]
+      },
+      "File": {
+        "fields": [
+          "path"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/platform/io/io_helper.dart",
+          "package:pro_video_editor/core/platform/io/io_web.dart"
+        ],
+        "methods": [
+          "File",
+          "openWrite",
+          "readAsBytes",
+          "readAsStringSync",
+          "writeAsBytes",
+          "writeAsString"
+        ],
+        "types": []
+      },
+      "KeyFramesConfigs": {
+        "fields": [
+          "maxOutputFrames"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/thumbnail/key_frames_configs_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "KeyFramesConfigs",
+          "toMap"
+        ],
+        "types": [
+          "ThumbnailBase"
+        ]
+      },
+      "MethodChannelProVideoEditor": {
+        "fields": [
+          "methodChannel",
+          "renderCanceledErrorCode"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/platform/native_method_channel.dart"
+        ],
+        "methods": [
+          "cancel",
+          "getKeyFrames",
+          "getMetadata",
+          "getPlatformVersion",
+          "getThumbnails",
+          "initializeStream",
+          "renderVideo",
+          "renderVideoToFile"
+        ],
+        "types": [
+          "EditorVideo",
+          "KeyFramesConfigs",
+          "ProVideoEditor",
+          "ThumbnailConfigs",
+          "VideoMetadata",
+          "VideoRenderData"
+        ]
+      },
+      "Platform": {
+        "fields": [
+          "get:numberOfProcessors",
+          "get:operatingSystem",
+          "isAndroid",
+          "isFuchsia",
+          "isIOS",
+          "isLinux",
+          "isMacOS",
+          "isWindows"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/platform/io/io_helper.dart",
+          "package:pro_video_editor/core/platform/io/io_web.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ProVideoEditor": {
+        "fields": [
+          "get:instance",
+          "get:progressStream",
+          "progressCtrl",
+          "set:instance"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/platform/platform_interface.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "ProVideoEditor",
+          "cancel",
+          "getKeyFrames",
+          "getMetadata",
+          "getPlatformVersion",
+          "getThumbnails",
+          "initializeStream",
+          "progressStreamById",
+          "renderVideo",
+          "renderVideoToFile"
+        ],
+        "types": [
+          "EditorVideo",
+          "KeyFramesConfigs",
+          "ProVideoEditor",
+          "ProgressModel",
+          "ThumbnailConfigs",
+          "VideoMetadata",
+          "VideoRenderData"
+        ]
+      },
+      "ProVideoEditorWeb": {
+        "fields": [],
+        "libraries": [
+          "package:pro_video_editor/core/platform/web_method_channel.dart"
+        ],
+        "methods": [
+          "ProVideoEditorWeb",
+          "cancel",
+          "getKeyFrames",
+          "getMetadata",
+          "getPlatformVersion",
+          "getThumbnails",
+          "initializeStream",
+          "registerWith",
+          "renderVideo",
+          "renderVideoToFile"
+        ],
+        "types": [
+          "EditorVideo",
+          "KeyFramesConfigs",
+          "ProVideoEditor",
+          "ThumbnailConfigs",
+          "VideoMetadata",
+          "VideoRenderData",
+          "WebManager"
+        ]
+      },
+      "ProgressModel": {
+        "fields": [
+          "id",
+          "progress"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/video/progress_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "ProgressModel",
+          "fromMap"
+        ],
+        "types": []
+      },
+      "RenderCanceledException": {
+        "fields": [],
+        "libraries": [
+          "package:pro_video_editor/core/models/exceptions/render_exceptions.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "RenderCanceledException",
+          "toString"
+        ],
+        "types": []
+      },
+      "ThumbnailBase": {
+        "fields": [
+          "boxFit",
+          "get:progressStream",
+          "id",
+          "jpegQuality",
+          "outputFormat",
+          "outputSize",
+          "video"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/thumbnail/thumbnail_base_abstract.dart"
+        ],
+        "methods": [
+          "ThumbnailBase",
+          "toMap"
+        ],
+        "types": [
+          "EditorVideo",
+          "ProgressModel",
+          "ThumbnailBoxFit",
+          "ThumbnailFormat"
+        ]
+      },
+      "ThumbnailBoxFit": {
+        "fields": [
+          "contain",
+          "cover"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/thumbnail/thumbnail_box_fit_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ThumbnailConfigs": {
+        "fields": [
+          "timestamps"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/thumbnail/thumbnail_configs_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "ThumbnailConfigs",
+          "toMap"
+        ],
+        "types": [
+          "ThumbnailBase"
+        ]
+      },
+      "ThumbnailFormat": {
+        "fields": [
+          "jpeg",
+          "png",
+          "webp"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/thumbnail/thumbnail_format_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "VideoMetadata": {
+        "fields": [
+          "album",
+          "albumArtist",
+          "artist",
+          "author",
+          "bitrate",
+          "date",
+          "duration",
+          "extension",
+          "fileSize",
+          "get:hashCode",
+          "originalResolution",
+          "resolution",
+          "rotation",
+          "title"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/video/video_metadata_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "==",
+          "VideoMetadata",
+          "copyWith",
+          "fromMap"
+        ],
+        "types": [
+          "VideoMetadata"
+        ]
+      },
+      "VideoOutputFormat": {
+        "fields": [
+          "mov",
+          "mp4"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/video/video_render_data_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "VideoQualityConfig": {
+        "fields": [
+          "bitrate",
+          "get:hashCode",
+          "preset",
+          "resolution"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/video/video_quality_config.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "==",
+          "VideoQualityConfig",
+          "copyWith",
+          "custom",
+          "fromPreset",
+          "toString"
+        ],
+        "types": [
+          "VideoQualityConfig",
+          "VideoQualityPreset"
+        ]
+      },
+      "VideoQualityPreset": {
+        "fields": [
+          "custom",
+          "k4",
+          "low",
+          "p1080",
+          "p1080High",
+          "p480",
+          "p720",
+          "p720High",
+          "ultra4K"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/video/video_quality_preset.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "VideoQualityPresetX": {
+        "fields": [
+          "get:bitrate",
+          "get:description",
+          "get:resolution"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/video/video_quality_preset.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [],
+        "types": [
+          "VideoQualityPreset"
+        ]
+      },
+      "VideoRenderData": {
+        "fields": [
+          "bitrate",
+          "blur",
+          "colorMatrixList",
+          "customAudioPath",
+          "customAudioVolume",
+          "enableAudio",
+          "endTime",
+          "get:progressStream",
+          "id",
+          "imageBytes",
+          "originalAudioVolume",
+          "outputFormat",
+          "playbackSpeed",
+          "qualityConfig",
+          "startTime",
+          "transform",
+          "video",
+          "videoSegments"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/video/video_render_data_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "VideoRenderData",
+          "copyWith",
+          "toAsyncMap",
+          "withQualityPreset"
+        ],
+        "types": [
+          "EditorVideo",
+          "ExportTransform",
+          "ProgressModel",
+          "VideoOutputFormat",
+          "VideoQualityConfig",
+          "VideoQualityPreset",
+          "VideoRenderData",
+          "VideoSegment"
+        ]
+      },
+      "VideoSegment": {
+        "fields": [
+          "endTime",
+          "get:hashCode",
+          "startTime",
+          "video"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/video/video_segment_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "==",
+          "VideoSegment",
+          "copyWith",
+          "toAsyncMap",
+          "toString"
+        ],
+        "types": [
+          "EditorVideo",
+          "VideoSegment"
+        ]
+      },
+      "WebManager": {
+        "fields": [],
+        "libraries": [
+          "package:pro_video_editor/core/services/web/web_manager.dart"
+        ],
+        "methods": [
+          "getKeyFrames",
+          "getMetadata",
+          "getThumbnails"
+        ],
+        "types": [
+          "EditorVideo",
+          "KeyFramesConfigs",
+          "ThumbnailConfigs",
+          "VideoMetadata"
+        ]
+      },
+      "WebMetaDataReader": {
+        "fields": [],
+        "libraries": [
+          "package:pro_video_editor/core/services/web/web_meta_data_reader.dart"
+        ],
+        "methods": [
+          "getMetaData"
+        ],
+        "types": [
+          "EditorVideo",
+          "VideoMetadata"
+        ]
+      },
+      "WebThumbnailGenerator": {
+        "fields": [],
+        "libraries": [
+          "package:pro_video_editor/core/services/web/web_thumbnail_generator.dart"
+        ],
+        "methods": [
+          "getKeyFrames",
+          "getThumbnails"
+        ],
+        "types": [
+          "KeyFramesConfigs",
+          "ThumbnailConfigs"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:58:11Z",
+  "package": "pro_video_editor",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "ExportTransform",
+      "ProgressModel",
+      "RenderCanceledException",
+      "VideoQualityConfig",
+      "VideoSegment"
+    ],
+    "digest": "52be147a8e2cad0104a1bcfc9e99b34dccb9d9b107cc293291ab790fd3a4fcec",
+    "event_channels": [
+      "pro_video_editor_progress"
+    ],
+    "ffi_symbols": [],
+    "hierarchy_hash": "97284a3c89426ca038a31cc1033e6974f1ee44387a7b45fb1ec79d3c1cbf359a",
+    "method_channels": [
+      "pro_video_editor"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "../../../shared/utils/parser/double_parser.dart",
+      "../../../shared/utils/parser/int_parser.dart",
+      "../../models/video/video_metadata_model.dart",
+      "../../platform/platform_interface.dart",
+      "../../utils/web_blob_utils.dart",
+      "../models/video/video_render_data_model.dart",
+      "../video/editor_video_model.dart",
+      "../video/progress_model.dart",
+      "/",
+      "/core/models/exceptions/render_exceptions.dart",
+      "/core/models/thumbnail/key_frames_configs_model.dart",
+      "/core/models/thumbnail/thumbnail_base_abstract.dart",
+      "/core/models/thumbnail/thumbnail_configs_model.dart",
+      "/core/models/video/editor_video_model.dart",
+      "/core/models/video/progress_model.dart",
+      "/core/models/video/video_metadata_model.dart",
+      "/core/platform/io/io_helper.dart",
+      "/core/services/web/web_manager.dart",
+      "/core/services/web/web_thumbnail_generator.dart",
+      "/core/utils/web_blob_utils.dart",
+      "/core/utils/web_canvas_utils.dart",
+      "/shared/utils/converters.dart",
+      "/shared/utils/file_constructor_utils.dart",
+      "/shared/utils/parser/double_parser.dart",
+      "/shared/utils/parser/int_parser.dart",
+      "4K (3840x2160, 35 Mbps)",
+      "At least one of bytes, file, networkUrl, or assetPath must not be null.",
+      "Blob",
+      "CANCELED",
+      "Custom",
+      "Failed to export the video",
+      "Failed to load video metadata",
+      "Failed to read blob data",
+      "Full HD (1920x1080, 8 Mbps)",
+      "Full HD High (1920x1080, 16 Mbps)",
+      "GET",
+      "HD (1280x720, 3 Mbps)",
+      "HD High (1280x720, 5 Mbps)",
+      "Low (640x360, 1 Mbps)",
+      "Only type `File` or `String` which is the path from the file is allowed!",
+      "RenderCanceledException",
+      "SD (854x480, 2.5 Mbps)",
+      "This function is not supported on the web.",
+      "Ultra HD 4K (3840x2160, 45 Mbps)",
+      "You must provide either video OR videoSegments, but not both",
+      "[bitrate] must be greater than 0",
+      "[blur] must be greater than or equal to 0",
+      "[customAudioVolume] must be greater than or equal to 0",
+      "[initializeStream()] has not been implemented.",
+      "[originalAudioVolume] must be greater than or equal to 0",
+      "[playbackSpeed] must be greater than 0",
+      "album",
+      "albumArtist",
+      "android",
+      "anonymous",
+      "artist",
+      "author",
+      "auto",
+      "bitrate",
+      "blur",
+      "boxFit",
+      "cancel() has not been implemented.",
+      "cancelTask",
+      "chromebook",
+      "colorMatrixList",
+      "core/models/exceptions/render_exceptions.dart",
+      "core/models/thumbnail/key_frames_configs_model.dart",
+      "core/models/thumbnail/thumbnail_box_fit_model.dart",
+      "core/models/thumbnail/thumbnail_configs_model.dart",
+      "core/models/thumbnail/thumbnail_format_model.dart",
+      "core/models/video/editor_video_model.dart",
+      "core/models/video/export_transform_model.dart",
+      "core/models/video/progress_model.dart",
+      "core/models/video/video_metadata_model.dart",
+      "core/models/video/video_quality_config.dart",
+      "core/models/video/video_quality_preset.dart",
+      "core/models/video/video_render_data_model.dart",
+      "core/models/video/video_segment_model.dart",
+      "core/platform/platform_interface.dart",
+      "cropHeight",
+      "cropWidth",
+      "cropX",
+      "cropY",
+      "cros",
+      "customAudioPath",
+      "customAudioVolume",
+      "dart:async",
+      "dart:io",
+      "dart:js_interop",
+      "dart:typed_data",
+      "dart:ui",
+      "date",
+      "double_parser.dart",
+      "duration",
+      "enableAudio",
+      "endUs",
+      "error",
+      "extension",
+      "fileSize",
+      "flipX",
+      "flipY",
+      "fuchsia",
+      "getKeyFrames() has not been implemented.",
+      "getMetadata",
+      "getMetadata() has not been implemented.",
+      "getPlatformVersion",
+      "getThumbnails",
+      "getThumbnails() has not been implemented.",
+      "h",
+      "height",
+      "id",
+      "imageBytes",
+      "inputPath",
+      "io_web.dart",
+      "ios",
+      "ipad",
+      "iphone",
+      "ipod",
+      "jpegQuality",
+      "jpegQuality must be between 0 and 100",
+      "linux",
+      "mac os",
+      "macos",
+      "maxOutputFrames",
+      "metadata",
+      "mp4",
+      "native_method_channel.dart",
+      "none",
+      "originalAudioVolume",
+      "outputFormat",
+      "outputHeight",
+      "outputPath",
+      "outputWidth",
+      "package:flutter/foundation.dart",
+      "package:flutter/services.dart",
+      "package:flutter/widgets.dart",
+      "package:flutter_web_plugins/flutter_web_plugins.dart",
+      "package:http/http.dart",
+      "package:mime/mime.dart",
+      "package:path_provider/path_provider.dart",
+      "package:plugin_platform_interface/plugin_platform_interface.dart",
+      "package:pro_video_editor/core/models/video/editor_video_model.dart",
+      "package:pro_video_editor/core/models/video/progress_model.dart",
+      "package:pro_video_editor/pro_video_editor.dart",
+      "package:pro_video_editor/shared/utils/parser/double_parser.dart",
+      "package:web/web.dart",
+      "platformVersion() has not been implemented.",
+      "platform_interface.dart",
+      "playbackSpeed",
+      "pro_video_editor",
+      "pro_video_editor_progress",
+      "progress",
+      "renderVideo",
+      "renderVideo() has not been implemented.",
+      "renderVideoToFile() has not been implemented.",
+      "rotateTurns",
+      "rotation",
+      "scaleX",
+      "scaleY",
+      "shared/utils/converters.dart",
+      "startTime must be before endTime",
+      "startUs",
+      "taskId cannot be empty",
+      "thumbnail_base_abstract.dart",
+      "thumbnail_box_fit_model.dart",
+      "thumbnail_format_model.dart",
+      "timestamps",
+      "title",
+      "toBlob failed",
+      "type",
+      "unknown",
+      "videoClips",
+      "videoSegments must not be empty if provided",
+      "video_quality_preset.dart",
+      "w",
+      "watch os",
+      "web_meta_data_reader.dart",
+      "width",
+      "windows"
+    ]
+  },
+  "version": "0.5.0-beta.2"
+}
