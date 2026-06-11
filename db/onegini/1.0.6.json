@@ -1,0 +1,580 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:onegini/model/authentication_attempt.dart",
+          "package:onegini/model/oneginiAppToWebSingleSignOn.dart",
+          "package:onegini/model/onegini_error.dart",
+          "package:onegini/model/onegini_event.dart",
+          "package:onegini/model/onegini_list_response.dart",
+          "package:onegini/model/onegini_removed_user_profile.dart",
+          "package:onegini/model/registration_response.dart"
+        ],
+        "methods": [
+          "authenticationAttemptFromJson",
+          "authenticationAttemptToJson",
+          "eventFromJson",
+          "eventToJson",
+          "oneginiAppToWebSingleSignOnFromJson",
+          "oneginiAppToWebSingleSignOnToJson",
+          "oneginiErrorFromJson",
+          "oneginiErrorToJson",
+          "registrationResponseFromJson",
+          "registrationResponseToJson",
+          "removedUserProfileListFromJson",
+          "removedUserProfileListToJson",
+          "responseFromJson",
+          "responseToJson"
+        ],
+        "types": [
+          "AuthenticationAttempt",
+          "Event",
+          "OneginiAppToWebSingleSignOn",
+          "OneginiError",
+          "OneginiListResponse",
+          "RegistrationResponse",
+          "RemovedUserProfile"
+        ]
+      },
+      "AuthenticationAttempt": {
+        "fields": [
+          "failedAttempts",
+          "maxAttempts",
+          "remainingAttempts"
+        ],
+        "libraries": [
+          "package:onegini/model/authentication_attempt.dart"
+        ],
+        "methods": [
+          "AuthenticationAttempt",
+          "fromJson",
+          "toJson"
+        ],
+        "types": []
+      },
+      "Constants": {
+        "fields": [
+          "acceptFingerprintAuthenticationRequest",
+          "acceptOtpAuthenticationRequest",
+          "acceptPinAuthenticationRequest",
+          "acceptPinRegistrationRequest",
+          "authenticateDevice",
+          "authenticateUser",
+          "authenticateUserImplicitly",
+          "cancelRegistrationMethod",
+          "changePin",
+          "customTwoStepRegistrationReturnError",
+          "customTwoStepRegistrationReturnSuccess",
+          "denyFingerprintAuthenticationRequest",
+          "denyOtpAuthenticationRequest",
+          "denyPinAuthenticationRequest",
+          "denyPinRegistrationRequest",
+          "deregisterAuthenticator",
+          "deregisterUserMethod",
+          "eventCancelAuthOTP",
+          "eventCloseAuthOTP",
+          "eventCloseFingerprintAuth",
+          "eventClosePin",
+          "eventClosePinAuth",
+          "eventError",
+          "eventHandleRegisteredUrl",
+          "eventNextAuthenticationAttempt",
+          "eventOpenAuthOTP",
+          "eventOpenFingerprintAuth",
+          "eventOpenPin",
+          "eventOpenPinAuth",
+          "eventOpenPinAuthenticator",
+          "eventReceivedFingerprintAuth",
+          "eventShowScanningFingerprintAuth",
+          "fingerprintFallbackToPin",
+          "getAccessToken",
+          "getAllAuthenticators",
+          "getAllNotRegisteredAuthenticators",
+          "getAppToWebSingleSignOn",
+          "getAuthenticatedUserProfile",
+          "getIdentityProvidersMethod",
+          "getImplicitResource",
+          "getRedirectUrl",
+          "getRegisteredAuthenticators",
+          "getResource",
+          "getResourceAnonymous",
+          "getUnauthenticatedResource",
+          "handleMobileAuthWithOtp",
+          "handleRegisteredUserUrl",
+          "isAuthenticatorRegistered",
+          "logout",
+          "openCustomTwoStepRegistrationScreen",
+          "registerAuthenticator",
+          "registerUser",
+          "setPreferredAuthenticator",
+          "startAppMethod",
+          "userProfiles",
+          "validatePinWithPolicy"
+        ],
+        "libraries": [
+          "package:onegini/constants/constants.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CustomInfo": {
+        "fields": [
+          "data",
+          "status"
+        ],
+        "libraries": [
+          "package:onegini/model/registration_response.dart"
+        ],
+        "methods": [
+          "CustomInfo",
+          "fromJson",
+          "toJson"
+        ],
+        "types": []
+      },
+      "Event": {
+        "fields": [
+          "eventName",
+          "eventValue"
+        ],
+        "libraries": [
+          "package:onegini/model/onegini_event.dart"
+        ],
+        "methods": [
+          "Event",
+          "fromJson",
+          "toJson"
+        ],
+        "types": []
+      },
+      "Onegini": {
+        "fields": [
+          "channel",
+          "get:instance",
+          "resourcesMethods",
+          "userClient"
+        ],
+        "libraries": [
+          "package:onegini/onegini.dart"
+        ],
+        "methods": [
+          "setEventContext",
+          "startApplication"
+        ],
+        "types": [
+          "Onegini",
+          "OneginiEventListener",
+          "RemovedUserProfile",
+          "ResourcesMethods",
+          "UserClient"
+        ]
+      },
+      "OneginiAppToWebSingleSignOn": {
+        "fields": [
+          "redirectUrl",
+          "token"
+        ],
+        "libraries": [
+          "package:onegini/model/oneginiAppToWebSingleSignOn.dart"
+        ],
+        "methods": [
+          "OneginiAppToWebSingleSignOn",
+          "fromJson",
+          "toJson"
+        ],
+        "types": []
+      },
+      "OneginiCustomTwoStepRegistrationCallback": {
+        "fields": [],
+        "libraries": [
+          "package:onegini/callbacks/onegini_custom_two_step_registration_callback.dart"
+        ],
+        "methods": [
+          "returnError",
+          "returnSuccess"
+        ],
+        "types": []
+      },
+      "OneginiError": {
+        "fields": [
+          "code",
+          "message"
+        ],
+        "libraries": [
+          "package:onegini/model/onegini_error.dart"
+        ],
+        "methods": [
+          "OneginiError",
+          "fromJson",
+          "toJson"
+        ],
+        "types": []
+      },
+      "OneginiEventListener": {
+        "fields": [
+          "channel_name",
+          "set:context"
+        ],
+        "libraries": [
+          "package:onegini/onegini_event_listener.dart"
+        ],
+        "methods": [
+          "closeAuthOtp",
+          "closeFingerprintScreen",
+          "closePin",
+          "closePinAuth",
+          "eventError",
+          "eventOther",
+          "handleRegisteredUrl",
+          "listen",
+          "nextAuthenticationAttempt",
+          "openAuthOtp",
+          "openCustomTwoStepRegistrationScreen",
+          "openFingerprintScreen",
+          "openPinAuthenticator",
+          "openPinRequestScreen",
+          "openPinScreenAuth",
+          "receivedFingerprint",
+          "showError",
+          "showScanningFingerprint"
+        ],
+        "types": [
+          "AuthenticationAttempt",
+          "Event",
+          "OneginiError"
+        ]
+      },
+      "OneginiFingerprintCallback": {
+        "fields": [],
+        "libraries": [
+          "package:onegini/callbacks/onegini_fingerprint_callback.dart"
+        ],
+        "methods": [
+          "acceptAuthenticationRequest",
+          "denyAuthenticationRequest",
+          "fallbackToPin"
+        ],
+        "types": []
+      },
+      "OneginiListResponse": {
+        "fields": [
+          "id",
+          "name"
+        ],
+        "libraries": [
+          "package:onegini/model/onegini_list_response.dart"
+        ],
+        "methods": [
+          "OneginiListResponse",
+          "fromJson",
+          "toJson"
+        ],
+        "types": []
+      },
+      "OneginiOtpAcceptDenyCallback": {
+        "fields": [],
+        "libraries": [
+          "package:onegini/callbacks/onegini_otp_accept_deny_callback.dart"
+        ],
+        "methods": [
+          "acceptAuthenticationRequest",
+          "denyAuthenticationRequest"
+        ],
+        "types": []
+      },
+      "OneginiPinAuthenticationCallback": {
+        "fields": [],
+        "libraries": [
+          "package:onegini/callbacks/onegini_pin_authentication_callback.dart"
+        ],
+        "methods": [
+          "acceptAuthenticationRequest",
+          "denyAuthenticationRequest"
+        ],
+        "types": []
+      },
+      "OneginiPinRegistrationCallback": {
+        "fields": [],
+        "libraries": [
+          "package:onegini/callbacks/onegini_pin_registration_callback.dart"
+        ],
+        "methods": [
+          "acceptAuthenticationRequest",
+          "denyAuthenticationRequest"
+        ],
+        "types": []
+      },
+      "OneginiRegistrationCallback": {
+        "fields": [],
+        "libraries": [
+          "package:onegini/callbacks/onegini_registration_callback.dart"
+        ],
+        "methods": [
+          "cancelRegistration"
+        ],
+        "types": []
+      },
+      "RegistrationResponse": {
+        "fields": [
+          "customInfo",
+          "userProfile"
+        ],
+        "libraries": [
+          "package:onegini/model/registration_response.dart"
+        ],
+        "methods": [
+          "RegistrationResponse",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "CustomInfo",
+          "UserProfile"
+        ]
+      },
+      "RemovedUserProfile": {
+        "fields": [
+          "isDefault",
+          "profileId"
+        ],
+        "libraries": [
+          "package:onegini/model/onegini_removed_user_profile.dart"
+        ],
+        "methods": [
+          "RemovedUserProfile",
+          "fromJson",
+          "toJson"
+        ],
+        "types": []
+      },
+      "ResourcesMethods": {
+        "fields": [],
+        "libraries": [
+          "package:onegini/resources_methods.dart"
+        ],
+        "methods": [
+          "getResource",
+          "getResourceAnonymous",
+          "getResourceImplicit",
+          "getUnauthenticatedResource"
+        ],
+        "types": []
+      },
+      "UserClient": {
+        "fields": [],
+        "libraries": [
+          "package:onegini/user_client.dart"
+        ],
+        "methods": [
+          "authenticateDevice",
+          "authenticateUser",
+          "authenticateUserImplicitly",
+          "changePin",
+          "deregisterAuthenticator",
+          "deregisterUser",
+          "fetchUserProfiles",
+          "getAccessToken",
+          "getAllAuthenticators",
+          "getAppToWebSingleSignOn",
+          "getAuthenticatedUserProfile",
+          "getIdentityProviders",
+          "getNotRegisteredAuthenticators",
+          "getRedirectUrl",
+          "getRegisteredAuthenticators",
+          "handleRegisteredUserUrl",
+          "isAuthenticatorRegistered",
+          "logout",
+          "mobileAuthWithOtp",
+          "registerAuthenticator",
+          "registerUser",
+          "setPreferredAuthenticator",
+          "validatePinWithPolicy"
+        ],
+        "types": [
+          "OneginiAppToWebSingleSignOn",
+          "OneginiListResponse",
+          "RegistrationResponse",
+          "UserProfile",
+          "WebSignInType"
+        ]
+      },
+      "UserProfile": {
+        "fields": [
+          "isDefault",
+          "profileId"
+        ],
+        "libraries": [
+          "package:onegini/model/registration_response.dart"
+        ],
+        "methods": [
+          "UserProfile",
+          "fromJson",
+          "toJson"
+        ],
+        "types": []
+      },
+      "WebSignInType": {
+        "fields": [
+          "insideApp",
+          "safari"
+        ],
+        "libraries": [
+          "package:onegini/user_client.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "WebSignInTypeExtension": {
+        "fields": [
+          "get:value"
+        ],
+        "libraries": [
+          "package:onegini/user_client.dart"
+        ],
+        "methods": [],
+        "types": [
+          "WebSignInType"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:52:50Z",
+  "package": "onegini",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "a3e06e05b78c891be8eceea468d21887262c35d9a34e25b49a1777e69fd18b9d",
+    "event_channels": [
+      "onegini_events"
+    ],
+    "ffi_symbols": [],
+    "hierarchy_hash": "2bc0d5e7150012830a779543f630d0a115b6288875e0e9b8732059abd475c7e4",
+    "method_channels": [
+      "onegini"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "../onegini.dart",
+      "acceptFingerprintAuthenticationRequest",
+      "acceptOtpAuthenticationRequest",
+      "acceptPinAuthenticationRequest",
+      "acceptPinRegistrationRequest",
+      "authenticateDevice",
+      "authenticateUser",
+      "authenticateUserImplicitly",
+      "authenticatorId",
+      "body",
+      "can't decode error",
+      "cancelRegistration",
+      "changePin",
+      "code",
+      "configModelClassName",
+      "connectionTimeout",
+      "constants/constants.dart",
+      "customInfo",
+      "customTwoStepRegistrationReturnError",
+      "customTwoStepRegistrationReturnSuccess",
+      "dart:async",
+      "dart:convert",
+      "data",
+      "denyFingerprintAuthenticationRequest",
+      "denyOtpAuthenticationRequest",
+      "denyPinAuthenticationRequest",
+      "denyPinRegistrationRequest",
+      "deregisterAuthenticator",
+      "deregisterUser",
+      "encoding",
+      "error",
+      "eventCancelAuthOtp",
+      "eventCloseAuthOtp",
+      "eventCloseFingerprintAuth",
+      "eventClosePin",
+      "eventClosePinAuth",
+      "eventError",
+      "eventHandleRegisteredUrl",
+      "eventName",
+      "eventNextAuthenticationAttempt",
+      "eventOpenAuthOtp",
+      "eventOpenFingerprintAuth",
+      "eventOpenPin",
+      "eventOpenPinAuth",
+      "eventOpenPinAuthenticator",
+      "eventReceivedFingerprintAuth",
+      "eventShowScanningFingerprintAuth",
+      "eventValue",
+      "failedAttempts",
+      "fingerprintFallbackToPin",
+      "getAccessToken",
+      "getAllAuthenticators",
+      "getAllNotRegisteredAuthenticators",
+      "getAppToWebSingleSignOn",
+      "getAuthenticatedUserProfile",
+      "getIdentityProviders",
+      "getImplicitResource",
+      "getRedirectUrl",
+      "getRegisteredAuthenticators",
+      "getResource",
+      "getResourceAnonymous",
+      "getUnauthenticatedResource",
+      "handleMobileAuthWithOtp",
+      "handleRegisteredUserUrl",
+      "headers",
+      "id",
+      "identityProviderId",
+      "isAuthenticatorRegistered",
+      "isCustomAuth",
+      "isDefault",
+      "logout",
+      "maxAttempts",
+      "message",
+      "method",
+      "model/authentication_attempt.dart",
+      "model/oneginiAppToWebSingleSignOn.dart",
+      "model/onegini_event.dart",
+      "model/onegini_list_response.dart",
+      "model/onegini_removed_user_profile.dart",
+      "name",
+      "onegini",
+      "onegini.dart",
+      "onegini_events",
+      "openCustomTwoStepRegistrationScreen",
+      "package:flutter/cupertino.dart",
+      "package:flutter/material.dart",
+      "package:flutter/services.dart",
+      "package:onegini/constants/constants.dart",
+      "package:onegini/model/onegini_error.dart",
+      "package:onegini/model/registration_response.dart",
+      "package:onegini/onegini_event_listener.dart",
+      "package:onegini/resources_methods.dart",
+      "package:onegini/user_client.dart",
+      "parameters",
+      "path",
+      "pin",
+      "profileId",
+      "readTimeout",
+      "redirectUrl",
+      "registerAuthenticator",
+      "registerUser",
+      "registeredAuthenticatorId",
+      "remainingAttempts",
+      "scope",
+      "scopes",
+      "securityControllerClassName",
+      "setPreferredAuthenticator",
+      "startApp",
+      "status",
+      "token",
+      "true",
+      "twoStepCustomIdentityProviderIds",
+      "type",
+      "url",
+      "userProfile",
+      "userProfiles",
+      "validatePinWithPolicy"
+    ]
+  },
+  "version": "1.0.6"
+}

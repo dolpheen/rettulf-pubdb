@@ -1,0 +1,958 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:obs_websocket/src/connect_api.dart",
+          "package:obs_websocket/src/connect_io.dart",
+          "package:obs_websocket/src/connect_web.dart"
+        ],
+        "methods": [
+          "getConnect"
+        ],
+        "types": [
+          "Connect"
+        ]
+      },
+      "AuthRequiredResponse": {
+        "fields": [
+          "authRequired",
+          "challenge",
+          "get:status",
+          "messageId",
+          "rawStatus",
+          "salt"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/response/auth_required_response.dart"
+        ],
+        "methods": [
+          "AuthRequiredResponse",
+          "fromJson",
+          "init",
+          "toJson"
+        ],
+        "types": []
+      },
+      "BaseEvent": {
+        "fields": [
+          "exception",
+          "rawEvent",
+          "updateType"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/event/base_event.dart"
+        ],
+        "methods": [
+          "BaseEvent",
+          "asEvent",
+          "asRecordingStateEvent",
+          "asSceneItemEvent",
+          "asSceneItemStateEvent",
+          "asSteamStateEvent",
+          "asSteamStatusEvent",
+          "fromJson"
+        ],
+        "types": [
+          "RecordingStateEvent",
+          "SceneItemEvent",
+          "SceneItemStateEvent",
+          "StreamStateEvent",
+          "StreamStatusEvent"
+        ]
+      },
+      "BaseResponse": {
+        "fields": [
+          "error",
+          "get:status",
+          "messageId",
+          "rawResponse",
+          "rawStatus"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/response/base_response.dart"
+        ],
+        "methods": [
+          "BaseResponse",
+          "fromJson"
+        ],
+        "types": []
+      },
+      "Connect": {
+        "fields": [],
+        "libraries": [
+          "package:obs_websocket/src/connect.dart"
+        ],
+        "methods": [
+          "Connect",
+          "connect"
+        ],
+        "types": []
+      },
+      "CurrentProfileResponse": {
+        "fields": [
+          "profileName"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/response/current_profile_response.dart"
+        ],
+        "methods": [
+          "CurrentProfileResponse",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "IoConnect": {
+        "fields": [],
+        "libraries": [
+          "package:obs_websocket/src/connect_io.dart"
+        ],
+        "methods": [
+          "connect"
+        ],
+        "types": [
+          "Connect"
+        ]
+      },
+      "MediaSource": {
+        "fields": [
+          "mediaState",
+          "sourceKind",
+          "sourceName"
+        ],
+        "libraries": [
+          "package:obs_websocket/src/model/media_source.dart"
+        ],
+        "methods": [
+          "MediaSource",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "MediaSourcesListResponse": {
+        "fields": [
+          "mediaSources",
+          "messageId",
+          "status"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/response/media_sources_list_response.dart"
+        ],
+        "methods": [
+          "MediaSourcesListResponse",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "MediaSource"
+        ]
+      },
+      "MediaStateResponse": {
+        "fields": [
+          "mediaState"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/response/media_state_response.dart"
+        ],
+        "methods": [
+          "MediaStateResponse",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "ObsWebSocket": {
+        "fields": [
+          "broadcast",
+          "channel",
+          "eventHandlers",
+          "fallbackHandlers",
+          "messageId"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/obs_websocket.dart"
+        ],
+        "methods": [
+          "ObsWebSocket",
+          "addFallbackListener",
+          "addHandler",
+          "authenticate",
+          "close",
+          "command",
+          "connect",
+          "disableStudioMode",
+          "enableStudioMode",
+          "getAudioActive",
+          "getAuthRequired",
+          "getCurrentProfile",
+          "getCurrentScene",
+          "getMediaSourcesList",
+          "getMediaState",
+          "getSceneItemList",
+          "getSceneItemProperties",
+          "getSourceActive",
+          "getSourceSettings",
+          "getSourcesList",
+          "getStreamSettings",
+          "getStreamStatus",
+          "getStudioModeStatus",
+          "pauseRecording",
+          "playPauseMedia",
+          "refreshBrowserSource",
+          "removeFallbackListener",
+          "removeHandler",
+          "restartMedia",
+          "resumeRecording",
+          "saveStreamSettings",
+          "sendCommand",
+          "setCurrentProfile",
+          "setCurrentScene",
+          "setSceneItemRender",
+          "setSourceSettings",
+          "setStreamSettings",
+          "startRecording",
+          "startStopRecording",
+          "startStopStreaming",
+          "startStreaming",
+          "stopMedia",
+          "stopRecording",
+          "stopStreaming",
+          "takeSourceScreenshot"
+        ],
+        "types": [
+          "AuthRequiredResponse",
+          "BaseResponse",
+          "CurrentProfileResponse",
+          "MediaSourcesListResponse",
+          "MediaStateResponse",
+          "ObsWebSocket",
+          "Scene",
+          "SceneItemResponse",
+          "SourcesListResponse",
+          "StreamSetting",
+          "StreamSettingsResponse",
+          "StreamStatusResponse",
+          "StudioModeStatus",
+          "TakeSourceScreenshot",
+          "TakeSourceScreenshotResponse"
+        ]
+      },
+      "RecordingState": {
+        "fields": [
+          "recordingPaused",
+          "recordingResumed",
+          "recordingStarted",
+          "recordingStarting",
+          "recordingStopped",
+          "recordingStopping"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/event/recording_state_event.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "RecordingStateEvent": {
+        "fields": [
+          "recordingFilename",
+          "type"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/event/recording_state_event.dart"
+        ],
+        "methods": [
+          "RecordingStateEvent",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "Scene": {
+        "fields": [
+          "name",
+          "scenes"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/scene.dart"
+        ],
+        "methods": [
+          "Scene",
+          "fromJson",
+          "getSceneDetail",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "SceneDetail"
+        ]
+      },
+      "SceneDetail": {
+        "fields": [
+          "alignment",
+          "cx",
+          "cy",
+          "groupChildren",
+          "id",
+          "locked",
+          "muted",
+          "name",
+          "parentGroupName",
+          "render",
+          "sourceCx",
+          "sourceCy",
+          "type",
+          "volume",
+          "x",
+          "y"
+        ],
+        "libraries": [
+          "package:obs_websocket/src/model/scene_detail.dart"
+        ],
+        "methods": [
+          "SceneDetail",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "SceneDetail"
+        ]
+      },
+      "SceneItem": {
+        "fields": [
+          "name",
+          "sources"
+        ],
+        "libraries": [
+          "package:obs_websocket/src/model/scene_item.dart"
+        ],
+        "methods": [
+          "SceneItem",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "SceneDetail"
+        ]
+      },
+      "SceneItemChange": {
+        "fields": [
+          "sceneItemAdded",
+          "sceneItemDeselected",
+          "sceneItemRemoved",
+          "sceneItemSelected"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/event/scene_item_event.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SceneItemEvent": {
+        "fields": [
+          "itemId",
+          "itemName",
+          "sceneName",
+          "type"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/event/scene_item_event.dart"
+        ],
+        "methods": [
+          "SceneItemEvent",
+          "asArgs",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "SceneItemResponse": {
+        "fields": [
+          "messageId",
+          "sceneItems"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/response/scene_item_response.dart"
+        ],
+        "methods": [
+          "SceneItemResponse",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "SceneItem"
+        ]
+      },
+      "SceneItemState": {
+        "fields": [
+          "sceneItemLockChanged",
+          "sceneItemVisibilityChanged"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/event/scene_item_state_event.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SceneItemStateEvent": {
+        "fields": [
+          "get:state",
+          "itemId",
+          "itemLocked",
+          "itemName",
+          "itemVisible",
+          "sceneName",
+          "type"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/event/scene_item_state_event.dart"
+        ],
+        "methods": [
+          "SceneItemStateEvent",
+          "fromJson",
+          "toJson",
+          "toSceneItemRenderMap",
+          "toString"
+        ],
+        "types": []
+      },
+      "Source": {
+        "fields": [
+          "name",
+          "type",
+          "typeId"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/source.dart"
+        ],
+        "methods": [
+          "Source",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "SourcesListResponse": {
+        "fields": [
+          "messageId",
+          "sources",
+          "status"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/response/sources_list_response.dart"
+        ],
+        "methods": [
+          "SourcesListResponse",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Source"
+        ]
+      },
+      "StreamSetting": {
+        "fields": [
+          "settings",
+          "type"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/stream_setting.dart"
+        ],
+        "methods": [
+          "StreamSetting",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "StreamSettings"
+        ]
+      },
+      "StreamSettings": {
+        "fields": [
+          "key",
+          "password",
+          "server",
+          "useAuth",
+          "username"
+        ],
+        "libraries": [
+          "package:obs_websocket/src/model/stream_settings.dart"
+        ],
+        "methods": [
+          "StreamSettings",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "StreamSettingsResponse": {
+        "fields": [
+          "settings",
+          "type"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/response/stream_settings_response.dart"
+        ],
+        "methods": [
+          "StreamSettingsResponse",
+          "fromJson",
+          "toJson"
+        ],
+        "types": []
+      },
+      "StreamState": {
+        "fields": [
+          "streamStarted",
+          "streamStarting",
+          "streamStopped",
+          "streamStopping"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/event/stream_state_event.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "StreamStateEvent": {
+        "fields": [
+          "previewOnly",
+          "type"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/event/stream_state_event.dart"
+        ],
+        "methods": [
+          "StreamStateEvent",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "StreamStatusEvent": {
+        "fields": [
+          "avgFrameTime",
+          "bytesPerSec",
+          "cpuUsage",
+          "fps",
+          "freeDiskSpace",
+          "kbitsPerSec",
+          "memoryUsage",
+          "numDroppedFrames",
+          "numTotalFrames",
+          "outputSkippedFrames",
+          "outputTotalFrames",
+          "previewOnly",
+          "recording",
+          "recordingPaused",
+          "renderMissedFrames",
+          "renderTotalFrames",
+          "replayBufferActive",
+          "strain",
+          "streamTimeCode",
+          "streaming",
+          "totalStreamTime",
+          "updateType"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/event/stream_status_event.dart"
+        ],
+        "methods": [
+          "StreamStatusEvent",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "StreamStatusResponse": {
+        "fields": [
+          "messageId",
+          "previewOnly",
+          "recording",
+          "recordingPaused",
+          "status",
+          "streaming"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/response/stream_status_response.dart"
+        ],
+        "methods": [
+          "StreamStatusResponse",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "StudioModeStatus": {
+        "fields": [
+          "enabled"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/studio_mode_status.dart"
+        ],
+        "methods": [
+          "StudioModeStatus",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "TakeSourceScreenshot": {
+        "fields": [
+          "compressionQuality",
+          "embedPictureFormat",
+          "fileFormat",
+          "height",
+          "saveToFilePath",
+          "sourceName",
+          "width"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/take_source_screenshot.dart"
+        ],
+        "methods": [
+          "TakeSourceScreenshot",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "TakeSourceScreenshotResponse": {
+        "fields": [
+          "imageFile",
+          "img",
+          "sourceName"
+        ],
+        "libraries": [
+          "package:obs_websocket/obs_websocket.dart",
+          "package:obs_websocket/src/model/response/take_source_screenshot_response.dart"
+        ],
+        "methods": [
+          "TakeSourceScreenshotResponse",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "WebConnect": {
+        "fields": [],
+        "libraries": [
+          "package:obs_websocket/src/connect_web.dart"
+        ],
+        "methods": [
+          "connect"
+        ],
+        "types": [
+          "Connect"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:52:05Z",
+  "package": "obs_websocket",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "3cb096c432316ee3df9cb5410db551b5556d89bde8e59ed9b14c3442e9159008",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "177ea81e5f1e9bc87dbcc1c58dd43a0f31f4a5557ffc6e602c652c54bef6c503",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "../media_source.dart",
+      "../scene_item.dart",
+      "../source.dart",
+      "Authenticate",
+      "Cannot create a Connect",
+      "Could not retrieve the stream status",
+      "DisableStudioMode",
+      "EnableStudioMode",
+      "GetAudioActive",
+      "GetAuthRequired",
+      "GetCurrentProfile",
+      "GetCurrentScene",
+      "GetMediaSourcesList",
+      "GetMediaState",
+      "GetSceneItemList",
+      "GetSceneItemProperties",
+      "GetSourceActive",
+      "GetSourceSettings",
+      "GetSourcesList",
+      "GetStreamSettings",
+      "GetStreamingStatus",
+      "GetStudioModeStatus",
+      "PauseRecording",
+      "PlayPauseMedia",
+      "Problem getting audio response",
+      "Problem getting current profile",
+      "Problem getting current scene",
+      "Problem getting media state",
+      "Problem getting mediaSourcesList response",
+      "Problem getting source screenshot response",
+      "Problem getting sourceActive response",
+      "Problem getting sourcesList response",
+      "Problem getting stream settings",
+      "RecordingPaused",
+      "RecordingResumed",
+      "RecordingStarted",
+      "RecordingStarting",
+      "RecordingStateEvent",
+      "RecordingStopped",
+      "RecordingStopping",
+      "RefreshBrowserSource",
+      "RestartMedia",
+      "ResumeRecording",
+      "SaveStreamSettings",
+      "SceneItemAdded",
+      "SceneItemDeselected",
+      "SceneItemEvent",
+      "SceneItemLockChanged",
+      "SceneItemRemoved",
+      "SceneItemSelected",
+      "SceneItemStateEvent",
+      "SceneItemVisibilityChanged",
+      "SetCurrentProfile",
+      "SetCurrentScene",
+      "SetSceneItemRender",
+      "SetSourceSettings",
+      "SetStreamSettings",
+      "StartRecording",
+      "StartStopRecording",
+      "StartStopStreaming",
+      "StartStreaming",
+      "StopMedia",
+      "StopRecordinging",
+      "StopStreaming",
+      "StreamStarted",
+      "StreamStarting",
+      "StreamStateEvent",
+      "StreamStatus",
+      "StreamStatusEvent",
+      "StreamStopped",
+      "StreamStopping",
+      "TakeSourceScreenshot",
+      "Wrong event type",
+      "alignment",
+      "audioActive",
+      "auth",
+      "authRequired",
+      "auth_required_response.dart",
+      "auth_required_response.g.dart",
+      "average-frame-time",
+      "bytes-per-sec",
+      "challenge",
+      "compressionQuality",
+      "connect.dart",
+      "connect_api.dart",
+      "connect_html.dart",
+      "connect_io.dart",
+      "cpu-usage",
+      "current_profile_response.dart",
+      "current_profile_response.g.dart",
+      "cx",
+      "cy",
+      "dart:convert",
+      "dart:io",
+      "embedPictureFormat",
+      "error",
+      "fileFormat",
+      "fps",
+      "free-disk-space",
+      "groupChildren",
+      "height",
+      "id",
+      "imageFile",
+      "img",
+      "item",
+      "item-id",
+      "item-locked",
+      "item-name",
+      "item-visible",
+      "kbits-per-sec",
+      "key",
+      "locked",
+      "mediaSources",
+      "mediaState",
+      "media_source.dart",
+      "media_source.g.dart",
+      "media_sources_list_response.dart",
+      "media_sources_list_response.g.dart",
+      "media_state_response.dart",
+      "media_state_response.g.dart",
+      "memory-usage",
+      "message-id",
+      "muted",
+      "name",
+      "num-dropped-frames",
+      "num-total-frames",
+      "ok",
+      "opsLower",
+      "output-skipped-frames",
+      "output-total-frames",
+      "package:crypto/crypto.dart",
+      "package:json_annotation/json_annotation.dart",
+      "package:obs_websocket/obs_websocket.dart",
+      "package:obs_websocket/src/connect.dart",
+      "package:obs_websocket/src/model/event/recording_state_event.dart",
+      "package:obs_websocket/src/model/event/scene_item_event.dart",
+      "package:obs_websocket/src/model/event/scene_item_state_event.dart",
+      "package:obs_websocket/src/model/event/stream_state_event.dart",
+      "package:obs_websocket/src/model/event/stream_status_event.dart",
+      "package:web_socket_channel/html.dart",
+      "package:web_socket_channel/io.dart",
+      "package:web_socket_channel/status.dart",
+      "package:web_socket_channel/web_socket_channel.dart",
+      "parentGroupName",
+      "password",
+      "preview-only",
+      "profile-name",
+      "profileName",
+      "recording",
+      "recording-paused",
+      "recordingFilename",
+      "recording_state_event.dart",
+      "recording_state_event.g.dart",
+      "render",
+      "render-missed-frames",
+      "render-total-frames",
+      "replay-buffer-active",
+      "request-type",
+      "salt",
+      "saveToFilePath",
+      "scene-name",
+      "scene.dart",
+      "scene.g.dart",
+      "sceneItems",
+      "sceneName",
+      "scene_detail.dart",
+      "scene_detail.g.dart",
+      "scene_item.dart",
+      "scene_item.g.dart",
+      "scene_item_event.dart",
+      "scene_item_event.g.dart",
+      "scene_item_response.dart",
+      "scene_item_response.g.dart",
+      "scene_item_state_event.dart",
+      "scene_item_state_event.g.dart",
+      "server",
+      "settings",
+      "source",
+      "source.dart",
+      "source.g.dart",
+      "sourceActive",
+      "sourceKind",
+      "sourceName",
+      "source_cx",
+      "source_cy",
+      "sources",
+      "sources_list_response.dart",
+      "sources_list_response.g.dart",
+      "src/model/event/base_event.dart",
+      "src/model/event/recording_state_event.dart",
+      "src/model/event/scene_item_event.dart",
+      "src/model/event/scene_item_state_event.dart",
+      "src/model/event/stream_state_event.dart",
+      "src/model/event/stream_status_event.dart",
+      "src/model/response/auth_required_response.dart",
+      "src/model/response/base_response.dart",
+      "src/model/response/current_profile_response.dart",
+      "src/model/response/media_sources_list_response.dart",
+      "src/model/response/media_state_response.dart",
+      "src/model/response/scene_item_response.dart",
+      "src/model/response/sources_list_response.dart",
+      "src/model/response/stream_settings_response.dart",
+      "src/model/response/stream_status_response.dart",
+      "src/model/response/take_source_screenshot_response.dart",
+      "src/model/scene.dart",
+      "src/model/source.dart",
+      "src/model/stream_setting.dart",
+      "src/model/studio_mode_status.dart",
+      "src/model/take_source_screenshot.dart",
+      "src/obs_websocket.dart",
+      "status",
+      "strain",
+      "stream-timecode",
+      "stream_setting.dart",
+      "stream_setting.g.dart",
+      "stream_settings.dart",
+      "stream_settings.g.dart",
+      "stream_settings_response.dart",
+      "stream_settings_response.g.dart",
+      "stream_state_event.dart",
+      "stream_state_event.g.dart",
+      "stream_status_event.dart",
+      "stream_status_event.g.dart",
+      "stream_status_response.dart",
+      "stream_status_response.g.dart",
+      "streaming",
+      "studio-mode",
+      "studio_mode_status.dart",
+      "studio_mode_status.g.dart",
+      "take_source_screenshot.dart",
+      "take_source_screenshot.g.dart",
+      "take_source_screenshot_response.dart",
+      "take_source_screenshot_response.g.dart",
+      "total-stream-time",
+      "type",
+      "typeId",
+      "update-type",
+      "use_auth",
+      "username",
+      "volume",
+      "width",
+      "will be reomved",
+      "ws://",
+      "x",
+      "y"
+    ]
+  },
+  "version": "2.3.0"
+}
