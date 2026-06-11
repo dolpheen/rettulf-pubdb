@@ -1,0 +1,1247 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "assetGraphPath",
+          "cacheDir",
+          "entryPointDir",
+          "generatedOutputDirectory",
+          "rootPackageFilesWhitelist",
+          "rootPackageGlobsWhitelist",
+          "scriptLocation"
+        ],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/src/asset/build_cache.dart",
+          "package:build_runner/src/asset/reader.dart",
+          "package:build_runner/src/asset/writer.dart",
+          "package:build_runner/src/asset_graph/graph.dart",
+          "package:build_runner/src/build_script_generate/build_script_generate.dart",
+          "package:build_runner/src/build_script_generate/builder_ordering.dart",
+          "package:build_runner/src/entrypoint/run.dart",
+          "package:build_runner/src/generate/build.dart",
+          "package:build_runner/src/generate/build_impl.dart",
+          "package:build_runner/src/generate/directory_watcher_factory.dart",
+          "package:build_runner/src/generate/fold_frames.dart",
+          "package:build_runner/src/generate/watch_impl.dart",
+          "package:build_runner/src/logging/logging.dart",
+          "package:build_runner/src/logging/std_io_logging.dart",
+          "package:build_runner/src/package_graph/apply_builders.dart",
+          "package:build_runner/src/package_graph/build_config_overrides.dart",
+          "package:build_runner/src/package_graph/package_graph.dart",
+          "package:build_runner/src/server/server.dart",
+          "package:build_runner/src/util/clock.dart",
+          "package:build_runner/src/util/constants.dart"
+        ],
+        "methods": [
+          "apply",
+          "applyToRoot",
+          "assetGraphPathFor",
+          "build",
+          "builderOptionsIdForPhase",
+          "cacheLocation",
+          "computeBuildActionsDigest",
+          "computeBuilderOptionsDigest",
+          "createBuildActions",
+          "createServeHandler",
+          "defaultDirectoryWatcherFactory",
+          "ensureBuildScript",
+          "findBuildConfigOverrides",
+          "findBuilderOrder",
+          "foldInternalFrames",
+          "logTimedAsync",
+          "logTimedSync",
+          "now",
+          "placeholderIdsFor",
+          "run",
+          "runWatch",
+          "scopeClock",
+          "scriptHashFor",
+          "singleBuild",
+          "stdIOLogListener",
+          "toAll",
+          "toAllPackages",
+          "toDependentsOf",
+          "toNoneByDefault",
+          "toPackage",
+          "toPackages",
+          "toRoot",
+          "watch"
+        ],
+        "types": [
+          "AssetGraph",
+          "BuildAction",
+          "BuildOptions",
+          "BuildResult",
+          "BuilderApplication",
+          "PackageGraph",
+          "PackageNode",
+          "RunnerAssetReader",
+          "RunnerAssetWriter",
+          "ServeHandler",
+          "WatchImpl"
+        ]
+      },
+      "AssetChange": {
+        "fields": [
+          "get:hashCode",
+          "id",
+          "type"
+        ],
+        "libraries": [
+          "package:build_runner/src/watcher/asset_change.dart"
+        ],
+        "methods": [
+          "==",
+          "AssetChange",
+          "fromEvent",
+          "toString"
+        ],
+        "types": [
+          "PackageNode"
+        ]
+      },
+      "AssetGraph": {
+        "fields": [
+          "buildActionsDigest",
+          "get:allNodes",
+          "get:outputs",
+          "get:sources"
+        ],
+        "libraries": [
+          "package:build_runner/src/asset_graph/graph.dart"
+        ],
+        "methods": [
+          "add",
+          "build",
+          "contains",
+          "deserialize",
+          "get",
+          "packageNodes",
+          "remove",
+          "serialize",
+          "toString",
+          "updateAndInvalidate"
+        ],
+        "types": [
+          "AssetGraph",
+          "AssetNode",
+          "BuildAction",
+          "DigestAssetReader",
+          "PackageGraph"
+        ]
+      },
+      "AssetGraphVersionException": {
+        "fields": [
+          "currentVersion",
+          "versionSeen"
+        ],
+        "libraries": [
+          "package:build_runner/src/asset_graph/exceptions.dart"
+        ],
+        "methods": [
+          "AssetGraphVersionException",
+          "toString"
+        ],
+        "types": []
+      },
+      "AssetHandler": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/server/server.dart"
+        ],
+        "methods": [
+          "AssetHandler",
+          "handle"
+        ],
+        "types": [
+          "DigestAssetReader"
+        ]
+      },
+      "AssetNode": {
+        "fields": [
+          "get:isGenerated",
+          "get:isInteresting",
+          "get:isReadable",
+          "get:isValidInput",
+          "id",
+          "lastKnownDigest",
+          "outputs",
+          "primaryOutputs"
+        ],
+        "libraries": [
+          "package:build_runner/src/asset_graph/node.dart"
+        ],
+        "methods": [
+          "AssetNode",
+          "toString"
+        ],
+        "types": []
+      },
+      "BuildAction": {
+        "fields": [
+          "builder",
+          "builderOptions",
+          "get:hashCode",
+          "hideOutput",
+          "isOptional",
+          "package"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/phase.dart"
+        ],
+        "methods": [
+          "==",
+          "BuildAction",
+          "matches",
+          "toString"
+        ],
+        "types": [
+          "InputMatcher"
+        ]
+      },
+      "BuildActionPerformance": {
+        "fields": [
+          "get:action"
+        ],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/src/generate/performance_tracker.dart"
+        ],
+        "methods": [],
+        "types": [
+          "BuildAction",
+          "Timings"
+        ]
+      },
+      "BuildActionTracker": {
+        "fields": [
+          "action"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/performance_tracker.dart"
+        ],
+        "methods": [
+          "BuildActionTracker",
+          "track"
+        ],
+        "types": [
+          "BuildAction",
+          "BuildActionPerformance",
+          "TimeTracker"
+        ]
+      },
+      "BuildCacheReader": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/asset/build_cache.dart"
+        ],
+        "methods": [
+          "BuildCacheReader",
+          "canRead",
+          "digest",
+          "findAssets",
+          "readAsBytes",
+          "readAsString"
+        ],
+        "types": [
+          "AssetGraph",
+          "DigestAssetReader"
+        ]
+      },
+      "BuildCacheWriter": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/asset/build_cache.dart"
+        ],
+        "methods": [
+          "BuildCacheWriter",
+          "delete",
+          "writeAsBytes",
+          "writeAsString"
+        ],
+        "types": [
+          "AssetGraph",
+          "RunnerAssetWriter"
+        ]
+      },
+      "BuildCommandRunner": {
+        "fields": [
+          "builderApplications"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/options.dart"
+        ],
+        "methods": [
+          "BuildCommandRunner"
+        ],
+        "types": [
+          "BuilderApplication"
+        ]
+      },
+      "BuildDefinition": {
+        "fields": [
+          "assetGraph",
+          "buildScriptUpdates",
+          "deleteFilesByDefault",
+          "enableLowResourcesMode",
+          "onDelete",
+          "packageGraph",
+          "reader",
+          "resourceManager",
+          "writer"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/build_definition.dart"
+        ],
+        "methods": [
+          "prepareWorkspace"
+        ],
+        "types": [
+          "AssetGraph",
+          "BuildAction",
+          "BuildDefinition",
+          "BuildOptions",
+          "BuildScriptUpdates",
+          "DigestAssetReader",
+          "PackageGraph",
+          "RunnerAssetWriter"
+        ]
+      },
+      "BuildImpl": {
+        "fields": [
+          "get:firstBuild"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/build_impl.dart"
+        ],
+        "methods": [
+          "create",
+          "run"
+        ],
+        "types": [
+          "AssetGraph",
+          "BuildAction",
+          "BuildDefinition",
+          "BuildImpl",
+          "BuildResult",
+          "DigestAssetReader",
+          "PackageGraph",
+          "RunnerAssetWriter"
+        ]
+      },
+      "BuildOptions": {
+        "fields": [
+          "assumeTty",
+          "debounceDelay",
+          "deleteFilesByDefault",
+          "directoryWatcherFactory",
+          "enableLowResourcesMode",
+          "failOnSevere",
+          "logListener",
+          "packageGraph",
+          "reader",
+          "severeLogHandled",
+          "skipBuildScriptCheck",
+          "writer"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/options.dart"
+        ],
+        "methods": [
+          "BuildOptions"
+        ],
+        "types": [
+          "PackageGraph",
+          "RunnerAssetReader",
+          "RunnerAssetWriter"
+        ]
+      },
+      "BuildPerformance": {
+        "fields": [
+          "get:actions"
+        ],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/src/generate/performance_tracker.dart"
+        ],
+        "methods": [],
+        "types": [
+          "BuildActionPerformance",
+          "Timings"
+        ]
+      },
+      "BuildPerformanceTracker": {
+        "fields": [
+          "get:actions"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/performance_tracker.dart"
+        ],
+        "methods": [
+          "trackAction"
+        ],
+        "types": [
+          "BuildAction",
+          "BuildActionTracker",
+          "BuildPerformance",
+          "TimeTracker"
+        ]
+      },
+      "BuildResult": {
+        "fields": [
+          "exception",
+          "outputs",
+          "performance",
+          "stackTrace",
+          "status"
+        ],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/src/generate/build_result.dart"
+        ],
+        "methods": [
+          "BuildResult",
+          "toString"
+        ],
+        "types": [
+          "BuildPerformance",
+          "BuildStatus"
+        ]
+      },
+      "BuildScriptUpdates": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/changes/build_script_updates.dart"
+        ],
+        "methods": [
+          "create",
+          "hasBeenUpdated"
+        ],
+        "types": [
+          "AssetGraph",
+          "BuildOptions",
+          "BuildScriptUpdates"
+        ]
+      },
+      "BuildState": {
+        "fields": [
+          "get:buildResults",
+          "get:currentBuild"
+        ],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/src/generate/build_result.dart"
+        ],
+        "methods": [],
+        "types": [
+          "BuildResult"
+        ]
+      },
+      "BuildStatus": {
+        "fields": [
+          "failure",
+          "success"
+        ],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/src/generate/build_result.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "BuilderApplication": {
+        "fields": [
+          "builderFactories",
+          "builderKey",
+          "defaultGenerateFor",
+          "filter",
+          "hideOutput",
+          "isOptional"
+        ],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/src/package_graph/apply_builders.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "BuilderOptionsAssetNode": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/asset_graph/node.dart"
+        ],
+        "methods": [
+          "BuilderOptionsAssetNode",
+          "toString"
+        ],
+        "types": [
+          "AssetNode",
+          "SyntheticAssetNode"
+        ]
+      },
+      "CachingAssetReader": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/asset/cache.dart"
+        ],
+        "methods": [
+          "CachingAssetReader",
+          "canRead",
+          "digest",
+          "findAssets",
+          "invalidate",
+          "readAsBytes",
+          "readAsString"
+        ],
+        "types": [
+          "DigestAssetReader"
+        ]
+      },
+      "ConcurrentBuildException": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/generate/exceptions.dart"
+        ],
+        "methods": [
+          "ConcurrentBuildException",
+          "toString"
+        ],
+        "types": []
+      },
+      "DigestAssetReader": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/src/asset/reader.dart"
+        ],
+        "methods": [
+          "digest"
+        ],
+        "types": []
+      },
+      "DuplicateAssetNodeException": {
+        "fields": [
+          "assetNode"
+        ],
+        "libraries": [
+          "package:build_runner/src/asset_graph/exceptions.dart"
+        ],
+        "methods": [
+          "DuplicateAssetNodeException",
+          "toString"
+        ],
+        "types": [
+          "AssetNode"
+        ]
+      },
+      "FatalBuildException": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/generate/exceptions.dart"
+        ],
+        "methods": [
+          "FatalBuildException"
+        ],
+        "types": []
+      },
+      "FileBasedAssetReader": {
+        "fields": [
+          "packageGraph"
+        ],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/src/asset/file_based.dart"
+        ],
+        "methods": [
+          "FileBasedAssetReader",
+          "canRead",
+          "findAssets",
+          "readAsBytes",
+          "readAsString"
+        ],
+        "types": [
+          "Md5DigestReader",
+          "PackageGraph",
+          "RunnerAssetReader"
+        ]
+      },
+      "FileBasedAssetWriter": {
+        "fields": [
+          "packageGraph"
+        ],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/src/asset/file_based.dart"
+        ],
+        "methods": [
+          "FileBasedAssetWriter",
+          "delete",
+          "writeAsBytes",
+          "writeAsString"
+        ],
+        "types": [
+          "PackageGraph",
+          "RunnerAssetWriter"
+        ]
+      },
+      "GeneratedAssetNode": {
+        "fields": [
+          "builderOptionsId",
+          "get:isGenerated",
+          "globs",
+          "inputs",
+          "isHidden",
+          "needsUpdate",
+          "phaseNumber",
+          "previousInputsDigest",
+          "primaryInput",
+          "wasOutput"
+        ],
+        "libraries": [
+          "package:build_runner/src/asset_graph/node.dart"
+        ],
+        "methods": [
+          "GeneratedAssetNode",
+          "toString"
+        ],
+        "types": [
+          "AssetNode"
+        ]
+      },
+      "HeartbeatLogger": {
+        "fields": [
+          "waitDuration"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/heartbeat.dart"
+        ],
+        "methods": [
+          "HeartbeatLogger",
+          "start",
+          "stop"
+        ],
+        "types": []
+      },
+      "InputMatcher": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/generate/input_matcher.dart"
+        ],
+        "methods": [
+          "InputMatcher",
+          "allOf",
+          "matches"
+        ],
+        "types": [
+          "InputMatcher"
+        ]
+      },
+      "InternalAssetNode": {
+        "fields": [
+          "get:isInteresting",
+          "get:isValidInput"
+        ],
+        "libraries": [
+          "package:build_runner/src/asset_graph/node.dart"
+        ],
+        "methods": [
+          "InternalAssetNode",
+          "toString"
+        ],
+        "types": [
+          "AssetNode"
+        ]
+      },
+      "InvalidBuildActionException": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/generate/exceptions.dart"
+        ],
+        "methods": [
+          "nonRootPackage",
+          "toString"
+        ],
+        "types": [
+          "BuildAction",
+          "FatalBuildException"
+        ]
+      },
+      "Md5DigestReader": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/asset/reader.dart"
+        ],
+        "methods": [
+          "digest"
+        ],
+        "types": [
+          "DigestAssetReader"
+        ]
+      },
+      "PackageGraph": {
+        "fields": [
+          "allPackages",
+          "root"
+        ],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/src/package_graph/package_graph.dart"
+        ],
+        "methods": [
+          "[]",
+          "forPath",
+          "forThisPackage",
+          "fromRoot",
+          "toString"
+        ],
+        "types": [
+          "PackageNode"
+        ]
+      },
+      "PackageGraphWatcher": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/watcher/graph_watcher.dart"
+        ],
+        "methods": [
+          "PackageGraphWatcher",
+          "watch"
+        ],
+        "types": [
+          "AssetChange",
+          "PackageGraph",
+          "PackageNodeWatcher"
+        ]
+      },
+      "PackageNode": {
+        "fields": [
+          "dependencies",
+          "isRoot",
+          "name",
+          "path"
+        ],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/src/package_graph/package_graph.dart"
+        ],
+        "methods": [
+          "PackageNode",
+          "toString"
+        ],
+        "types": [
+          "PackageNode"
+        ]
+      },
+      "PackageNodeWatcher": {
+        "fields": [
+          "get:watcher"
+        ],
+        "libraries": [
+          "package:build_runner/src/watcher/node_watcher.dart"
+        ],
+        "methods": [
+          "PackageNodeWatcher",
+          "watch"
+        ],
+        "types": [
+          "AssetChange",
+          "PackageNode"
+        ]
+      },
+      "PlaceHolderAssetNode": {
+        "fields": [
+          "get:isValidInput"
+        ],
+        "libraries": [
+          "package:build_runner/src/asset_graph/node.dart"
+        ],
+        "methods": [
+          "PlaceHolderAssetNode",
+          "toString"
+        ],
+        "types": [
+          "AssetNode",
+          "SyntheticAssetNode"
+        ]
+      },
+      "RunnerAssetReader": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/src/asset/reader.dart"
+        ],
+        "methods": [],
+        "types": [
+          "DigestAssetReader"
+        ]
+      },
+      "RunnerAssetWriter": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/src/asset/writer.dart"
+        ],
+        "methods": [
+          "delete"
+        ],
+        "types": []
+      },
+      "ServeHandler": {
+        "fields": [
+          "get:buildResults",
+          "get:currentBuild"
+        ],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/src/server/server.dart"
+        ],
+        "methods": [
+          "handlerFor"
+        ],
+        "types": [
+          "AssetHandler",
+          "BuildResult",
+          "BuildState"
+        ]
+      },
+      "SingleStepReader": {
+        "fields": [
+          "get:assetsRead",
+          "get:globsRan"
+        ],
+        "libraries": [
+          "package:build_runner/src/asset/reader.dart"
+        ],
+        "methods": [
+          "SingleStepReader",
+          "canRead",
+          "digest",
+          "findAssets",
+          "readAsBytes",
+          "readAsString"
+        ],
+        "types": [
+          "AssetGraph",
+          "DigestAssetReader"
+        ]
+      },
+      "SourceAssetNode": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/asset_graph/node.dart"
+        ],
+        "methods": [
+          "SourceAssetNode",
+          "toString"
+        ],
+        "types": [
+          "AssetNode"
+        ]
+      },
+      "SyntheticAssetNode": {
+        "fields": [
+          "get:isReadable",
+          "get:isValidInput"
+        ],
+        "libraries": [
+          "package:build_runner/src/asset_graph/node.dart"
+        ],
+        "methods": [],
+        "types": [
+          "AssetNode"
+        ]
+      },
+      "SyntheticSourceAssetNode": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/asset_graph/node.dart"
+        ],
+        "methods": [
+          "SyntheticSourceAssetNode"
+        ],
+        "types": [
+          "AssetNode",
+          "SyntheticAssetNode"
+        ]
+      },
+      "TargetGraph": {
+        "fields": [
+          "allModules"
+        ],
+        "libraries": [
+          "package:build_runner/src/package_graph/target_graph.dart"
+        ],
+        "methods": [
+          "forPackageGraph"
+        ],
+        "types": [
+          "PackageGraph",
+          "TargetGraph",
+          "TargetNode"
+        ]
+      },
+      "TargetNode": {
+        "fields": [
+          "package",
+          "target"
+        ],
+        "libraries": [
+          "package:build_runner/src/package_graph/target_graph.dart"
+        ],
+        "methods": [
+          "TargetNode",
+          "toString"
+        ],
+        "types": [
+          "PackageNode"
+        ]
+      },
+      "Terminator": {
+        "fields": [
+          "shouldTerminate"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/terminator.dart"
+        ],
+        "methods": [
+          "Terminator",
+          "cancel"
+        ],
+        "types": []
+      },
+      "TimeTracker": {
+        "fields": [
+          "get:duration",
+          "get:startTime",
+          "get:stopTime"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/performance_tracker.dart"
+        ],
+        "methods": [
+          "start",
+          "stop"
+        ],
+        "types": [
+          "Timings"
+        ]
+      },
+      "Timings": {
+        "fields": [
+          "get:duration",
+          "get:startTime",
+          "get:stopTime"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/performance_tracker.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "UnexpectedExistingOutputsException": {
+        "fields": [
+          "conflictingOutputs"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/exceptions.dart"
+        ],
+        "methods": [
+          "UnexpectedExistingOutputsException",
+          "toString"
+        ],
+        "types": [
+          "FatalBuildException"
+        ]
+      },
+      "WatchImpl": {
+        "fields": [
+          "buildResults",
+          "currentBuild",
+          "get:reader",
+          "packageGraph"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/watch_impl.dart"
+        ],
+        "methods": [
+          "WatchImpl"
+        ],
+        "types": [
+          "AssetGraph",
+          "BuildAction",
+          "BuildDefinition",
+          "BuildOptions",
+          "BuildResult",
+          "BuildState",
+          "DigestAssetReader",
+          "PackageGraph"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:14:48Z",
+  "package": "build_runner",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AssetChange",
+      "BuilderApplication",
+      "ConcurrentBuildException",
+      "FatalBuildException",
+      "UnexpectedExistingOutputsException"
+    ],
+    "digest": "548d0d2dac63d3a3a104fbca69d5d99cd28cf95bb477f1846e28623b5d75811d",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "add8856998ed9e0aefe9f2bb8faf98c6b138488c9aa83848f231ecfec1bc637e",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\nBuild Succeeded!\n",
+      "\nDelete these files (y/n) (or list them (l))?: ",
+      " ",
+      "$sdk",
+      "&nbsp;",
+      "*.build.yaml",
+      ", ",
+      "--output-dir",
+      "--precompiled",
+      "--script",
+      ".",
+      "../asset/build_cache.dart",
+      "../asset/cache.dart",
+      "../asset/file_based.dart",
+      "../asset/reader.dart",
+      "../asset/writer.dart",
+      "../asset_graph/exceptions.dart",
+      "../asset_graph/graph.dart",
+      "../asset_graph/node.dart",
+      "../changes/build_script_updates.dart",
+      "../generate/build_result.dart",
+      "../generate/options.dart",
+      "../generate/phase.dart",
+      "../generate/watch_impl.dart",
+      "../logging/logging.dart",
+      "../logging/std_io_logging.dart",
+      "../package_graph/apply_builders.dart",
+      "../package_graph/build_config_overrides.dart",
+      "../package_graph/package_graph.dart",
+      "../server/server.dart",
+      "../util/constants.dart",
+      "._",
+      ".browser_test.dart",
+      ".dart_tool/build",
+      ".dart_tool/build/entrypoint",
+      ".packages",
+      "/",
+      ":",
+      "<br/>",
+      "A severe log was handled. See log for details",
+      "All outputs of a build action should share the same inputs.",
+      "Asset globbing should be done per phase with the AssetGraph",
+      "Build",
+      "BuildDefinition",
+      "BuildScriptUpdates",
+      "Building new asset graph",
+      "Builds finished. Safe to exit\n",
+      "Builds the specified targets, watching the file system for updates and rebuilding as appropriate.",
+      "By default, the user will be prompted to delete any files which already exist but were not known to be generated by this specific build script.\n\nEnabling this option skips the prompt and deletes the files. This should typically be used in continues integration servers and tests, but not otherwise.",
+      "Caching finalized dependency graph",
+      "Can't run a build with no outputs",
+      "Checking for unexpected pre-existing outputs.",
+      "Checking for updates since last build",
+      "ConcurrentBuildException: Only one build may be running at a time.",
+      "Deleting files...",
+      "Enables colors and interactive input when the script does not appear to be running directly in a terminal, for instance when it is a subprocess",
+      "Error creating merged dir! :(",
+      "Generating build script",
+      "Heartbeat",
+      "HeartbeatLogger already started",
+      "HeartbeatLogger was never started",
+      "Initializing inputs",
+      "InputSet",
+      "Invalidating asset graph due to build script update",
+      "List",
+      "No nodes other than the root may indicate `isRoot`",
+      "Not Found",
+      "Only top level directories are supported",
+      "Performs a single build on the specified targets and then exits.",
+      "Performs a single build on the specified targets and then runs tests using the compiled assets.",
+      "Reading cached asset graph",
+      "Root node must indicate `isRoot`",
+      "Running build",
+      "Runs a development server that serves the specified targets and runs builds based on file system updates.",
+      "Setting up file watchers",
+      "Specify the hostname to serve on",
+      "String",
+      "Terminating builds due to build script update",
+      "Terminating. No further builds will be scheduled\n",
+      "Throwing away cached asset graph because the build actions have changed. This could happen as a result of adding a new dependency, or if you are using a build script which changes the build structure based on command line flags or other configuration.",
+      "Throwing away cached asset graph due to version mismatch.",
+      "Unable to generate package graph, no `.packages` found. This program must be ran from the root directory of your package.",
+      "Unable to generate package graph, no `pubspec.yaml` found. This program must be ran from the root directory of your package.",
+      "Unified interface for running Dart builds.",
+      "Unrecognized node type",
+      "Updating asset graph",
+      "Watch",
+      "Whether to consider the build a failure on an error logged.",
+      "[]= not supported for WrappedAssetNode",
+      "_bazel_codegen",
+      "_builders",
+      "_test.dart.browser_test.dart",
+      "_test.html",
+      "any assets",
+      "apply",
+      "args",
+      "asset_change.dart",
+      "assume-tty",
+      "benchmark/**",
+      "bin/**",
+      "build",
+      "buildActionsDigest",
+      "build_barback",
+      "build_definition.dart",
+      "build_impl.dart",
+      "build_result.dart",
+      "build_runner",
+      "build_runner:create_merged_dir",
+      "build_runner_test",
+      "build_test",
+      "builder_ordering.dart",
+      "dart",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:io",
+      "dart:mirrors",
+      "data",
+      "defaultGenerateFor",
+      "delete-conflicting-outputs",
+      "dependencies",
+      "dependency_overrides",
+      "dev_dependencies",
+      "directory_watcher_factory.dart",
+      "ensureBuildScript",
+      "example/**",
+      "exceptions.dart",
+      "exclude",
+      "fail-on-severe",
+      "file",
+      "fold_frames.dart",
+      "graph.dart",
+      "heartbeat.dart",
+      "hidden",
+      "hideOutput",
+      "hostname",
+      "http",
+      "include",
+      "index.html",
+      "input_matcher.dart",
+      "inputs",
+      "isOptional",
+      "l",
+      "length setter not unsupported for WrappedAssetNode",
+      "lib",
+      "lib/",
+      "lib/$lib$",
+      "lib/**",
+      "lib/dev_compiler/**.js",
+      "localhost",
+      "main",
+      "max-age=0, must-revalidate",
+      "n",
+      "name",
+      "node.dart",
+      "node_watcher.dart",
+      "nodes",
+      "optional",
+      "options.dart",
+      "package",
+      "package:args/args.dart",
+      "package:args/command_runner.dart",
+      "package:build/build.dart",
+      "package:build_barback/build_barback.dart",
+      "package:build_config/build_config.dart",
+      "package:build_runner/build_runner.dart",
+      "package:build_runner/src/generate/phase.dart",
+      "package:build_runner/src/logging/logging.dart",
+      "package:build_runner/src/package_graph/package_graph.dart",
+      "package:build_runner/src/util/clock.dart",
+      "package:build_runner/src/watcher/asset_change.dart",
+      "package:build_runner/src/watcher/graph_watcher.dart",
+      "package:build_runner/src/watcher/node_watcher.dart",
+      "package:cli_util/cli_util.dart",
+      "package:code_builder/code_builder.dart",
+      "package:collection/collection.dart",
+      "package:convert/convert.dart",
+      "package:crypto/crypto.dart",
+      "package:dart_style/dart_style.dart",
+      "package:glob/glob.dart",
+      "package:graphs/graphs.dart",
+      "package:io/ansi.dart",
+      "package:io/io.dart",
+      "package:logging/logging.dart",
+      "package:meta/meta.dart",
+      "package:millisecond/millisecond.dart",
+      "package:mime/mime.dart",
+      "package:path/path.dart",
+      "package:pool/pool.dart",
+      "package:shelf/shelf.dart",
+      "package:shelf/shelf_io.dart",
+      "package:stack_trace/stack_trace.dart",
+      "package:stream_transform/stream_transform.dart",
+      "package:test",
+      "package:watcher/watcher.dart",
+      "package:yaml/yaml.dart",
+      "package_graph.dart",
+      "packages",
+      "performance_tracker.dart",
+      "phase.dart",
+      "pub",
+      "pub.bat",
+      "pubspec.yaml",
+      "reader.dart",
+      "rootDir",
+      "run",
+      "serialization.dart",
+      "serializedAssetIds",
+      "serve",
+      "src/asset/file_based.dart",
+      "src/asset/reader.dart",
+      "src/asset/writer.dart",
+      "src/entrypoint/run.dart",
+      "src/generate/build.dart",
+      "src/generate/build_result.dart",
+      "src/generate/performance_tracker.dart",
+      "src/package_graph/apply_builders.dart",
+      "src/package_graph/package_graph.dart",
+      "src/server/server.dart",
+      "target_graph.dart",
+      "terminator.dart",
+      "test",
+      "test/$test$",
+      "test/**",
+      "text/html",
+      "toAllPackages",
+      "toDependentsOf",
+      "toNoneByDefault",
+      "toRoot",
+      "tool/**",
+      "unimplemented!",
+      "version",
+      "watch",
+      "watch_impl.dart",
+      "web",
+      "web/$web$",
+      "web/**",
+      "writer.dart",
+      "y"
+    ]
+  },
+  "version": "0.7.2"
+}
