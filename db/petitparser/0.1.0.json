@@ -1,0 +1,963 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "ESCAPE_TABLE"
+        ],
+        "libraries": [
+          "package:petitparser/json.dart",
+          "package:petitparser/lisp.dart",
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "any",
+          "anyIn",
+          "char",
+          "digit",
+          "epsilon",
+          "eval",
+          "evalArguments",
+          "evalString",
+          "failure",
+          "letter",
+          "lowercase",
+          "pattern",
+          "range",
+          "string",
+          "stringIgnoreCase",
+          "uppercase",
+          "whitespace",
+          "word"
+        ],
+        "types": [
+          "Environment",
+          "Parser"
+        ]
+      },
+      "ActionParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "ActionParser"
+        ],
+        "types": [
+          "DelegateParser"
+        ]
+      },
+      "AndParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "AndParser"
+        ],
+        "types": [
+          "DelegateParser"
+        ]
+      },
+      "ChoiceParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "ChoiceParser",
+          "or"
+        ],
+        "types": [
+          "ListParser",
+          "Parser"
+        ]
+      },
+      "CompositeParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "CompositeParser",
+          "[]",
+          "action",
+          "def",
+          "initialize",
+          "redef",
+          "ref"
+        ],
+        "types": [
+          "DelegateParser",
+          "Parser",
+          "WrapperParser"
+        ]
+      },
+      "Cons": {
+        "fields": [
+          "get:head",
+          "get:tail",
+          "set:head",
+          "set:tail"
+        ],
+        "libraries": [
+          "package:petitparser/lisp.dart"
+        ],
+        "methods": [
+          "==",
+          "Cons",
+          "toString"
+        ],
+        "types": [
+          "Cons"
+        ]
+      },
+      "Context": {
+        "fields": [
+          "get:buffer",
+          "get:position"
+        ],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "Context",
+          "failure",
+          "isFailure",
+          "isSuccess",
+          "success",
+          "toString"
+        ],
+        "types": [
+          "Failure",
+          "Success"
+        ]
+      },
+      "DelegateParser": {
+        "fields": [
+          "get:children"
+        ],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "DelegateParser",
+          "replace"
+        ],
+        "types": [
+          "Parser"
+        ]
+      },
+      "EndOfInputParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "EndOfInputParser"
+        ],
+        "types": [
+          "DelegateParser"
+        ]
+      },
+      "Environment": {
+        "fields": [
+          "get:keys",
+          "get:parent"
+        ],
+        "libraries": [
+          "package:petitparser/lisp.dart"
+        ],
+        "methods": [
+          "Environment",
+          "[]",
+          "[]=",
+          "create"
+        ],
+        "types": [
+          "Environment",
+          "Symbol"
+        ]
+      },
+      "Failure": {
+        "fields": [
+          "get:message",
+          "get:result"
+        ],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "Failure",
+          "isFailure",
+          "toString"
+        ],
+        "types": [
+          "Result"
+        ]
+      },
+      "FlattenParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "FlattenParser"
+        ],
+        "types": [
+          "DelegateParser"
+        ]
+      },
+      "JsonGrammar": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/json.dart"
+        ],
+        "methods": [
+          "initialize"
+        ],
+        "types": [
+          "CompositeParser"
+        ]
+      },
+      "JsonParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/json.dart"
+        ],
+        "methods": [
+          "initialize"
+        ],
+        "types": [
+          "JsonGrammar"
+        ]
+      },
+      "LispGrammar": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/lisp.dart"
+        ],
+        "methods": [
+          "bracket",
+          "initialize"
+        ],
+        "types": [
+          "CompositeParser",
+          "Parser"
+        ]
+      },
+      "LispParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/lisp.dart"
+        ],
+        "methods": [
+          "initialize"
+        ],
+        "types": [
+          "LispGrammar"
+        ]
+      },
+      "ListParser": {
+        "fields": [
+          "get:children"
+        ],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "ListParser",
+          "replace"
+        ],
+        "types": [
+          "Parser"
+        ]
+      },
+      "Natives": {
+        "fields": [
+          "standardLibrary"
+        ],
+        "libraries": [
+          "package:petitparser/lisp.dart"
+        ],
+        "methods": [
+          "find",
+          "importAllInto"
+        ],
+        "types": [
+          "Environment"
+        ]
+      },
+      "NestedEnvironment": {
+        "fields": [
+          "get:parent"
+        ],
+        "libraries": [
+          "package:petitparser/lisp.dart"
+        ],
+        "methods": [
+          "NestedEnvironment"
+        ],
+        "types": [
+          "Environment"
+        ]
+      },
+      "NotParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "NotParser"
+        ],
+        "types": [
+          "DelegateParser"
+        ]
+      },
+      "OptionalParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "OptionalParser"
+        ],
+        "types": [
+          "DelegateParser"
+        ]
+      },
+      "Parser": {
+        "fields": [
+          "get:children"
+        ],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "accept",
+          "and",
+          "end",
+          "flatten",
+          "map",
+          "matches",
+          "matchesSkipping",
+          "neg",
+          "not",
+          "optional",
+          "or",
+          "parse",
+          "plus",
+          "repeat",
+          "replace",
+          "separatedBy",
+          "seq",
+          "star",
+          "times",
+          "token",
+          "trim",
+          "withoutSeparators",
+          "wrapper"
+        ],
+        "types": [
+          "Parser",
+          "Result"
+        ]
+      },
+      "ParserIterable": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "ParserIterable",
+          "iterator"
+        ],
+        "types": [
+          "Parser",
+          "ParserIterator"
+        ]
+      },
+      "ParserIterator": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "ParserIterator",
+          "hasNext",
+          "next"
+        ],
+        "types": [
+          "Parser"
+        ]
+      },
+      "PredicateParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "PredicateParser"
+        ],
+        "types": [
+          "Parser"
+        ]
+      },
+      "RepeatingParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "RepeatingParser"
+        ],
+        "types": [
+          "DelegateParser"
+        ]
+      },
+      "Result": {
+        "fields": [
+          "get:message",
+          "get:result"
+        ],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "Result"
+        ],
+        "types": [
+          "Context"
+        ]
+      },
+      "RootEnvironment": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/lisp.dart"
+        ],
+        "methods": [
+          "RootEnvironment"
+        ],
+        "types": [
+          "Environment"
+        ]
+      },
+      "SequenceParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "SequenceParser",
+          "seq"
+        ],
+        "types": [
+          "ListParser",
+          "Parser"
+        ]
+      },
+      "Success": {
+        "fields": [
+          "get:message",
+          "get:result"
+        ],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "Success",
+          "isSuccess",
+          "toString"
+        ],
+        "types": [
+          "Result"
+        ]
+      },
+      "Symbol": {
+        "fields": [
+          "get:name"
+        ],
+        "libraries": [
+          "package:petitparser/lisp.dart"
+        ],
+        "methods": [
+          "Symbol",
+          "hashCode",
+          "toString"
+        ],
+        "types": [
+          "Symbol"
+        ]
+      },
+      "Token": {
+        "fields": [
+          "NEWLINE_PARSER",
+          "get:buffer",
+          "get:column",
+          "get:length",
+          "get:line",
+          "get:start",
+          "get:stop",
+          "get:value"
+        ],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "==",
+          "Token",
+          "newlineParser",
+          "toString"
+        ],
+        "types": [
+          "Parser",
+          "Token"
+        ]
+      },
+      "TokenParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "TokenParser"
+        ],
+        "types": [
+          "FlattenParser"
+        ]
+      },
+      "Transformations": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "removeWrappers",
+          "transform"
+        ],
+        "types": [
+          "Parser"
+        ]
+      },
+      "TrimmingParser": {
+        "fields": [
+          "get:children"
+        ],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "TrimmingParser",
+          "replace"
+        ],
+        "types": [
+          "DelegateParser",
+          "Parser"
+        ]
+      },
+      "WrapperParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/petitparser.dart"
+        ],
+        "methods": [
+          "WrapperParser"
+        ],
+        "types": [
+          "DelegateParser"
+        ]
+      },
+      "XmlAttribute": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/xml.dart"
+        ],
+        "methods": [
+          "XmlAttribute",
+          "getName",
+          "getValue",
+          "writeTo"
+        ],
+        "types": [
+          "XmlName",
+          "XmlNode"
+        ]
+      },
+      "XmlComment": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/xml.dart"
+        ],
+        "methods": [
+          "XmlComment",
+          "writeTo"
+        ],
+        "types": [
+          "XmlData"
+        ]
+      },
+      "XmlData": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/xml.dart"
+        ],
+        "methods": [
+          "XmlData",
+          "getData"
+        ],
+        "types": [
+          "XmlNode"
+        ]
+      },
+      "XmlDoctype": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/xml.dart"
+        ],
+        "methods": [
+          "XmlDoctype",
+          "writeTo"
+        ],
+        "types": [
+          "XmlData"
+        ]
+      },
+      "XmlDocument": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/xml.dart"
+        ],
+        "methods": [
+          "XmlDocument",
+          "getDocument",
+          "getRootElement"
+        ],
+        "types": [
+          "XmlDocument",
+          "XmlElement",
+          "XmlNode",
+          "XmlParent"
+        ]
+      },
+      "XmlElement": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/xml.dart"
+        ],
+        "methods": [
+          "XmlElement",
+          "getAttribute",
+          "getAttributeNode",
+          "getAttributes",
+          "getName",
+          "writeTo"
+        ],
+        "types": [
+          "XmlAttribute",
+          "XmlName",
+          "XmlNode",
+          "XmlParent"
+        ]
+      },
+      "XmlGrammar": {
+        "fields": [
+          "NAME_CHARS",
+          "NAME_START_CHARS"
+        ],
+        "libraries": [
+          "package:petitparser/xml.dart"
+        ],
+        "methods": [
+          "initialize"
+        ],
+        "types": [
+          "CompositeParser"
+        ]
+      },
+      "XmlName": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/xml.dart"
+        ],
+        "methods": [
+          "==",
+          "XmlName",
+          "getLocal",
+          "getPrefix",
+          "getQualified",
+          "toString",
+          "writeTo"
+        ],
+        "types": [
+          "XmlName"
+        ]
+      },
+      "XmlNode": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/xml.dart"
+        ],
+        "methods": [
+          "getAttributes",
+          "getChildren",
+          "getDocument",
+          "getFirstChild",
+          "getLastChild",
+          "getNextSibling",
+          "getParent",
+          "getPreviousSibling",
+          "getRoot",
+          "iterator",
+          "toString",
+          "writeTo"
+        ],
+        "types": [
+          "XmlAttribute",
+          "XmlDocument",
+          "XmlNode"
+        ]
+      },
+      "XmlParent": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/xml.dart"
+        ],
+        "methods": [
+          "XmlParent",
+          "getChildren",
+          "writeTo"
+        ],
+        "types": [
+          "XmlNode"
+        ]
+      },
+      "XmlParser": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/xml.dart"
+        ],
+        "methods": [
+          "initialize"
+        ],
+        "types": [
+          "XmlGrammar"
+        ]
+      },
+      "XmlProcessing": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/xml.dart"
+        ],
+        "methods": [
+          "XmlProcessing",
+          "getTarget",
+          "writeTo"
+        ],
+        "types": [
+          "XmlData"
+        ]
+      },
+      "XmlText": {
+        "fields": [],
+        "libraries": [
+          "package:petitparser/xml.dart"
+        ],
+        "methods": [
+          "XmlText",
+          "writeTo"
+        ],
+        "types": [
+          "XmlData"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:55:10Z",
+  "package": "petitparser",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "Context",
+      "Failure",
+      "Result",
+      "Success",
+      "Token"
+    ],
+    "digest": "ddb8bc82995d2b6eaa8f5bd6863010a0381cb1839f5c4dcf631dd5ce93879716",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "9f282efc3afa6973904ea7876631237bd9aacaa3b7852839cedb710cedc973e5",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\b",
+      "\t",
+      "\n",
+      "\f",
+      "\r",
+      " ",
+      " />",
+      "!=",
+      "\"",
+      "\"\\",
+      "%",
+      "'",
+      "(",
+      "()",
+      ")",
+      "*",
+      "+",
+      ",",
+      "-",
+      "-+",
+      "-->",
+      ".",
+      ". ",
+      "/",
+      "/>",
+      "0",
+      "0-9A-Fa-f",
+      ":",
+      ":A-Z_a-zÀ-ÖØ-öø-˿Ͱ-ͽͿ-῿‌-‍⁰-↏Ⰰ-⿯、퟿豈-﷏ﷰ-�",
+      ";",
+      "; Copyright (c) 2012, Lukas Renggli <renggli@gmail.com>\n\n; native functions\n(native-import-all)\n\n(define null '())\n(define (null? x) (= '() x))\n\n; list functions\n(define (length list)\n  (if (null? list)\n      0\n      (+ 1 (length (cdr list)))))\n\n(define (append list1 list2)\n  (if (null? list1)\n    list2\n    (cons (car list1) (append (cdr list1) list2))))\n\n(define (for-each list proc)\n  (while (null? list)\n    (proc (car list))\n    (set! list (cdr list))))\n\n(define (list-head list index)\n  (if (= index 0)\n    (car list)\n    (list-head\n      (cdr list)\n      (- index 1))))\n\n(define (list-tail list index)\n  (if (= index 0)\n    (cdr list)\n    (list-tail\n      (cdr list)\n      (- index 1))))\n\n(define (map list proc)\n  (if (null? list)\n    '()\n    (cons (proc (car list))\n          (map (cdr list) proc))))\n\n(define (inject list value proc)\n  (while (not (null? list))\n    (set! value (proc value (car list)))\n    (set! list (cdr list)))\n  value)",
+      "<",
+      "<!--",
+      "<!DOCTYPE",
+      "</",
+      "<=",
+      "<?",
+      "=",
+      "=\"",
+      ">",
+      ">=",
+      "?>",
+      "@",
+      "Octal characters not supported yet",
+      "Uninitalized production: start",
+      "[",
+      "[]",
+      "\\",
+      "\\u",
+      "]",
+      "^",
+      "^\"",
+      "`",
+      "a-zA-Z!#$%&*/:<=>?@\\^_|~+-",
+      "a-zA-Z0-9!#$%&*/:<=>?@\\^_|~+-",
+      "and",
+      "apply",
+      "array",
+      "atom",
+      "atoms",
+      "attribute",
+      "attributeValue",
+      "attributeValueDouble",
+      "attributeValueSingle",
+      "attributes",
+      "b",
+      "car",
+      "car!",
+      "cdr",
+      "cdr!",
+      "cell",
+      "character",
+      "character escape",
+      "character raw",
+      "characterData",
+      "characterEscape",
+      "characterNormal",
+      "characterOctal",
+      "characterPrimitive",
+      "comment",
+      "cons",
+      "content",
+      "dart:math",
+      "define",
+      "digit expected",
+      "doctype",
+      "document",
+      "eE",
+      "element",
+      "elements",
+      "end of input expected",
+      "eval",
+      "f",
+      "false",
+      "falseToken",
+      "if",
+      "input expected",
+      "lambda",
+      "let",
+      "letter expected",
+      "letter or digit expected",
+      "list",
+      "lowercase letter expected",
+      "members",
+      "misc",
+      "n",
+      "nameChar",
+      "nameStartChar",
+      "nameToken",
+      "native",
+      "native-import-all",
+      "not",
+      "null",
+      "nullToken",
+      "number",
+      "numberPrimitive",
+      "numberToken",
+      "object",
+      "or",
+      "package:petitparser/petitparser.dart",
+      "pair",
+      "print",
+      "processing",
+      "qualified",
+      "quasiquote",
+      "quote",
+      "r",
+      "set!",
+      "splice",
+      "src/core/actions.dart",
+      "src/core/characters.dart",
+      "src/core/combinators.dart",
+      "src/core/composite.dart",
+      "src/core/context.dart",
+      "src/core/parsers.dart",
+      "src/core/predicates.dart",
+      "src/core/reflection.dart",
+      "src/json/grammar.dart",
+      "src/json/parser.dart",
+      "src/lisp/cons.dart",
+      "src/lisp/environment.dart",
+      "src/lisp/grammar.dart",
+      "src/lisp/natives.dart",
+      "src/lisp/parser.dart",
+      "src/lisp/symbol.dart",
+      "src/xml/grammar.dart",
+      "src/xml/nodes.dart",
+      "src/xml/parser.dart",
+      "start",
+      "string",
+      "stringPrimitive",
+      "stringToken",
+      "symbol",
+      "t",
+      "true",
+      "trueToken",
+      "unquote",
+      "uppercase letter expected",
+      "value",
+      "while",
+      "whitespace",
+      "whitespace expected",
+      "{",
+      "{}",
+      "}"
+    ]
+  },
+  "version": "0.1.0"
+}
