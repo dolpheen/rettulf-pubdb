@@ -1,0 +1,615 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "get:FEW",
+          "get:MANY",
+          "get:ONE",
+          "get:OTHER",
+          "get:TWO",
+          "get:ZERO",
+          "pluralRules"
+        ],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/easy_localization_app.dart",
+          "package:easy_localization/src/plural_rules.dart",
+          "package:easy_localization/src/public.dart"
+        ],
+        "methods": [
+          "localeFromString",
+          "localeHasPluralRules",
+          "localeToString",
+          "plural",
+          "startRuleEvaluation",
+          "tr",
+          "trExists"
+        ],
+        "types": [
+          "PluralCase"
+        ]
+      },
+      "AssetLoader": {
+        "fields": [
+          "path",
+          "supportedLocales"
+        ],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/asset_loader.dart"
+        ],
+        "methods": [
+          "AssetLoader",
+          "load"
+        ],
+        "types": []
+      },
+      "AssetLoaderType": {
+        "fields": [
+          "custom",
+          "file",
+          "network",
+          "rootBundle"
+        ],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/compatibility.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "BuildContextEasyLocalizationExtension": {
+        "fields": [
+          "get:deviceLocale",
+          "get:fallbackLocale",
+          "get:locale",
+          "get:localizationDelegates",
+          "get:supportedLocales",
+          "set:locale"
+        ],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/public_ext.dart"
+        ],
+        "methods": [
+          "deleteSaveLocale",
+          "plural",
+          "resetLocale",
+          "setLocale",
+          "tr"
+        ],
+        "types": []
+      },
+      "CachedAssetLoader": {
+        "fields": [
+          "get:translationCache"
+        ],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/asset_loader.dart"
+        ],
+        "methods": [
+          "CachedAssetLoader",
+          "cacheTranslations",
+          "getCachedTranslations",
+          "isCached",
+          "load"
+        ],
+        "types": [
+          "AssetLoader"
+        ]
+      },
+      "EasyLocalization": {
+        "fields": [
+          "child",
+          "errorWidget",
+          "fallbackLocale",
+          "logger",
+          "saveLocale",
+          "startLocale",
+          "useFallbackTranslations",
+          "useOnlyLangCode"
+        ],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/easy_localization_app.dart"
+        ],
+        "methods": [
+          "EasyLocalization",
+          "createState",
+          "ensureInitialized",
+          "of"
+        ],
+        "types": [
+          "AssetLoader",
+          "IEasyLocalizationStorage"
+        ]
+      },
+      "EasyLocalizationCompat": {
+        "fields": [],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/compatibility.dart"
+        ],
+        "methods": [
+          "migrateAssetLoader",
+          "withConfig"
+        ],
+        "types": [
+          "AssetLoader",
+          "AssetLoaderType",
+          "EasyLocalization"
+        ]
+      },
+      "EasyLocalizationController": {
+        "fields": [
+          "get:deviceLocale",
+          "get:fallbackTranslations",
+          "get:locale",
+          "get:supportedLocales",
+          "get:translations",
+          "onLoadError",
+          "saveLocale",
+          "useFallbackTranslations",
+          "useOnlyLangCode"
+        ],
+        "libraries": [
+          "package:easy_localization/src/easy_localization_controller.dart"
+        ],
+        "methods": [
+          "EasyLocalizationController",
+          "deleteSaveLocale",
+          "initEasyLocation",
+          "loadTranslationData",
+          "loadTranslations",
+          "resetLocale",
+          "selectLocaleFrom",
+          "setLocale"
+        ],
+        "types": [
+          "AssetLoader",
+          "IEasyLocalizationStorage",
+          "Translations"
+        ]
+      },
+      "FutureErrorWidget": {
+        "fields": [
+          "msg"
+        ],
+        "libraries": [
+          "package:easy_localization/src/widgets.dart"
+        ],
+        "methods": [
+          "FutureErrorWidget",
+          "build"
+        ],
+        "types": []
+      },
+      "IEasyLocalizationStorage": {
+        "fields": [],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/easy_localization_storage_interface.dart"
+        ],
+        "methods": [
+          "close",
+          "getValue",
+          "init",
+          "removeValue",
+          "setValue"
+        ],
+        "types": []
+      },
+      "InMemoryStorage": {
+        "fields": [],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/easy_localization_storage_interface.dart"
+        ],
+        "methods": [
+          "close",
+          "getValue",
+          "init",
+          "removeValue",
+          "setValue"
+        ],
+        "types": [
+          "IEasyLocalizationStorage"
+        ]
+      },
+      "LocaleExtension": {
+        "fields": [],
+        "libraries": [
+          "package:easy_localization/src/easy_localization_controller.dart"
+        ],
+        "methods": [
+          "supports"
+        ],
+        "types": []
+      },
+      "LocaleToStringHelper": {
+        "fields": [],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/easy_localization_app.dart"
+        ],
+        "methods": [
+          "toStringWithSeparator"
+        ],
+        "types": []
+      },
+      "Localization": {
+        "fields": [
+          "get:instance"
+        ],
+        "libraries": [
+          "package:easy_localization/src/localization.dart"
+        ],
+        "methods": [
+          "Localization",
+          "exists",
+          "load",
+          "of",
+          "plural",
+          "tr"
+        ],
+        "types": [
+          "Localization",
+          "Translations"
+        ]
+      },
+      "LocalizationNotFoundException": {
+        "fields": [],
+        "libraries": [
+          "package:easy_localization/src/exceptions.dart"
+        ],
+        "methods": [
+          "LocalizationNotFoundException",
+          "toString"
+        ],
+        "types": []
+      },
+      "OptimizedAssetLoader": {
+        "fields": [],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/asset_loader.dart"
+        ],
+        "methods": [
+          "OptimizedAssetLoader",
+          "clearCache",
+          "load"
+        ],
+        "types": [
+          "RootBundleAssetLoader"
+        ]
+      },
+      "PluralCase": {
+        "fields": [
+          "FEW",
+          "MANY",
+          "ONE",
+          "OTHER",
+          "TWO",
+          "ZERO"
+        ],
+        "libraries": [
+          "package:easy_localization/src/plural_rules.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "RootBundleAssetLoader": {
+        "fields": [
+          "useOnlyLangCode"
+        ],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/asset_loader.dart"
+        ],
+        "methods": [
+          "RootBundleAssetLoader",
+          "clearCache",
+          "getLocalePath",
+          "load"
+        ],
+        "types": [
+          "AssetLoader"
+        ]
+      },
+      "SharedPreferencesStorage": {
+        "fields": [],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/easy_localization_storage_interface.dart"
+        ],
+        "methods": [
+          "close",
+          "getValue",
+          "init",
+          "removeValue",
+          "setValue"
+        ],
+        "types": [
+          "IEasyLocalizationStorage"
+        ]
+      },
+      "StringToLocaleHelper": {
+        "fields": [],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/easy_localization_app.dart"
+        ],
+        "methods": [
+          "toLocale"
+        ],
+        "types": []
+      },
+      "StringTranslateExtension": {
+        "fields": [],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/public_ext.dart"
+        ],
+        "methods": [
+          "plural",
+          "tr",
+          "trExists"
+        ],
+        "types": []
+      },
+      "TextTranslateExtension": {
+        "fields": [],
+        "libraries": [
+          "package:easy_localization/easy_localization.dart",
+          "package:easy_localization/src/public_ext.dart"
+        ],
+        "methods": [
+          "plural",
+          "tr"
+        ],
+        "types": []
+      },
+      "TranslationLoadException": {
+        "fields": [
+          "cause",
+          "locale"
+        ],
+        "libraries": [
+          "package:easy_localization/src/exceptions.dart"
+        ],
+        "methods": [
+          "TranslationLoadException",
+          "toString"
+        ],
+        "types": []
+      },
+      "Translations": {
+        "fields": [
+          "get:rawData"
+        ],
+        "libraries": [
+          "package:easy_localization/src/translations.dart"
+        ],
+        "methods": [
+          "Translations",
+          "cacheNestedKey",
+          "get",
+          "getNested",
+          "isNestedCached",
+          "isNestedKey"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:18:28Z",
+  "package": "easy_localization",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AssetLoader",
+      "CachedAssetLoader",
+      "FutureErrorWidget",
+      "LocalizationNotFoundException",
+      "RootBundleAssetLoader",
+      "TranslationLoadException"
+    ],
+    "digest": "a398459434fdc32f6a7d9031ecab4fa31b6bd96c36ae64c300f46879aef97135",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "ca471d98148fea580912c2826e4e59f812f1fcb7c2cd4396e97f227c204893cf",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "(?:@(?:\\.[a-z]+)?:(?:[\\w\\-_|.]+|\\([\\w\\-_|.]+\\)))",
+      "-",
+      ".",
+      "@",
+      "An error occurred",
+      "AssetLoaderType.custom requires you to provide a custom AssetLoader. Use migrateAssetLoader with rootBundle or create your own loader.",
+      "Build",
+      "Cannot cache a key that is not nested.",
+      "Deprecated on Easy Localization 3.0",
+      "Easy Localization:",
+      "EasyLocalizationCompat.withConfig: path/assetLoader should be passed to EasyLocalization.ensureInitialized() instead of the widget.",
+      "EasyLocalizationCompat.withConfig: supportedLocales is ignored in v4. Pass supportedLocales to your AssetLoader (e.g. RootBundleAssetLoader) instead.",
+      "Init Localization Delegate",
+      "Init provider",
+      "Init state",
+      "Load Localization Delegate",
+      "Load supported locales data",
+      "Localization initialized",
+      "Localization not found for current context",
+      "Saved locale deleted",
+      "Start",
+      "This is the func used in the old version of EasyLocalization. The modern func is `setLocale(val)` . This feature was deprecated after v3.0.0",
+      "[()]",
+      "^@(?:\\.([a-z]+))?:",
+      "_",
+      "af",
+      "am",
+      "ar",
+      "asset_loader.dart",
+      "assets/translations",
+      "az",
+      "be",
+      "bg",
+      "bn",
+      "br",
+      "bs",
+      "ca",
+      "capitalize",
+      "chr",
+      "cs",
+      "cy",
+      "da",
+      "dart:async",
+      "dart:convert",
+      "dart:math",
+      "dart:ui",
+      "de",
+      "de_AT",
+      "de_CH",
+      "default",
+      "easy_localization_app.dart",
+      "easy_localization_controller.dart",
+      "easy_localization_storage_interface.dart",
+      "el",
+      "en",
+      "en_AU",
+      "en_CA",
+      "en_GB",
+      "en_IE",
+      "en_IN",
+      "en_SG",
+      "en_US",
+      "en_ZA",
+      "es",
+      "es_419",
+      "es_ES",
+      "es_MX",
+      "es_US",
+      "et",
+      "eu",
+      "exceptions.dart",
+      "fa",
+      "few",
+      "fi",
+      "fil",
+      "fr",
+      "fr_CA",
+      "ga",
+      "gl",
+      "gsw",
+      "gu",
+      "haw",
+      "he",
+      "hi",
+      "hr",
+      "hu",
+      "hy",
+      "id",
+      "in",
+      "is",
+      "it",
+      "iw",
+      "ja",
+      "ka",
+      "kk",
+      "km",
+      "kn",
+      "ko",
+      "ky",
+      "ln",
+      "lo",
+      "locale",
+      "localization.dart",
+      "lower",
+      "lt",
+      "lv",
+      "many",
+      "mk",
+      "ml",
+      "mn",
+      "mo",
+      "mr",
+      "ms",
+      "mt",
+      "my",
+      "nb",
+      "ne",
+      "nl",
+      "no",
+      "no_NO",
+      "one",
+      "or",
+      "other",
+      "pa",
+      "package:easy_localization/easy_localization.dart",
+      "package:easy_localization/src/asset_loader.dart",
+      "package:easy_localization/src/compatibility.dart",
+      "package:easy_localization/src/easy_localization_app.dart",
+      "package:easy_localization/src/easy_localization_storage_interface.dart",
+      "package:easy_localization/src/exceptions.dart",
+      "package:easy_localization/src/localization.dart",
+      "package:easy_localization/src/public.dart",
+      "package:easy_localization/src/public_ext.dart",
+      "package:easy_logger/easy_logger.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/material.dart",
+      "package:flutter/services.dart",
+      "package:flutter/widgets.dart",
+      "package:flutter_localizations/flutter_localizations.dart",
+      "package:intl/intl.dart",
+      "package:intl/intl_browser.dart",
+      "package:intl/intl_standalone.dart",
+      "package:shared_preferences/shared_preferences.dart",
+      "path or supportedLocales must not be null",
+      "pl",
+      "plural_rules.dart",
+      "pt",
+      "pt_BR",
+      "pt_PT",
+      "public.dart",
+      "resources/langs",
+      "ro",
+      "ru",
+      "sh",
+      "si",
+      "sk",
+      "sl",
+      "sq",
+      "sr",
+      "sr_Latn",
+      "storage must not be null if saveLocale is true",
+      "sv",
+      "sw",
+      "ta",
+      "te",
+      "th",
+      "tl",
+      "tr",
+      "translations.dart",
+      "two",
+      "uk",
+      "upper",
+      "ur",
+      "utils.dart",
+      "uz",
+      "vi",
+      "zero",
+      "zh",
+      "zh_CN",
+      "zh_HK",
+      "zh_TW",
+      "zu",
+      "{}",
+      "🌎 Easy Localization"
+    ]
+  },
+  "version": "4.0.0-dev"
+}
