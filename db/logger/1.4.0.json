@@ -1,0 +1,499 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/logger.dart"
+        ],
+        "methods": [],
+        "types": [
+          "LogEvent",
+          "OutputEvent"
+        ]
+      },
+      "AnsiColor": {
+        "fields": [
+          "ansiDefault",
+          "ansiEsc",
+          "bg",
+          "color",
+          "fg",
+          "get:resetBackground",
+          "get:resetForeground"
+        ],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/ansi_color.dart"
+        ],
+        "methods": [
+          "bg",
+          "call",
+          "fg",
+          "grey",
+          "none",
+          "toBg",
+          "toFg",
+          "toString"
+        ],
+        "types": [
+          "AnsiColor"
+        ]
+      },
+      "ConsoleOutput": {
+        "fields": [],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/outputs/console_output.dart"
+        ],
+        "methods": [
+          "output"
+        ],
+        "types": [
+          "LogOutput",
+          "OutputEvent"
+        ]
+      },
+      "DevelopmentFilter": {
+        "fields": [],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/filters/development_filter.dart"
+        ],
+        "methods": [
+          "shouldLog"
+        ],
+        "types": [
+          "LogEvent",
+          "LogFilter"
+        ]
+      },
+      "FileOutput": {
+        "fields": [
+          "encoding",
+          "file",
+          "overrideExisting"
+        ],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/outputs/file_output.dart",
+          "package:logger/src/outputs/file_output_stub.dart"
+        ],
+        "methods": [
+          "FileOutput",
+          "destroy",
+          "init",
+          "output"
+        ],
+        "types": [
+          "LogOutput",
+          "OutputEvent"
+        ]
+      },
+      "HybridPrinter": {
+        "fields": [],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/printers/hybrid_printer.dart"
+        ],
+        "methods": [
+          "HybridPrinter",
+          "log"
+        ],
+        "types": [
+          "Level",
+          "LogEvent",
+          "LogPrinter"
+        ]
+      },
+      "Level": {
+        "fields": [
+          "debug",
+          "error",
+          "info",
+          "nothing",
+          "verbose",
+          "warning",
+          "wtf"
+        ],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/logger.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LogEvent": {
+        "fields": [
+          "error",
+          "level",
+          "message",
+          "stackTrace",
+          "time"
+        ],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/logger.dart"
+        ],
+        "methods": [
+          "LogEvent"
+        ],
+        "types": [
+          "Level"
+        ]
+      },
+      "LogFilter": {
+        "fields": [
+          "level"
+        ],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/log_filter.dart"
+        ],
+        "methods": [
+          "destroy",
+          "init",
+          "shouldLog"
+        ],
+        "types": [
+          "Level",
+          "LogEvent"
+        ]
+      },
+      "LogOutput": {
+        "fields": [],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/log_output.dart"
+        ],
+        "methods": [
+          "destroy",
+          "init",
+          "output"
+        ],
+        "types": [
+          "OutputEvent"
+        ]
+      },
+      "LogPrinter": {
+        "fields": [],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/log_printer.dart"
+        ],
+        "methods": [
+          "destroy",
+          "init",
+          "log"
+        ],
+        "types": [
+          "LogEvent"
+        ]
+      },
+      "LogfmtPrinter": {
+        "fields": [
+          "levelPrefixes"
+        ],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/printers/logfmt_printer.dart"
+        ],
+        "methods": [
+          "log"
+        ],
+        "types": [
+          "LogEvent",
+          "LogPrinter"
+        ]
+      },
+      "Logger": {
+        "fields": [
+          "level"
+        ],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/logger.dart"
+        ],
+        "methods": [
+          "Logger",
+          "addLogListener",
+          "addOutputListener",
+          "close",
+          "d",
+          "e",
+          "i",
+          "isClosed",
+          "log",
+          "removeLogListener",
+          "removeOutputListener",
+          "v",
+          "w",
+          "wtf"
+        ],
+        "types": [
+          "Level",
+          "LogFilter",
+          "LogOutput",
+          "LogPrinter"
+        ]
+      },
+      "MemoryOutput": {
+        "fields": [
+          "buffer",
+          "bufferSize",
+          "secondOutput"
+        ],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/outputs/memory_output.dart"
+        ],
+        "methods": [
+          "MemoryOutput",
+          "output"
+        ],
+        "types": [
+          "LogOutput",
+          "OutputEvent"
+        ]
+      },
+      "MultiOutput": {
+        "fields": [],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/outputs/multi_output.dart"
+        ],
+        "methods": [
+          "MultiOutput",
+          "destroy",
+          "init",
+          "output"
+        ],
+        "types": [
+          "LogOutput",
+          "OutputEvent"
+        ]
+      },
+      "OutputEvent": {
+        "fields": [
+          "get:level",
+          "lines",
+          "origin"
+        ],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/logger.dart"
+        ],
+        "methods": [
+          "OutputEvent"
+        ],
+        "types": [
+          "Level",
+          "LogEvent"
+        ]
+      },
+      "PrefixPrinter": {
+        "fields": [],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/printers/prefix_printer.dart"
+        ],
+        "methods": [
+          "PrefixPrinter",
+          "log"
+        ],
+        "types": [
+          "Level",
+          "LogEvent",
+          "LogPrinter"
+        ]
+      },
+      "PrettyPrinter": {
+        "fields": [
+          "bottomLeftCorner",
+          "colors",
+          "doubleDivider",
+          "errorMethodCount",
+          "excludeBox",
+          "excludePaths",
+          "includeBox",
+          "levelColors",
+          "levelEmojis",
+          "lineLength",
+          "methodCount",
+          "middleCorner",
+          "noBoxingByDefault",
+          "printEmojis",
+          "printTime",
+          "singleDivider",
+          "stackTraceBeginIndex",
+          "topLeftCorner",
+          "verticalLine"
+        ],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/printers/pretty_printer.dart"
+        ],
+        "methods": [
+          "PrettyPrinter",
+          "formatStackTrace",
+          "getTime",
+          "log",
+          "stringifyMessage",
+          "toEncodableFallback"
+        ],
+        "types": [
+          "Level",
+          "LogEvent",
+          "LogPrinter"
+        ]
+      },
+      "ProductionFilter": {
+        "fields": [],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/filters/production_filter.dart"
+        ],
+        "methods": [
+          "shouldLog"
+        ],
+        "types": [
+          "LogEvent",
+          "LogFilter"
+        ]
+      },
+      "SimplePrinter": {
+        "fields": [
+          "colors",
+          "levelColors",
+          "levelPrefixes",
+          "printTime"
+        ],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/printers/simple_printer.dart"
+        ],
+        "methods": [
+          "SimplePrinter",
+          "log"
+        ],
+        "types": [
+          "LogEvent",
+          "LogPrinter"
+        ]
+      },
+      "StreamOutput": {
+        "fields": [
+          "get:stream"
+        ],
+        "libraries": [
+          "package:logger/logger.dart",
+          "package:logger/src/outputs/stream_output.dart"
+        ],
+        "methods": [
+          "StreamOutput",
+          "destroy",
+          "output"
+        ],
+        "types": [
+          "LogOutput",
+          "OutputEvent"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:47:10Z",
+  "package": "logger",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "4867e16194ca9ee647e92980de34a1c225b6656e7ab0c0feb5c9a04fae466281",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "bd134912834159ce09b3402b7b5dd023fa92b35ad981f15b12089445fe22af5a",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\u001b[",
+      "  ",
+      "#[0-9]+\\s+(.+) \\((\\S+)\\)",
+      "#\\d+\\s+",
+      "../log_output.dart",
+      "../logger.dart",
+      "DEBUG",
+      "ERROR",
+      "Error parameter cannot take a StackTrace!",
+      "INFO",
+      "Log events cannot have Level.nothing",
+      "Logger has already been closed.",
+      "Not supported on this platform.",
+      "VERBOSE",
+      "WARNING",
+      "WTF",
+      "[D]",
+      "[E]",
+      "[I]",
+      "[V]",
+      "[WTF]",
+      "[W]",
+      "^((packages|dart-sdk)/\\S+/)",
+      "^(?:package:)?(dart:\\S+|\\S+)",
+      "dart-sdk/lib",
+      "dart:",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:io",
+      "dart:math",
+      "debug",
+      "error",
+      "info",
+      "package:logger",
+      "package:logger/src/ansi_color.dart",
+      "package:logger/src/filters/development_filter.dart",
+      "package:logger/src/log_filter.dart",
+      "package:logger/src/log_output.dart",
+      "package:logger/src/log_printer.dart",
+      "package:logger/src/logger.dart",
+      "package:logger/src/outputs/console_output.dart",
+      "package:logger/src/printers/pretty_printer.dart",
+      "packages/logger",
+      "src/ansi_color.dart",
+      "src/filters/development_filter.dart",
+      "src/filters/production_filter.dart",
+      "src/log_filter.dart",
+      "src/log_output.dart",
+      "src/log_printer.dart",
+      "src/logger.dart",
+      "src/outputs/console_output.dart",
+      "src/outputs/file_output.dart",
+      "src/outputs/file_output_stub.dart",
+      "src/outputs/memory_output.dart",
+      "src/outputs/multi_output.dart",
+      "src/outputs/stream_output.dart",
+      "src/printers/hybrid_printer.dart",
+      "src/printers/logfmt_printer.dart",
+      "src/printers/prefix_printer.dart",
+      "src/printers/pretty_printer.dart",
+      "src/printers/simple_printer.dart",
+      "verbose",
+      "warning",
+      "wtf",
+      "─",
+      "│",
+      "┄",
+      "┌",
+      "└",
+      "├",
+      "⚠️ ",
+      "⛔ ",
+      "🐛 ",
+      "👾 ",
+      "💡 "
+    ]
+  },
+  "version": "1.4.0"
+}
