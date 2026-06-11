@@ -1,0 +1,819 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/barcode_utility.dart",
+          "package:mobile_scanner/src/mobile_scanner.dart",
+          "package:mobile_scanner/src/web/jsqr.dart",
+          "package:mobile_scanner/src/web/media.dart",
+          "package:mobile_scanner/src/web/qr_scanner.dart"
+        ],
+        "methods": [
+          "getUserMedia",
+          "jsQR",
+          "scanImage",
+          "toCalendarEvent",
+          "toContactInfo",
+          "toCorners",
+          "toDateTime",
+          "toDriverLicense",
+          "toEmail",
+          "toFormat",
+          "toGeoPoint",
+          "toName",
+          "toPhone",
+          "toSMS",
+          "toSize",
+          "toUrl",
+          "toWiFi"
+        ],
+        "types": [
+          "BarcodeCapture",
+          "BarcodeFormat",
+          "CalendarEvent",
+          "Code",
+          "ContactInfo",
+          "DriverLicense",
+          "Email",
+          "GeoPoint",
+          "MobileScannerArguments",
+          "PersonName",
+          "Phone",
+          "SMS",
+          "UrlBookmark",
+          "UserMediaOptions",
+          "WiFi"
+        ]
+      },
+      "Address": {
+        "fields": [
+          "addressLines",
+          "type"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [
+          "fromNative"
+        ],
+        "types": [
+          "AddressType"
+        ]
+      },
+      "AddressType": {
+        "fields": [
+          "home",
+          "unknown",
+          "work"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Barcode": {
+        "fields": [
+          "calendarEvent",
+          "contactInfo",
+          "corners",
+          "displayValue",
+          "driverLicense",
+          "email",
+          "format",
+          "geoPoint",
+          "phone",
+          "rawBytes",
+          "rawValue",
+          "sms",
+          "type",
+          "url",
+          "wifi"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [
+          "Barcode",
+          "fromNative"
+        ],
+        "types": [
+          "BarcodeFormat",
+          "BarcodeType",
+          "CalendarEvent",
+          "ContactInfo",
+          "DriverLicense",
+          "Email",
+          "GeoPoint",
+          "Phone",
+          "SMS",
+          "UrlBookmark",
+          "WiFi"
+        ]
+      },
+      "BarcodeCapture": {
+        "fields": [
+          "barcodes",
+          "image"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode_capture.dart"
+        ],
+        "methods": [
+          "BarcodeCapture"
+        ],
+        "types": [
+          "Barcode"
+        ]
+      },
+      "BarcodeFormat": {
+        "fields": [
+          "all",
+          "aztec",
+          "code128",
+          "code39",
+          "code93",
+          "codebar",
+          "dataMatrix",
+          "ean13",
+          "ean8",
+          "itf",
+          "pdf417",
+          "qrCode",
+          "unknown",
+          "upcA",
+          "upcE"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "BarcodeType": {
+        "fields": [
+          "calendarEvent",
+          "contactInfo",
+          "driverLicense",
+          "email",
+          "geo",
+          "isbn",
+          "phone",
+          "product",
+          "sms",
+          "text",
+          "unknown",
+          "url",
+          "wifi"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "BarcodeValue": {
+        "fields": [
+          "get:rawValue"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [],
+        "types": [
+          "BarcodeFormat"
+        ]
+      },
+      "CalendarEvent": {
+        "fields": [
+          "description",
+          "end",
+          "location",
+          "organizer",
+          "start",
+          "status",
+          "summary"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [
+          "fromNative"
+        ],
+        "types": []
+      },
+      "CameraFacing": {
+        "fields": [
+          "back",
+          "front"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/enums/camera_facing.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Code": {
+        "fields": [
+          "get:binaryData",
+          "get:data"
+        ],
+        "libraries": [
+          "package:mobile_scanner/src/web/jsqr.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ContactInfo": {
+        "fields": [
+          "addresses",
+          "emails",
+          "name",
+          "organization",
+          "phones",
+          "title",
+          "urls"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [
+          "fromNative"
+        ],
+        "types": [
+          "Address",
+          "Email",
+          "PersonName",
+          "Phone"
+        ]
+      },
+      "DetectionSpeed": {
+        "fields": [
+          "noDuplicates",
+          "normal",
+          "unrestricted"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/enums/detection_speed.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DeviceIdOptions": {
+        "fields": [
+          "get:exact"
+        ],
+        "libraries": [
+          "package:mobile_scanner/src/web/media.dart"
+        ],
+        "methods": [
+          "DeviceIdOptions"
+        ],
+        "types": []
+      },
+      "DriverLicense": {
+        "fields": [
+          "addressCity",
+          "addressState",
+          "addressStreet",
+          "addressZip",
+          "birthDate",
+          "documentType",
+          "expiryDate",
+          "firstName",
+          "gender",
+          "issueDate",
+          "issuingCountry",
+          "lastName",
+          "licenseNumber",
+          "middleName"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [
+          "fromNative"
+        ],
+        "types": []
+      },
+      "Email": {
+        "fields": [
+          "address",
+          "body",
+          "subject",
+          "type"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [
+          "fromNative"
+        ],
+        "types": [
+          "EmailType"
+        ]
+      },
+      "EmailType": {
+        "fields": [
+          "home",
+          "unknown",
+          "work"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "EncryptionType": {
+        "fields": [
+          "none",
+          "open",
+          "wep",
+          "wpa"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "GeoPoint": {
+        "fields": [
+          "latitude",
+          "longitude"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [
+          "fromNative"
+        ],
+        "types": []
+      },
+      "MobileScanner": {
+        "fields": [
+          "autoResume",
+          "controller",
+          "fit",
+          "onDetect",
+          "onPermissionSet",
+          "onStart"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/mobile_scanner.dart"
+        ],
+        "methods": [
+          "MobileScanner",
+          "createState"
+        ],
+        "types": [
+          "MobileScanner",
+          "MobileScannerController"
+        ]
+      },
+      "MobileScannerArguments": {
+        "fields": [
+          "hasTorch",
+          "size",
+          "textureId",
+          "webId"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/mobile_scanner_arguments.dart"
+        ],
+        "methods": [
+          "MobileScannerArguments"
+        ],
+        "types": []
+      },
+      "MobileScannerController": {
+        "fields": [
+          "cameraFacingState",
+          "controllerHashcode",
+          "detectionSpeed",
+          "detectionTimeoutMs",
+          "events",
+          "facing",
+          "formats",
+          "get:barcodes",
+          "isStarting",
+          "onPermissionSet",
+          "returnImage",
+          "startArguments",
+          "torchEnabled",
+          "torchState"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/mobile_scanner_controller.dart"
+        ],
+        "methods": [
+          "MobileScannerController",
+          "analyzeImage",
+          "dispose",
+          "start",
+          "stop",
+          "switchCamera",
+          "toggleTorch"
+        ],
+        "types": [
+          "BarcodeCapture",
+          "BarcodeFormat",
+          "CameraFacing",
+          "DetectionSpeed",
+          "MobileScannerArguments",
+          "TorchState"
+        ]
+      },
+      "MobileScannerException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:mobile_scanner/src/mobile_scanner_exception.dart"
+        ],
+        "methods": [
+          "MobileScannerException"
+        ],
+        "types": []
+      },
+      "MobileScannerState": {
+        "fields": [
+          "authorized",
+          "denied",
+          "undetermined"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/enums/mobile_scanner_state.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MobileScannerWebPlugin": {
+        "fields": [
+          "controller",
+          "hasFlash",
+          "vidDiv",
+          "video",
+          "viewID"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner_web_plugin.dart"
+        ],
+        "methods": [
+          "cameraAvailable",
+          "cancel",
+          "handleMethodCall",
+          "registerWith"
+        ],
+        "types": []
+      },
+      "PersonName": {
+        "fields": [
+          "first",
+          "formattedName",
+          "last",
+          "middle",
+          "prefix",
+          "pronunciation",
+          "suffix"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [
+          "fromNative"
+        ],
+        "types": []
+      },
+      "Phone": {
+        "fields": [
+          "number",
+          "type"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [
+          "fromNative"
+        ],
+        "types": [
+          "PhoneType"
+        ]
+      },
+      "PhoneType": {
+        "fields": [
+          "fax",
+          "home",
+          "mobile",
+          "unknown",
+          "work"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "QrScanner": {
+        "fields": [
+          "get:scanImage"
+        ],
+        "libraries": [
+          "package:mobile_scanner/src/web/qr_scanner.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SMS": {
+        "fields": [
+          "message",
+          "phoneNumber"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [
+          "fromNative"
+        ],
+        "types": []
+      },
+      "TorchState": {
+        "fields": [
+          "off",
+          "on"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/enums/torch_state.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "UrlBookmark": {
+        "fields": [
+          "title",
+          "url"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [
+          "fromNative"
+        ],
+        "types": []
+      },
+      "UserMediaOptions": {
+        "fields": [
+          "get:video"
+        ],
+        "libraries": [
+          "package:mobile_scanner/src/web/media.dart"
+        ],
+        "methods": [
+          "UserMediaOptions"
+        ],
+        "types": [
+          "VideoOptions"
+        ]
+      },
+      "VideoOptions": {
+        "fields": [
+          "get:facingMode",
+          "get:height",
+          "get:width"
+        ],
+        "libraries": [
+          "package:mobile_scanner/src/web/media.dart"
+        ],
+        "methods": [
+          "VideoOptions"
+        ],
+        "types": [
+          "DeviceIdOptions"
+        ]
+      },
+      "WiFi": {
+        "fields": [
+          "encryptionType",
+          "password",
+          "ssid"
+        ],
+        "libraries": [
+          "package:mobile_scanner/mobile_scanner.dart",
+          "package:mobile_scanner/src/objects/barcode.dart"
+        ],
+        "methods": [
+          "fromNative"
+        ],
+        "types": [
+          "EncryptionType"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:50:20Z",
+  "package": "mobile_scanner",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "MobileScanner"
+    ],
+    "digest": "fc84720a36c196dcc7546b84532f37e1903b20a13f71c3d5665df5adb310741e",
+    "event_channels": [
+      "dev.steenbakker.mobile_scanner/scanner/event"
+    ],
+    "ffi_symbols": [],
+    "hierarchy_hash": "14ef0094c3a4eb748817a1dec9dbd2d673395d1327c62d91c8cc8f76a5946ba4",
+    "method_channels": [
+      "dev.steenbakker.mobile_scanner/scanner/method"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "100%",
+      "Called start() while starting.",
+      "Cannot toggle torch if start() has never been called",
+      "Device has no flash",
+      "Device has no torch",
+      "Failed to start mobileScanner, no response from platform side",
+      "MobileScannerWeb",
+      "QrScanner",
+      "Unimplemented",
+      "Use the [onPermissionSet] paremeter in the [MobileScannerController] instead.",
+      "User declined camera permission.",
+      "ViewID",
+      "address",
+      "addressCity",
+      "addressLines",
+      "addressState",
+      "addressStreet",
+      "addressZip",
+      "addresses",
+      "advanced",
+      "analyzeImage",
+      "barcode",
+      "barcodeMac",
+      "barcodeWeb",
+      "binaryData",
+      "birthDate",
+      "body",
+      "calendarEvent",
+      "contactInfo",
+      "corners",
+      "dart:async",
+      "dart:html",
+      "dart:io",
+      "dart:typed_data",
+      "dart:ui",
+      "data",
+      "day",
+      "description",
+      "dev.steenbakker.mobile_scanner/scanner/event",
+      "dev.steenbakker.mobile_scanner/scanner/method",
+      "displayValue",
+      "documentType",
+      "driverLicense",
+      "email",
+      "emails",
+      "encryptionType",
+      "end",
+      "environment",
+      "error",
+      "expiryDate",
+      "facing",
+      "facingMode",
+      "first",
+      "firstName",
+      "format",
+      "formats",
+      "formattedName",
+      "gender",
+      "geoPoint",
+      "getUserMedia",
+      "height",
+      "hours",
+      "image",
+      "isUtc",
+      "issueDate",
+      "issuingCountry",
+      "jsQR",
+      "last",
+      "lastName",
+      "latitude",
+      "licenseNumber",
+      "live",
+      "location",
+      "longitude",
+      "message",
+      "middle",
+      "middleName",
+      "minutes",
+      "month",
+      "name",
+      "navigator.mediaDevices",
+      "number",
+      "organization",
+      "organizer",
+      "package:flutter/cupertino.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/material.dart",
+      "package:flutter/services.dart",
+      "package:flutter_web_plugins/flutter_web_plugins.dart",
+      "package:js/js.dart",
+      "package:mobile_scanner/mobile_scanner.dart",
+      "package:mobile_scanner/src/barcode_utility.dart",
+      "package:mobile_scanner/src/enums/camera_facing.dart",
+      "package:mobile_scanner/src/mobile_scanner_controller.dart",
+      "package:mobile_scanner/src/mobile_scanner_exception.dart",
+      "package:mobile_scanner/src/objects/barcode.dart",
+      "package:mobile_scanner/src/objects/barcode_capture.dart",
+      "package:mobile_scanner/src/objects/mobile_scanner_arguments.dart",
+      "package:mobile_scanner/src/web/jsqr.dart",
+      "package:mobile_scanner/src/web/media.dart",
+      "password",
+      "payload",
+      "phone",
+      "phoneNumber",
+      "phones",
+      "playsinline",
+      "prefix",
+      "pronunciation",
+      "rawBytes",
+      "rawValue",
+      "request",
+      "returnImage",
+      "seconds",
+      "size",
+      "sms",
+      "speed",
+      "src/enums/camera_facing.dart",
+      "src/enums/detection_speed.dart",
+      "src/enums/mobile_scanner_state.dart",
+      "src/enums/ratio.dart",
+      "src/enums/torch_state.dart",
+      "src/mobile_scanner.dart",
+      "src/mobile_scanner_controller.dart",
+      "src/objects/barcode.dart",
+      "src/objects/barcode_capture.dart",
+      "src/objects/mobile_scanner_arguments.dart",
+      "ssid",
+      "start",
+      "state",
+      "status",
+      "stop",
+      "subject",
+      "suffix",
+      "summary",
+      "textureId",
+      "timeout",
+      "title",
+      "torch",
+      "torchState",
+      "torchable",
+      "true",
+      "type",
+      "url",
+      "urls",
+      "user",
+      "video",
+      "videoHeight",
+      "videoWidth",
+      "videoinput",
+      "width",
+      "wifi",
+      "x",
+      "y",
+      "year"
+    ]
+  },
+  "version": "3.0.0-beta.2"
+}
