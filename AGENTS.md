@@ -82,9 +82,14 @@ is the verified basis for the PR #11 review.)
 - `schema/` — JSON Schema (`_schema.v1.json`) + `examples/`.
 - `db/` — `<package>/<version>.json` entries; `_index.json` (consumer fetches
   first), `_top1000.json` (collection worklist).
-- `collector/` — 24/7 collection pipeline (not implemented yet; issues #2–#7).
+- `collector/` — the 24/7 collection pipeline, implemented and deployed:
+  `daemon.py` (worker pool + SQLite work queue + batched publish),
+  `pubdev_client.py` (archive fetch + on-disk cache), `pipelines/`
+  (`api_surface` / `obfuscated_build` / `flutter_variant`).
 - `scripts/` — `validate.py` (entry validator) + `requirements.txt`.
-- `ops/` — collector deployment (issue #8).
+- `ops/` — collector deployment: `docker/` (`Dockerfile.collector` +
+  `docker-compose.yml`), `systemd/` unit, `env.example`. Live in production —
+  see **Production collector** below.
 
 ## Conventions
 
@@ -94,6 +99,47 @@ is the verified basis for the PR #11 review.)
   straight to `main` unvalidated.
 - Use `git -C <dir> ...` instead of `cd <dir> && git ...` for any non-cwd repo.
 - Never commit collector working data / archives (gitignored).
+
+## Production collector (deployment & runtime)
+
+The 24/7 collector runs on a dedicated host: `ssh -p1122
+v392persei@rettulf.v392persei.ru`.
+
+- **systemd unit** `rettulf-pubdb-collector`
+  (`WorkingDirectory=/opt/rettulf-pubdb/ops/docker`, `ExecStart=docker compose
+  up --build`, `COMPOSE_PROFILES=proxy`). Two compose services: `collector`
+  (daemon, `/metrics` on `127.0.0.1:9305`) + `proxy` (Caddy TLS/basic-auth
+  dashboard, profile-gated). Logs: `journalctl -u rettulf-pubdb-collector` or
+  `docker logs rettulf-pubdb-collector-1`.
+- **The repo is bind-mounted `/opt/rettulf-pubdb → /app` (rw).** The daemon
+  commits and pushes entries to `main` *from that host checkout*; the image is
+  only the runtime (Python + Dart). Code / `.gitignore` changes take effect
+  through the bind mount, and `Dockerfile.collector` copies only `collector/
+  scripts/ schema/ db/` (not `.gitignore`), so the `--build` on restart is a
+  near-total cache hit.
+- **Redeploy / update** (stop first — otherwise you race the daemon's git ops on
+  the live checkout): `sudo systemctl stop rettulf-pubdb-collector` → `sudo git
+  -C /opt/rettulf-pubdb fetch origin && sudo git -C /opt/rettulf-pubdb reset
+  --hard origin/main` → `sudo systemctl start rettulf-pubdb-collector`.
+  Scope/cadence knobs live in `/opt/rettulf-pubdb/ops/docker/.env` (root-only);
+  edit then restart.
+- **Volumes** (`/var/lib/docker/volumes/`): `pubdb-cache` →
+  `/root/.cache/rettulf-pubdb` holds the **durable SQLite work queue `queue.db`**
+  (precious, ~5 MB — survives restarts so discovery resumes) **and** `archives/`
+  (extracted pub.dev sources). `archives/` is a re-download cache keyed by
+  `(package, version)` with **no eviction**, so it grows unbounded (reached
+  ~28 GB / 10k entries). Safe to prune for disk: only `queue.db` must persist,
+  and discovery skips already-collected packages so pruning their archives
+  triggers no re-download. `flutter-cache` is empty in `--base-only` mode. Disk
+  is 38 GB — `archives/` dominates; watch for fill.
+
+**Invariant — never let any `db/` path be gitignored.** The daemon publishes via
+one batched `git add -- <files>`; a single ignored path makes git exit non-zero
+and the *whole* batch fails to commit, wedging collection silently. `.gitignore`
+carries `!db/*/` so build-output patterns (`build/`, `dist/`, …) can't swallow a
+same-named package (e.g. the `build` package); verify with `git check-ignore
+db/<pkg>/x.json` (must print nothing). Incident 2026-06-11: the `build` package
+stalled commits ~11 h.
 
 *Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 
