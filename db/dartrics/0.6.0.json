@@ -1,0 +1,2531 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "aiLoopText",
+          "allKeepAliveAnnotations",
+          "analysisReporters",
+          "dartricsVersion",
+          "defaultClassMetrics",
+          "defaultCoveragePath",
+          "defaultDismissalMinReasonLength",
+          "defaultDismissalsYamlPath",
+          "defaultFunctionMetrics",
+          "defaultLibraryMetrics",
+          "defaultMetricThresholds",
+          "keepAlivePresets",
+          "manualText",
+          "plugin",
+          "unusedFilterKindNames"
+        ],
+        "libraries": [
+          "package:dartrics/dartrics.dart",
+          "package:dartrics/main.dart",
+          "package:dartrics/src/cli/ai_loop_text.dart",
+          "package:dartrics/src/cli/common_options.dart",
+          "package:dartrics/src/cli/doctor_command.dart",
+          "package:dartrics/src/cli/git_diff.dart",
+          "package:dartrics/src/cli/manual_text.dart",
+          "package:dartrics/src/cli/rules_command.dart",
+          "package:dartrics/src/cli/runner.dart",
+          "package:dartrics/src/cli/snapshot.dart",
+          "package:dartrics/src/cli/unused_command.dart",
+          "package:dartrics/src/config/config.dart",
+          "package:dartrics/src/config/config_loader.dart",
+          "package:dartrics/src/coverage/coverage_loader.dart",
+          "package:dartrics/src/dismiss/comment_parser.dart",
+          "package:dartrics/src/dismiss/dismissal_validator.dart",
+          "package:dartrics/src/dismiss/yaml_loader.dart",
+          "package:dartrics/src/entry_point.dart",
+          "package:dartrics/src/metrics/class/default_class_metrics.dart",
+          "package:dartrics/src/metrics/class/lcom4.dart",
+          "package:dartrics/src/metrics/function/default_function_metrics.dart",
+          "package:dartrics/src/metrics/library/default_library_metrics.dart",
+          "package:dartrics/src/metrics/metric.dart",
+          "package:dartrics/src/metrics/metric_catalogue.dart",
+          "package:dartrics/src/metrics/metric_engine.dart",
+          "package:dartrics/src/models/unused_declaration.dart",
+          "package:dartrics/src/regression/regression_diff.dart",
+          "package:dartrics/src/reporters/reporters.dart",
+          "package:dartrics/src/unused/apply.dart",
+          "package:dartrics/src/unused/entry_points.dart",
+          "package:dartrics/src/unused/keep_alive_presets.dart",
+          "package:dartrics/src/unused/reachability_graph.dart",
+          "package:dartrics/src/unused/resolved_reachability.dart",
+          "package:dartrics/src/unused/unused_detector.dart",
+          "package:dartrics/src/version.dart"
+        ],
+        "methods": [
+          "addAnalysisOptions",
+          "addIoOptions",
+          "addMetricsReadingOptions",
+          "applyDeletions",
+          "buildApplySummary",
+          "buildCommandRunner",
+          "changedDartFilesSince",
+          "checkThresholdOrdering",
+          "classifyChange",
+          "collectRuleDescriptions",
+          "computeViolationId",
+          "detectUnusedResolved",
+          "diagnose",
+          "findRuleDescription",
+          "handleUncaughtZoneError",
+          "hashFiles",
+          "isGitTreeClean",
+          "isVersionRequest",
+          "loadConfig",
+          "loadCoverage",
+          "loadYamlDismissals",
+          "mergeUnusedFilterFromCli",
+          "parseUnusedFilter",
+          "pickReporter",
+          "reachableFrom",
+          "resolveEntryPoints",
+          "resolveSnapshotConfig",
+          "routeLogRecord",
+          "runApp",
+          "scanCommentDismissals",
+          "setupLogging",
+          "snapshotPathFor",
+          "unionByDirectCall",
+          "unionBySharedField",
+          "unusedKindFromJsonName",
+          "unusedKindJsonName",
+          "validateDismissal",
+          "writeSnapshot"
+        ],
+        "types": [
+          "AnalyzedFile",
+          "ApplyResult",
+          "ChangeDirection",
+          "ClassMetric",
+          "Config",
+          "CoverageIndex",
+          "DeclarationRecord",
+          "Dismissal",
+          "DismissalCheck",
+          "DismissalConfig",
+          "DoctorIssue",
+          "FunctionMetric",
+          "LibraryMetric",
+          "MetricPolarity",
+          "MetricThresholds",
+          "Reporter",
+          "RuleDescription",
+          "SnapshotConfig",
+          "UnusedConfig",
+          "UnusedDeclaration",
+          "UnusedKind"
+        ]
+      },
+      "AfferentCoupling": {
+        "fields": [
+          "get:id",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/library/coupling.dart"
+        ],
+        "methods": [
+          "AfferentCoupling",
+          "compute"
+        ],
+        "types": [
+          "LibraryMetric",
+          "LibraryMetricInput"
+        ]
+      },
+      "AiLoopCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:dartrics/src/cli/ai_loop_command.dart"
+        ],
+        "methods": [
+          "AiLoopCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "AiReporter": {
+        "fields": [
+          "limit"
+        ],
+        "libraries": [
+          "package:dartrics/src/reporters/ai_reporter.dart"
+        ],
+        "methods": [
+          "AiReporter",
+          "report"
+        ],
+        "types": [
+          "AnalysisReport",
+          "Reporter"
+        ]
+      },
+      "AnalysisOptions": {
+        "fields": [
+          "concurrency",
+          "configPath",
+          "fatalWarnings",
+          "root",
+          "since",
+          "snapshot"
+        ],
+        "libraries": [
+          "package:dartrics/src/cli/common_options.dart"
+        ],
+        "methods": [
+          "AnalysisOptions",
+          "from"
+        ],
+        "types": []
+      },
+      "AnalysisReport": {
+        "fields": [
+          "analyzedFiles",
+          "changedFileCount",
+          "explanations",
+          "get:analyzedFileCount",
+          "metrics",
+          "snapshotMode",
+          "staleDismissals",
+          "unused",
+          "version"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/analysis_report.dart"
+        ],
+        "methods": [
+          "AnalysisReport",
+          "attachAnalyzedFileCount",
+          "hasSeverityAtLeast",
+          "toJson"
+        ],
+        "types": [
+          "AnalyzedFile",
+          "ExplainEntry",
+          "MetricRecord",
+          "Severity",
+          "StaleDismissal",
+          "UnusedDeclaration"
+        ]
+      },
+      "AnalyzeCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:dartrics/src/cli/analyze_command.dart"
+        ],
+        "methods": [
+          "AnalyzeCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "AnalyzedFile": {
+        "fields": [
+          "path",
+          "sha256"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/analysis_report.dart"
+        ],
+        "methods": [
+          "AnalyzedFile",
+          "fromJson",
+          "toJson"
+        ],
+        "types": []
+      },
+      "AnalyzerRunner": {
+        "fields": [
+          "concurrency",
+          "exclude",
+          "get:collection",
+          "includeGenerated",
+          "roots"
+        ],
+        "libraries": [
+          "package:dartrics/src/analyzer_runner.dart"
+        ],
+        "methods": [
+          "AnalyzerRunner",
+          "collectDartFiles",
+          "defaultConcurrency",
+          "resolve",
+          "resolveAll"
+        ],
+        "types": []
+      },
+      "ApplyOutcome": {
+        "fields": [
+          "deleted",
+          "notFound",
+          "skippedTest",
+          "unsupportedKind"
+        ],
+        "libraries": [
+          "package:dartrics/src/unused/apply.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ApplyResult": {
+        "fields": [
+          "outcome"
+        ],
+        "libraries": [
+          "package:dartrics/src/unused/apply.dart"
+        ],
+        "methods": [
+          "ApplyResult"
+        ],
+        "types": [
+          "ApplyOutcome"
+        ]
+      },
+      "CallableDecl": {
+        "fields": [
+          "get:body",
+          "get:parameters",
+          "get:scopeName"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/metric.dart"
+        ],
+        "methods": [
+          "CallableDecl",
+          "from"
+        ],
+        "types": []
+      },
+      "ChangeDirection": {
+        "fields": [
+          "added",
+          "improved",
+          "neutralDelta",
+          "regressed",
+          "removed",
+          "unchanged"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/regression_report.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ClassLength": {
+        "fields": [
+          "get:id",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/class/class_length.dart"
+        ],
+        "methods": [
+          "ClassLength",
+          "compute"
+        ],
+        "types": [
+          "ClassMetric",
+          "ClassMetricInput"
+        ]
+      },
+      "ClassMetric": {
+        "fields": [
+          "get:defaultEnabled",
+          "get:id",
+          "get:polarity",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/class/class_metric.dart"
+        ],
+        "methods": [
+          "ClassMetric",
+          "compute"
+        ],
+        "types": [
+          "ClassMetricInput",
+          "MetricPolarity"
+        ]
+      },
+      "ClassMetricInput": {
+        "fields": [
+          "declaration",
+          "get:className",
+          "lineInfo"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/class/class_metric.dart"
+        ],
+        "methods": [
+          "ClassMetricInput"
+        ],
+        "types": []
+      },
+      "CognitiveComplexity": {
+        "fields": [
+          "get:id",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/dartrics.dart",
+          "package:dartrics/src/metrics/function/cognitive_complexity.dart"
+        ],
+        "methods": [
+          "CognitiveComplexity",
+          "compute"
+        ],
+        "types": [
+          "FunctionMetric",
+          "FunctionMetricInput"
+        ]
+      },
+      "CognitiveComplexityRule": {
+        "fields": [
+          "code",
+          "get:defaultThreshold",
+          "get:diagnosticCode",
+          "get:metric"
+        ],
+        "libraries": [
+          "package:dartrics/src/lint/rules/cognitive_complexity_rule.dart"
+        ],
+        "methods": [
+          "CognitiveComplexityRule"
+        ],
+        "types": [
+          "FunctionMetric",
+          "FunctionMetricRule"
+        ]
+      },
+      "Config": {
+        "fields": [
+          "dismissals",
+          "exclude",
+          "flutter",
+          "metricThresholds",
+          "snapshot",
+          "test",
+          "unused"
+        ],
+        "libraries": [
+          "package:dartrics/src/config/config.dart"
+        ],
+        "methods": [
+          "Config"
+        ],
+        "types": [
+          "DismissalConfig",
+          "MetricThresholds",
+          "SnapshotConfig",
+          "UnusedConfig"
+        ]
+      },
+      "ConfigException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:dartrics/src/config/config_loader.dart"
+        ],
+        "methods": [
+          "ConfigException",
+          "toString"
+        ],
+        "types": []
+      },
+      "ConsoleReporter": {
+        "fields": [],
+        "libraries": [
+          "package:dartrics/src/reporters/console_reporter.dart"
+        ],
+        "methods": [
+          "report"
+        ],
+        "types": [
+          "AnalysisReport",
+          "Reporter"
+        ]
+      },
+      "CosmeticSignals": {
+        "fields": [
+          "ccReduction",
+          "get:looksCosmetic",
+          "slocDelta",
+          "smallBodyThreshold",
+          "tinyHelpersAdded"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/regression_report.dart"
+        ],
+        "methods": [
+          "CosmeticSignals",
+          "toJson"
+        ],
+        "types": []
+      },
+      "CouplingBetweenObjects": {
+        "fields": [
+          "get:id",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/class/cbo.dart"
+        ],
+        "methods": [
+          "CouplingBetweenObjects",
+          "compute"
+        ],
+        "types": [
+          "ClassMetric",
+          "ClassMetricInput"
+        ]
+      },
+      "CoverageIndex": {
+        "fields": [
+          "files"
+        ],
+        "libraries": [
+          "package:dartrics/src/coverage/lcov_reader.dart"
+        ],
+        "methods": [
+          "CoverageIndex",
+          "forFile",
+          "parse",
+          "readFile"
+        ],
+        "types": [
+          "CoverageIndex",
+          "FileCoverage"
+        ]
+      },
+      "CoverageLoadException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:dartrics/src/coverage/coverage_loader.dart"
+        ],
+        "methods": [
+          "CoverageLoadException",
+          "toString"
+        ],
+        "types": []
+      },
+      "CyclomaticComplexity": {
+        "fields": [
+          "get:id",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/dartrics.dart",
+          "package:dartrics/src/metrics/function/cyclomatic_complexity.dart"
+        ],
+        "methods": [
+          "CyclomaticComplexity",
+          "compute"
+        ],
+        "types": [
+          "FunctionMetric",
+          "FunctionMetricInput"
+        ]
+      },
+      "CyclomaticComplexityRule": {
+        "fields": [
+          "code",
+          "get:defaultThreshold",
+          "get:diagnosticCode",
+          "get:metric"
+        ],
+        "libraries": [
+          "package:dartrics/src/lint/rules/cyclomatic_complexity_rule.dart"
+        ],
+        "methods": [
+          "CyclomaticComplexityRule"
+        ],
+        "types": [
+          "FunctionMetric",
+          "FunctionMetricRule"
+        ]
+      },
+      "DartricsIO": {
+        "fields": [
+          "stderrSink",
+          "stdoutSink"
+        ],
+        "libraries": [
+          "package:dartrics/src/cli/io_sinks.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DartricsPlugin": {
+        "fields": [
+          "get:name"
+        ],
+        "libraries": [
+          "package:dartrics/src/lint/dartrics_plugin.dart"
+        ],
+        "methods": [
+          "register"
+        ],
+        "types": []
+      },
+      "DeclarationRecord": {
+        "fields": [
+          "annotations",
+          "hasVmEntryPointPragma",
+          "kind",
+          "location",
+          "name",
+          "outgoingNames"
+        ],
+        "libraries": [
+          "package:dartrics/src/unused/declaration_record.dart"
+        ],
+        "methods": [
+          "DeclarationRecord"
+        ],
+        "types": [
+          "SourceLocation",
+          "UnusedKind"
+        ]
+      },
+      "Dismissal": {
+        "fields": [
+          "at",
+          "by",
+          "file",
+          "metricId",
+          "reason",
+          "scope",
+          "source"
+        ],
+        "libraries": [
+          "package:dartrics/src/dismiss/dismissal.dart"
+        ],
+        "methods": [
+          "Dismissal"
+        ],
+        "types": [
+          "DismissalSource"
+        ]
+      },
+      "DismissalAccepted": {
+        "fields": [],
+        "libraries": [
+          "package:dartrics/src/dismiss/dismissal_validator.dart"
+        ],
+        "methods": [
+          "DismissalAccepted"
+        ],
+        "types": [
+          "DismissalCheck"
+        ]
+      },
+      "DismissalCheck": {
+        "fields": [],
+        "libraries": [
+          "package:dartrics/src/dismiss/dismissal_validator.dart"
+        ],
+        "methods": [
+          "DismissalCheck"
+        ],
+        "types": []
+      },
+      "DismissalConfig": {
+        "fields": [
+          "commentSource",
+          "get:enabled",
+          "minReasonLength",
+          "requireAuthor",
+          "requireReason",
+          "requireTimestamp",
+          "warnStale",
+          "yamlPath",
+          "yamlSource"
+        ],
+        "libraries": [
+          "package:dartrics/src/config/config.dart"
+        ],
+        "methods": [
+          "DismissalConfig"
+        ],
+        "types": []
+      },
+      "DismissalIndex": {
+        "fields": [
+          "get:isEmpty"
+        ],
+        "libraries": [
+          "package:dartrics/src/dismiss/dismissal_index.dart"
+        ],
+        "methods": [
+          "build",
+          "empty",
+          "lookup",
+          "staleEntries"
+        ],
+        "types": [
+          "Dismissal"
+        ]
+      },
+      "DismissalRejected": {
+        "fields": [
+          "dismissal",
+          "reason"
+        ],
+        "libraries": [
+          "package:dartrics/src/dismiss/dismissal_validator.dart"
+        ],
+        "methods": [
+          "DismissalRejected"
+        ],
+        "types": [
+          "Dismissal",
+          "DismissalCheck"
+        ]
+      },
+      "DismissalSource": {
+        "fields": [
+          "comment",
+          "yaml"
+        ],
+        "libraries": [
+          "package:dartrics/src/dismiss/dismissal.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DoctorCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:dartrics/src/cli/doctor_command.dart"
+        ],
+        "methods": [
+          "DoctorCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "DoctorIssue": {
+        "fields": [
+          "hint",
+          "message"
+        ],
+        "libraries": [
+          "package:dartrics/src/cli/doctor_command.dart"
+        ],
+        "methods": [
+          "DoctorIssue"
+        ],
+        "types": []
+      },
+      "EfferentCoupling": {
+        "fields": [
+          "get:id",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/library/coupling.dart"
+        ],
+        "methods": [
+          "EfferentCoupling",
+          "compute"
+        ],
+        "types": [
+          "LibraryMetric",
+          "LibraryMetricInput"
+        ]
+      },
+      "ExplainEntry": {
+        "fields": [
+          "metricId",
+          "rationale",
+          "refactorHints",
+          "references"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/analysis_report.dart"
+        ],
+        "methods": [
+          "ExplainEntry"
+        ],
+        "types": []
+      },
+      "FileCoverage": {
+        "fields": [
+          "branchHits",
+          "lineHits"
+        ],
+        "libraries": [
+          "package:dartrics/src/coverage/lcov_reader.dart"
+        ],
+        "methods": [
+          "FileCoverage",
+          "branchCoverageInRange",
+          "lineCoverageInRange"
+        ],
+        "types": []
+      },
+      "FlutterAware": {
+        "fields": [
+          "constructorSkips",
+          "widgetSuperclasses"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/flutter_aware.dart"
+        ],
+        "methods": [
+          "isWidgetClass",
+          "skipsFor"
+        ],
+        "types": []
+      },
+      "FunctionMetric": {
+        "fields": [
+          "get:defaultEnabled",
+          "get:id",
+          "get:polarity",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/dartrics.dart",
+          "package:dartrics/src/metrics/metric.dart"
+        ],
+        "methods": [
+          "FunctionMetric",
+          "compute"
+        ],
+        "types": [
+          "FunctionMetricInput",
+          "MetricPolarity"
+        ]
+      },
+      "FunctionMetricInput": {
+        "fields": [
+          "body",
+          "context",
+          "declaration",
+          "get:lineInfo",
+          "get:source",
+          "parameters",
+          "scopeName"
+        ],
+        "libraries": [
+          "package:dartrics/dartrics.dart",
+          "package:dartrics/src/metrics/metric.dart"
+        ],
+        "methods": [
+          "FunctionMetricInput"
+        ],
+        "types": [
+          "CallableDecl"
+        ]
+      },
+      "FunctionMetricRule": {
+        "fields": [
+          "get:defaultThreshold",
+          "get:metric"
+        ],
+        "libraries": [
+          "package:dartrics/src/lint/rules/metric_rule_base.dart"
+        ],
+        "methods": [
+          "FunctionMetricRule",
+          "registerNodeProcessors"
+        ],
+        "types": [
+          "FunctionMetric"
+        ]
+      },
+      "GitDiffException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:dartrics/src/cli/git_diff.dart"
+        ],
+        "methods": [
+          "GitDiffException",
+          "toString"
+        ],
+        "types": []
+      },
+      "GitWorktree": {
+        "fields": [
+          "from",
+          "path"
+        ],
+        "libraries": [
+          "package:dartrics/src/regression/git_worktree.dart"
+        ],
+        "methods": [
+          "add",
+          "dispose"
+        ],
+        "types": [
+          "GitWorktree"
+        ]
+      },
+      "GitWorktreeException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:dartrics/src/regression/git_worktree.dart"
+        ],
+        "methods": [
+          "GitWorktreeException",
+          "toString"
+        ],
+        "types": []
+      },
+      "HalsteadCounts": {
+        "fields": [
+          "get:length",
+          "get:vocabulary",
+          "get:volume",
+          "totalOperands",
+          "totalOperators",
+          "uniqueOperands",
+          "uniqueOperators"
+        ],
+        "libraries": [
+          "package:dartrics/dartrics.dart",
+          "package:dartrics/src/metrics/function/halstead.dart"
+        ],
+        "methods": [
+          "HalsteadCounts",
+          "fromBody"
+        ],
+        "types": [
+          "HalsteadCounts"
+        ]
+      },
+      "HalsteadVolume": {
+        "fields": [
+          "get:defaultEnabled",
+          "get:id",
+          "get:polarity",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/dartrics.dart",
+          "package:dartrics/src/metrics/function/halstead.dart"
+        ],
+        "methods": [
+          "HalsteadVolume",
+          "compute"
+        ],
+        "types": [
+          "FunctionMetric",
+          "FunctionMetricInput",
+          "MetricPolarity"
+        ]
+      },
+      "Instability": {
+        "fields": [
+          "get:id",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/library/coupling.dart"
+        ],
+        "methods": [
+          "Instability",
+          "compute"
+        ],
+        "types": [
+          "LibraryMetric",
+          "LibraryMetricInput"
+        ]
+      },
+      "IoOptions": {
+        "fields": [
+          "limit",
+          "output",
+          "reporter",
+          "rest"
+        ],
+        "libraries": [
+          "package:dartrics/src/cli/common_options.dart"
+        ],
+        "methods": [
+          "IoOptions",
+          "from"
+        ],
+        "types": []
+      },
+      "JsonReporter": {
+        "fields": [],
+        "libraries": [
+          "package:dartrics/src/reporters/json_reporter.dart"
+        ],
+        "methods": [
+          "report"
+        ],
+        "types": [
+          "AnalysisReport",
+          "Reporter"
+        ]
+      },
+      "Lcom4": {
+        "fields": [
+          "get:id",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/class/lcom4.dart"
+        ],
+        "methods": [
+          "Lcom4",
+          "compute"
+        ],
+        "types": [
+          "ClassMetric",
+          "ClassMetricInput"
+        ]
+      },
+      "LibraryIndex": {
+        "fields": [
+          "importers",
+          "stats"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/library/library_metric.dart"
+        ],
+        "methods": [
+          "build",
+          "fromStats"
+        ],
+        "types": [
+          "LibraryIndex",
+          "LibraryStats"
+        ]
+      },
+      "LibraryMetric": {
+        "fields": [
+          "get:defaultEnabled",
+          "get:id",
+          "get:polarity",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/library/library_metric.dart"
+        ],
+        "methods": [
+          "LibraryMetric",
+          "compute"
+        ],
+        "types": [
+          "LibraryMetricInput",
+          "MetricPolarity"
+        ]
+      },
+      "LibraryMetricInput": {
+        "fields": [
+          "get:stats",
+          "index",
+          "path"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/library/library_metric.dart"
+        ],
+        "methods": [
+          "LibraryMetricInput"
+        ],
+        "types": [
+          "LibraryIndex",
+          "LibraryStats"
+        ]
+      },
+      "LibraryStats": {
+        "fields": [
+          "internalImports"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/library/library_metric.dart"
+        ],
+        "methods": [
+          "LibraryStats"
+        ],
+        "types": []
+      },
+      "LintOptions": {
+        "fields": [
+          "defaults",
+          "flutter",
+          "warningThresholdById"
+        ],
+        "libraries": [
+          "package:dartrics/src/lint/lint_options.dart"
+        ],
+        "methods": [
+          "LintOptions",
+          "load",
+          "parse",
+          "thresholdFor"
+        ],
+        "types": [
+          "LintOptions"
+        ]
+      },
+      "ManualCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:dartrics/src/cli/manual_command.dart"
+        ],
+        "methods": [
+          "ManualCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "MdReporter": {
+        "fields": [
+          "limit"
+        ],
+        "libraries": [
+          "package:dartrics/src/reporters/md_reporter.dart"
+        ],
+        "methods": [
+          "MdReporter",
+          "report"
+        ],
+        "types": [
+          "AnalysisReport",
+          "Reporter"
+        ]
+      },
+      "MethodLength": {
+        "fields": [
+          "get:defaultEnabled",
+          "get:id",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/dartrics.dart",
+          "package:dartrics/src/metrics/function/method_length.dart"
+        ],
+        "methods": [
+          "MethodLength",
+          "compute"
+        ],
+        "types": [
+          "FunctionMetric",
+          "FunctionMetricInput"
+        ]
+      },
+      "MetricChange": {
+        "fields": [
+          "after",
+          "before",
+          "direction",
+          "file",
+          "get:id",
+          "metricId",
+          "scope"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/regression_report.dart"
+        ],
+        "methods": [
+          "MetricChange",
+          "toJson"
+        ],
+        "types": [
+          "ChangeDirection",
+          "ScopeRef"
+        ]
+      },
+      "MetricEngine": {
+        "fields": [
+          "classMetrics",
+          "coverage",
+          "dismissalConfig",
+          "dismissals",
+          "flutter",
+          "functionMetrics",
+          "libraryMetrics",
+          "onDismissalRejection",
+          "test",
+          "thresholds"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/metric_engine.dart"
+        ],
+        "methods": [
+          "MetricEngine",
+          "analyze",
+          "analyzeResolved",
+          "firedExplanations"
+        ],
+        "types": [
+          "AnalyzerRunner",
+          "ClassMetric",
+          "CoverageIndex",
+          "Dismissal",
+          "DismissalConfig",
+          "DismissalIndex",
+          "ExplainEntry",
+          "FunctionMetric",
+          "LibraryMetric",
+          "MetricRecord",
+          "MetricThresholds"
+        ]
+      },
+      "MetricPolarity": {
+        "fields": [
+          "down",
+          "neutral"
+        ],
+        "libraries": [
+          "package:dartrics/dartrics.dart",
+          "package:dartrics/src/metrics/metric.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MetricRecord": {
+        "fields": [
+          "file",
+          "get:worstSeverity",
+          "scope",
+          "values",
+          "violations"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/analysis_report.dart"
+        ],
+        "methods": [
+          "MetricRecord",
+          "toJson"
+        ],
+        "types": [
+          "MetricViolation",
+          "ScopeRef",
+          "Severity"
+        ]
+      },
+      "MetricThresholds": {
+        "fields": [
+          "enabled",
+          "error",
+          "warning"
+        ],
+        "libraries": [
+          "package:dartrics/src/config/config.dart"
+        ],
+        "methods": [
+          "MetricThresholds"
+        ],
+        "types": []
+      },
+      "MetricViolation": {
+        "fields": [
+          "complexityJustified",
+          "complexityJustifiedBy",
+          "complexityJustifiedThreshold",
+          "dismissReason",
+          "dismissalRejected",
+          "dismissed",
+          "dismissedAt",
+          "dismissedBy",
+          "dismissedFrom",
+          "id",
+          "metricId",
+          "scopeBranchCoverage",
+          "scopeCoverage",
+          "severity",
+          "threshold"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/analysis_report.dart"
+        ],
+        "methods": [
+          "MetricViolation",
+          "toJson"
+        ],
+        "types": [
+          "DismissalSource",
+          "Severity"
+        ]
+      },
+      "MetricsReadingOptions": {
+        "fields": [
+          "coverage",
+          "strictDismiss"
+        ],
+        "libraries": [
+          "package:dartrics/src/cli/common_options.dart"
+        ],
+        "methods": [
+          "MetricsReadingOptions",
+          "from"
+        ],
+        "types": []
+      },
+      "NumberOfMethods": {
+        "fields": [
+          "get:id",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/class/nom.dart"
+        ],
+        "methods": [
+          "NumberOfMethods",
+          "compute"
+        ],
+        "types": [
+          "ClassMetric",
+          "ClassMetricInput"
+        ]
+      },
+      "NumberOfParameters": {
+        "fields": [
+          "get:id",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/dartrics.dart",
+          "package:dartrics/src/metrics/function/number_of_parameters.dart"
+        ],
+        "methods": [
+          "NumberOfParameters",
+          "compute"
+        ],
+        "types": [
+          "FunctionMetric",
+          "FunctionMetricInput"
+        ]
+      },
+      "NumberOfParametersRule": {
+        "fields": [
+          "code",
+          "get:defaultThreshold",
+          "get:diagnosticCode",
+          "get:metric"
+        ],
+        "libraries": [
+          "package:dartrics/src/lint/rules/number_of_parameters_rule.dart"
+        ],
+        "methods": [
+          "NumberOfParametersRule"
+        ],
+        "types": [
+          "FunctionMetric",
+          "FunctionMetricRule"
+        ]
+      },
+      "RegressionCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:dartrics/src/cli/regression_command.dart"
+        ],
+        "methods": [
+          "RegressionCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "RegressionConfig": {
+        "fields": [
+          "smallBodyThreshold"
+        ],
+        "libraries": [
+          "package:dartrics/src/regression/regression_diff.dart"
+        ],
+        "methods": [
+          "RegressionConfig"
+        ],
+        "types": []
+      },
+      "RegressionDiff": {
+        "fields": [
+          "config"
+        ],
+        "libraries": [
+          "package:dartrics/src/regression/regression_diff.dart"
+        ],
+        "methods": [
+          "RegressionDiff",
+          "compute"
+        ],
+        "types": [
+          "MetricRecord",
+          "RegressionConfig",
+          "RegressionReport"
+        ]
+      },
+      "RegressionReport": {
+        "fields": [
+          "after",
+          "before",
+          "changes",
+          "cosmetic",
+          "summary"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/regression_report.dart"
+        ],
+        "methods": [
+          "RegressionReport",
+          "toJson"
+        ],
+        "types": [
+          "CosmeticSignals",
+          "MetricChange",
+          "RegressionSummary"
+        ]
+      },
+      "RegressionReporter": {
+        "fields": [],
+        "libraries": [
+          "package:dartrics/src/reporters/regression_reporter.dart"
+        ],
+        "methods": [
+          "RegressionReporter",
+          "report"
+        ],
+        "types": [
+          "RegressionReport"
+        ]
+      },
+      "RegressionSummary": {
+        "fields": [
+          "added",
+          "improved",
+          "neutralDelta",
+          "regressed",
+          "removed",
+          "unchanged"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/regression_report.dart"
+        ],
+        "methods": [
+          "RegressionSummary",
+          "fromChanges",
+          "toJson"
+        ],
+        "types": [
+          "MetricChange"
+        ]
+      },
+      "ReportCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:dartrics/src/cli/report_command.dart"
+        ],
+        "methods": [
+          "ReportCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "Reporter": {
+        "fields": [],
+        "libraries": [
+          "package:dartrics/src/reporters/reporter.dart"
+        ],
+        "methods": [
+          "report"
+        ],
+        "types": [
+          "AnalysisReport"
+        ]
+      },
+      "ResponseForClass": {
+        "fields": [
+          "get:id",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/class/rfc.dart"
+        ],
+        "methods": [
+          "ResponseForClass",
+          "compute"
+        ],
+        "types": [
+          "ClassMetric",
+          "ClassMetricInput"
+        ]
+      },
+      "RuleDescription": {
+        "fields": [
+          "defaultEnabled",
+          "defaultThreshold",
+          "id",
+          "polarity",
+          "rationale",
+          "refactorHints",
+          "references",
+          "scope"
+        ],
+        "libraries": [
+          "package:dartrics/src/reporters/rules_reporter.dart"
+        ],
+        "methods": [
+          "RuleDescription",
+          "toJson"
+        ],
+        "types": []
+      },
+      "RulesCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:dartrics/src/cli/rules_command.dart"
+        ],
+        "methods": [
+          "RulesCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "RulesReporter": {
+        "fields": [],
+        "libraries": [
+          "package:dartrics/src/reporters/rules_reporter.dart"
+        ],
+        "methods": [
+          "RulesReporter",
+          "report"
+        ],
+        "types": [
+          "RuleDescription"
+        ]
+      },
+      "SarifReporter": {
+        "fields": [],
+        "libraries": [
+          "package:dartrics/src/reporters/sarif_reporter.dart"
+        ],
+        "methods": [
+          "report"
+        ],
+        "types": [
+          "AnalysisReport",
+          "Reporter"
+        ]
+      },
+      "ScopeKind": {
+        "fields": [
+          "function",
+          "klass",
+          "library",
+          "method"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/analysis_report.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ScopeRef": {
+        "fields": [
+          "kind",
+          "location",
+          "name"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/analysis_report.dart"
+        ],
+        "methods": [
+          "ScopeRef",
+          "toJson"
+        ],
+        "types": [
+          "ScopeKind",
+          "SourceLocation"
+        ]
+      },
+      "Severity": {
+        "fields": [
+          "error",
+          "rank",
+          "warning"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/analysis_report.dart"
+        ],
+        "methods": [
+          "Severity"
+        ],
+        "types": []
+      },
+      "Snapshot": {
+        "fields": [
+          "entries"
+        ],
+        "libraries": [
+          "package:dartrics/src/cli/snapshot.dart"
+        ],
+        "methods": [
+          "Snapshot",
+          "changedPaths",
+          "read"
+        ],
+        "types": [
+          "AnalyzedFile"
+        ]
+      },
+      "SnapshotConfig": {
+        "fields": [
+          "mode",
+          "path"
+        ],
+        "libraries": [
+          "package:dartrics/src/config/config.dart"
+        ],
+        "methods": [
+          "SnapshotConfig"
+        ],
+        "types": [
+          "SnapshotMode"
+        ]
+      },
+      "SnapshotMode": {
+        "fields": [
+          "baseline",
+          "cache",
+          "none"
+        ],
+        "libraries": [
+          "package:dartrics/src/config/config.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SourceLinesOfCode": {
+        "fields": [
+          "get:id",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/dartrics.dart",
+          "package:dartrics/src/metrics/function/source_lines_of_code.dart"
+        ],
+        "methods": [
+          "SourceLinesOfCode",
+          "compute"
+        ],
+        "types": [
+          "FunctionMetric",
+          "FunctionMetricInput"
+        ]
+      },
+      "SourceLocation": {
+        "fields": [
+          "column",
+          "line",
+          "path"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/source_location.dart"
+        ],
+        "methods": [
+          "SourceLocation",
+          "toJson"
+        ],
+        "types": []
+      },
+      "StaleDismissal": {
+        "fields": [
+          "file",
+          "metricId",
+          "reason",
+          "scope",
+          "source"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/analysis_report.dart"
+        ],
+        "methods": [
+          "StaleDismissal",
+          "toJson"
+        ],
+        "types": [
+          "DismissalSource"
+        ]
+      },
+      "TestAware": {
+        "fields": [
+          "classSkips",
+          "functionSkips",
+          "testDirSegments"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/test_aware.dart"
+        ],
+        "methods": [
+          "isTestPath"
+        ],
+        "types": []
+      },
+      "UnusedCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:dartrics/src/cli/unused_command.dart"
+        ],
+        "methods": [
+          "UnusedCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "UnusedConfig": {
+        "fields": [
+          "entryPoints",
+          "excludeExported",
+          "filter",
+          "ignoreAnnotations"
+        ],
+        "libraries": [
+          "package:dartrics/src/config/config.dart"
+        ],
+        "methods": [
+          "UnusedConfig"
+        ],
+        "types": []
+      },
+      "UnusedDeclaration": {
+        "fields": [
+          "kind",
+          "location",
+          "name"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/unused_declaration.dart"
+        ],
+        "methods": [
+          "UnusedDeclaration",
+          "toJson"
+        ],
+        "types": [
+          "SourceLocation",
+          "UnusedKind"
+        ]
+      },
+      "UnusedDetector": {
+        "fields": [],
+        "libraries": [
+          "package:dartrics/src/unused/unused_detector.dart"
+        ],
+        "methods": [
+          "UnusedDetector",
+          "detect",
+          "detectResolved"
+        ],
+        "types": [
+          "UnusedConfig",
+          "UnusedDeclaration"
+        ]
+      },
+      "UnusedKind": {
+        "fields": [
+          "enumValue",
+          "extension",
+          "field",
+          "function",
+          "klass",
+          "method",
+          "typedef"
+        ],
+        "libraries": [
+          "package:dartrics/src/models/unused_declaration.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "WeightedMethodsPerClass": {
+        "fields": [
+          "get:id",
+          "get:rationale",
+          "get:refactorHints",
+          "get:references"
+        ],
+        "libraries": [
+          "package:dartrics/src/metrics/class/wmc.dart"
+        ],
+        "methods": [
+          "WeightedMethodsPerClass",
+          "compute"
+        ],
+        "types": [
+          "ClassMetric",
+          "ClassMetricInput"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:17:20Z",
+  "package": "dartrics",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AfferentCoupling",
+      "AnalyzedFile",
+      "CallableDecl",
+      "ClassLength",
+      "ClassMetric",
+      "CognitiveComplexity",
+      "Config",
+      "CosmeticSignals",
+      "CouplingBetweenObjects",
+      "CoverageIndex",
+      "CyclomaticComplexity",
+      "Dismissal",
+      "DismissalAccepted",
+      "DismissalCheck",
+      "DismissalConfig",
+      "DismissalRejected",
+      "DoctorIssue",
+      "EfferentCoupling",
+      "ExplainEntry",
+      "FileCoverage",
+      "FunctionMetric",
+      "HalsteadVolume",
+      "Instability",
+      "Lcom4",
+      "LibraryMetric",
+      "LintOptions",
+      "MethodLength",
+      "MetricChange",
+      "MetricRecord",
+      "MetricThresholds",
+      "MetricViolation",
+      "MetricsReadingOptions",
+      "NumberOfMethods",
+      "NumberOfParameters",
+      "RegressionConfig",
+      "RegressionDiff",
+      "RegressionReport",
+      "RegressionReporter",
+      "RegressionSummary",
+      "ResponseForClass",
+      "RuleDescription",
+      "RulesReporter",
+      "ScopeRef",
+      "SnapshotConfig",
+      "SourceLinesOfCode",
+      "SourceLocation",
+      "StaleDismissal",
+      "UnusedConfig",
+      "UnusedDeclaration",
+      "UnusedDetector",
+      "WeightedMethodsPerClass",
+      "_CtorCallable",
+      "_FunctionCallable",
+      "_Justification",
+      "_LocatorResult",
+      "_MethodCallable",
+      "_NotFound",
+      "_Resolved",
+      "_ScopeKey",
+      "_Unsupported",
+      "_ViolationEntry"
+    ],
+    "digest": "2fd536ec0783a5e3f685ca94760c32cc450ddc71b7b4b321aac278787c10b110",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "8936e8f82b79b1190b11e5670a6f41dbf4c988a1139889eaed29dc5417644c61",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\t",
+      "\n",
+      "\n      ",
+      " ",
+      "  ",
+      "    complexityJustified: true",
+      "    dismissed: true",
+      "    rationale: |",
+      "    refactorHints:",
+      "    references:",
+      "    snippet: |2",
+      "  \"not found\" entries indicate the source changed between detect and apply, or the declaration's name/line shape isn't one `--apply` currently walks. Re-run `dartrics unused`.",
+      "  unsupported kinds (method / field / enumValue) require range computation relative to a containing declaration and are not yet auto-deletable.",
+      " (no new findings)",
+      " [dismissal-rejected]",
+      " [dismissed]",
+      " · _dismissal-rejected_",
+      " · _dismissed_",
+      " · _earned_",
+      "\"",
+      "#",
+      "# AI loop walkthrough\n\nThis guide shows how to plug `dartrics` into an AI-driven refactor loop. The flow is identical for Claude Code, Cursor, Codex, OpenHands, Aider, or any other agent that can shell out and read structured input — only the prompt-glue command differs.\n\nThe loop has four stations. dartrics is the lens at every station.\n\n```\n┌──────────┐   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐\n│ 1. setup │ → │ 2. propose   │ → │ 3. apply     │ → │ 4. verify    │\n└──────────┘   └──────────────┘   └──────────────┘   └──────────────┘\n                ↑                                            │\n                └────────────── iterate ─────────────────────┘\n```\n\n## 1. Setup (once per project)\n\nAdd a starter `dartrics:` block. The `# yaml-language-server` directive turns on IDE autocomplete from the published schema.\n\n```yaml\n# analysis_options.yaml\n# yaml-language-server: $schema=https://raw.githubusercontent.com/koji-1009/dartrics/main/schemas/dartrics-config.schema.json\n\ndartrics:\n  flutter: true                 # only if you're shipping Flutter\n\n  metrics:\n    cyclomatic-complexity: { warning: 10, error: 20 }\n    cognitive-complexity:  { warning: 15, error: 25 }\n    method-length:         { warning: 30, error: 60 }\n    number-of-parameters:  { warning: 4, error: 8 }\n\n  dismissals: {}                # opt into the dismiss channel\n\n  snapshot:\n    mode: cache                 # gitignored at .dart_tool/dartrics/snapshot.json\n```\n\nGenerate coverage if you want `complexityJustified` annotations. Pure Dart:\n\n```bash\ndart pub global activate coverage\ndart pub run coverage:test_with_coverage\n```\n\nFlutter:\n\n```bash\nflutter test --coverage\n```\n\nEither writes `coverage/lcov.info`, which dartrics auto-discovers on the next analyze.\n\n## 2. Propose (the agent reads dartrics)\n\nAsk dartrics for a focused, AI-shaped report. Three flags carry most of the weight:\n\n```bash\ndartrics analyze \\\n  --reporter ai \\\n  --since origin/main \\\n  --limit 30\n```\n\nWhat each flag does for the AI:\n\n| Flag | Why it matters |\n| --- | --- |\n| `--reporter ai` | Token-efficient YAML; sorted by severity → coverage → dismissed. The agent reads top-down and gets the most actionable items first. |\n| `--since origin/main` | Only emit records for files changed in the current branch. Avoids re-litigating debt the agent isn't there to fix. |\n| `--limit 30` | Hard cap so a 1000-violation legacy codebase doesn't blow the context window. The truncated count is stamped into the report. |\n| (auto-explain, always on) | Every metric that fired gets its rationale + refactorHints attached. The agent doesn't have to know which metrics exist. |\n\nA typical AI-loop prompt:\n\n```bash\ndartrics analyze --reporter ai --since origin/main --limit 30 \\\n  | claude -p \"Read the dartrics report. For each violation, choose one of:\n  (a) FIX — refactor the scope so the metric drops below threshold,\n  (b) DISMISS — add a // dartrics:dismiss <metric> reason=\\\"...\\\" comment\n      directly above the declaration when the complexity is intentional,\n  (c) ASK — surface a specific question if the right call isn't obvious.\n  Use the rationale + refactorHints in the explain block to ground each fix.\n  Each dismissal reason must be ≥20 chars and explain *why* the structure is\n  load-bearing — not just \\\"intentional\\\".\"\n```\n\nSample report excerpt the agent would see:\n\n```yaml\n# dartrics ai-report v1\nexplain:\n  - metric: cognitive-complexity\n    rationale: |\n      Sonar's Cognitive Complexity penalises nested control flow more\n      heavily than McCabe's CC. Each new structure adds a base point;\n      nesting multiplies it.\n    refactorHints:\n      - Extract the deepest branch into a named helper.\n      - Replace `if/else if` chains with a typed dispatch.\n      - Collapse boolean spaghetti via early returns.\n\nviolations:\n  - file: lib/parser.dart\n    id: a3f1c4e9b2d70218\n    line: 42\n    scope: Parser.parse\n    metric: cognitive-complexity\n    value: 24\n    threshold: 15\n    severity: warning\n    coverage: 0.91\n    branchCoverage: 0.78\n    snippet: |\n      …7 lines centred on line 42…\ntruncated:\n  violations: 8\n```\n\nThree signals the agent should act on:\n\n- **`id: a3f1c4e9b2d70218`** — stable across runs. If the same id reappears next iteration, the previous fix didn't actually drop the metric.\n- **`coverage: 0.91` + `branchCoverage: 0.78`** — well-tested. Refactor risk is low; go ahead.\n- **`truncated: { violations: 8 }`** — there are 8 more below the cap. Once the visible 30 are done, re-run without `--limit`.\n\n## 3. Apply (the agent edits code)\n\nThe agent either rewrites the scope or drops a dismiss directive.\n\n**Refactor case** — the agent edits `lib/parser.dart::Parser.parse` per the refactorHints:\n\n```dart\n// Before — cognitive-complexity = 24\n// After — extracted dispatch helper, cognitive-complexity = 11\n```\n\n**Dismiss case** — when the structure is load-bearing (state machine, exhaustive switch, decoder fan-out):\n\n```dart\n// dartrics:dismiss cognitive-complexity reason=\"Recursive descent parser; splitting per-token would hide the grammar\"\nToken parse(Token start) { ... }\n```\n\nOr in YAML, when the project requires `requireAuthor: true` / `requireTimestamp: true`:\n\n```yaml\n# dartrics-dismissals.yaml\nversion: 1\ndismissals:\n  - file: lib/parser.dart\n    scope: Parser.parse\n    metric: cognitive-complexity\n    reason: \"Recursive descent parser; splitting per-token would hide the grammar\"\n    by: claude-opus-4-7\n    at: \"2026-05-06T19:14:00Z\"\n```\n\nIf the agent's reason is too short or missing, the next dartrics run keeps the violation **live** and stamps it with `dismissalRejected: reason too short (need >= 20)`. The agent sees this on the next pass and amends. There's no silent \"I tried to suppress it but it didn't take\" failure mode.\n\n## 4. Verify (the agent re-reads dartrics)\n\nTwo complementary checks.\n\n**Per-scope diff:**\n\n```bash\ndartrics regression --before HEAD~1 --after HEAD --reporter ai\n```\n\nThis emits a list of `MetricChange` entries — `improved` / `regressed` / `unchanged` / `added` / `removed` — per `(scope, metric)`. The classifier uses each metric's `MetricPolarity` so \"down\" metrics like CC count as improvements when they drop. A built-in cosmetic-split heuristic also flags PRs where the agent shuffled complexity into one-line helpers without actually reducing it (`tinyHelpersAdded ≥ 3 ∧ slocDelta > 4·helpers ∧ ccReduction < 2·helpers`).\n\n**Strict pass for CI / final review:**\n\n```bash\ndartrics analyze --strict-dismiss --fatal-warnings\n```\n\n`--strict-dismiss` ignores every dismissal — both comment and YAML — so the operator (or CI) sees the raw triage list. Combined with `--fatal-warnings`, this exits non-zero if the codebase still has unsuppressed warnings, suitable as a pre-merge gate.\n\n## Troubleshooting\n\n| Symptom | Likely cause | Fix |\n| --- | --- | --- |\n| Same `id` keeps showing up | Refactor didn't actually drop the metric | Inspect `value` vs `threshold` delta; metric is still over the line |\n| `dismissalRejected: reason too short` | `requireReason: true` (default) | Rewrite the reason to ≥ `minReasonLength` chars |\n| `dismissalRejected: missing required by:` | `requireAuthor: true` in config | Add `by: <agent-id>` to the YAML entry; comment dismissals can't carry author |\n| `exit 78` | `analysis_options.yaml` `dartrics:` block invalid | stderr message names the offending key; the JSON Schema (`dartrics-config.schema.json`) catches most of these in-editor |\n| AI report empty after change | `--snapshot cache` filtered to changed files only | First run wrote the snapshot; subsequent runs need a code change or `--snapshot none` to see everything |\n| AI report missing `explain:` | No metric fired | The `explain:` block only renders when at least one metric crossed a threshold; a clean run is a healthy run |\n\n## Reference flag map\n\n| Goal | Flag | Notes |\n| --- | --- | --- |\n| Pick the AI-shaped report | `--reporter ai` | Mandatory for AI loops |\n| Filter to changed files | `--since <git-ref>` | Renames surface as the new path |\n| Filter to changed bytes (no git) | `--snapshot cache` | Default; per-file sha256 |\n| Cap output for token budget | `--limit <n>` | Applied after priority sort |\n| Skip dismissals (audit) | `--strict-dismiss` | Exposes the raw triage list |\n| Speed up resolution | `--concurrency <n>` | Defaults to host CPU count, clamped to 16 |\n| Block on warnings | `--fatal-warnings` | Combine with `--strict-dismiss` for CI |\n\n## What's outside this loop\n\n- **Cross-PR memory** — dartrics doesn't track \"this dismiss was rejected once; don't propose it again.\" Stay session-local for now.\n- **Prompt templates per agent** — Claude Code, Cursor, Codex each have their own conventions. The shell-out pattern above works in all of them.\n- **Watch mode** — the analyzer plugin (`plugins: dartrics` in `analysis_options.yaml`) covers IDE feedback. The CLI is run-on-demand by design.\n",
+      "# dartrics ai-report v1",
+      "# dartrics manual — for AI agents\n\n> **Operator's manual for AI consumers.** README describes what `dartrics` *is*; this page describes what `dartrics` *does for you* and how to drive it. If you are an AI editing Dart code with an editor-tool harness (Claude Code, Cursor, Codex, Aider, OpenHands), this is your reference.\n\n## The premise — multiple lenses on your own writing\n\nHumans read code and feel things. *\"This function is gnarly.\"* *\"This class is doing too much.\"* *\"I can't tell what scope I'm in.\"* These reactions are real signals about working-memory load, but they are not reproducible — different reviewers feel them at different thresholds, and an AI doesn't feel them at all.\n\nDecades of software-engineering research has converted those felt reactions into reproducible measurements. Each metric in `dartrics` is one such **lens**: a specific, citation-backed instrument that surfaces a specific kind of \"hard to read.\" None of the lenses is the whole picture. Putting on more than one lens, in succession, is the point.\n\nMost of that catalogue — McCabe 1976, Halstead 1977, CK 1994, Hitz & Montazeri 1995, Cognitive Complexity 2017 — never made it into the daily toolbox of working programmers. The cost of *calculating* the number, *interpreting* it, and *acting on it* was each individually expensive for a human reviewer. An AI loop absorbs all three. You compute in a second; the rationale and refactor moves are attached to the violation; the edit is yours to apply. The lenses that the literature catalogued for human reviewers are reachable to you in a way they weren't before.\n\n`dartrics` does not gate. It surfaces. Its core value is letting you, the AI, run the same battery of lenses a careful human reviewer would, then **decide** — refactor, accept, or formally dismiss with a reason. That decision step is first-class.\n\n```\n                you propose code\n                       │\n                       ▼\n       ┌──────────────────────────────┐\n       │  put on the lenses           │  ← dartrics analyze --reporter ai\n       │  (reproducible readability)  │\n       └──────────────────────────────┘\n                       │\n              for each violation:\n                       │\n       ┌───────────────┼───────────────┐\n       ▼               ▼               ▼\n  REFACTOR         DISMISS         PUNT\n  (lens shows      (lens reads     (mark unsure\n   real fix)        it but the      and surface\n                    structure is    a question)\n                    load-bearing)\n                       │\n                       ▼\n       ┌──────────────────────────────┐\n       │  verify the lens moved       │  ← dartrics regression --reporter ai\n       └──────────────────────────────┘\n```\n\n## The lens battery\n\nFor the full audit trail — selection principles, deviations from the cited definitions, off-by-default rationale, and the lenses deliberately not implemented — see [`doc/calibration.md`](calibration.md).\n\nEach entry below names: **the felt reaction** it captures, **what the lens computes**, the **default warning threshold**, and **when to refactor vs. dismiss**.\n\n### Function / method lenses\n\n| Lens | \"Hard to read\" feeling | What it measures | Default warning |\n| --- | --- | --- | --- |\n| `cyclomatic-complexity` | \"I'd have to trace too many paths to know this is correct.\" | `1 + d` decision points: `if`, `for`, `while`, `do`, `switch case`, `&&`, `\\|\\|`, `?:`, `catch`. (McCabe 1976) | 10 |\n| `cognitive-complexity` | \"It's not just branchy, it's *tangled*.\" | Sonar's B1 (control flow) + B2 (nesting penalty) + B3 (logical-op sequences). Penalises nested branches more than sequential ones. (SonarSource 2017, rev.) | 15 |\n| `number-of-parameters` | \"Too many knobs at the call site to remember by position.\" | Number of *positional* parameters (required + optional positional). (Fowler 1999) | 4 |\n| `source-lines-of-code` | \"I have to scroll.\" | Non-blank, non-comment-only body lines. | — |\n| `method-length` (off) | \"This body owns more than one idea.\" | Total source lines spanned by the body, comments included. | opt-in |\n| `halstead-volume` (off) | — | `N · log₂(η)`. Token-based program \"size\". (Halstead 1977) | opt-in |\n\n### Class lenses\n\n| Lens | \"Hard to read\" feeling | What it measures | Reference |\n| --- | --- | --- | --- |\n| `number-of-methods` | \"Too many entry points to keep in my head.\" | Members with non-empty bodies. Equivalent to WMC with uniform weight=1. | Lorenz & Kidd 1994; CK 1994 |\n| `weighted-methods-per-class` | \"The whole class is heavy, not just one method.\" | Sum of cyclomatic complexity across methods. | CK 1994 |\n| `lcom4` | \"This class is doing more than one thing.\" | Connected components in the field-share + method-call graph. Only declared methods are in the graph — mixin-applied methods don't count, so a class whose methods cohere via a mixin can show LCOM4 ≥ 2. (Hitz & Montazeri 1995) | Hitz & Montazeri 1995 |\n| `coupling-between-objects` | \"This class needs to know about the world to do its job.\" | Distinct other types referenced anywhere in the class. | CK 1994 |\n| `response-for-class` | \"Touching one method drags too many friends along.\" | `\\|methods ∪ method-names invoked from those methods\\|`. Invoked-method set is name-matched on `MethodInvocation` + constructor calls; extension tear-offs, callable-object `()` invocations, and `super.x` are intentionally not counted (the metric under-reports rather than over-reports). | CK 1994 |\n| `class-length` | \"I can't see the class on one screen.\" | Total source lines spanned by the class. \"Large class\" code smell (Beck / Fowler); threshold side via the \"Rule of 30\" (Lippert & Roock). | Beck 1996; Fowler 1999; Lippert & Roock 2006 |\n\nDIT (Depth of Inheritance Tree) and NOC (Number of Children) from CK are intentionally **not** provided. Dart's mixin + composition-over-inheritance culture keeps single-inheritance chains shallow, so they rarely produce signal.\n\n### Library / file lenses (Martin 1994)\n\n| Lens | \"Hard to read\" feeling | What it measures |\n| --- | --- | --- |\n| `efferent-coupling` (Ce) | \"This file pulls on a lot of strings.\" | Distinct project-internal + `package:` dependencies (excludes `dart:*`). |\n| `afferent-coupling` (Ca) | \"Touching this file ripples everywhere.\" | Incoming internal-import edges. |\n| `instability` (I) | \"This is a fragile hub.\" | `Ce / (Ca + Ce)`. 0 = maximally stable, 1 = maximally unstable. |\n\n## Polarity — which way is healthier\n\nEach lens declares a `polarity`:\n\n- `down` — lower is better. The default. (CC, Cognitive, params, SLOC, length, NOM, WMC, LCOM4, CBO, RFC, Ce, Ca, instability.)\n- `neutral` — neither direction is universally good; the regression diff still surfaces deltas but doesn't classify them. (Halstead Volume.)\n\nYou read this off the regression diff so you don't accidentally celebrate a metric that drifted the wrong way.\n\n## The accept / refactor / dismiss decision\n\nThis is the step that distinguishes `dartrics` from a linter. For every violation the report shows you:\n\n### Refactor when…\n\nThe metric points at a real readability problem and the structure is **decomposable without loss of intent**. Standard moves:\n\n| Lens | First moves to try |\n| --- | --- |\n| `cyclomatic-complexity` | Extract Method · Replace Conditional with Polymorphism · Guard Clauses · Replace nested ternary with named branches |\n| `cognitive-complexity` | Extract the deepest branch · Replace `if/else if` chain with typed dispatch · Collapse boolean spaghetti via early returns |\n| `number-of-parameters` | Promote positional parameters to named (`foo({required T a, …})`) — the call site reads as `foo(a: …)` and the metric drops to zero · Group related positional parameters into a record · Move method onto the type that owns most of the inputs |\n| `method-length` | Extract Method along the comment seams · Move bookkeeping to a helper |\n| `lcom4` | Split the class along the connected components. The components are usually two responsibilities pretending to be one. |\n| `coupling-between-objects` | Hide concrete types behind an interface · Move the orchestration to a coordinator class |\n| `response-for-class` | Move methods that only call out to other types onto those types · Apply Tell-Don't-Ask |\n| `instability` | Move stable types upward, depend on abstractions · Move volatile types into leaves |\n\n`dartrics rules --reporter ai` dumps the full per-metric `refactorHints` — keep that catalogue at hand or rely on auto-explain to inline it per run.\n\n### Before you dismiss — engage, don't escape\n\nThe most common failure mode in this loop is **dismiss-as-escape**: silencing a violation not because the structure is genuinely load-bearing but because the refactor looks hard enough that dismiss becomes the productive-feeling next move. The signal that you are doing this is the *shape of your dismiss reason itself* — phrases like \"the metric is technically right but…\", \"the threshold is too tight for this idiom\", or \"splitting wouldn't really help here\" are not load-bearing reasons; they are exit phrases.\n\nThree checks before you reach for dismiss:\n\n1. **Have you read the function end-to-end?** Every branch, every condition, every nested helper. If you've only read the signature and the metric value, the dismiss is premature.\n2. **Have you tried a specific refactor and rejected it on a concrete structural reason?** \"I didn't try\" is not a reason. \"I tried Extract Method on the deepest branch; the helper became a one-line passthrough that hid the per-case structure the reader needs to see\" is a reason. The second sentence names a specific move and what its specific failure was.\n3. **Would a careful human reviewer agree the structure is load-bearing?** If you suspect a reviewer would refactor, so should you.\n\nDismiss commits a `reason=\"…\"` that future readers (human and AI) will rely on. Use it when it earns its weight. When you genuinely don't know, **punt** to the operator (the PUNT branch in the loop diagram above) instead of suppressing the signal — punt is cheap and recoverable, dismiss is sticky.\n\nThere is one path that looks like dismiss but isn't: **threshold calibration**. When the same kind of violation fires across many sites on the same Dart idiom, the threshold may be wrong for the codebase, not the code. The right move there is `dartrics: { metrics: { <id>: { warning: <n> } } }` in `analysis_options.yaml` — one tracked, operator-audited decision instead of N parallel dismiss entries. Reach for calibration when the same dismiss reason would otherwise repeat 5+ times across the project.\n\n### Dismiss when…\n\nThe lens reads it correctly but the structure is **load-bearing**: a state machine the user calls into; a recursive descent parser whose grammar mirrors the function shape; an exhaustive switch over a sealed type; a decoder fan-out where every branch is a real protocol case. Splitting it would hide intent, not clarify it.\n\nA dismiss is a tracked, auditable decision, not a silent disable. You write:\n\n```dart\n// dartrics:dismiss cognitive-complexity reason=\"Recursive descent parser; splitting per-token would hide the grammar\"\nToken parse(Token start) { ... }\n```\n\nor, for projects that require author + timestamp:\n\n```yaml\n# dartrics-dismissals.yaml\nversion: 1\ndismissals:\n  - file: lib/parser.dart\n    scope: Parser.parse\n    metric: cognitive-complexity\n    reason: \"Recursive descent parser; splitting per-token would hide the grammar\"\n    by: claude-opus-4-7\n    at: \"2026-05-07T10:00:00Z\"\n```\n\nThe validator will reject reasons shorter than `minReasonLength` (default 20 chars) and stamp the violation with `dismissalRejected: <why>`. Your dismiss is **not silent**: if it didn't take, the next pass will tell you why.\n\nStale entries — dismissals that no longer match any live violation (scope renamed, function deleted, metric dropped below threshold) — appear in the report's `staleDismissals:` block, with a stderr WARNING per entry. Treat that as a cleanup candidate: the dismiss is doing nothing now, and leaving it in the file accumulates dead config. Files outside the analyzed set (filtered out by `--since` or snapshot) are not flagged as stale.\n\n### Punt when…\n\nThe lens reads it but you genuinely don't know whether the structure is load-bearing without project context the harness hasn't given you (domain rules, performance constraints, historical bug fixes baked into a function shape). Surface a specific question to the user instead of guessing.\n\n## Default relaxations — Flutter and test files\n\nTwo ergonomics defaults are on out of the box so AI loops don't waste cycles refactoring code shapes that are legitimately load-bearing:\n\n- **`flutter: true`** (default). On a class that directly extends a known widget superclass (`StatelessWidget`, `StatefulWidget`, `State`, `ConsumerWidget`, `ConsumerStatefulWidget`, `HookWidget`, `HookConsumerWidget`), the **constructor** skips `number-of-parameters` because `key:` plus a long callback list is the cultural norm. `Widget.build()` is **measured normally**. Non-Flutter packages are unaffected because no class matches.\n- **`test: true`** (default). On files under `test/` or `integration_test/` whose basename ends in `_test.dart`: function-level `method-length` / `source-lines-of-code` step aside (AAA blocks are normal); class-level `class-length` / `number-of-methods` step aside (test classes legitimately hold many `@Test` methods). Helpers like `test/helpers.dart` stay under strict thresholds because they're imported by tests rather than being tests.\n\nBoth default to on because the failure mode of \"the lens fires on a healthy Flutter widget / test method\" is far more common than the failure mode of \"the lens didn't fire when it should have.\" Flip either to `false` in `analysis_options.yaml` if you want the strict thresholds applied uniformly.\n\n## High-coverage signal — `complexityJustified`\n\nIf `--coverage <path>` is engaged (auto-detected from `coverage/lcov.info`) the report annotates each violation with `coverage` (line) and `branchCoverage` when the lcov has `BRDA:` records. CC and Cognitive violations whose scope is well-tested (branch ≥ 0.8, or line ≥ 0.95 when no branch data) get `complexityJustified: true`.\n\nWhen the flag fires, two sibling fields surface the engine's decision so you don't have to re-derive it: `complexityJustifiedBy` is `branch` or `line` (whichever rule won), and `complexityJustifiedThreshold` is the literal cutoff that rule used (`0.8` or `0.95`). Both fields are absent when `complexityJustified` is false. Reporters pass the trio through verbatim — JSON, AI / YAML, MD, SARIF.\n\n**Read this as: \"the human has already paid the price of branching with tests; refactor at your own risk.\"** AI loops should generally leave `complexityJustified` violations alone unless the metric is *catastrophically* over threshold (e.g. CC > 2× warning).\n\nThe AI reporter sorts these to the bottom so they don't compete for token budget.\n\n## The cosmetic-split anti-pattern\n\nCommon AI failure mode: split a 30-line function with CC = 14 into ten three-line helpers. CC drops to 4 in the original, but each helper is now a one-line passthrough and the total readability got worse, not better.\n\n`dartrics regression` detects this:\n\n```\ntinyHelpersAdded ≥ 3 ∧ slocDelta > 4·helpers ∧ ccReduction < 2·helpers\n```\n\nWhen the regression diff prints `looksCosmetic: true`, **revert your refactor**. Real complexity reduction either:\n\n- removes a dimension (boolean → enum, dispatch table → polymorphism), or\n- consolidates duplicated branches into one parameterised path.\n\nIt does not redistribute branches across more functions while keeping all the branching logic.\n\n## The operational protocol\n\nFor an end-to-end walkthrough with prompt examples, see [`doc/ai-loop.md`](ai-loop.md). The structured reference:\n\n| Step | Command | Notes |\n| --- | --- | --- |\n| 1. Setup | populate `dartrics:` in `analysis_options.yaml`; generate `coverage/lcov.info` | `# yaml-language-server: $schema=…` enables IDE autocomplete; `flutter test --coverage` or `dart pub run coverage:test_with_coverage` powers `complexityJustified` |\n| 2. Read | `dartrics analyze --reporter ai --since origin/main --limit 30` | `--since` filters to changed files; `--limit` caps tokens; auto-explain is always on |\n| 3. Decide | refactor / dismiss / punt per violation | See [The accept / refactor / dismiss decision](#the-accept--refactor--dismiss-decision) |\n| 4. Apply | edit code or add `// dartrics:dismiss <metric> reason=\"…\"` | `--strict-dismiss` is an audit flag, not a refactor outcome |\n| 5. Verify | `dartrics regression --before HEAD~1 --after HEAD --reporter ai` | Look for `direction: improved` and `looksCosmetic: false` |\n| 6. Pre-merge | `dartrics analyze --strict-dismiss --fatal-warnings` | Ignores dismissals; exits non-zero on any remaining warning |\n\nThe same `id` (16 hex chars) reappearing across runs means the previous fix didn't drop the metric. Refactor harder, or formalise as dismiss with a load-bearing reason — there is no third option of \"ignore it again.\"\n\n## Flag map (for reference)\n\n| Goal | Flag | Notes |\n| --- | --- | --- |\n| Pick the AI-shaped report | `--reporter ai` | Mandatory for AI loops |\n| Filter to changed files | `--since <git-ref>` | Renames surface as the new path |\n| Filter to changed bytes (no git) | `--snapshot cache` | Default; per-file sha256 |\n| Cap output for token budget | `--limit <n>` | Applied after priority sort |\n| Skip dismissals (audit) | `--strict-dismiss` | Exposes the raw triage list |\n| Speed up resolution | `--concurrency <n>` | Defaults to host CPU count, clamped to 16 |\n| Block on warnings | `--fatal-warnings` | Combine with `--strict-dismiss` for CI |\n| Inject metric catalogue once | `dartrics rules --reporter ai` | Feed once into a system prompt |\n| Verify a refactor | `dartrics regression` | Runs `git worktree` for the historical side |\n| Audit your config | `dartrics doctor` | Flags unknown metric ids and threshold mis-ordering. Read-only |\n| Delete unused public-API declarations | `dartrics unused --apply` | In-place deletion of unused top-level functions / classes / typedefs / extensions. Refuses on a dirty git tree (override `--force`). `test/` excluded by default (override `--include-tests`). Run `dart fix --apply` afterwards to clean imports |\n\n## Exit codes\n\n| Code | Meaning | What you do |\n| --- | --- | --- |\n| 0 | Clean | Continue. |\n| 1 | Violations + `--fatal-warnings` | Either refactor or dismiss with reason. |\n| 64 | Bad CLI args | Re-read your command. |\n| 65 | Bad input (e.g. `--since` ref doesn't resolve) | Surface to the user; don't guess a different ref. |\n| 70 | Internal error | Surface to the user with the stderr message; this is a bug in `dartrics`. |\n| 78 | Bad config | The stderr message names the offending key. The config schema (`schemas/dartrics-config.schema.json`) catches most of these in-editor before you run. |\n\n## What's *not* in the lens battery\n\nKnowing what `dartrics` deliberately doesn't measure is part of the contract:\n\n- **No \"code smell\" detectors.** No god-object, no feature-envy, no shotgun-surgery heuristics. Those land in noise territory at the false-positive rates `analyzer` can support.\n- **No automatic fixes.** `dartrics` measures and explains. It does not edit your code. The dismiss channel is *you* writing a comment / YAML, not the tool rewriting the source.\n- **No ML-derived weights.** Every threshold is documented and overridable. Lens output is reproducible across runs given the same source tree.\n- **No cross-PR memory.** The tool doesn't remember \"this dismiss was rejected last iteration.\" Stay session-local.\n- **No test-quality lenses.** Coverage is read in only as a complexity-justification signal. Mutation score, assertion density, etc. are out of scope.\n\n## Pointers\n\n- README — project overview and install.\n- AGENTS.md — contributor / PR conventions.\n- `doc/ai-loop.md` — narrative walkthrough of one full iteration with sample prompts.\n- `dartrics rules --reporter ai` — full rationale + refactor-hint catalogue at runtime.\n- `schemas/dartrics-config.schema.json` — IDE autocomplete + typo detection for the config block.\n- `schemas/dartrics-report.schema.json` — JSON-reporter output schema (use this if you parse the report yourself).\n- `schemas/dartrics-dismissals.schema.json` — sidecar schema for the YAML dismiss form.\n",
+      "# dartrics regression report",
+      "# dartrics regression v1",
+      "# dartrics report",
+      "# dartrics rules",
+      "# dartrics rules v1",
+      "## Changes",
+      "## Cosmetic signals",
+      "## Explanations",
+      "## Summary",
+      "## Unused Declarations",
+      "## Violations",
+      "## ⚠️ Cosmetic-split warning",
+      "$schema",
+      "&&",
+      "**Refactor hints:**",
+      "**References:**",
+      "*.dart",
+      "*/",
+      ",",
+      "-",
+      "--",
+      "--detach",
+      "--diff-filter=AMR",
+      "--force",
+      "--name-only",
+      "--porcelain",
+      "--version",
+      ".",
+      ". ",
+      "../../metrics/flutter_aware.dart",
+      "../../metrics/function/cognitive_complexity.dart",
+      "../../metrics/function/cyclomatic_complexity.dart",
+      "../../metrics/function/number_of_parameters.dart",
+      "../../metrics/metric.dart",
+      "../analyzer_runner.dart",
+      "../config/config.dart",
+      "../config/config_loader.dart",
+      "../coverage/coverage_loader.dart",
+      "../coverage/lcov_reader.dart",
+      "../dismiss/comment_parser.dart",
+      "../dismiss/dismissal.dart",
+      "../dismiss/dismissal_index.dart",
+      "../dismiss/dismissal_validator.dart",
+      "../dismiss/yaml_loader.dart",
+      "../function/cyclomatic_complexity.dart",
+      "../lint_options.dart",
+      "../metric.dart",
+      "../metrics/class/default_class_metrics.dart",
+      "../metrics/function/default_function_metrics.dart",
+      "../metrics/library/default_library_metrics.dart",
+      "../metrics/metric.dart",
+      "../metrics/metric_catalogue.dart",
+      "../metrics/metric_engine.dart",
+      "../models/analysis_report.dart",
+      "../models/regression_report.dart",
+      "../models/source_location.dart",
+      "../models/unused_declaration.dart",
+      "../regression/git_worktree.dart",
+      "../regression/regression_diff.dart",
+      "../reporters/regression_reporter.dart",
+      "../reporters/reporters.dart",
+      "../reporters/rules_reporter.dart",
+      "../unused/apply.dart",
+      "../unused/resolved_reachability.dart",
+      "../unused/unused_detector.dart",
+      ".config.dart",
+      ".dart",
+      ".dart_tool/dartrics/snapshot.json",
+      ".freezed.dart",
+      ".g.dart",
+      ".gen.dart",
+      ".gr.dart",
+      ".mocks.dart",
+      ".pb.dart",
+      ".pbenum.dart",
+      ".pbgrpc.dart",
+      ".pbjson.dart",
+      ".pbserver.dart",
+      "/",
+      "/*",
+      "//",
+      "/lib/",
+      "/lib/src/",
+      "0.6.0",
+      "1",
+      "1.0",
+      "2.1.0",
+      ":",
+      "<anonymous>",
+      "<extension>",
+      "==",
+      "@pragma:",
+      "@pragma:vm:entry-point",
+      "Afferent coupling `Cₐ` (Martin 1994) is the number of project-internal files that import this one. High `Cₐ` means the file is depended on by many others — changes here ripple broadly, so the file should be stable and well-typed.",
+      "Alfadel, M., Kobilica, A., & Hassine, J. (2017). Evaluation of Halstead and Cyclomatic Complexity Metrics in Measuring Defect Density. In 9th IEEE-GCC Conference and Exhibition (GCCCE), pp. 1–9. IEEE.",
+      "Analysis root directory.",
+      "Apply the cyclomatic-complexity refactor hints to the heaviest individual methods first.",
+      "AutoRouterConfig",
+      "BRDA:",
+      "Beck, K. (1996). Smalltalk Best Practice Patterns. Prentice Hall.",
+      "Boehm, B. W. (1981). Software Engineering Economics. Prentice Hall.",
+      "Campbell (SonarSource, 2017; rev.) introduces cognitive complexity to reflect \"how hard the control flow is to understand\" rather than \"how hard it is to test\". Three rule families add to the score: (B1) every break in linear flow adds 1, (B2) nesting-aware constructs additionally add the current nesting depth, and (B3) each chain of like logical operators adds 1. Unlike cyclomatic complexity, deeply-nested code is penalized more than flat code with the same number of branches, which is closer to a human reviewer's experience. The source is a SonarSource white paper, not peer-reviewed; predictive value beyond McCabe's CC has not been independently validated. A common starting threshold is 15 (Sonar convention).",
+      "Campbell, G. A. (2017, rev.). Cognitive Complexity: A new way of measuring understandability. SonarSource white paper.",
+      "Cap the number of violations + unused entries shown by the ai and md reporters (after the priority sort). Useful when feeding the report into an AI loop with a fixed token budget. Truncated entries are summarised in the report.",
+      "Chidamber, S. R. & Kemerer, C. F. (1994). A Metrics Suite for Object-Oriented Design. IEEE Transactions on Software Engineering, 20(6), 476-493.",
+      "Chidamber, S. R., & Kemerer, C. F. (1994). A Metrics Suite for Object Oriented Design. IEEE Transactions on Software Engineering, 20(6), 476–493.",
+      "Class length is the total number of source lines spanned by the class declaration, including its body braces, member definitions, blanks, and comments. It pairs with NOM and WMC to flag classes that are too large to read at a glance. Beck (*Smalltalk Best Practice Patterns*, 1996) and Fowler (*Refactoring*, 1999) both list \"large class\" as a primary code smell; Lippert & Roock (*Refactoring in Large Software Projects*, 2006) formalised the threshold side as the \"Rule of 30\" — a class averaging more than 30 methods (~900 LOC) is highly likely to need decomposition.",
+      "Cognitive complexity is {0}, which reaches dartrics's threshold of {1}.",
+      "Collapse stretches of doc/banner comments into a single dartdoc block above the method.",
+      "Combine `&&` / `||` chains into a single boolean variable with an explanatory name.",
+      "Compare metrics between two git states and surface the diff.",
+      "Compute code-quality metrics for a Dart package.",
+      "Connected-components cohesion (Hitz & Montazeri, *Measuring Coupling and Cohesion in Object-Oriented Systems*, 1995; widely labeled \"LCOM4\" in the secondary literature) builds an undirected graph where each method is a vertex and an edge exists when two methods share a field or one calls the other. The metric is the number of connected components: 1 means a perfectly cohesive class, anything higher hints that unrelated responsibilities are coexisting in one type. Hitz and Montazeri argue this reading is closer to a designer's intuition than the original LCOM1 score.\n\nDart deviation: only methods declared on the class itself are vertices in the graph — mixin-applied methods and inherited methods are invisible. The trade-off avoids the false positives a \"include everything that resolves on this type\" reading would create, but it does mean methods that cohere only via a mixin appear as isolated components. See `doc/calibration.md` for the full deviation rationale.",
+      "ConsumerStatefulWidget",
+      "ConsumerWidget",
+      "Counts the number of **positional** formal parameters (required + optional). Fowler (*Refactoring*, 1999) flagged long parameter lists as a code smell because the call site `foo(a, b, c, d, e)` forces the reader to recover each argument's intent by counting positions. Dart's named-parameter call site `foo(a: …, b: …)` dissolves that load: every argument carries its name on the spot, so a function with many named parameters reads cleanly regardless of count. Named parameters are therefore weight-zero. Default warning threshold is 4 — the smallest positional count where the call site loses self-documentation.",
+      "Coupling Between Objects (CBO, Chidamber & Kemerer 1994) counts the distinct other types this class references via member signatures (field/parameter/return types) and method bodies. CK call out high CBO as a signal of brittleness: every collaborator is a class whose change can break this one. A typical warning threshold is around 14.",
+      "Cyclomatic complexity is {0}, which reaches dartrics's threshold of {1}.",
+      "DA:",
+      "Dart code-quality metrics and unused public-API detection.",
+      "DataClassName",
+      "Delete every detected unused declaration from disk. Refuses to run on a dirty git tree (override with --force). Files under `test/` / `integration_test/` are excluded by default — pass --include-tests to include them. Imports left unused after deletion can be cleaned up separately with `dart fix --apply`.",
+      "Delete vestigial methods that don't touch any field — they usually belong on a static utility instead.",
+      "Detect unreachable public declarations.",
+      "DriftAccessor",
+      "DriftDatabase",
+      "Drop accidental duplication by introducing a shared helper.",
+      "Efferent coupling `Cₑ` (Martin, *OO Design Quality Metrics*, 1994) is the number of distinct libraries this file depends on, excluding the `dart:*` standard library. Files with very high `Cₑ` are sensitive to changes in many other places — they pay a cost on every refactor sweep.",
+      "Either accept the file as a leaf consumer (high `I`, OK) or as a stable contract (low `I`, also OK) — middling values are where churn lives.",
+      "Enable verbose (FINE level) logging.",
+      "Exit non-zero if any warning is reported.",
+      "Extract a coherent subset of methods into a collaborator class (\"Extract Class\", Fowler 1999).",
+      "Extract a strategy / state object so each branch lives on a small dedicated class.",
+      "Extract each connected component into its own class — that drops LCOM4 to 1 for both halves.",
+      "Extract long branches into helper functions named after their intent.",
+      "Extract repeated sub-expressions into named local variables.",
+      "Extract sequential blocks of work into helper methods named after their purpose (Fowler's \"Extract Method\").",
+      "Extract sub-steps into named helpers — each helper documents the step's intent for free.",
+      "Extract the class's second responsibility into a collaborator (\"Extract Class\").",
+      "FactoryMethod",
+      "Flatten nesting by inverting conditions and returning early.",
+      "Fowler, M. (1999). Refactoring: Improving the Design of Existing Code. Addison-Wesley.",
+      "Freezed",
+      "Function or method cognitive complexity exceeds the threshold.",
+      "Function or method cyclomatic complexity exceeds the threshold.",
+      "Git ref to compare against. When omitted, dartrics analyzes the current working tree (no worktree is created).",
+      "Git ref to use as the baseline. Defaults to HEAD~1.",
+      "Group related positional parameters into a record or a small data class so the signature carries one structured argument instead of several scalars.",
+      "HEAD~1",
+      "Halstead Volume `V = N · log₂(η)` (Halstead, *Elements of Software Science*, 1977) describes the \"amount of mental work\" needed to read a function: it grows with both program length `N` (total operators + operands) and vocabulary `η` (distinct operators + operands). Off by default — empirical work (Alfadel et al. 2017, defect-density evaluation on a Java corpus) reports a strong positive linear correlation between Halstead Volume, cyclomatic complexity, and SLOC, so emitting Volume alongside CC and SLOC produces redundant rather than orthogonal signal. Halstead Difficulty and Halstead Effort are absent because both are pure derivations of the same `(n₁, n₂, N₁, N₂)` counts and add no orthogonal signal over Volume.",
+      "Halstead, M. H. (1977). Elements of Software Science. Elsevier North-Holland.",
+      "Hide a cluster of related dependencies behind a single facade package and depend on the facade instead.",
+      "Hide collaborators behind a small, focused facade rather than exposing each one as a parameter.",
+      "Hitz, M., & Montazeri, B. (1995). Measuring Coupling and Cohesion in Object-Oriented Systems. Proc. International Symposium on Applied Corporate Computing.",
+      "HiveField",
+      "HiveType",
+      "Hoist mature subsections into a value object the class composes.",
+      "Hoist nested loops or conditionals into well-named helpers; the name carries the cognitive load.",
+      "HookConsumerWidget",
+      "HookWidget",
+      "If `Cₐ` is high, treat the file as a public contract: keep it small, well-documented, and change-averse.",
+      "Ignore every dartrics:dismiss directive (comment + YAML) for this run. Intended for CI / final review where the operator wants to see what was triaged out.",
+      "Injectable",
+      "InjectableInit",
+      "Instability `I = Cₑ / (Cₐ + Cₑ)` (Martin 1994) is a 0–1 ratio. `I = 1` means the file depends on others but nothing depends on it (maximally unstable), and `I = 0` means many files depend on this one but it depends on nothing (maximally stable). Martin's \"Stable Dependencies Principle\" says dependencies should always point towards more-stable files.",
+      "Introduce a shared abstract type so the class depends on the role rather than on every concrete collaborator.",
+      "JsonEnum",
+      "JsonSerializable",
+      "LazySingleton",
+      "Lippert, M. & Roock, S. (2006). Refactoring in Large Software Projects: Performing Complex Restructurings Successfully. Wiley. ISBN 0-470-85892-3.",
+      "List every metric with its rationale and refactor hints.",
+      "Lorenz, M. & Kidd, J. (1994). Object-Oriented Software Metrics: A Practical Guide. Prentice Hall. ISBN 0-13-179292-X.",
+      "MappableClass",
+      "MappableEnum",
+      "MappableLib",
+      "Martin, R. C. (1994). OO Design Quality Metrics: An Analysis of Dependencies. Self-published essay, August 14, 1994 (rev. June 20, 1995); cross-posted to comp.object and comp.lang.c++. Content later folded into Martin (2002), Agile Software Development: Principles, Patterns, and Practices, Ch. 28, Prentice Hall.",
+      "Maximum number of files resolved in parallel. Defaults to the host CPU count clamped to 16.",
+      "McCabe (1976) defines cyclomatic complexity as the number of linearly independent paths through a function. It is computed as `1 + d`, where `d` is the count of decision points (`if`, `for`, `while`, `do`, `case` arm, `catch`, ternary, `&&`, `||`). The value is also a lower bound on the number of test cases needed to cover every branch, which is why teams use it as a structural-cost signal. The default warning threshold of 10 follows McCabe's original recommendation that \"10 seems like a reasonable, but not magical, upper limit\".",
+      "McCabe, T. J. (1976). A Complexity Measure. IEEE Transactions on Software Engineering, SE-2(4), 308–320.",
+      "Method length is the total number of source lines spanned by the function body, including blanks and comments. Unlike `source-lines-of-code`, it answers \"how big is this thing on screen\" — a coarse readability signal that pairs with SLOC. Beck (*Smalltalk Best Practice Patterns*, 1996) advocates for methods short enough to fit on a screen, often interpreted as 50–80 lines. Off by default because method length = SLOC + blank lines + comment-only lines by definition, so SLOC alone carries the same signal plus a known offset; emitting both lenses produces redundant violations. Opt in when you specifically want the screen-real-estate reading on top of SLOC's code-only count.",
+      "Module",
+      "Move feature-specific methods onto the type that actually owns the data they touch.",
+      "Move high-CC methods that don't depend on this class's state onto the type that does.",
+      "Move methods that reach into another type out to that type (\"Move Method\").",
+      "Move outgoing dependencies that exist only to support one method into that method's file.",
+      "Move setup / teardown into the caller or a builder.",
+      "Move volatile implementation details out into a separate file with low `Cₐ` so the high-`Cₐ` file holds only stable types.",
+      "Narrow the report to specific declaration kinds. Repeat or comma-separate (e.g. --filter method,field). Valid kinds: function, method, class, field, typedef, enum, extension. `enum` targets individual enum constants; enum type declarations are filtered with `class`. Defaults to every kind. CLI value overrides any `unused: { filter: [...] }` block in analysis_options.yaml.",
+      "Narrow the unused-declaration report to specific declaration kinds (function, method, class, field, typedef, enum, extension). `enum` targets individual enum constants; enum type declarations are filtered with `class`. Repeat or comma-separate. Defaults to every kind. CLI value overrides any `unused: { filter: [...] }` block in analysis_options.yaml.",
+      "Never",
+      "Number of formal parameters exceeds the threshold.",
+      "Number of methods (NOM) counts method-shaped members declared on the class — methods, getters, setters, operators, and constructors with non-empty bodies. Abstract members and field declarations are excluded. NOM is one of the simplest size metrics for a class; large values often correlate with classes that violate the single-responsibility principle. Lorenz & Kidd (1994) include the per-class method count in their OO-size suite (catalogued as \"Average number of methods per class\"); Chidamber & Kemerer (1994) note that Weighted Methods per Class reduces to NOM when each method is weighted at 1. A typical warning threshold is 20.",
+      "Number of parameters is {0}, which reaches dartrics's threshold of {1}.",
+      "Output destination. Use \"-\" for stdout.",
+      "Output format.",
+      "Override snapshot mode (cache | baseline | none) or supply a custom file path. Beats the analysis_options.yaml setting.",
+      "Path to an lcov.info file. Coverage data is attached to every emitted violation; high-coverage CC / Cognitive violations get a `complexityJustified` tag. Defaults to coverage/lcov.info when it exists; pass `none` to disable.",
+      "Path to analysis_options.yaml.",
+      "Path to the configuration file.",
+      "Print the AI-loop walkthrough (setup / propose / apply / verify).",
+      "Print the dartrics operator's manual for AI agents.",
+      "Print the dartrics version and exit.",
+      "Promote positional parameters to named: `foo({required T a, required T b, …})`. The call site reads as `foo(a: …, b: …)` and the metric drops to zero.",
+      "Promote shared fields into a value object that both groups of methods accept as a parameter.",
+      "Promote the function to a method on the class that owns most of the inputs (Fowler's \"Move Method\").",
+      "Public declaration is never reached from any entry point.",
+      "Public-API reachability check (Periphery-style BFS over a name-based reference graph). Reports public declarations that no entry point reaches. Roots are `main`, `@pragma('vm:entry-point')`, and `lib/` exports outside `lib/src/` (when `excludeExported` is on). Private (underscore-prefixed) names are intentionally skipped — `dart analyze`'s `dead_code` lint already covers them.",
+      "Push helper logic into collaborators and call them through a narrow public method to shrink the response set visible from outside.",
+      "Re-emit a previously saved report in a different format.",
+      "Reduce vocabulary by reusing helper functions instead of duplicating literal constants and operators.",
+      "Replace boolean / enum flags in the positional list with separate, intent-named methods or a typed enum.",
+      "Replace duplicated invocation patterns with a single private helper.",
+      "Replace inline ad-hoc loops with collection combinators when the transformation is simple.",
+      "Replace large `switch`/`if-else` ladders with a lookup table or polymorphic dispatch.",
+      "Replace many small accessors with a single immutable record or data class.",
+      "Replace nested `if` chains with early-return guard clauses.",
+      "Replace recursive nested branches with table-driven dispatch when the structure is regular.",
+      "Response For a Class (RFC, Chidamber & Kemerer 1994) is the union of methods declared by the class and method names invoked from inside them. CK introduce it as a measure of the response set — the set of methods that can run in response to a message received by an object — and report it correlates with debugging and testing effort. SonarQube uses ~50 as a default alarm.\n\nDart counting rule: declared methods are taken from `MethodDeclaration` and `ConstructorDeclaration` nodes whose body is non-empty; invoked methods are simple-name matches on every `MethodInvocation` and `InstanceCreationExpression` (for constructor calls) reached from inside those bodies. This misses extension-method tear-offs, callable-object `obj()` invocations of `call()`, and `super.x` redirections — they don't lift the response-set count for now, which keeps the metric conservative (it under-reports rather than over-reports).",
+      "Restrict output to files changed since the given git ref (e.g. \"main\", \"HEAD~1\", \"origin/main\"). Resolution still uses the full project so cross-file analysis stays accurate.",
+      "Restrict the diff to the named metric ids (repeatable). Defaults to all metrics.",
+      "Riverpod",
+      "RoutePage",
+      "SF:",
+      "Singleton",
+      "Source lines of code (SLOC) counts non-blank, non-comment-only lines inside the function body. Comment-only lines and blank lines are stripped so the count tracks the actual code volume. SLOC is among the oldest size metrics (Boehm, *Software Engineering Economics*, 1981) and remains a useful first-pass \"is this method too big\" indicator. A starting threshold of 50 lines is conservative; teams often drop it to 30.",
+      "Split functions that handle multiple concerns (validation, computation, formatting) into one function per concern.",
+      "Split state-only and behaviour-only sections of the class along their natural seam.",
+      "Split the class along its natural responsibilities so each piece has a smaller response set.",
+      "Split the function along its independent responsibilities — high CC is often a hint that one body is doing two jobs.",
+      "Split the function — Halstead Volume is roughly additive across helpers so each piece becomes easier to read.",
+      "State",
+      "StatefulWidget",
+      "StatelessWidget",
+      "TableIndex",
+      "The refactor looks cosmetic: helpers added without a matching CC reduction. Consider whether the refactor improved readability or just spread the same logic across more methods.",
+      "Try flattening nested control flow or extracting helpers.",
+      "Try grouping related parameters into a class or named-parameter object.",
+      "Try splitting the function into smaller pieces or merging branches.",
+      "TypedGoRoute",
+      "TypedShellRoute",
+      "TypedStatefulShellRoute",
+      "UnusedDeclaration",
+      "Usage: dartrics report <input.json>",
+      "UseRowClass",
+      "Validate the `dartrics:` block in analysis_options.yaml.",
+      "WARNING: refactor looks cosmetic — ",
+      "Weighted Methods per Class (WMC, Chidamber & Kemerer 1994) is the sum of the cyclomatic complexity of every method-shaped member of the class. It captures both the size and the branchiness of the class in one number; high values predict higher maintenance and testing cost. CK proposed it as one of six object-oriented design metrics; SonarQube uses ~30–50 as a typical alarm range.",
+      "When combined with --apply, also delete unused declarations in files under `test/` or `integration_test/`. Without this flag the test tree is left alone.",
+      "When combined with --apply, run even on a dirty git tree. You usually want to commit or stash first so the deletions land in their own diff.",
+      "Where a stable file imports an unstable one, invert the dependency by introducing an interface in the stable side.",
+      "\\",
+      "\\\"",
+      "\\\\",
+      "^//\\s*dartrics:dismiss\\s+(\\S+)\\s+reason=\"([^\"]*)\"\\s*$",
+      "_",
+      "_test.dart",
+      "add",
+      "added",
+      "afferent-coupling",
+      "after",
+      "ai",
+      "ai-loop",
+      "ai_loop_command.dart",
+      "ai_loop_text.dart",
+      "ai_reporter.dart",
+      "analysis_options.yaml",
+      "analysis_report.dart",
+      "analyze",
+      "analyze_command.dart",
+      "analyzedFiles",
+      "apply",
+      "artifactLocation",
+      "at",
+      "auto_route",
+      "baseline",
+      "before",
+      "branch",
+      "by",
+      "cache",
+      "cbo.dart",
+      "ccReduction",
+      "changedFileCount",
+      "changes",
+      "changes:",
+      "class",
+      "class-length",
+      "class/class_metric.dart",
+      "class/default_class_metrics.dart",
+      "class_length.dart",
+      "class_metric.dart",
+      "cli/io_sinks.dart",
+      "cli/runner.dart",
+      "cognitive-complexity",
+      "cognitive_complexity.dart",
+      "column",
+      "comment",
+      "common_options.dart",
+      "complexityJustified",
+      "complexityJustifiedBy",
+      "complexityJustifiedThreshold",
+      "concurrency",
+      "config",
+      "config.dart",
+      "config/config_loader.dart",
+      "config_loader",
+      "console",
+      "console_reporter.dart",
+      "cosmetic",
+      "cosmetic signals: ",
+      "cosmetic:",
+      "coupling-between-objects",
+      "coupling.dart",
+      "coverage",
+      "coverage/lcov.info",
+      "cyclomatic-complexity",
+      "cyclomatic_complexity.dart",
+      "dart:",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:io",
+      "dart:math",
+      "dart_mappable",
+      "dartrics",
+      "dartrics unused: refusing to apply on a dirty git tree. Commit or stash first, or pass --force.",
+      "dartrics-dismissals.yaml",
+      "dartrics-snapshot.json",
+      "dartrics.dismissals.minReasonLength must be non-negative",
+      "dartrics.dismissals: at least one dismissal source must be enabled",
+      "dartrics/v1",
+      "dartrics_cognitive_complexity",
+      "dartrics_cyclomatic_complexity",
+      "dartrics_number_of_parameters",
+      "dartrics_worktree_",
+      "declaration_record.dart",
+      "defaultEnabled",
+      "defaultThreshold",
+      "diff",
+      "direction",
+      "dismissReason",
+      "dismissal.dart",
+      "dismissalRejected",
+      "dismissals",
+      "dismissed",
+      "dismissedAt",
+      "dismissedBy",
+      "dismissedFrom",
+      "doctor",
+      "doctor_command.dart",
+      "down",
+      "drift",
+      "driver",
+      "dynamic",
+      "efferent-coupling",
+      "enabled",
+      "end_of_record",
+      "entry-points",
+      "entry_points.dart",
+      "enum",
+      "error",
+      "exclude",
+      "exclude-exported",
+      "explain:",
+      "extension",
+      "factoryMethod",
+      "false",
+      "fatal-warnings",
+      "field",
+      "file",
+      "filter",
+      "flutter",
+      "flutter_aware.dart",
+      "force",
+      "freezed",
+      "fullDescription",
+      "function",
+      "function/default_function_metrics.dart",
+      "git",
+      "git_diff.dart",
+      "go_router_builder",
+      "halstead-volume",
+      "halstead.dart",
+      "hashCode",
+      "help",
+      "helpUri",
+      "hive",
+      "https://pub.dev/packages/dartrics",
+      "https://pub.dev/packages/dartrics#provided-metrics",
+      "https://pub.dev/packages/dartrics#public-api-unused-code-detection",
+      "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+      "id",
+      "ignore-annotations",
+      "improved",
+      "include-tests",
+      "informationUri",
+      "injectable",
+      "instability",
+      "integration_test",
+      "io_sinks.dart",
+      "json",
+      "json_reporter.dart",
+      "json_serializable",
+      "keep_alive_presets.dart",
+      "kind",
+      "lazySingleton",
+      "lcom4",
+      "lcom4.dart",
+      "lcov_reader.dart",
+      "level",
+      "library",
+      "library/default_library_metrics.dart",
+      "library/library_metric.dart",
+      "library_metric.dart",
+      "limit",
+      "line",
+      "locations",
+      "looksCosmetic",
+      "main",
+      "manual",
+      "manual_command.dart",
+      "manual_text.dart",
+      "markdown",
+      "md",
+      "md_reporter.dart",
+      "message",
+      "method",
+      "method-length",
+      "method_length.dart",
+      "metric",
+      "metric.dart",
+      "metric_rule_base.dart",
+      "metrics",
+      "minReasonLength",
+      "missing required `at:` field",
+      "missing required `by:` field",
+      "mode",
+      "module",
+      "name",
+      "neutral",
+      "neutralDelta",
+      "noSuchMethod",
+      "nom.dart",
+      "none",
+      "null",
+      "number-of-methods",
+      "number-of-parameters",
+      "number_of_parameters.dart",
+      "off",
+      "output",
+      "override",
+      "package:",
+      "package:analysis_server_plugin/plugin.dart",
+      "package:analysis_server_plugin/registry.dart",
+      "package:analyzer/analysis_rule/analysis_rule.dart",
+      "package:analyzer/analysis_rule/rule_context.dart",
+      "package:analyzer/analysis_rule/rule_visitor_registry.dart",
+      "package:analyzer/dart/analysis/analysis_context.dart",
+      "package:analyzer/dart/analysis/analysis_context_collection.dart",
+      "package:analyzer/dart/analysis/results.dart",
+      "package:analyzer/dart/analysis/utilities.dart",
+      "package:analyzer/dart/ast/ast.dart",
+      "package:analyzer/dart/ast/token.dart",
+      "package:analyzer/dart/ast/visitor.dart",
+      "package:analyzer/dart/element/element.dart",
+      "package:analyzer/error/error.dart",
+      "package:analyzer/source/line_info.dart",
+      "package:args/args.dart",
+      "package:args/command_runner.dart",
+      "package:crypto/crypto.dart",
+      "package:dapper/dapper.dart",
+      "package:glob/glob.dart",
+      "package:io/io.dart",
+      "package:logging/logging.dart",
+      "package:meta/meta.dart",
+      "package:path/path.dart",
+      "package:pool/pool.dart",
+      "package:yaml/yaml.dart",
+      "partialFingerprints",
+      "path",
+      "physicalLocation",
+      "polarity",
+      "pragma",
+      "properties",
+      "protected",
+      "rationale",
+      "reachability_graph.dart",
+      "reason",
+      "reason missing",
+      "refactorHints",
+      "references",
+      "reflectiveTest",
+      "region",
+      "regressed",
+      "regression",
+      "regression_command.dart",
+      "remove",
+      "removed",
+      "report",
+      "report_command.dart",
+      "reporter",
+      "reporter.dart",
+      "requireAuthor",
+      "requireReason",
+      "requireTimestamp",
+      "resolved_reachability.dart",
+      "response-for-class",
+      "results",
+      "rfc.dart",
+      "riverpod",
+      "root",
+      "ruleId",
+      "rules",
+      "rules/cognitive_complexity_rule.dart",
+      "rules/cyclomatic_complexity_rule.dart",
+      "rules/number_of_parameters_rule.dart",
+      "rules:",
+      "rules_command.dart",
+      "rules_reporter.dart",
+      "runs",
+      "runtimeType",
+      "s",
+      "sarif",
+      "sarif_reporter.dart",
+      "scope",
+      "scopeBranchCoverage",
+      "scopeCoverage",
+      "sha256",
+      "shortDescription",
+      "since",
+      "singleton",
+      "slocDelta",
+      "smallBodyThreshold",
+      "snapshot",
+      "snapshot.dart",
+      "snapshot:",
+      "snapshotMode",
+      "source",
+      "source-lines-of-code",
+      "source_lines_of_code.dart",
+      "source_location.dart",
+      "sources",
+      "src/lint/dartrics_plugin.dart",
+      "src/metrics/function/cognitive_complexity.dart",
+      "src/metrics/function/cyclomatic_complexity.dart",
+      "src/metrics/function/halstead.dart",
+      "src/metrics/function/method_length.dart",
+      "src/metrics/function/number_of_parameters.dart",
+      "src/metrics/function/source_lines_of_code.dart",
+      "src/metrics/metric.dart",
+      "src/version.dart",
+      "staleDismissals",
+      "staleDismissals:",
+      "startColumn",
+      "startLine",
+      "status",
+      "strict-dismiss",
+      "summary",
+      "summary:",
+      "tags",
+      "test",
+      "test_aware.dart",
+      "test_reflective_loader",
+      "text",
+      "threshold",
+      "tinyHelpersAdded",
+      "toString",
+      "tool",
+      "true",
+      "truncated:",
+      "type",
+      "typedef",
+      "unchanged",
+      "unfreezed",
+      "unused",
+      "unused-declaration",
+      "unused:",
+      "unused_command.dart",
+      "unused_declaration.dart",
+      "uri",
+      "v",
+      "values",
+      "verbose",
+      "version",
+      "version.dart",
+      "violations",
+      "violations:",
+      "visibleForTesting",
+      "vm:entry-point",
+      "void",
+      "warnStale",
+      "warning",
+      "warning: |",
+      "weighted-methods-per-class",
+      "wmc.dart",
+      "working tree",
+      "worktree",
+      "yaml",
+      "yamlPath",
+      "| Direction | Count |",
+      "| Severity | Count |",
+      "|-----------|-------|",
+      "|----------|-------|",
+      "||"
+    ]
+  },
+  "version": "0.6.0"
+}

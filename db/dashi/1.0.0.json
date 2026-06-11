@@ -1,0 +1,371 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "get:isWeb"
+        ],
+        "libraries": [
+          "package:dashi/src/platform/platform.dart",
+          "package:dashi/src/platform/platform_io.dart",
+          "package:dashi/src/platform/platform_stub.dart",
+          "package:dashi/src/platform/platform_web.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "HttpTransport": {
+        "fields": [],
+        "libraries": [
+          "package:dashi/dashi.dart",
+          "package:dashi/src/transport/http_transport.dart"
+        ],
+        "methods": [
+          "HttpTransport",
+          "close",
+          "send"
+        ],
+        "types": [
+          "UmamiRequest",
+          "UmamiResponse",
+          "UmamiTransport"
+        ]
+      },
+      "InMemoryQueueStore": {
+        "fields": [
+          "get:length",
+          "maxSize"
+        ],
+        "libraries": [
+          "package:dashi/dashi.dart",
+          "package:dashi/src/queue/in_memory_queue_store.dart"
+        ],
+        "methods": [
+          "InMemoryQueueStore",
+          "dispose",
+          "drain",
+          "enqueue",
+          "requeue"
+        ],
+        "types": [
+          "UmamiEnvelope",
+          "UmamiQueueStore"
+        ]
+      },
+      "LuckyTransport": {
+        "fields": [],
+        "libraries": [
+          "package:dashi/dashi.dart",
+          "package:dashi/src/transport/lucky_transport.dart"
+        ],
+        "methods": [
+          "LuckyTransport",
+          "close",
+          "send"
+        ],
+        "types": [
+          "UmamiRequest",
+          "UmamiResponse",
+          "UmamiTransport"
+        ]
+      },
+      "NoopQueueStore": {
+        "fields": [
+          "get:length"
+        ],
+        "libraries": [
+          "package:dashi/dashi.dart",
+          "package:dashi/src/queue/noop_queue_store.dart"
+        ],
+        "methods": [
+          "NoopQueueStore",
+          "dispose",
+          "drain",
+          "enqueue",
+          "requeue"
+        ],
+        "types": [
+          "UmamiEnvelope",
+          "UmamiQueueStore"
+        ]
+      },
+      "UmamiClient": {
+        "fields": [
+          "contextProvider",
+          "enabled",
+          "endpoint",
+          "eventTtl",
+          "flushChunkSize",
+          "hostname",
+          "logger",
+          "websiteId"
+        ],
+        "libraries": [
+          "package:dashi/dashi.dart",
+          "package:dashi/src/client.dart"
+        ],
+        "methods": [
+          "UmamiClient",
+          "dispose",
+          "event",
+          "flush",
+          "identify",
+          "pageView"
+        ],
+        "types": [
+          "UmamiContext",
+          "UmamiLogRecord",
+          "UmamiQueueStore",
+          "UmamiTransport"
+        ]
+      },
+      "UmamiContext": {
+        "fields": [
+          "language",
+          "screen",
+          "userAgent"
+        ],
+        "libraries": [
+          "package:dashi/dashi.dart",
+          "package:dashi/src/context.dart"
+        ],
+        "methods": [
+          "UmamiContext"
+        ],
+        "types": []
+      },
+      "UmamiEnvelope": {
+        "fields": [
+          "createdAt",
+          "data",
+          "distinctId",
+          "hostname",
+          "language",
+          "name",
+          "referrer",
+          "screen",
+          "tag",
+          "title",
+          "type",
+          "url",
+          "website"
+        ],
+        "libraries": [
+          "package:dashi/dashi.dart",
+          "package:dashi/src/envelope.dart"
+        ],
+        "methods": [
+          "UmamiEnvelope",
+          "toEnvelopeJson",
+          "toPayloadJson"
+        ],
+        "types": [
+          "UmamiPayloadType"
+        ]
+      },
+      "UmamiLogLevel": {
+        "fields": [
+          "debug",
+          "error",
+          "info",
+          "warning"
+        ],
+        "libraries": [
+          "package:dashi/dashi.dart",
+          "package:dashi/src/log.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "UmamiLogRecord": {
+        "fields": [
+          "error",
+          "level",
+          "message",
+          "stackTrace"
+        ],
+        "libraries": [
+          "package:dashi/dashi.dart",
+          "package:dashi/src/log.dart"
+        ],
+        "methods": [
+          "UmamiLogRecord"
+        ],
+        "types": [
+          "UmamiLogLevel"
+        ]
+      },
+      "UmamiPayloadType": {
+        "fields": [
+          "event",
+          "get:wireValue",
+          "identify"
+        ],
+        "libraries": [
+          "package:dashi/dashi.dart",
+          "package:dashi/src/envelope.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "UmamiQueueStore": {
+        "fields": [
+          "get:length"
+        ],
+        "libraries": [
+          "package:dashi/dashi.dart",
+          "package:dashi/src/queue/queue_store.dart"
+        ],
+        "methods": [
+          "dispose",
+          "drain",
+          "enqueue",
+          "requeue"
+        ],
+        "types": [
+          "UmamiEnvelope"
+        ]
+      },
+      "UmamiRequest": {
+        "fields": [
+          "body",
+          "cacheToken",
+          "url",
+          "userAgent"
+        ],
+        "libraries": [
+          "package:dashi/dashi.dart",
+          "package:dashi/src/envelope.dart"
+        ],
+        "methods": [
+          "UmamiRequest"
+        ],
+        "types": []
+      },
+      "UmamiResponse": {
+        "fields": [
+          "body",
+          "cacheToken",
+          "error",
+          "isSuccess",
+          "stackTrace",
+          "statusCode"
+        ],
+        "libraries": [
+          "package:dashi/dashi.dart",
+          "package:dashi/src/envelope.dart"
+        ],
+        "methods": [
+          "failure",
+          "success"
+        ],
+        "types": []
+      },
+      "UmamiTransport": {
+        "fields": [],
+        "libraries": [
+          "package:dashi/dashi.dart",
+          "package:dashi/src/transport/transport.dart"
+        ],
+        "methods": [
+          "close",
+          "send"
+        ],
+        "types": [
+          "UmamiRequest",
+          "UmamiResponse"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:17:23Z",
+  "package": "dashi",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "NoopQueueStore",
+      "UmamiContext",
+      "UmamiLogRecord",
+      "UmamiRequest",
+      "UmamiResponse"
+    ],
+    "digest": "3422dc41c9d56d7f9b3b55e92ca6b80b8e9e27c03fab90b2affceffd797536d5",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "78fe86ab3d621055e9226b0c7ae7cb77c99532557019195d834ca9c95b062849",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "../envelope.dart",
+      "../platform/platform.dart",
+      "Error while closing during dispose.",
+      "Error while flushing during dispose.",
+      "Ignored dispose: client already disposed.",
+      "No userAgent in the context on a non-web platform: requests will likely be dropped by the Umami bot filter. Provide a descriptive User-Agent (e.g. \"Dashi/1.0 (com.example.app; Android 14)\").",
+      "POST",
+      "Request accepted with HTTP 200 but dropped by the Umami bot filter (beep/boop) — check the User-Agent.",
+      "Unsupported platform: no io, no js_interop.",
+      "api",
+      "application/json",
+      "batch",
+      "beep",
+      "boop",
+      "cache",
+      "content-type",
+      "context.dart",
+      "contextProvider threw; using empty context.",
+      "dart:convert",
+      "data",
+      "details",
+      "envelope.dart",
+      "event",
+      "flush",
+      "hostname",
+      "id",
+      "identify",
+      "index",
+      "language",
+      "log.dart",
+      "name",
+      "package:dio/dio.dart",
+      "package:http/http.dart",
+      "package:lucky_dart/lucky_dart.dart",
+      "pageView",
+      "payload",
+      "platform/platform.dart",
+      "platform_io.dart",
+      "platform_stub.dart",
+      "platform_web.dart",
+      "queue/in_memory_queue_store.dart",
+      "queue/queue_store.dart",
+      "queue_store.dart",
+      "referrer",
+      "screen",
+      "send",
+      "src/client.dart",
+      "src/context.dart",
+      "src/envelope.dart",
+      "src/log.dart",
+      "src/queue/in_memory_queue_store.dart",
+      "src/queue/noop_queue_store.dart",
+      "src/queue/queue_store.dart",
+      "src/transport/http_transport.dart",
+      "src/transport/lucky_transport.dart",
+      "src/transport/transport.dart",
+      "tag",
+      "timestamp",
+      "title",
+      "transport.dart",
+      "transport/lucky_transport.dart",
+      "transport/transport.dart",
+      "type",
+      "url",
+      "user-agent",
+      "website",
+      "x-umami-cache"
+    ]
+  },
+  "version": "1.0.0"
+}
