@@ -1,0 +1,554 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LDClient": {
+        "fields": [],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart"
+        ],
+        "methods": [
+          "alias",
+          "allFlags",
+          "boolVariation",
+          "boolVariationDetail",
+          "close",
+          "doubleVariation",
+          "doubleVariationDetail",
+          "flush",
+          "getConnectionInformation",
+          "identify",
+          "intVariation",
+          "intVariationDetail",
+          "isOnline",
+          "jsonVariation",
+          "jsonVariationDetail",
+          "registerFeatureFlagListener",
+          "registerFlagsReceivedListener",
+          "setOnline",
+          "start",
+          "stringVariation",
+          "stringVariationDetail",
+          "track",
+          "unregisterFeatureFlagListener",
+          "unregisterFlagsReceivedListener"
+        ],
+        "types": [
+          "LDConfig",
+          "LDConnectionInformation",
+          "LDEvaluationDetail",
+          "LDUser",
+          "LDValue"
+        ]
+      },
+      "LDConfig": {
+        "fields": [
+          "allAttributesPrivate",
+          "autoAliasingOptOut",
+          "backgroundPollingIntervalMillis",
+          "connectionTimeoutMillis",
+          "diagnosticOptOut",
+          "diagnosticRecordingIntervalMillis",
+          "disableBackgroundUpdating",
+          "evaluationReasons",
+          "eventsCapacity",
+          "eventsFlushIntervalMillis",
+          "eventsUri",
+          "inlineUsersInEvents",
+          "mobileKey",
+          "offline",
+          "pollUri",
+          "pollingIntervalMillis",
+          "privateAttributeNames",
+          "stream",
+          "streamUri",
+          "useReport"
+        ],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LDConfigBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart"
+        ],
+        "methods": [
+          "LDConfigBuilder",
+          "build",
+          "setAllAttributesPrivate",
+          "setAutoAliasingOptOut",
+          "setBackgroundPollingIntervalMillis",
+          "setConnectionTimeoutMillis",
+          "setDiagnosticOptOut",
+          "setDiagnosticRecordingIntervalMillis",
+          "setDisableBackgroundUpdating",
+          "setEvaluationReasons",
+          "setEventsCapacity",
+          "setEventsFlushIntervalMillis",
+          "setEventsUri",
+          "setInlineUsersInEvents",
+          "setOffline",
+          "setPollUri",
+          "setPollingIntervalMillis",
+          "setPrivateAttributeNames",
+          "setStream",
+          "setStreamUri",
+          "setUseReport"
+        ],
+        "types": [
+          "LDConfig",
+          "LDConfigBuilder"
+        ]
+      },
+      "LDConnectionInformation": {
+        "fields": [
+          "connectionState",
+          "lastFailedConnection",
+          "lastFailure",
+          "lastSuccessfulConnection"
+        ],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart"
+        ],
+        "methods": [
+          "LDConnectionInformation"
+        ],
+        "types": [
+          "LDConnectionState",
+          "LDFailure"
+        ]
+      },
+      "LDConnectionState": {
+        "fields": [
+          "BACKGROUND_DISABLED",
+          "BACKGROUND_POLLING",
+          "OFFLINE",
+          "POLLING",
+          "SET_OFFLINE",
+          "SHUTDOWN",
+          "STREAMING"
+        ],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LDErrorKind": {
+        "fields": [
+          "CLIENT_NOT_READY",
+          "EXCEPTION",
+          "FLAG_NOT_FOUND",
+          "MALFORMED_FLAG",
+          "UNKNOWN",
+          "USER_NOT_SPECIFIED",
+          "WRONG_TYPE"
+        ],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LDEvaluationDetail": {
+        "fields": [
+          "reason",
+          "value",
+          "variationIndex"
+        ],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart"
+        ],
+        "methods": [
+          "LDEvaluationDetail"
+        ],
+        "types": [
+          "LDEvaluationReason"
+        ]
+      },
+      "LDEvaluationReason": {
+        "fields": [
+          "errorKind",
+          "inExperiment",
+          "kind",
+          "prerequisiteKey",
+          "ruleId",
+          "ruleIndex"
+        ],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart"
+        ],
+        "methods": [
+          "error",
+          "fallthrough",
+          "off",
+          "prerequisiteFailed",
+          "ruleMatch",
+          "targetMatch",
+          "unknown"
+        ],
+        "types": [
+          "LDErrorKind",
+          "LDEvaluationReason",
+          "LDKind"
+        ]
+      },
+      "LDFailure": {
+        "fields": [
+          "failureType",
+          "message"
+        ],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart"
+        ],
+        "methods": [
+          "LDFailure"
+        ],
+        "types": [
+          "LDFailureType"
+        ]
+      },
+      "LDFailureType": {
+        "fields": [
+          "INVALID_RESPONSE_BODY",
+          "NETWORK_FAILURE",
+          "UNEXPECTED_RESPONSE_CODE",
+          "UNEXPECTED_STREAM_ELEMENT_TYPE",
+          "UNKNOWN_ERROR"
+        ],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LDKind": {
+        "fields": [
+          "ERROR",
+          "FALLTHROUGH",
+          "OFF",
+          "PREREQUISITE_FAILED",
+          "RULE_MATCH",
+          "TARGET_MATCH",
+          "UNKNOWN"
+        ],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LDUser": {
+        "fields": [
+          "anonymous",
+          "avatar",
+          "country",
+          "custom",
+          "email",
+          "firstName",
+          "ip",
+          "key",
+          "lastName",
+          "name",
+          "privateAttributeNames",
+          "secondary"
+        ],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart"
+        ],
+        "methods": [],
+        "types": [
+          "LDValue"
+        ]
+      },
+      "LDUserBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart"
+        ],
+        "methods": [
+          "LDUserBuilder",
+          "anonymous",
+          "avatar",
+          "build",
+          "country",
+          "custom",
+          "email",
+          "firstName",
+          "ip",
+          "lastName",
+          "name",
+          "privateAvatar",
+          "privateCountry",
+          "privateCustom",
+          "privateEmail",
+          "privateFirstName",
+          "privateIp",
+          "privateLastName",
+          "privateName",
+          "privateSecondary",
+          "secondary"
+        ],
+        "types": [
+          "LDUser",
+          "LDUserBuilder",
+          "LDValue"
+        ]
+      },
+      "LDValue": {
+        "fields": [
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart",
+          "package:launchdarkly_flutter_client_sdk/ld_value.dart"
+        ],
+        "methods": [
+          "==",
+          "booleanValue",
+          "buildArray",
+          "buildObject",
+          "codecValue",
+          "doubleValue",
+          "fromCodecValue",
+          "get",
+          "getFor",
+          "getType",
+          "intValue",
+          "keys",
+          "normalize",
+          "numValue",
+          "ofBool",
+          "ofNull",
+          "ofNum",
+          "ofString",
+          "size",
+          "stringValue",
+          "values"
+        ],
+        "types": [
+          "LDValue",
+          "LDValueArrayBuilder",
+          "LDValueObjectBuilder",
+          "LDValueType"
+        ]
+      },
+      "LDValueArrayBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart",
+          "package:launchdarkly_flutter_client_sdk/ld_value.dart"
+        ],
+        "methods": [
+          "addBool",
+          "addNum",
+          "addString",
+          "addValue",
+          "build"
+        ],
+        "types": [
+          "LDValue",
+          "LDValueArrayBuilder"
+        ]
+      },
+      "LDValueObjectBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart",
+          "package:launchdarkly_flutter_client_sdk/ld_value.dart"
+        ],
+        "methods": [
+          "addBool",
+          "addNum",
+          "addString",
+          "addValue",
+          "build"
+        ],
+        "types": [
+          "LDValue",
+          "LDValueObjectBuilder"
+        ]
+      },
+      "LDValueType": {
+        "fields": [
+          "ARRAY",
+          "BOOLEAN",
+          "NULL",
+          "NUMBER",
+          "OBJECT",
+          "STRING"
+        ],
+        "libraries": [
+          "package:launchdarkly_flutter_client_sdk/launchdarkly_flutter_client_sdk.dart",
+          "package:launchdarkly_flutter_client_sdk/ld_value.dart"
+        ],
+        "methods": [],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:45:02Z",
+  "package": "launchdarkly_flutter_client_sdk",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "LDClient",
+      "LDConnectionInformation",
+      "LDEvaluationDetail",
+      "LDEvaluationReason",
+      "LDFailure",
+      "LDValue",
+      "_LDValueArray",
+      "_LDValueBool",
+      "_LDValueNull",
+      "_LDValueNumber",
+      "_LDValueObject",
+      "_LDValueString"
+    ],
+    "digest": "9f13b5ac0b7828ea60bb72d8d7e9ce5050c02bce840f34937c0577d5bb4d1119",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "3a69bfb565b4688ae71c65c1e0e8dbd3b23a3177e4fd37caa47ae20cc952db2b",
+    "method_channels": [
+      "launchdarkly_flutter_client_sdk"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "0.2.0",
+      "BACKGROUND_DISABLED",
+      "BACKGROUND_POLLING",
+      "CLIENT_NOT_READY",
+      "ERROR",
+      "EXCEPTION",
+      "FALLTHROUGH",
+      "FLAG_NOT_FOUND",
+      "FlutterClientSdk",
+      "INVALID_RESPONSE_BODY",
+      "MALFORMED_FLAG",
+      "NETWORK_FAILURE",
+      "OFF",
+      "OFFLINE",
+      "POLLING",
+      "PREREQUISITE_FAILED",
+      "RULE_MATCH",
+      "SET_OFFLINE",
+      "SHUTDOWN",
+      "STREAMING",
+      "TARGET_MATCH",
+      "UNEXPECTED_RESPONSE_CODE",
+      "UNEXPECTED_STREAM_ELEMENT_TYPE",
+      "UNKNOWN",
+      "UNKNOWN_ERROR",
+      "USER_NOT_SPECIFIED",
+      "WRONG_TYPE",
+      "alias",
+      "allAttributesPrivate",
+      "allFlags",
+      "anonymous",
+      "autoAliasingOptOut",
+      "avatar",
+      "backgroundPollingIntervalMillis",
+      "boolVariation",
+      "boolVariationDetail",
+      "close",
+      "config",
+      "connectionState",
+      "connectionTimeoutMillis",
+      "country",
+      "custom",
+      "dart:async",
+      "dart:collection",
+      "data",
+      "defaultValue",
+      "diagnosticOptOut",
+      "diagnosticRecordingIntervalMillis",
+      "disableBackgroundUpdating",
+      "doubleVariation",
+      "doubleVariationDetail",
+      "email",
+      "errorKind",
+      "evaluationReasons",
+      "eventName",
+      "eventsCapacity",
+      "eventsFlushIntervalMillis",
+      "eventsUri",
+      "failureType",
+      "firstName",
+      "flagKey",
+      "flush",
+      "getConnectionInformation",
+      "handleFlagUpdate",
+      "handleFlagsReceived",
+      "https://clientsdk.launchdarkly.com",
+      "https://clientstream.launchdarkly.com",
+      "https://events.launchdarkly.com",
+      "identify",
+      "inExperiment",
+      "inlineUsersInEvents",
+      "intVariation",
+      "intVariationDetail",
+      "ip",
+      "isOnline",
+      "jsonVariation",
+      "jsonVariationDetail",
+      "key",
+      "kind",
+      "lastFailedConnection",
+      "lastFailure",
+      "lastName",
+      "lastSuccessfulConnection",
+      "launchdarkly_flutter_client_sdk",
+      "ld_config.dart",
+      "ld_connection_information.dart",
+      "ld_evaluation_detail.dart",
+      "ld_user.dart",
+      "ld_value.dart",
+      "message",
+      "metricValue",
+      "mobileKey",
+      "name",
+      "offline",
+      "online",
+      "package:flutter/services.dart",
+      "package:quiver/collection.dart",
+      "package:quiver/core.dart",
+      "pollUri",
+      "pollingIntervalMillis",
+      "prerequisiteKey",
+      "previousUser",
+      "privateAttributeNames",
+      "reason",
+      "ruleId",
+      "ruleIndex",
+      "secondary",
+      "setOnline",
+      "start",
+      "startFlagListening",
+      "stopFlagListening",
+      "stream",
+      "streamUri",
+      "stringVariation",
+      "stringVariationDetail",
+      "track",
+      "useReport",
+      "user",
+      "value",
+      "variationIndex",
+      "wrapperName",
+      "wrapperVersion"
+    ]
+  },
+  "version": "0.2.0"
+}
