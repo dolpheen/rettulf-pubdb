@@ -1,0 +1,3683 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "defaultEventLayoutStrategy",
+          "defaultFirstDayOfWeek",
+          "defaultHeightPerMinute",
+          "defaultHorizontalPadding",
+          "defaultInitialTimeOfDay",
+          "defaultMultiDayEventLayoutStrategy",
+          "defaultNewEventDuration",
+          "defaultShowEventTiles",
+          "defaultShowMultiDayEvents",
+          "defaultTileHeight",
+          "get:isMobileDevice",
+          "kDefaultEmptyDayBehavior",
+          "kDefaultMultiDayEventPadding"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/layout_delegates/event_layout_delegate.dart",
+          "package:kalender/src/layout_delegates/multi_day_event_layout.dart",
+          "package:kalender/src/layout_delegates/multi_day_event_layout_delegate.dart",
+          "package:kalender/src/models/calendar_callbacks.dart",
+          "package:kalender/src/models/calendar_interaction.dart",
+          "package:kalender/src/models/components/components.dart",
+          "package:kalender/src/models/components/tile_components.dart",
+          "package:kalender/src/models/initial_date_selection_strategy.dart",
+          "package:kalender/src/models/mixins/drag_target_utils.dart",
+          "package:kalender/src/models/mixins/schedule_map.dart",
+          "package:kalender/src/models/view_configurations/view_configuration.dart",
+          "package:kalender/src/platform.dart",
+          "package:kalender/src/widgets/components/day_header.dart",
+          "package:kalender/src/widgets/components/day_separator.dart",
+          "package:kalender/src/widgets/components/default_tile_components.dart",
+          "package:kalender/src/widgets/components/hour_lines.dart",
+          "package:kalender/src/widgets/components/month_day_header.dart",
+          "package:kalender/src/widgets/components/month_grid.dart",
+          "package:kalender/src/widgets/components/multi_day_overlay.dart",
+          "package:kalender/src/widgets/components/multi_day_overlay_portal.dart",
+          "package:kalender/src/widgets/components/multi_day_overlay_portal_button.dart",
+          "package:kalender/src/widgets/components/schedule_date.dart",
+          "package:kalender/src/widgets/components/schedule_tile_highlight.dart",
+          "package:kalender/src/widgets/components/time_indicator.dart",
+          "package:kalender/src/widgets/components/time_line.dart",
+          "package:kalender/src/widgets/components/week_day_header.dart",
+          "package:kalender/src/widgets/components/week_number.dart"
+        ],
+        "methods": [
+          "defaultDropTargetBuilder",
+          "defaultFeedbackTileBuilder",
+          "defaultMultiDayFrameGenerator",
+          "defaultMultiDayLayoutStrategy",
+          "defaultSnapStrategy",
+          "defaultTileBuilder",
+          "defaultTileWhenDraggingBuilder",
+          "kDefaultInitialDateSelectionStrategy",
+          "kDefaultToDaily",
+          "kDefaultToMonthly",
+          "kDefaultToSchedule",
+          "kDefaultToWeekly",
+          "overlapLayoutStrategy",
+          "sideBySideLayoutStrategy"
+        ],
+        "types": [
+          "CalendarEvent",
+          "DayHeaderStyle",
+          "DaySeparatorStyle",
+          "EventLayoutDelegate",
+          "HourLinesStyle",
+          "ListItem",
+          "MonthDayHeaderStyle",
+          "MonthGridStyle",
+          "MultiDayEventLayoutDelegate",
+          "MultiDayLayoutFrame",
+          "MultiDayOverlayEventTile",
+          "MultiDayOverlayStyle",
+          "MultiDayPortalOverlayButtonStyle",
+          "OverlayBuilders",
+          "OverlayStyles",
+          "ResizeHandlePositionerWidget",
+          "ScheduleDateStyle",
+          "ScheduleTileHighlightStyle",
+          "TapDetail",
+          "TimeIndicatorStyle",
+          "TimeOfDayRange",
+          "TimelineStyle",
+          "ViewConfiguration",
+          "ViewController",
+          "WeekDayHeaderStyle",
+          "WeekNumberStyle"
+        ]
+      },
+      "CalendarBody": {
+        "fields": [
+          "calendarController",
+          "callbacks",
+          "eventsController",
+          "interaction",
+          "monthBodyConfiguration",
+          "monthTileComponents",
+          "multiDayBodyConfiguration",
+          "multiDayTileComponents",
+          "scheduleBodyConfiguration",
+          "scheduleTileComponents",
+          "snapping"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/calendar_body.dart"
+        ],
+        "methods": [
+          "CalendarBody",
+          "build"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "CalendarInteraction",
+          "CalendarSnapping",
+          "EventsController",
+          "MultiDayBodyConfiguration",
+          "MultiDayHeaderConfiguration",
+          "ScheduleBodyConfiguration",
+          "ScheduleTileComponents",
+          "TileComponents"
+        ]
+      },
+      "CalendarCallbacks": {
+        "fields": [
+          "onEventChange",
+          "onEventChanged",
+          "onEventCreate",
+          "onEventCreated",
+          "onEventTapped",
+          "onEventTappedWithDetail",
+          "onMultiDayTapped",
+          "onPageChanged",
+          "onTapped"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/calendar_callbacks.dart"
+        ],
+        "methods": [
+          "CalendarCallbacks",
+          "copyWith"
+        ],
+        "types": [
+          "CalendarCallbacks"
+        ]
+      },
+      "CalendarComponents": {
+        "fields": [
+          "monthComponentStyles",
+          "monthComponents",
+          "multiDayComponentStyles",
+          "multiDayComponents",
+          "overlayBuilders",
+          "overlayStyles",
+          "scheduleComponentStyles",
+          "scheduleComponents"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/components.dart"
+        ],
+        "methods": [
+          "CalendarComponents"
+        ],
+        "types": [
+          "MonthComponentStyles",
+          "MonthComponents",
+          "MultiDayComponentStyles",
+          "MultiDayComponents",
+          "OverlayBuilders",
+          "OverlayStyles",
+          "ScheduleComponentStyles",
+          "ScheduleComponents"
+        ]
+      },
+      "CalendarController": {
+        "fields": [
+          "get:internalFocus",
+          "get:isAttached",
+          "get:selectedEventId",
+          "get:viewController",
+          "id",
+          "initialDate",
+          "selectedEvent",
+          "visibleDateTimeRange",
+          "visibleDateTimeRangeUtc",
+          "visibleEvents"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/controllers/calendar_controller.dart"
+        ],
+        "methods": [
+          "CalendarController",
+          "animateToDate",
+          "animateToDateTime",
+          "animateToEvent",
+          "animateToNextPage",
+          "animateToPreviousPage",
+          "attach",
+          "deselectEvent",
+          "detach",
+          "isAttachedTo",
+          "jumpToDate",
+          "jumpToPage",
+          "selectEvent",
+          "toString",
+          "updateEvent"
+        ],
+        "types": [
+          "CalendarEvent",
+          "CalendarNavigationFunctions",
+          "NewEvent",
+          "ViewController"
+        ]
+      },
+      "CalendarEvent": {
+        "fields": [
+          "canModify",
+          "data",
+          "get:dateTimeRange",
+          "get:dateTimeRangeAsUtc",
+          "get:datesSpanned",
+          "get:duration",
+          "get:end",
+          "get:endAsUtc",
+          "get:id",
+          "get:isMultiDayEvent",
+          "get:start",
+          "get:startAsUtc",
+          "set:id"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/layout_delegates/event_layout_delegate.dart",
+          "package:kalender/src/models/calendar_events/calendar_event.dart"
+        ],
+        "methods": [
+          "CalendarEvent",
+          "copyWith",
+          "toString"
+        ],
+        "types": [
+          "CalendarEvent"
+        ]
+      },
+      "CalendarHeader": {
+        "fields": [
+          "calendarController",
+          "callbacks",
+          "eventsController",
+          "interaction",
+          "multiDayHeaderConfiguration",
+          "multiDayTileComponents"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/calendar_header.dart"
+        ],
+        "methods": [
+          "CalendarHeader",
+          "createState"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "CalendarHeader",
+          "CalendarInteraction",
+          "EventsController",
+          "MultiDayHeaderConfiguration",
+          "TileComponents"
+        ]
+      },
+      "CalendarInteraction": {
+        "fields": [
+          "allowEventCreation",
+          "allowRescheduling",
+          "allowResizing",
+          "createEventGesture",
+          "defaultAllowEventCreation",
+          "defaultAllowRescheduling",
+          "defaultAllowResizing",
+          "defaultCreateEventGesture",
+          "defaultMobileCreateEventGesture",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/calendar_interaction.dart"
+        ],
+        "methods": [
+          "==",
+          "CalendarInteraction",
+          "copyWith"
+        ],
+        "types": [
+          "CalendarInteraction",
+          "CreateEventGesture"
+        ]
+      },
+      "CalendarLayoutDelegate": {
+        "fields": [
+          "bodyId",
+          "headerId"
+        ],
+        "libraries": [
+          "package:kalender/src/layout_delegates/calendar_layout_delegate.dart"
+        ],
+        "methods": [
+          "CalendarLayoutDelegate",
+          "performLayout",
+          "shouldRelayout"
+        ],
+        "types": [
+          "CalendarLayoutDelegate"
+        ]
+      },
+      "CalendarNavigationFunctions": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/src/models/mixins/calendar_navigation_functions.dart"
+        ],
+        "methods": [
+          "animateToDate",
+          "animateToDateTime",
+          "animateToEvent",
+          "animateToNextPage",
+          "animateToPreviousPage",
+          "jumpToDate",
+          "jumpToPage"
+        ],
+        "types": [
+          "CalendarEvent"
+        ]
+      },
+      "CalendarProvider": {
+        "fields": [
+          "calendarController",
+          "callbacks",
+          "components",
+          "eventsController",
+          "get:viewConfiguration",
+          "get:viewController"
+        ],
+        "libraries": [
+          "package:kalender/src/models/providers/calendar_provider.dart"
+        ],
+        "methods": [
+          "CalendarProvider",
+          "calendarControllerOf",
+          "callbacksOf",
+          "eventsControllerOf",
+          "maybeOf",
+          "of",
+          "updateShouldNotify"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarComponents",
+          "CalendarController",
+          "CalendarProvider",
+          "EventsController",
+          "ViewConfiguration",
+          "ViewController"
+        ]
+      },
+      "CalendarSnapping": {
+        "fields": [
+          "defaultSnapIntervalMinutes",
+          "defaultSnapRange",
+          "defaultSnapToOtherEvents",
+          "defaultSnapToTimeIndicator",
+          "eventSnapStrategy",
+          "get:hashCode",
+          "snapIntervalMinutes",
+          "snapRange",
+          "snapToOtherEvents",
+          "snapToTimeIndicator"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/calendar_interaction.dart"
+        ],
+        "methods": [
+          "==",
+          "CalendarSnapping",
+          "copyWith"
+        ],
+        "types": [
+          "CalendarSnapping"
+        ]
+      },
+      "CalendarView": {
+        "fields": [
+          "body",
+          "calendarController",
+          "callbacks",
+          "components",
+          "eventsController",
+          "header",
+          "locale",
+          "viewConfiguration"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/calendar_view.dart"
+        ],
+        "methods": [
+          "CalendarView",
+          "createState"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarComponents",
+          "CalendarController",
+          "CalendarView",
+          "EventsController",
+          "ViewConfiguration"
+        ]
+      },
+      "ContinuousSchedulePageFunctions": {
+        "fields": [
+          "adjustedRange",
+          "numberOfPages",
+          "originalRange"
+        ],
+        "libraries": [
+          "package:kalender/src/models/view_configurations/page_navigation_functions.dart"
+        ],
+        "methods": [
+          "ContinuousSchedulePageFunctions",
+          "dateTimeRangeFromIndex",
+          "indexFromDate"
+        ],
+        "types": [
+          "PageNavigationFunctions"
+        ]
+      },
+      "ContinuousScheduleViewController": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/controllers/view_controller.dart",
+          "package:kalender/src/models/controllers/view_controllers/schedule_view_controller.dart"
+        ],
+        "methods": [
+          "ContinuousScheduleViewController",
+          "animateToDate",
+          "animateToDateTime",
+          "animateToEvent",
+          "animateToNextPage",
+          "animateToPreviousPage",
+          "jumpToDate",
+          "jumpToPage"
+        ],
+        "types": [
+          "CalendarEvent",
+          "ScheduleViewController"
+        ]
+      },
+      "Create": {
+        "fields": [
+          "controllerId"
+        ],
+        "libraries": [
+          "package:kalender/src/models/calendar_events/draggable_event.dart"
+        ],
+        "methods": [
+          "Create"
+        ],
+        "types": []
+      },
+      "CreateEventGesture": {
+        "fields": [
+          "longPress",
+          "tap"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/calendar_interaction.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CursorNavigationTrigger": {
+        "fields": [
+          "child",
+          "onTrigger",
+          "triggerDelay"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/internal_components/cursor_navigation_trigger.dart"
+        ],
+        "methods": [
+          "CursorNavigationTrigger",
+          "createState"
+        ],
+        "types": [
+          "CursorNavigationTrigger"
+        ]
+      },
+      "CustomPageFunctions": {
+        "fields": [
+          "adjustedRange",
+          "numberOfDays",
+          "numberOfPages",
+          "originalRange"
+        ],
+        "libraries": [
+          "package:kalender/src/models/view_configurations/page_navigation_functions.dart"
+        ],
+        "methods": [
+          "CustomPageFunctions",
+          "dateTimeRangeFromIndex",
+          "indexFromDate"
+        ],
+        "types": [
+          "PageNavigationFunctions"
+        ]
+      },
+      "DateMap": {
+        "fields": [
+          "get:events"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/controllers/events_controller.dart"
+        ],
+        "methods": [
+          "addNewEvent",
+          "byId",
+          "clear",
+          "eventIdsFromDateTimeRange",
+          "removeById",
+          "removeEvent",
+          "removeEvents",
+          "removeWhere",
+          "updateEvent"
+        ],
+        "types": [
+          "CalendarEvent"
+        ]
+      },
+      "DateTimeExtensions": {
+        "fields": [
+          "get:asLocal",
+          "get:asUtc",
+          "get:dayNameEnglish",
+          "get:dayRange",
+          "get:endOfDay",
+          "get:endOfMonth",
+          "get:endOfYear",
+          "get:isLeapYear",
+          "get:isToday",
+          "get:monthNameEnglish",
+          "get:monthRange",
+          "get:ordinalDate",
+          "get:startOfDay",
+          "get:startOfMonth",
+          "get:startOfYear",
+          "get:weekNumber",
+          "get:workWeekRange",
+          "get:yearRange"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/kalender_extensions.dart",
+          "package:kalender/src/extensions/date_time.dart",
+          "package:kalender/src/layout_delegates/event_layout_delegate.dart",
+          "package:kalender/src/models/view_configurations/view_configuration.dart"
+        ],
+        "methods": [
+          "addDays",
+          "customDateTimeRange",
+          "dayNameLocalized",
+          "dayNameShortLocalized",
+          "endOfWeek",
+          "isSameDay",
+          "isWithin",
+          "monthNameLocalized",
+          "monthNameShortLocalized",
+          "startOfWeek",
+          "subtractDays",
+          "weekRange"
+        ],
+        "types": []
+      },
+      "DateTimeRangeExtensions": {
+        "fields": [
+          "get:asLocal",
+          "get:asUtc",
+          "get:dominantMonthDate",
+          "get:isUtc",
+          "get:monthDifference",
+          "get:weekNumbers"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/kalender_extensions.dart",
+          "package:kalender/src/extensions/date_time_range.dart",
+          "package:kalender/src/layout_delegates/event_layout_delegate.dart",
+          "package:kalender/src/models/view_configurations/view_configuration.dart"
+        ],
+        "methods": [
+          "dateTimeRangeOnDate",
+          "dates",
+          "overlaps",
+          "shiftByDays",
+          "toLocal",
+          "toUtc"
+        ],
+        "types": []
+      },
+      "DayDetail": {
+        "fields": [
+          "date"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/calendar_callbacks.dart"
+        ],
+        "methods": [
+          "DayDetail"
+        ],
+        "types": [
+          "TapDetail"
+        ]
+      },
+      "DayDragTarget": {
+        "fields": [
+          "bodyConfiguration",
+          "bottomScrollTrigger",
+          "calendarController",
+          "callbacks",
+          "dayWidth",
+          "eventsController",
+          "heightPerMinute",
+          "leftPageTrigger",
+          "pageWidth",
+          "rightPageTrigger",
+          "scrollController",
+          "snapping",
+          "tileComponents",
+          "timeOfDayRange",
+          "topScrollTrigger",
+          "viewController",
+          "viewPortHeight"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/drag_targets/day_drag_target.dart"
+        ],
+        "methods": [
+          "DayDragTarget",
+          "createState"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "CalendarSnapping",
+          "DayDragTarget",
+          "EventsController",
+          "MultiDayBodyConfiguration",
+          "MultiDayViewController",
+          "TileComponents",
+          "TimeOfDayRange"
+        ]
+      },
+      "DayEventDraggableWidgets": {
+        "fields": [
+          "dayWidth",
+          "heightPerMinute",
+          "interaction",
+          "pageHeight",
+          "snapping",
+          "timeOfDayRange",
+          "visibleDateTimeRange"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/draggable/day_draggable.dart"
+        ],
+        "methods": [
+          "DayEventDraggableWidgets",
+          "build",
+          "calculateDateTimeRange"
+        ],
+        "types": [
+          "CalendarInteraction",
+          "CalendarSnapping",
+          "NewDraggableWidget",
+          "TimeOfDayRange"
+        ]
+      },
+      "DayEventTile": {
+        "fields": [
+          "bottomResizeDraggable",
+          "rescheduleDraggable",
+          "topResizeDraggable"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/event_tiles/day_event_tile.dart"
+        ],
+        "methods": [
+          "DayEventTile",
+          "build",
+          "getKey"
+        ],
+        "types": [
+          "EventTile"
+        ]
+      },
+      "DayEventsWidget": {
+        "fields": [
+          "callbacks",
+          "configuration",
+          "controller",
+          "dayWidth",
+          "eventsController",
+          "heightPerMinute",
+          "interaction",
+          "tileComponents",
+          "timeOfDayRange",
+          "visibleDateTimeRange"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/events_widgets/day_events_widget.dart"
+        ],
+        "methods": [
+          "DayEventsWidget",
+          "createState"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "CalendarInteraction",
+          "DayEventsWidget",
+          "EventsController",
+          "MultiDayBodyConfiguration",
+          "TileComponents",
+          "TimeOfDayRange"
+        ]
+      },
+      "DayHeader": {
+        "fields": [
+          "date",
+          "style"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/day_header.dart"
+        ],
+        "methods": [
+          "DayHeader",
+          "build",
+          "builder"
+        ],
+        "types": [
+          "DayHeader",
+          "DayHeaderStyle"
+        ]
+      },
+      "DayHeaderStyle": {
+        "fields": [
+          "numberTextStyle",
+          "stringBuilder",
+          "textStyle"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/day_header.dart"
+        ],
+        "methods": [
+          "DayHeaderStyle"
+        ],
+        "types": []
+      },
+      "DayPageFunctions": {
+        "fields": [
+          "adjustedRange",
+          "numberOfPages",
+          "originalRange"
+        ],
+        "libraries": [
+          "package:kalender/src/models/view_configurations/page_navigation_functions.dart"
+        ],
+        "methods": [
+          "DayPageFunctions",
+          "dateTimeRangeFromIndex",
+          "indexFromDate"
+        ],
+        "types": [
+          "PageNavigationFunctions"
+        ]
+      },
+      "DaySeparator": {
+        "fields": [
+          "style"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/day_separator.dart"
+        ],
+        "methods": [
+          "DaySeparator",
+          "build",
+          "builder"
+        ],
+        "types": [
+          "DaySeparator",
+          "DaySeparatorStyle"
+        ]
+      },
+      "DaySeparatorStyle": {
+        "fields": [
+          "bottomIndent",
+          "color",
+          "topIndent",
+          "width"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/day_separator.dart"
+        ],
+        "methods": [
+          "DaySeparatorStyle"
+        ],
+        "types": []
+      },
+      "DefaultDateMap": {
+        "fields": [
+          "dateIds",
+          "get:events",
+          "idEvent"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/controllers/events_controller.dart"
+        ],
+        "methods": [
+          "addNewEvent",
+          "assignId",
+          "byId",
+          "clear",
+          "eventIdsFromDateTimeRange",
+          "removeById",
+          "removeEvent",
+          "removeEvents",
+          "removeWhere",
+          "updateEvent"
+        ],
+        "types": [
+          "CalendarEvent",
+          "DateMap"
+        ]
+      },
+      "DefaultEventsController": {
+        "fields": [
+          "dateMap",
+          "get:events"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/controllers/events_controller.dart"
+        ],
+        "methods": [],
+        "types": [
+          "CalendarEvent",
+          "EventsController"
+        ]
+      },
+      "DefaultMultiDayLayoutDelegate": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/src/layout_delegates/multi_day_event_layout_delegate.dart"
+        ],
+        "methods": [
+          "DefaultMultiDayLayoutDelegate",
+          "getSize",
+          "performLayout"
+        ],
+        "types": [
+          "MultiDayEventLayoutDelegate"
+        ]
+      },
+      "DefaultTileBase": {
+        "fields": [
+          "color",
+          "height",
+          "label",
+          "width"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/components/default_tile_components.dart"
+        ],
+        "methods": [
+          "DefaultTileBase",
+          "build"
+        ],
+        "types": []
+      },
+      "DragTargetUtilities": {
+        "fields": [
+          "get:callbacks",
+          "get:context",
+          "get:controller",
+          "get:dayWidth",
+          "get:dragTargetPosition",
+          "get:dragTargetRenderBox",
+          "get:eventsController",
+          "get:multiDayDragTarget",
+          "get:visibleDates",
+          "newEvent"
+        ],
+        "libraries": [
+          "package:kalender/src/models/mixins/drag_target_utils.dart"
+        ],
+        "methods": [
+          "calculateCursorDateTime",
+          "calculateDateTimeRangeFromEnd",
+          "calculateDateTimeRangeFromStart",
+          "calculateLocalCursorPosition",
+          "createEvent",
+          "onAcceptWithDetails",
+          "onLeave",
+          "onMove",
+          "onWillAcceptWithDetails",
+          "rescheduleEvent",
+          "resizeEvent"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "CalendarEvent",
+          "EventsController",
+          "ResizeDirection"
+        ]
+      },
+      "EmptyDayBehavior": {
+        "fields": [
+          "hide",
+          "show",
+          "showToday"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/view_configurations/schedule_view_configuration.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "EmptyItem": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/src/models/mixins/schedule_map.dart"
+        ],
+        "methods": [],
+        "types": [
+          "ListItem"
+        ]
+      },
+      "EventItem": {
+        "fields": [
+          "eventId",
+          "isFirst"
+        ],
+        "libraries": [
+          "package:kalender/src/models/mixins/schedule_map.dart"
+        ],
+        "methods": [
+          "EventItem"
+        ],
+        "types": [
+          "ListItem"
+        ]
+      },
+      "EventLayoutData": {
+        "fields": [
+          "get:id",
+          "get:width",
+          "left",
+          "right",
+          "verticalLayoutData"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/layout_delegates/event_layout_delegate.dart"
+        ],
+        "methods": [
+          "EventLayoutData",
+          "overlaps"
+        ],
+        "types": [
+          "VerticalLayoutData"
+        ]
+      },
+      "EventLayoutDelegate": {
+        "fields": [
+          "date",
+          "events",
+          "heightPerMinute",
+          "minimumTileHeight",
+          "timeOfDayRange"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/layout_delegates/event_layout_delegate.dart"
+        ],
+        "methods": [
+          "EventLayoutDelegate",
+          "calculateDistanceFromStart",
+          "calculateHeight",
+          "calculateVerticalLayoutData",
+          "groupVerticalLayoutData",
+          "shouldRelayout",
+          "sortEvents",
+          "sortVerticalLayoutData"
+        ],
+        "types": [
+          "CalendarEvent",
+          "EventLayoutDelegate",
+          "HorizontalGroupData",
+          "TimeOfDayRange",
+          "VerticalLayoutData"
+        ]
+      },
+      "EventLayoutInformation": {
+        "fields": [
+          "columns",
+          "get:end",
+          "get:start",
+          "id",
+          "row"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/layout_delegates/multi_day_event_layout.dart"
+        ],
+        "methods": [
+          "EventLayoutInformation",
+          "copyWith",
+          "overlaps",
+          "preliminary",
+          "toString"
+        ],
+        "types": [
+          "EventLayoutInformation"
+        ]
+      },
+      "EventTile": {
+        "fields": [
+          "callbacks",
+          "controller",
+          "dateTimeRange",
+          "event",
+          "eventsController",
+          "get:canReschedule",
+          "get:continuesAfter",
+          "get:continuesBefore",
+          "get:dragAnchorStrategy",
+          "get:feedbackTileBuilder",
+          "get:feedbackWidgetSize",
+          "get:horizontalResizeHandle",
+          "get:localDateTimeRange",
+          "get:onEventTapped",
+          "get:onEventTappedWithDetail",
+          "get:overlayTileBuilder",
+          "get:rescheduleEvent",
+          "get:selectedEvent",
+          "get:showEnd",
+          "get:showStart",
+          "get:tileBuilder",
+          "get:tileWhenDraggingBuilder",
+          "get:verticalResizeHandle",
+          "interaction",
+          "tileComponents"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/event_tiles/event_tile.dart"
+        ],
+        "methods": [
+          "EventTile",
+          "resizeEvent",
+          "selectEvent"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "CalendarEvent",
+          "CalendarInteraction",
+          "EventsController",
+          "Reschedule",
+          "Resize",
+          "ResizeDirection",
+          "TileComponents"
+        ]
+      },
+      "EventsController": {
+        "fields": [
+          "feedbackWidgetSize",
+          "get:dateMap",
+          "get:events"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/controllers/events_controller.dart"
+        ],
+        "methods": [
+          "addEvent",
+          "addEvents",
+          "byId",
+          "clearEvents",
+          "eventsFromDateTimeRange",
+          "removeById",
+          "removeEvent",
+          "removeEvents",
+          "removeWhere",
+          "updateEvent"
+        ],
+        "types": [
+          "CalendarEvent",
+          "DateMap"
+        ]
+      },
+      "ExpandablePageView": {
+        "fields": [
+          "controller",
+          "itemBuilder",
+          "itemCount"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/internal_components/expandable_page_view.dart"
+        ],
+        "methods": [
+          "ExpandablePageView",
+          "createState"
+        ],
+        "types": [
+          "ExpandablePageView"
+        ]
+      },
+      "FreeScrollFunctions": {
+        "fields": [
+          "adjustedRange",
+          "numberOfPages",
+          "originalRange"
+        ],
+        "libraries": [
+          "package:kalender/src/models/view_configurations/page_navigation_functions.dart"
+        ],
+        "methods": [
+          "FreeScrollFunctions",
+          "dateTimeRangeFromIndex",
+          "indexFromDate"
+        ],
+        "types": [
+          "PageNavigationFunctions"
+        ]
+      },
+      "HorizontalGroupData": {
+        "fields": [
+          "bottom",
+          "top",
+          "verticalLayoutData"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/layout_delegates/event_layout_delegate.dart"
+        ],
+        "methods": [
+          "HorizontalGroupData",
+          "add",
+          "containsId",
+          "overlaps",
+          "toString"
+        ],
+        "types": [
+          "VerticalLayoutData"
+        ]
+      },
+      "HorizontalTileResizeHandlePositioner": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/resize_handle_positioner.dart"
+        ],
+        "methods": [
+          "HorizontalTileResizeHandlePositioner",
+          "build",
+          "horizontalTileResizeHandlePositionerBuilder"
+        ],
+        "types": [
+          "HorizontalTileResizeHandlePositioner",
+          "ResizeHandlePositionerWidget"
+        ]
+      },
+      "HourLines": {
+        "fields": [
+          "heightPerMinute",
+          "style",
+          "timeOfDayRange"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/hour_lines.dart"
+        ],
+        "methods": [
+          "HourLines",
+          "build",
+          "builder"
+        ],
+        "types": [
+          "HourLines",
+          "HourLinesStyle",
+          "TimeOfDayRange"
+        ]
+      },
+      "HourLinesStyle": {
+        "fields": [
+          "color",
+          "endIndent",
+          "indent",
+          "thickness"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/hour_lines.dart"
+        ],
+        "methods": [
+          "HourLinesStyle"
+        ],
+        "types": []
+      },
+      "ListItem": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/src/models/mixins/schedule_map.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LocaleProvider": {
+        "fields": [
+          "locale"
+        ],
+        "libraries": [
+          "package:kalender/src/models/providers/locale_provider.dart"
+        ],
+        "methods": [
+          "LocaleProvider",
+          "of",
+          "updateShouldNotify"
+        ],
+        "types": [
+          "LocaleProvider"
+        ]
+      },
+      "MonthBody": {
+        "fields": [
+          "calendarController",
+          "callbacks",
+          "configuration",
+          "eventsController",
+          "interaction",
+          "tileComponents"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/month/month_body.dart"
+        ],
+        "methods": [
+          "MonthBody",
+          "build"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "CalendarInteraction",
+          "EventsController",
+          "MultiDayHeaderConfiguration",
+          "TileComponents"
+        ]
+      },
+      "MonthBodyComponentStyles": {
+        "fields": [
+          "monthDayHeaderStyle",
+          "monthGridStyle",
+          "overlayStyles"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/month_styles.dart"
+        ],
+        "methods": [
+          "MonthBodyComponentStyles"
+        ],
+        "types": [
+          "MonthDayHeaderStyle",
+          "MonthGridStyle",
+          "OverlayStyles"
+        ]
+      },
+      "MonthBodyComponents": {
+        "fields": [
+          "leftTriggerBuilder",
+          "monthDayHeaderBuilder",
+          "monthGridBuilder",
+          "overlayBuilders",
+          "rightTriggerBuilder"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/month_components.dart"
+        ],
+        "methods": [
+          "MonthBodyComponents"
+        ],
+        "types": [
+          "OverlayBuilders"
+        ]
+      },
+      "MonthBodyConfiguration": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/view_configurations/month_view_configuration.dart"
+        ],
+        "methods": [
+          "MonthBodyConfiguration"
+        ],
+        "types": [
+          "MultiDayHeaderConfiguration"
+        ]
+      },
+      "MonthComponentStyles": {
+        "fields": [
+          "bodyStyles",
+          "headerStyles"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/month_styles.dart"
+        ],
+        "methods": [
+          "MonthComponentStyles"
+        ],
+        "types": [
+          "MonthBodyComponentStyles",
+          "MonthHeaderComponentStyles"
+        ]
+      },
+      "MonthComponents": {
+        "fields": [
+          "bodyComponents",
+          "headerComponents"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/month_components.dart"
+        ],
+        "methods": [
+          "MonthComponents"
+        ],
+        "types": [
+          "MonthBodyComponents",
+          "MonthHeaderComponents"
+        ]
+      },
+      "MonthDayHeader": {
+        "fields": [
+          "date",
+          "style"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/month_day_header.dart"
+        ],
+        "methods": [
+          "MonthDayHeader",
+          "build",
+          "builder"
+        ],
+        "types": [
+          "MonthDayHeader",
+          "MonthDayHeaderStyle"
+        ]
+      },
+      "MonthDayHeaderStyle": {
+        "fields": [
+          "numberTextStyle",
+          "stringBuilder",
+          "textStyle"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/month_day_header.dart"
+        ],
+        "methods": [
+          "MonthDayHeaderStyle"
+        ],
+        "types": []
+      },
+      "MonthGrid": {
+        "fields": [
+          "numberOfRows",
+          "style"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/month_grid.dart"
+        ],
+        "methods": [
+          "MonthGrid",
+          "build",
+          "builder"
+        ],
+        "types": [
+          "MonthGrid",
+          "MonthGridStyle"
+        ]
+      },
+      "MonthGridStyle": {
+        "fields": [
+          "color",
+          "thickness"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/month_grid.dart"
+        ],
+        "methods": [
+          "MonthGridStyle"
+        ],
+        "types": []
+      },
+      "MonthHeader": {
+        "fields": [
+          "calendarController"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/month/month_header.dart"
+        ],
+        "methods": [
+          "MonthHeader",
+          "build"
+        ],
+        "types": [
+          "CalendarController"
+        ]
+      },
+      "MonthHeaderComponentStyles": {
+        "fields": [
+          "weekDayHeaderStyle"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/month_styles.dart"
+        ],
+        "methods": [
+          "MonthHeaderComponentStyles"
+        ],
+        "types": [
+          "WeekDayHeaderStyle"
+        ]
+      },
+      "MonthHeaderComponents": {
+        "fields": [
+          "weekDayHeaderBuilder"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/month_components.dart"
+        ],
+        "methods": [
+          "MonthHeaderComponents"
+        ],
+        "types": []
+      },
+      "MonthItem": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/src/models/mixins/schedule_map.dart"
+        ],
+        "methods": [],
+        "types": [
+          "ListItem"
+        ]
+      },
+      "MonthPageFunctions": {
+        "fields": [
+          "adjustedRange",
+          "firstDayOfWeek",
+          "numberOfPages",
+          "numberOfRows",
+          "originalRange"
+        ],
+        "libraries": [
+          "package:kalender/src/models/view_configurations/page_navigation_functions.dart"
+        ],
+        "methods": [
+          "MonthPageFunctions",
+          "dateTimeRangeFromIndex",
+          "indexFromDate",
+          "numberOfRowsForRange"
+        ],
+        "types": [
+          "PageNavigationFunctions"
+        ]
+      },
+      "MonthViewConfiguration": {
+        "fields": [
+          "eventLayoutStrategy",
+          "firstDayOfWeek",
+          "get:hashCode",
+          "pageNavigationFunctions"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/view_configurations/month_view_configuration.dart"
+        ],
+        "methods": [
+          "==",
+          "MonthViewConfiguration",
+          "copyWith",
+          "singleMonth"
+        ],
+        "types": [
+          "MonthPageFunctions",
+          "MonthViewConfiguration",
+          "ViewConfiguration"
+        ]
+      },
+      "MonthViewController": {
+        "fields": [
+          "initialPage",
+          "numberOfPages",
+          "pageController",
+          "viewConfiguration",
+          "visibleDateTimeRange",
+          "visibleEvents"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/controllers/view_controller.dart",
+          "package:kalender/src/models/controllers/view_controllers/month_view_controller.dart"
+        ],
+        "methods": [
+          "MonthViewController",
+          "animateToDate",
+          "animateToDateTime",
+          "animateToEvent",
+          "animateToNextPage",
+          "animateToPreviousPage",
+          "dispose",
+          "jumpToDate",
+          "jumpToPage",
+          "toString"
+        ],
+        "types": [
+          "CalendarEvent",
+          "MonthViewConfiguration",
+          "ViewController"
+        ]
+      },
+      "MultiDayBody": {
+        "fields": [
+          "calendarController",
+          "callbacks",
+          "configuration",
+          "contentKey",
+          "eventsController",
+          "heightPerMinute",
+          "interaction",
+          "snapping",
+          "tileComponents"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/multi_day/multi_day_body.dart"
+        ],
+        "methods": [
+          "MultiDayBody",
+          "build"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "CalendarInteraction",
+          "CalendarSnapping",
+          "EventsController",
+          "MultiDayBodyConfiguration",
+          "TileComponents"
+        ]
+      },
+      "MultiDayBodyComponentStyles": {
+        "fields": [
+          "daySeparatorStyle",
+          "hourLinesStyle",
+          "timeIndicatorStyle",
+          "timelineStyle"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/multi_day_styles.dart"
+        ],
+        "methods": [
+          "MultiDayBodyComponentStyles"
+        ],
+        "types": [
+          "DaySeparatorStyle",
+          "HourLinesStyle",
+          "TimeIndicatorStyle",
+          "TimelineStyle"
+        ]
+      },
+      "MultiDayBodyComponents": {
+        "fields": [
+          "bottomTriggerBuilder",
+          "daySeparator",
+          "hourLines",
+          "leftTriggerBuilder",
+          "prototypeTimeLine",
+          "rightTriggerBuilder",
+          "timeIndicator",
+          "timeline",
+          "topTriggerBuilder"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/multi_day_components.dart"
+        ],
+        "methods": [
+          "MultiDayBodyComponents"
+        ],
+        "types": []
+      },
+      "MultiDayBodyConfiguration": {
+        "fields": [
+          "eventLayoutStrategy",
+          "get:hashCode",
+          "horizontalPadding",
+          "minimumTileHeight",
+          "pageScrollPhysics",
+          "pageTriggerConfiguration",
+          "scrollPhysics",
+          "scrollTriggerConfiguration",
+          "showMultiDayEvents"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/view_configurations/multi_day_view_configuration.dart"
+        ],
+        "methods": [
+          "==",
+          "MultiDayBodyConfiguration",
+          "copyWith"
+        ],
+        "types": [
+          "CalendarInteraction",
+          "CalendarSnapping",
+          "MultiDayBodyConfiguration",
+          "PageTriggerConfiguration",
+          "ScrollTriggerConfiguration"
+        ]
+      },
+      "MultiDayComponentStyles": {
+        "fields": [
+          "bodyStyles",
+          "headerStyles"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/multi_day_styles.dart"
+        ],
+        "methods": [
+          "MultiDayComponentStyles"
+        ],
+        "types": [
+          "MultiDayBodyComponentStyles",
+          "MultiDayHeaderComponentStyles"
+        ]
+      },
+      "MultiDayComponents": {
+        "fields": [
+          "bodyComponents",
+          "headerComponents"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/multi_day_components.dart"
+        ],
+        "methods": [
+          "MultiDayComponents"
+        ],
+        "types": [
+          "MultiDayBodyComponents",
+          "MultiDayHeaderComponents"
+        ]
+      },
+      "MultiDayDetail": {
+        "fields": [
+          "dateTimeRange"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/calendar_callbacks.dart"
+        ],
+        "methods": [
+          "MultiDayDetail"
+        ],
+        "types": [
+          "TapDetail"
+        ]
+      },
+      "MultiDayDragTarget": {
+        "fields": [
+          "allowSingleDayEvents",
+          "calendarController",
+          "callbacks",
+          "dayWidth",
+          "eventsController",
+          "leftPageTrigger",
+          "pageTriggerSetup",
+          "pageWidth",
+          "rightPageTrigger",
+          "tileComponents",
+          "tileHeight",
+          "visibleDateTimeRange"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/drag_targets/multi_day_drag_target.dart"
+        ],
+        "methods": [
+          "MultiDayDragTarget",
+          "createState"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "EventsController",
+          "MultiDayDragTarget",
+          "PageTriggerConfiguration",
+          "TileComponents"
+        ]
+      },
+      "MultiDayEventDraggableWidgets": {
+        "fields": [
+          "dayWidth",
+          "eventsController",
+          "interaction",
+          "visibleDateTimeRange"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/draggable/multi_day_draggable.dart"
+        ],
+        "methods": [
+          "MultiDayEventDraggableWidgets",
+          "build",
+          "calculateDateTimeRange"
+        ],
+        "types": [
+          "CalendarInteraction",
+          "EventsController",
+          "NewDraggableWidget"
+        ]
+      },
+      "MultiDayEventLayoutDelegate": {
+        "fields": [
+          "dateTimeRange",
+          "events",
+          "multiDayTileHeight",
+          "textDirection"
+        ],
+        "libraries": [
+          "package:kalender/src/layout_delegates/multi_day_event_layout_delegate.dart"
+        ],
+        "methods": [
+          "MultiDayEventLayoutDelegate",
+          "getSize",
+          "shouldRelayout"
+        ],
+        "types": [
+          "CalendarEvent",
+          "MultiDayEventLayoutDelegate"
+        ]
+      },
+      "MultiDayEventLayoutWidget": {
+        "fields": [
+          "callbacks",
+          "controller",
+          "dayWidth",
+          "eventPadding",
+          "events",
+          "eventsController",
+          "generateMultiDayLayoutFrame",
+          "interaction",
+          "maxNumberOfVerticalEvents",
+          "multiDayOverlayBuilders",
+          "multiDayOverlayStyles",
+          "showAllEvents",
+          "textDirection",
+          "tileComponents",
+          "tileHeight",
+          "visibleDateTimeRange"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/events_widgets/multi_day_events_widget.dart"
+        ],
+        "methods": [
+          "MultiDayEventLayoutWidget",
+          "createState"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "CalendarEvent",
+          "CalendarInteraction",
+          "EventsController",
+          "MultiDayEventLayoutWidget",
+          "OverlayBuilders",
+          "OverlayStyles",
+          "TileComponents"
+        ]
+      },
+      "MultiDayEventTile": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/src/widgets/event_tiles/multi_day_event_tile.dart"
+        ],
+        "methods": [
+          "MultiDayEventTile",
+          "build"
+        ],
+        "types": [
+          "EventTile"
+        ]
+      },
+      "MultiDayEventWidget": {
+        "fields": [
+          "callbacks",
+          "controller",
+          "dayWidth",
+          "eventPadding",
+          "eventsController",
+          "generateMultiDayLayoutFrame",
+          "get:visibleEventsNotifier",
+          "interaction",
+          "maxNumberOfRows",
+          "overlayBuilders",
+          "overlayStyles",
+          "showAllEvents",
+          "tileComponents",
+          "tileHeight",
+          "visibleDateTimeRange"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/events_widgets/multi_day_events_widget.dart"
+        ],
+        "methods": [
+          "MultiDayEventWidget",
+          "build"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "CalendarEvent",
+          "CalendarInteraction",
+          "EventsController",
+          "OverlayBuilders",
+          "OverlayStyles",
+          "TileComponents"
+        ]
+      },
+      "MultiDayHeader": {
+        "fields": [
+          "calendarController",
+          "callbacks",
+          "configuration",
+          "eventsController",
+          "interaction",
+          "tileComponents"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/multi_day/multi_day_header.dart"
+        ],
+        "methods": [
+          "MultiDayHeader",
+          "build"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "CalendarInteraction",
+          "EventsController",
+          "MultiDayHeaderConfiguration",
+          "TileComponents"
+        ]
+      },
+      "MultiDayHeaderComponentStyles": {
+        "fields": [
+          "dayHeaderStyle",
+          "overlayStyles",
+          "weekNumberStyle"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/multi_day_styles.dart"
+        ],
+        "methods": [
+          "MultiDayHeaderComponentStyles"
+        ],
+        "types": [
+          "DayHeaderStyle",
+          "OverlayStyles",
+          "WeekNumberStyle"
+        ]
+      },
+      "MultiDayHeaderComponents": {
+        "fields": [
+          "dayHeaderBuilder",
+          "leftTriggerBuilder",
+          "overlayBuilders",
+          "rightTriggerBuilder",
+          "weekNumberBuilder"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/multi_day_components.dart"
+        ],
+        "methods": [
+          "MultiDayHeaderComponents"
+        ],
+        "types": [
+          "OverlayBuilders"
+        ]
+      },
+      "MultiDayHeaderConfiguration": {
+        "fields": [
+          "eventLayoutStrategy",
+          "eventPadding",
+          "generateMultiDayLayoutFrame",
+          "get:hashCode",
+          "maximumNumberOfVerticalEvents",
+          "pageTriggerConfiguration",
+          "showTiles",
+          "tileHeight"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/view_configurations/multi_day_view_configuration.dart"
+        ],
+        "methods": [
+          "==",
+          "MultiDayHeaderConfiguration",
+          "copyWith"
+        ],
+        "types": [
+          "MultiDayHeaderConfiguration",
+          "PageTriggerConfiguration",
+          "ScrollTriggerConfiguration"
+        ]
+      },
+      "MultiDayHeaderWidget": {
+        "fields": [
+          "content",
+          "leading",
+          "prototypeTimelineOverride"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/internal_components/multi_day_header_layout.dart"
+        ],
+        "methods": [
+          "MultiDayHeaderWidget",
+          "build"
+        ],
+        "types": []
+      },
+      "MultiDayLayout": {
+        "fields": [
+          "dateTimeRange",
+          "layoutInfo",
+          "numberOfRows",
+          "tileHeight"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/layout_delegates/multi_day_event_layout.dart"
+        ],
+        "methods": [
+          "MultiDayLayout",
+          "getSize",
+          "performLayout",
+          "shouldRelayout"
+        ],
+        "types": [
+          "EventLayoutInformation",
+          "MultiDayLayout"
+        ]
+      },
+      "MultiDayLayoutFrame": {
+        "fields": [
+          "columnRowMap",
+          "dateTimeRange",
+          "events",
+          "layoutInfo",
+          "totalNumberOfRows"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/layout_delegates/multi_day_event_layout.dart"
+        ],
+        "methods": [
+          "MultiDayLayoutFrame",
+          "dateFromColumn",
+          "eventsForColumn",
+          "visibleEvents"
+        ],
+        "types": [
+          "CalendarEvent",
+          "EventLayoutInformation"
+        ]
+      },
+      "MultiDayOverlay": {
+        "fields": [
+          "date",
+          "defaultHeaderHeight",
+          "defaultWidth",
+          "events",
+          "getMultiDayEventLayoutRenderBox",
+          "getOverlayPortalRenderBox",
+          "overlayTileBuilder",
+          "portalController",
+          "style",
+          "tileHeight"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/multi_day_overlay.dart"
+        ],
+        "methods": [
+          "MultiDayOverlay",
+          "build",
+          "calculatePosition"
+        ],
+        "types": [
+          "CalendarEvent",
+          "MultiDayOverlayStyle"
+        ]
+      },
+      "MultiDayOverlayEventTile": {
+        "fields": [
+          "dismissOverlay"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/event_tiles/multi_day_overlay_event_tile.dart"
+        ],
+        "methods": [
+          "MultiDayOverlayEventTile",
+          "build"
+        ],
+        "types": [
+          "EventTile"
+        ]
+      },
+      "MultiDayOverlayPortal": {
+        "fields": [
+          "date",
+          "events",
+          "getMultiDayEventLayoutRenderBox",
+          "numberOfHiddenRows",
+          "overlayBuilders",
+          "overlayStyles",
+          "overlayTileBuilder",
+          "tileHeight"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/multi_day_overlay_portal.dart"
+        ],
+        "methods": [
+          "MultiDayOverlayPortal",
+          "createState"
+        ],
+        "types": [
+          "CalendarEvent",
+          "MultiDayOverlayPortal",
+          "OverlayBuilders",
+          "OverlayStyles"
+        ]
+      },
+      "MultiDayOverlayStyle": {
+        "fields": [
+          "closeIcon",
+          "dateTextStyle",
+          "dayNameBuilder",
+          "dayNameTextStyle",
+          "eventPadding",
+          "eventsPadding",
+          "headerPadding"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/multi_day_overlay.dart"
+        ],
+        "methods": [
+          "MultiDayOverlayStyle"
+        ],
+        "types": []
+      },
+      "MultiDayPortalOverlayButton": {
+        "fields": [
+          "numberOfHiddenRows",
+          "portalController",
+          "style",
+          "textKey"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/multi_day_overlay_portal_button.dart"
+        ],
+        "methods": [
+          "MultiDayPortalOverlayButton",
+          "build",
+          "multiDayPortalOverlayButtonBuilder"
+        ],
+        "types": [
+          "MultiDayPortalOverlayButton",
+          "MultiDayPortalOverlayButtonStyle"
+        ]
+      },
+      "MultiDayPortalOverlayButtonStyle": {
+        "fields": [
+          "stringBuilder",
+          "textPadding",
+          "textStyle"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/multi_day_overlay_portal_button.dart"
+        ],
+        "methods": [
+          "MultiDayPortalOverlayButtonStyle"
+        ],
+        "types": []
+      },
+      "MultiDayViewConfiguration": {
+        "fields": [
+          "firstDayOfWeek",
+          "get:hashCode",
+          "initialHeightPerMinute",
+          "initialTimeOfDay",
+          "numberOfDays",
+          "pageNavigationFunctions",
+          "timeOfDayRange",
+          "type"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/view_configurations/multi_day_view_configuration.dart"
+        ],
+        "methods": [
+          "==",
+          "MultiDayViewConfiguration",
+          "copyWith",
+          "custom",
+          "freeScroll",
+          "singleDay",
+          "toString",
+          "week",
+          "workWeek"
+        ],
+        "types": [
+          "MultiDayViewConfiguration",
+          "MultiDayViewType",
+          "PageNavigationFunctions",
+          "TimeOfDayRange",
+          "ViewConfiguration"
+        ]
+      },
+      "MultiDayViewController": {
+        "fields": [
+          "headerController",
+          "heightPerMinute",
+          "initialPage",
+          "numberOfPages",
+          "pageController",
+          "pageOffset",
+          "scrollController",
+          "viewConfiguration",
+          "visibleDateTimeRange",
+          "visibleEvents"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/controllers/view_controller.dart",
+          "package:kalender/src/models/controllers/view_controllers/multi_day_view_controller.dart"
+        ],
+        "methods": [
+          "MultiDayViewController",
+          "animateToDate",
+          "animateToDateTime",
+          "animateToEvent",
+          "animateToNextPage",
+          "animateToPreviousPage",
+          "dispose",
+          "jumpToDate",
+          "jumpToPage",
+          "pageListener",
+          "toString"
+        ],
+        "types": [
+          "CalendarEvent",
+          "MultiDayViewConfiguration",
+          "ViewController"
+        ]
+      },
+      "MultiDayViewType": {
+        "fields": [
+          "custom",
+          "freeScroll",
+          "singleDay",
+          "week",
+          "workWeek"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/view_configurations/multi_day_view_configuration.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "NewDraggableWidget": {
+        "fields": [
+          "callbacks",
+          "controller"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/draggable/new_draggable.dart"
+        ],
+        "methods": [
+          "NewDraggableWidget",
+          "calculateDateTimeRange",
+          "createNewEvent",
+          "onDragFinished"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController"
+        ]
+      },
+      "NewEvent": {
+        "fields": [
+          "get:newEvent"
+        ],
+        "libraries": [
+          "package:kalender/src/models/mixins/new_event.dart"
+        ],
+        "methods": [
+          "clearNewEvent",
+          "setNewEvent"
+        ],
+        "types": [
+          "CalendarEvent"
+        ]
+      },
+      "OverlapLayoutDelegate": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/layout_delegates/event_layout_delegate.dart"
+        ],
+        "methods": [
+          "OverlapLayoutDelegate",
+          "performLayout",
+          "sortEvents",
+          "sortVerticalLayoutData"
+        ],
+        "types": [
+          "CalendarEvent",
+          "EventLayoutDelegate",
+          "VerticalLayoutData"
+        ]
+      },
+      "OverlayBuilders": {
+        "fields": [
+          "multiDayOverlayBuilder",
+          "multiDayOverlayPortalBuilder",
+          "multiDayPortalOverlayButtonBuilder"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/components.dart"
+        ],
+        "methods": [
+          "OverlayBuilders"
+        ],
+        "types": []
+      },
+      "OverlayStyles": {
+        "fields": [
+          "multiDayOverlayStyle",
+          "multiDayPortalOverlayButtonStyle"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/components.dart"
+        ],
+        "methods": [
+          "OverlayStyles"
+        ],
+        "types": [
+          "MultiDayOverlayStyle",
+          "MultiDayPortalOverlayButtonStyle"
+        ]
+      },
+      "PageClipWidget": {
+        "fields": [
+          "child",
+          "start"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/internal_components/page_clipper.dart"
+        ],
+        "methods": [
+          "PageClipWidget",
+          "build"
+        ],
+        "types": []
+      },
+      "PageClipper": {
+        "fields": [
+          "start",
+          "textDirection"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/internal_components/page_clipper.dart"
+        ],
+        "methods": [
+          "PageClipper",
+          "getClip",
+          "shouldReclip"
+        ],
+        "types": []
+      },
+      "PageNavigationFunctions": {
+        "fields": [
+          "get:adjustedRange",
+          "get:numberOfPages",
+          "get:originalRange"
+        ],
+        "libraries": [
+          "package:kalender/src/models/view_configurations/page_navigation_functions.dart"
+        ],
+        "methods": [
+          "PageNavigationFunctions",
+          "custom",
+          "dateTimeRangeFromDate",
+          "dateTimeRangeFromIndex",
+          "freeScroll",
+          "indexFromDate",
+          "scheduleContinuous",
+          "schedulePaginated",
+          "singleDay",
+          "week",
+          "workWeek"
+        ],
+        "types": []
+      },
+      "PageTriggerConfiguration": {
+        "fields": [
+          "animationCurve",
+          "animationDuration",
+          "get:hashCode",
+          "triggerDelay"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/navigation_triggers.dart"
+        ],
+        "methods": [
+          "==",
+          "PageTriggerConfiguration",
+          "copyWith"
+        ],
+        "types": [
+          "PageTriggerConfiguration"
+        ]
+      },
+      "PaginatedSchedule": {
+        "fields": [
+          "calendarController",
+          "callbacks",
+          "components",
+          "configuration",
+          "eventsController",
+          "interaction",
+          "styles",
+          "tileComponents",
+          "viewController"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/schedule/schedule_body.dart"
+        ],
+        "methods": [
+          "PaginatedSchedule",
+          "createState"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "CalendarInteraction",
+          "EventsController",
+          "PaginatedSchedule",
+          "PaginatedScheduleViewController",
+          "ScheduleBodyConfiguration",
+          "ScheduleComponentStyles",
+          "ScheduleComponents",
+          "ScheduleTileComponents"
+        ]
+      },
+      "PaginatedSchedulePageFunctions": {
+        "fields": [
+          "adjustedRange",
+          "numberOfPages",
+          "originalRange"
+        ],
+        "libraries": [
+          "package:kalender/src/models/view_configurations/page_navigation_functions.dart"
+        ],
+        "methods": [
+          "PaginatedSchedulePageFunctions",
+          "dateTimeRangeFromIndex",
+          "indexFromDate"
+        ],
+        "types": [
+          "PageNavigationFunctions"
+        ]
+      },
+      "PaginatedScheduleViewController": {
+        "fields": [
+          "pageController"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/controllers/view_controller.dart",
+          "package:kalender/src/models/controllers/view_controllers/schedule_view_controller.dart"
+        ],
+        "methods": [
+          "PaginatedScheduleViewController",
+          "animateToDate",
+          "animateToDateTime",
+          "animateToEvent",
+          "animateToNextPage",
+          "animateToPreviousPage",
+          "jumpToDate",
+          "jumpToPage"
+        ],
+        "types": [
+          "CalendarEvent",
+          "ScheduleViewController"
+        ]
+      },
+      "PassThroughPointer": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/src/widgets/internal_components/pass_through_pointer.dart"
+        ],
+        "methods": [
+          "PassThroughPointer",
+          "createRenderObject"
+        ],
+        "types": [
+          "RenderPassThroughPointer"
+        ]
+      },
+      "PositionedTimeIndicator": {
+        "fields": [
+          "child",
+          "dayWidth",
+          "nowOverride",
+          "visibleDates"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/internal_components/positioned_timeline.dart"
+        ],
+        "methods": [
+          "PositionedTimeIndicator",
+          "createState"
+        ],
+        "types": [
+          "PositionedTimeIndicator"
+        ]
+      },
+      "PrototypeTimeline": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/time_line.dart"
+        ],
+        "methods": [
+          "PrototypeTimeline",
+          "build",
+          "prototypeBuilder"
+        ],
+        "types": [
+          "PrototypeTimeline",
+          "TimeLine",
+          "TimeOfDayRange",
+          "TimelineStyle"
+        ]
+      },
+      "RenderPassThroughPointer": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/src/widgets/internal_components/pass_through_pointer.dart"
+        ],
+        "methods": [
+          "RenderPassThroughPointer",
+          "hitTest"
+        ],
+        "types": []
+      },
+      "Reschedule": {
+        "fields": [
+          "event"
+        ],
+        "libraries": [
+          "package:kalender/src/models/calendar_events/draggable_event.dart"
+        ],
+        "methods": [
+          "Reschedule"
+        ],
+        "types": [
+          "CalendarEvent"
+        ]
+      },
+      "Resize": {
+        "fields": [
+          "direction",
+          "event",
+          "get:horizontalResize",
+          "get:verticalResize"
+        ],
+        "libraries": [
+          "package:kalender/src/models/calendar_events/draggable_event.dart"
+        ],
+        "methods": [
+          "Resize",
+          "updateDateTimeRange"
+        ],
+        "types": [
+          "CalendarEvent",
+          "Resize",
+          "ResizeDirection"
+        ]
+      },
+      "ResizeDirection": {
+        "fields": [
+          "bottom",
+          "get:horizontal",
+          "get:vertical",
+          "left",
+          "right",
+          "top"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/enumerations.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ResizeHandlePositionerWidget": {
+        "fields": [
+          "endResizeDetector",
+          "showEnd",
+          "showStart",
+          "startResizeDetector"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/resize_handle_positioner.dart"
+        ],
+        "methods": [
+          "ResizeHandlePositionerWidget"
+        ],
+        "types": []
+      },
+      "ScheduleBody": {
+        "fields": [
+          "calendarController",
+          "callbacks",
+          "configuration",
+          "eventsController",
+          "interaction",
+          "tileComponents"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/schedule/schedule_body.dart"
+        ],
+        "methods": [
+          "ScheduleBody",
+          "build"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "CalendarInteraction",
+          "EventsController",
+          "ScheduleBodyConfiguration",
+          "ScheduleTileComponents"
+        ]
+      },
+      "ScheduleBodyConfiguration": {
+        "fields": [
+          "emptyDay",
+          "get:hashCode",
+          "pageScrollPhysics",
+          "pageTriggerConfiguration",
+          "scrollPhysics",
+          "scrollTriggerConfiguration"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/view_configurations/schedule_view_configuration.dart"
+        ],
+        "methods": [
+          "==",
+          "ScheduleBodyConfiguration",
+          "copyWith"
+        ],
+        "types": [
+          "EmptyDayBehavior",
+          "PageTriggerConfiguration",
+          "ScheduleBodyConfiguration",
+          "ScrollTriggerConfiguration"
+        ]
+      },
+      "ScheduleComponentStyles": {
+        "fields": [
+          "scheduleDateStyle",
+          "scheduleTileHighlightStyle"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/schedule_styles.dart"
+        ],
+        "methods": [
+          "ScheduleComponentStyles"
+        ],
+        "types": [
+          "ScheduleDateStyle",
+          "ScheduleTileHighlightStyle"
+        ]
+      },
+      "ScheduleComponents": {
+        "fields": [
+          "leadingDateBuilder",
+          "scheduleTileHighlightBuilder"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/schedule_components.dart"
+        ],
+        "methods": [
+          "ScheduleComponents"
+        ],
+        "types": []
+      },
+      "ScheduleDate": {
+        "fields": [
+          "date",
+          "style"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/schedule_date.dart"
+        ],
+        "methods": [
+          "ScheduleDate",
+          "build",
+          "builder"
+        ],
+        "types": [
+          "ScheduleDate",
+          "ScheduleDateStyle"
+        ]
+      },
+      "ScheduleDateStyle": {
+        "fields": [
+          "numberTextStyle",
+          "stringBuilder",
+          "textStyle"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/schedule_date.dart"
+        ],
+        "methods": [
+          "ScheduleDateStyle"
+        ],
+        "types": []
+      },
+      "ScheduleDragTarget": {
+        "fields": [
+          "bottomScrollTrigger",
+          "calendarController",
+          "callbacks",
+          "constraints",
+          "eventsController",
+          "leftPageTrigger",
+          "pageTriggerConfiguration",
+          "paginated",
+          "rightPageTrigger",
+          "scrollTriggerConfiguration",
+          "topScrollTrigger",
+          "viewController"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/drag_targets/schedule_drag_target.dart"
+        ],
+        "methods": [
+          "ScheduleDragTarget",
+          "createState"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "EventsController",
+          "PageTriggerConfiguration",
+          "ScheduleDragTarget",
+          "ScheduleViewController",
+          "ScrollTriggerConfiguration"
+        ]
+      },
+      "ScheduleEventTile": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/src/widgets/event_tiles/schedule_event_tile.dart"
+        ],
+        "methods": [
+          "ScheduleEventTile",
+          "build"
+        ],
+        "types": [
+          "EventTile"
+        ]
+      },
+      "ScheduleHeader": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/schedule/schedule_header.dart"
+        ],
+        "methods": [
+          "ScheduleHeader",
+          "build"
+        ],
+        "types": []
+      },
+      "ScheduleMap": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/src/models/mixins/schedule_map.dart"
+        ],
+        "methods": [
+          "addItemForPage",
+          "clearPage",
+          "closestIndexForPage",
+          "closestMonthIndex",
+          "dateTimeFromIndexForPage",
+          "dateTimeItemIndex",
+          "indexFromDateTimeForPage",
+          "indexItem",
+          "itemCountForPage",
+          "itemIndexDateTime",
+          "monthIndexFromDateTime",
+          "monthIndices",
+          "populateMaps"
+        ],
+        "types": [
+          "ListItem"
+        ]
+      },
+      "SchedulePositionList": {
+        "fields": [
+          "calendarController",
+          "callbacks",
+          "components",
+          "configuration",
+          "currentPage",
+          "dateTimeRange",
+          "eventsController",
+          "interaction",
+          "paginated",
+          "styles",
+          "tileComponents",
+          "viewController"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/schedule/schedule_body.dart"
+        ],
+        "methods": [
+          "SchedulePositionList",
+          "createState"
+        ],
+        "types": [
+          "CalendarCallbacks",
+          "CalendarController",
+          "CalendarInteraction",
+          "EventsController",
+          "ScheduleBodyConfiguration",
+          "ScheduleComponentStyles",
+          "ScheduleComponents",
+          "SchedulePositionList",
+          "ScheduleTileComponents",
+          "ScheduleViewController"
+        ]
+      },
+      "ScheduleTileComponents": {
+        "fields": [
+          "emptyItemBuilder",
+          "get:horizontalHandlePositioner",
+          "get:horizontalResizeHandle",
+          "get:verticalHandlePositioner",
+          "get:verticalResizeHandle",
+          "monthItemBuilder"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/tile_components.dart"
+        ],
+        "methods": [
+          "ScheduleTileComponents",
+          "defaultComponents"
+        ],
+        "types": [
+          "ScheduleTileComponents",
+          "TileComponents"
+        ]
+      },
+      "ScheduleTileHighlight": {
+        "fields": [
+          "child",
+          "date",
+          "dateTimeRange",
+          "style"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/schedule_tile_highlight.dart"
+        ],
+        "methods": [
+          "ScheduleTileHighlight",
+          "build",
+          "builder"
+        ],
+        "types": [
+          "ScheduleTileHighlight",
+          "ScheduleTileHighlightStyle"
+        ]
+      },
+      "ScheduleTileHighlightStyle": {
+        "fields": [
+          "decoration"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/schedule_tile_highlight.dart"
+        ],
+        "methods": [
+          "ScheduleTileHighlightStyle"
+        ],
+        "types": []
+      },
+      "ScheduleViewConfiguration": {
+        "fields": [
+          "pageNavigationFunctions",
+          "viewType"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/view_configurations/schedule_view_configuration.dart"
+        ],
+        "methods": [
+          "ScheduleViewConfiguration",
+          "continuous",
+          "paginated"
+        ],
+        "types": [
+          "PageNavigationFunctions",
+          "ScheduleViewType",
+          "ViewConfiguration"
+        ]
+      },
+      "ScheduleViewController": {
+        "fields": [
+          "currentPage",
+          "get:hasInitialized",
+          "get:itemCount",
+          "highlightedDateTimeRange",
+          "initialDate",
+          "itemPositionsListener",
+          "itemScrollController",
+          "viewConfiguration",
+          "visibleDateTimeRange",
+          "visibleEvents"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/controllers/view_controller.dart",
+          "package:kalender/src/models/controllers/view_controllers/schedule_view_controller.dart"
+        ],
+        "methods": [
+          "ScheduleViewController",
+          "addItem",
+          "clear",
+          "closestIndex",
+          "dateTimeFromIndex",
+          "dispose",
+          "indexFromDateTime",
+          "initialScrollIndex",
+          "item"
+        ],
+        "types": [
+          "CalendarEvent",
+          "ListItem",
+          "ScheduleMap",
+          "ScheduleViewConfiguration",
+          "ViewController"
+        ]
+      },
+      "ScheduleViewType": {
+        "fields": [
+          "continuous",
+          "paginated"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/view_configurations/schedule_view_configuration.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ScrollTriggerConfiguration": {
+        "fields": [
+          "animationCurve",
+          "animationDuration",
+          "get:hashCode",
+          "scrollAmount",
+          "triggerDelay",
+          "triggerHeight"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/navigation_triggers.dart"
+        ],
+        "methods": [
+          "==",
+          "ScrollTriggerConfiguration",
+          "copyWith"
+        ],
+        "types": [
+          "ScrollTriggerConfiguration"
+        ]
+      },
+      "SideBySideLayoutDelegate": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/layout_delegates/event_layout_delegate.dart"
+        ],
+        "methods": [
+          "SideBySideLayoutDelegate",
+          "performLayout",
+          "sortEvents",
+          "sortVerticalLayoutData"
+        ],
+        "types": [
+          "CalendarEvent",
+          "EventLayoutDelegate",
+          "VerticalLayoutData"
+        ]
+      },
+      "SizeReportingWidget": {
+        "fields": [
+          "child",
+          "onSizeChange"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/internal_components/expandable_page_view.dart"
+        ],
+        "methods": [
+          "SizeReportingWidget",
+          "createState"
+        ],
+        "types": [
+          "SizeReportingWidget"
+        ]
+      },
+      "SnapPoints": {
+        "fields": [
+          "get:snapPoints"
+        ],
+        "libraries": [
+          "package:kalender/src/models/mixins/snap_points.dart"
+        ],
+        "methods": [
+          "addEventSnapPoints",
+          "addSnapPoint",
+          "clearSnapPoints",
+          "findSnapPoint",
+          "removeSnapPoint"
+        ],
+        "types": [
+          "CalendarEvent"
+        ]
+      },
+      "TapDetail": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/calendar_callbacks.dart"
+        ],
+        "methods": [
+          "TapDetail"
+        ],
+        "types": []
+      },
+      "TileComponents": {
+        "fields": [
+          "dragAnchorStrategy",
+          "dropTargetTile",
+          "feedbackTileBuilder",
+          "horizontalHandlePositioner",
+          "horizontalResizeHandle",
+          "overlayTileBuilder",
+          "tileBuilder",
+          "tileWhenDraggingBuilder",
+          "verticalHandlePositioner",
+          "verticalResizeHandle"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/components/tile_components.dart"
+        ],
+        "methods": [
+          "TileComponents",
+          "defaultComponents"
+        ],
+        "types": [
+          "TileComponents"
+        ]
+      },
+      "TimeIndicator": {
+        "fields": [
+          "heightPerMinute",
+          "style",
+          "timeOfDayRange",
+          "timelineWidth"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/time_indicator.dart"
+        ],
+        "methods": [
+          "TimeIndicator",
+          "builder",
+          "createState"
+        ],
+        "types": [
+          "TimeIndicator",
+          "TimeIndicatorStyle",
+          "TimeOfDayRange"
+        ]
+      },
+      "TimeIndicatorPositioner": {
+        "fields": [
+          "child",
+          "dayWidth",
+          "initialPage",
+          "pageWidth",
+          "viewController"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/internal_components/time_indicator_positioner.dart"
+        ],
+        "methods": [
+          "TimeIndicatorPositioner",
+          "createState"
+        ],
+        "types": [
+          "MultiDayViewController",
+          "TimeIndicatorPositioner"
+        ]
+      },
+      "TimeIndicatorStyle": {
+        "fields": [
+          "circleColor",
+          "circleSize",
+          "lineColor",
+          "thickness"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/time_indicator.dart"
+        ],
+        "methods": [
+          "TimeIndicatorStyle"
+        ],
+        "types": []
+      },
+      "TimeLine": {
+        "fields": [
+          "eventBeingDragged",
+          "heightPerMinute",
+          "style",
+          "timeOfDayRange",
+          "visibleDateTimeRange"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/time_line.dart"
+        ],
+        "methods": [
+          "TimeLine",
+          "build",
+          "builder",
+          "largestTextSize",
+          "textDirection",
+          "textPadding",
+          "textStyle"
+        ],
+        "types": [
+          "CalendarEvent",
+          "TimeLine",
+          "TimeOfDayRange",
+          "TimelineStyle"
+        ]
+      },
+      "TimeOfDayExtension": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/kalender_extensions.dart",
+          "package:kalender/src/extensions/time_of_day.dart",
+          "package:kalender/src/layout_delegates/event_layout_delegate.dart",
+          "package:kalender/src/models/view_configurations/view_configuration.dart"
+        ],
+        "methods": [
+          "toDateTime"
+        ],
+        "types": []
+      },
+      "TimeOfDayRange": {
+        "fields": [
+          "end",
+          "get:duration",
+          "get:hashCode",
+          "get:hourRanges",
+          "get:isAllDay",
+          "start"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/layout_delegates/event_layout_delegate.dart",
+          "package:kalender/src/models/time_of_day_range.dart"
+        ],
+        "methods": [
+          "==",
+          "TimeOfDayRange",
+          "allDay",
+          "forHour",
+          "fromDateTimeRange",
+          "toString"
+        ],
+        "types": [
+          "TimeOfDayRange"
+        ]
+      },
+      "TimelineSizer": {
+        "fields": [
+          "child"
+        ],
+        "libraries": [
+          "package:kalender/src/widgets/internal_components/timeline_sizer.dart"
+        ],
+        "methods": [
+          "TimelineSizer",
+          "build"
+        ],
+        "types": []
+      },
+      "TimelineStyle": {
+        "fields": [
+          "endDecoration",
+          "startDecoration",
+          "stringBuilder",
+          "textDirection",
+          "textPadding",
+          "textStyle"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/time_line.dart"
+        ],
+        "methods": [
+          "TimelineStyle"
+        ],
+        "types": []
+      },
+      "VerticalLayoutData": {
+        "fields": [
+          "bottom",
+          "get:height",
+          "id",
+          "top"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/layout_delegates/event_layout_delegate.dart"
+        ],
+        "methods": [
+          "VerticalLayoutData",
+          "overlaps",
+          "toString"
+        ],
+        "types": [
+          "VerticalLayoutData"
+        ]
+      },
+      "VerticalTileResizeHandlePositioner": {
+        "fields": [],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/resize_handle_positioner.dart"
+        ],
+        "methods": [
+          "VerticalTileResizeHandlePositioner",
+          "build",
+          "verticalTileResizeHandlePositionerBuilder"
+        ],
+        "types": [
+          "ResizeHandlePositionerWidget",
+          "VerticalTileResizeHandlePositioner"
+        ]
+      },
+      "ViewConfiguration": {
+        "fields": [
+          "get:displayRange",
+          "get:originalDisplayRange",
+          "get:pageNavigationFunctions",
+          "initialDateSelectionStrategy",
+          "name",
+          "selectedDate"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/view_configurations/view_configuration.dart"
+        ],
+        "methods": [
+          "ViewConfiguration"
+        ],
+        "types": [
+          "PageNavigationFunctions"
+        ]
+      },
+      "ViewController": {
+        "fields": [
+          "get:viewConfiguration",
+          "get:visibleDateTimeRange",
+          "get:visibleEvents"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/models/controllers/view_controller.dart"
+        ],
+        "methods": [
+          "animateToDate",
+          "animateToDateTime",
+          "animateToEvent",
+          "animateToNextPage",
+          "animateToPreviousPage",
+          "dispose",
+          "jumpToDate",
+          "jumpToPage",
+          "toString"
+        ],
+        "types": [
+          "CalendarEvent",
+          "CalendarNavigationFunctions",
+          "ViewConfiguration"
+        ]
+      },
+      "WeekDayHeader": {
+        "fields": [
+          "date",
+          "style"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/week_day_header.dart"
+        ],
+        "methods": [
+          "WeekDayHeader",
+          "build",
+          "builder"
+        ],
+        "types": [
+          "WeekDayHeader",
+          "WeekDayHeaderStyle"
+        ]
+      },
+      "WeekDayHeaderStyle": {
+        "fields": [
+          "padding",
+          "stringBuilder",
+          "textStyle"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/week_day_header.dart"
+        ],
+        "methods": [
+          "WeekDayHeaderStyle"
+        ],
+        "types": []
+      },
+      "WeekNumber": {
+        "fields": [
+          "visibleDateTimeRange",
+          "weekNumberStyle"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/week_number.dart"
+        ],
+        "methods": [
+          "WeekNumber",
+          "build",
+          "builder"
+        ],
+        "types": [
+          "WeekNumber",
+          "WeekNumberStyle"
+        ]
+      },
+      "WeekNumberStyle": {
+        "fields": [
+          "padding",
+          "textStyle",
+          "tooltip",
+          "visualDensity"
+        ],
+        "libraries": [
+          "package:kalender/kalender.dart",
+          "package:kalender/src/widgets/components/week_number.dart"
+        ],
+        "methods": [
+          "WeekNumberStyle"
+        ],
+        "types": []
+      },
+      "WeekPageFunctions": {
+        "fields": [
+          "adjustedRange",
+          "firstDayOfWeek",
+          "numberOfPages",
+          "originalRange"
+        ],
+        "libraries": [
+          "package:kalender/src/models/view_configurations/page_navigation_functions.dart"
+        ],
+        "methods": [
+          "WeekPageFunctions",
+          "dateTimeRangeFromIndex",
+          "indexFromDate"
+        ],
+        "types": [
+          "PageNavigationFunctions"
+        ]
+      },
+      "WorkWeekPageFunctions": {
+        "fields": [
+          "adjustedRange",
+          "numberOfPages",
+          "originalRange"
+        ],
+        "libraries": [
+          "package:kalender/src/models/view_configurations/page_navigation_functions.dart"
+        ],
+        "methods": [
+          "WorkWeekPageFunctions",
+          "dateTimeRangeFromIndex",
+          "indexFromDate"
+        ],
+        "types": [
+          "PageNavigationFunctions"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:44:38Z",
+  "package": "kalender",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "CalendarBody",
+      "CalendarCallbacks",
+      "CalendarHeader",
+      "CalendarProvider",
+      "CalendarSnapping",
+      "CalendarView",
+      "CursorNavigationTrigger",
+      "DayDetail",
+      "DayDragTarget",
+      "DayEventDraggableWidgets",
+      "DayEventTile",
+      "DayEventsWidget",
+      "DayHeader",
+      "DayHeaderStyle",
+      "DaySeparator",
+      "DaySeparatorStyle",
+      "DefaultTileBase",
+      "EventTile",
+      "ExpandablePageView",
+      "HorizontalTileResizeHandlePositioner",
+      "HourLines",
+      "HourLinesStyle",
+      "LocaleProvider",
+      "MonthBody",
+      "MonthBodyComponentStyles",
+      "MonthBodyComponents",
+      "MonthDayHeader",
+      "MonthDayHeaderStyle",
+      "MonthGrid",
+      "MonthGridStyle",
+      "MonthHeader",
+      "MonthHeaderComponentStyles",
+      "MonthHeaderComponents",
+      "MultiDayBody",
+      "MultiDayBodyComponentStyles",
+      "MultiDayBodyComponents",
+      "MultiDayDetail",
+      "MultiDayDragTarget",
+      "MultiDayEventDraggableWidgets",
+      "MultiDayEventLayoutWidget",
+      "MultiDayEventTile",
+      "MultiDayEventWidget",
+      "MultiDayHeader",
+      "MultiDayHeaderComponentStyles",
+      "MultiDayHeaderComponents",
+      "MultiDayHeaderWidget",
+      "MultiDayLayoutFrame",
+      "MultiDayOverlay",
+      "MultiDayOverlayEventTile",
+      "MultiDayOverlayPortal",
+      "MultiDayOverlayStyle",
+      "MultiDayPortalOverlayButton",
+      "MultiDayPortalOverlayButtonStyle",
+      "NewDraggableWidget",
+      "PageClipWidget",
+      "PageClipper",
+      "PaginatedSchedule",
+      "PassThroughPointer",
+      "PositionedTimeIndicator",
+      "PrototypeTimeline",
+      "ResizeHandlePositionerWidget",
+      "ScheduleBody",
+      "ScheduleComponentStyles",
+      "ScheduleDate",
+      "ScheduleDateStyle",
+      "ScheduleDragTarget",
+      "ScheduleEventTile",
+      "ScheduleHeader",
+      "SchedulePositionList",
+      "ScheduleTileComponents",
+      "ScheduleTileHighlight",
+      "ScheduleTileHighlightStyle",
+      "SizeReportingWidget",
+      "TapDetail",
+      "TileComponents",
+      "TimeIndicator",
+      "TimeIndicatorPositioner",
+      "TimeIndicatorStyle",
+      "TimeLine",
+      "TimelineSizer",
+      "TimelineStyle",
+      "VerticalTileResizeHandlePositioner",
+      "ViewConfiguration",
+      "WeekDayHeader",
+      "WeekDayHeaderStyle",
+      "WeekNumber",
+      "WeekNumberStyle",
+      "_FreeScrollHeader",
+      "_MultiDayHeader",
+      "_SingleDayHeader",
+      "_SingleDayWidget"
+    ],
+    "digest": "8cf6a985033572f40bf1b4169c6bfb7c13155033264a256f336e47966e81106c",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "6fc28b03e9eb66c664f6d781bca8da1e914336ca94fd9b056111da268c05bfac",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "April",
+      "August",
+      "BottomResizeDraggable",
+      "Calendar not attached",
+      "Columns cannot be empty",
+      "Custom",
+      "Date must be in UTC.",
+      "Day",
+      "December",
+      "DropTarget",
+      "February",
+      "FeedbackTile",
+      "First day of week must be a valid week day number\nUse DateTime.monday, DateTime.tuesday, etc. to set the first day of the week",
+      "Free Scroll",
+      "Friday",
+      "Invalid month",
+      "Invalid weekday",
+      "January",
+      "July",
+      "June",
+      "March",
+      "May",
+      "Monday",
+      "Month",
+      "Must be a valid id.",
+      "No LocaleProvider found in context.",
+      "November",
+      "October",
+      "RescheduleDraggable",
+      "Saturday",
+      "Schedule (continuous)",
+      "Schedule (paginated)",
+      "ScheduleViewController has not been initialized with ItemScrollController and ItemPositionsListener.",
+      "September",
+      "Sunday",
+      "The DateTime must be in UTC.",
+      "The DateTimeRange must be in UTC.",
+      "The DateTimeRange start and end must be on the same day.",
+      "The animation duration must be less or equal to the page trigger delay.",
+      "The id of the event must not be set manually.",
+      "The number of days cannot be zero.",
+      "This class is deprecated and will be removed in a future release.\n",
+      "This class is deprecated and will be removed in a future release.\nPlease make use of the new `GenerateMultiDayLayoutFrame` typedef to customize your multi-day layout instead..\n",
+      "This method is deprecated and will be removed in a future release.\n",
+      "This method is deprecated and will be removed in a future release.\nPlease make use of the new `generateFrame` methods in the `MonthBodyConfiguration` and `MultiDayHeaderConfiguration` configurations instead.\n",
+      "This method is deprecated and will be removed in a future release. \nPlease use the `generateFrame` method in the `MonthBodyConfiguration` configuration instead.\n",
+      "This method is deprecated and will be removed in a future release. \nPlease use the `generateFrame` method instead.\n",
+      "This will be removed in the future. Use `generateMultiDayLayoutFrame` instead.",
+      "Thursday",
+      "Tile",
+      "TileWhenDragging",
+      "TopResizeDraggable",
+      "Tuesday",
+      "Unsupported ViewConfiguration",
+      "Use dayName or dayNameLocalized or dayNameShortLocalized instead.",
+      "Use monthName or monthNameLocalized or monthNameShortLocalized instead.",
+      "Wednesday",
+      "Week",
+      "Week Number",
+      "Work Week",
+      "contentKey",
+      "dart:async",
+      "dart:math",
+      "jumpToPage is not applicable for ContinuousScheduleViewController.",
+      "multi_day_portal_overlay_button_text",
+      "package:collection/collection.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/material.dart",
+      "package:flutter/rendering.dart",
+      "package:intl/intl.dart",
+      "package:kalender/kalender.dart",
+      "package:kalender/kalender_extensions.dart",
+      "package:kalender/src/calendar_body.dart",
+      "package:kalender/src/calendar_header.dart",
+      "package:kalender/src/calendar_view.dart",
+      "package:kalender/src/enumerations.dart",
+      "package:kalender/src/extensions/date_time.dart",
+      "package:kalender/src/layout_delegates/calendar_layout_delegate.dart",
+      "package:kalender/src/layout_delegates/event_layout_delegate.dart",
+      "package:kalender/src/layout_delegates/multi_day_event_layout.dart",
+      "package:kalender/src/layout_delegates/multi_day_event_layout_delegate.dart",
+      "package:kalender/src/models/calendar_callbacks.dart",
+      "package:kalender/src/models/calendar_events/calendar_event.dart",
+      "package:kalender/src/models/calendar_events/draggable_event.dart",
+      "package:kalender/src/models/calendar_interaction.dart",
+      "package:kalender/src/models/components/components.dart",
+      "package:kalender/src/models/components/month_components.dart",
+      "package:kalender/src/models/components/month_styles.dart",
+      "package:kalender/src/models/components/multi_day_components.dart",
+      "package:kalender/src/models/components/multi_day_styles.dart",
+      "package:kalender/src/models/components/schedule_components.dart",
+      "package:kalender/src/models/components/schedule_styles.dart",
+      "package:kalender/src/models/components/tile_components.dart",
+      "package:kalender/src/models/controllers/calendar_controller.dart",
+      "package:kalender/src/models/controllers/events_controller.dart",
+      "package:kalender/src/models/controllers/view_controller.dart",
+      "package:kalender/src/models/initial_date_selection_strategy.dart",
+      "package:kalender/src/models/mixins/calendar_navigation_functions.dart",
+      "package:kalender/src/models/mixins/drag_target_utils.dart",
+      "package:kalender/src/models/mixins/new_event.dart",
+      "package:kalender/src/models/mixins/schedule_map.dart",
+      "package:kalender/src/models/mixins/snap_points.dart",
+      "package:kalender/src/models/navigation_triggers.dart",
+      "package:kalender/src/models/providers/calendar_provider.dart",
+      "package:kalender/src/models/providers/locale_provider.dart",
+      "package:kalender/src/models/time_of_day_range.dart",
+      "package:kalender/src/models/view_configurations/month_view_configuration.dart",
+      "package:kalender/src/models/view_configurations/multi_day_view_configuration.dart",
+      "package:kalender/src/models/view_configurations/page_navigation_functions.dart",
+      "package:kalender/src/models/view_configurations/schedule_view_configuration.dart",
+      "package:kalender/src/models/view_configurations/view_configuration.dart",
+      "package:kalender/src/platform.dart",
+      "package:kalender/src/widgets/components/day_header.dart",
+      "package:kalender/src/widgets/components/day_separator.dart",
+      "package:kalender/src/widgets/components/default_tile_components.dart",
+      "package:kalender/src/widgets/components/hour_lines.dart",
+      "package:kalender/src/widgets/components/month_day_header.dart",
+      "package:kalender/src/widgets/components/month_grid.dart",
+      "package:kalender/src/widgets/components/multi_day_overlay.dart",
+      "package:kalender/src/widgets/components/multi_day_overlay_portal.dart",
+      "package:kalender/src/widgets/components/multi_day_overlay_portal_button.dart",
+      "package:kalender/src/widgets/components/resize_handle_positioner.dart",
+      "package:kalender/src/widgets/components/schedule_date.dart",
+      "package:kalender/src/widgets/components/schedule_tile_highlight.dart",
+      "package:kalender/src/widgets/components/time_indicator.dart",
+      "package:kalender/src/widgets/components/time_line.dart",
+      "package:kalender/src/widgets/components/week_day_header.dart",
+      "package:kalender/src/widgets/components/week_number.dart",
+      "package:kalender/src/widgets/drag_targets/day_drag_target.dart",
+      "package:kalender/src/widgets/drag_targets/multi_day_drag_target.dart",
+      "package:kalender/src/widgets/drag_targets/schedule_drag_target.dart",
+      "package:kalender/src/widgets/draggable/day_draggable.dart",
+      "package:kalender/src/widgets/draggable/multi_day_draggable.dart",
+      "package:kalender/src/widgets/draggable/new_draggable.dart",
+      "package:kalender/src/widgets/event_tiles/day_event_tile.dart",
+      "package:kalender/src/widgets/event_tiles/event_tile.dart",
+      "package:kalender/src/widgets/event_tiles/multi_day_event_tile.dart",
+      "package:kalender/src/widgets/event_tiles/multi_day_overlay_event_tile.dart",
+      "package:kalender/src/widgets/event_tiles/schedule_event_tile.dart",
+      "package:kalender/src/widgets/events_widgets/day_events_widget.dart",
+      "package:kalender/src/widgets/events_widgets/multi_day_events_widget.dart",
+      "package:kalender/src/widgets/internal_components/cursor_navigation_trigger.dart",
+      "package:kalender/src/widgets/internal_components/expandable_page_view.dart",
+      "package:kalender/src/widgets/internal_components/multi_day_header_layout.dart",
+      "package:kalender/src/widgets/internal_components/pass_through_pointer.dart",
+      "package:kalender/src/widgets/internal_components/time_indicator_positioner.dart",
+      "package:kalender/src/widgets/internal_components/timeline_sizer.dart",
+      "package:kalender/src/widgets/month/month_body.dart",
+      "package:kalender/src/widgets/month/month_header.dart",
+      "package:kalender/src/widgets/multi_day/multi_day_body.dart",
+      "package:kalender/src/widgets/multi_day/multi_day_header.dart",
+      "package:kalender/src/widgets/schedule/schedule_body.dart",
+      "package:kalender/src/widgets/schedule/schedule_header.dart",
+      "package:scrollable_positioned_list/scrollable_positioned_list.dart",
+      "package:universal_platform/universal_platform.dart",
+      "src/extensions/date_time.dart",
+      "src/extensions/date_time_range.dart",
+      "src/extensions/time_of_day.dart",
+      "view_controllers/month_view_controller.dart",
+      "view_controllers/multi_day_view_controller.dart",
+      "view_controllers/schedule_view_controller.dart"
+    ]
+  },
+  "version": "0.10.0"
+}
