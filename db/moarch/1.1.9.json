@@ -1,0 +1,360 @@
+{
+  "api_surface": {
+    "classes": {
+      "Checklist": {
+        "fields": [],
+        "libraries": [
+          "package:moarch/src/utils/checklist.dart"
+        ],
+        "methods": [
+          "prompt"
+        ],
+        "types": [
+          "ChecklistItem"
+        ]
+      },
+      "ChecklistItem": {
+        "fields": [
+          "defaultOn",
+          "label"
+        ],
+        "libraries": [
+          "package:moarch/src/utils/checklist.dart"
+        ],
+        "methods": [
+          "ChecklistItem"
+        ],
+        "types": []
+      },
+      "ChecklistTemplates": {
+        "fields": [],
+        "libraries": [
+          "package:moarch/src/templates/checklist_templates.dart"
+        ],
+        "methods": [
+          "prodChecklist"
+        ],
+        "types": []
+      },
+      "ConfigTemplates": {
+        "fields": [],
+        "libraries": [
+          "package:moarch/src/templates/config_templates.dart"
+        ],
+        "methods": [
+          "appEnv",
+          "appRouter",
+          "appTheme"
+        ],
+        "types": []
+      },
+      "CoreTemplates": {
+        "fields": [],
+        "libraries": [
+          "package:moarch/src/templates/core_templates.dart"
+        ],
+        "methods": [
+          "apiConstants",
+          "appConstants",
+          "appException",
+          "dioClient",
+          "extensions",
+          "logger",
+          "mainDart",
+          "secureStorage"
+        ],
+        "types": []
+      },
+      "CreateCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:moarch/src/commands/create_command.dart"
+        ],
+        "methods": [
+          "CreateCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "FeatureTemplates": {
+        "fields": [],
+        "libraries": [
+          "package:moarch/src/templates/feature_templates.dart"
+        ],
+        "methods": [
+          "entity",
+          "localDatasource",
+          "model",
+          "notifier",
+          "remoteDatasource",
+          "repositoryImpl",
+          "repositoryInterface",
+          "state",
+          "usecase",
+          "view"
+        ],
+        "types": []
+      },
+      "FileUtils": {
+        "fields": [],
+        "libraries": [
+          "package:moarch/src/utils/file_utils.dart"
+        ],
+        "methods": [
+          "createDir",
+          "writeFile"
+        ],
+        "types": []
+      },
+      "InitCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:moarch/src/commands/init_command.dart"
+        ],
+        "methods": [
+          "InitCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "MoarchRunner": {
+        "fields": [],
+        "libraries": [
+          "package:moarch/moarch.dart",
+          "package:moarch/src/runner.dart"
+        ],
+        "methods": [
+          "MoarchRunner",
+          "run"
+        ],
+        "types": []
+      },
+      "SharedTemplates": {
+        "fields": [],
+        "libraries": [
+          "package:moarch/src/templates/shared_templates.dart"
+        ],
+        "methods": [
+          "appButton",
+          "appDropdown",
+          "appInput",
+          "appLoadingAction",
+          "appLoadingData",
+          "dateInput",
+          "designSystemView",
+          "errorView",
+          "timeInput"
+        ],
+        "types": []
+      },
+      "StringUtils": {
+        "fields": [],
+        "libraries": [
+          "package:moarch/src/utils/string_utils.dart"
+        ],
+        "methods": [
+          "toCamelCase",
+          "toPascalCase",
+          "toSnakeCase"
+        ],
+        "types": []
+      },
+      "TestTemplates": {
+        "fields": [],
+        "libraries": [
+          "package:moarch/src/templates/test_templates.dart"
+        ],
+        "methods": [
+          "integrationTest",
+          "notifierTest",
+          "repositoryTest",
+          "usecaseTest"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:50:09Z",
+  "package": "moarch",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "ChecklistItem"
+    ],
+    "digest": "ba345acfee78c24a0c3222811c8808f874b24944703d6ebdfe8d8f3bd932fe3d",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "e44e8bd4a362b9f8680ee10449e89f5fce9d56c521b57d06fc6380207e53d641",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\n  Generate tests? (Y/n): ",
+      "  Integration tests: flutter test test/integration/",
+      "  Type a number to toggle. Press enter to confirm.",
+      "  Unit tests:        flutter test test/unit/",
+      "  import 'package:flutter_secure_storage/flutter_secure_storage.dart';\n  import 'package:flutter_riverpod/flutter_riverpod.dart';\n\n  final secureStorageProvider = Provider<FlutterSecureStorage>((ref) => FlutterSecureStorage());\n\n\n\n",
+      "  moarch create feature <name>   → generate a feature",
+      "# Production Checklist\n\nA reminder of what to set up before releasing to production.\nCheck off each item as you complete it.\n\n---\n\n## Flavors\n\n**flutter_flavorizr** — automates creating dev/staging/prod flavors for both Android and iOS from a single `pubspec.yaml` config. Handles app name, bundle ID, icons, and environment-specific configs per flavor.\n\n- https://pub.dev/packages/flutter_flavorizr\n\n---\n\n## Over-the-Air Updates (Code Push)\n\n**shorebird_code_push** — allows pushing Dart code changes directly to users without going through the stores. Ideal for bug fixes and small updates. Requires a Shorebird account and `shorebird init` in the project.\n\n- https://pub.dev/packages/shorebird_code_push\n- https://shorebird.dev\n\n---\n\n## Store Version Check\n\n**upgrader** — compares the installed app version against the current version on the App Store / Play Store and prompts the user to update when a new version is available.\n\n- https://pub.dev/packages/upgrader\n\n---\n\n## Android\n\n- [ ] Set correct `applicationId` in `build.gradle`\n- [ ] Set correct `versionName` and `versionCode`\n- [ ] Release keystore created and stored securely\n- [ ] `key.properties` added to `.gitignore`\n- [ ] Signing config set in `build.gradle`\n- [ ] `android:debuggable` not set to true in manifest\n- [ ] Proguard / R8 rules reviewed if needed\n- [ ] App tested on a physical device\n\n## iOS\n\n- [ ] Correct Bundle ID set in Xcode\n- [ ] Signing certificate and provisioning profile configured\n- [ ] `PRODUCT_BUNDLE_IDENTIFIER` correct per scheme\n- [ ] Icons and launch screen set\n- [ ] App tested on a physical device\n- [ ] Privacy usage descriptions added to `Info.plist` for any sensitive permissions (camera, location, etc.)\n\n## General\n\n- [ ] `.env` values set for production (`BASE_URL`, etc.)\n- [ ] `debugShowCheckedModeBanner: false`\n- [ ] All `TODO` comments resolved\n- [ ] Unused dependencies removed from `pubspec.yaml`\n- [ ] App version and build number updated\n- [ ] `flutter build` runs without warnings\n- [ ] Tested on both Android and iOS\n- [ ] Error handling reviewed — no raw exceptions shown to the user\n- [ ] Analytics / crash reporting configured (e.g. Firebase Crashlytics)\n",
+      "([a-z0-9])([A-Z])",
+      ", ",
+      ".",
+      "../templates/config_templates.dart",
+      "../templates/core_templates.dart",
+      "../templates/feature_templates.dart",
+      "../templates/shared_templates.dart",
+      "../templates/test_templates.dart",
+      "../utils/checklist.dart",
+      "../utils/file_utils.dart",
+      "../utils/string_utils.dart",
+      ".env",
+      ".env\n",
+      ".fvmrc",
+      ".gitignore",
+      "BASE_URL=",
+      "CHECKLIST.md",
+      "ConsumerStatefulWidget",
+      "Create a new feature or component.",
+      "Creating structure",
+      "Done",
+      "Feature scaffolded",
+      "Generate tests (--no-tests to skip). Skips the interactive prompt.",
+      "Generating tests",
+      "Local/Cache Datasource",
+      "Path to lib/ directory.",
+      "Print the current version.",
+      "Provide a feature name.\n  Usage: mo create feature <n>",
+      "Remote Datasource",
+      "Repository (interface + impl)",
+      "Scaffold a full Flutter project structure.",
+      "Scaffold a new feature with selectable Clean Architecture layers.",
+      "Scaffolding",
+      "Skip checklist and generate all layers.",
+      "Skipping tests (--no-tests).",
+      "State + Notifier",
+      "StatelessWidget",
+      "Target project path (defaults to current directory).",
+      "Tests generated",
+      "Use Cases",
+      "View",
+      "[ ]",
+      "[\\s,]+",
+      "[\\s\\-]+",
+      "[✓]",
+      "_",
+      "a",
+      "abstract final class ApiConstants {\n  // BASE_URL comes from envied\n  static const Duration connectTimeout = Duration(seconds: 30);\n  static const Duration receiveTimeout = Duration(seconds: 30);\n}\n",
+      "all",
+      "api_constants.dart",
+      "app_button.dart",
+      "app_constants.dart",
+      "app_date_input.dart",
+      "app_dropdown_input.dart",
+      "app_env.dart",
+      "app_exception.dart",
+      "app_input.dart",
+      "app_loading_action.dart",
+      "app_loading_data.dart",
+      "app_router.dart",
+      "app_theme.dart",
+      "app_time_input.dart",
+      "buttons",
+      "commands/create_command.dart",
+      "commands/init_command.dart",
+      "config",
+      "constants",
+      "core",
+      "create",
+      "dart:io",
+      "data",
+      "data/",
+      "datasources",
+      "design_system_view.dart",
+      "dio_client.dart",
+      "domain",
+      "domain/",
+      "entities",
+      "env",
+      "error_view.dart",
+      "errors",
+      "extensions.dart",
+      "feature",
+      "features",
+      "import 'package:dio/dio.dart';\n\nclass AppException implements Exception {\n  const AppException({\n    required this.message,\n    this.statusCode,\n  });\n\n  final String message;\n  final int? statusCode;\n\n  @override\n  String toString() => 'AppException(message: $message, statusCode: $statusCode)';\n\n   factory AppException.fromDioError(DioException dioError) {\n    return AppException(\n      message: dioError.response?.data['message'] ?? 'Something went wrong',\n      statusCode: dioError.response?.statusCode,\n    );\n  }\n}\n",
+      "import 'package:dio/dio.dart';\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\n\nimport '../../config/env/app_env.dart';\nimport '../constants/api_constants.dart';\nimport '../security/secure_storage.dart';\nimport '../utils/logger.dart';\n\nfinal dioClientProvider = Provider<Dio>((ref) => buildDioClient(ref));\n\n// ─────────────────────────────────────────────────────────────────────────────\n\nDio buildDioClient(Ref ref) {\n  final storage = ref.watch(secureStorageProvider);\n\n  final dio =\n      Dio(\n          BaseOptions(\n            baseUrl: AppEnv.baseUrl,\n            connectTimeout: ApiConstants.connectTimeout,\n            receiveTimeout: ApiConstants.receiveTimeout,\n            headers: const {\n              'Content-Type': 'application/json',\n              'Accept': 'application/json',\n            },\n            // Status that pass: 200-399, all the other will be caught in DioException\n            validateStatus: (status) {\n              return status != null && status >= 200 && status < 500;\n            },\n          ),\n        )\n        ..interceptors.add(\n          InterceptorsWrapper(\n            onRequest: (options, handler) async {\n              final token = await storage.read(key: 'token');\n              if (token != null) {\n                options.headers['Authorization'] = 'Bearer $token';\n              }\n              handler.next(options);\n            },\n          ),\n        )\n        ..interceptors.add(\n          LogInterceptor(requestBody: true, responseBody: true, logPrint: log),\n        );\n\n  return dio;\n}\n\n",
+      "import 'package:envied/envied.dart';\n\n// use\n//dart run build_runner build --delete-conflicting-outputs\n// to generate the app_env.g.dart file.\n// remember to have BASE_URL in the env file\n\npart 'app_env.g.dart';\n\n@Envied(path: '.env', obfuscate: true)\nabstract final class AppEnv {\n  @EnviedField(varName: 'BASE_URL', obfuscate: true)\n  static final String baseUrl = _AppEnv.baseUrl;\n\n  // Copy this pattern for additional environment values.\n  // @EnviedField(varName: 'SOME_KEY', obfuscate: true)\n  // static const String someKey = _AppEnv.someKey;\n}\n\n// Code generation commands (commented in generated code):\n// fvm flutter pub add envied\n// fvm flutter pub add --dev build_runner envied_generator\n// dart run build_runner build --delete-conflicting-outputs\n// Access values in app: final baseUrl = AppEnv.baseUrl;\n// envied `obfuscate` is enabled in this setup, matching your requirement.\n\n",
+      "import 'package:flutter/foundation.dart';\n\nvoid log(Object? value) {\n  if (kDebugMode) debugPrint(value?.toString());\n}\n",
+      "import 'package:flutter/material.dart';\n\nabstract final class AppConstants {\n // ── Palette ─────────────────────────────────────────────────\nstatic const Color primary   = Color(0xFF000000);\nstatic const Color secondary = Color(0xFF000000);\nstatic const Color tertiary  = Color(0xFF000000);\nstatic const Color surface   = Color(0xFF000000);\nstatic const Color onSurface = Color(0xFF000000);\nstatic const Color outline   = Color(0xFF000000);\n\n// ── Accent tokens ────────────────────────────────────────────\nstatic const Color accentActive      = Color(0xFF000000);\nstatic const Color accentRestorative = Color(0xFF000000);\nstatic const Color accentEnergetic   = Color(0xFF000000);\n\n// ── Surface layers (tonal depth — no borders) ───────────────\nstatic const Color surfaceContainerLowest  = Color(0xFF000000);\nstatic const Color surfaceContainerLow     = Color(0xFF000000);\nstatic const Color surfaceContainerHighest = Color(0xFF000000);\n\n\n  // ── Spacing — 4pt grid ────────────────────────────────────────────────────\n  static const double space4  = 4;\n  static const double space8  = 8;\n  static const double space12 = 12;\n  static const double space16 = 16;\n  static const double space24 = 24;\n  static const double space32 = 32;\n  static const double space48 = 48;\n\n  // ── Padding helpers ───────────────────────────────────────────────────────\n  static const padding4  = EdgeInsets.all(space4);\n  static const padding8  = EdgeInsets.all(space8);\n  static const padding12 = EdgeInsets.all(space12);\n  static const padding16 = EdgeInsets.all(space16);\n  static const padding24 = EdgeInsets.all(space24);\n\n  static const paddingH16 = EdgeInsets.symmetric(horizontal: space16);\n  static const paddingH24 = EdgeInsets.symmetric(horizontal: space24);\n  static const paddingV8  = EdgeInsets.symmetric(vertical: space8);\n  static const paddingV16 = EdgeInsets.symmetric(vertical: space16);\n\n  // common page inset (Material: 16dp sides, iOS: 16-20pt sides)\n  static const paddingPage = EdgeInsets.symmetric(\n    horizontal: space16,\n    vertical: space16,\n  );\n\n  // ── Text sizes — Material type scale / iOS HIG ────────────────────────────\n  // iOS: largeTitle 34, title1 28, title2 22, title3 20, headline 17,\n  //      body 17, callout 16, subheadline 15, footnote 13, caption1/2 12/11\n  // Material: displayL 57, displayM 45, displayS 36, headlineL 32,\n  //           headlineM 28, headlineS 24, titleL 22, titleM 16, titleS 14,\n  //           bodyL 16, bodyM 14, bodyS 12, labelL 14, labelM 12, labelS 11\n  static const double fontSize11 = 11; // caption2 / label small\n  static const double fontSize12 = 12; // caption1 / body small\n  static const double fontSize13 = 13; // footnote\n  static const double fontSize14 = 14; // label / body medium (Material)\n  static const double fontSize15 = 15; // subheadline\n  static const double fontSize16 = 16; // callout / body large\n  static const double fontSize17 = 17; // body / headline (iOS default)\n  static const double fontSize20 = 20; // title3\n  static const double fontSize22 = 22; // title2 / titleL\n  static const double fontSize28 = 28; // title1 / headlineM\n  static const double fontSize34 = 34; // largeTitle (iOS)\n\n  // ── Touch targets ─────────────────────────────────────────────────────────\n  // iOS HIG: 44pt minimum, Material: 48dp minimum\n  static const double touchTarget = 48;\n\n  // ── Border radius — Material medium = 12, iOS cards ≈ 10–13 ──────────────\n  static const double radius4  = 4;\n  static const double radius8  = 8;\n  static const double radius12 = 12; // Material medium / iOS card\n  static const double radius16 = 16; // Material large\n  static const double radius24 = 24; // bottom sheets, large cards\n  static const double radiusFull = 999; // pills / chips\n\n  static final borderRadius4    = BorderRadius.circular(radius4);\n  static final borderRadius8    = BorderRadius.circular(radius8);\n  static final borderRadius12   = BorderRadius.circular(radius12);\n  static final borderRadius16   = BorderRadius.circular(radius16);\n  static final borderRadius24   = BorderRadius.circular(radius24);\n  static final borderRadiusFull = BorderRadius.circular(radiusFull);\n\n  // ── Animation durations ───────────────────────────────────────────────────\n  // Material motion: 100ms micro, 200ms simple, 300ms complex, 500ms dramatic\n  static const Duration duration100 = Duration(milliseconds: 100);\n  static const Duration duration200 = Duration(milliseconds: 200);\n  static const Duration duration300 = Duration(milliseconds: 300);\n  static const Duration duration500 = Duration(milliseconds: 500);\n}\n",
+      "import 'package:flutter/material.dart';\n\nclass AppLoadingAction extends StatelessWidget {\n  const AppLoadingAction({\n    super.key,\n    required this.isLoading,\n    this.onlyLoading = false,\n  });\n\n  final bool isLoading;\n  final bool onlyLoading;\n\n  @override\n  Widget build(BuildContext context) {\n    if (onlyLoading) {\n      return const Center(child: CircularProgressIndicator.adaptive());\n    }\n\n    if (!isLoading) return const SizedBox.shrink();\n\n    return Positioned.fill(\n      child: ColoredBox(\n        color: Colors.black.withAlpha(100),\n        child: const Center(child: CircularProgressIndicator.adaptive()),\n      ),\n    );\n  }\n}\n",
+      "import 'package:flutter/material.dart';\n\nclass AppLoadingData extends StatelessWidget {\n  const AppLoadingData({super.key, this.appBar});\n  final bool? appBar;\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: appBar == true ? AppBar() : null,\n      body: const Center(child: CircularProgressIndicator.adaptive()),\n    );\n  }\n}\n",
+      "import 'package:flutter/material.dart';\n\nextension ContextX on BuildContext {\n  ThemeData get theme => Theme.of(this);\n  TextTheme get textTheme => Theme.of(this).textTheme;\n  ColorScheme get colorScheme => Theme.of(this).colorScheme;\n  double get screenWidth => MediaQuery.of(this).size.width;\n  double get screenHeight => MediaQuery.of(this).size.height;\n}\n\nextension StringX on String {\n  bool get isValidEmail =>\n      RegExp(r'^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$').hasMatch(this);\n  String get capitalize =>\n      isEmpty ? this : '${this[0].toUpperCase()}${substring(1)}';\n}\n\nextension DateTimeX on DateTime {\n  String get formattedDate => '$day/$month/$year';\n  String get formattedTime => '$hour:$minute';\n  String get formattedDateTime => '$formattedDate $formattedTime';\n\n  bool get isToday {\n    final now = DateTime.now();\n    return day == now.day && month == now.month && year == now.year;\n  }\n}\n\nextension TimeOfDayX on TimeOfDay {\n  String get formattedTime =>\n      '${hour.toString().padLeft(2, '0')}:${minute.toString().padLeft(2, '0')}';\n}\n",
+      "import 'package:flutter/material.dart';\n\nimport '../../../core/constants/app_constants.dart';\n\nclass ErrorView extends StatelessWidget {\n  const ErrorView({super.key, this.message, this.onRetry});\n\n  final String? message;\n  final VoidCallback? onRetry;\n\n  @override\n  Widget build(BuildContext context) {\n    final theme = Theme.of(context);\n    return Scaffold(\n      body: Center(\n        child: Padding(\n          padding: AppConstants.padding24,\n          child: Column(\n            mainAxisSize: MainAxisSize.min,\n            children: [\n              Icon(Icons.error_outline, size: 64, color: theme.colorScheme.error),\n              const SizedBox(height: 16),\n              Text(\n                'Something went wrong',\n                style: theme.textTheme.titleMedium?.copyWith(\n                  fontWeight: FontWeight.bold,\n                ),\n              ),\n              const SizedBox(height: 8),\n              Text(\n                message ?? 'An unknown error occurred',\n                style: theme.textTheme.bodyMedium?.copyWith(\n                  color: theme.colorScheme.onSurfaceVariant,\n                ),\n                textAlign: TextAlign.center,\n              ),\n              if (onRetry != null) ...[\n                const SizedBox(height: 24),\n                FilledButton.icon(\n                  onPressed: onRetry,\n                  icon: const Icon(Icons.refresh),\n                  label: const Text('Try again'),\n                ),\n              ],\n            ],\n          ),\n        ),\n      ),\n    );\n  }\n}\n",
+      "import 'package:flutter/material.dart';\n\nimport '../../../core/constants/app_constants.dart';\nimport '../../../core/utils/extensions.dart';\n\n// Usage with an entity:\n//  AppDropdownInput<CategoryEntity>(\n//     label: 'Category',\n//     items: categories,\n//     selectedId: _selectedCategoryId,\n//     idOf: (item) => item.id,\n//     labelOf: (item) => item.name,\n//     onChanged: (id) => setState(() => _selectedCategoryId = id),\n//  )\n\nclass AppDropdownInput<T> extends StatelessWidget {\n  const AppDropdownInput({\n    super.key,\n    required this.label,\n    required this.items,\n    required this.idOf,\n    required this.labelOf,\n    required this.onChanged,\n    this.selectedId,\n    this.hint = 'Select an option',\n    this.enabled = true,\n    this.required = false,\n  });\n\n  final String label;\n  final List<T> items;\n  final String Function(T item) idOf;\n  final String Function(T item) labelOf;\n  final ValueChanged<String> onChanged;\n  final String? selectedId;\n  final String hint;\n  final bool enabled;\n  final bool required;\n\n  @override\n  Widget build(BuildContext context) {\n    final theme = context.theme;\n\n    return Column(\n      spacing: AppConstants.space8,\n      crossAxisAlignment: CrossAxisAlignment.start,\n      children: [\n        Text.rich(\n          TextSpan(\n            text: label,\n            style: theme.textTheme.bodyLarge?.copyWith(letterSpacing: 1.25),\n            children: required\n                ? [\n                    TextSpan(\n                      text: ' *',\n                      style: TextStyle(\n                        color: theme.colorScheme.error,\n                        fontWeight: FontWeight.bold,\n                      ),\n                    ),\n                  ]\n                : [],\n          ),\n        ),\n        IgnorePointer(\n          ignoring: !enabled,\n          child: DropdownButtonFormField<String>(\n            value: selectedId,\n            hint: Text(hint),\n            isExpanded: true,\n            onChanged: (value) {\n              if (value != null) onChanged(value);\n            },\n            icon: enabled ? const Icon(Icons.keyboard_arrow_down) : null,\n            items: items\n                .map(\n                  (item) => DropdownMenuItem<String>(\n                    value: idOf(item),\n                    child: Text(labelOf(item)),\n                  ),\n                )\n                .toList(),\n          ),\n        ),\n      ],\n    );\n  }\n}\n",
+      "import 'package:flutter/material.dart';\n\nimport '../../../core/constants/app_constants.dart';\nimport '../../../core/utils/extensions.dart';\n\nclass AppInput extends StatefulWidget {\n  const AppInput({\n    super.key,\n    this.controller,\n    required this.label,\n    this.hint,\n    this.maxLines = 1,\n    this.isPassword = false,\n    this.initialValue,\n    this.keyboardType,\n    this.textInputAction,\n    this.readOnly = false,\n    this.prefixIcon,\n    this.suffixIcon,\n    this.focusNode,\n    this.autoFocus = false,\n    this.required = false,\n  });\n\n  final TextEditingController? controller;\n  final String label;\n  final String? hint;\n  final int? maxLines;\n  final bool isPassword;\n  final String? initialValue;\n  final TextInputType? keyboardType;\n  final TextInputAction? textInputAction;\n  final bool readOnly;\n  final Widget? prefixIcon;\n  final Widget? suffixIcon;\n  final FocusNode? focusNode;\n  final bool autoFocus;\n  final bool required;\n\n  @override\n  State<AppInput> createState() => _AppInputState();\n}\n\nclass _AppInputState extends State<AppInput> {\n  @override\n  void initState() {\n    super.initState();\n    if (widget.initialValue != null) {\n      widget.controller?.text = widget.initialValue!;\n    }\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    final theme = context.theme;\n\n    return Column(\n      spacing: AppConstants.space8,\n      crossAxisAlignment: CrossAxisAlignment.start,\n      children: [\n        Text.rich(\n          TextSpan(\n            text: widget.label,\n            style: theme.textTheme.bodyLarge?.copyWith(letterSpacing: 1.25),\n            children: widget.required\n                ? [\n                    TextSpan(\n                      text: ' *',\n                      style: TextStyle(\n                        color: theme.colorScheme.error,\n                        fontWeight: FontWeight.bold,\n                      ),\n                    ),\n                  ]\n                : [],\n          ),\n        ),\n        IgnorePointer(\n          ignoring: widget.readOnly,\n          child: TextFormField(\n            focusNode: widget.focusNode,\n            autofocus: widget.autoFocus,\n            readOnly: widget.readOnly,\n            controller: widget.controller,\n            style: theme.textTheme.bodyLarge,\n            initialValue: widget.controller == null ? widget.initialValue : null,\n            maxLines: widget.maxLines,\n            obscureText: widget.isPassword,\n            keyboardType: widget.keyboardType,\n            textInputAction: widget.textInputAction,\n            cursorColor: theme.colorScheme.primary,\n            decoration: InputDecoration(\n              hintText: widget.hint,\n              prefixIcon: widget.prefixIcon,\n              suffixIcon: widget.suffixIcon,\n            ),\n          ),\n        ),\n      ],\n    );\n  }\n}\n",
+      "import 'package:flutter/material.dart';\n\nimport '../../../core/constants/app_constants.dart';\nimport '../../../core/utils/extensions.dart';\n\nclass AppTimeInput extends StatefulWidget {\n  const AppTimeInput({\n    super.key,\n    this.controller,\n    required this.label,\n    this.hint,\n    this.initialValue,\n    this.readOnly = false,\n    this.prefixIcon,\n    this.suffixIcon,\n    this.focusNode,\n    this.autoFocus = false,\n    this.required = false,\n  });\n\n  final TextEditingController? controller;\n  final String label;\n  final String? hint;\n  final TimeOfDay? initialValue;\n  final bool readOnly;\n  final Widget? prefixIcon;\n  final Widget? suffixIcon;\n  final FocusNode? focusNode;\n  final bool autoFocus;\n  final bool required;\n\n  @override\n  State<AppTimeInput> createState() => _AppTimeInputState();\n}\n\nclass _AppTimeInputState extends State<AppTimeInput> {\n  @override\n  void initState() {\n    super.initState();\n    if (widget.initialValue != null) {\n      widget.controller?.text = widget.initialValue!.formattedTime;\n    }\n  }\n\n  Future<void> _selectTime(BuildContext context) async {\n    final TimeOfDay? picked = await showTimePicker(\n      context: context,\n      initialTime: TimeOfDay.now(),\n    );\n    if (picked != null) {\n      setState(() {\n        widget.controller?.text = picked.formattedTime;\n      });\n    }\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    final theme = context.theme;\n\n    return Column(\n      spacing: AppConstants.space8,\n      crossAxisAlignment: CrossAxisAlignment.start,\n      children: [\n        Text.rich(\n          TextSpan(\n            text: widget.label,\n            style: theme.textTheme.bodyLarge?.copyWith(letterSpacing: 1.25),\n            children: widget.required\n                ? [\n                    TextSpan(\n                      text: ' *',\n                      style: TextStyle(\n                        color: theme.colorScheme.error,\n                        fontWeight: FontWeight.bold,\n                      ),\n                    ),\n                  ]\n                : [],\n          ),\n        ),\n        IgnorePointer(\n          ignoring: widget.readOnly,\n          child: TextFormField(\n            onTap: () => _selectTime(context),\n            focusNode: widget.focusNode,\n            autofocus: widget.autoFocus,\n            readOnly: true,\n            controller: widget.controller,\n            style: theme.textTheme.bodyLarge,\n            cursorColor: theme.colorScheme.primary,\n            decoration: InputDecoration(\n              hintText: widget.hint,\n              prefixIcon: widget.prefixIcon,\n              suffixIcon: widget.suffixIcon,\n            ),\n          ),\n        ),\n      ],\n    );\n  }\n}\n",
+      "import 'package:flutter/material.dart';\n\nimport '../../../core/constants/app_constants.dart';\nimport '../../../core/utils/extensions.dart';\n\nclass DateAppInput extends StatefulWidget {\n  const DateAppInput({\n    super.key,\n    this.controller,\n    required this.label,\n    this.hint,\n    this.initialValue,\n    this.readOnly = false,\n    this.prefixIcon,\n    this.suffixIcon,\n    this.focusNode,\n    this.autoFocus = false,\n    this.required = false,\n  });\n\n  final TextEditingController? controller;\n  final String label;\n  final String? hint;\n  final DateTime? initialValue;\n  final bool readOnly;\n  final Widget? prefixIcon;\n  final Widget? suffixIcon;\n  final FocusNode? focusNode;\n  final bool autoFocus;\n  final bool required;\n\n  @override\n  State<DateAppInput> createState() => _DateAppInputState();\n}\n\nclass _DateAppInputState extends State<DateAppInput> {\n  @override\n  void initState() {\n    super.initState();\n    if (widget.initialValue != null) {\n      widget.controller?.text = widget.initialValue!.formattedDate;\n    }\n  }\n\n  Future<void> _selectDate(BuildContext context) async {\n    final DateTime? picked = await showDatePicker(\n      context: context,\n      initialDate: DateTime.now(),\n      firstDate: DateTime.now().subtract(const Duration(days: 365 * 100)),\n      lastDate: DateTime.now().add(const Duration(days: 365 * 100)),\n    );\n    if (picked != null) {\n      setState(() {\n        widget.controller?.text = picked.formattedDate;\n      });\n    }\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    final theme = context.theme;\n\n    return Column(\n      spacing: AppConstants.space8,\n      crossAxisAlignment: CrossAxisAlignment.start,\n      children: [\n        Text.rich(\n          TextSpan(\n            text: widget.label,\n            style: theme.textTheme.bodyLarge?.copyWith(letterSpacing: 1.25),\n            children: widget.required\n                ? [\n                    TextSpan(\n                      text: ' *',\n                      style: TextStyle(\n                        color: theme.colorScheme.error,\n                        fontWeight: FontWeight.bold,\n                      ),\n                    ),\n                  ]\n                : [],\n          ),\n        ),\n        IgnorePointer(\n          ignoring: widget.readOnly,\n          child: TextFormField(\n            onTap: () => _selectDate(context),\n            focusNode: widget.focusNode,\n            autofocus: widget.autoFocus,\n            readOnly: true,\n            controller: widget.controller,\n            style: theme.textTheme.bodyLarge,\n            cursorColor: theme.colorScheme.primary,\n            decoration: InputDecoration(\n              hintText: widget.hint,\n              prefixIcon: widget.prefixIcon,\n              suffixIcon: widget.suffixIcon,\n            ),\n          ),\n        ),\n      ],\n    );\n  }\n}\n",
+      "import 'package:flutter/material.dart';\n\nimport '../../../core/constants/app_constants.dart';\nimport '../../../core/utils/extensions.dart';\n\nenum AppButtonType { primary, secondary, tertiary, transparent, danger }\n\nenum AppButtonSize { large, medium, small }\n\nclass AppButton extends StatelessWidget {\n  const AppButton({\n    super.key,\n    required this.type,\n    required this.label,\n    required this.onPressed,\n    this.prefixIcon,\n    this.suffixIcon,\n    this.width,\n    this.size = AppButtonSize.medium,\n  });\n\n  final AppButtonType type;\n  final String label;\n  final VoidCallback onPressed;\n  final IconData? prefixIcon;\n  final IconData? suffixIcon;\n  final double? width;\n  final AppButtonSize size;\n\n  (double height, double fontSize, double iconSize, EdgeInsets padding)\n  _getSizeConfig() => switch (size) {\n    AppButtonSize.small => (\n      AppConstants.touchTarget,\n      14,\n      18,\n      AppConstants.padding12,\n    ),\n    AppButtonSize.medium => (\n      AppConstants.touchTarget + 4,\n      16,\n      22,\n      AppConstants.padding16,\n    ),\n    AppButtonSize.large => (\n      AppConstants.touchTarget + 8,\n      18,\n      26,\n      EdgeInsets.all(AppConstants.space16 + 2),\n    ),\n  };\n\n  @override\n  Widget build(BuildContext context) {\n    final theme = context.theme;\n\n    final (height, fontSize, iconSize, padding) = _getSizeConfig();\n\n    final (backgroundColor, foregroundColor) = switch (type) {\n      AppButtonType.primary     => (theme.colorScheme.primary, theme.colorScheme.onPrimary),\n      AppButtonType.secondary   => (theme.colorScheme.secondary, theme.colorScheme.onSecondary),\n      AppButtonType.tertiary    => (theme.colorScheme.tertiary, theme.colorScheme.onTertiary),\n      AppButtonType.transparent => (Colors.transparent, theme.colorScheme.onSurface),\n      AppButtonType.danger      => (theme.colorScheme.error, theme.colorScheme.onError),\n    };\n\n    return SizedBox(\n      width: width ?? double.infinity,\n      height: height,\n      child: ElevatedButton(\n        onPressed: onPressed,\n        style: ElevatedButton.styleFrom(\n          elevation: 0,\n          padding: padding,\n          backgroundColor: type == AppButtonType.tertiary\n              ? Colors.transparent\n              : backgroundColor,\n          foregroundColor: foregroundColor,\n          shape: RoundedRectangleBorder(\n            borderRadius: AppConstants.borderRadius12,\n          ),\n        ),\n        child: Row(\n          mainAxisSize: MainAxisSize.min,\n          children: [\n            if (prefixIcon != null) ...[\n              Icon(prefixIcon, size: iconSize, color: foregroundColor),\n              const SizedBox(width: AppConstants.space4),\n            ],\n            Text(\n              label,\n              style: theme.textTheme.titleLarge?.copyWith(\n                color: foregroundColor,\n                fontSize: fontSize,\n              ),\n            ),\n            if (suffixIcon != null) ...[\n              const SizedBox(width: AppConstants.space4),\n              Icon(suffixIcon, size: iconSize, color: foregroundColor),\n            ],\n          ],\n        ),\n      ),\n    );\n  }\n}\n",
+      "import 'package:flutter/material.dart';\n\nimport '../../../core/constants/app_constants.dart';\nimport '../widgets/buttons/app_button.dart';\nimport '../widgets/error_view.dart';\nimport '../widgets/loadings/app_loading_action.dart';\nimport '../widgets/loadings/app_loading_data.dart';\n\n/// Design system preview screen.\n/// Shows all shared widgets rendered with your current theme.\n/// Toggle light/dark using the icon in the app bar.\n///\n/// Add to your router temporarily:\n///   GoRoute(\n///     path: '/design-system',\n///     builder: (_, __) => const DesignSystemView(),\n///   )\nclass DesignSystemView extends StatefulWidget {\n  const DesignSystemView({super.key});\n\n  @override\n  State<DesignSystemView> createState() => _DesignSystemViewState();\n}\n\nclass _DesignSystemViewState extends State<DesignSystemView> {\n  ThemeMode _mode = ThemeMode.light;\n  String? _selectedDropdown;\n\n  void _toggleTheme() => setState(() {\n        _mode = _mode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;\n      });\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      debugShowCheckedModeBanner: false,\n      themeMode: _mode,\n      // TODO: replace with your actual AppTheme\n      theme: ThemeData(useMaterial3: true),\n      darkTheme: ThemeData(useMaterial3: true, brightness: Brightness.dark),\n      home: Builder(\n        builder: (context) => Scaffold(\n          appBar: AppBar(\n            title: const Text('Design System'),\n            actions: [\n              IconButton(\n                onPressed: _toggleTheme,\n                icon: Icon(\n                  _mode == ThemeMode.light\n                      ? Icons.dark_mode_outlined\n                      : Icons.light_mode_outlined,\n                ),\n                tooltip: 'Toggle theme',\n              ),\n            ],\n          ),\n          body: ListView(\n            padding: AppConstants.paddingPage,\n            children: [\n              // ── Colors ────────────────────────────────────────────────────\n              _Section(\n                title: 'Color Scheme',\n                child: Builder(builder: (context) {\n                  final cs = Theme.of(context).colorScheme;\n                  return Wrap(\n                    spacing: AppConstants.space8,\n                    runSpacing: AppConstants.space8,\n                    children: [\n                      _ColorChip(label: 'primary', color: cs.primary, onColor: cs.onPrimary),\n                      _ColorChip(label: 'secondary', color: cs.secondary, onColor: cs.onSecondary),\n                      _ColorChip(label: 'tertiary', color: cs.tertiary, onColor: cs.onTertiary),\n                      _ColorChip(label: 'error', color: cs.error, onColor: cs.onError),\n                      _ColorChip(label: 'surface', color: cs.surface, onColor: cs.onSurface),\n                      _ColorChip(label: 'surfaceVariant', color: cs.surfaceContainerHighest, onColor: cs.onSurfaceVariant),\n                      _ColorChip(label: 'primaryContainer', color: cs.primaryContainer, onColor: cs.onPrimaryContainer),\n                      _ColorChip(label: 'secondaryContainer', color: cs.secondaryContainer, onColor: cs.onSecondaryContainer),\n                    ],\n                  );\n                }),\n              ),\n\n              // ── Typography ────────────────────────────────────────────────\n              _Section(\n                title: 'Typography',\n                child: Builder(builder: (context) {\n                  final tt = Theme.of(context).textTheme;\n                  return Column(\n                    crossAxisAlignment: CrossAxisAlignment.start,\n                    children: [\n                      Text('displayLarge', style: tt.displayLarge),\n                      Text('displayMedium', style: tt.displayMedium),\n                      Text('displaySmall', style: tt.displaySmall),\n                      const SizedBox(height: AppConstants.space8),\n                      Text('headlineLarge', style: tt.headlineLarge),\n                      Text('headlineMedium', style: tt.headlineMedium),\n                      Text('headlineSmall', style: tt.headlineSmall),\n                      const SizedBox(height: AppConstants.space8),\n                      Text('titleLarge', style: tt.titleLarge),\n                      Text('titleMedium', style: tt.titleMedium),\n                      Text('titleSmall', style: tt.titleSmall),\n                      const SizedBox(height: AppConstants.space8),\n                      Text('bodyLarge', style: tt.bodyLarge),\n                      Text('bodyMedium', style: tt.bodyMedium),\n                      Text('bodySmall', style: tt.bodySmall),\n                      const SizedBox(height: AppConstants.space8),\n                      Text('labelLarge', style: tt.labelLarge),\n                      Text('labelMedium', style: tt.labelMedium),\n                      Text('labelSmall', style: tt.labelSmall),\n                    ],\n                  );\n                }),\n              ),\n\n              // ── Spacing ───────────────────────────────────────────────────\n              _Section(\n                title: 'Spacing Scale',\n                child: Column(\n                  crossAxisAlignment: CrossAxisAlignment.start,\n                  children: [\n                    _SpacingRow(label: 'space4',  value: AppConstants.space4),\n                    _SpacingRow(label: 'space8',  value: AppConstants.space8),\n                    _SpacingRow(label: 'space12', value: AppConstants.space12),\n                    _SpacingRow(label: 'space16', value: AppConstants.space16),\n                    _SpacingRow(label: 'space24', value: AppConstants.space24),\n                    _SpacingRow(label: 'space32', value: AppConstants.space32),\n                    _SpacingRow(label: 'space48', value: AppConstants.space48),\n                  ],\n                ),\n              ),\n\n              // ── Border Radius ─────────────────────────────────────────────\n              _Section(\n                title: 'Border Radius',\n                child: Wrap(\n                  spacing: AppConstants.space12,\n                  runSpacing: AppConstants.space12,\n                  children: [\n                    _RadiusChip(label: 'radius8',    radius: AppConstants.radius8),\n                    _RadiusChip(label: 'radius12',   radius: AppConstants.radius12),\n                    _RadiusChip(label: 'radius16',   radius: AppConstants.radius16),\n                    _RadiusChip(label: 'radius24',   radius: AppConstants.radius24),\n                    _RadiusChip(label: 'radiusFull', radius: AppConstants.radiusFull),\n                  ],\n                ),\n              ),\n\n              // ── AppButton ─────────────────────────────────────────────────\n              _Section(\n                title: 'AppButton',\n                child: Column(\n                  crossAxisAlignment: CrossAxisAlignment.stretch,\n                  children: [\n                    AppButton(type: AppButtonType.primary,   label: 'Primary',   onPressed: () {}),\n                    const SizedBox(height: AppConstants.space8),\n                    AppButton(type: AppButtonType.secondary, label: 'Secondary', onPressed: () {}),\n                    const SizedBox(height: AppConstants.space8),\n                    AppButton(type: AppButtonType.tertiary,  label: 'Tertiary',  onPressed: () {}),\n                    const SizedBox(height: AppConstants.space8),\n                    AppButton(type: AppButtonType.transparent, label: 'Transparent', onPressed: () {}),\n                    const SizedBox(height: AppConstants.space8),\n                    AppButton(type: AppButtonType.danger,    label: 'Danger',    onPressed: () {}),\n                    const SizedBox(height: AppConstants.space8),\n                    AppButton(type: AppButtonType.primary,   label: 'With prefix icon', onPressed: () {}, prefixIcon: Icons.add),\n                    const SizedBox(height: AppConstants.space8),\n                    AppButton(type: AppButtonType.primary,   label: 'With suffix icon', onPressed: () {}, suffixIcon: Icons.arrow_forward),\n                    const SizedBox(height: AppConstants.space16),\n                    const Text('Sizes:'),\n                    const SizedBox(height: AppConstants.space8),\n                    AppButton(type: AppButtonType.primary, label: 'Small',  onPressed: () {}, size: AppButtonSize.small),\n                    const SizedBox(height: AppConstants.space8),\n                    AppButton(type: AppButtonType.primary, label: 'Medium', onPressed: () {}, size: AppButtonSize.medium),\n                    const SizedBox(height: AppConstants.space8),\n                    AppButton(type: AppButtonType.primary, label: 'Large',  onPressed: () {}, size: AppButtonSize.large),\n                  ],\n                ),\n              ),\n\n              // ── Inputs ────────────────────────────────────────────────────\n              _Section(\n                title: 'Inputs',\n                child: Column(\n                  children: [\n                    const TextField(\n                      decoration: InputDecoration(hintText: 'Default input'),\n                    ),\n                    const SizedBox(height: AppConstants.space12),\n                    const TextField(\n                      decoration: InputDecoration(\n                        hintText: 'With prefix icon',\n                        prefixIcon: Icon(Icons.search),\n                      ),\n                    ),\n                    const SizedBox(height: AppConstants.space12),\n                    const TextField(\n                      decoration: InputDecoration(\n                        hintText: 'Error state',\n                        errorText: 'This field is required',\n                      ),\n                    ),\n                    const SizedBox(height: AppConstants.space12),\n                    const TextField(\n                      enabled: false,\n                      decoration: InputDecoration(hintText: 'Disabled'),\n                    ),\n                    const SizedBox(height: AppConstants.space12),\n                    DropdownButtonFormField<String>(\n                      value: _selectedDropdown,\n                      hint: const Text('Dropdown'),\n                      items: const [\n                        DropdownMenuItem(value: 'a', child: Text('Option A')),\n                        DropdownMenuItem(value: 'b', child: Text('Option B')),\n                        DropdownMenuItem(value: 'c', child: Text('Option C')),\n                      ],\n                      onChanged: (v) => setState(() => _selectedDropdown = v),\n                    ),\n                  ],\n                ),\n              ),\n\n              // ── Loading ───────────────────────────────────────────────────\n              _Section(\n                title: 'AppLoadingData',\n                child: SizedBox(\n                  height: 80,\n                  child: AppLoadingData(),\n                ),\n              ),\n\n              _Section(\n                title: 'AppLoadingAction (overlay)',\n                child: SizedBox(\n                  height: 80,\n                  child: Stack(\n                    children: [\n                      Container(\n                        color: Theme.of(context).colorScheme.surfaceContainerHighest,\n                        child: const Center(child: Text('Content behind overlay')),\n                      ),\n                      const AppLoadingAction(isLoading: true),\n                    ],\n                  ),\n                ),\n              ),\n\n              // ── ErrorView ─────────────────────────────────────────────────\n              _Section(\n                title: 'ErrorView',\n                child: SizedBox(\n                  height: 220,\n                  child: ErrorView(\n                    message: 'Something went wrong. Please try again.',\n                    onRetry: () {},\n                  ),\n                ),\n              ),\n\n              // ── Cards ─────────────────────────────────────────────────────\n              _Section(\n                title: 'Cards',\n                child: Column(\n                  children: [\n                    Card(\n                      child: Padding(\n                        padding: AppConstants.padding16,\n                        child: Column(\n                          crossAxisAlignment: CrossAxisAlignment.start,\n                          children: [\n                            Text('Card title', style: Theme.of(context).textTheme.titleMedium),\n                            const SizedBox(height: AppConstants.space4),\n                            Text('Card body text.', style: Theme.of(context).textTheme.bodyMedium),\n                          ],\n                        ),\n                      ),\n                    ),\n                    const SizedBox(height: AppConstants.space8),\n                    Card(\n                      elevation: 0,\n                      shape: RoundedRectangleBorder(\n                        borderRadius: AppConstants.borderRadius12,\n                        side: BorderSide(color: Theme.of(context).colorScheme.outline),\n                      ),\n                      child: Padding(\n                        padding: AppConstants.padding16,\n                        child: Text('Outlined card', style: Theme.of(context).textTheme.bodyMedium),\n                      ),\n                    ),\n                  ],\n                ),\n              ),\n\n              // ── Chips ─────────────────────────────────────────────────────\n              _Section(\n                title: 'Chips',\n                child: Wrap(\n                  spacing: AppConstants.space8,\n                  runSpacing: AppConstants.space8,\n                  children: [\n                    const Chip(label: Text('Default')),\n                    ActionChip(label: const Text('Action'), onPressed: () {}),\n                    FilterChip(label: const Text('Filter'), selected: true, onSelected: (_) {}),\n                    InputChip(label: const Text('Input'), onDeleted: () {}),\n                  ],\n                ),\n              ),\n\n              // ── Dialogs & Snackbars ───────────────────────────────────────\n              _Section(\n                title: 'Dialogs & Snackbars',\n                child: Wrap(\n                  spacing: AppConstants.space8,\n                  runSpacing: AppConstants.space8,\n                  children: [\n                    OutlinedButton(\n                      onPressed: () => showDialog(\n                        context: context,\n                        builder: (_) => AlertDialog(\n                          title: const Text('Dialog title'),\n                          content: const Text('Dialog content text.'),\n                          actions: [\n                            TextButton(onPressed: () => Navigator.pop(context), child: const Text('Cancel')),\n                            FilledButton(onPressed: () => Navigator.pop(context), child: const Text('Confirm')),\n                          ],\n                        ),\n                      ),\n                      child: const Text('Dialog'),\n                    ),\n                    OutlinedButton(\n                      onPressed: () => ScaffoldMessenger.of(context).showSnackBar(\n                        const SnackBar(content: Text('Snackbar')),\n                      ),\n                      child: const Text('Snackbar'),\n                    ),\n                    OutlinedButton(\n                      onPressed: () => ScaffoldMessenger.of(context).showSnackBar(\n                        SnackBar(\n                          content: const Text('Error'),\n                          backgroundColor: Theme.of(context).colorScheme.error,\n                        ),\n                      ),\n                      child: const Text('Error Snackbar'),\n                    ),\n                  ],\n                ),\n              ),\n\n              // ── Bottom Sheet ──────────────────────────────────────────────\n              _Section(\n                title: 'Bottom Sheet',\n                child: OutlinedButton(\n                  onPressed: () => showModalBottomSheet(\n                    context: context,\n                    shape: const RoundedRectangleBorder(\n                      borderRadius: BorderRadius.vertical(\n                        top: Radius.circular(AppConstants.radius24),\n                      ),\n                    ),\n                    builder: (_) => Padding(\n                      padding: AppConstants.paddingPage,\n                      child: Column(\n                        mainAxisSize: MainAxisSize.min,\n                        crossAxisAlignment: CrossAxisAlignment.start,\n                        children: [\n                          Text('Bottom Sheet', style: Theme.of(context).textTheme.titleLarge),\n                          const SizedBox(height: AppConstants.space8),\n                          Text('Content goes here.', style: Theme.of(context).textTheme.bodyMedium),\n                          const SizedBox(height: AppConstants.space24),\n                          AppButton(\n                            type: AppButtonType.secondary,\n                            label: 'Close',\n                            onPressed: () => Navigator.pop(context),\n                          ),\n                          const SizedBox(height: AppConstants.space16),\n                        ],\n                      ),\n                    ),\n                  ),\n                  child: const Text('Show Bottom Sheet'),\n                ),\n              ),\n\n              const SizedBox(height: AppConstants.space48),\n            ],\n          ),\n        ),\n      ),\n    );\n  }\n}\n\n// ── Helpers ───────────────────────────────────────────────────────────────────\n\nclass _Section extends StatelessWidget {\n  const _Section({required this.title, required this.child});\n  final String title;\n  final Widget child;\n\n  @override\n  Widget build(BuildContext context) {\n    return Column(\n      crossAxisAlignment: CrossAxisAlignment.start,\n      children: [\n        const SizedBox(height: AppConstants.space24),\n        Text(\n          title,\n          style: Theme.of(context)\n              .textTheme\n              .labelLarge\n              ?.copyWith(color: Theme.of(context).colorScheme.primary),\n        ),\n        const SizedBox(height: AppConstants.space4),\n        Divider(height: 1, color: Theme.of(context).colorScheme.outlineVariant),\n        const SizedBox(height: AppConstants.space16),\n        child,\n      ],\n    );\n  }\n}\n\nclass _ColorChip extends StatelessWidget {\n  const _ColorChip({required this.label, required this.color, required this.onColor});\n  final String label;\n  final Color color;\n  final Color onColor;\n\n  @override\n  Widget build(BuildContext context) {\n    return Container(\n      width: 100,\n      height: 56,\n      decoration: BoxDecoration(\n        color: color,\n        borderRadius: AppConstants.borderRadius8,\n      ),\n      alignment: Alignment.center,\n      padding: AppConstants.padding4,\n      child: Text(\n        label,\n        style: Theme.of(context).textTheme.labelSmall?.copyWith(color: onColor),\n        textAlign: TextAlign.center,\n      ),\n    );\n  }\n}\n\nclass _SpacingRow extends StatelessWidget {\n  const _SpacingRow({required this.label, required this.value});\n  final String label;\n  final double value;\n\n  @override\n  Widget build(BuildContext context) {\n    return Padding(\n      padding: const EdgeInsets.only(bottom: AppConstants.space8),\n      child: Row(\n        children: [\n          SizedBox(\n            width: 100,\n            child: Text(label, style: Theme.of(context).textTheme.labelSmall),\n          ),\n          Container(\n            width: value,\n            height: 16,\n            decoration: BoxDecoration(\n              color: Theme.of(context).colorScheme.primary,\n              borderRadius: AppConstants.borderRadius4,\n            ),\n          ),\n          const SizedBox(width: AppConstants.space8),\n          Text('${value.toInt()}pt', style: Theme.of(context).textTheme.labelSmall),\n        ],\n      ),\n    );\n  }\n}\n\nclass _RadiusChip extends StatelessWidget {\n  const _RadiusChip({required this.label, required this.radius});\n  final String label;\n  final double radius;\n\n  @override\n  Widget build(BuildContext context) {\n    return Column(\n      children: [\n        Container(\n          width: 56,\n          height: 56,\n          decoration: BoxDecoration(\n            color: Theme.of(context).colorScheme.primaryContainer,\n            borderRadius: BorderRadius.circular(radius.clamp(0, 28)),\n          ),\n        ),\n        const SizedBox(height: AppConstants.space4),\n        Text(label, style: Theme.of(context).textTheme.labelSmall),\n      ],\n    );\n  }\n}\n",
+      "import 'package:flutter/material.dart';\nimport '../../core/constants/app_constants.dart';\n\nabstract final class AppTheme {\n static ThemeData get light => ThemeData(\n    useMaterial3: true,\n    brightness: Brightness.light,\n    colorScheme: ColorScheme.light(\n      primary: AppConstants.primary,\n      onPrimary: AppConstants.surface, \n\n      secondary: AppConstants.secondary,\n      onSecondary: AppConstants.surface,\n\n      tertiary: AppConstants.tertiary,\n      onTertiary: AppConstants.surface,\n\n      surface: AppConstants.surface,\n      onSurface: AppConstants.onSurface, // near-black, never #000\n      // Tonal container layers (no-line rule: depth via color shift)\n      surfaceContainer: AppConstants.surfaceContainerLow,\n      surfaceContainerLow: AppConstants.surfaceContainerLow,\n      surfaceContainerLowest: AppConstants.surfaceContainerLowest,\n      surfaceContainerHigh: AppConstants.surfaceContainerHighest,\n      surfaceContainerHighest: AppConstants.surfaceContainerHighest,\n      error: Colors.red,\n      onError: AppConstants.surface,\n\n      outline: AppConstants.outline.withValues(alpha: 0.3), // ~15% of 255\n      outlineVariant: AppConstants.outline.withValues(alpha: 0.3), // ~15% of 255\n    ),\n\n    scaffoldBackgroundColor: AppConstants.surface,\n\n    appBarTheme: AppBarTheme(\n      backgroundColor: AppConstants.primary,\n      foregroundColor: AppConstants.surface,\n      elevation: 0,\n      scrolledUnderElevation: 0,\n    ),\n\n    cardTheme: CardThemeData(\n      color: AppConstants.surfaceContainerLowest,\n      shape: RoundedRectangleBorder(\n        borderRadius: AppConstants.borderRadius12,\n        side: BorderSide(width: 0.5, color: AppConstants.outline),\n      ),\n    ),\n\n    inputDecorationTheme: InputDecorationTheme(\n      filled: true,\n      fillColor: AppConstants.surfaceContainerLowest,\n      border: OutlineInputBorder(\n        borderRadius: AppConstants.borderRadius12,\n        borderSide: BorderSide.none,\n      ),\n      enabledBorder: OutlineInputBorder(\n        borderRadius: AppConstants.borderRadius12,\n        borderSide: BorderSide.none,\n      ),\n      focusedBorder: OutlineInputBorder(\n        borderRadius: AppConstants.borderRadius12,\n        borderSide: BorderSide(color: AppConstants.outline, width: 0.5),\n      ),\n      prefixIconColor: AppConstants.primary,\n      suffixIconColor: AppConstants.primary,\n      contentPadding: EdgeInsets.symmetric(\n        vertical: (AppConstants.touchTarget - AppConstants.fontSize16) / 2,\n        horizontal: AppConstants.space12,\n      ),\n       hintStyle: TextStyle(\n        fontSize: AppConstants.fontSize16,\n        color: AppConstants.onSurface.withValues(alpha: 0.35),\n      ),\n    ),\n\n    datePickerTheme: DatePickerThemeData(\n      backgroundColor: AppConstants.surface,\n      headerBackgroundColor: AppConstants.primary,\n      headerForegroundColor: AppConstants.surface,\n      rangePickerBackgroundColor: AppConstants.surface,\n      rangePickerHeaderBackgroundColor: AppConstants.primary,\n      rangePickerHeaderForegroundColor: AppConstants.surface,\n      shape: RoundedRectangleBorder(borderRadius: AppConstants.borderRadius12),\n    ),\n\n    timePickerTheme: TimePickerThemeData(\n      backgroundColor: AppConstants.surface,\n      shape: RoundedRectangleBorder(borderRadius: AppConstants.borderRadius12),\n    ),\n\n    checkboxTheme: CheckboxThemeData(\n      fillColor: WidgetStateProperty.resolveWith<Color>((\n        Set<WidgetState> states,\n      ) {\n        if (states.contains(WidgetState.selected)) {\n          return AppConstants.primary;\n        }\n        return Colors.transparent;\n      }),\n      checkColor: WidgetStatePropertyAll(AppConstants.surface),\n      shape: RoundedRectangleBorder(borderRadius: AppConstants.borderRadius12),\n      side: BorderSide(color: AppConstants.primary, width: 1),\n    ),\n\n    textSelectionTheme: TextSelectionThemeData(\n      cursorColor: AppConstants.primary,\n      selectionColor: AppConstants.primary.withValues(alpha: 0.25),\n      selectionHandleColor: AppConstants.primary,\n    ),\n\n    dividerTheme: DividerThemeData(\n      color: Colors.transparent\n    ),\n\n    floatingActionButtonTheme: FloatingActionButtonThemeData(\n      backgroundColor: AppConstants.secondary,\n      foregroundColor: Colors.white,\n    ),\n\n    chipTheme: ChipThemeData(\n      backgroundColor: AppConstants.surfaceContainerLow,\n      selectedColor: AppConstants.primary.withValues(alpha: 0.25),\n      shape: RoundedRectangleBorder(borderRadius: AppConstants.borderRadius12),\n      side: BorderSide.none,\n      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),\n    ),\n  );\n\n  static ThemeData get dark => ThemeData(\n        useMaterial3: true,\n        brightness: Brightness.dark,\n        // TODO: add your dark theme\n      );\n}\n",
+      "import 'package:flutter/material.dart';\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\n\nimport 'config/router/app_router.dart';\nimport 'config/theme/app_theme.dart';\n\nFuture<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  runApp(const ProviderScope(child: App()));\n}\n\nclass App extends ConsumerWidget {\n  const App({super.key});\n\n  @override\n  Widget build(BuildContext context, WidgetRef ref) {\n  final router = ref.watch(routerProvider);\n\n    return MaterialApp.router(\n      title: 'App',\n      theme: AppTheme.light,\n      darkTheme: AppTheme.dark,\n      debugShowCheckedModeBanner: false,\n      routerConfig: router,\n      builder: (context, child) {\n        return MediaQuery(\n          data: MediaQuery.of(context).copyWith(\n            textScaler: TextScaler.noScaling,\n            alwaysUse24HourFormat: true,\n          ),\n          child: child!,\n        );\n      },\n      // TODO: set your initial route/home\n    );\n  }\n}\n",
+      "import 'package:flutter/material.dart';\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\nimport 'package:go_router/go_router.dart';\n \n// ── Navigator key ─────────────────────────────────────────────────────────────\n// Use this to navigate from anywhere without BuildContext:\n//   ref.read(routerProvider).go(AppRoutes.home)\n//   ref.read(routerProvider).push(AppRoutes.detail)\n \nfinal routerProvider = Provider<GoRouter>((ref) => _router);\n \nfinal _rootNavigatorKey = GlobalKey<NavigatorState>();\n \n// ── Routes ────────────────────────────────────────────────────────────────────\n \nabstract final class AppRoutes {\n  static const home   = '/';\n  // static const login  = '/login';\n  // static const detail = '/detail/:id';\n\n  //-----Test------//\n  static const designView   = '/design-system';\n  //---------------//\n}\n \n// ── Router ────────────────────────────────────────────────────────────────────\n \nfinal _router = GoRouter(\n  navigatorKey: _rootNavigatorKey,\n  initialLocation: AppRoutes.home,\n  debugLogDiagnostics: true,\n  routes: [\n    GoRoute(\n      path: AppRoutes.home,\n      builder: (context, state) => const Scaffold(\n        body: Center(child: Text('Home — replace me!')),\n      ),\n    ),\n    GoRoute(\n      path: AppRoutes.designView,\n      builder: (_, __) => const DesignSystemView(),\n    )\n    \n \n    // Example with path parameter:\n    // GoRoute(\n    //   path: AppRoutes.detail,\n    //   builder: (context, state) {\n    //     final id = state.pathParameters['id']!;\n    //     return DetailView(id: id);\n    //   },\n    // ),\n\n    //   GoRoute(\n    //   path: '/recipe/detail',\n    //    builder: (context, state) {\n    //     final recipe = state.extra as RecipeEntity;\n    //      return RecipeDetailView(recipe: recipe);\n    //    },\n    //    ),\n\n    // navegar — passa a entidade directamente\n    //   ref.read(routerProvider).go(\n    //      '/recipe/detail',\n    //      extra: recipe, // qualquer objeto\n    //   );\n \n    // Example with redirect (e.g. auth guard):\n    // GoRoute(\n    //   path: AppRoutes.home,\n    //   redirect: (context, state) {\n    //     final isLoggedIn = ...; // read from your auth notifier\n    //     if (!isLoggedIn) return AppRoutes.login;\n    //     return null; // null = no redirect\n    //   },\n    //   builder: (context, state) => const HomeView(),\n    // ),\n  ],\n);\n",
+      "import 'package:flutter_riverpod/flutter_riverpod.dart';",
+      "init",
+      "inputs",
+      "integration",
+      "lib",
+      "loadings",
+      "logger.dart",
+      "main.dart",
+      "mo create feature <n>",
+      "moarch",
+      "moarch v0.1.0",
+      "models",
+      "network",
+      "notifiers",
+      "p",
+      "package:args/command_runner.dart",
+      "package:mason_logger/mason_logger.dart",
+      "package:moarch/src/templates/checklist_templates.dart",
+      "package:path/path.dart",
+      "path",
+      "presentation",
+      "presentation/",
+      "repositories",
+      "router",
+      "secure_storage.dart",
+      "security",
+      "shared",
+      "src/runner.dart",
+      "states",
+      "test",
+      "tests",
+      "tests skipped (--no-tests)",
+      "theme",
+      "this._local",
+      "this._remote",
+      "unit",
+      "usecases",
+      "utils",
+      "v",
+      "version",
+      "views",
+      "widgets",
+      "y",
+      "yes",
+      "{\n  \"flutter\": \"stable\"\n}\n",
+      "✅  Project scaffolded!",
+      "🧱 moarch — Flutter scaffold CLI with Clean Architecture & Riverpod",
+      "🧱 moarch — Initializing project..."
+    ]
+  },
+  "version": "1.1.9"
+}
