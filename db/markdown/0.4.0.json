@@ -1,0 +1,658 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/classify/dart.dart"
+        ],
+        "methods": [
+          "classify",
+          "classifyDart",
+          "createTokenMap",
+          "escapeHtml",
+          "isLower",
+          "isUpper",
+          "markdownToHtml",
+          "renderToHtml",
+          "setImplicitLinkResolver"
+        ],
+        "types": [
+          "Node"
+        ]
+      },
+      "AutolinkSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "AutolinkSyntax",
+          "onMatch"
+        ],
+        "types": [
+          "InlineParser",
+          "InlineSyntax"
+        ]
+      },
+      "BlockHtmlSyntax": {
+        "fields": [
+          "get:canEndBlock",
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "parse"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "BlockParser": {
+        "fields": [
+          "document",
+          "get:current",
+          "get:isDone",
+          "get:next",
+          "lines",
+          "pos"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "BlockParser",
+          "advance",
+          "matches",
+          "matchesNext"
+        ],
+        "types": [
+          "Document"
+        ]
+      },
+      "BlockSyntax": {
+        "fields": [
+          "get:canEndBlock",
+          "get:pattern",
+          "get:syntaxes"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "canParse",
+          "isAtBlockEnd",
+          "parse",
+          "parseChildLines"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "BlockquoteSyntax": {
+        "fields": [
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "parse"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "Classification": {
+        "fields": [
+          "ARROW_OPERATOR",
+          "COMMENT",
+          "ERROR",
+          "IDENTIFIER",
+          "KEYWORD",
+          "NONE",
+          "NUMBER",
+          "OPERATOR",
+          "PUNCTUATION",
+          "SPECIAL_IDENTIFIER",
+          "STRING",
+          "STRING_INTERPOLATION",
+          "TYPE_IDENTIFIER"
+        ],
+        "libraries": [
+          "package:markdown/src/classify/dart.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CodeBlockSyntax": {
+        "fields": [
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "parse",
+          "parseChildLines"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "CodeSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "CodeSyntax",
+          "onMatch"
+        ],
+        "types": [
+          "InlineParser",
+          "InlineSyntax"
+        ]
+      },
+      "Document": {
+        "fields": [
+          "classifier",
+          "refLinks"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "Document",
+          "classify",
+          "parseInline",
+          "parseLines",
+          "parseRefLinks"
+        ],
+        "types": [
+          "Link",
+          "Node"
+        ]
+      },
+      "Element": {
+        "fields": [
+          "attributes",
+          "children",
+          "get:isEmpty",
+          "tag"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "Element",
+          "accept",
+          "empty",
+          "text",
+          "withTag"
+        ],
+        "types": [
+          "Node",
+          "NodeVisitor"
+        ]
+      },
+      "EmptyBlockSyntax": {
+        "fields": [
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "parse"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "GitHubCodeBlockSyntax": {
+        "fields": [
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "parse",
+          "parseChildLines"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "HeaderSyntax": {
+        "fields": [
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "parse"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "HorizontalRuleSyntax": {
+        "fields": [
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "parse"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "HtmlRenderer": {
+        "fields": [
+          "buffer"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "HtmlRenderer",
+          "render",
+          "visitElementAfter",
+          "visitElementBefore",
+          "visitText"
+        ],
+        "types": [
+          "Element",
+          "Node",
+          "NodeVisitor",
+          "Text"
+        ]
+      },
+      "InlineParser": {
+        "fields": [
+          "document",
+          "get:currentSource",
+          "get:isDone",
+          "get:syntaxes",
+          "pos",
+          "source",
+          "start"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "InlineParser",
+          "addNode",
+          "advanceBy",
+          "consume",
+          "parse",
+          "writeText",
+          "writeTextRange"
+        ],
+        "types": [
+          "Document",
+          "InlineSyntax",
+          "Node",
+          "TagState"
+        ]
+      },
+      "InlineSyntax": {
+        "fields": [
+          "pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "InlineSyntax",
+          "onMatch",
+          "tryMatch"
+        ],
+        "types": [
+          "InlineParser"
+        ]
+      },
+      "Link": {
+        "fields": [
+          "id",
+          "title",
+          "url"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "Link"
+        ],
+        "types": []
+      },
+      "LinkSyntax": {
+        "fields": [
+          "get:linkPattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "LinkSyntax",
+          "onMatchEnd"
+        ],
+        "types": [
+          "InlineParser",
+          "TagState",
+          "TagSyntax"
+        ]
+      },
+      "ListItem": {
+        "fields": [
+          "forceBlock",
+          "lines"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "ListItem"
+        ],
+        "types": []
+      },
+      "ListSyntax": {
+        "fields": [
+          "get:canEndBlock",
+          "get:listTag"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "parse"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "Node": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "accept"
+        ],
+        "types": [
+          "NodeVisitor"
+        ]
+      },
+      "NodeVisitor": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "visitElementAfter",
+          "visitElementBefore",
+          "visitText"
+        ],
+        "types": [
+          "Element",
+          "Text"
+        ]
+      },
+      "OrderedListSyntax": {
+        "fields": [
+          "get:listTag",
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [],
+        "types": [
+          "ListSyntax"
+        ]
+      },
+      "ParagraphSyntax": {
+        "fields": [
+          "get:canEndBlock"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "canParse",
+          "parse"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "SetextHeaderSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "canParse",
+          "parse"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "TagState": {
+        "fields": [
+          "children",
+          "endPos",
+          "startPos",
+          "syntax"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "TagState",
+          "close",
+          "tryMatch"
+        ],
+        "types": [
+          "InlineParser",
+          "Node",
+          "TagSyntax"
+        ]
+      },
+      "TagSyntax": {
+        "fields": [
+          "endPattern",
+          "tag"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "TagSyntax",
+          "onMatch",
+          "onMatchEnd"
+        ],
+        "types": [
+          "InlineParser",
+          "InlineSyntax",
+          "TagState"
+        ]
+      },
+      "Text": {
+        "fields": [
+          "text"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "Text",
+          "accept"
+        ],
+        "types": [
+          "Node",
+          "NodeVisitor"
+        ]
+      },
+      "TextSyntax": {
+        "fields": [
+          "substitute"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [
+          "TextSyntax",
+          "onMatch"
+        ],
+        "types": [
+          "InlineParser",
+          "InlineSyntax"
+        ]
+      },
+      "UnorderedListSyntax": {
+        "fields": [
+          "get:listTag",
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart"
+        ],
+        "methods": [],
+        "types": [
+          "ListSyntax"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:48:22Z",
+  "package": "markdown",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "6734c12a0ad441e4a48f3274df9789401a66dbc681781a5d40b91e24c0e03898",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "822460c8f5fb0452aafccd64e92f897074670a514fe6e65cc2ba042ef068b0e7",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\r\n",
+      " />",
+      " \\* ",
+      " _ ",
+      "\"[^\"]+\"",
+      "&",
+      "&[#a-zA-Z0-9]*;",
+      "&amp;",
+      "&gt;",
+      "&lt;",
+      "'[^']+'",
+      "(?:[ ]*\"([^\"]+)\"|)",
+      "<",
+      "<((http|https|ftp)://[^>]*)>",
+      "=",
+      ">",
+      "\\([^)]+\\)",
+      "\\*",
+      "\\*\\*",
+      "\\[",
+      "\\[([^\\]]+)\\]",
+      "\\s*[A-Za-z0-9]+",
+      "\\s?\\[([^\\]]*)\\]",
+      "^(#{1,6})(.*?)#*$",
+      "^((=+)|(-+))$",
+      "^(?:    |\\t)(.*)$",
+      "^([ \\t]*)$",
+      "^<[ ]*\\w+[ >]",
+      "^[ ]{0,3}",
+      "^[ ]{0,3}((-+[ ]{0,2}){3,}|(_+[ ]{0,2}){3,}|(\\*+[ ]{0,2}){3,})$",
+      "^[ ]{0,3}>[ ]?(.*)$",
+      "^[ ]{0,3}[*+-][ \\t]+(.*)$",
+      "^[ ]{0,3}\\d+\\.[ \\t]+(.*)$",
+      "^```(\\w*)$",
+      "_",
+      "__",
+      "`([^`]*)`",
+      "``\\s?((?:.|\\n)*?)\\s?``",
+      "a",
+      "blockquote",
+      "blockquote|h1|h2|h3|h4|h5|h6|hr|p|pre",
+      "bool",
+      "c",
+      "code",
+      "dart",
+      "double",
+      "e",
+      "em",
+      "h1",
+      "h2",
+      "hr",
+      "href",
+      "i",
+      "int",
+      "k",
+      "li",
+      "n",
+      "num",
+      "o",
+      "ol",
+      "p",
+      "package:analyzer_experimental/src/generated/java_core.dart",
+      "package:analyzer_experimental/src/generated/scanner.dart",
+      "pre",
+      "r",
+      "s",
+      "si",
+      "src/classify/dart.dart",
+      "src/markdown/ast.dart",
+      "src/markdown/block_parser.dart",
+      "src/markdown/html_renderer.dart",
+      "src/markdown/inline_parser.dart",
+      "strong",
+      "super",
+      "t",
+      "this",
+      "title",
+      "ul",
+      "void"
+    ]
+  },
+  "version": "0.4.0"
+}

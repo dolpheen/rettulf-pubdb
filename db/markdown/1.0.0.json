@@ -1,0 +1,978 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "version"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/ast.dart",
+          "package:markdown/src/html_renderer.dart",
+          "package:markdown/src/util.dart",
+          "package:markdown/src/version.dart"
+        ],
+        "methods": [
+          "escapeHtml",
+          "markdownToHtml",
+          "renderToHtml"
+        ],
+        "types": [
+          "BlockSyntax",
+          "ExtensionSet",
+          "InlineSyntax",
+          "Node"
+        ]
+      },
+      "AutolinkSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/inline_parser.dart"
+        ],
+        "methods": [
+          "AutolinkSyntax",
+          "onMatch"
+        ],
+        "types": [
+          "InlineParser",
+          "InlineSyntax"
+        ]
+      },
+      "BlockHtmlSyntax": {
+        "fields": [
+          "get:canEndBlock"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "BlockHtmlSyntax"
+        ],
+        "types": [
+          "BlockSyntax"
+        ]
+      },
+      "BlockParser": {
+        "fields": [
+          "blockSyntaxes",
+          "document",
+          "encounteredBlankLine",
+          "get:current",
+          "get:isDone",
+          "get:next",
+          "lines",
+          "standardBlockSyntaxes"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "BlockParser",
+          "advance",
+          "matches",
+          "matchesNext",
+          "parseLines",
+          "peek"
+        ],
+        "types": [
+          "BlockSyntax",
+          "Document",
+          "Node"
+        ]
+      },
+      "BlockSyntax": {
+        "fields": [
+          "get:canEndBlock",
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "BlockSyntax",
+          "canParse",
+          "generateAnchorHash",
+          "isAtBlockEnd",
+          "parse",
+          "parseChildLines"
+        ],
+        "types": [
+          "BlockParser",
+          "Element",
+          "Node"
+        ]
+      },
+      "BlockTagBlockHtmlSyntax": {
+        "fields": [
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "BlockTagBlockHtmlSyntax",
+          "parse"
+        ],
+        "types": [
+          "BlockHtmlSyntax",
+          "BlockParser",
+          "Node"
+        ]
+      },
+      "BlockquoteSyntax": {
+        "fields": [
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "BlockquoteSyntax",
+          "parse",
+          "parseChildLines"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "CodeBlockSyntax": {
+        "fields": [
+          "get:canEndBlock",
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "CodeBlockSyntax",
+          "parse",
+          "parseChildLines"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "CodeSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/inline_parser.dart"
+        ],
+        "methods": [
+          "CodeSyntax",
+          "onMatch",
+          "tryMatch"
+        ],
+        "types": [
+          "InlineParser",
+          "InlineSyntax"
+        ]
+      },
+      "Document": {
+        "fields": [
+          "blockSyntaxes",
+          "extensionSet",
+          "imageLinkResolver",
+          "inlineSyntaxes",
+          "linkResolver",
+          "refLinks"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/document.dart"
+        ],
+        "methods": [
+          "Document",
+          "parseInline",
+          "parseLines"
+        ],
+        "types": [
+          "BlockSyntax",
+          "ExtensionSet",
+          "InlineSyntax",
+          "Link",
+          "Node"
+        ]
+      },
+      "Element": {
+        "fields": [
+          "attributes",
+          "children",
+          "generatedId",
+          "get:isEmpty",
+          "get:textContent",
+          "tag"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/ast.dart"
+        ],
+        "methods": [
+          "Element",
+          "accept",
+          "empty",
+          "text",
+          "withTag"
+        ],
+        "types": [
+          "Node",
+          "NodeVisitor"
+        ]
+      },
+      "EmailAutolinkSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/inline_parser.dart"
+        ],
+        "methods": [
+          "EmailAutolinkSyntax",
+          "onMatch"
+        ],
+        "types": [
+          "InlineParser",
+          "InlineSyntax"
+        ]
+      },
+      "EmptyBlockSyntax": {
+        "fields": [
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "EmptyBlockSyntax",
+          "parse"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "EscapeSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/inline_parser.dart"
+        ],
+        "methods": [
+          "EscapeSyntax",
+          "onMatch"
+        ],
+        "types": [
+          "InlineParser",
+          "InlineSyntax"
+        ]
+      },
+      "ExtensionSet": {
+        "fields": [
+          "blockSyntaxes",
+          "commonMark",
+          "gitHub",
+          "inlineSyntaxes",
+          "none"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/extension_set.dart"
+        ],
+        "methods": [],
+        "types": [
+          "BlockSyntax",
+          "ExtensionSet",
+          "InlineSyntax"
+        ]
+      },
+      "FencedCodeBlockSyntax": {
+        "fields": [
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "FencedCodeBlockSyntax",
+          "parse",
+          "parseChildLines"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "HeaderSyntax": {
+        "fields": [
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "HeaderSyntax",
+          "parse"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "HeaderWithIdSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "HeaderWithIdSyntax",
+          "parse"
+        ],
+        "types": [
+          "BlockParser",
+          "HeaderSyntax",
+          "Node"
+        ]
+      },
+      "HorizontalRuleSyntax": {
+        "fields": [
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "HorizontalRuleSyntax",
+          "parse"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "HtmlRenderer": {
+        "fields": [
+          "buffer",
+          "uniqueIds"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/html_renderer.dart"
+        ],
+        "methods": [
+          "HtmlRenderer",
+          "render",
+          "uniquifyId",
+          "visitElementAfter",
+          "visitElementBefore",
+          "visitText"
+        ],
+        "types": [
+          "Element",
+          "Node",
+          "NodeVisitor",
+          "Text"
+        ]
+      },
+      "ImageSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/inline_parser.dart"
+        ],
+        "methods": [
+          "ImageSyntax"
+        ],
+        "types": [
+          "LinkSyntax"
+        ]
+      },
+      "InlineHtmlSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/inline_parser.dart"
+        ],
+        "methods": [
+          "InlineHtmlSyntax"
+        ],
+        "types": [
+          "TextSyntax"
+        ]
+      },
+      "InlineParser": {
+        "fields": [
+          "document",
+          "get:isDone",
+          "pos",
+          "source",
+          "start",
+          "syntaxes"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/inline_parser.dart"
+        ],
+        "methods": [
+          "InlineParser",
+          "addNode",
+          "advanceBy",
+          "consume",
+          "parse",
+          "writeText",
+          "writeTextRange"
+        ],
+        "types": [
+          "Document",
+          "InlineSyntax",
+          "Node",
+          "TagState"
+        ]
+      },
+      "InlineSyntax": {
+        "fields": [
+          "pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/inline_parser.dart"
+        ],
+        "methods": [
+          "InlineSyntax",
+          "onMatch",
+          "tryMatch"
+        ],
+        "types": [
+          "InlineParser"
+        ]
+      },
+      "LineBreakSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/inline_parser.dart"
+        ],
+        "methods": [
+          "LineBreakSyntax",
+          "onMatch"
+        ],
+        "types": [
+          "InlineParser",
+          "InlineSyntax"
+        ]
+      },
+      "Link": {
+        "fields": [
+          "id",
+          "title",
+          "url"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/document.dart"
+        ],
+        "methods": [
+          "Link"
+        ],
+        "types": []
+      },
+      "LinkSyntax": {
+        "fields": [
+          "linkResolver"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/inline_parser.dart"
+        ],
+        "methods": [
+          "LinkSyntax",
+          "createNode",
+          "getLink",
+          "onMatchEnd"
+        ],
+        "types": [
+          "InlineParser",
+          "Link",
+          "Node",
+          "TagState",
+          "TagSyntax"
+        ]
+      },
+      "ListItem": {
+        "fields": [
+          "forceBlock",
+          "lines"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "ListItem"
+        ],
+        "types": []
+      },
+      "ListSyntax": {
+        "fields": [
+          "blocksInList",
+          "get:canEndBlock",
+          "get:listTag"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "ListSyntax",
+          "parse",
+          "removeLeadingEmptyLine",
+          "removeTrailingEmptyLines"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "ListItem",
+          "Node"
+        ]
+      },
+      "LongBlockHtmlSyntax": {
+        "fields": [
+          "pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "LongBlockHtmlSyntax",
+          "parse"
+        ],
+        "types": [
+          "BlockHtmlSyntax",
+          "BlockParser",
+          "Node"
+        ]
+      },
+      "Node": {
+        "fields": [
+          "get:textContent"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/ast.dart"
+        ],
+        "methods": [
+          "accept"
+        ],
+        "types": [
+          "NodeVisitor"
+        ]
+      },
+      "NodeVisitor": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/ast.dart"
+        ],
+        "methods": [
+          "visitElementAfter",
+          "visitElementBefore",
+          "visitText"
+        ],
+        "types": [
+          "Element",
+          "Text"
+        ]
+      },
+      "OrderedListSyntax": {
+        "fields": [
+          "get:listTag",
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "OrderedListSyntax"
+        ],
+        "types": [
+          "ListSyntax"
+        ]
+      },
+      "OtherTagBlockHtmlSyntax": {
+        "fields": [
+          "get:canEndBlock",
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "OtherTagBlockHtmlSyntax"
+        ],
+        "types": [
+          "BlockTagBlockHtmlSyntax"
+        ]
+      },
+      "ParagraphSyntax": {
+        "fields": [
+          "get:canEndBlock"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "ParagraphSyntax",
+          "canParse",
+          "parse"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "SetextHeaderSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "SetextHeaderSyntax",
+          "canParse",
+          "parse"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Node"
+        ]
+      },
+      "SetextHeaderWithIdSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "SetextHeaderWithIdSyntax",
+          "parse"
+        ],
+        "types": [
+          "BlockParser",
+          "Node",
+          "SetextHeaderSyntax"
+        ]
+      },
+      "TableSyntax": {
+        "fields": [
+          "get:canEndBlock"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "TableSyntax",
+          "canParse",
+          "parse",
+          "parseAlignments",
+          "parseRow"
+        ],
+        "types": [
+          "BlockParser",
+          "BlockSyntax",
+          "Element",
+          "Node"
+        ]
+      },
+      "TagState": {
+        "fields": [
+          "children",
+          "endPos",
+          "get:textContent",
+          "startPos",
+          "syntax"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/inline_parser.dart"
+        ],
+        "methods": [
+          "TagState",
+          "close",
+          "tryMatch"
+        ],
+        "types": [
+          "InlineParser",
+          "Node",
+          "TagSyntax"
+        ]
+      },
+      "TagSyntax": {
+        "fields": [
+          "endPattern",
+          "tag"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/inline_parser.dart"
+        ],
+        "methods": [
+          "TagSyntax",
+          "onMatch",
+          "onMatchEnd"
+        ],
+        "types": [
+          "InlineParser",
+          "InlineSyntax",
+          "TagState"
+        ]
+      },
+      "Text": {
+        "fields": [
+          "get:textContent",
+          "text"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/ast.dart"
+        ],
+        "methods": [
+          "Text",
+          "accept"
+        ],
+        "types": [
+          "Node",
+          "NodeVisitor"
+        ]
+      },
+      "TextSyntax": {
+        "fields": [
+          "substitute"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/inline_parser.dart"
+        ],
+        "methods": [
+          "TextSyntax",
+          "onMatch"
+        ],
+        "types": [
+          "InlineParser",
+          "InlineSyntax"
+        ]
+      },
+      "UnorderedListSyntax": {
+        "fields": [
+          "get:listTag",
+          "get:pattern"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/block_parser.dart"
+        ],
+        "methods": [
+          "UnorderedListSyntax"
+        ],
+        "types": [
+          "ListSyntax"
+        ]
+      },
+      "UnparsedContent": {
+        "fields": [
+          "textContent"
+        ],
+        "libraries": [
+          "package:markdown/markdown.dart",
+          "package:markdown/src/ast.dart"
+        ],
+        "methods": [
+          "UnparsedContent",
+          "accept"
+        ],
+        "types": [
+          "Node",
+          "NodeVisitor"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:48:24Z",
+  "package": "markdown",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "BlockHtmlSyntax",
+      "BlockSyntax",
+      "BlockTagBlockHtmlSyntax",
+      "BlockquoteSyntax",
+      "CodeBlockSyntax",
+      "EmptyBlockSyntax",
+      "FencedCodeBlockSyntax",
+      "HeaderSyntax",
+      "HeaderWithIdSyntax",
+      "HorizontalRuleSyntax",
+      "ListSyntax",
+      "OrderedListSyntax",
+      "OtherTagBlockHtmlSyntax",
+      "ParagraphSyntax",
+      "SetextHeaderSyntax",
+      "SetextHeaderWithIdSyntax",
+      "TableSyntax",
+      "UnorderedListSyntax"
+    ],
+    "digest": "d3f27a48abb90b8624e2059f85fb7d3ccef510f4f986161a84274aa1881ebed8",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "d035e35d3bc028c474659c296560cbd8e28ee6081dda5311f97a3567f6cbfb32",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\r\n",
+      " ",
+      " />",
+      " \\* ",
+      " _ ",
+      "!\\[",
+      "&",
+      "&[#a-zA-Z0-9]*;",
+      "&amp;",
+      "&lt;",
+      "(?:\\\\|  +)\\n",
+      "(?:\\s*\"([^\"]+?)\"\\s*|)",
+      "(`+(?!`))((?:.|\\n)*?[^`])\\1(?!`)",
+      "-",
+      "-->",
+      "1.0.0",
+      ":",
+      "<",
+      "<(([a-zA-Z][a-zA-Z\\-\\+\\.]+):(?://)?[^\\s>]*)>",
+      "</pre>",
+      "</script>",
+      "</style>",
+      "<[/!?]?[A-Za-z][A-Za-z0-9-]*(?: [^>]*)?>",
+      "=",
+      ">",
+      "[ \\tA-Za-z0-9]*[A-Za-z0-9]",
+      "[ ]{0,3}\\[",
+      "[A-Za-z0-9]+\\b",
+      "[^a-z0-9 _-]",
+      "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*",
+      "\\",
+      "\\*",
+      "\\*\\*",
+      "\\?>",
+      "\\[",
+      "\\[([^\\]]*)\\]",
+      "\\\\[!\"#$%&'()*+,\\-./:;<=>?@\\[\\\\\\]^_`{|}~]",
+      "\\]\\]>",
+      "\\b_",
+      "\\b__",
+      "\\s",
+      "\\s*\\|$",
+      "\\s*\\|\\s*",
+      "^ {0,3}(#{1,6})[ \\x09\\x0b\\x0c](.*?)#*$",
+      "^ {0,3}([-*_]) *\\1 *\\1(?:\\1| )*$",
+      "^ {0,3}<!--",
+      "^ {0,3}<![A-Z]",
+      "^ {0,3}<!\\[CDATA\\[",
+      "^ {0,3}</?(?:address|article|aside|base|basefont|blockquote|body|caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h1|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|meta|nav|noframes|ol|optgroup|option|p|param|section|source|summary|table|tbody|td|tfoot|th|thead|title|tr|track|ul)(?:\\s|>|/>|$)",
+      "^ {0,3}</?\\w+(?:>|\\s+[^>]*>)\\s*$",
+      "^ {0,3}<\\?",
+      "^ {0,3}<pre(?:\\s|>|$)",
+      "^ {0,3}<script(?:\\s|>|$)",
+      "^ {0,3}<style(?:\\s|>|$)",
+      "^(?:    |\\t)(.*)$",
+      "^(?:[ \\t]*)$",
+      "^([ ]{0,3})()([*+-])(([ \\t])([ \\t]*)(.*))?$",
+      "^([ ]{0,3})(\\d{1,9})([\\.)])(([ \\t])([ \\t]*)(.*))?$",
+      "^[ ]{0,3}(=+|-+)\\s*$",
+      "^[ ]{0,3}(`{3,}|~{3,})(.*)$",
+      "^[ ]{0,3}>[ ]?(.*)$",
+      "^[ ]{0,3}\\[((?:\\\\\\]|[^\\]])+)\\]:\\s*(?:<(\\S+)>|(\\S+))\\s*(\"[^\"]+\"|'[^']+'|\\([^)]+\\)|)\\s*$",
+      "^[ ]{0,3}\\|?( *:?\\-+:? *\\|)+( *:?\\-+:? *)?$",
+      "^[^a-z]+",
+      "^\\s*$",
+      "^\\|\\s*",
+      "_\\b",
+      "__\\b",
+      "`",
+      "a",
+      "alt",
+      "ast.dart",
+      "block_parser.dart",
+      "blockquote",
+      "blockquote|h1|h2|h3|h4|h5|h6|hr|p|pre",
+      "br",
+      "center",
+      "class",
+      "code",
+      "dart:collection",
+      "dart:convert",
+      "document.dart",
+      "em",
+      "extension_set.dart",
+      "h1",
+      "h2",
+      "hr",
+      "href",
+      "img",
+      "inline_parser.dart",
+      "left",
+      "li",
+      "ol",
+      "p",
+      "pre",
+      "right",
+      "src",
+      "src/ast.dart",
+      "src/block_parser.dart",
+      "src/document.dart",
+      "src/extension_set.dart",
+      "src/html_renderer.dart",
+      "src/inline_parser.dart",
+      "src/version.dart",
+      "start",
+      "strong",
+      "style",
+      "table",
+      "tbody",
+      "td",
+      "th",
+      "thead",
+      "title",
+      "tr",
+      "ul",
+      "util.dart",
+      "|"
+    ]
+  },
+  "version": "1.0.0"
+}
