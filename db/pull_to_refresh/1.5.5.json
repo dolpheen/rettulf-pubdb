@@ -1,0 +1,923 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/classic_indicator.dart",
+          "package:pull_to_refresh/src/indicator/custom_indicator.dart",
+          "package:pull_to_refresh/src/internals/indicator_wrap.dart",
+          "package:pull_to_refresh/src/smart_refresher.dart"
+        ],
+        "methods": [],
+        "types": [
+          "LoadStatus",
+          "RefreshPhysics",
+          "RefreshStatus"
+        ]
+      },
+      "BezierCircleHeader": {
+        "fields": [
+          "bezierColor",
+          "circleColor",
+          "circleRadius",
+          "circleType",
+          "dismissType",
+          "enableChildOverflow",
+          "rectHeight"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/bezier_indicator.dart"
+        ],
+        "methods": [
+          "BezierCircleHeader",
+          "createState"
+        ],
+        "types": [
+          "BezierCircleType",
+          "BezierDismissType"
+        ]
+      },
+      "BezierCircleType": {
+        "fields": [
+          "Progress",
+          "Raidal"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/bezier_indicator.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "BezierDismissType": {
+        "fields": [
+          "None",
+          "RectSpread",
+          "ScaleToCenter"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/bezier_indicator.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "BezierHeader": {
+        "fields": [
+          "bezierColor",
+          "child",
+          "dismissType",
+          "enableChildOverflow",
+          "endRefresh",
+          "onModeChange",
+          "onOffsetChange",
+          "onResetValue",
+          "readyRefresh",
+          "rectHeight"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/bezier_indicator.dart"
+        ],
+        "methods": [
+          "BezierHeader",
+          "createState"
+        ],
+        "types": [
+          "BezierDismissType",
+          "RefreshIndicator"
+        ]
+      },
+      "ClassicFooter": {
+        "fields": [
+          "canLoadingIcon",
+          "canLoadingText",
+          "completeDuration",
+          "failedIcon",
+          "failedText",
+          "iconPos",
+          "idleIcon",
+          "idleText",
+          "loadingIcon",
+          "loadingText",
+          "noDataText",
+          "noMoreIcon",
+          "outerBuilder",
+          "spacing",
+          "textStyle"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/classic_indicator.dart"
+        ],
+        "methods": [
+          "ClassicFooter",
+          "createState"
+        ],
+        "types": [
+          "IconPosition",
+          "LoadIndicator",
+          "LoadStyle"
+        ]
+      },
+      "ClassicHeader": {
+        "fields": [
+          "canTwoLevelIcon",
+          "canTwoLevelText",
+          "completeIcon",
+          "completeText",
+          "failedIcon",
+          "failedText",
+          "iconPos",
+          "idleIcon",
+          "idleText",
+          "outerBuilder",
+          "refreshingIcon",
+          "refreshingText",
+          "releaseIcon",
+          "releaseText",
+          "spacing",
+          "textStyle",
+          "twoLevelView"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/classic_indicator.dart"
+        ],
+        "methods": [
+          "ClassicHeader",
+          "createState"
+        ],
+        "types": [
+          "IconPosition",
+          "RefreshIndicator",
+          "RefreshStyle"
+        ]
+      },
+      "CustomFooter": {
+        "fields": [
+          "builder",
+          "endLoading",
+          "onModeChange",
+          "onOffsetChange",
+          "readyLoading"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/custom_indicator.dart"
+        ],
+        "methods": [
+          "CustomFooter",
+          "createState"
+        ],
+        "types": [
+          "LoadIndicator",
+          "LoadStyle"
+        ]
+      },
+      "CustomHeader": {
+        "fields": [
+          "builder",
+          "endRefresh",
+          "onModeChange",
+          "onOffsetChange",
+          "onResetValue",
+          "readyToRefresh"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/custom_indicator.dart"
+        ],
+        "methods": [
+          "CustomHeader",
+          "createState"
+        ],
+        "types": [
+          "RefreshIndicator",
+          "RefreshStatus",
+          "RefreshStyle"
+        ]
+      },
+      "IconPosition": {
+        "fields": [
+          "bottom",
+          "left",
+          "right",
+          "top"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/classic_indicator.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "IndicatorStateMixin": {
+        "fields": [
+          "configuration",
+          "get:activity",
+          "get:floating",
+          "get:mode",
+          "refresher",
+          "set:floating",
+          "set:mode"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/internals/indicator_wrap.dart"
+        ],
+        "methods": [
+          "buildContent",
+          "didChangeDependencies",
+          "didUpdateWidget",
+          "dispose",
+          "disposeListener",
+          "initState",
+          "update"
+        ],
+        "types": [
+          "RefreshConfiguration",
+          "SmartRefresher"
+        ]
+      },
+      "LinkFooter": {
+        "fields": [
+          "linkKey"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/link_indicator.dart"
+        ],
+        "methods": [
+          "LinkFooter",
+          "createState"
+        ],
+        "types": [
+          "LoadIndicator",
+          "LoadStyle"
+        ]
+      },
+      "LinkHeader": {
+        "fields": [
+          "linkKey"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/link_indicator.dart"
+        ],
+        "methods": [
+          "LinkHeader",
+          "createState"
+        ],
+        "types": [
+          "RefreshIndicator",
+          "RefreshStyle"
+        ]
+      },
+      "LoadIndicator": {
+        "fields": [
+          "height",
+          "loadStyle",
+          "onClick"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/internals/indicator_wrap.dart"
+        ],
+        "methods": [
+          "LoadIndicator"
+        ],
+        "types": [
+          "LoadStyle"
+        ]
+      },
+      "LoadIndicatorState": {
+        "fields": [
+          "lastMode"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/internals/indicator_wrap.dart"
+        ],
+        "methods": [
+          "build",
+          "dispose",
+          "endLoading",
+          "enterLoading",
+          "finishLoading"
+        ],
+        "types": [
+          "IndicatorStateMixin",
+          "LoadIndicator",
+          "LoadStatus",
+          "LoadingProcessor"
+        ]
+      },
+      "LoadStatus": {
+        "fields": [
+          "canLoading",
+          "failed",
+          "idle",
+          "loading",
+          "noMore"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/smart_refresher.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LoadStyle": {
+        "fields": [
+          "HideAlways",
+          "ShowAlways",
+          "ShowWhenLoading"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/smart_refresher.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LoadingProcessor": {
+        "fields": [],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/internals/indicator_wrap.dart"
+        ],
+        "methods": [
+          "endLoading",
+          "onModeChange",
+          "onOffsetChange",
+          "readyToLoad",
+          "resetValue"
+        ],
+        "types": [
+          "LoadStatus"
+        ]
+      },
+      "MaterialClassicHeader": {
+        "fields": [
+          "backgroundColor",
+          "color",
+          "distance",
+          "semanticsLabel",
+          "semanticsValue"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/material_indicator.dart"
+        ],
+        "methods": [
+          "MaterialClassicHeader",
+          "createState"
+        ],
+        "types": [
+          "RefreshIndicator"
+        ]
+      },
+      "RefreshConfiguration": {
+        "fields": [
+          "autoLoad",
+          "child",
+          "closeTwoLevelDistance",
+          "dragSpeedRatio",
+          "enableBallisticLoad",
+          "enableBallisticRefresh",
+          "enableLoadingWhenFailed",
+          "enableScrollWhenRefreshCompleted",
+          "enableScrollWhenTwoLevel",
+          "footerBuilder",
+          "footerTriggerDistance",
+          "headerBuilder",
+          "headerOffset",
+          "headerTriggerDistance",
+          "hideFooterWhenNotFull",
+          "maxOverScrollExtent",
+          "maxUnderScrollExtent",
+          "shouldFooterFollowWhenNotFull",
+          "skipCanRefresh",
+          "springDescription",
+          "twiceTriggerDistance"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/smart_refresher.dart"
+        ],
+        "methods": [
+          "RefreshConfiguration",
+          "copyAncestor",
+          "of",
+          "updateShouldNotify"
+        ],
+        "types": [
+          "RefreshConfiguration"
+        ]
+      },
+      "RefreshController": {
+        "fields": [
+          "footerMode",
+          "get:footerStatus",
+          "get:headerStatus",
+          "get:isLoading",
+          "get:isRefresh",
+          "get:isTwoLevel",
+          "headerMode",
+          "initialRefresh",
+          "position",
+          "scrollController"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/smart_refresher.dart"
+        ],
+        "methods": [
+          "RefreshController",
+          "dispose",
+          "loadComplete",
+          "loadFailed",
+          "loadNoData",
+          "onPositionUpdated",
+          "refreshCompleted",
+          "refreshFailed",
+          "refreshToIdle",
+          "requestLoading",
+          "requestRefresh",
+          "requestTwoLevel",
+          "resetNoData",
+          "twoLevelComplete"
+        ],
+        "types": [
+          "LoadStatus",
+          "RefreshConfiguration",
+          "RefreshStatus"
+        ]
+      },
+      "RefreshIndicator": {
+        "fields": [
+          "completeDuration",
+          "height",
+          "refreshStyle"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/internals/indicator_wrap.dart"
+        ],
+        "methods": [
+          "RefreshIndicator"
+        ],
+        "types": [
+          "RefreshStyle"
+        ]
+      },
+      "RefreshIndicatorState": {
+        "fields": [],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/internals/indicator_wrap.dart"
+        ],
+        "methods": [
+          "build",
+          "endRefresh",
+          "needReverseAll",
+          "readyToRefresh",
+          "resetValue"
+        ],
+        "types": [
+          "IndicatorStateMixin",
+          "RefreshIndicator",
+          "RefreshProcessor",
+          "RefreshStatus"
+        ]
+      },
+      "RefreshPhysics": {
+        "fields": [
+          "controller",
+          "dragSpeedRatio",
+          "enableScrollWhenRefreshCompleted",
+          "enableScrollWhenTwoLevel",
+          "get:runtimeType",
+          "maxOverScrollExtent",
+          "maxUnderScrollExtent",
+          "springDescription",
+          "updateFlag",
+          "viewportRender"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/internals/refresh_physics.dart"
+        ],
+        "methods": [
+          "RefreshPhysics",
+          "applyBoundaryConditions",
+          "applyPhysicsToUserOffset",
+          "applyTo",
+          "createBallisticSimulation",
+          "findViewport",
+          "frictionFactor",
+          "shouldAcceptUserOffset"
+        ],
+        "types": [
+          "RefreshController",
+          "RefreshPhysics"
+        ]
+      },
+      "RefreshProcessor": {
+        "fields": [],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/internals/indicator_wrap.dart"
+        ],
+        "methods": [
+          "endRefresh",
+          "onModeChange",
+          "onOffsetChange",
+          "readyToRefresh",
+          "resetValue"
+        ],
+        "types": [
+          "RefreshStatus"
+        ]
+      },
+      "RefreshStatus": {
+        "fields": [
+          "canRefresh",
+          "canTwoLevel",
+          "completed",
+          "failed",
+          "idle",
+          "refreshing",
+          "twoLevelClosing",
+          "twoLevelOpening",
+          "twoLeveling"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/smart_refresher.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "RefreshStyle": {
+        "fields": [
+          "Behind",
+          "Follow",
+          "Front",
+          "UnFollow"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/smart_refresher.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "RenderSliverLoading": {
+        "fields": [
+          "get:hasLayoutExtent",
+          "get:layoutExtent",
+          "hideWhenNotFull",
+          "mode",
+          "set:hasLayoutExtent",
+          "set:layoutExtent",
+          "shouldFollowContent"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/src/internals/slivers.dart"
+        ],
+        "methods": [
+          "RenderSliverLoading",
+          "computePaintOrigin",
+          "performLayout"
+        ],
+        "types": [
+          "LoadStatus"
+        ]
+      },
+      "RenderSliverRefresh": {
+        "fields": [
+          "context",
+          "get:centerOffsetAdjustment",
+          "get:hasLayoutExtent",
+          "get:refreshIndicatorLayoutExtent",
+          "layoutExtentOffsetCompensation",
+          "paintOffsetY",
+          "refreshStyle",
+          "set:hasLayoutExtent",
+          "set:refreshIndicatorLayoutExtent",
+          "set:updateFlag"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/src/internals/slivers.dart"
+        ],
+        "methods": [
+          "RenderSliverRefresh",
+          "applyPaintTransform",
+          "layout",
+          "paint",
+          "performLayout",
+          "performResize"
+        ],
+        "types": [
+          "RefreshStyle"
+        ]
+      },
+      "RenderSliverRefreshBody": {
+        "fields": [],
+        "libraries": [
+          "package:pull_to_refresh/src/internals/slivers.dart"
+        ],
+        "methods": [
+          "RenderSliverRefreshBody",
+          "performLayout"
+        ],
+        "types": []
+      },
+      "SliverLoading": {
+        "fields": [
+          "floating",
+          "hideWhenNotFull",
+          "layoutExtent",
+          "mode",
+          "shouldFollowContent"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/src/internals/slivers.dart"
+        ],
+        "methods": [
+          "SliverLoading",
+          "createRenderObject",
+          "updateRenderObject"
+        ],
+        "types": [
+          "LoadStatus",
+          "RenderSliverLoading"
+        ]
+      },
+      "SliverRefresh": {
+        "fields": [
+          "floating",
+          "paintOffsetY",
+          "refreshIndicatorLayoutExtent",
+          "refreshStyle"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/src/internals/slivers.dart"
+        ],
+        "methods": [
+          "SliverRefresh",
+          "createRenderObject",
+          "updateRenderObject"
+        ],
+        "types": [
+          "RefreshStyle",
+          "RenderSliverRefresh"
+        ]
+      },
+      "SliverRefreshBody": {
+        "fields": [],
+        "libraries": [
+          "package:pull_to_refresh/src/internals/slivers.dart"
+        ],
+        "methods": [
+          "SliverRefreshBody",
+          "createRenderObject"
+        ],
+        "types": [
+          "RenderSliverRefreshBody"
+        ]
+      },
+      "SmartRefresher": {
+        "fields": [
+          "builder",
+          "cacheExtent",
+          "child",
+          "controller",
+          "dragStartBehavior",
+          "enablePullDown",
+          "enablePullUp",
+          "enableTwoLevel",
+          "footer",
+          "header",
+          "onLoading",
+          "onOffsetChange",
+          "onRefresh",
+          "onTwoLevel",
+          "physics",
+          "primary",
+          "reverse",
+          "scrollController",
+          "scrollDirection",
+          "semanticChildCount"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/smart_refresher.dart"
+        ],
+        "methods": [
+          "SmartRefresher",
+          "builder",
+          "createState",
+          "of",
+          "ofState"
+        ],
+        "types": [
+          "RefreshController",
+          "SmartRefresher",
+          "SmartRefresherState"
+        ]
+      },
+      "SmartRefresherState": {
+        "fields": [
+          "defaultFooter",
+          "defaultHeader",
+          "viewportExtent"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/smart_refresher.dart"
+        ],
+        "methods": [
+          "build",
+          "didChangeDependencies",
+          "dispose",
+          "initState"
+        ],
+        "types": [
+          "LoadIndicator",
+          "RefreshIndicator",
+          "RefreshPhysics",
+          "SmartRefresher"
+        ]
+      },
+      "TwoLevelDisplayAlignment": {
+        "fields": [
+          "fromBottom",
+          "fromCenter",
+          "fromTop"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/twolevel_indicator.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TwoLevelHeader": {
+        "fields": [
+          "canTwoLevelIcon",
+          "canTwoLevelText",
+          "completeDuration",
+          "completeIcon",
+          "completeText",
+          "decoration",
+          "displayAlignment",
+          "failedIcon",
+          "failedText",
+          "height",
+          "iconPos",
+          "idleIcon",
+          "idleText",
+          "refreshingIcon",
+          "refreshingText",
+          "releaseIcon",
+          "releaseText",
+          "spacing",
+          "textStyle",
+          "twoLevelWidget"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/twolevel_indicator.dart"
+        ],
+        "methods": [
+          "TwoLevelHeader",
+          "build"
+        ],
+        "types": [
+          "IconPosition",
+          "TwoLevelDisplayAlignment"
+        ]
+      },
+      "WaterDropHeader": {
+        "fields": [
+          "complete",
+          "failed",
+          "idleIcon",
+          "refresh",
+          "waterDropColor"
+        ],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/waterdrop_header.dart"
+        ],
+        "methods": [
+          "WaterDropHeader",
+          "createState"
+        ],
+        "types": [
+          "RefreshIndicator"
+        ]
+      },
+      "WaterDropMaterialHeader": {
+        "fields": [],
+        "libraries": [
+          "package:pull_to_refresh/pull_to_refresh.dart",
+          "package:pull_to_refresh/src/indicator/material_indicator.dart"
+        ],
+        "methods": [
+          "WaterDropMaterialHeader",
+          "createState"
+        ],
+        "types": [
+          "MaterialClassicHeader"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:00:03Z",
+  "package": "pull_to_refresh",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "ClassicFooter",
+      "ClassicHeader",
+      "CustomFooter",
+      "CustomHeader",
+      "LinkFooter",
+      "LinkHeader",
+      "LoadIndicator",
+      "MaterialClassicHeader",
+      "RefreshIndicator",
+      "SliverRefresh",
+      "SliverRefreshBody",
+      "TwoLevelHeader",
+      "WaterDropHeader",
+      "WaterDropMaterialHeader"
+    ],
+    "digest": "9a9f8525364f4dd7bf5caeb62be89004d129c15aa996de34de854191682fa143",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "9bb00a6cde17b8648a9e9d6012361902dbac483c9f2d735e732dccef178ef462",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "../internals/indicator_wrap.dart",
+      "../smart_refresher.dart",
+      "Load Failed,Click Retry!",
+      "Load More..",
+      "Loading...",
+      "No more data",
+      "Pull down to refresh",
+      "Refresh complete",
+      "Refresh failed",
+      "Refresh when release",
+      "Refreshing...",
+      "Release to load more..",
+      "Try not to call requestLoading() before build,please call after the ui was rendered",
+      "Try not to call requestRefresh() before build,please call after the ui was rendered",
+      "advice set ScrollController to child,use it directly will cause bug when call jumpTo() and animateTo()",
+      "classic_indicator.dart",
+      "dart:async",
+      "dart:math",
+      "indicator/classic_indicator.dart",
+      "indicator/material_indicator.dart",
+      "internals/indicator_wrap.dart",
+      "internals/refresh_physics.dart",
+      "package:flutter/animation.dart",
+      "package:flutter/cupertino.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/gestures.dart",
+      "package:flutter/material.dart",
+      "package:flutter/physics.dart",
+      "package:flutter/rendering.dart",
+      "package:flutter/widgets.dart",
+      "package:pull_to_refresh/pull_to_refresh.dart",
+      "package:pull_to_refresh/src/internals/indicator_wrap.dart",
+      "package:pull_to_refresh/src/internals/slivers.dart",
+      "release to enter secondfloor",
+      "search RefreshConfiguration anscestor return null,please  Make sure that RefreshConfiguration is the ancestor of that element",
+      "slivers.dart",
+      "src/indicator/bezier_indicator.dart",
+      "src/indicator/classic_indicator.dart",
+      "src/indicator/custom_indicator.dart",
+      "src/indicator/link_indicator.dart",
+      "src/indicator/material_indicator.dart",
+      "src/indicator/twolevel_indicator.dart",
+      "src/indicator/waterdrop_header.dart",
+      "src/internals/indicator_wrap.dart",
+      "src/internals/refresh_physics.dart",
+      "src/smart_refresher.dart",
+      "刷新失败",
+      "刷新完成"
+    ]
+  },
+  "version": "1.5.5"
+}
