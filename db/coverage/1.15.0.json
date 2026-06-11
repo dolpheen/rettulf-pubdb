@@ -1,0 +1,446 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "ignoreFile",
+          "multiLineIgnoreEnd",
+          "multiLineIgnoreStart",
+          "singleLineIgnore"
+        ],
+        "libraries": [
+          "package:coverage/coverage.dart",
+          "package:coverage/src/chrome.dart",
+          "package:coverage/src/collect.dart",
+          "package:coverage/src/coverage_percentage.dart",
+          "package:coverage/src/hitmap.dart",
+          "package:coverage/src/isolate_paused_listener.dart",
+          "package:coverage/src/run_and_collect.dart",
+          "package:coverage/src/util.dart"
+        ],
+        "methods": [
+          "calculateCoveragePercentage",
+          "collect",
+          "createHitmap",
+          "extractVMServiceUri",
+          "getAllIsolates",
+          "getAllWorkspaceNames",
+          "getIgnoredLines",
+          "getPubspecPath",
+          "hitmapToJson",
+          "listenToIsolateLifecycleEvents",
+          "mergeHitmaps",
+          "parseChromeCoverage",
+          "parseCoverage",
+          "retry",
+          "runAndCollect",
+          "safeComplete",
+          "serviceUriFromProcess",
+          "toScriptCoverageJson"
+        ],
+        "types": [
+          "CoverageResult",
+          "HitMap"
+        ]
+      },
+      "BazelResolver": {
+        "fields": [
+          "workspacePath"
+        ],
+        "libraries": [
+          "package:coverage/coverage.dart",
+          "package:coverage/src/resolver.dart"
+        ],
+        "methods": [
+          "BazelResolver",
+          "resolve"
+        ],
+        "types": [
+          "Resolver"
+        ]
+      },
+      "CoverageOptions": {
+        "fields": [
+          "branchCoverage",
+          "functionCoverage",
+          "outputDirectory",
+          "packageDirectory",
+          "scopeOutput",
+          "testScript"
+        ],
+        "libraries": [
+          "package:coverage/src/coverage_options.dart"
+        ],
+        "methods": [
+          "CoverageOptions",
+          "fromConfig"
+        ],
+        "types": [
+          "CoverageOptions"
+        ]
+      },
+      "CoverageOptionsProvider": {
+        "fields": [
+          "coverageOptions",
+          "defaultFilePath",
+          "defaultOptions",
+          "optionsFilePath"
+        ],
+        "libraries": [
+          "package:coverage/src/coverage_options.dart"
+        ],
+        "methods": [
+          "CoverageOptionsProvider",
+          "findOptionsFilePath"
+        ],
+        "types": [
+          "CoverageOptions"
+        ]
+      },
+      "CoverageResult": {
+        "fields": [
+          "coveredLines",
+          "percentage",
+          "totalLines"
+        ],
+        "libraries": [
+          "package:coverage/src/coverage_percentage.dart"
+        ],
+        "methods": [
+          "CoverageResult"
+        ],
+        "types": []
+      },
+      "FileHitMaps": {
+        "fields": [],
+        "libraries": [
+          "package:coverage/coverage.dart",
+          "package:coverage/src/hitmap.dart"
+        ],
+        "methods": [
+          "filterIgnored",
+          "merge"
+        ],
+        "types": [
+          "HitMap",
+          "Resolver"
+        ]
+      },
+      "FileHitMapsFormatter": {
+        "fields": [],
+        "libraries": [
+          "package:coverage/coverage.dart",
+          "package:coverage/src/formatter.dart"
+        ],
+        "methods": [
+          "formatLcov",
+          "prettyPrint"
+        ],
+        "types": [
+          "HitMap",
+          "Loader",
+          "Resolver"
+        ]
+      },
+      "Formatter": {
+        "fields": [],
+        "libraries": [
+          "package:coverage/coverage.dart",
+          "package:coverage/src/formatter.dart"
+        ],
+        "methods": [
+          "format"
+        ],
+        "types": []
+      },
+      "HitMap": {
+        "fields": [
+          "branchHits",
+          "funcHits",
+          "funcNames",
+          "lineHits"
+        ],
+        "libraries": [
+          "package:coverage/coverage.dart",
+          "package:coverage/src/hitmap.dart"
+        ],
+        "methods": [
+          "HitMap",
+          "empty",
+          "parseFiles",
+          "parseJson",
+          "parseJsonSync"
+        ],
+        "types": [
+          "HitMap",
+          "Resolver"
+        ]
+      },
+      "IgnoredLinesContains": {
+        "fields": [],
+        "libraries": [
+          "package:coverage/src/util.dart"
+        ],
+        "methods": [
+          "ignoredContains"
+        ],
+        "types": []
+      },
+      "IsolateEventBuffer": {
+        "fields": [],
+        "libraries": [
+          "package:coverage/src/isolate_paused_listener.dart"
+        ],
+        "methods": [
+          "IsolateEventBuffer",
+          "add",
+          "flush"
+        ],
+        "types": []
+      },
+      "IsolateGroupState": {
+        "fields": [
+          "collected",
+          "get:noLiveIsolates",
+          "get:noRunningIsolates",
+          "paused",
+          "running"
+        ],
+        "libraries": [
+          "package:coverage/src/isolate_paused_listener.dart"
+        ],
+        "methods": [
+          "exit",
+          "pause",
+          "start",
+          "toString"
+        ],
+        "types": []
+      },
+      "IsolatePausedListener": {
+        "fields": [],
+        "libraries": [
+          "package:coverage/src/isolate_paused_listener.dart"
+        ],
+        "methods": [
+          "IsolatePausedListener",
+          "waitUntilAllExited"
+        ],
+        "types": []
+      },
+      "LcovFormatter": {
+        "fields": [
+          "basePath",
+          "reportOn",
+          "resolver"
+        ],
+        "libraries": [
+          "package:coverage/coverage.dart",
+          "package:coverage/src/formatter.dart"
+        ],
+        "methods": [
+          "LcovFormatter",
+          "format"
+        ],
+        "types": [
+          "Formatter",
+          "Resolver"
+        ]
+      },
+      "Loader": {
+        "fields": [
+          "failed"
+        ],
+        "libraries": [
+          "package:coverage/coverage.dart",
+          "package:coverage/src/resolver.dart"
+        ],
+        "methods": [
+          "load",
+          "loadSync"
+        ],
+        "types": []
+      },
+      "PrettyPrintFormatter": {
+        "fields": [
+          "loader",
+          "reportFuncs",
+          "reportOn",
+          "resolver"
+        ],
+        "libraries": [
+          "package:coverage/coverage.dart",
+          "package:coverage/src/formatter.dart"
+        ],
+        "methods": [
+          "PrettyPrintFormatter",
+          "format"
+        ],
+        "types": [
+          "Formatter",
+          "Loader",
+          "Resolver"
+        ]
+      },
+      "Resolver": {
+        "fields": [
+          "failed",
+          "packagePath",
+          "packagesPath",
+          "sdkRoot"
+        ],
+        "libraries": [
+          "package:coverage/coverage.dart",
+          "package:coverage/src/resolver.dart"
+        ],
+        "methods": [
+          "Resolver",
+          "create",
+          "resolve",
+          "resolveSymbolicLinks"
+        ],
+        "types": [
+          "Resolver"
+        ]
+      },
+      "StandardOutExtension": {
+        "fields": [],
+        "libraries": [
+          "package:coverage/src/util.dart"
+        ],
+        "methods": [
+          "lines"
+        ],
+        "types": []
+      },
+      "StdoutLog": {
+        "fields": [],
+        "libraries": [
+          "package:coverage/coverage.dart",
+          "package:coverage/src/collect.dart"
+        ],
+        "methods": [
+          "severe",
+          "warning"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:16:38Z",
+  "package": "coverage",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "CoverageOptions",
+      "CoverageResult"
+    ],
+    "digest": "4c18d53d336da4b6ff8ea60713fe5a2782f1cfb01241b6699201073bae48e7cc",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "cd38d72085096bee7dceca49cd58f6d7ca2ce4130e4629222761f0ee7db43b09",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "       ",
+      "(?:Observatory|The Dart VM service is) listening on ((http|//)[a-zA-Z0-9:/=_\\-\\.\\[\\]]+)",
+      "-",
+      "--checked",
+      "--enable-vm-service",
+      "--pause_isolates_on_exit",
+      "-patch",
+      ".",
+      "/",
+      "/*$",
+      "//\\s*coverage:ignore-end[\\w\\d\\s]*$",
+      "//\\s*coverage:ignore-file[\\w\\d\\s]*$",
+      "//\\s*coverage:ignore-line[\\w\\d\\s]*$",
+      "//\\s*coverage:ignore-start[\\w\\d\\s]*$",
+      "@Script",
+      "Branch coverage formatting was requested, but the hit map is missing branch coverage information. Did you run collect_coverage with the --branch-coverage flag?",
+      "CodeCoverage",
+      "DEBUG_COVERAGE",
+      "Expected value of type int or String",
+      "Function coverage formatting was requested, but the hit map is missing function coverage information. Did you run collect_coverage with the --function-coverage flag?",
+      "Migrate to FileHitMaps.merge",
+      "Migrate to FileHitMapsFormatter",
+      "Migrate to FileHitMapsFormatter.formatLcov",
+      "Migrate to FileHitMapsFormatter.prettyPrint",
+      "Migrate to HitMap.parseFiles",
+      "Migrate to HitMap.parseJson",
+      "Process failed.",
+      "Use Resolver.create",
+      "Use packagePath",
+      "Will be removed in 2.0.0",
+      "_",
+      "_kind",
+      "branchHits",
+      "branch_coverage",
+      "collect.dart",
+      "count",
+      "coverage",
+      "coverage_options.yaml",
+      "dart",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:io",
+      "endOffset",
+      "end_of_record\n",
+      "evaluate",
+      "file",
+      "fixedId",
+      "funcHits",
+      "funcNames",
+      "function_coverage",
+      "functions",
+      "hitmap.dart",
+      "hits",
+      "http",
+      "https",
+      "id",
+      "isolate_paused_listener.dart",
+      "library",
+      "main",
+      "name",
+      "org-dartlang-sdk:",
+      "output_directory",
+      "package",
+      "package:cli_config/cli_config.dart",
+      "package:glob/glob.dart",
+      "package:meta/meta.dart",
+      "package:package_config/package_config.dart",
+      "package:path/path.dart",
+      "package:source_maps/parser.dart",
+      "package:vm_service/vm_service.dart",
+      "package:yaml/yaml.dart",
+      "package_directory",
+      "packages",
+      "pubspec.yaml",
+      "ranges",
+      "resolver.dart",
+      "scope_output",
+      "script",
+      "scriptId",
+      "source",
+      "src/chrome.dart",
+      "src/collect.dart",
+      "src/formatter.dart",
+      "src/hitmap.dart",
+      "src/resolver.dart",
+      "src/run_and_collect.dart",
+      "startOffset",
+      "test",
+      "test_script",
+      "type",
+      "uri",
+      "util.dart",
+      "workspace",
+      "ws"
+    ]
+  },
+  "version": "1.15.0"
+}
