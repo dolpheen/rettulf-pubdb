@@ -1,0 +1,600 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "activeSurveyName",
+          "apiGetBaseAppSizeFile",
+          "apiGetDevToolsEnabled",
+          "apiGetDevToolsFirstRun",
+          "apiGetFlutterGAClientId",
+          "apiGetFlutterGAEnabled",
+          "apiGetSurveyActionTaken",
+          "apiGetSurveyShownCount",
+          "apiGetTestAppSizeFile",
+          "apiIncrementSurveyShownCount",
+          "apiPrefix",
+          "apiResetDevTools",
+          "apiSetActiveSurvey",
+          "apiSetDevToolsEnabled",
+          "apiSetSurveyActionTaken",
+          "baseAppSizeFilePropertyName",
+          "devToolsEnabledPropertyName",
+          "surveyActionTakenPropertyName",
+          "testAppSizeFilePropertyName"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_server.dart",
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/devtools_api.dart",
+          "package:devtools_shared/src/server/usage.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "AdbMemoryInfo": {
+        "fields": [
+          "code",
+          "codeKey",
+          "get:bootDuration",
+          "get:realtimeDT",
+          "graphics",
+          "graphicsKey",
+          "javaHeap",
+          "javaHeapKey",
+          "nativeHeap",
+          "nativeHeapKey",
+          "other",
+          "otherKey",
+          "realTimeKey",
+          "realtime",
+          "stack",
+          "stackKey",
+          "system",
+          "systemKey",
+          "total",
+          "totalKey"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/adb_memory_info.dart"
+        ],
+        "methods": [
+          "AdbMemoryInfo",
+          "empty",
+          "fromJson",
+          "fromJsonInKB",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "AdbMemoryInfo"
+        ]
+      },
+      "AllocationAccumulator": {
+        "fields": [
+          "continuesVisible",
+          "get:isContinues",
+          "get:isContinuesVisible",
+          "get:isEmpty",
+          "get:isReset",
+          "get:isStart"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/event_sample.dart"
+        ],
+        "methods": [
+          "AllocationAccumulator",
+          "continues",
+          "empty",
+          "fromJson",
+          "reset",
+          "start",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "AllocationAccumulator"
+        ]
+      },
+      "AllocationMemoryJson": {
+        "fields": [
+          "get:header",
+          "get:version"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/memory_json.dart"
+        ],
+        "methods": [
+          "AllocationMemoryJson",
+          "decode",
+          "encode",
+          "encodeAnother",
+          "encodeList",
+          "fromJson"
+        ],
+        "types": [
+          "ClassHeapDetailStats",
+          "MemoryJson"
+        ]
+      },
+      "ClassHeapDetailStats": {
+        "fields": [
+          "bytesCurrent",
+          "bytesDelta",
+          "classRef",
+          "instancesCurrent",
+          "instancesDelta",
+          "isStacktraced",
+          "version"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/class_heap_detail_stats.dart"
+        ],
+        "methods": [
+          "ClassHeapDetailStats",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "DecodeEncode": {
+        "fields": [
+          "get:version"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/memory_json.dart"
+        ],
+        "methods": [
+          "encode",
+          "encodeAnother",
+          "fromJson"
+        ],
+        "types": []
+      },
+      "DevToolsUsage": {
+        "fields": [
+          "get:activeSurvey",
+          "get:enabled",
+          "get:isFirstRun",
+          "get:surveyActionTaken",
+          "get:surveyShownCount",
+          "properties",
+          "set:activeSurvey",
+          "set:enabled",
+          "set:surveyActionTaken",
+          "storeName"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_server.dart",
+          "package:devtools_shared/src/server/usage.dart"
+        ],
+        "methods": [
+          "DevToolsUsage",
+          "incrementSurveyShownCount",
+          "reset",
+          "rewriteActiveSurvey",
+          "surveyNameExists"
+        ],
+        "types": [
+          "IOPersistentProperties"
+        ]
+      },
+      "EventSample": {
+        "fields": [
+          "allocationAccumulator",
+          "extensionEvents",
+          "get:hasExtensionEvents",
+          "get:isEmpty",
+          "get:isEventAllocationAccumulator",
+          "isEventGC",
+          "isEventSnapshot",
+          "isEventSnapshotAuto",
+          "timestamp",
+          "version"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/event_sample.dart"
+        ],
+        "methods": [
+          "EventSample",
+          "accumulatorContinues",
+          "accumulatorReset",
+          "accumulatorStart",
+          "clone",
+          "empty",
+          "extensionEvent",
+          "fromJson",
+          "gcEvent",
+          "snapshotEvent",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "AllocationAccumulator",
+          "EventSample",
+          "ExtensionEvents"
+        ]
+      },
+      "ExtensionEvent": {
+        "fields": [
+          "customEventName",
+          "data",
+          "eventKind",
+          "get:isEmpty",
+          "timestamp"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/event_sample.dart"
+        ],
+        "methods": [
+          "ExtensionEvent",
+          "custom",
+          "empty",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ExtensionEvent"
+        ]
+      },
+      "ExtensionEvents": {
+        "fields": [
+          "get:isEmpty",
+          "get:isNotEmpty",
+          "theEvents"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/event_sample.dart"
+        ],
+        "methods": [
+          "ExtensionEvents",
+          "clear",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ExtensionEvent"
+        ]
+      },
+      "FlutterUsage": {
+        "fields": [
+          "get:clientId",
+          "get:doesStoreExist",
+          "get:enabled",
+          "get:isFirstRun",
+          "set:enabled"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_server.dart",
+          "package:devtools_shared/src/server/usage.dart"
+        ],
+        "methods": [
+          "FlutterUsage"
+        ],
+        "types": []
+      },
+      "HeapSample": {
+        "fields": [
+          "adbMemoryInfo",
+          "capacity",
+          "external",
+          "isGC",
+          "memoryEventInfo",
+          "rasterCache",
+          "rss",
+          "timestamp",
+          "used",
+          "version"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/heap_sample.dart"
+        ],
+        "methods": [
+          "HeapSample",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "AdbMemoryInfo",
+          "EventSample",
+          "RasterCache"
+        ]
+      },
+      "HeapSpace": {
+        "fields": [
+          "avgCollectionPeriodMillis",
+          "capacity",
+          "collections",
+          "external",
+          "json",
+          "name",
+          "time",
+          "used"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/heap_space.dart"
+        ],
+        "methods": [
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "HeapSpace"
+        ]
+      },
+      "IOPersistentProperties": {
+        "fields": [],
+        "libraries": [
+          "package:devtools_shared/devtools_server.dart",
+          "package:devtools_shared/src/server/usage.dart"
+        ],
+        "methods": [
+          "IOPersistentProperties",
+          "[]",
+          "[]=",
+          "fromFile",
+          "remove",
+          "syncSettings"
+        ],
+        "types": [
+          "PersistentProperties"
+        ]
+      },
+      "LocalFileSystem": {
+        "fields": [],
+        "libraries": [
+          "package:devtools_shared/devtools_server.dart",
+          "package:devtools_shared/src/server/file_system.dart"
+        ],
+        "methods": [
+          "devToolsDir",
+          "devToolsFileAsJson",
+          "devToolsFileFromPath",
+          "devToolsStoreLocation",
+          "ensureDevToolsDirectory",
+          "flutterStoreExists",
+          "maybeMoveLegacyDevToolsStore"
+        ],
+        "types": []
+      },
+      "MemoryJson": {
+        "fields": [
+          "data",
+          "devToolsScreenValueMemory",
+          "get:isMatchedVersion",
+          "get:isMemoryPayload",
+          "get:payloadVersion",
+          "get:trailer",
+          "jsonDataField",
+          "jsonDevToolsScreenField",
+          "jsonVersionField"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/memory_json.dart"
+        ],
+        "methods": [
+          "MemoryJson",
+          "decode"
+        ],
+        "types": [
+          "DecodeEncode"
+        ]
+      },
+      "PersistentProperties": {
+        "fields": [
+          "name"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_server.dart",
+          "package:devtools_shared/src/server/usage.dart"
+        ],
+        "methods": [
+          "PersistentProperties",
+          "[]",
+          "[]=",
+          "syncSettings"
+        ],
+        "types": []
+      },
+      "RasterCache": {
+        "fields": [
+          "layerBytes",
+          "pictureBytes"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/event_sample.dart"
+        ],
+        "methods": [
+          "empty",
+          "fromJson",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "RasterCache"
+        ]
+      },
+      "SamplesMemoryJson": {
+        "fields": [
+          "get:header",
+          "get:version"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/memory_json.dart"
+        ],
+        "methods": [
+          "SamplesMemoryJson",
+          "decode",
+          "encode",
+          "encodeAnother",
+          "encodeList",
+          "fromJson"
+        ],
+        "types": [
+          "HeapSample",
+          "MemoryJson"
+        ]
+      },
+      "ServerApi": {
+        "fields": [
+          "errorNoActiveSurvey",
+          "get:devToolsPreferences"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_server.dart",
+          "package:devtools_shared/src/server/server_api.dart"
+        ],
+        "methods": [
+          "badRequest",
+          "canHandle",
+          "getCompleted",
+          "handle",
+          "logScreenView",
+          "notImplemented",
+          "setCompleted"
+        ],
+        "types": [
+          "DevToolsUsage",
+          "FlutterUsage",
+          "ServerApi"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:17:44Z",
+  "package": "devtools_shared",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "80d7c8140ce01abff2b161f217d3c892dfe429ae3346dc0a73048088c93e09bf",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "4dcfef457b2fbd53e2e79ecfd123770a14e92e0c727e652dff3f465422baa461",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\n]\n}}",
+      " ",
+      "  ",
+      ".",
+      "..",
+      "../devtools_api.dart",
+      ".devtools",
+      ".flutter",
+      ".flutter-devtools",
+      ".json",
+      "APPDATA",
+      "Code",
+      "ERROR: setActiveSurvey not called.",
+      "Graphics",
+      "HOME",
+      "HeapSpace",
+      "Java Heap",
+      "Native Heap",
+      "Private Other",
+      "Realtime",
+      "Stack",
+      "System",
+      "Total",
+      "[HeapSpace]",
+      "_",
+      "activeSurveyName",
+      "adb_memoryInfo",
+      "adb_memory_info.dart",
+      "allocationAccumulatorEvent",
+      "allocations",
+      "api/",
+      "appSizeBase",
+      "appSizeTest",
+      "avgCollectionPeriodMillis",
+      "bytesCurrent",
+      "bytesDelta",
+      "capacity",
+      "class",
+      "class_heap_detail_stats.dart",
+      "collections",
+      "continues",
+      "customEventName",
+      "dart:async",
+      "dart:convert",
+      "dart:io",
+      "dartDevToolsScreen",
+      "data",
+      "enabled",
+      "eventKind",
+      "event_sample.dart",
+      "extensionEvents",
+      "external",
+      "file_system.dart",
+      "firstRun",
+      "flutter",
+      "gc",
+      "gcEvent",
+      "heap_sample.dart",
+      "id",
+      "instancesCurrent",
+      "instancesDelta",
+      "isStackedTraced",
+      "lastModifiedTime",
+      "layerBytes",
+      "memory",
+      "memory_eventInfo",
+      "name",
+      "package:path/path.dart",
+      "package:shelf/shelf.dart",
+      "package:usage/usage_io.dart",
+      "package:vm_service/vm_service.dart",
+      "pictureBytes",
+      "raster_cache",
+      "reset",
+      "rss",
+      "samples",
+      "snapshotAutoEvent",
+      "snapshotEvent",
+      "src/devtools_api.dart",
+      "src/memory/adb_memory_info.dart",
+      "src/memory/class_heap_detail_stats.dart",
+      "src/memory/event_sample.dart",
+      "src/memory/heap_sample.dart",
+      "src/memory/heap_space.dart",
+      "src/memory/memory_json.dart",
+      "src/server/file_system.dart",
+      "src/server/server_api.dart",
+      "src/server/usage.dart",
+      "start",
+      "surveyActionTaken",
+      "surveyShownCount",
+      "time",
+      "timestamp",
+      "type",
+      "usage.dart",
+      "used",
+      "version",
+      "windows",
+      "{}"
+    ]
+  },
+  "version": "2.5.0"
+}
