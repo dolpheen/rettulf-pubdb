@@ -1,0 +1,771 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:dio/adapter.dart",
+          "package:dio/dio.dart",
+          "package:dio/src/adapter.dart",
+          "package:dio/src/adapters/browser_adapter.dart",
+          "package:dio/src/adapters/io_adapter.dart",
+          "package:dio/src/entry/dio_for_browser.dart",
+          "package:dio/src/entry/dio_for_native.dart",
+          "package:dio/src/entry_stub.dart",
+          "package:dio/src/interceptor.dart",
+          "package:dio/src/multipart_file_io.dart",
+          "package:dio/src/multipart_file_stub.dart",
+          "package:dio/src/options.dart",
+          "package:dio/src/utils.dart"
+        ],
+        "methods": [
+          "createAdapter",
+          "createDio",
+          "encodeMap",
+          "encodingForCharset",
+          "isPlainAscii",
+          "multipartFileFromPath",
+          "multipartFileFromPathSync",
+          "writeStreamToSink"
+        ],
+        "types": [
+          "BaseOptions",
+          "Dio",
+          "DioError",
+          "HttpClientAdapter",
+          "MultipartFile",
+          "RequestOptions",
+          "Response",
+          "ResponseBody"
+        ]
+      },
+      "BaseOptions": {
+        "fields": [
+          "baseUrl",
+          "connectTimeout",
+          "queryParameters"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/options.dart"
+        ],
+        "methods": [
+          "BaseOptions",
+          "merge"
+        ],
+        "types": [
+          "BaseOptions",
+          "ResponseType"
+        ]
+      },
+      "BrowserHttpClientAdapter": {
+        "fields": [
+          "withCredentials"
+        ],
+        "libraries": [
+          "package:dio/src/adapters/browser_adapter.dart"
+        ],
+        "methods": [
+          "close",
+          "fetch"
+        ],
+        "types": [
+          "HttpClientAdapter",
+          "RequestOptions",
+          "ResponseBody"
+        ]
+      },
+      "CancelToken": {
+        "fields": [
+          "get:cancelError",
+          "get:isCancelled",
+          "get:whenCancel"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/cancel_token.dart"
+        ],
+        "methods": [
+          "CancelToken",
+          "cancel",
+          "isCancel"
+        ],
+        "types": [
+          "DioError"
+        ]
+      },
+      "DefaultHttpClientAdapter": {
+        "fields": [
+          "onHttpClientCreate"
+        ],
+        "libraries": [
+          "package:dio/adapter.dart",
+          "package:dio/src/adapters/io_adapter.dart"
+        ],
+        "methods": [
+          "close",
+          "fetch"
+        ],
+        "types": [
+          "HttpClientAdapter",
+          "RequestOptions",
+          "ResponseBody"
+        ]
+      },
+      "DefaultTransformer": {
+        "fields": [
+          "jsonDecodeCallback"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/transformer.dart"
+        ],
+        "methods": [
+          "DefaultTransformer",
+          "transformRequest",
+          "transformResponse"
+        ],
+        "types": [
+          "RequestOptions",
+          "ResponseBody",
+          "Transformer"
+        ]
+      },
+      "Dio": {
+        "fields": [
+          "get:interceptors",
+          "httpClientAdapter",
+          "options",
+          "transformer"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/dio.dart"
+        ],
+        "methods": [
+          "Dio",
+          "clear",
+          "close",
+          "delete",
+          "deleteUri",
+          "download",
+          "downloadUri",
+          "get",
+          "getUri",
+          "head",
+          "headUri",
+          "lock",
+          "patch",
+          "patchUri",
+          "post",
+          "postUri",
+          "put",
+          "putUri",
+          "reject",
+          "request",
+          "requestUri",
+          "resolve",
+          "unlock"
+        ],
+        "types": [
+          "BaseOptions",
+          "CancelToken",
+          "HttpClientAdapter",
+          "Interceptors",
+          "Options",
+          "Response",
+          "Transformer"
+        ]
+      },
+      "DioError": {
+        "fields": [
+          "error",
+          "get:message",
+          "request",
+          "response",
+          "type"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/dio_error.dart"
+        ],
+        "methods": [
+          "DioError",
+          "toString"
+        ],
+        "types": [
+          "DioErrorType",
+          "RequestOptions",
+          "Response"
+        ]
+      },
+      "DioErrorType": {
+        "fields": [
+          "CANCEL",
+          "CONNECT_TIMEOUT",
+          "DEFAULT",
+          "RECEIVE_TIMEOUT",
+          "RESPONSE",
+          "SEND_TIMEOUT"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/dio_error.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DioForBrowser": {
+        "fields": [],
+        "libraries": [
+          "package:dio/src/entry/dio_for_browser.dart"
+        ],
+        "methods": [
+          "DioForBrowser"
+        ],
+        "types": [
+          "BaseOptions",
+          "Dio",
+          "DioMixin"
+        ]
+      },
+      "DioForNative": {
+        "fields": [],
+        "libraries": [
+          "package:dio/src/entry/dio_for_native.dart"
+        ],
+        "methods": [
+          "DioForNative",
+          "download",
+          "downloadUri"
+        ],
+        "types": [
+          "BaseOptions",
+          "CancelToken",
+          "Dio",
+          "DioMixin",
+          "Options",
+          "Response"
+        ]
+      },
+      "DioMixin": {
+        "fields": [
+          "get:interceptors",
+          "httpClientAdapter",
+          "options",
+          "transformer"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/dio.dart"
+        ],
+        "methods": [
+          "assureDioError",
+          "assureResponse",
+          "checkCancelled",
+          "checkIfNeedEnqueue",
+          "checkOptions",
+          "clear",
+          "close",
+          "delete",
+          "deleteUri",
+          "download",
+          "downloadUri",
+          "get",
+          "getUri",
+          "head",
+          "headUri",
+          "listenCancelForAsyncTask",
+          "lock",
+          "mergeOptions",
+          "patch",
+          "patchUri",
+          "post",
+          "postUri",
+          "put",
+          "putUri",
+          "reject",
+          "request",
+          "requestUri",
+          "resolve",
+          "unlock"
+        ],
+        "types": [
+          "BaseOptions",
+          "CancelToken",
+          "Dio",
+          "DioError",
+          "HttpClientAdapter",
+          "Interceptors",
+          "Lock",
+          "Options",
+          "RequestOptions",
+          "Response",
+          "Transformer"
+        ]
+      },
+      "FormData": {
+        "fields": [
+          "fields",
+          "files",
+          "get:boundary",
+          "get:isFinalized",
+          "get:length"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/form_data.dart"
+        ],
+        "methods": [
+          "FormData",
+          "finalize",
+          "fromMap",
+          "readAsBytes"
+        ],
+        "types": []
+      },
+      "Headers": {
+        "fields": [
+          "acceptHeader",
+          "contentEncodingHeader",
+          "contentLengthHeader",
+          "contentTypeHeader",
+          "formUrlEncodedContentType",
+          "get:map",
+          "jsonContentType",
+          "jsonMimeType",
+          "wwwAuthenticateHeader"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/headers.dart"
+        ],
+        "methods": [
+          "Headers",
+          "[]",
+          "add",
+          "clear",
+          "forEach",
+          "fromMap",
+          "remove",
+          "removeAll",
+          "set",
+          "toString",
+          "value"
+        ],
+        "types": []
+      },
+      "HttpClientAdapter": {
+        "fields": [],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/adapter.dart"
+        ],
+        "methods": [
+          "close",
+          "fetch"
+        ],
+        "types": [
+          "RequestOptions",
+          "ResponseBody"
+        ]
+      },
+      "Interceptor": {
+        "fields": [],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/interceptor.dart"
+        ],
+        "methods": [
+          "onError",
+          "onRequest",
+          "onResponse"
+        ],
+        "types": [
+          "DioError",
+          "RequestOptions",
+          "Response"
+        ]
+      },
+      "Interceptors": {
+        "fields": [
+          "get:errorLock",
+          "get:requestLock",
+          "get:responseLock",
+          "length"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/interceptor.dart"
+        ],
+        "methods": [
+          "[]",
+          "[]="
+        ],
+        "types": [
+          "Interceptor",
+          "Lock"
+        ]
+      },
+      "InterceptorsWrapper": {
+        "fields": [],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/interceptor.dart"
+        ],
+        "methods": [
+          "InterceptorsWrapper",
+          "onError",
+          "onRequest",
+          "onResponse"
+        ],
+        "types": [
+          "DioError",
+          "Interceptor",
+          "RequestOptions",
+          "Response"
+        ]
+      },
+      "Lock": {
+        "fields": [
+          "get:locked"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/interceptor.dart"
+        ],
+        "methods": [
+          "clear",
+          "enqueue",
+          "lock",
+          "unlock"
+        ],
+        "types": []
+      },
+      "LogInterceptor": {
+        "fields": [
+          "error",
+          "logPrint",
+          "request",
+          "requestBody",
+          "requestHeader",
+          "responseBody",
+          "responseHeader"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/interceptors/log.dart"
+        ],
+        "methods": [
+          "LogInterceptor",
+          "onError",
+          "onRequest",
+          "onResponse",
+          "printAll",
+          "printKV"
+        ],
+        "types": [
+          "DioError",
+          "Interceptor",
+          "RequestOptions",
+          "Response"
+        ]
+      },
+      "MultipartFile": {
+        "fields": [
+          "contentType",
+          "filename",
+          "get:isFinalized",
+          "length"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/multipart_file.dart"
+        ],
+        "methods": [
+          "MultipartFile",
+          "finalize",
+          "fromBytes",
+          "fromFile",
+          "fromFileSync",
+          "fromString"
+        ],
+        "types": [
+          "MultipartFile"
+        ]
+      },
+      "Options": {
+        "fields": [],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/options.dart"
+        ],
+        "methods": [
+          "Options",
+          "merge"
+        ],
+        "types": [
+          "Options",
+          "ResponseType"
+        ]
+      },
+      "RedirectRecord": {
+        "fields": [
+          "location",
+          "method",
+          "statusCode"
+        ],
+        "libraries": [
+          "package:dio/src/redirect_record.dart"
+        ],
+        "methods": [
+          "RedirectRecord"
+        ],
+        "types": []
+      },
+      "RequestOptions": {
+        "fields": [
+          "baseUrl",
+          "cancelToken",
+          "connectTimeout",
+          "data",
+          "get:uri",
+          "onReceiveProgress",
+          "onSendProgress",
+          "path",
+          "queryParameters"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/options.dart"
+        ],
+        "methods": [
+          "RequestOptions"
+        ],
+        "types": [
+          "CancelToken",
+          "Options",
+          "ResponseType"
+        ]
+      },
+      "Response": {
+        "fields": [
+          "data",
+          "extra",
+          "get:realUri",
+          "headers",
+          "isRedirect",
+          "redirects",
+          "request",
+          "statusCode",
+          "statusMessage"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/response.dart"
+        ],
+        "methods": [
+          "Response",
+          "toString"
+        ],
+        "types": [
+          "Headers",
+          "RedirectRecord",
+          "RequestOptions"
+        ]
+      },
+      "ResponseBody": {
+        "fields": [
+          "extra",
+          "headers",
+          "isRedirect",
+          "redirects",
+          "statusCode",
+          "statusMessage",
+          "stream"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/adapter.dart"
+        ],
+        "methods": [
+          "ResponseBody",
+          "fromBytes",
+          "fromString"
+        ],
+        "types": [
+          "RedirectRecord"
+        ]
+      },
+      "ResponseType": {
+        "fields": [
+          "bytes",
+          "json",
+          "plain",
+          "stream"
+        ],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/options.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Transformer": {
+        "fields": [],
+        "libraries": [
+          "package:dio/dio.dart",
+          "package:dio/src/transformer.dart"
+        ],
+        "methods": [
+          "transformRequest",
+          "transformResponse",
+          "urlEncodeMap"
+        ],
+        "types": [
+          "RequestOptions",
+          "ResponseBody"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:17:52Z",
+  "package": "dio",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "7f51f90d4f2872648c8a7e4e2509a43e2792f4f178c75efedad4fd3cfefe1d8c",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "5bc6ec77415148a49fccdbafc84e8e0fc17a4b256054204b02336362da962e88",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\n ",
+      "\r\n",
+      " ",
+      "\"",
+      "%0D%0A",
+      "%22",
+      "%5B",
+      "&",
+      "*** DioError ***:",
+      "*** Request ***",
+      "*** Response ***",
+      ",",
+      "--",
+      "--\r\n",
+      "--dio-boundary-",
+      "-1",
+      "../adapter.dart",
+      "../adapters/browser_adapter.dart",
+      "../adapters/io_adapter.dart",
+      "../cancel_token.dart",
+      "../dio.dart",
+      "../dio_error.dart",
+      "../headers.dart",
+      "../interceptor.dart",
+      "../options.dart",
+      "../redirect_record.dart",
+      "../response.dart",
+      "/",
+      "//",
+      "1234567890",
+      ":/",
+      "?",
+      "Can't establish connection after [HttpClientAdapter] closed!",
+      "Can't finalize a finalized MultipartFile.",
+      "DELETE",
+      "Dio can't establish new connection after closed.",
+      "GET",
+      "HEAD",
+      "MultipartFile is only supported where dart:io is available.",
+      "PATCH",
+      "POST",
+      "PUT",
+      "Response Text:",
+      "Unsupport download API in browser",
+      "XMLHttpRequest error.",
+      "[",
+      "\\r\\n|\\r|\\n",
+      "]",
+      "^[\\x00-\\x7F]+$",
+      "accept",
+      "adapter.dart",
+      "application",
+      "application/json; charset=utf-8",
+      "application/x-www-form-urlencoded",
+      "blob",
+      "cancel_token.dart",
+      "cancelled",
+      "charset",
+      "compress",
+      "connectTimeout",
+      "content-encoding",
+      "content-length",
+      "content-type",
+      "contentType",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:html",
+      "dart:io",
+      "dart:math",
+      "dart:typed_data",
+      "data:",
+      "deflate",
+      "dio_error.dart",
+      "entry/dio_for_browser.dart",
+      "entry/dio_for_native.dart",
+      "entry_stub.dart",
+      "extra",
+      "followRedirects",
+      "form_data.dart",
+      "gzip",
+      "headers",
+      "headers.dart",
+      "headers:",
+      "https?:",
+      "interceptor.dart",
+      "method",
+      "multipart_file.dart",
+      "multipart_file_io.dart",
+      "multipart_file_stub.dart",
+      "octet-stream",
+      "options.dart",
+      "package:http_parser/http_parser.dart",
+      "package:path/path.dart",
+      "plain",
+      "receiveTimeout",
+      "redirect",
+      "redirect_record.dart",
+      "response.dart",
+      "responseType",
+      "savePath callback type must be `String Function(HttpHeaders)`",
+      "src/adapter.dart",
+      "src/adapters/io_adapter.dart",
+      "src/cancel_token.dart",
+      "src/dio.dart",
+      "src/dio_error.dart",
+      "src/form_data.dart",
+      "src/headers.dart",
+      "src/interceptor.dart",
+      "src/interceptors/log.dart",
+      "src/multipart_file.dart",
+      "src/options.dart",
+      "src/response.dart",
+      "src/transformer.dart",
+      "statusCode",
+      "text",
+      "timed out",
+      "transformer.dart",
+      "uri",
+      "utils.dart",
+      "www-authenticate"
+    ]
+  },
+  "version": "2.2.0"
+}
