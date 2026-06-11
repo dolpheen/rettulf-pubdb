@@ -1,0 +1,858 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "bigIntString",
+          "closureArg",
+          "converterOrKeyInstructions",
+          "coreIterableTypeChecker",
+          "coreMapTypeChecker",
+          "coreStringTypeChecker",
+          "dateTimeString",
+          "generatedLocalVarName",
+          "get:isSimpleJsonTypeNotDouble",
+          "simpleExpression",
+          "simpleJsonTypeChecker",
+          "toJsonMapHelperName",
+          "uriString"
+        ],
+        "libraries": [
+          "package:json_serializable/builder.dart",
+          "package:json_serializable/json_serializable.dart",
+          "package:json_serializable/src/constants.dart",
+          "package:json_serializable/src/field_helpers.dart",
+          "package:json_serializable/src/helper_core.dart",
+          "package:json_serializable/src/json_key_utils.dart",
+          "package:json_serializable/src/json_literal_generator.dart",
+          "package:json_serializable/src/json_part_builder.dart",
+          "package:json_serializable/src/shared_checkers.dart",
+          "package:json_serializable/src/type_helper.dart",
+          "package:json_serializable/src/type_helper_ctx.dart",
+          "package:json_serializable/src/type_helpers/enum_helper.dart",
+          "package:json_serializable/src/type_helpers/generic_factory_helper.dart",
+          "package:json_serializable/src/type_helpers/map_helper.dart",
+          "package:json_serializable/src/type_helpers/to_from_string.dart",
+          "package:json_serializable/src/utils.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "asStatement",
+          "commonNullPrefix",
+          "coreIterableGenericType",
+          "createInvalidGenerationError",
+          "createSortedFieldSet",
+          "enumFieldsMap",
+          "enumValueForDartObject",
+          "fromJsonForName",
+          "fromJsonForType",
+          "genericClassArguments",
+          "hasJsonKeyAnnotation",
+          "ifNullOrElse",
+          "iterateEnumFields",
+          "jsonKeyAnnotation",
+          "jsonKeyForField",
+          "jsonLiteralAsDart",
+          "jsonMapAsDart",
+          "jsonPartBuilder",
+          "jsonSerializable",
+          "kebabCase",
+          "mergeConfig",
+          "nonPrivateName",
+          "pascalCase",
+          "snakeCase",
+          "throwUnsupported",
+          "toJsonForName",
+          "toJsonForType",
+          "typeHelperContext",
+          "typeToCode",
+          "unnamedConstructorOrError"
+        ],
+        "types": [
+          "ClassConfig",
+          "HelperCore",
+          "KeyConfig",
+          "TypeHelperCtx",
+          "UnsupportedTypeError"
+        ]
+      },
+      "BigIntHelper": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/big_int_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "BigIntHelper",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "TypeHelper",
+          "TypeHelperContext"
+        ]
+      },
+      "ClassConfig": {
+        "fields": [
+          "anyMap",
+          "checked",
+          "createFactory",
+          "createToJson",
+          "ctorParamDefaults",
+          "defaults",
+          "disallowUnrecognizedKeys",
+          "explicitToJson",
+          "fieldRename",
+          "genericArgumentFactories",
+          "ignoreUnannotated",
+          "includeIfNull"
+        ],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/config_types.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "ClassConfig",
+          "toJson",
+          "withDefaults"
+        ],
+        "types": []
+      },
+      "ConvertData": {
+        "fields": [
+          "name",
+          "paramType"
+        ],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/convert_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "ConvertData"
+        ],
+        "types": []
+      },
+      "ConvertHelper": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/convert_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "ConvertHelper",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "TypeHelper",
+          "TypeHelperContextWithConvert"
+        ]
+      },
+      "CreateFactoryResult": {
+        "fields": [
+          "output",
+          "usedFields"
+        ],
+        "libraries": [
+          "package:json_serializable/src/decode_helper.dart"
+        ],
+        "methods": [
+          "CreateFactoryResult"
+        ],
+        "types": []
+      },
+      "DartTypeExtension": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/utils.dart"
+        ],
+        "methods": [
+          "promoteNonNullable"
+        ],
+        "types": []
+      },
+      "DateTimeHelper": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/date_time_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "DateTimeHelper",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "TypeHelper",
+          "TypeHelperContext"
+        ]
+      },
+      "DecodeHelper": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/decode_helper.dart"
+        ],
+        "methods": [
+          "createFactory"
+        ],
+        "types": [
+          "CreateFactoryResult",
+          "HelperCore"
+        ]
+      },
+      "DefaultContainer": {
+        "fields": [
+          "expression",
+          "output"
+        ],
+        "libraries": [
+          "package:json_serializable/src/default_container.dart"
+        ],
+        "methods": [
+          "DefaultContainer",
+          "deserialize",
+          "toString"
+        ],
+        "types": []
+      },
+      "DurationHelper": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/duration_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "DurationHelper",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "TypeHelper",
+          "TypeHelperContext"
+        ]
+      },
+      "EncodeHelper": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/encoder_helper.dart"
+        ],
+        "methods": [
+          "createToJson"
+        ],
+        "types": [
+          "HelperCore"
+        ]
+      },
+      "EnumHelper": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/enum_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "EnumHelper",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "TypeHelper",
+          "TypeHelperContextWithConfig"
+        ]
+      },
+      "GeneratorHelper": {
+        "fields": [
+          "get:allTypeHelpers"
+        ],
+        "libraries": [
+          "package:json_serializable/src/generator_helper.dart"
+        ],
+        "methods": [
+          "GeneratorHelper",
+          "addMember",
+          "generate"
+        ],
+        "types": [
+          "DecodeHelper",
+          "EncodeHelper",
+          "HelperCore",
+          "Settings",
+          "TypeHelper"
+        ]
+      },
+      "GenericFactoryHelper": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/generic_factory_helper.dart"
+        ],
+        "methods": [
+          "GenericFactoryHelper",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "TypeHelper",
+          "TypeHelperContextWithConfig"
+        ]
+      },
+      "HelperCore": {
+        "fields": [
+          "config",
+          "element",
+          "get:allTypeHelpers",
+          "get:prefix",
+          "get:targetClassReference"
+        ],
+        "libraries": [
+          "package:json_serializable/src/helper_core.dart"
+        ],
+        "methods": [
+          "HelperCore",
+          "addMember",
+          "genericClassArgumentsImpl",
+          "getHelperContext",
+          "jsonKeyFor",
+          "nameAccess",
+          "safeNameAccess"
+        ],
+        "types": [
+          "ClassConfig",
+          "KeyConfig",
+          "TypeHelper",
+          "TypeHelperCtx"
+        ]
+      },
+      "IterableHelper": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/iterable_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "IterableHelper",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "TypeHelper",
+          "TypeHelperContext",
+          "TypeHelperContextWithConfig"
+        ]
+      },
+      "JsonConverterHelper": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/json_converter_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "JsonConverterHelper",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "TypeHelper",
+          "TypeHelperContext"
+        ]
+      },
+      "JsonHelper": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/json_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "JsonHelper",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "TypeHelper",
+          "TypeHelperContextWithConfig"
+        ]
+      },
+      "JsonLiteralGenerator": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/json_serializable.dart",
+          "package:json_serializable/src/json_literal_generator.dart"
+        ],
+        "methods": [
+          "JsonLiteralGenerator",
+          "generateForAnnotatedElement"
+        ],
+        "types": []
+      },
+      "JsonSerializableGenerator": {
+        "fields": [
+          "get:config"
+        ],
+        "libraries": [
+          "package:json_serializable/json_serializable.dart",
+          "package:json_serializable/src/json_serializable_generator.dart"
+        ],
+        "methods": [
+          "JsonSerializableGenerator",
+          "fromSettings",
+          "generateForAnnotatedElement",
+          "withDefaultHelpers"
+        ],
+        "types": [
+          "Settings",
+          "TypeHelper"
+        ]
+      },
+      "KeyConfig": {
+        "fields": [
+          "defaultValue",
+          "disallowNullValue",
+          "ignore",
+          "includeIfNull",
+          "name",
+          "required",
+          "unknownEnumValue"
+        ],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/config_types.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "KeyConfig"
+        ],
+        "types": []
+      },
+      "LambdaResult": {
+        "fields": [
+          "asContent",
+          "expression",
+          "lambda"
+        ],
+        "libraries": [
+          "package:json_serializable/src/lambda_result.dart"
+        ],
+        "methods": [
+          "LambdaResult",
+          "process",
+          "toString"
+        ],
+        "types": []
+      },
+      "MapHelper": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/map_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "MapHelper",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "TypeHelper",
+          "TypeHelperContextWithConfig"
+        ]
+      },
+      "Settings": {
+        "fields": [
+          "defaultHelpers",
+          "get:allHelpers",
+          "get:config"
+        ],
+        "libraries": [
+          "package:json_serializable/src/settings.dart"
+        ],
+        "methods": [
+          "Settings",
+          "withDefaultHelpers"
+        ],
+        "types": [
+          "ClassConfig",
+          "TypeHelper"
+        ]
+      },
+      "ToFromStringHelper": {
+        "fields": [
+          "coreTypeName"
+        ],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/to_from_string.dart"
+        ],
+        "methods": [
+          "ToFromStringHelper",
+          "deserialize",
+          "matches",
+          "serialize"
+        ],
+        "types": []
+      },
+      "TypeHelper": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/type_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "TypeHelper",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "TypeHelperContext"
+        ]
+      },
+      "TypeHelperContext": {
+        "fields": [
+          "get:classElement",
+          "get:fieldElement"
+        ],
+        "libraries": [
+          "package:json_serializable/src/type_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "addMember",
+          "deserialize",
+          "serialize"
+        ],
+        "types": []
+      },
+      "TypeHelperContextWithConfig": {
+        "fields": [
+          "get:config"
+        ],
+        "libraries": [
+          "package:json_serializable/src/type_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [],
+        "types": [
+          "ClassConfig",
+          "TypeHelperContext"
+        ]
+      },
+      "TypeHelperContextWithConvert": {
+        "fields": [
+          "get:deserializeConvertData",
+          "get:serializeConvertData"
+        ],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/convert_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [],
+        "types": [
+          "ConvertData",
+          "TypeHelperContext"
+        ]
+      },
+      "TypeHelperCtx": {
+        "fields": [
+          "fieldElement",
+          "get:classElement",
+          "get:config",
+          "get:deserializeConvertData",
+          "get:serializeConvertData"
+        ],
+        "libraries": [
+          "package:json_serializable/src/type_helper_ctx.dart"
+        ],
+        "methods": [
+          "addMember",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "ClassConfig",
+          "ConvertData",
+          "HelperCore",
+          "TypeHelperContextWithConfig",
+          "TypeHelperContextWithConvert"
+        ]
+      },
+      "UnsupportedTypeError": {
+        "fields": [
+          "expression",
+          "reason",
+          "type"
+        ],
+        "libraries": [
+          "package:json_serializable/src/unsupported_type_error.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "UnsupportedTypeError"
+        ],
+        "types": []
+      },
+      "UriHelper": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/uri_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "UriHelper",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "TypeHelper",
+          "TypeHelperContext"
+        ]
+      },
+      "ValueHelper": {
+        "fields": [],
+        "libraries": [
+          "package:json_serializable/src/type_helpers/value_helper.dart",
+          "package:json_serializable/type_helper.dart"
+        ],
+        "methods": [
+          "ValueHelper",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "TypeHelper",
+          "TypeHelperContext"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:43:45Z",
+  "package": "json_serializable",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "BigIntHelper",
+      "ClassConfig",
+      "ConvertHelper",
+      "DateTimeHelper",
+      "DurationHelper",
+      "EnumHelper",
+      "GenericFactoryHelper",
+      "IterableHelper",
+      "JsonConverterHelper",
+      "JsonHelper",
+      "JsonLiteralGenerator",
+      "MapHelper",
+      "Settings",
+      "TypeHelper",
+      "UriHelper",
+      "ValueHelper"
+    ],
+    "digest": "64b6f443643744446cfbedc64eb6a4c229b9a7c3e2ecb3b3d804b4b903841dcf",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "922f3f7de160ceb19690407f4f099935f4bdcb6646e24c4648fea8907ca0b8a5",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\n    return val;\n  }",
+      "    };",
+      "  }",
+      " > ",
+      " as Map",
+      " as Map<String, dynamic>",
+      ")",
+      ") ",
+      ");",
+      "* Use `JsonConverter`\n  https://pub.dev/documentation/json_annotation/latest/json_annotation/JsonConverter-class.html\n* Use `JsonKey` fields `fromJson` and `toJson`\n  https://pub.dev/documentation/json_annotation/latest/json_annotation/JsonKey/fromJson.html\n  https://pub.dev/documentation/json_annotation/latest/json_annotation/JsonKey/toJson.html",
+      ",",
+      ", ",
+      ",);",
+      "-",
+      ".",
+      "../constants.dart",
+      "../default_container.dart",
+      "../helper_core.dart",
+      "../json_key_utils.dart",
+      "../json_literal_generator.dart",
+      "../lambda_result.dart",
+      "../shared_checkers.dart",
+      "../type_helper.dart",
+      "../unsupported_type_error.dart",
+      "../utils.dart",
+      ".inMicroseconds",
+      ": ",
+      ";",
+      "=>",
+      "=> <String, dynamic>{",
+      "?",
+      "BigInt",
+      "BigInt.parse",
+      "Cannot set both `disallowNullValue` and `includeIfNull` to `true`. This leads to incompatible `toJson` and `fromJson` behavior.",
+      "Could not parse the options provided for `json_serializable`.",
+      "DateTime",
+      "DateTime.parse",
+      "Expecting a `fromJson` constructor with exactly one positional parameter. Found a constructor with 0 parameters.",
+      "Expecting a `toJson` function with no required parameters. The only extra parameters allowed are functions of the form `Object Function(T) toJsonT` where `T` is a type parameter of the target  type.",
+      "Function",
+      "Generator cannot target libraries that have not been migrated to null-safety.",
+      "Generators with constructor arguments are not supported.",
+      "It is assigned to a private field.",
+      "It is assigned to an ignored field.",
+      "K _$enumDecode<K, V>(\n  Map<K, V> enumValues,\n  Object? source, {\n  K? unknownValue,\n}) {\n  if (source == null) {\n    throw ArgumentError(\n      'A value must be provided. Supported values: '\n      '${enumValues.values.join(', ')}',\n    );\n  }\n\n  return enumValues.entries.singleWhere(\n    (e) => e.value == source,\n    orElse: () {\n      if (unknownValue == null) {\n        throw ArgumentError(\n          '`$source` is not one of the supported values: '\n          '${enumValues.values.join(', ')}',\n        );\n      }\n      return MapEntry(unknownValue, enumValues.values.first);\n    },\n  ).key;\n}",
+      "K? _$enumDecodeNullable<K, V>(\n  Map<K, V> enumValues,\n  dynamic source, {\n  K? unknownValue,\n}) {\n  if (source == null) {\n    return null;\n  }\n  return _$enumDecode<K, V>(enumValues, source, unknownValue: unknownValue);\n}",
+      "List",
+      "Map",
+      "Map<String, dynamic>",
+      "Object",
+      "Set",
+      "Setter-only properties are not supported.",
+      "String",
+      "Symbol",
+      "Type",
+      "Uri",
+      "Uri.parse",
+      "[A-Z]",
+      "^[a-zA-Z_]+$",
+      "^_*",
+      "_",
+      "_$enumDecode",
+      "_$enumDecodeNullable",
+      "_$nullableGenericFromJson",
+      "_$nullableGenericToJson",
+      "`@JsonSerializable` can only be used on classes.",
+      "`annotation.path` must be relative path to the source file.",
+      "anyMap",
+      "any_map",
+      "as Map",
+      "as Map<String, dynamic>",
+      "asConst",
+      "checked",
+      "classAnnotation",
+      "config_types.dart",
+      "const",
+      "constants.dart",
+      "createFactory",
+      "createToJson",
+      "create_factory",
+      "create_to_json",
+      "dart:async",
+      "dart:convert",
+      "dart:core#Duration",
+      "dart:core#Iterable",
+      "dart:core#List",
+      "dart:core#Map",
+      "dart:core#Set",
+      "dart:core#String",
+      "dart:core#bool",
+      "dart:core#num",
+      "decode_helper.dart",
+      "defaultValue",
+      "default_container.dart",
+      "disallowNullValue",
+      "disallowUnrecognizedKeys",
+      "disallow_unrecognized_keys",
+      "double.infinity",
+      "double.nan",
+      "double.negativeInfinity",
+      "dynamic",
+      "e",
+      "encoder_helper.dart",
+      "enum",
+      "explicitToJson",
+      "explicit_to_json",
+      "fieldRename",
+      "field_helpers.dart",
+      "field_rename",
+      "final",
+      "fromJson",
+      "generator_helper.dart",
+      "genericArgumentFactories",
+      "generic_argument_factories",
+      "generic_factory_helper.dart",
+      "helper_core.dart",
+      "ignore",
+      "ignoreUnannotated",
+      "ignore_unannotated",
+      "includeIfNull",
+      "include_if_null",
+      "instance",
+      "int",
+      "int.parse",
+      "json_key_utils.dart",
+      "json_literal_generator.dart",
+      "json_serializable",
+      "json_serializable_generator.dart",
+      "k",
+      "kebab",
+      "lambda_result.dart",
+      "name",
+      "none",
+      "null",
+      "package:analyzer/dart/constant/value.dart",
+      "package:analyzer/dart/element/element.dart",
+      "package:analyzer/dart/element/nullability_suffix.dart",
+      "package:analyzer/dart/element/type.dart",
+      "package:analyzer/src/dart/element/inheritance_manager3.dart",
+      "package:build/build.dart",
+      "package:collection/collection.dart",
+      "package:json_annotation/json_annotation.dart",
+      "package:meta/meta.dart",
+      "package:path/path.dart",
+      "package:source_gen/source_gen.dart",
+      "package:source_helper/source_helper.dart",
+      "pascal",
+      "path",
+      "required",
+      "return ",
+      "settings.dart",
+      "shared_checkers.dart",
+      "should only be true if `_generator.checked` is true.",
+      "snake",
+      "src/json_literal_generator.dart",
+      "src/json_part_builder.dart",
+      "src/json_serializable_generator.dart",
+      "src/shared_checkers.dart",
+      "src/type_helper.dart",
+      "src/type_helpers/big_int_helper.dart",
+      "src/type_helpers/config_types.dart",
+      "src/type_helpers/convert_helper.dart",
+      "src/type_helpers/date_time_helper.dart",
+      "src/type_helpers/duration_helper.dart",
+      "src/type_helpers/enum_helper.dart",
+      "src/type_helpers/iterable_helper.dart",
+      "src/type_helpers/json_converter_helper.dart",
+      "src/type_helpers/json_helper.dart",
+      "src/type_helpers/map_helper.dart",
+      "src/type_helpers/uri_helper.dart",
+      "src/type_helpers/value_helper.dart",
+      "src/unsupported_type_error.dart",
+      "test",
+      "toIso8601String()",
+      "toJson",
+      "toString()",
+      "to_from_string.dart",
+      "type_helper.dart",
+      "type_helper_ctx.dart",
+      "type_helpers/big_int_helper.dart",
+      "type_helpers/config_types.dart",
+      "type_helpers/convert_helper.dart",
+      "type_helpers/date_time_helper.dart",
+      "type_helpers/duration_helper.dart",
+      "type_helpers/enum_helper.dart",
+      "type_helpers/generic_factory_helper.dart",
+      "type_helpers/iterable_helper.dart",
+      "type_helpers/json_converter_helper.dart",
+      "type_helpers/json_helper.dart",
+      "type_helpers/map_helper.dart",
+      "type_helpers/uri_helper.dart",
+      "type_helpers/value_helper.dart",
+      "unknownEnumValue",
+      "unsupported_type_error.dart",
+      "utils.dart",
+      "v",
+      "val",
+      "value",
+      "writeNotNull",
+      "{",
+      "}",
+      "};"
+    ]
+  },
+  "version": "5.0.1"
+}
