@@ -1,0 +1,4767 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "$driftBlobEquality",
+          "additionalPostgresKeywords",
+          "additionalSqliteKeywords",
+          "baseKeywords",
+          "bin2str",
+          "currentDate",
+          "currentDateAndTime",
+          "disconnectMessage",
+          "driftRuntimeOptions",
+          "sqliteKeywords",
+          "tracker"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/drift.dart",
+          "package:drift/extensions/native.dart",
+          "package:drift/isolate.dart",
+          "package:drift/native.dart",
+          "package:drift/remote.dart",
+          "package:drift/sqlite_keywords.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/dsl/dsl.dart",
+          "package:drift/src/isolate.dart",
+          "package:drift/src/runtime/api/runtime_api.dart",
+          "package:drift/src/runtime/cancellation_zone.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart",
+          "package:drift/src/sqlite3/database_tracker.dart",
+          "package:drift/src/utils/lazy_database.dart",
+          "package:drift/src/utils/single_transformer.dart",
+          "package:drift/src/web/binary_string_conversion.dart",
+          "package:drift/src/web/sql_js.dart",
+          "package:drift/src/web/web_db.dart",
+          "package:drift/wasm.dart",
+          "package:drift/web.dart",
+          "package:drift/web/worker.dart"
+        ],
+        "methods": [
+          "checkIfCancelled",
+          "coalesce",
+          "connectToDriftWorker",
+          "connectToRemoteAndInitialize",
+          "connectToServer",
+          "countAll",
+          "crossJoin",
+          "doOnCancellation",
+          "driftWorkerMain",
+          "escapeIfNeeded",
+          "existsQuery",
+          "ifNull",
+          "initSqlJs",
+          "innerJoin",
+          "isNotNull",
+          "isNull",
+          "isSqliteKeyword",
+          "leftOuterJoin",
+          "notExistsQuery",
+          "remote",
+          "rollbackAfterException",
+          "runCancellable",
+          "shutdown",
+          "singleElements",
+          "singleElementsOrNull",
+          "sqlAcos",
+          "sqlAsin",
+          "sqlAtan",
+          "sqlCos",
+          "sqlPow",
+          "sqlSin",
+          "sqlSqrt",
+          "sqlTan",
+          "subqueryExpression"
+        ],
+        "types": [
+          "BaseSelectStatement",
+          "CancellationToken",
+          "Column",
+          "DatabaseConnection",
+          "DatabaseTracker",
+          "DriftRuntimeOptions",
+          "DriftWorkerMode",
+          "Expression",
+          "HasResultSet",
+          "Join",
+          "Migrator",
+          "OpeningDetails",
+          "OrderingTerm",
+          "QueryExecutor",
+          "SqlDialect",
+          "SqlJsDatabase",
+          "SqlJsModule",
+          "TransactionExecutor",
+          "VerificationResult"
+        ]
+      },
+      "AnyUpdateQuery": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/runtime/executor/stream_queries.dart"
+        ],
+        "methods": [
+          "AnyUpdateQuery",
+          "matches"
+        ],
+        "types": [
+          "TableUpdate",
+          "TableUpdateQuery"
+        ]
+      },
+      "ArgumentsForBatchedStatement": {
+        "fields": [
+          "arguments",
+          "get:hashCode",
+          "statementIndex"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/executor/executor.dart"
+        ],
+        "methods": [
+          "==",
+          "ArgumentsForBatchedStatement",
+          "toString"
+        ],
+        "types": []
+      },
+      "ArithmeticAggregates": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "avg",
+          "max",
+          "min",
+          "sum",
+          "total"
+        ],
+        "types": [
+          "Expression"
+        ]
+      },
+      "ArithmeticBigIntExpr": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "*",
+          "+",
+          "-",
+          "/",
+          "abs",
+          "roundToInt"
+        ],
+        "types": [
+          "Expression"
+        ]
+      },
+      "ArithmeticExpr": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "*",
+          "+",
+          "-",
+          "/",
+          "abs",
+          "roundToInt"
+        ],
+        "types": [
+          "Expression"
+        ]
+      },
+      "AsyncMapPerSubscription": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/utils/async_map.dart"
+        ],
+        "methods": [
+          "asyncMapPerSubscription"
+        ],
+        "types": []
+      },
+      "BaseAggregate": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "count",
+          "groupConcat"
+        ],
+        "types": [
+          "Expression"
+        ]
+      },
+      "BaseCaseWhenExpression": {
+        "fields": [
+          "base",
+          "orElse",
+          "orderedCases"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/runtime/query_builder/expressions/case_when.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "writeInto"
+        ],
+        "types": [
+          "CaseWhen",
+          "Expression",
+          "GenerationContext"
+        ]
+      },
+      "BaseInfixOperator": {
+        "fields": [
+          "left",
+          "operator",
+          "precedence",
+          "right"
+        ],
+        "libraries": [
+          "package:drift/src/runtime/query_builder/expressions/internal.dart"
+        ],
+        "methods": [
+          "BaseInfixOperator"
+        ],
+        "types": [
+          "Expression",
+          "InfixOperator",
+          "Precedence"
+        ]
+      },
+      "BaseSelectStatement": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Component"
+        ]
+      },
+      "Batch": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/api/runtime_api.dart"
+        ],
+        "methods": [
+          "customStatement",
+          "delete",
+          "deleteAll",
+          "deleteWhere",
+          "insert",
+          "insertAll",
+          "insertAllOnConflictUpdate",
+          "replace",
+          "replaceAll",
+          "update"
+        ],
+        "types": [
+          "ArgumentsForBatchedStatement",
+          "DatabaseConnectionUser",
+          "Expression",
+          "InsertMode",
+          "Insertable",
+          "TableInfo",
+          "TableUpdate",
+          "UpsertClause"
+        ]
+      },
+      "BatchedStatements": {
+        "fields": [
+          "arguments",
+          "get:hashCode",
+          "statements"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/executor/executor.dart"
+        ],
+        "methods": [
+          "==",
+          "BatchedStatements",
+          "toString"
+        ],
+        "types": [
+          "ArgumentsForBatchedStatement"
+        ]
+      },
+      "BeforeOpenRunner": {
+        "fields": [
+          "get:attachedDatabase"
+        ],
+        "libraries": [
+          "package:drift/src/runtime/executor/transactions.dart"
+        ],
+        "methods": [
+          "BeforeOpenRunner"
+        ],
+        "types": [
+          "DatabaseConnectionUser",
+          "GeneratedDatabase",
+          "QueryExecutor"
+        ]
+      },
+      "BigIntAggregates": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "avg",
+          "max",
+          "min",
+          "sum",
+          "total"
+        ],
+        "types": [
+          "Expression"
+        ]
+      },
+      "BitwiseBigInt": {
+        "fields": [],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/runtime/query_builder/expressions/bitwise.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "bitwiseAnd",
+          "bitwiseOr",
+          "~"
+        ],
+        "types": [
+          "Expression"
+        ]
+      },
+      "BitwiseInt": {
+        "fields": [],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/runtime/query_builder/expressions/bitwise.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "bitwiseAnd",
+          "bitwiseOr",
+          "~"
+        ],
+        "types": [
+          "Expression"
+        ]
+      },
+      "BooleanExpressionOperators": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "&",
+          "not",
+          "|"
+        ],
+        "types": [
+          "Expression"
+        ]
+      },
+      "BuildColumn": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [
+          "check",
+          "clientDefault",
+          "customConstraint",
+          "generatedAs",
+          "references",
+          "withDefault"
+        ],
+        "types": [
+          "ColumnBuilder",
+          "Expression",
+          "KeyAction",
+          "VirtualColumnBuilder"
+        ]
+      },
+      "BuildGeneralColumn": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [
+          "call",
+          "map",
+          "named",
+          "nullable",
+          "unique"
+        ],
+        "types": [
+          "Column",
+          "ColumnBuilder",
+          "TypeConverter"
+        ]
+      },
+      "BuildInt64Column": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [
+          "autoIncrement"
+        ],
+        "types": [
+          "ColumnBuilder"
+        ]
+      },
+      "BuildIntColumn": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [
+          "autoIncrement"
+        ],
+        "types": [
+          "ColumnBuilder"
+        ]
+      },
+      "BuildTextColumn": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [
+          "withLength"
+        ],
+        "types": [
+          "ColumnBuilder"
+        ]
+      },
+      "CancellationException": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/runtime/cancellation_zone.dart"
+        ],
+        "methods": [
+          "CancellationException",
+          "toString"
+        ],
+        "types": []
+      },
+      "CancellationToken": {
+        "fields": [
+          "get:result"
+        ],
+        "libraries": [
+          "package:drift/src/runtime/cancellation_zone.dart"
+        ],
+        "methods": [
+          "cancel"
+        ],
+        "types": []
+      },
+      "CancelledResponse": {
+        "fields": [
+          "requestId"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [
+          "CancelledResponse",
+          "toString"
+        ],
+        "types": [
+          "Message"
+        ]
+      },
+      "CaseWhen": {
+        "fields": [
+          "then",
+          "when"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/runtime/query_builder/expressions/case_when.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "CaseWhen"
+        ],
+        "types": [
+          "Expression"
+        ]
+      },
+      "CaseWhenExpression": {
+        "fields": [],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/runtime/query_builder/expressions/case_when.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "CaseWhenExpression"
+        ],
+        "types": [
+          "BaseCaseWhenExpression",
+          "CaseWhen",
+          "Expression"
+        ]
+      },
+      "CaseWhenExpressionWithBase": {
+        "fields": [],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/runtime/query_builder/expressions/case_when.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "CaseWhenExpressionWithBase"
+        ],
+        "types": [
+          "BaseCaseWhenExpression",
+          "CaseWhen",
+          "Expression"
+        ]
+      },
+      "Collate": {
+        "fields": [
+          "binary",
+          "name",
+          "noCase",
+          "rTrim"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "Collate"
+        ],
+        "types": []
+      },
+      "Column": {
+        "fields": [
+          "get:escapedName",
+          "get:name",
+          "precedence"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Expression",
+          "Precedence"
+        ]
+      },
+      "ColumnBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ComparableExpr": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "isBetween",
+          "isBetweenValues",
+          "isBiggerOrEqual",
+          "isBiggerOrEqualValue",
+          "isBiggerThan",
+          "isBiggerThanValue",
+          "isSmallerOrEqual",
+          "isSmallerOrEqualValue",
+          "isSmallerThan",
+          "isSmallerThanValue"
+        ],
+        "types": [
+          "Expression"
+        ]
+      },
+      "Component": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "Component",
+          "writeInto"
+        ],
+        "types": [
+          "GenerationContext"
+        ]
+      },
+      "ComputeWithDriftIsolate": {
+        "fields": [],
+        "libraries": [
+          "package:drift/isolate.dart"
+        ],
+        "methods": [
+          "computeWithDatabase",
+          "serializableConnection"
+        ],
+        "types": [
+          "DatabaseConnection",
+          "DatabaseConnectionUser",
+          "DriftIsolate"
+        ]
+      },
+      "ConnectionClosedException": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/remote/communication.dart"
+        ],
+        "methods": [
+          "ConnectionClosedException"
+        ],
+        "types": []
+      },
+      "Constant": {
+        "fields": [
+          "get:hashCode",
+          "get:isLiteral",
+          "get:precedence",
+          "value"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "==",
+          "Constant",
+          "toString",
+          "writeInto"
+        ],
+        "types": [
+          "Expression",
+          "GenerationContext",
+          "Precedence"
+        ]
+      },
+      "CouldNotRollBackException": {
+        "fields": [
+          "cause",
+          "exception",
+          "originalStackTrace"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/exceptions.dart"
+        ],
+        "methods": [
+          "CouldNotRollBackException",
+          "toString"
+        ],
+        "types": []
+      },
+      "CustomExpression": {
+        "fields": [
+          "content",
+          "get:hashCode",
+          "precedence",
+          "watchedTables"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "==",
+          "CustomExpression",
+          "writeInto"
+        ],
+        "types": [
+          "Expression",
+          "GenerationContext",
+          "Precedence",
+          "TableInfo"
+        ]
+      },
+      "CustomResultSet": {
+        "fields": [
+          "row"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/custom_result_set.dart"
+        ],
+        "methods": [
+          "CustomResultSet"
+        ],
+        "types": [
+          "QueryRow"
+        ]
+      },
+      "CustomSchemaVersionSave": {
+        "fields": [
+          "get:schemaVersion",
+          "set:schemaVersion"
+        ],
+        "libraries": [
+          "package:drift/src/web/storage.dart"
+        ],
+        "methods": [],
+        "types": [
+          "DriftWebStorage"
+        ]
+      },
+      "CustomSelectStatement": {
+        "fields": [
+          "query",
+          "tables",
+          "variables"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "CustomSelectStatement",
+          "get",
+          "watch"
+        ],
+        "types": [
+          "DatabaseConnectionUser",
+          "QueryRow",
+          "ResultSetImplementation",
+          "Selectable",
+          "Variable"
+        ]
+      },
+      "DataClass": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/data_class.dart"
+        ],
+        "methods": [
+          "DataClass",
+          "parseJson",
+          "toJson",
+          "toJsonString"
+        ],
+        "types": [
+          "ValueSerializer"
+        ]
+      },
+      "DataClassName": {
+        "fields": [
+          "extending",
+          "name"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [
+          "DataClassName"
+        ],
+        "types": []
+      },
+      "DatabaseAccessor": {
+        "fields": [
+          "attachedDatabase"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/api/runtime_api.dart"
+        ],
+        "methods": [
+          "DatabaseAccessor"
+        ],
+        "types": [
+          "DatabaseConnectionUser",
+          "GeneratedDatabase"
+        ]
+      },
+      "DatabaseConnection": {
+        "fields": [
+          "connectionData",
+          "executor",
+          "get:dialect",
+          "streamQueries"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/api/runtime_api.dart"
+        ],
+        "methods": [
+          "DatabaseConnection",
+          "beginTransaction",
+          "close",
+          "delayed",
+          "ensureOpen",
+          "fromExecutor",
+          "runBatched",
+          "runCustom",
+          "runDelete",
+          "runInsert",
+          "runSelect",
+          "runUpdate",
+          "withExecutor"
+        ],
+        "types": [
+          "BatchedStatements",
+          "DatabaseConnection",
+          "QueryExecutor",
+          "QueryExecutorUser",
+          "SqlDialect",
+          "StreamQueryStore",
+          "TransactionExecutor"
+        ]
+      },
+      "DatabaseConnectionUser": {
+        "fields": [
+          "connection",
+          "get:attachedDatabase",
+          "get:executor",
+          "get:options",
+          "get:resolvedEngine",
+          "get:streamQueries",
+          "get:typeMapping"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/api/runtime_api.dart"
+        ],
+        "methods": [
+          "$expandVar",
+          "$write",
+          "$writeInsertable",
+          "DatabaseConnectionUser",
+          "alias",
+          "batch",
+          "close",
+          "createStream",
+          "customInsert",
+          "customSelect",
+          "customSelectQuery",
+          "customStatement",
+          "customUpdate",
+          "customWriteReturning",
+          "delegate",
+          "delete",
+          "doWhenOpened",
+          "fromConnection",
+          "into",
+          "markTablesUpdated",
+          "notifyUpdates",
+          "select",
+          "selectOnly",
+          "tableUpdates",
+          "transaction",
+          "update"
+        ],
+        "types": [
+          "Batch",
+          "Component",
+          "DatabaseConnection",
+          "DatabaseConnectionUser",
+          "DeleteStatement",
+          "DriftDatabaseOptions",
+          "GeneratedDatabase",
+          "GenerationContext",
+          "InsertStatement",
+          "Insertable",
+          "JoinedSelectStatement",
+          "QueryExecutor",
+          "QueryRow",
+          "QueryStreamFetcher",
+          "ResultSetImplementation",
+          "Selectable",
+          "SimpleSelectStatement",
+          "SqlTypes",
+          "StreamQueryStore",
+          "TableInfo",
+          "TableUpdate",
+          "TableUpdateQuery",
+          "UpdateKind",
+          "UpdateStatement",
+          "Variable"
+        ]
+      },
+      "DatabaseDelegate": {
+        "fields": [
+          "get:isOpen",
+          "get:transactionDelegate",
+          "get:versionDelegate",
+          "isInTransaction"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/src/runtime/executor/helpers/delegates.dart"
+        ],
+        "methods": [
+          "close",
+          "notifyDatabaseOpened",
+          "open"
+        ],
+        "types": [
+          "DbVersionDelegate",
+          "OpeningDetails",
+          "QueryDelegate",
+          "QueryExecutorUser",
+          "TransactionDelegate"
+        ]
+      },
+      "DatabaseSchemaEntity": {
+        "fields": [
+          "get:entityName"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DatabaseTracker": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/sqlite3/database_tracker.dart"
+        ],
+        "methods": [
+          "DatabaseTracker",
+          "closeExisting",
+          "markClosed",
+          "markOpened"
+        ],
+        "types": []
+      },
+      "DateTimeAggregate": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "avg",
+          "max",
+          "min"
+        ],
+        "types": [
+          "Expression"
+        ]
+      },
+      "DateTimeExpressions": {
+        "fields": [
+          "get:date",
+          "get:datetime",
+          "get:day",
+          "get:hour",
+          "get:julianday",
+          "get:minute",
+          "get:month",
+          "get:second",
+          "get:secondsSinceEpoch",
+          "get:time",
+          "get:unixepoch",
+          "get:year"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "+",
+          "-",
+          "fromUnixEpoch",
+          "modify",
+          "modifyAll",
+          "strftime"
+        ],
+        "types": [
+          "DateTimeModifier",
+          "Expression"
+        ]
+      },
+      "DateTimeModifier": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "days",
+          "hours",
+          "localTime",
+          "minutes",
+          "months",
+          "seconds",
+          "startOfDay",
+          "startOfMonth",
+          "startOfYear",
+          "utc",
+          "weekday",
+          "years"
+        ],
+        "types": [
+          "Constant"
+        ]
+      },
+      "DbVersionDelegate": {
+        "fields": [],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/src/runtime/executor/helpers/delegates.dart"
+        ],
+        "methods": [
+          "DbVersionDelegate"
+        ],
+        "types": []
+      },
+      "DelayedStreamQueryStore": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/runtime/executor/delayed_stream_queries.dart"
+        ],
+        "methods": [
+          "DelayedStreamQueryStore",
+          "close",
+          "handleTableUpdates",
+          "markAsClosed",
+          "markAsOpened",
+          "registerStream",
+          "updatesForSync"
+        ],
+        "types": [
+          "QueryStream",
+          "QueryStreamFetcher",
+          "StreamQueryStore",
+          "TableUpdate",
+          "TableUpdateQuery"
+        ]
+      },
+      "DelegatedDatabase": {
+        "fields": [
+          "delegate",
+          "get:dialect",
+          "get:impl",
+          "isSequential",
+          "logStatements"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/src/runtime/executor/helpers/engines.dart"
+        ],
+        "methods": [
+          "DelegatedDatabase",
+          "beginTransaction",
+          "close",
+          "ensureOpen"
+        ],
+        "types": [
+          "DatabaseDelegate",
+          "Lock",
+          "QueryDelegate",
+          "QueryExecutorUser",
+          "SqlDialect",
+          "TransactionExecutor"
+        ]
+      },
+      "DeleteStatement": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "DeleteStatement",
+          "delete",
+          "deleteReturning",
+          "go",
+          "goAndReturn",
+          "writeStartPart"
+        ],
+        "types": [
+          "DatabaseConnectionUser",
+          "GenerationContext",
+          "Insertable",
+          "Query",
+          "SingleTableQueryMixin",
+          "Table",
+          "TableInfo"
+        ]
+      },
+      "DestructiveMigrationExtension": {
+        "fields": [
+          "get:destructiveFallback"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [],
+        "types": [
+          "GeneratedDatabase",
+          "MigrationStrategy"
+        ]
+      },
+      "DoNothing": {
+        "fields": [
+          "target"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "DoNothing"
+        ],
+        "types": [
+          "Column",
+          "Table",
+          "UpsertClause"
+        ]
+      },
+      "DoUpdate": {
+        "fields": [
+          "target"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "DoUpdate",
+          "withExcluded"
+        ],
+        "types": [
+          "Column",
+          "Expression",
+          "Insertable",
+          "Table",
+          "UpsertClause",
+          "Where"
+        ]
+      },
+      "DriftAccessor": {
+        "fields": [
+          "include",
+          "queries",
+          "tables",
+          "views"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [
+          "DriftAccessor"
+        ],
+        "types": []
+      },
+      "DriftAny": {
+        "fields": [
+          "get:hashCode",
+          "rawSqlValue"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/runtime/types/mapping.dart"
+        ],
+        "methods": [
+          "==",
+          "DriftAny",
+          "readAs",
+          "toString"
+        ],
+        "types": [
+          "DriftSqlType",
+          "SqlTypes"
+        ]
+      },
+      "DriftClient": {
+        "fields": [
+          "connection",
+          "get:serverInfo"
+        ],
+        "libraries": [
+          "package:drift/src/remote/client_impl.dart"
+        ],
+        "methods": [
+          "DriftClient"
+        ],
+        "types": [
+          "DatabaseConnection",
+          "DriftCommunication",
+          "QueryExecutorUser",
+          "ServerInfo",
+          "SqlDialect"
+        ]
+      },
+      "DriftCommunication": {
+        "fields": [
+          "get:closed",
+          "get:incomingRequests",
+          "get:isClosed"
+        ],
+        "libraries": [
+          "package:drift/src/remote/communication.dart"
+        ],
+        "methods": [
+          "DriftCommunication",
+          "close",
+          "newRequestId",
+          "notify",
+          "request",
+          "respond",
+          "respondError",
+          "setRequestHandler"
+        ],
+        "types": [
+          "Request"
+        ]
+      },
+      "DriftDatabase": {
+        "fields": [
+          "daos",
+          "include",
+          "queries",
+          "tables",
+          "views"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [
+          "DriftDatabase"
+        ],
+        "types": []
+      },
+      "DriftDatabaseOptions": {
+        "fields": [
+          "types"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/api/options.dart"
+        ],
+        "methods": [
+          "DriftDatabaseOptions",
+          "createTypeMapping"
+        ],
+        "types": [
+          "SqlDialect",
+          "SqlTypes"
+        ]
+      },
+      "DriftIsolate": {
+        "fields": [
+          "connectPort",
+          "serialize"
+        ],
+        "libraries": [
+          "package:drift/isolate.dart"
+        ],
+        "methods": [
+          "connect",
+          "fromConnectPort",
+          "inCurrent",
+          "shutdownAll",
+          "spawn"
+        ],
+        "types": [
+          "DatabaseConnection",
+          "DriftIsolate"
+        ]
+      },
+      "DriftNativeStringExtensions": {
+        "fields": [],
+        "libraries": [
+          "package:drift/extensions/native.dart"
+        ],
+        "methods": [
+          "containsCase"
+        ],
+        "types": [
+          "Expression"
+        ]
+      },
+      "DriftProtocol": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [
+          "DriftProtocol",
+          "decodePayload",
+          "deserialize",
+          "encodePayload",
+          "serialize"
+        ],
+        "types": [
+          "Message"
+        ]
+      },
+      "DriftRemoteException": {
+        "fields": [
+          "remoteCause",
+          "remoteStackTrace"
+        ],
+        "libraries": [
+          "package:drift/isolate.dart",
+          "package:drift/remote.dart",
+          "package:drift/src/remote/communication.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "DriftRuntimeOptions": {
+        "fields": [
+          "debugPrint",
+          "defaultSerializer",
+          "dontWarnAboutMultipleDatabases"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/api/runtime_api.dart"
+        ],
+        "methods": [],
+        "types": [
+          "ValueSerializer"
+        ]
+      },
+      "DriftServer": {
+        "fields": [
+          "get:done",
+          "get:tableUpdateNotifications"
+        ],
+        "libraries": [
+          "package:drift/remote.dart"
+        ],
+        "methods": [
+          "DriftServer",
+          "dispatchTableUpdateNotification",
+          "serve",
+          "shutdown"
+        ],
+        "types": [
+          "NotifyTablesUpdated",
+          "QueryExecutor"
+        ]
+      },
+      "DriftSqlType": {
+        "fields": [
+          "any",
+          "bigInt",
+          "blob",
+          "bool",
+          "dateTime",
+          "double",
+          "int",
+          "string"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/types/mapping.dart"
+        ],
+        "methods": [
+          "forNullableType",
+          "forType",
+          "sqlTypeName"
+        ],
+        "types": [
+          "DriftSqlType",
+          "GenerationContext"
+        ]
+      },
+      "DriftView": {
+        "fields": [
+          "dataClassName",
+          "extending",
+          "name"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [
+          "DriftView"
+        ],
+        "types": []
+      },
+      "DriftWebStorage": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/web/storage.dart",
+          "package:drift/web.dart"
+        ],
+        "methods": [
+          "DriftWebStorage",
+          "close",
+          "indexedDb",
+          "indexedDbIfSupported",
+          "open",
+          "restore",
+          "store",
+          "supportsIndexedDb",
+          "volatile"
+        ],
+        "types": [
+          "DriftWebStorage"
+        ]
+      },
+      "DriftWorkerMode": {
+        "fields": [
+          "dedicated",
+          "dedicatedInShared",
+          "shared"
+        ],
+        "libraries": [
+          "package:drift/web/worker.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DriftWrappedException": {
+        "fields": [
+          "cause",
+          "message",
+          "trace"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/exceptions.dart"
+        ],
+        "methods": [
+          "DriftWrappedException",
+          "toString"
+        ],
+        "types": []
+      },
+      "DynamicVersionDelegate": {
+        "fields": [
+          "get:schemaVersion"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/src/runtime/executor/helpers/delegates.dart"
+        ],
+        "methods": [
+          "DynamicVersionDelegate",
+          "setSchemaVersion"
+        ],
+        "types": [
+          "DbVersionDelegate"
+        ]
+      },
+      "EnableNativeFunctions": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/sqlite3/native_functions.dart"
+        ],
+        "methods": [
+          "useNativeFunctions"
+        ],
+        "types": []
+      },
+      "EnsureOpen": {
+        "fields": [
+          "executorId",
+          "schemaVersion"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [
+          "EnsureOpen",
+          "toString"
+        ],
+        "types": []
+      },
+      "EnumIndexConverter": {
+        "fields": [
+          "values"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/types/converters.dart"
+        ],
+        "methods": [
+          "EnumIndexConverter",
+          "fromSql",
+          "toSql"
+        ],
+        "types": [
+          "JsonTypeConverter",
+          "TypeConverter"
+        ]
+      },
+      "EnumNameConverter": {
+        "fields": [
+          "values"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/types/converters.dart"
+        ],
+        "methods": [
+          "EnumNameConverter",
+          "fromSql",
+          "toSql"
+        ],
+        "types": [
+          "JsonTypeConverter",
+          "TypeConverter"
+        ]
+      },
+      "ErrorResponse": {
+        "fields": [
+          "error",
+          "requestId",
+          "stackTrace"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [
+          "ErrorResponse",
+          "toString"
+        ],
+        "types": [
+          "Message"
+        ]
+      },
+      "ExecuteBatchedStatement": {
+        "fields": [
+          "executorId",
+          "stmts"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [
+          "ExecuteBatchedStatement"
+        ],
+        "types": [
+          "BatchedStatements"
+        ]
+      },
+      "ExecuteQuery": {
+        "fields": [
+          "args",
+          "executorId",
+          "method",
+          "sql"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [
+          "ExecuteQuery",
+          "toString"
+        ],
+        "types": [
+          "StatementMethod"
+        ]
+      },
+      "Expression": {
+        "fields": [
+          "get:driftSqlType",
+          "get:isLiteral",
+          "get:precedence"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "Expression",
+          "caseMatch",
+          "cast",
+          "dartCast",
+          "equals",
+          "equalsExp",
+          "equalsNullable",
+          "iif",
+          "isExp",
+          "isIn",
+          "isInQuery",
+          "isNotExp",
+          "isNotIn",
+          "isNotInQuery",
+          "isNotNull",
+          "isNotValue",
+          "isNull",
+          "isValue",
+          "nullIf",
+          "writeAroundPrecedence",
+          "writeInner"
+        ],
+        "types": [
+          "BaseSelectStatement",
+          "DriftSqlType",
+          "Expression",
+          "FunctionParameter",
+          "GenerationContext",
+          "Precedence"
+        ]
+      },
+      "FunctionCallExpression": {
+        "fields": [
+          "arguments",
+          "functionName",
+          "get:hashCode",
+          "get:precedence"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "==",
+          "FunctionCallExpression",
+          "writeInto"
+        ],
+        "types": [
+          "Expression",
+          "GenerationContext",
+          "Precedence"
+        ]
+      },
+      "FunctionParameter": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Component"
+        ]
+      },
+      "GeneratedAs": {
+        "fields": [
+          "generatedAs",
+          "stored"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "GeneratedAs"
+        ],
+        "types": [
+          "Expression"
+        ]
+      },
+      "GeneratedColumn": {
+        "fields": [
+          "$customConstraints",
+          "$name",
+          "$nullable",
+          "additionalChecks",
+          "check",
+          "clientDefault",
+          "defaultValue",
+          "generatedAs",
+          "get:hashCode",
+          "get:name",
+          "hasAutoIncrement",
+          "requiredDuringInsert",
+          "tableName",
+          "type"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "==",
+          "GeneratedColumn",
+          "checkTextLength",
+          "constraintIsAlways",
+          "constraintsDependsOnDialect",
+          "isAcceptableOrUnknown",
+          "isAcceptableValue",
+          "withConverter",
+          "writeColumnDefinition",
+          "writeInto"
+        ],
+        "types": [
+          "Column",
+          "DriftSqlType",
+          "Expression",
+          "GeneratedAs",
+          "GeneratedColumnWithTypeConverter",
+          "GenerationContext",
+          "SqlDialect",
+          "TypeConverter",
+          "VerificationMeta",
+          "VerificationResult"
+        ]
+      },
+      "GeneratedColumnWithTypeConverter": {
+        "fields": [
+          "converter"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "equalsValue",
+          "isInValues",
+          "isNotInValues"
+        ],
+        "types": [
+          "Expression",
+          "GeneratedColumn",
+          "TypeConverter"
+        ]
+      },
+      "GeneratedDatabase": {
+        "fields": [
+          "get:allSchemaEntities",
+          "get:allTables",
+          "get:attachedDatabase",
+          "get:migration",
+          "get:options",
+          "get:schemaVersion",
+          "get:streamUpdateRules"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/api/runtime_api.dart"
+        ],
+        "methods": [
+          "GeneratedDatabase",
+          "beforeOpen",
+          "close",
+          "connect",
+          "createMigrator"
+        ],
+        "types": [
+          "DatabaseConnection",
+          "DatabaseConnectionUser",
+          "DatabaseSchemaEntity",
+          "DriftDatabaseOptions",
+          "GeneratedDatabase",
+          "MigrationStrategy",
+          "Migrator",
+          "OpeningDetails",
+          "QueryExecutor",
+          "QueryExecutorUser",
+          "StreamQueryStore",
+          "StreamQueryUpdateRules",
+          "TableInfo"
+        ]
+      },
+      "GenerationContext": {
+        "fields": [
+          "buffer",
+          "executor",
+          "explicitVariableIndex",
+          "generatingForView",
+          "get:amountOfVariables",
+          "get:boundVariables",
+          "get:dialect",
+          "get:sql",
+          "hasMultipleTables",
+          "introducedVariables",
+          "options",
+          "supportsVariables",
+          "typeMapping",
+          "watchedTables"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "GenerationContext",
+          "fromDb",
+          "identifier",
+          "introduceVariable",
+          "writeWhitespace"
+        ],
+        "types": [
+          "DatabaseConnectionUser",
+          "DriftDatabaseOptions",
+          "ResultSetImplementation",
+          "SqlDialect",
+          "SqlTypes",
+          "Variable"
+        ]
+      },
+      "GroupBy": {
+        "fields": [
+          "groupBy",
+          "having"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "writeInto"
+        ],
+        "types": [
+          "Component",
+          "Expression",
+          "GenerationContext"
+        ]
+      },
+      "HasResultSet": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [
+          "HasResultSet"
+        ],
+        "types": []
+      },
+      "Index": {
+        "fields": [
+          "createIndexStmt",
+          "entityName"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "Index"
+        ],
+        "types": [
+          "DatabaseSchemaEntity"
+        ]
+      },
+      "InfixOperator": {
+        "fields": [
+          "get:hashCode",
+          "get:left",
+          "get:operator",
+          "get:right"
+        ],
+        "libraries": [
+          "package:drift/src/runtime/query_builder/expressions/internal.dart"
+        ],
+        "methods": [
+          "==",
+          "writeInto"
+        ],
+        "types": [
+          "Expression",
+          "GenerationContext"
+        ]
+      },
+      "InsertMode": {
+        "fields": [
+          "insert",
+          "insertOrAbort",
+          "insertOrFail",
+          "insertOrIgnore",
+          "insertOrReplace",
+          "insertOrRollback",
+          "replace"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "writeInto"
+        ],
+        "types": [
+          "Component",
+          "GenerationContext"
+        ]
+      },
+      "InsertStatement": {
+        "fields": [
+          "database",
+          "table"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "InsertStatement",
+          "createContext",
+          "insert",
+          "insertFromSelect",
+          "insertOnConflictUpdate",
+          "insertReturning",
+          "insertReturningOrNull",
+          "writeInsertable"
+        ],
+        "types": [
+          "BaseSelectStatement",
+          "Column",
+          "DatabaseConnectionUser",
+          "Expression",
+          "GenerationContext",
+          "InsertMode",
+          "Insertable",
+          "Table",
+          "TableInfo",
+          "UpsertClause"
+        ]
+      },
+      "Insertable": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/data_class.dart"
+        ],
+        "methods": [
+          "Insertable",
+          "toColumns"
+        ],
+        "types": [
+          "Expression"
+        ]
+      },
+      "InvalidDataException": {
+        "fields": [
+          "errors",
+          "message"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/exceptions.dart"
+        ],
+        "methods": [
+          "InvalidDataException",
+          "toString"
+        ],
+        "types": [
+          "VerificationMeta",
+          "VerificationResult"
+        ]
+      },
+      "Join": {
+        "fields": [
+          "includeInResult",
+          "on",
+          "table"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "writeInto"
+        ],
+        "types": [
+          "Component",
+          "Expression",
+          "GenerationContext",
+          "HasResultSet"
+        ]
+      },
+      "JoinedSelectStatement": {
+        "fields": [
+          "distinct",
+          "get:watchedTables"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "JoinedSelectStatement",
+          "addColumns",
+          "get",
+          "groupBy",
+          "join",
+          "orderBy",
+          "watch",
+          "where",
+          "writeStartPart"
+        ],
+        "types": [
+          "BaseSelectStatement",
+          "DatabaseConnectionUser",
+          "Expression",
+          "GenerationContext",
+          "HasResultSet",
+          "Join",
+          "JoinedSelectStatement",
+          "LimitContainerMixin",
+          "OrderingTerm",
+          "Query",
+          "ResultSetImplementation",
+          "Selectable",
+          "TypedResult"
+        ]
+      },
+      "JsonExtensions": {
+        "fields": [],
+        "libraries": [
+          "package:drift/extensions/json1.dart"
+        ],
+        "methods": [
+          "jsonArrayLength",
+          "jsonExtract"
+        ],
+        "types": [
+          "Expression"
+        ]
+      },
+      "JsonKey": {
+        "fields": [
+          "key"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [
+          "JsonKey"
+        ],
+        "types": []
+      },
+      "JsonTypeConverter": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/types/converters.dart"
+        ],
+        "methods": [
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "JsonTypeConverter2"
+        ]
+      },
+      "JsonTypeConverter2": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/runtime/types/converters.dart"
+        ],
+        "methods": [
+          "asNullable",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "JsonTypeConverter2",
+          "TypeConverter"
+        ]
+      },
+      "KeyAction": {
+        "fields": [
+          "cascade",
+          "noAction",
+          "restrict",
+          "setDefault",
+          "setNull"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LazyDatabase": {
+        "fields": [
+          "get:dialect",
+          "opener"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/utils/lazy_database.dart"
+        ],
+        "methods": [
+          "LazyDatabase",
+          "beginTransaction",
+          "close",
+          "ensureOpen",
+          "runBatched",
+          "runCustom",
+          "runDelete",
+          "runInsert",
+          "runSelect",
+          "runUpdate"
+        ],
+        "types": [
+          "BatchedStatements",
+          "QueryExecutor",
+          "QueryExecutorUser",
+          "SqlDialect",
+          "TransactionExecutor"
+        ]
+      },
+      "Limit": {
+        "fields": [
+          "amount",
+          "offset"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "Limit",
+          "writeInto"
+        ],
+        "types": [
+          "Component",
+          "GenerationContext"
+        ]
+      },
+      "LimitContainerMixin": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "limit"
+        ],
+        "types": [
+          "HasResultSet",
+          "Query"
+        ]
+      },
+      "Lock": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/utils/synchronized.dart"
+        ],
+        "methods": [
+          "synchronized"
+        ],
+        "types": []
+      },
+      "MapAndAwait": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/utils/async.dart"
+        ],
+        "methods": [
+          "mapAsyncAndAwait"
+        ],
+        "types": []
+      },
+      "Message": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MigrationStrategy": {
+        "fields": [
+          "beforeOpen",
+          "onCreate",
+          "onUpgrade"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "MigrationStrategy"
+        ],
+        "types": []
+      },
+      "Migrator": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "Migrator",
+          "addColumn",
+          "alterTable",
+          "create",
+          "createAll",
+          "createAllTables",
+          "createIndex",
+          "createTable",
+          "createTrigger",
+          "createView",
+          "deleteTable",
+          "drop",
+          "issueCustomQuery",
+          "recreateAllViews",
+          "renameColumn",
+          "renameTable"
+        ],
+        "types": [
+          "DatabaseSchemaEntity",
+          "GeneratedColumn",
+          "GeneratedDatabase",
+          "Index",
+          "TableInfo",
+          "TableMigration",
+          "Trigger",
+          "ViewInfo"
+        ]
+      },
+      "MissingSchemaException": {
+        "fields": [
+          "available",
+          "requested"
+        ],
+        "libraries": [
+          "package:drift/internal/migrations.dart"
+        ],
+        "methods": [
+          "MissingSchemaException",
+          "toString"
+        ],
+        "types": []
+      },
+      "ModularAccessor": {
+        "fields": [],
+        "libraries": [
+          "package:drift/internal/modular.dart"
+        ],
+        "methods": [
+          "ModularAccessor",
+          "accessor",
+          "resultSet"
+        ],
+        "types": [
+          "DatabaseAccessor",
+          "GeneratedDatabase"
+        ]
+      },
+      "MultiExecutor": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/executor/connection_pool.dart"
+        ],
+        "methods": [
+          "MultiExecutor",
+          "withReadPool"
+        ],
+        "types": [
+          "QueryExecutor"
+        ]
+      },
+      "MultiSelectable": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "get",
+          "watch"
+        ],
+        "types": []
+      },
+      "MultipleUpdateQuery": {
+        "fields": [
+          "queries"
+        ],
+        "libraries": [
+          "package:drift/src/runtime/executor/stream_queries.dart"
+        ],
+        "methods": [
+          "MultipleUpdateQuery",
+          "matches"
+        ],
+        "types": [
+          "TableUpdate",
+          "TableUpdateQuery"
+        ]
+      },
+      "NameWithAlias": {
+        "fields": [
+          "get:tableWithAlias"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [],
+        "types": [
+          "ResultSetImplementation"
+        ]
+      },
+      "NativeDatabase": {
+        "fields": [],
+        "libraries": [
+          "package:drift/native.dart"
+        ],
+        "methods": [
+          "NativeDatabase",
+          "closeExistingInstances",
+          "createBackgroundConnection",
+          "createInBackground",
+          "memory",
+          "opened"
+        ],
+        "types": [
+          "DatabaseConnection",
+          "DelegatedDatabase",
+          "QueryExecutor"
+        ]
+      },
+      "NoArgsRequest": {
+        "fields": [
+          "terminateAll"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "NoTransactionDelegate": {
+        "fields": [
+          "commit",
+          "rollback",
+          "start"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/src/runtime/executor/helpers/delegates.dart"
+        ],
+        "methods": [
+          "NoTransactionDelegate"
+        ],
+        "types": [
+          "TransactionDelegate"
+        ]
+      },
+      "NoVersionDelegate": {
+        "fields": [],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/src/runtime/executor/helpers/delegates.dart"
+        ],
+        "methods": [
+          "NoVersionDelegate"
+        ],
+        "types": [
+          "DbVersionDelegate"
+        ]
+      },
+      "NonNullableCancellationExtension": {
+        "fields": [
+          "get:resultOrNullIfCancelled"
+        ],
+        "libraries": [
+          "package:drift/src/runtime/cancellation_zone.dart"
+        ],
+        "methods": [],
+        "types": [
+          "CancellationToken"
+        ]
+      },
+      "NotifyTablesUpdated": {
+        "fields": [
+          "updates"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [
+          "NotifyTablesUpdated",
+          "toString"
+        ],
+        "types": [
+          "TableUpdate"
+        ]
+      },
+      "NullAwareTypeConverter": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/types/converters.dart"
+        ],
+        "methods": [
+          "NullAwareTypeConverter",
+          "fromSql",
+          "requireFromSql",
+          "requireToSql",
+          "toSql",
+          "wrap",
+          "wrapFromSql",
+          "wrapToSql"
+        ],
+        "types": [
+          "TypeConverter"
+        ]
+      },
+      "NullsOrder": {
+        "fields": [
+          "first",
+          "last"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "OldDbFieldInDatabaseAccessor": {
+        "fields": [
+          "get:db"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/api/runtime_api.dart"
+        ],
+        "methods": [],
+        "types": [
+          "DatabaseAccessor",
+          "GeneratedDatabase"
+        ]
+      },
+      "OnCreateQuery": {
+        "fields": [
+          "get:entityName",
+          "sql"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "OnCreateQuery"
+        ],
+        "types": [
+          "DatabaseSchemaEntity"
+        ]
+      },
+      "OnOpenVersionDelegate": {
+        "fields": [
+          "loadSchemaVersion"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/src/runtime/executor/helpers/delegates.dart"
+        ],
+        "methods": [
+          "OnOpenVersionDelegate"
+        ],
+        "types": [
+          "DbVersionDelegate"
+        ]
+      },
+      "OpeningDetails": {
+        "fields": [
+          "get:hadUpgrade",
+          "get:wasCreated",
+          "versionBefore",
+          "versionNow"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "OpeningDetails"
+        ],
+        "types": []
+      },
+      "OrderBy": {
+        "fields": [
+          "terms"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "OrderBy",
+          "nothing",
+          "writeInto"
+        ],
+        "types": [
+          "Component",
+          "GenerationContext",
+          "OrderingTerm"
+        ]
+      },
+      "OrderingMode": {
+        "fields": [
+          "asc",
+          "desc"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "OrderingTerm": {
+        "fields": [
+          "expression",
+          "mode",
+          "nulls"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "OrderingTerm",
+          "asc",
+          "desc",
+          "random",
+          "writeInto"
+        ],
+        "types": [
+          "Component",
+          "Expression",
+          "GenerationContext",
+          "NullsOrder",
+          "OrderingMode"
+        ]
+      },
+      "PortToChannel": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/web/channel.dart",
+          "package:drift/web.dart"
+        ],
+        "methods": [
+          "channel"
+        ],
+        "types": []
+      },
+      "Precedence": {
+        "fields": [
+          "and",
+          "bitwise",
+          "comparison",
+          "comparisonEq",
+          "mulDivide",
+          "or",
+          "plusMinus",
+          "postfix",
+          "primary",
+          "stringConcatenation",
+          "unary",
+          "unknown"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "<",
+          "<=",
+          ">",
+          ">=",
+          "compareTo"
+        ],
+        "types": [
+          "Precedence"
+        ]
+      },
+      "PreparedStatement": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/web/sql_js.dart",
+          "package:drift/web.dart"
+        ],
+        "methods": [
+          "columnNames",
+          "currentRow",
+          "executeWith",
+          "free",
+          "step"
+        ],
+        "types": []
+      },
+      "PreparedStatementsCache": {
+        "fields": [
+          "defaultSize",
+          "maxSize"
+        ],
+        "libraries": [
+          "package:drift/src/sqlite3/database.dart"
+        ],
+        "methods": [
+          "PreparedStatementsCache",
+          "addNew",
+          "clear",
+          "disposeAll",
+          "use"
+        ],
+        "types": []
+      },
+      "Query": {
+        "fields": [
+          "database",
+          "limitExpr",
+          "orderByExpr",
+          "table",
+          "whereExpr",
+          "writeReturningClause"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "Query",
+          "constructQuery",
+          "writeInto",
+          "writeStartPart"
+        ],
+        "types": [
+          "Component",
+          "DatabaseConnectionUser",
+          "GenerationContext",
+          "GroupBy",
+          "HasResultSet",
+          "Limit",
+          "OrderBy",
+          "ResultSetImplementation",
+          "Where"
+        ]
+      },
+      "QueryDelegate": {
+        "fields": [],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/src/runtime/executor/helpers/delegates.dart"
+        ],
+        "methods": [
+          "runBatched",
+          "runCustom",
+          "runInsert",
+          "runSelect",
+          "runUpdate"
+        ],
+        "types": [
+          "BatchedStatements",
+          "QueryResult"
+        ]
+      },
+      "QueryExecutor": {
+        "fields": [
+          "get:dialect"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/executor/executor.dart"
+        ],
+        "methods": [
+          "beginTransaction",
+          "close",
+          "ensureOpen",
+          "runBatched",
+          "runCustom",
+          "runDelete",
+          "runInsert",
+          "runSelect",
+          "runUpdate"
+        ],
+        "types": [
+          "BatchedStatements",
+          "QueryExecutorUser",
+          "SqlDialect",
+          "TransactionExecutor"
+        ]
+      },
+      "QueryExecutorUser": {
+        "fields": [
+          "get:schemaVersion"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/executor/executor.dart"
+        ],
+        "methods": [
+          "beforeOpen"
+        ],
+        "types": [
+          "OpeningDetails",
+          "QueryExecutor"
+        ]
+      },
+      "QueryResult": {
+        "fields": [
+          "columnNames",
+          "get:asMap",
+          "rows"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/src/runtime/executor/helpers/results.dart"
+        ],
+        "methods": [
+          "QueryResult",
+          "fromRows"
+        ],
+        "types": []
+      },
+      "QueryRow": {
+        "fields": [
+          "data"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "QueryRow",
+          "read",
+          "readBlob",
+          "readBool",
+          "readDateTime",
+          "readDouble",
+          "readInt",
+          "readNullable",
+          "readNullableWithType",
+          "readString"
+        ],
+        "types": [
+          "DatabaseConnectionUser",
+          "DriftSqlType"
+        ]
+      },
+      "QueryStream": {
+        "fields": [
+          "get:hasKey"
+        ],
+        "libraries": [
+          "package:drift/src/runtime/executor/stream_queries.dart"
+        ],
+        "methods": [
+          "QueryStream",
+          "close",
+          "fetchAndEmitData"
+        ],
+        "types": [
+          "CancellationToken",
+          "QueryStreamFetcher",
+          "StreamQueryStore"
+        ]
+      },
+      "QueryStreamFetcher": {
+        "fields": [
+          "fetchData",
+          "key",
+          "readsFrom"
+        ],
+        "libraries": [
+          "package:drift/src/runtime/executor/stream_queries.dart"
+        ],
+        "methods": [
+          "QueryStreamFetcher"
+        ],
+        "types": [
+          "StreamKey",
+          "TableUpdateQuery"
+        ]
+      },
+      "QueryTableExtensions": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "whereSamePrimaryKey"
+        ],
+        "types": [
+          "Insertable",
+          "SingleTableQueryMixin",
+          "Table"
+        ]
+      },
+      "RawValuesInsertable": {
+        "fields": [
+          "data"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/data_class.dart"
+        ],
+        "methods": [
+          "RawValuesInsertable",
+          "toColumns",
+          "toString"
+        ],
+        "types": [
+          "Expression",
+          "Insertable"
+        ]
+      },
+      "ReadDatabaseContainer": {
+        "fields": [],
+        "libraries": [
+          "package:drift/internal/modular.dart"
+        ],
+        "methods": [
+          "accessor",
+          "resultSet"
+        ],
+        "types": [
+          "GeneratedDatabase"
+        ]
+      },
+      "Request": {
+        "fields": [
+          "id",
+          "payload"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [
+          "Request",
+          "toString"
+        ],
+        "types": [
+          "Message"
+        ]
+      },
+      "RequestCancellation": {
+        "fields": [
+          "originalRequestId"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [
+          "RequestCancellation",
+          "toString"
+        ],
+        "types": []
+      },
+      "ResultSetImplementation": {
+        "fields": [
+          "get:$columns",
+          "get:aliasedName",
+          "get:asDslTable",
+          "get:attachedDatabase",
+          "get:columnsByName"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "createAlias",
+          "map"
+        ],
+        "types": [
+          "DatabaseConnectionUser",
+          "DatabaseSchemaEntity",
+          "GeneratedColumn",
+          "ResultSetImplementation"
+        ]
+      },
+      "RowIdExtension": {
+        "fields": [
+          "get:rowId"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Expression",
+          "TableInfo"
+        ]
+      },
+      "RunBeforeOpen": {
+        "fields": [
+          "createdExecutor",
+          "details"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [
+          "RunBeforeOpen",
+          "toString"
+        ],
+        "types": [
+          "OpeningDetails"
+        ]
+      },
+      "RunTransactionAction": {
+        "fields": [
+          "control",
+          "executorId"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [
+          "RunTransactionAction",
+          "toString"
+        ],
+        "types": [
+          "TransactionControl"
+        ]
+      },
+      "RunningDriftServer": {
+        "fields": [
+          "connectPort",
+          "get:portToOpenConnection",
+          "killIsolateWhenDone",
+          "onlyAcceptSingleConnection",
+          "self",
+          "server"
+        ],
+        "libraries": [
+          "package:drift/src/isolate.dart"
+        ],
+        "methods": [
+          "RunningDriftServer"
+        ],
+        "types": [
+          "DriftServer",
+          "QueryExecutor"
+        ]
+      },
+      "SchemaInstantiationHelper": {
+        "fields": [],
+        "libraries": [
+          "package:drift/internal/migrations.dart"
+        ],
+        "methods": [
+          "databaseForVersion"
+        ],
+        "types": [
+          "GeneratedDatabase",
+          "QueryExecutor"
+        ]
+      },
+      "SelectResult": {
+        "fields": [
+          "rows"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [
+          "SelectResult"
+        ],
+        "types": []
+      },
+      "Selectable": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "asyncMap",
+          "get",
+          "getSingle",
+          "getSingleOrNull",
+          "map",
+          "watch",
+          "watchSingle",
+          "watchSingleOrNull"
+        ],
+        "types": [
+          "MultiSelectable",
+          "Selectable",
+          "SingleOrNullSelectable",
+          "SingleSelectable"
+        ]
+      },
+      "ServerImplementation": {
+        "fields": [
+          "allowRemoteShutdown",
+          "closeExecutorWhenShutdown",
+          "connection",
+          "get:done",
+          "get:tableUpdateNotifications"
+        ],
+        "libraries": [
+          "package:drift/src/remote/server_impl.dart"
+        ],
+        "methods": [
+          "ServerImplementation",
+          "dispatchTableUpdateNotification",
+          "serve",
+          "shutdown"
+        ],
+        "types": [
+          "CancellationToken",
+          "DriftCommunication",
+          "DriftServer",
+          "NotifyTablesUpdated",
+          "QueryExecutor"
+        ]
+      },
+      "ServerInfo": {
+        "fields": [
+          "dialect"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [
+          "ServerInfo",
+          "toString"
+        ],
+        "types": [
+          "SqlDialect"
+        ]
+      },
+      "SimpleSelectStatement": {
+        "fields": [
+          "distinct",
+          "get:watchedTables"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "SimpleSelectStatement",
+          "addColumns",
+          "get",
+          "join",
+          "orderBy",
+          "watch",
+          "writeStartPart"
+        ],
+        "types": [
+          "BaseSelectStatement",
+          "DatabaseConnectionUser",
+          "Expression",
+          "GenerationContext",
+          "HasResultSet",
+          "Join",
+          "JoinedSelectStatement",
+          "LimitContainerMixin",
+          "Query",
+          "ResultSetImplementation",
+          "Selectable",
+          "SingleTableQueryMixin"
+        ]
+      },
+      "SingleOrNullSelectable": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "getSingleOrNull",
+          "watchSingleOrNull"
+        ],
+        "types": []
+      },
+      "SingleSelectable": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "getSingle",
+          "watchSingle"
+        ],
+        "types": []
+      },
+      "SingleTableQueryMixin": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "where"
+        ],
+        "types": [
+          "Expression",
+          "HasResultSet",
+          "Query"
+        ]
+      },
+      "SpecificUpdateQuery": {
+        "fields": [
+          "get:hashCode",
+          "limitUpdateKind",
+          "table"
+        ],
+        "libraries": [
+          "package:drift/src/runtime/executor/stream_queries.dart"
+        ],
+        "methods": [
+          "==",
+          "SpecificUpdateQuery",
+          "matches"
+        ],
+        "types": [
+          "TableUpdate",
+          "TableUpdateQuery",
+          "UpdateKind"
+        ]
+      },
+      "SqlDialect": {
+        "fields": [
+          "mysql",
+          "postgres",
+          "sqlite"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SqlJsDatabase": {
+        "fields": [
+          "get:userVersion",
+          "set:userVersion"
+        ],
+        "libraries": [
+          "package:drift/src/web/sql_js.dart",
+          "package:drift/web.dart"
+        ],
+        "methods": [
+          "close",
+          "export",
+          "lastInsertId",
+          "lastModifiedRows",
+          "prepare",
+          "run",
+          "runWithArgs"
+        ],
+        "types": [
+          "PreparedStatement"
+        ]
+      },
+      "SqlJsModule": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/web/sql_js.dart",
+          "package:drift/web.dart"
+        ],
+        "methods": [
+          "createDatabase"
+        ],
+        "types": [
+          "SqlJsDatabase"
+        ]
+      },
+      "SqlTypes": {
+        "fields": [
+          "storeDateTimesAsText"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/types/mapping.dart"
+        ],
+        "methods": [
+          "SqlTypes",
+          "mapToSqlLiteral",
+          "mapToSqlVariable",
+          "read"
+        ],
+        "types": [
+          "DriftSqlType",
+          "SqlDialect"
+        ]
+      },
+      "Sqlite3Delegate": {
+        "fields": [
+          "cachePreparedStatements",
+          "closeUnderlyingWhenClosed",
+          "get:database",
+          "get:isOpen",
+          "get:transactionDelegate",
+          "versionDelegate"
+        ],
+        "libraries": [
+          "package:drift/src/sqlite3/database.dart"
+        ],
+        "methods": [
+          "Sqlite3Delegate",
+          "close",
+          "open",
+          "openDatabase",
+          "opened",
+          "runBatchSync",
+          "runSelect",
+          "runWithArgsSync"
+        ],
+        "types": [
+          "BatchedStatements",
+          "DatabaseDelegate",
+          "DbVersionDelegate",
+          "PreparedStatementsCache",
+          "QueryExecutorUser",
+          "QueryResult",
+          "TransactionDelegate"
+        ]
+      },
+      "StatementMethod": {
+        "fields": [
+          "custom",
+          "deleteOrUpdate",
+          "insert",
+          "select"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "StreamKey": {
+        "fields": [
+          "get:hashCode",
+          "sql",
+          "variables"
+        ],
+        "libraries": [
+          "package:drift/src/runtime/executor/stream_queries.dart"
+        ],
+        "methods": [
+          "==",
+          "StreamKey"
+        ],
+        "types": []
+      },
+      "StreamQueryStore": {
+        "fields": [],
+        "libraries": [
+          "package:drift/src/runtime/executor/stream_queries.dart"
+        ],
+        "methods": [
+          "close",
+          "handleTableUpdates",
+          "markAsClosed",
+          "markAsOpened",
+          "registerStream",
+          "updatesForSync"
+        ],
+        "types": [
+          "QueryStream",
+          "QueryStreamFetcher",
+          "StreamKey",
+          "TableUpdate",
+          "TableUpdateQuery"
+        ]
+      },
+      "StreamQueryUpdateRules": {
+        "fields": [
+          "rules"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/api/runtime_api.dart"
+        ],
+        "methods": [
+          "StreamQueryUpdateRules",
+          "apply",
+          "none"
+        ],
+        "types": [
+          "TableUpdate",
+          "UpdateRule"
+        ]
+      },
+      "StringExpressionOperators": {
+        "fields": [
+          "get:length"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "+",
+          "collate",
+          "contains",
+          "like",
+          "likeExp",
+          "lower",
+          "regexp",
+          "trim",
+          "trimLeft",
+          "trimRight",
+          "upper"
+        ],
+        "types": [
+          "Collate",
+          "Expression"
+        ]
+      },
+      "SuccessResponse": {
+        "fields": [
+          "requestId",
+          "response"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [
+          "SuccessResponse",
+          "toString"
+        ],
+        "types": [
+          "Message"
+        ]
+      },
+      "SupportedTransactionDelegate": {
+        "fields": [
+          "get:managesLockInternally"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/src/runtime/executor/helpers/delegates.dart"
+        ],
+        "methods": [
+          "SupportedTransactionDelegate",
+          "startTransaction"
+        ],
+        "types": [
+          "QueryDelegate",
+          "TransactionDelegate"
+        ]
+      },
+      "Table": {
+        "fields": [
+          "get:customConstraints",
+          "get:dontWriteConstraints",
+          "get:isStrict",
+          "get:primaryKey",
+          "get:tableName",
+          "get:uniqueKeys",
+          "get:withoutRowId"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [
+          "Table",
+          "blob",
+          "boolean",
+          "dateTime",
+          "int64",
+          "intEnum",
+          "integer",
+          "real",
+          "text",
+          "textEnum"
+        ],
+        "types": [
+          "Column",
+          "ColumnBuilder",
+          "HasResultSet"
+        ]
+      },
+      "TableInfo": {
+        "fields": [
+          "get:$primaryKey",
+          "get:actualTableName",
+          "get:aliasedName",
+          "get:asDslTable",
+          "get:columnsByName",
+          "get:entityName",
+          "get:hashCode",
+          "get:primaryKey",
+          "get:uniqueKeys"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "==",
+          "createAlias",
+          "mapFromCompanion",
+          "validateIntegrity"
+        ],
+        "types": [
+          "Column",
+          "DatabaseConnectionUser",
+          "DatabaseSchemaEntity",
+          "GeneratedColumn",
+          "Insertable",
+          "ResultSetImplementation",
+          "Table",
+          "TableInfo",
+          "VerificationContext"
+        ]
+      },
+      "TableInfoUtils": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "mapFromRow",
+          "mapFromRowOrNull",
+          "mapFromRowWithAlias"
+        ],
+        "types": [
+          "QueryRow",
+          "ResultSetImplementation"
+        ]
+      },
+      "TableMigration": {
+        "fields": [
+          "affectedTable",
+          "columnTransformer",
+          "newColumns"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "TableMigration"
+        ],
+        "types": [
+          "Expression",
+          "GeneratedColumn",
+          "TableInfo"
+        ]
+      },
+      "TableOrViewStatements": {
+        "fields": [],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/runtime/query_builder/on_table.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "all",
+          "select",
+          "selectOnly"
+        ],
+        "types": [
+          "HasResultSet",
+          "JoinedSelectStatement",
+          "ResultSetImplementation",
+          "Selectable",
+          "SimpleSelectStatement"
+        ]
+      },
+      "TableStatements": {
+        "fields": [],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/runtime/query_builder/on_table.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "delete",
+          "deleteAll",
+          "deleteOne",
+          "deleteWhere",
+          "insert",
+          "insertAll",
+          "insertOnConflictUpdate",
+          "insertOne",
+          "insertReturning",
+          "insertReturningOrNull",
+          "replaceOne",
+          "update"
+        ],
+        "types": [
+          "DeleteStatement",
+          "Expression",
+          "InsertMode",
+          "InsertStatement",
+          "Insertable",
+          "Table",
+          "TableInfo",
+          "UpdateStatement",
+          "UpsertClause"
+        ]
+      },
+      "TableUpdate": {
+        "fields": [
+          "get:hashCode",
+          "kind",
+          "table"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/api/runtime_api.dart"
+        ],
+        "methods": [
+          "==",
+          "TableUpdate",
+          "onTable",
+          "toString"
+        ],
+        "types": [
+          "TableInfo",
+          "UpdateKind"
+        ]
+      },
+      "TableUpdateQuery": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/api/runtime_api.dart"
+        ],
+        "methods": [
+          "TableUpdateQuery",
+          "allOf",
+          "any",
+          "matches",
+          "onAllTables",
+          "onTable",
+          "onTableName"
+        ],
+        "types": [
+          "ResultSetImplementation",
+          "TableUpdate",
+          "TableUpdateQuery",
+          "UpdateKind"
+        ]
+      },
+      "Transaction": {
+        "fields": [
+          "get:attachedDatabase"
+        ],
+        "libraries": [
+          "package:drift/src/runtime/executor/transactions.dart"
+        ],
+        "methods": [
+          "Transaction",
+          "complete",
+          "disposeChildStreams"
+        ],
+        "types": [
+          "DatabaseConnectionUser",
+          "GeneratedDatabase",
+          "TransactionExecutor"
+        ]
+      },
+      "TransactionControl": {
+        "fields": [
+          "begin",
+          "commit",
+          "rollback"
+        ],
+        "libraries": [
+          "package:drift/src/remote/protocol.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TransactionDelegate": {
+        "fields": [],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/src/runtime/executor/helpers/delegates.dart"
+        ],
+        "methods": [
+          "TransactionDelegate"
+        ],
+        "types": []
+      },
+      "TransactionExecutor": {
+        "fields": [
+          "get:supportsNestedTransactions"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/executor/executor.dart"
+        ],
+        "methods": [
+          "rollback",
+          "send"
+        ],
+        "types": [
+          "QueryExecutor"
+        ]
+      },
+      "Trigger": {
+        "fields": [
+          "createTriggerStmt",
+          "entityName"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "Trigger"
+        ],
+        "types": [
+          "DatabaseSchemaEntity"
+        ]
+      },
+      "TypeConverter": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/runtime/types/converters.dart"
+        ],
+        "methods": [
+          "TypeConverter",
+          "fromSql",
+          "toSql"
+        ],
+        "types": []
+      },
+      "TypedResult": {
+        "fields": [
+          "rawData"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "TypedResult",
+          "read",
+          "readTable",
+          "readTableOrNull"
+        ],
+        "types": [
+          "Expression",
+          "QueryRow",
+          "ResultSetImplementation"
+        ]
+      },
+      "UpdateCompanion": {
+        "fields": [
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/data_class.dart"
+        ],
+        "methods": [
+          "==",
+          "UpdateCompanion"
+        ],
+        "types": [
+          "Insertable"
+        ]
+      },
+      "UpdateKind": {
+        "fields": [
+          "delete",
+          "insert",
+          "update"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/api/runtime_api.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "UpdateRule": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/api/runtime_api.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "UpdateStatement": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "UpdateStatement",
+          "replace",
+          "write",
+          "writeReturning",
+          "writeStartPart"
+        ],
+        "types": [
+          "DatabaseConnectionUser",
+          "Expression",
+          "GenerationContext",
+          "Insertable",
+          "Query",
+          "SingleTableQueryMixin",
+          "Table",
+          "TableInfo"
+        ]
+      },
+      "UpsertClause": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Table"
+        ]
+      },
+      "UpsertMultiple": {
+        "fields": [
+          "clauses"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "UpsertMultiple"
+        ],
+        "types": [
+          "DoUpdate",
+          "Table",
+          "UpsertClause"
+        ]
+      },
+      "UseRowClass": {
+        "fields": [
+          "constructor",
+          "generateInsertable",
+          "type"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [
+          "UseRowClass"
+        ],
+        "types": []
+      },
+      "Value": {
+        "fields": [
+          "get:hashCode",
+          "get:value",
+          "present"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/data_class.dart"
+        ],
+        "methods": [
+          "==",
+          "Value",
+          "absent",
+          "ofNullable",
+          "toString"
+        ],
+        "types": []
+      },
+      "ValueSerializer": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/data_class.dart"
+        ],
+        "methods": [
+          "ValueSerializer",
+          "defaults",
+          "fromJson",
+          "toJson"
+        ],
+        "types": []
+      },
+      "Variable": {
+        "fields": [
+          "get:hashCode",
+          "get:precedence",
+          "value"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "==",
+          "Variable",
+          "mapToSimpleValue",
+          "toString",
+          "withBigInt",
+          "withBlob",
+          "withBool",
+          "withDateTime",
+          "withInt",
+          "withReal",
+          "withString",
+          "writeInto"
+        ],
+        "types": [
+          "Expression",
+          "GenerationContext",
+          "Precedence",
+          "Variable"
+        ]
+      },
+      "VerificationContext": {
+        "fields": [
+          "get:dataValid"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/data_verification.dart"
+        ],
+        "methods": [
+          "VerificationContext",
+          "handle",
+          "missing",
+          "notEnabled",
+          "throwIfInvalid"
+        ],
+        "types": [
+          "VerificationMeta",
+          "VerificationResult"
+        ]
+      },
+      "VerificationMeta": {
+        "fields": [
+          "dartGetterName"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/data_verification.dart"
+        ],
+        "methods": [
+          "VerificationMeta"
+        ],
+        "types": []
+      },
+      "VerificationResult": {
+        "fields": [
+          "message",
+          "success"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/data_verification.dart"
+        ],
+        "methods": [
+          "VerificationResult",
+          "failure",
+          "success"
+        ],
+        "types": []
+      },
+      "View": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/drift_dev_helper.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [
+          "View",
+          "as",
+          "from",
+          "select"
+        ],
+        "types": [
+          "Expression",
+          "HasResultSet",
+          "Query",
+          "SimpleSelectStatement",
+          "Table",
+          "View"
+        ]
+      },
+      "ViewInfo": {
+        "fields": [
+          "get:columnsByName",
+          "get:createViewStmt",
+          "get:entityName",
+          "get:query",
+          "get:readTables"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [],
+        "types": [
+          "GeneratedColumn",
+          "HasResultSet",
+          "Query",
+          "ResultSetImplementation"
+        ]
+      },
+      "VirtualColumnBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/dsl/dsl.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "VirtualTableInfo": {
+        "fields": [
+          "get:moduleAndArgs"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Table",
+          "TableInfo"
+        ]
+      },
+      "WasmDatabase": {
+        "fields": [],
+        "libraries": [
+          "package:drift/wasm.dart"
+        ],
+        "methods": [
+          "WasmDatabase",
+          "inMemory"
+        ],
+        "types": [
+          "DelegatedDatabase"
+        ]
+      },
+      "WebDatabase": {
+        "fields": [
+          "readIntsAsBigInt"
+        ],
+        "libraries": [
+          "package:drift/src/web/web_db.dart",
+          "package:drift/web.dart"
+        ],
+        "methods": [
+          "WebDatabase",
+          "withStorage"
+        ],
+        "types": [
+          "DelegatedDatabase",
+          "DriftWebStorage"
+        ]
+      },
+      "Where": {
+        "fields": [
+          "get:hashCode",
+          "predicate"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/query_builder/query_builder.dart"
+        ],
+        "methods": [
+          "==",
+          "Where",
+          "writeInto"
+        ],
+        "types": [
+          "Component",
+          "Expression",
+          "GenerationContext"
+        ]
+      },
+      "WrappedTransactionDelegate": {
+        "fields": [
+          "get:managesLockInternally"
+        ],
+        "libraries": [
+          "package:drift/backends.dart",
+          "package:drift/src/runtime/executor/helpers/delegates.dart"
+        ],
+        "methods": [
+          "WrappedTransactionDelegate",
+          "runInTransaction",
+          "startTransaction"
+        ],
+        "types": [
+          "QueryDelegate",
+          "SupportedTransactionDelegate"
+        ]
+      },
+      "WritePropagation": {
+        "fields": [
+          "on",
+          "result"
+        ],
+        "libraries": [
+          "package:drift/drift.dart",
+          "package:drift/src/runtime/api/runtime_api.dart"
+        ],
+        "methods": [
+          "WritePropagation"
+        ],
+        "types": [
+          "TableUpdate",
+          "TableUpdateQuery",
+          "UpdateRule"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:18:15Z",
+  "package": "drift",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AnyUpdateQuery",
+      "CancellationException",
+      "CaseWhen",
+      "Collate",
+      "Component",
+      "ConnectionClosedException",
+      "Constant",
+      "CustomExpression",
+      "DataClass",
+      "DataClassName",
+      "DateTimeModifier",
+      "DbVersionDelegate",
+      "DriftAccessor",
+      "DriftAny",
+      "DriftDatabase",
+      "DriftDatabaseOptions",
+      "DriftProtocol",
+      "DriftView",
+      "DriftWebStorage",
+      "DynamicVersionDelegate",
+      "EnumIndexConverter",
+      "EnumNameConverter",
+      "Expression",
+      "FunctionCallExpression",
+      "HasResultSet",
+      "Insertable",
+      "JsonKey",
+      "MissingSchemaException",
+      "MultipleUpdateQuery",
+      "NoTransactionDelegate",
+      "NoVersionDelegate",
+      "NullAwareTypeConverter",
+      "OnOpenVersionDelegate",
+      "OpeningDetails",
+      "OrderBy",
+      "RawValuesInsertable",
+      "SelectResult",
+      "SpecificUpdateQuery",
+      "SqlTypes",
+      "StreamQueryUpdateRules",
+      "SupportedTransactionDelegate",
+      "Table",
+      "TableUpdate",
+      "TableUpdateQuery",
+      "TransactionDelegate",
+      "TypeConverter",
+      "UpdateCompanion",
+      "UpdateRule",
+      "UseRowClass",
+      "Value",
+      "ValueSerializer",
+      "Variable",
+      "VerificationContext",
+      "VerificationMeta",
+      "VerificationResult",
+      "View",
+      "WrappedTransactionDelegate",
+      "WritePropagation",
+      "_BinaryStringConversion",
+      "_CastInSqlExpression",
+      "_DartCastExpression",
+      "_DefaultValueSerializer",
+      "_DependingOnDateTimeExpression",
+      "_LocalStorageImpl",
+      "_NullWrappingTypeConverter",
+      "_NullWrappingTypeConverterWithJson",
+      "_StarFunctionParameter"
+    ],
+    "digest": "fd7a81f7b29479352f8bf90b7e9229031aa6ee78aec2d61e6114ddafdf8ccbe8",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "33d548b97d476a0b83dd35bc0df5d013e37089098d6a9be1fec6fed52a72781f",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      " ",
+      " +",
+      " -",
+      " = ",
+      " ?([-+])(\\d\\d)(?::?(\\d\\d))?$",
+      " AND ",
+      " AS \"",
+      " BETWEEN ",
+      " CHECK(",
+      " COLLATE ",
+      " DEFAULT ",
+      " DO NOTHING",
+      " DO NOTHING ",
+      " DO UPDATE SET ",
+      " ELSE ",
+      " END",
+      " FILTER (",
+      " GENERATED ALWAYS AS (",
+      " HAVING ",
+      " IN (",
+      " INTO ",
+      " JOIN ",
+      " NOT",
+      " NOT NULL",
+      " NULL",
+      " ON ",
+      " ON CONFLICT(",
+      " RETURNING *",
+      " STRICT",
+      " THEN ",
+      " USING ",
+      " WHEN ",
+      " WITHOUT ROWID",
+      "\"",
+      "$",
+      "$internal$",
+      "%H",
+      "%M",
+      "%S",
+      "%Y",
+      "%d",
+      "%m",
+      "%s",
+      "&",
+      "'",
+      "''",
+      "(",
+      "(x)=>typeof x == 'bigint'",
+      ")",
+      ") ",
+      ") AS INTEGER)",
+      ") SELECT ",
+      "*",
+      "+",
+      ",",
+      ", ",
+      ", 'unixepoch'",
+      ", PRIMARY KEY (",
+      ", UNIQUE (",
+      "-",
+      "-9223372036854775808",
+      ".",
+      "../../../utils/synchronized.dart",
+      "../../backends.dart",
+      "../../cancellation_zone.dart",
+      "../../dsl/dsl.dart",
+      "../../query_builder.dart",
+      "../../utils/async.dart",
+      "../cancellation_zone.dart",
+      "../data_class.dart",
+      "../drift.dart",
+      "../query_builder.dart",
+      "../query_builder/query_builder.dart",
+      "../remote.dart",
+      "../runtime/cancellation_zone.dart",
+      ".{1,300}",
+      "/",
+      "0",
+      "1",
+      "9223372036854775807",
+      ";",
+      "<",
+      "<=",
+      "=",
+      ">",
+      ">=",
+      "?",
+      "@",
+      "A tranaction was used after being closed. Please check that you're awaiting all database operations inside a `transaction` block.",
+      "ABORT",
+      "ACTION",
+      "ADD",
+      "AFTER",
+      "ALL",
+      "ALTER",
+      "ALWAYS",
+      "ANALYZE",
+      "AND",
+      "ANY",
+      "ARRAY",
+      "AS",
+      "ASC",
+      "ASYMMETRIC",
+      "ATTACH",
+      "AUTOINCREMENT",
+      "AVG",
+      "BEFORE",
+      "BEGIN",
+      "BEGIN TRANSACTION",
+      "BEGIN;",
+      "BETWEEN",
+      "BINARY",
+      "BLOB",
+      "BOTH",
+      "BY",
+      "BigInt",
+      "BigInt value exceeds the range of 64 bits",
+      "CASCADE",
+      "CASE",
+      "CAST",
+      "CAST(",
+      "CHECK",
+      "COALESCE",
+      "COLLATE",
+      "COLUMN",
+      "COMMIT",
+      "COMMIT TRANSACTION",
+      "COMMIT;",
+      "CONFLICT",
+      "CONSTRAINT",
+      "COUNT",
+      "CREATE",
+      "CREATE TABLE IF NOT EXISTS open_connections(\n  database_pointer INTEGER NOT NULL PRIMARY KEY,\n  path TEXT NULL\n);\n    ",
+      "CREATE VIRTUAL TABLE IF NOT EXISTS ",
+      "CROSS",
+      "CURRENT",
+      "CURRENT_DATE",
+      "CURRENT_TIME",
+      "CURRENT_TIMESTAMP",
+      "CURRENT_USER",
+      "Can't re-open a database after closing it. Please create a new database connection and open that instead.",
+      "Cannot add new channels after shutdown() was called",
+      "Cannot read message",
+      "Cannot use groupConcat with distinct: true and a custom separator",
+      "Cannot use rowId on a table without a rowid!",
+      "Could not access the sql.js javascript library. The drift documentation contains instructions on how to setup drift the web, which might help you fix this.",
+      "DATABASE",
+      "DATE",
+      "DATETIME",
+      "DEFAULT",
+      "DEFAULT VALUES",
+      "DEFERRABLE",
+      "DEFERRED",
+      "DELETE",
+      "DELETE FROM open_connections;",
+      "DESC",
+      "DETACH",
+      "DISTINCT",
+      "DISTINCT ",
+      "DO",
+      "DROP",
+      "Database schema version needs to be at least 1",
+      "Does not reference a transaction. This might happen if you don't await all operations made inside a transaction, in which case the transaction might complete with pending operations.",
+      "Drift is no longer using this library and will remove it in the next breaking release",
+      "EACH",
+      "ELSE",
+      "END",
+      "ESCAPE",
+      "EXCEPT",
+      "EXCLUDE",
+      "EXCLUSIVE",
+      "EXISTS",
+      "EXISTS ",
+      "EXPLAIN",
+      "Expected 2 or 3 arguments to moor_contains",
+      "Expected exactly one result, but found more than one!",
+      "Expected two or three arguments to regexp",
+      "Expected two strings as parameters to regexp",
+      "Expressions with unknown precedence shouldn't have inner expressions",
+      "FAIL",
+      "FALSE",
+      "FILTER",
+      "FIRST",
+      "FOLLOWING",
+      "FOR",
+      "FOREIGN",
+      "FROM",
+      "FULL",
+      "FileReader",
+      "First two args to contains must be strings",
+      "GENERATED",
+      "GLOB",
+      "GRANT",
+      "GROUP",
+      "GROUP BY ",
+      "GROUPS",
+      "GROUP_CONCAT",
+      "HAVING",
+      "IF",
+      "IFNULL",
+      "IGNORE",
+      "IIF",
+      "ILIKE",
+      "IMMEDIATE",
+      "IN",
+      "INDEX",
+      "INDEXED",
+      "INITIALLY",
+      "INNER",
+      "INSERT",
+      "INSERT INTO open_connections VALUES (?, ?)",
+      "INSERT OR ABORT",
+      "INSERT OR FAIL",
+      "INSERT OR IGNORE",
+      "INSERT OR REPLACE",
+      "INSERT OR ROLLBACK",
+      "INSTEAD",
+      "INTEGER",
+      "INTERSECT",
+      "INTO",
+      "IS",
+      "IS NOT",
+      "ISNULL",
+      "Invalid regex",
+      "Invalid table parameter. You must provide the table reference from generated database object.",
+      "JOIN",
+      "JULIANDAY",
+      "KEY",
+      "LAST",
+      "LEADING",
+      "LEFT",
+      "LEFT OUTER",
+      "LENGTH",
+      "LIKE",
+      "LIMIT",
+      "LOCALTIME",
+      "LOCALTIMESTAMP",
+      "LOWER",
+      "LTRIM",
+      "MATCH",
+      "MAX",
+      "MIN",
+      "Must be null, bool, String, int, DateTime, Uint8List or double",
+      "Must not be empty",
+      "NATURAL",
+      "NO",
+      "NOCASE",
+      "NOT",
+      "NOT ",
+      "NOTHING",
+      "NOTNULL",
+      "NULL",
+      "NULLIF",
+      "NULLS",
+      "NULLS FIRST",
+      "NULLS LAST",
+      "Nested transactions aren't supported.",
+      "OF",
+      "OFFSET",
+      "ON",
+      "ONLY",
+      "OR",
+      "ORDER",
+      "ORDER BY ",
+      "OTHERS",
+      "OUTER",
+      "OVER",
+      "OVERLAPS",
+      "Operation was cancelled",
+      "PARTITION",
+      "PLACING",
+      "PLAN",
+      "PRAGMA",
+      "PRAGMA foreign_keys",
+      "PRAGMA foreign_keys = OFF;",
+      "PRAGMA foreign_keys = ON;",
+      "PRAGMA legacy_alter_table",
+      "PRAGMA user_version;",
+      "PRECEDING",
+      "PRIMARY",
+      "QUERY",
+      "RAISE",
+      "RANGE",
+      "REAL",
+      "RECURSIVE",
+      "REFERENCES",
+      "REGEXP",
+      "REINDEX",
+      "RELEASE",
+      "RENAME",
+      "REPLACE",
+      "RESTRICT",
+      "RETURNING",
+      "RETURNING *",
+      "RIGHT",
+      "ROLLBACK",
+      "ROLLBACK TRANSACTION",
+      "ROW",
+      "ROWID",
+      "ROWS",
+      "RTRIM",
+      "Remote shutdowns not allowed",
+      "Renamed to customSelect",
+      "SAVEPOINT",
+      "SELECT",
+      "SELECT DISTINCT",
+      "SELECT database_pointer FROM open_connections",
+      "SELECT last_insert_rowid();",
+      "SELECT type, name, sql FROM sqlite_master WHERE tbl_name = ?;",
+      "SESSION_USER",
+      "SET",
+      "SIMILAR",
+      "SOME",
+      "STORED",
+      "STRFTIME",
+      "SUM",
+      "SYMMETRIC",
+      "TABLE",
+      "TEMP",
+      "TEMPORARY",
+      "TEXT",
+      "THEN",
+      "TIES",
+      "TIME",
+      "TO",
+      "TOTAL",
+      "TRAILING",
+      "TRANSACTION",
+      "TRIGGER",
+      "TRIM",
+      "TRUE",
+      "Table has no primary key, so a conflict target is needed.",
+      "Tag was unknown",
+      "The current database implementation does not support nested transactions.",
+      "The insert statement did not insert any rows that could be returned. Please use insertReturningOrNull() when using a `DoUpdate` clause with `where`.",
+      "The stream will call this on the delegate",
+      "This column is not nullable and doesn't have a default value. Null fields thus can't be inserted.",
+      "This column passd to insertFromSelect() was not added to the source select statement.",
+      "This database or transaction runner has already been closed and may not be used\nanymore.\n\nIf this is happening in a transaction, you might be using the transaction \nwithout awaiting every statement in it.",
+      "This method should not be called at runtime. Are you sure you re-ran the builder after changing your tables or databases?",
+      "This non-nullable column can't be equal to `null`.",
+      "This value was required, but isn't present",
+      "This worker is neither a shared nor a dedicated worker",
+      "Transaction used after it was closed. Are you missing an await somewhere?",
+      "Tried to find a row with a matching primary key that has a null value, which is not supported. In sqlite3, `NULL` values in a primary key are considered distinct from all other values (including other `NULL`s), so drift can't find a matching row for this query. \nFor details, see https://github.com/simolus3/drift/issues/1956#issuecomment-1200502026",
+      "Tried to run an operation without first calling QueryExecutor.ensureOpen()!\n\nIf you're seeing this exception from a drift database, it may indicate a bug in\ndrift itself. Please consider opening an issue with the stack trace and details\non how to reproduce this.",
+      "UNBOUNDED",
+      "UNION",
+      "UNIQUE",
+      "UNIXEPOCH",
+      "UPDATE",
+      "UPPER",
+      "USER",
+      "USING",
+      "Unknown TransactionControl",
+      "Unknown tag",
+      "Use SupportedTransactionDelegate instead",
+      "Use `write_to_columns_mixins` build option instead",
+      "Use createAll() instead",
+      "Use customStatement in the database class",
+      "Use isNotNull on the Expression class",
+      "Use isNull on the Expression class",
+      "Use read<DateTime>(key) directly",
+      "Use read<String>(key) directly",
+      "Use read<Uint8List>(key) directly",
+      "Use read<bool>(key) directly",
+      "Use read<double>(key) directly",
+      "Use read<int>(key) directly",
+      "Use the `unixepoch` getter instead",
+      "Use the asynchronous `connectToRemoteAndInitialize` instead",
+      "Use the default unnamed constructor of `DatabaseConnection` instead",
+      "Use typeMapping instead",
+      "Use watchedTables on the GenerationContext",
+      "Use watchedTables on the generated context",
+      "UsecreateTypeMapping instead",
+      "VACUUM",
+      "VALUES",
+      "VALUES (",
+      "VIEW",
+      "VIRTUAL",
+      "Value.absent()",
+      "Value.ofNullable(null) can't be used for a nullable T, since the null value could be both absent and present.",
+      "WHEN",
+      "WHERE",
+      "WHERE ",
+      "WINDOW",
+      "WITH",
+      "WITHOUT",
+      "When deleting an entity, you may not use where(...)as well. The where clause will be determined automatically",
+      "When using Query.whereSamePrimaryKey, which is also called from DeleteStatement.delete and UpdateStatement.replace, the affected tablemust have a primary key. You can either specify a primary implicitly by making an integer() column autoIncrement(), or by explictly overriding the primaryKey getter in your table class. You'll also have to re-run the code generation step.\nAlternatively, if you're using DeleteStatement.delete or UpdateStatement.replace, consider using DeleteStatement.go or UpdateStatement.write respectively. In that case, you need to use a custom where statement.",
+      "When using replace on an update statement, you may not use where(...)as well. The where clause will be determined automatically",
+      "You're using drift with `BigInt` columns, but this `WebDatabase` does not have them enabled. Please create your `WebDatabase` with `readIntsAsBigInt: true`.",
+      "You've bumped the schema version for your drift database but didn't provide a strategy for schema updates. Please do that by adapting the migrations getter in your database class.",
+      "Z",
+      "[^A-Za-z_0-9]",
+      "_disconnect",
+      "_rowid_",
+      "_source",
+      "abs",
+      "acos",
+      "artificial exception to rollback the transaction",
+      "asin",
+      "atan",
+      "backends.dart",
+      "batch.dart",
+      "bigint",
+      "binary_string_conversion.dart",
+      "boolean",
+      "bytea",
+      "column",
+      "columns.dart",
+      "communication.dart",
+      "components/group_by.dart",
+      "components/join.dart",
+      "components/limit.dart",
+      "components/order_by.dart",
+      "components/where.dart",
+      "connect",
+      "connection.dart",
+      "connection_user.dart",
+      "cos",
+      "current_time_millis",
+      "dao_base.dart",
+      "dart",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:core",
+      "dart:ffi",
+      "dart:html",
+      "dart:indexed_db",
+      "dart:io",
+      "dart:isolate",
+      "dart:js",
+      "dart:math",
+      "dart:typed_data",
+      "dartValue",
+      "data_verification.dart",
+      "database.dart",
+      "datetime",
+      "db",
+      "db_base.dart",
+      "delegates.dart",
+      "drift client receive",
+      "drift connect",
+      "drift database",
+      "drift isolate connect",
+      "drift.dart",
+      "drift_mock_db",
+      "dsl.dart",
+      "dsl/dsl.dart",
+      "eval",
+      "excluded",
+      "expressions/aggregate.dart",
+      "expressions/algebra.dart",
+      "expressions/bitwise.dart",
+      "expressions/bools.dart",
+      "expressions/case_when.dart",
+      "expressions/comparable.dart",
+      "expressions/custom.dart",
+      "expressions/datetimes.dart",
+      "expressions/exists.dart",
+      "expressions/expression.dart",
+      "expressions/in.dart",
+      "expressions/internal.dart",
+      "expressions/null_check.dart",
+      "expressions/text.dart",
+      "expressions/variables.dart",
+      "false",
+      "file:drift_connection_store?mode=memory&cache=shared",
+      "float8",
+      "foreign_keys",
+      "generation_context.dart",
+      "index",
+      "initSqlJs",
+      "internal.dart",
+      "json_array_length",
+      "json_extract",
+      "legacy_alter_table",
+      "localtime",
+      "message",
+      "migration.dart",
+      "moor_contains",
+      "moor_databases",
+      "name",
+      "native_functions.dart",
+      "on_table.dart",
+      "orderedCases",
+      "package:async/async.dart",
+      "package:collection/collection.dart",
+      "package:convert/convert.dart",
+      "package:drift/backends.dart",
+      "package:drift/drift.dart",
+      "package:drift/isolate.dart",
+      "package:drift/remote.dart",
+      "package:drift/src/dsl/dsl.dart",
+      "package:drift/src/runtime/api/options.dart",
+      "package:drift/src/runtime/api/runtime_api.dart",
+      "package:drift/src/runtime/data_class.dart",
+      "package:drift/src/runtime/data_verification.dart",
+      "package:drift/src/runtime/exceptions.dart",
+      "package:drift/src/runtime/executor/delayed_stream_queries.dart",
+      "package:drift/src/runtime/executor/executor.dart",
+      "package:drift/src/runtime/executor/helpers/results.dart",
+      "package:drift/src/runtime/executor/stream_queries.dart",
+      "package:drift/src/runtime/executor/transactions.dart",
+      "package:drift/src/runtime/query_builder/query_builder.dart",
+      "package:drift/src/runtime/types/converters.dart",
+      "package:drift/src/runtime/types/mapping.dart",
+      "package:drift/src/utils/async_map.dart",
+      "package:drift/src/utils/single_transformer.dart",
+      "package:drift/src/web/channel.dart",
+      "package:js/js.dart",
+      "package:js/js_util.dart",
+      "package:meta/meta.dart",
+      "package:meta/meta_meta.dart",
+      "package:sqlite3/common.dart",
+      "package:sqlite3/sqlite3.dart",
+      "package:sqlite3/wasm.dart",
+      "package:stream_channel/stream_channel.dart",
+      "pow",
+      "power",
+      "pragma defer_foreign_keys = on;",
+      "pragma legacy_alter_table = 0;",
+      "pragma legacy_alter_table = 1;",
+      "protocol.dart",
+      "query_builder.dart",
+      "random",
+      "readonly",
+      "readwrite",
+      "regexp",
+      "regexp_moor_ffi",
+      "remote.dart",
+      "round",
+      "rowid",
+      "runtime/query_builder/query_builder.dart",
+      "runtime/types/converters.dart",
+      "runtime/types/mapping.dart",
+      "runtime_api.dart",
+      "schema/column_impl.dart",
+      "schema/entities.dart",
+      "schema/table_info.dart",
+      "schema/view_info.dart",
+      "sin",
+      "sql",
+      "sql_js.dart",
+      "sqlite_autoindex",
+      "sqrt",
+      "src/dsl/dsl.dart",
+      "src/isolate.dart",
+      "src/remote/client_impl.dart",
+      "src/remote/communication.dart",
+      "src/remote/protocol.dart",
+      "src/remote/server_impl.dart",
+      "src/runtime/api/options.dart",
+      "src/runtime/api/runtime_api.dart",
+      "src/runtime/custom_result_set.dart",
+      "src/runtime/data_class.dart",
+      "src/runtime/data_verification.dart",
+      "src/runtime/exceptions.dart",
+      "src/runtime/executor/connection_pool.dart",
+      "src/runtime/executor/executor.dart",
+      "src/runtime/executor/helpers/delegates.dart",
+      "src/runtime/executor/helpers/engines.dart",
+      "src/runtime/executor/helpers/results.dart",
+      "src/runtime/query_builder/query_builder.dart",
+      "src/runtime/types/converters.dart",
+      "src/runtime/types/mapping.dart",
+      "src/sqlite3/database.dart",
+      "src/sqlite3/database_tracker.dart",
+      "src/utils/lazy_database.dart",
+      "src/web/channel.dart",
+      "src/web/sql_js.dart",
+      "src/web/storage.dart",
+      "src/web/web_db.dart",
+      "start of day",
+      "start of month",
+      "start of year",
+      "statement",
+      "statements/delete.dart",
+      "statements/insert.dart",
+      "statements/query.dart",
+      "statements/select/custom_select.dart",
+      "statements/select/select.dart",
+      "statements/select/select_with_join.dart",
+      "statements/update.dart",
+      "storage.dart",
+      "stream_queries.dart",
+      "stream_updates.dart",
+      "strftime",
+      "table",
+      "table.dart",
+      "tag",
+      "tan",
+      "text",
+      "toString",
+      "transactionId",
+      "trigger",
+      "true",
+      "type",
+      "undefined",
+      "unixepoch",
+      "utc",
+      "view",
+      "|",
+      "||",
+      "~"
+    ]
+  },
+  "version": "2.8.2"
+}
