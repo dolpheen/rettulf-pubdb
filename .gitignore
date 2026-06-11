@@ -30,3 +30,10 @@ collector/_work/
 *.swp
 .idea/
 .vscode/
+
+# DB entries live under db/<package>/<version>.json — never ignore them, even
+# when a package name collides with a build-output pattern above (e.g. the
+# pub.dev `build` package vs the `build/` rule). An ignored path in the
+# collector's batched `git add` aborts the whole publish and wedges collection.
+# (Incident 2026-06-11: the 'build' package stalled commits for ~11h.)
+!db/*/
