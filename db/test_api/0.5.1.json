@@ -1,0 +1,1103 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "anchoredHyphenatedIdentifier",
+          "get:unawaited"
+        ],
+        "libraries": [
+          "package:test_api/hooks.dart",
+          "package:test_api/scaffolding.dart",
+          "package:test_api/src/backend/invoker.dart",
+          "package:test_api/src/backend/util/identifier_regex.dart",
+          "package:test_api/src/backend/util/pretty_print.dart",
+          "package:test_api/src/scaffolding/spawn_hybrid.dart",
+          "package:test_api/src/scaffolding/test_structure.dart",
+          "package:test_api/src/scaffolding/utils.dart",
+          "package:test_api/src/utils.dart",
+          "package:test_api/test_api.dart"
+        ],
+        "methods": [
+          "addTearDown",
+          "ensureJsonEncodable",
+          "group",
+          "markTestSkipped",
+          "niceDuration",
+          "pluralize",
+          "printOnFailure",
+          "pumpEventQueue",
+          "registerException",
+          "setUp",
+          "setUpAll",
+          "spawnHybridCode",
+          "spawnHybridUri",
+          "tearDown",
+          "tearDownAll",
+          "test",
+          "toSentence"
+        ],
+        "types": [
+          "Timeout"
+        ]
+      },
+      "ClosedException": {
+        "fields": [],
+        "libraries": [
+          "package:test_api/src/backend/closed_exception.dart"
+        ],
+        "methods": [
+          "ClosedException",
+          "toString"
+        ],
+        "types": []
+      },
+      "Compiler": {
+        "fields": [
+          "builtIn",
+          "dart2js",
+          "dart2wasm",
+          "exe",
+          "identifier",
+          "kernel",
+          "name",
+          "source"
+        ],
+        "libraries": [
+          "package:test_api/backend.dart",
+          "package:test_api/src/backend/compiler.dart"
+        ],
+        "methods": [
+          "deserialize",
+          "serialize",
+          "toString"
+        ],
+        "types": [
+          "Compiler"
+        ]
+      },
+      "Declarer": {
+        "fields": [
+          "get:current"
+        ],
+        "libraries": [
+          "package:test_api/src/backend/declarer.dart"
+        ],
+        "methods": [
+          "Declarer",
+          "addTearDownAll",
+          "build",
+          "declare",
+          "group",
+          "setUp",
+          "setUpAll",
+          "tearDown",
+          "tearDownAll",
+          "test"
+        ],
+        "types": [
+          "Declarer",
+          "Group",
+          "Metadata",
+          "Timeout"
+        ]
+      },
+      "DuplicateTestNameException": {
+        "fields": [
+          "name"
+        ],
+        "libraries": [
+          "package:test_api/src/backend/declarer.dart"
+        ],
+        "methods": [
+          "DuplicateTestNameException",
+          "toString"
+        ],
+        "types": []
+      },
+      "Fake": {
+        "fields": [],
+        "libraries": [
+          "package:test_api/fake.dart",
+          "package:test_api/src/frontend/fake.dart"
+        ],
+        "methods": [
+          "noSuchMethod"
+        ],
+        "types": []
+      },
+      "Group": {
+        "fields": [
+          "entries",
+          "get:testCount",
+          "metadata",
+          "name",
+          "setUpAll",
+          "tearDownAll",
+          "trace"
+        ],
+        "libraries": [
+          "package:test_api/src/backend/group.dart"
+        ],
+        "methods": [
+          "Group",
+          "filter",
+          "forPlatform",
+          "root"
+        ],
+        "types": [
+          "Group",
+          "GroupEntry",
+          "Metadata",
+          "SuitePlatform",
+          "Test"
+        ]
+      },
+      "GroupEntry": {
+        "fields": [
+          "get:metadata",
+          "get:name",
+          "get:trace"
+        ],
+        "libraries": [
+          "package:test_api/src/backend/group_entry.dart"
+        ],
+        "methods": [
+          "filter",
+          "forPlatform"
+        ],
+        "types": [
+          "GroupEntry",
+          "Metadata",
+          "SuitePlatform",
+          "Test"
+        ]
+      },
+      "Invoker": {
+        "fields": [
+          "get:closed",
+          "get:current",
+          "get:liveTest",
+          "get:onClose"
+        ],
+        "libraries": [
+          "package:test_api/src/backend/invoker.dart"
+        ],
+        "methods": [
+          "addOutstandingCallback",
+          "addTearDown",
+          "guard",
+          "heartbeat",
+          "printOnFailure",
+          "removeOutstandingCallback",
+          "runTearDowns",
+          "skip"
+        ],
+        "types": [
+          "Invoker",
+          "LiveTest",
+          "LiveTestController"
+        ]
+      },
+      "LiveTest": {
+        "fields": [
+          "get:errors",
+          "get:groups",
+          "get:individualName",
+          "get:isComplete",
+          "get:onComplete",
+          "get:onError",
+          "get:onMessage",
+          "get:onStateChange",
+          "get:state",
+          "get:suite",
+          "get:test"
+        ],
+        "libraries": [
+          "package:test_api/src/backend/live_test.dart"
+        ],
+        "methods": [
+          "close",
+          "copy",
+          "run"
+        ],
+        "types": [
+          "Group",
+          "LiveTest",
+          "Message",
+          "State",
+          "Suite",
+          "Test"
+        ]
+      },
+      "LiveTestController": {
+        "fields": [
+          "completer",
+          "get:errors",
+          "get:liveTest",
+          "get:onComplete",
+          "get:onError",
+          "get:onMessage",
+          "get:onStateChange",
+          "groups",
+          "state",
+          "suite",
+          "test"
+        ],
+        "libraries": [
+          "package:test_api/src/backend/live_test_controller.dart"
+        ],
+        "methods": [
+          "LiveTestController",
+          "addError",
+          "close",
+          "message",
+          "run",
+          "setState"
+        ],
+        "types": [
+          "Group",
+          "LiveTest",
+          "Message",
+          "State",
+          "Suite",
+          "Test"
+        ]
+      },
+      "LocalTest": {
+        "fields": [
+          "isScaffoldAll",
+          "metadata",
+          "name",
+          "trace"
+        ],
+        "libraries": [
+          "package:test_api/src/backend/invoker.dart"
+        ],
+        "methods": [
+          "LocalTest",
+          "forPlatform",
+          "load"
+        ],
+        "types": [
+          "Group",
+          "LiveTest",
+          "Metadata",
+          "Suite",
+          "SuitePlatform",
+          "Test"
+        ]
+      },
+      "Message": {
+        "fields": [
+          "text",
+          "type"
+        ],
+        "libraries": [
+          "package:test_api/src/backend/message.dart"
+        ],
+        "methods": [
+          "Message",
+          "print",
+          "skip"
+        ],
+        "types": [
+          "MessageType"
+        ]
+      },
+      "MessageType": {
+        "fields": [
+          "name",
+          "print",
+          "skip"
+        ],
+        "libraries": [
+          "package:test_api/src/backend/message.dart"
+        ],
+        "methods": [
+          "parse",
+          "toString"
+        ],
+        "types": []
+      },
+      "Metadata": {
+        "fields": [
+          "empty",
+          "forTag",
+          "get:chainStackTraces",
+          "get:retry",
+          "get:skip",
+          "get:verboseTrace",
+          "languageVersionComment",
+          "onPlatform",
+          "skipReason",
+          "tags",
+          "testOn",
+          "timeout"
+        ],
+        "libraries": [
+          "package:test_api/backend.dart",
+          "package:test_api/src/backend/metadata.dart"
+        ],
+        "methods": [
+          "Metadata",
+          "change",
+          "deserialize",
+          "forPlatform",
+          "merge",
+          "parse",
+          "serialize",
+          "validatePlatformSelectors"
+        ],
+        "types": [
+          "Metadata",
+          "PlatformSelector",
+          "SuitePlatform",
+          "Timeout"
+        ]
+      },
+      "OnPlatform": {
+        "fields": [
+          "annotationsByPlatform"
+        ],
+        "libraries": [
+          "package:test_api/scaffolding.dart",
+          "package:test_api/src/backend/configuration/on_platform.dart",
+          "package:test_api/test_api.dart"
+        ],
+        "methods": [
+          "OnPlatform"
+        ],
+        "types": []
+      },
+      "OperatingSystem": {
+        "fields": [
+          "all",
+          "android",
+          "get:isPosix",
+          "iOS",
+          "identifier",
+          "linux",
+          "macOS",
+          "name",
+          "none",
+          "windows"
+        ],
+        "libraries": [
+          "package:test_api/src/backend/operating_system.dart"
+        ],
+        "methods": [
+          "find",
+          "findByIoName",
+          "toString"
+        ],
+        "types": [
+          "OperatingSystem"
+        ]
+      },
+      "OutsideTestException": {
+        "fields": [],
+        "libraries": [
+          "package:test_api/hooks.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "OutstandingWork": {
+        "fields": [],
+        "libraries": [
+          "package:test_api/hooks.dart"
+        ],
+        "methods": [
+          "complete"
+        ],
+        "types": [
+          "Invoker"
+        ]
+      },
+      "PlatformSelector": {
+        "fields": [
+          "all",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:test_api/backend.dart",
+          "package:test_api/src/backend/platform_selector.dart"
+        ],
+        "methods": [
+          "==",
+          "evaluate",
+          "intersection",
+          "parse",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "PlatformSelector",
+          "SuitePlatform"
+        ]
+      },
+      "RemoteException": {
+        "fields": [
+          "message",
+          "type"
+        ],
+        "libraries": [
+          "package:test_api/backend.dart",
+          "package:test_api/src/backend/remote_exception.dart"
+        ],
+        "methods": [
+          "deserialize",
+          "serialize",
+          "toString"
+        ],
+        "types": []
+      },
+      "RemoteListener": {
+        "fields": [],
+        "libraries": [
+          "package:test_api/backend.dart",
+          "package:test_api/src/backend/remote_listener.dart",
+          "package:test_api/src/remote_listener.dart"
+        ],
+        "methods": [
+          "start"
+        ],
+        "types": [
+          "Suite"
+        ]
+      },
+      "Result": {
+        "fields": [
+          "error",
+          "failure",
+          "get:isFailing",
+          "get:isPassing",
+          "name",
+          "skipped",
+          "success"
+        ],
+        "libraries": [
+          "package:test_api/hooks_testing.dart",
+          "package:test_api/src/backend/state.dart"
+        ],
+        "methods": [
+          "parse",
+          "toString"
+        ],
+        "types": []
+      },
+      "Retry": {
+        "fields": [
+          "count"
+        ],
+        "libraries": [
+          "package:test_api/scaffolding.dart",
+          "package:test_api/src/backend/configuration/retry.dart",
+          "package:test_api/test_api.dart"
+        ],
+        "methods": [
+          "Retry"
+        ],
+        "types": []
+      },
+      "Runtime": {
+        "fields": [
+          "builtIn",
+          "chrome",
+          "defaultCompiler",
+          "experimentalChromeWasm",
+          "firefox",
+          "get:isChild",
+          "get:root",
+          "identifier",
+          "internetExplorer",
+          "isBlink",
+          "isBrowser",
+          "isDartVM",
+          "isHeadless",
+          "isJS",
+          "isWasm",
+          "name",
+          "nodeJS",
+          "parent",
+          "safari",
+          "supportedCompilers",
+          "vm"
+        ],
+        "libraries": [
+          "package:test_api/backend.dart",
+          "package:test_api/src/backend/runtime.dart"
+        ],
+        "methods": [
+          "Runtime",
+          "deserialize",
+          "extend",
+          "serialize",
+          "toString"
+        ],
+        "types": [
+          "Compiler",
+          "Runtime"
+        ]
+      },
+      "Skip": {
+        "fields": [
+          "reason"
+        ],
+        "libraries": [
+          "package:test_api/scaffolding.dart",
+          "package:test_api/src/backend/configuration/skip.dart",
+          "package:test_api/test_api.dart"
+        ],
+        "methods": [
+          "Skip"
+        ],
+        "types": []
+      },
+      "StackTraceFormatter": {
+        "fields": [
+          "get:current"
+        ],
+        "libraries": [
+          "package:test_api/backend.dart",
+          "package:test_api/src/backend/stack_trace_formatter.dart"
+        ],
+        "methods": [
+          "asCurrent",
+          "configure",
+          "formatStackTrace"
+        ],
+        "types": [
+          "StackTraceFormatter",
+          "StackTraceMapper"
+        ]
+      },
+      "StackTraceMapper": {
+        "fields": [],
+        "libraries": [
+          "package:test_api/backend.dart",
+          "package:test_api/src/backend/stack_trace_mapper.dart"
+        ],
+        "methods": [
+          "mapStackTrace",
+          "serialize"
+        ],
+        "types": []
+      },
+      "State": {
+        "fields": [
+          "failed",
+          "get:hashCode",
+          "get:shouldBeDone",
+          "passed",
+          "pending",
+          "result",
+          "running",
+          "skipped",
+          "status"
+        ],
+        "libraries": [
+          "package:test_api/hooks_testing.dart",
+          "package:test_api/src/backend/state.dart"
+        ],
+        "methods": [
+          "==",
+          "State",
+          "toString"
+        ],
+        "types": [
+          "Result",
+          "Status"
+        ]
+      },
+      "Status": {
+        "fields": [
+          "complete",
+          "name",
+          "pending",
+          "running"
+        ],
+        "libraries": [
+          "package:test_api/hooks_testing.dart",
+          "package:test_api/src/backend/state.dart"
+        ],
+        "methods": [
+          "parse",
+          "toString"
+        ],
+        "types": []
+      },
+      "Suite": {
+        "fields": [
+          "get:isLoadSuite",
+          "get:metadata",
+          "group",
+          "ignoreTimeouts",
+          "path",
+          "platform"
+        ],
+        "libraries": [
+          "package:test_api/src/backend/suite.dart"
+        ],
+        "methods": [
+          "Suite",
+          "filter"
+        ],
+        "types": [
+          "Group",
+          "Metadata",
+          "Suite",
+          "SuitePlatform",
+          "Test"
+        ]
+      },
+      "SuiteChannelManager": {
+        "fields": [],
+        "libraries": [
+          "package:test_api/src/backend/suite_channel_manager.dart"
+        ],
+        "methods": [
+          "connectIn",
+          "connectOut"
+        ],
+        "types": []
+      },
+      "SuitePlatform": {
+        "fields": [
+          "compiler",
+          "inGoogle",
+          "os",
+          "runtime"
+        ],
+        "libraries": [
+          "package:test_api/backend.dart",
+          "package:test_api/src/backend/suite_platform.dart"
+        ],
+        "methods": [
+          "SuitePlatform",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "Compiler",
+          "OperatingSystem",
+          "Runtime"
+        ]
+      },
+      "Tags": {
+        "fields": [
+          "get:tags"
+        ],
+        "libraries": [
+          "package:test_api/scaffolding.dart",
+          "package:test_api/src/backend/configuration/tags.dart",
+          "package:test_api/test_api.dart"
+        ],
+        "methods": [
+          "Tags"
+        ],
+        "types": []
+      },
+      "Test": {
+        "fields": [
+          "get:metadata",
+          "get:name",
+          "get:trace"
+        ],
+        "libraries": [
+          "package:test_api/src/backend/test.dart"
+        ],
+        "methods": [
+          "filter",
+          "forPlatform",
+          "load"
+        ],
+        "types": [
+          "Group",
+          "GroupEntry",
+          "LiveTest",
+          "Metadata",
+          "Suite",
+          "SuitePlatform",
+          "Test"
+        ]
+      },
+      "TestCaseMonitor": {
+        "fields": [
+          "get:errors",
+          "get:onDone",
+          "get:onError",
+          "get:state"
+        ],
+        "libraries": [
+          "package:test_api/hooks_testing.dart"
+        ],
+        "methods": [
+          "run",
+          "start"
+        ],
+        "types": [
+          "LiveTest",
+          "State",
+          "TestCaseMonitor"
+        ]
+      },
+      "TestFailure": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:test_api/hooks.dart",
+          "package:test_api/hooks_testing.dart",
+          "package:test_api/src/backend/test_failure.dart",
+          "package:test_api/test_api.dart"
+        ],
+        "methods": [
+          "TestFailure",
+          "toString"
+        ],
+        "types": []
+      },
+      "TestHandle": {
+        "fields": [
+          "get:current",
+          "get:name",
+          "get:shouldBeDone"
+        ],
+        "libraries": [
+          "package:test_api/hooks.dart"
+        ],
+        "methods": [
+          "formatStackTrace",
+          "markPending",
+          "markSkipped"
+        ],
+        "types": [
+          "Invoker",
+          "OutstandingWork",
+          "StackTraceFormatter",
+          "TestHandle"
+        ]
+      },
+      "TestOn": {
+        "fields": [
+          "expression"
+        ],
+        "libraries": [
+          "package:test_api/scaffolding.dart",
+          "package:test_api/src/backend/configuration/test_on.dart",
+          "package:test_api/test_api.dart"
+        ],
+        "methods": [
+          "TestOn"
+        ],
+        "types": []
+      },
+      "Timeout": {
+        "fields": [
+          "duration",
+          "get:hashCode",
+          "none",
+          "scaleFactor"
+        ],
+        "libraries": [
+          "package:test_api/scaffolding.dart",
+          "package:test_api/src/backend/configuration/timeout.dart",
+          "package:test_api/test_api.dart"
+        ],
+        "methods": [
+          "==",
+          "Timeout",
+          "apply",
+          "factor",
+          "merge",
+          "parse",
+          "toString"
+        ],
+        "types": [
+          "Timeout"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:14:18Z",
+  "package": "test_api",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "Compiler",
+      "MessageType",
+      "OnPlatform",
+      "OperatingSystem",
+      "PlatformSelector",
+      "Result",
+      "Retry",
+      "Runtime",
+      "Skip",
+      "State",
+      "Status",
+      "Tags",
+      "TestOn",
+      "Timeout"
+    ],
+    "digest": "41f0b7c111ac69b6fc128d6a39738b04ea6809ba4736cc3b0d97aa55c4cb20dc",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "385f114b9803baa74d6abfca141a7957dbf3c10fbe830ba383f4ff929bd41a09",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n\n",
+      " See https://pub.dev/packages/test#timeouts",
+      " seconds",
+      "\"",
+      "([um]s|[dhms])",
+      "(setUpAll)",
+      "(tearDownAll)",
+      ",",
+      ", ",
+      "../backend/configuration/timeout.dart",
+      "../backend/declarer.dart",
+      "../backend/invoker.dart",
+      "../backend/remote_exception.dart",
+      "../utils.dart",
+      "A child platform may not be extended.",
+      "Android",
+      "Can't add or remove outstanding callbacks outside of a test body.",
+      "Can't connect to the test runner.\nspawnHybridUri() is currently only supported within \"dart test\".",
+      "Chrome",
+      "Dart2Js",
+      "Dart2WASM",
+      "Debug only",
+      "Exe",
+      "ExperimentalChromeWasm",
+      "Firefox",
+      "Groups may not be async.",
+      "Internet Explorer",
+      "Kernel",
+      "Linux",
+      "LiveTest.run() may not be called for a closed test.",
+      "LiveTest.run() may not be called more than once.",
+      "No top-level main() function defined.",
+      "Node.js",
+      "OS X",
+      "Safari",
+      "Source",
+      "TestFailure",
+      "There is no current invoker. Please make sure that you are making the call inside a test zone.",
+      "This test failed after it had already completed.\nMake sure to use a matching library which informs the test runner\nof pending async work.",
+      "This test has been closed.",
+      "This test was marked as skipped after it had already completed.\nMake sure to use a matching library which informs the test runner\nof pending async work.",
+      "Top-level main() function takes arguments.",
+      "Use this instance instead",
+      "VM",
+      "Windows",
+      "X",
+      "[^a-df-z\\s]+",
+      "\\s+",
+      "^[a-zA-Z_-][a-zA-Z0-9_-]*$",
+      "addTearDown() may only be called within a test.",
+      "allowDuplicateTestNames",
+      "and",
+      "android",
+      "application/dart",
+      "asciiGlyphs",
+      "backend/remote_listener.dart",
+      "blink",
+      "browser",
+      "build",
+      "chainStackTraces",
+      "channel",
+      "chrome",
+      "close",
+      "closed_exception.dart",
+      "collectTraces",
+      "command",
+      "compiler",
+      "compiler.dart",
+      "complete",
+      "configuration/skip.dart",
+      "configuration/timeout.dart",
+      "d",
+      "dart-vm",
+      "dart2js",
+      "dart2wasm",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "data",
+      "declarer.dart",
+      "defaultCompiler",
+      "does not have \"solo\"",
+      "duration",
+      "entries",
+      "error",
+      "exe",
+      "experimental-chrome-wasm",
+      "failure",
+      "firefox",
+      "foldTraceExcept",
+      "foldTraceOnly",
+      "forTag",
+      "google",
+      "group",
+      "group.dart",
+      "group_entry.dart",
+      "h",
+      "hooks.dart",
+      "iOS",
+      "id",
+      "identifier",
+      "ie",
+      "ignoreTimeouts",
+      "inGoogle",
+      "initial",
+      "invoker.dart",
+      "ios",
+      "isBlink",
+      "isBrowser",
+      "isDartVM",
+      "isHeadless",
+      "isJS",
+      "isWasm",
+      "js",
+      "kernel",
+      "languageVersionComment",
+      "line",
+      "linux",
+      "live_test.dart",
+      "live_test_controller.dart",
+      "loadException",
+      "m",
+      "mac-os",
+      "macos",
+      "matcher",
+      "message",
+      "message-type",
+      "message.dart",
+      "metadata",
+      "metadata.dart",
+      "ms",
+      "must be a Uri or a String.",
+      "must be either a String or an Iterable.",
+      "must contain only Strings.",
+      "name",
+      "noRetry",
+      "node",
+      "none",
+      "number",
+      "onPlatform",
+      "operating_system.dart",
+      "os",
+      "package:async/async.dart",
+      "package:boolean_selector/boolean_selector.dart",
+      "package:collection/collection.dart",
+      "package:matcher/expect.dart",
+      "package:matcher/src/expect/async_matcher.dart",
+      "package:meta/meta.dart",
+      "package:meta/meta_meta.dart",
+      "package:source_span/source_span.dart",
+      "package:stack_trace/stack_trace.dart",
+      "package:stream_channel/stream_channel.dart",
+      "package:string_scanner/string_scanner.dart",
+      "package:term_glyph/term_glyph.dart",
+      "package:test_api is not intended for general use. Please use package:test.",
+      "parent",
+      "path",
+      "pending",
+      "platform",
+      "platformVariables",
+      "platform_selector.dart",
+      "posix",
+      "print",
+      "remote_exception.dart",
+      "result",
+      "retry",
+      "root",
+      "run",
+      "running",
+      "runtime",
+      "runtime.dart",
+      "s",
+      "safari",
+      "scaffolding.dart",
+      "scaleFactor",
+      "setUp",
+      "setUpAll",
+      "skip",
+      "skipReason",
+      "skipped",
+      "source",
+      "spawn-hybrid-uri",
+      "src/backend/closed_exception.dart",
+      "src/backend/compiler.dart",
+      "src/backend/configuration/on_platform.dart",
+      "src/backend/configuration/retry.dart",
+      "src/backend/configuration/skip.dart",
+      "src/backend/configuration/tags.dart",
+      "src/backend/configuration/test_on.dart",
+      "src/backend/configuration/timeout.dart",
+      "src/backend/group.dart",
+      "src/backend/invoker.dart",
+      "src/backend/live_test.dart",
+      "src/backend/metadata.dart",
+      "src/backend/platform_selector.dart",
+      "src/backend/remote_exception.dart",
+      "src/backend/remote_listener.dart",
+      "src/backend/runtime.dart",
+      "src/backend/stack_trace_formatter.dart",
+      "src/backend/stack_trace_mapper.dart",
+      "src/backend/state.dart",
+      "src/backend/suite.dart",
+      "src/backend/suite_platform.dart",
+      "src/backend/test_failure.dart",
+      "src/frontend/fake.dart",
+      "src/scaffolding/spawn_hybrid.dart",
+      "src/scaffolding/test_structure.dart",
+      "src/scaffolding/utils.dart",
+      "stackChain",
+      "stack_trace_formatter.dart",
+      "stack_trace_mapper.dart",
+      "state-change",
+      "state.dart",
+      "status",
+      "stream_channel",
+      "success",
+      "suite.dart",
+      "suiteChannel",
+      "suite_channel_manager.dart",
+      "suite_platform.dart",
+      "supertype",
+      "supportedCompilers",
+      "tags",
+      "tearDown",
+      "tearDownAll",
+      "test",
+      "test.dart",
+      "testOn",
+      "test_api",
+      "test_failure.dart",
+      "test_structure.dart",
+      "text",
+      "timeout",
+      "toString",
+      "trace",
+      "type",
+      "unit",
+      "uri",
+      "url",
+      "us",
+      "util/identifier_regex.dart",
+      "util/pretty_print.dart",
+      "verboseTrace",
+      "vm",
+      "wasm",
+      "windows",
+      "x"
+    ]
+  },
+  "version": "0.5.1"
+}
