@@ -1,0 +1,1600 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "completionItemIcons",
+          "semanticToHljs",
+          "sematicMap"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "getSemanticMapping"
+        ],
+        "types": [
+          "CompletionItemType"
+        ]
+      },
+      "AiCompletion": {
+        "fields": [
+          "completionType",
+          "debounceTime",
+          "enableCompletion",
+          "model"
+        ],
+        "libraries": [
+          "package:code_forge/AI_completion/ai.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "AiCompletion"
+        ],
+        "types": [
+          "CompletionType",
+          "Models"
+        ]
+      },
+      "BiDi": {
+        "fields": [
+          "fsi",
+          "lre",
+          "lri",
+          "lrm",
+          "lro",
+          "pdf",
+          "pdi",
+          "rle",
+          "rli",
+          "rlm",
+          "rlo"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge/rope.dart"
+        ],
+        "methods": [
+          "isLtrChar",
+          "isNeutral",
+          "isRtlChar"
+        ],
+        "types": []
+      },
+      "BiDiSegment": {
+        "fields": [
+          "direction",
+          "end",
+          "get:length",
+          "start"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge/rope.dart"
+        ],
+        "methods": [
+          "BiDiSegment",
+          "toString"
+        ],
+        "types": [
+          "TextDirection"
+        ]
+      },
+      "Claude": {
+        "fields": [
+          "apiKey",
+          "get:headers",
+          "model",
+          "url"
+        ],
+        "libraries": [
+          "package:code_forge/AI_completion/ai.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "Claude",
+          "buildRequest",
+          "responseParser"
+        ],
+        "types": [
+          "Models"
+        ]
+      },
+      "CodeForge": {
+        "fields": [
+          "aiCompletion",
+          "aiCompletionTextStyle",
+          "autoFocus",
+          "controller",
+          "editorTheme",
+          "enableFolding",
+          "enableGuideLines",
+          "enableGutter",
+          "enableGutterDivider",
+          "enableSuggestions",
+          "filePath",
+          "findController",
+          "finderBuilder",
+          "focusNode",
+          "gutterStyle",
+          "horizontalScrollController",
+          "hoverDetailsStyle",
+          "initialText",
+          "innerPadding",
+          "language",
+          "lineWrap",
+          "matchHighlightStyle",
+          "readOnly",
+          "selectionStyle",
+          "suggestionStyle",
+          "textStyle",
+          "undoController",
+          "verticalScrollController"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/code_area.dart"
+        ],
+        "methods": [
+          "CodeForge",
+          "createState"
+        ],
+        "types": [
+          "AiCompletion",
+          "CodeForge",
+          "CodeForgeController",
+          "CodeSelectionStyle",
+          "FindController",
+          "GutterStyle",
+          "HoverDetailsStyle",
+          "MatchHighlightStyle",
+          "SuggestionStyle",
+          "UndoRedoController"
+        ]
+      },
+      "CodeForgeController": {
+        "fields": [
+          "bufferNeedsRepaint",
+          "codeActionsNotifier",
+          "connection",
+          "diagnosticsNotifier",
+          "dirtyLine",
+          "dirtyRegion",
+          "foldings",
+          "get:bufferCursorColumn",
+          "get:bufferLineIndex",
+          "get:bufferLineRopeStart",
+          "get:bufferLineText",
+          "get:currentAutofillScope",
+          "get:currentTextEditingValue",
+          "get:diagnostics",
+          "get:isBufferActive",
+          "get:lastTypedCharacter",
+          "get:length",
+          "get:lineCount",
+          "get:lines",
+          "get:openedFile",
+          "get:selection",
+          "get:suggestions",
+          "get:text",
+          "get:visibleText",
+          "lineStructureChanged",
+          "lspConfig",
+          "manualAiCompletion",
+          "readOnly",
+          "searchHighlights",
+          "searchHighlightsChanged",
+          "selectionOnly",
+          "semanticTokens",
+          "set:openedFile",
+          "set:selection",
+          "set:text",
+          "signatureNotifier",
+          "suggestionsNotifier",
+          "userCodeAction"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/controller.dart"
+        ],
+        "methods": [
+          "CodeForgeController",
+          "addListener",
+          "applyWorkspaceEdit",
+          "backspace",
+          "clearDirtyRegion",
+          "clearSearchHighlights",
+          "connectionClosed",
+          "copy",
+          "cut",
+          "delete",
+          "didChangeInputControl",
+          "dispose",
+          "findLineEnd",
+          "findLineStart",
+          "findRegex",
+          "findWord",
+          "foldAll",
+          "getCodeAction",
+          "getCurrentWordPrefix",
+          "getLineAtOffset",
+          "getLineStartOffset",
+          "getLineText",
+          "getManualAiSuggestion",
+          "indent",
+          "insertAtCurrentCursor",
+          "insertContent",
+          "insertTextPlaceholder",
+          "notifyListeners",
+          "paste",
+          "performAction",
+          "performPrivateCommand",
+          "performSelector",
+          "pressDownArrowKey",
+          "pressEndKey",
+          "pressHomeKey",
+          "pressLetfArrowKey",
+          "pressRightArrowKey",
+          "pressUpArrowKey",
+          "removeListener",
+          "removeTextPlaceholder",
+          "replaceRange",
+          "saveFile",
+          "selectAll",
+          "setFoldCallbacks",
+          "setSelectionSilently",
+          "setUndoController",
+          "showAutocorrectionPromptRect",
+          "showToolbar",
+          "toggleFold",
+          "unfoldAll",
+          "unindent",
+          "updateEditingValue",
+          "updateEditingValueWithDeltas",
+          "updateFloatingCursor"
+        ],
+        "types": [
+          "FoldRange",
+          "LspConfig",
+          "LspErrors",
+          "LspSemanticToken",
+          "LspSignatureHelps",
+          "Rope",
+          "SearchHighlight",
+          "UndoRedoController"
+        ]
+      },
+      "CodeSelectionStyle": {
+        "fields": [
+          "cursorBubbleColor",
+          "cursorColor",
+          "selectionColor"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "CodeSelectionStyle"
+        ],
+        "types": []
+      },
+      "CompletionItemType": {
+        "fields": [
+          "class_",
+          "color",
+          "constant",
+          "constructor",
+          "enumMember",
+          "enum_",
+          "event",
+          "field",
+          "file",
+          "folder",
+          "function",
+          "interface",
+          "keyword",
+          "method",
+          "module",
+          "operator",
+          "property",
+          "reference",
+          "snippet",
+          "struct",
+          "text",
+          "typeParameter",
+          "unit",
+          "value",
+          "value_",
+          "variable"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "CompletionItemType"
+        ],
+        "types": []
+      },
+      "CompletionType": {
+        "fields": [
+          "auto",
+          "manual",
+          "mixed"
+        ],
+        "libraries": [
+          "package:code_forge/AI_completion/ai.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CompoundOperation": {
+        "fields": [
+          "operations"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/undo_redo.dart"
+        ],
+        "methods": [
+          "CompoundOperation",
+          "canMergeWith",
+          "inverse",
+          "mergeWith",
+          "toString"
+        ],
+        "types": [
+          "EditOperation"
+        ]
+      },
+      "CompoundOperationHandle": {
+        "fields": [],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/undo_redo.dart"
+        ],
+        "methods": [
+          "end"
+        ],
+        "types": [
+          "UndoRedoController"
+        ]
+      },
+      "CustomIcons": {
+        "fields": [
+          "class_",
+          "constant",
+          "enum_",
+          "event",
+          "field",
+          "interface",
+          "keyword",
+          "method",
+          "operator",
+          "parameter",
+          "reference",
+          "snippet",
+          "struct",
+          "variable"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "loadAllCustomFonts"
+        ],
+        "types": []
+      },
+      "CustomModel": {
+        "fields": [
+          "customHeaders",
+          "customParser",
+          "get:apiKey",
+          "get:headers",
+          "get:model",
+          "httpMethod",
+          "requestBuilder",
+          "url"
+        ],
+        "libraries": [
+          "package:code_forge/AI_completion/ai.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "CustomModel",
+          "buildRequest",
+          "completionResponse",
+          "responseParser"
+        ],
+        "types": [
+          "Models"
+        ]
+      },
+      "CustomViewport": {
+        "fields": [
+          "lineWrap"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/scroll.dart"
+        ],
+        "methods": [
+          "CustomViewport",
+          "createRenderObject",
+          "updateRenderObject"
+        ],
+        "types": []
+      },
+      "DeepSeek": {
+        "fields": [
+          "apiKey",
+          "get:baseUrl",
+          "model"
+        ],
+        "libraries": [
+          "package:code_forge/AI_completion/ai.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "DeepSeek"
+        ],
+        "types": [
+          "OpenAiCompatible"
+        ]
+      },
+      "DeleteOperation": {
+        "fields": [
+          "offset",
+          "text"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/undo_redo.dart"
+        ],
+        "methods": [
+          "DeleteOperation",
+          "canMergeWith",
+          "inverse",
+          "mergeWith",
+          "toString"
+        ],
+        "types": [
+          "EditOperation"
+        ]
+      },
+      "EditOperation": {
+        "fields": [
+          "selectionAfter",
+          "selectionBefore",
+          "timestamp"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/undo_redo.dart"
+        ],
+        "methods": [
+          "EditOperation",
+          "canMergeWith",
+          "inverse",
+          "mergeWith"
+        ],
+        "types": [
+          "EditOperation"
+        ]
+      },
+      "FindController": {
+        "fields": [
+          "findInputController",
+          "findInputFocusNode",
+          "get:caseSensitive",
+          "get:currentMatchIndex",
+          "get:isActive",
+          "get:isRegex",
+          "get:isReplaceMode",
+          "get:matchCount",
+          "get:matchWholeWord",
+          "replaceInputController",
+          "replaceInputFocusNode",
+          "set:caseSensitive",
+          "set:isActive",
+          "set:isRegex",
+          "set:isReplaceMode",
+          "set:matchWholeWord"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/find_controller.dart"
+        ],
+        "methods": [
+          "FindController",
+          "clear",
+          "dispose",
+          "find",
+          "next",
+          "previous",
+          "replace",
+          "replaceAll",
+          "toggleActive",
+          "toggleCaseSensitive",
+          "toggleMatchWholeWord",
+          "toggleRegex",
+          "toggleReplaceMode"
+        ],
+        "types": [
+          "CodeForgeController"
+        ]
+      },
+      "FireWorks": {
+        "fields": [
+          "apiKey",
+          "get:baseUrl",
+          "model"
+        ],
+        "libraries": [
+          "package:code_forge/AI_completion/ai.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "FireWorks"
+        ],
+        "types": [
+          "OpenAiCompatible"
+        ]
+      },
+      "FoldRange": {
+        "fields": [
+          "endIndex",
+          "get:hashCode",
+          "isFolded",
+          "originallyFoldedChildren",
+          "startIndex"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/code_area.dart"
+        ],
+        "methods": [
+          "==",
+          "FoldRange",
+          "addOriginallyFoldedChild",
+          "clearOriginallyFoldedChildren",
+          "containsLine"
+        ],
+        "types": [
+          "FoldRange"
+        ]
+      },
+      "Gemini": {
+        "fields": [
+          "apiKey",
+          "get:headers",
+          "maxOutputTokens",
+          "model",
+          "stopSequences",
+          "temperature",
+          "topK",
+          "topP",
+          "url"
+        ],
+        "libraries": [
+          "package:code_forge/AI_completion/ai.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "Gemini",
+          "buildRequest",
+          "responseParser"
+        ],
+        "types": [
+          "Models"
+        ]
+      },
+      "Gorq": {
+        "fields": [
+          "apiKey",
+          "get:baseUrl",
+          "model"
+        ],
+        "libraries": [
+          "package:code_forge/AI_completion/ai.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "Gorq"
+        ],
+        "types": [
+          "OpenAiCompatible"
+        ]
+      },
+      "Grok": {
+        "fields": [
+          "apiKey",
+          "get:baseUrl",
+          "model"
+        ],
+        "libraries": [
+          "package:code_forge/AI_completion/ai.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "Grok"
+        ],
+        "types": [
+          "OpenAiCompatible"
+        ]
+      },
+      "GutterStyle": {
+        "fields": [
+          "activeLineNumberColor",
+          "backgroundColor",
+          "errorLineNumberColor",
+          "foldedIcon",
+          "foldedIconColor",
+          "foldedLineHighlightColor",
+          "foldingIconSize",
+          "gutterWidth",
+          "inactiveLineNumberColor",
+          "lineNumberStyle",
+          "unfoldedIcon",
+          "unfoldedIconColor",
+          "warningLineNumberColor"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "GutterStyle"
+        ],
+        "types": []
+      },
+      "HighlightedLine": {
+        "fields": [
+          "span",
+          "text",
+          "version"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge/syntax_highlighter.dart"
+        ],
+        "methods": [
+          "HighlightedLine"
+        ],
+        "types": []
+      },
+      "HoverDetailsStyle": {
+        "fields": [],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "HoverDetailsStyle"
+        ],
+        "types": [
+          "OverlayStyle"
+        ]
+      },
+      "InsertOperation": {
+        "fields": [
+          "offset",
+          "text"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/undo_redo.dart"
+        ],
+        "methods": [
+          "InsertOperation",
+          "canMergeWith",
+          "inverse",
+          "mergeWith",
+          "toString"
+        ],
+        "types": [
+          "EditOperation"
+        ]
+      },
+      "LspCompletion": {
+        "fields": [
+          "completionItem",
+          "icon",
+          "importUri",
+          "itemType",
+          "label",
+          "reference"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "LspCompletion",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "CompletionItemType"
+        ]
+      },
+      "LspConfig": {
+        "fields": [
+          "disableError",
+          "disableWarning",
+          "get:hashCode",
+          "get:responses",
+          "get:serverTokenModifiers",
+          "get:serverTokenTypes",
+          "isIntialized",
+          "languageId",
+          "workspacePath"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "==",
+          "LspConfig",
+          "closeDocument",
+          "dispose",
+          "executeCommand",
+          "exitServer",
+          "formatDocument",
+          "formatRange",
+          "getCodeActions",
+          "getCompletions",
+          "getDeclaration",
+          "getDefinition",
+          "getDocumentLinks",
+          "getDocumentSymbols",
+          "getHover",
+          "getImplementation",
+          "getIncomingCalls",
+          "getOutgoingCalls",
+          "getReferences",
+          "getSemanticTokensFull",
+          "getSignatureHelp",
+          "getSubtypes",
+          "getSupertypes",
+          "getTypeDefinition",
+          "getWorkspaceSymbols",
+          "initialize",
+          "openDocument",
+          "prepareCallHierarchy",
+          "prepareRename",
+          "prepareTypeHierarchy",
+          "renameSymbol",
+          "resolveCompletionItem",
+          "saveDocument",
+          "shutdown",
+          "updateDocument"
+        ],
+        "types": [
+          "LspCompletion",
+          "LspSemanticToken",
+          "LspSignatureHelps"
+        ]
+      },
+      "LspErrors": {
+        "fields": [
+          "message",
+          "range",
+          "severity"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "LspErrors",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "LspSemanticToken": {
+        "fields": [
+          "get:end",
+          "length",
+          "line",
+          "modifierBitmask",
+          "start",
+          "tokenTypeName",
+          "typeIndex"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "LspSemanticToken",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "LspSignatureHelps": {
+        "fields": [
+          "activeParameter",
+          "activeSignature",
+          "documentation",
+          "label",
+          "parameters"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "LspSignatureHelps"
+        ],
+        "types": []
+      },
+      "LspSocketConfig": {
+        "fields": [
+          "serverUrl"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "LspSocketConfig",
+          "connect",
+          "dispose"
+        ],
+        "types": [
+          "LspConfig"
+        ]
+      },
+      "LspStdioConfig": {
+        "fields": [
+          "args",
+          "environment",
+          "executable",
+          "get:exitCode",
+          "get:pid",
+          "get:process"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "dispose",
+          "start"
+        ],
+        "types": [
+          "LspConfig",
+          "LspStdioConfig"
+        ]
+      },
+      "MatchHighlightStyle": {
+        "fields": [
+          "currentMatchStyle",
+          "otherMatchStyle"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "MatchHighlightStyle"
+        ],
+        "types": []
+      },
+      "Models": {
+        "fields": [
+          "get:apiKey",
+          "get:headers",
+          "get:model",
+          "get:url",
+          "instruction"
+        ],
+        "libraries": [
+          "package:code_forge/AI_completion/ai.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "buildRequest",
+          "completionResponse",
+          "responseParser"
+        ],
+        "types": []
+      },
+      "OpenAI": {
+        "fields": [
+          "apiKey",
+          "get:headers",
+          "model",
+          "url"
+        ],
+        "libraries": [
+          "package:code_forge/AI_completion/ai.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "OpenAI",
+          "buildRequest",
+          "responseParser"
+        ],
+        "types": [
+          "Models"
+        ]
+      },
+      "OpenAiCompatible": {
+        "fields": [
+          "get:baseUrl",
+          "get:headers",
+          "get:url"
+        ],
+        "libraries": [
+          "package:code_forge/AI_completion/ai.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "buildRequest",
+          "responseParser"
+        ],
+        "types": [
+          "Models"
+        ]
+      },
+      "OpenRouter": {
+        "fields": [
+          "apiKey",
+          "get:baseUrl",
+          "model"
+        ],
+        "libraries": [
+          "package:code_forge/AI_completion/ai.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "OpenRouter"
+        ],
+        "types": [
+          "OpenAiCompatible"
+        ]
+      },
+      "OverlayStyle": {
+        "fields": [
+          "backgroundColor",
+          "elevation",
+          "focusColor",
+          "hoverColor",
+          "shape",
+          "splashColor",
+          "textStyle"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "OverlayStyle"
+        ],
+        "types": []
+      },
+      "Render2DCodeField": {
+        "fields": [
+          "lineWrap"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/scroll.dart"
+        ],
+        "methods": [
+          "Render2DCodeField",
+          "layoutChildSequence"
+        ],
+        "types": []
+      },
+      "ReplaceOperation": {
+        "fields": [
+          "deletedText",
+          "insertedText",
+          "offset"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/undo_redo.dart"
+        ],
+        "methods": [
+          "ReplaceOperation",
+          "canMergeWith",
+          "inverse",
+          "mergeWith",
+          "toString"
+        ],
+        "types": [
+          "EditOperation"
+        ]
+      },
+      "Rope": {
+        "fields": [
+          "get:bidiSegments",
+          "get:cachedLines",
+          "get:containsRtl",
+          "get:isLtr",
+          "get:isMixed",
+          "get:isRtl",
+          "get:length",
+          "get:lineCount",
+          "get:lines",
+          "get:primaryDirection",
+          "get:textDirection"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge/rope.dart"
+        ],
+        "methods": [
+          "Rope",
+          "charAt",
+          "chunks",
+          "concatImmutable",
+          "copy",
+          "delete",
+          "deleteImmutable",
+          "findLineEnd",
+          "findLineStart",
+          "getBiDiSegmentsForLine",
+          "getBiDiSegmentsInRange",
+          "getLineAtOffset",
+          "getLineStartOffset",
+          "getLineText",
+          "getRtlSegments",
+          "getText",
+          "insert",
+          "insertImmutable",
+          "splitImmutable",
+          "substring",
+          "toStringWithBiDiControls"
+        ],
+        "types": [
+          "BiDiSegment",
+          "Rope",
+          "TextDirection"
+        ]
+      },
+      "SearchHighlight": {
+        "fields": [
+          "end",
+          "isCurrentMatch",
+          "start"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "SearchHighlight"
+        ],
+        "types": []
+      },
+      "SemanticWordSpan": {
+        "fields": [
+          "endChar",
+          "startChar",
+          "style",
+          "word"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge/syntax_highlighter.dart"
+        ],
+        "methods": [
+          "SemanticWordSpan"
+        ],
+        "types": []
+      },
+      "Sonar": {
+        "fields": [
+          "apiKey",
+          "get:baseUrl",
+          "model"
+        ],
+        "libraries": [
+          "package:code_forge/AI_completion/ai.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "Sonar"
+        ],
+        "types": [
+          "OpenAiCompatible"
+        ]
+      },
+      "SuggestionStyle": {
+        "fields": [],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "SuggestionStyle"
+        ],
+        "types": [
+          "OverlayStyle"
+        ]
+      },
+      "SyntaxHighlighter": {
+        "fields": [
+          "baseTextStyle",
+          "editorTheme",
+          "get:documentVersion",
+          "isolateThreshold",
+          "language",
+          "languageId"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge/syntax_highlighter.dart"
+        ],
+        "methods": [
+          "SyntaxHighlighter",
+          "applyDocumentEdit",
+          "buildHighlightedParagraph",
+          "dispose",
+          "getLineSpan",
+          "invalidateAll",
+          "invalidateLines",
+          "invalidateRange",
+          "preHighlightLines",
+          "updateSemanticTokens"
+        ],
+        "types": [
+          "HighlightedLine",
+          "LspSemanticToken",
+          "SemanticWordSpan"
+        ]
+      },
+      "TextDirection": {
+        "fields": [
+          "ltr",
+          "mixed",
+          "rtl"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge/rope.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TogetherAi": {
+        "fields": [
+          "apiKey",
+          "get:baseUrl",
+          "model"
+        ],
+        "libraries": [
+          "package:code_forge/AI_completion/ai.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "TogetherAi"
+        ],
+        "types": [
+          "OpenAiCompatible"
+        ]
+      },
+      "UndoRedoController": {
+        "fields": [
+          "get:canRedo",
+          "get:canUndo",
+          "get:isUndoRedoInProgress",
+          "get:redoStackSize",
+          "get:undoStackSize",
+          "groupEdits",
+          "maxStackSize"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/undo_redo.dart"
+        ],
+        "methods": [
+          "UndoRedoController",
+          "beginCompoundOperation",
+          "clear",
+          "dispose",
+          "recordEdit",
+          "redo",
+          "setApplyEditCallback",
+          "undo"
+        ],
+        "types": [
+          "CompoundOperationHandle",
+          "EditOperation"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:16:11Z",
+  "package": "code_forge",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "BiDiSegment",
+      "CodeForge",
+      "CustomViewport",
+      "MatchHighlightStyle",
+      "SearchHighlight",
+      "_CodeField"
+    ],
+    "digest": "bc82d4ad24c7ddd45db518d5580998d3f46ec1595aec1240293ef72f0d612d8c",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "e3be64c1696dfaa09b5c113812b2769fd33694bedc278c8169d09d6d7e010bac",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\t",
+      "\n",
+      " ",
+      "  ",
+      "   ",
+      " ...",
+      "\"",
+      "$ccls/publishSemanticHighlight",
+      "'",
+      "(",
+      "(\\w+|[^\\w\\s]+)\\s*$",
+      "({[",
+      ")",
+      "-",
+      "../AI_completion/ai.dart",
+      "../LSP/lsp.dart",
+      "../code_forge.dart",
+      "/",
+      "0",
+      "2.0",
+      ":",
+      "<think>[\\s\\S]*?<\\/think>",
+      "AI completion is not available",
+      "AI_completion/ai.dart",
+      "Authorization",
+      "Cannot provide both filePath and initialText to CodeForge.",
+      "Class",
+      "Constant",
+      "Content-Length: (\\d+)",
+      "Content-Type",
+      "Copy",
+      "Ctrl+A",
+      "Ctrl+C",
+      "Ctrl+V",
+      "Ctrl+X",
+      "Cut",
+      "Empty rope",
+      "Enum",
+      "Event",
+      "Field",
+      "Folding is not enabled or editor is not initialized",
+      "GET",
+      "Interface",
+      "KeyWord",
+      "L",
+      "LSP/lsp.dart",
+      "Loading...",
+      "Method",
+      "No file found.\nPlease open a file by providing a valid filePath to the CodeForge widget",
+      "Operator",
+      "POST",
+      "Parameter",
+      "Paste",
+      "R",
+      "Reference",
+      "Select All",
+      "Snippet",
+      "Struct",
+      "The `filePath` parameter cannot be null inorder to use `LspConfig`.A valid file path is required to use the LSP services.",
+      "Title",
+      "Unknown node type",
+      "Variable",
+      "You are a code completion engine. The input contains partial code context split into sections, with the exact insertion point marked by the placeholder '<|CURSOR|>'. Using only the provided context, generate the code that should be inserted at the cursor position. Do not repeat the placeholder, do not include explanations, comments, formatting markers, or surrounding context. Return only the code to insert.",
+      "[",
+      "[:{[(]\\s*$",
+      "\\b",
+      "\\b\\w+\\b",
+      "\\w",
+      "\\w+$",
+      "\\w+|[^\\w\\s]+",
+      "\\w+|[^\\w\\s]+|\\s+",
+      "]",
+      "^ +",
+      "^(\\s*\\w+|\\s*[^\\w\\s]+)",
+      "^\\s*",
+      "_",
+      "```(?:\\w+)?\\n([\\s\\S]*?)\\n```",
+      "abstract",
+      "activeParameter",
+      "activeParameterSupport",
+      "activeSignature",
+      "additionalTextEdits",
+      "application/json",
+      "applyEdit",
+      "arguments",
+      "array",
+      "assets/icons/class.ttf",
+      "assets/icons/constant.ttf",
+      "assets/icons/enum.ttf",
+      "assets/icons/event.ttf",
+      "assets/icons/field.ttf",
+      "assets/icons/interface.ttf",
+      "assets/icons/keyword.ttf",
+      "assets/icons/method.ttf",
+      "assets/icons/operator.ttf",
+      "assets/icons/parameter.ttf",
+      "assets/icons/reference.ttf",
+      "assets/icons/snippet.ttf",
+      "assets/icons/struct.ttf",
+      "assets/icons/variable.ttf",
+      "async",
+      "attr",
+      "attribute",
+      "augmentsSyntaxTokens",
+      "boolean",
+      "built_in",
+      "bullet",
+      "callHierarchy/incomingCalls",
+      "callHierarchy/outgoingCalls",
+      "candidates",
+      "capabilities",
+      "change",
+      "changes",
+      "character",
+      "choices",
+      "class",
+      "code",
+      "code_forge/code_area.dart",
+      "code_forge/controller.dart",
+      "code_forge/find_controller.dart",
+      "code_forge/scroll.dart",
+      "code_forge/styling.dart",
+      "code_forge/undo_redo.dart",
+      "command",
+      "comment",
+      "completion",
+      "completionItem",
+      "completionItem/resolve",
+      "constant",
+      "constructor",
+      "content",
+      "contentChanges",
+      "contentFormat",
+      "contents",
+      "context",
+      "contextSupport",
+      "controller.dart",
+      "dart",
+      "dart:async",
+      "dart:convert",
+      "dart:io",
+      "dart:math",
+      "dart:ui",
+      "data",
+      "declaration",
+      "decorator",
+      "defaultLibrary",
+      "definition",
+      "deprecated",
+      "detail",
+      "diagnostic",
+      "diagnostics",
+      "didSave",
+      "documentChanges",
+      "documentaion",
+      "documentation",
+      "documentationFormat",
+      "dynamicRegistration",
+      "edit",
+      "edits",
+      "enabled",
+      "end",
+      "enum",
+      "enumMember",
+      "error",
+      "event",
+      "exit",
+      "field",
+      "file",
+      "find_controller.dart",
+      "formats",
+      "full",
+      "function",
+      "gemini-2.5-flash-lite",
+      "generationConfig",
+      "highlight",
+      "hover",
+      "https://api.anthropic.com/v1/messages",
+      "https://api.deepseek.com",
+      "https://api.fireworks.ai/inference/v1",
+      "https://api.groq.com/openai/v1",
+      "https://api.openai.com/v1/responses",
+      "https://api.perplexity.ai",
+      "https://api.together.xyz/v1",
+      "https://api.x.ai/v1",
+      "https://openrouter.ai/api/v1",
+      "id",
+      "importUris",
+      "includeDeclaration",
+      "initializationOptions",
+      "initialize",
+      "initialized",
+      "input",
+      "insertSpaces",
+      "insertText",
+      "instruction",
+      "instructions",
+      "interface",
+      "isRetrigger",
+      "item",
+      "items",
+      "jsonrpc",
+      "key",
+      "keyword",
+      "kind",
+      "label",
+      "labelOffsetSupport",
+      "languageId",
+      "legend",
+      "length",
+      "line",
+      "literal",
+      "lsRanges",
+      "lsp.dart",
+      "lsp_socket.dart",
+      "lsp_stdio.dart",
+      "macro",
+      "markdown",
+      "maxOutputTokens",
+      "max_tokens",
+      "message",
+      "messages",
+      "meta",
+      "meta-keyword",
+      "meta-string",
+      "method",
+      "model",
+      "modification",
+      "modifier",
+      "modifierBitmask",
+      "module",
+      "multilineTokenSupport",
+      "name",
+      "namespace",
+      "newName",
+      "newText",
+      "null",
+      "number",
+      "object",
+      "operator",
+      "options",
+      "overlappingTokenSupport",
+      "package",
+      "package:flutter/foundation.dart",
+      "package:flutter/gestures.dart",
+      "package:flutter/material.dart",
+      "package:flutter/rendering.dart",
+      "package:flutter/services.dart",
+      "package:http/http.dart",
+      "package:markdown_widget/markdown_widget.dart",
+      "package:meta/meta.dart",
+      "package:re_highlight/languages/dart.dart",
+      "package:re_highlight/re_highlight.dart",
+      "package:re_highlight/styles/vs2015.dart",
+      "package:web_socket_channel/web_socket_channel.dart",
+      "parameter",
+      "parameterInformation",
+      "parameters",
+      "params",
+      "parts",
+      "plaintext",
+      "position",
+      "processId",
+      "properties",
+      "property",
+      "publishDiagnostics",
+      "query",
+      "range",
+      "ranges",
+      "readonly",
+      "ref",
+      "regexp",
+      "relatedInformation",
+      "relative",
+      "requests",
+      "resolveSupport",
+      "result",
+      "role",
+      "root",
+      "rootUri",
+      "rope.dart",
+      "scroll.dart",
+      "section",
+      "selector-id",
+      "selector-tag",
+      "semanticTokens",
+      "semanticTokensProvider",
+      "severity",
+      "shutdown",
+      "signatureHelp",
+      "signatureInformation",
+      "signatures",
+      "snippetSupport",
+      "sortText",
+      "source",
+      "start",
+      "static",
+      "stopSequences",
+      "storage",
+      "string",
+      "struct",
+      "styling.dart",
+      "symbols",
+      "synchronization",
+      "syntax_highlighter.dart",
+      "system",
+      "systemInstruction",
+      "tabSize",
+      "temperature",
+      "text",
+      "textDocument",
+      "textDocument/codeAction",
+      "textDocument/completion",
+      "textDocument/declaration",
+      "textDocument/definition",
+      "textDocument/didChange",
+      "textDocument/didClose",
+      "textDocument/didOpen",
+      "textDocument/didSave",
+      "textDocument/documentLink",
+      "textDocument/documentSymbol",
+      "textDocument/formatting",
+      "textDocument/hover",
+      "textDocument/implementation",
+      "textDocument/prepareCallHierarchy",
+      "textDocument/prepareRename",
+      "textDocument/prepareTypeHierarchy",
+      "textDocument/publishDiagnostics",
+      "textDocument/rangeFormatting",
+      "textDocument/references",
+      "textDocument/rename",
+      "textDocument/semanticTokens/full",
+      "textDocument/signatureHelp",
+      "textDocument/typeDefinition",
+      "title",
+      "tokenModifiers",
+      "tokenTypeName",
+      "tokenTypes",
+      "topK",
+      "topP",
+      "triggerCharacter",
+      "triggerKind",
+      "type",
+      "typeHierarchy/subtypes",
+      "typeHierarchy/supertypes",
+      "typeIndex",
+      "typeParameter",
+      "undo_redo.dart",
+      "unknown",
+      "uri",
+      "user",
+      "value",
+      "variable",
+      "version",
+      "workspace",
+      "workspace/applyEdit",
+      "workspace/executeCommand",
+      "workspace/symbol",
+      "workspaceFolders",
+      "x-api-key",
+      "{",
+      "{}[]()",
+      "}"
+    ]
+  },
+  "version": "4.3.0"
+}

@@ -1,0 +1,1785 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "completionItemIcons",
+          "semanticToHljs",
+          "sematicMap"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "getSemanticMapping"
+        ],
+        "types": [
+          "CompletionItemType"
+        ]
+      },
+      "BiDi": {
+        "fields": [
+          "fsi",
+          "lre",
+          "lri",
+          "lrm",
+          "lro",
+          "pdf",
+          "pdi",
+          "rle",
+          "rli",
+          "rlm",
+          "rlo"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge/rope.dart"
+        ],
+        "methods": [
+          "isLtrChar",
+          "isNeutral",
+          "isRtlChar"
+        ],
+        "types": []
+      },
+      "BiDiSegment": {
+        "fields": [
+          "direction",
+          "end",
+          "get:length",
+          "start"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge/rope.dart"
+        ],
+        "methods": [
+          "BiDiSegment",
+          "toString"
+        ],
+        "types": [
+          "TextDirection"
+        ]
+      },
+      "CodeForge": {
+        "fields": [
+          "autoFocus",
+          "controller",
+          "customCodeSnippets",
+          "deleteFoldRangeOnDeletingFirstLine",
+          "editorTheme",
+          "enableFolding",
+          "enableGuideLines",
+          "enableGutter",
+          "enableGutterDivider",
+          "enableKeyboardSuggestions",
+          "enableSuggestions",
+          "filePath",
+          "findController",
+          "finderBuilder",
+          "focusNode",
+          "ghostTextStyle",
+          "gutterStyle",
+          "horizontalScrollController",
+          "hoverDetailsStyle",
+          "initialText",
+          "innerPadding",
+          "keyboardType",
+          "language",
+          "lineWrap",
+          "matchHighlightStyle",
+          "readOnly",
+          "selectionStyle",
+          "suggestionStyle",
+          "textDirection",
+          "textStyle",
+          "undoController",
+          "verticalScrollController"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/code_area.dart"
+        ],
+        "methods": [
+          "CodeForge",
+          "createState"
+        ],
+        "types": [
+          "CodeForge",
+          "CodeForgeController",
+          "CodeSelectionStyle",
+          "CustomCodeSnippets",
+          "FindController",
+          "GutterStyle",
+          "HoverDetailsStyle",
+          "MatchHighlightStyle",
+          "SuggestionStyle",
+          "TextDirection",
+          "UndoRedoController"
+        ]
+      },
+      "CodeForgeController": {
+        "fields": [
+          "bufferNeedsRepaint",
+          "codeActionsNotifier",
+          "connection",
+          "decorationsChanged",
+          "deleteFoldRangeOnDeletingFirstLine",
+          "diagnosticsNotifier",
+          "dirtyLine",
+          "dirtyRegion",
+          "documentColorsChanged",
+          "documentHighlightsChanged",
+          "foldings",
+          "get:bufferCursorColumn",
+          "get:bufferLineIndex",
+          "get:bufferLineRopeStart",
+          "get:bufferLineText",
+          "get:currentAutofillScope",
+          "get:currentTextEditingValue",
+          "get:currentlySelectedSuggestion",
+          "get:diagnostics",
+          "get:documentColors",
+          "get:documentHighlights",
+          "get:ghostText",
+          "get:gutterDecorations",
+          "get:hasMultiCursors",
+          "get:inlayHints",
+          "get:inlayHintsVisible",
+          "get:isBufferActive",
+          "get:lastTypedCharacter",
+          "get:length",
+          "get:lineCount",
+          "get:lineDecorations",
+          "get:lines",
+          "get:lspFoldRanges",
+          "get:lspFoldRangesWereAdjusted",
+          "get:multiCursors",
+          "get:openedFile",
+          "get:selection",
+          "get:suggestions",
+          "get:text",
+          "get:virtualRemovedBlocks",
+          "get:visibleText",
+          "inlayHintsChanged",
+          "lineStructureChanged",
+          "lspConfig",
+          "multiCursorsChanged",
+          "readOnly",
+          "searchHighlights",
+          "searchHighlightsChanged",
+          "selectedSuggestionNotifier",
+          "selectionOnly",
+          "semanticTokens",
+          "set:currentlySelectedSuggestion",
+          "set:openedFile",
+          "set:selection",
+          "set:text",
+          "signatureNotifier",
+          "suggestionsNotifier",
+          "userCodeAction"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/controller.dart"
+        ],
+        "methods": [
+          "CodeForgeController",
+          "acceptSuggestion",
+          "addGutterDecoration",
+          "addGutterDecorations",
+          "addLineDecoration",
+          "addLineDecorations",
+          "addListener",
+          "addMultiCursor",
+          "adjustLspFoldRangesForLineChange",
+          "applyWorkspaceEdit",
+          "backspace",
+          "backspaceAtAllCursors",
+          "callSignatureHelp",
+          "clearAllSuggestions",
+          "clearDirtyRegion",
+          "clearDocumentColors",
+          "clearDocumentHighlights",
+          "clearGhostText",
+          "clearGitDiffDecorations",
+          "clearGutterDecorations",
+          "clearInlayHints",
+          "clearLSPFoldRanges",
+          "clearLineDecorations",
+          "clearMultiCursors",
+          "clearSearchHighlights",
+          "connectionClosed",
+          "copy",
+          "cut",
+          "delete",
+          "didChangeInputControl",
+          "dispose",
+          "duplicateLine",
+          "fetchDocumentColors",
+          "fetchDocumentHighlights",
+          "fetchLSPFoldRanges",
+          "findLineEnd",
+          "findLineStart",
+          "findRegex",
+          "findWord",
+          "foldAll",
+          "getCodeAction",
+          "getCurrentWordPrefix",
+          "getLineAtOffset",
+          "getLineStartOffset",
+          "getLineText",
+          "hideInlayHints",
+          "indent",
+          "insertAtAllCursors",
+          "insertAtCurrentCursor",
+          "insertContent",
+          "insertText",
+          "insertTextPlaceholder",
+          "moveLineDown",
+          "moveLineUp",
+          "notifyListeners",
+          "paste",
+          "performAction",
+          "performPrivateCommand",
+          "performSelector",
+          "pressDocumentEndKey",
+          "pressDocumentHomeKey",
+          "pressDownArrowKey",
+          "pressEndKey",
+          "pressHomeKey",
+          "pressLetfArrowKey",
+          "pressRightArrowKey",
+          "pressUpArrowKey",
+          "refetchFile",
+          "removeGutterDecoration",
+          "removeLineDecoration",
+          "removeListener",
+          "removeTextPlaceholder",
+          "replaceRange",
+          "saveFile",
+          "scheduleDocumentHighlightsRefresh",
+          "scrollToLine",
+          "selectAll",
+          "setDocumentColors",
+          "setFoldCallbacks",
+          "setGhostText",
+          "setGitDiffDecorations",
+          "setInlayHints",
+          "setScrollCallback",
+          "setSelectionImmediately",
+          "setSelectionSilently",
+          "setUndoController",
+          "showAutocorrectionPromptRect",
+          "showInlayHints",
+          "showToolbar",
+          "toggleFold",
+          "unfoldAll",
+          "unindent",
+          "updateEditingValue",
+          "updateEditingValueWithDeltas",
+          "updateFloatingCursor"
+        ],
+        "types": [
+          "DocumentColor",
+          "DocumentHighlight",
+          "FoldRange",
+          "GhostText",
+          "GutterDecoration",
+          "InlayHint",
+          "LineDecoration",
+          "LspConfig",
+          "LspErrors",
+          "LspSemanticToken",
+          "LspSignatureHelps",
+          "Rope",
+          "SearchHighlight",
+          "UndoRedoController",
+          "VirtualRemovedBlock"
+        ]
+      },
+      "CodeSelectionStyle": {
+        "fields": [
+          "cursorBubbleColor",
+          "cursorColor",
+          "selectionColor"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "CodeSelectionStyle"
+        ],
+        "types": []
+      },
+      "CompletionItemType": {
+        "fields": [
+          "class_",
+          "color",
+          "constant",
+          "constructor",
+          "enumMember",
+          "enum_",
+          "event",
+          "field",
+          "file",
+          "folder",
+          "function",
+          "interface",
+          "keyword",
+          "method",
+          "module",
+          "operator",
+          "property",
+          "reference",
+          "snippet",
+          "struct",
+          "text",
+          "typeParameter",
+          "unit",
+          "value",
+          "value_",
+          "variable"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "CompletionItemType"
+        ],
+        "types": []
+      },
+      "CompoundOperation": {
+        "fields": [
+          "operations"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/undo_redo.dart"
+        ],
+        "methods": [
+          "CompoundOperation",
+          "canMergeWith",
+          "inverse",
+          "mergeWith",
+          "toString"
+        ],
+        "types": [
+          "EditOperation"
+        ]
+      },
+      "CompoundOperationHandle": {
+        "fields": [],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/undo_redo.dart"
+        ],
+        "methods": [
+          "end"
+        ],
+        "types": [
+          "UndoRedoController"
+        ]
+      },
+      "CustomCodeSnippets": {
+        "fields": [
+          "snippets"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "CustomCodeSnippets",
+          "fromJson"
+        ],
+        "types": [
+          "CustomCodeSnippets"
+        ]
+      },
+      "CustomIcons": {
+        "fields": [
+          "class_",
+          "event",
+          "field",
+          "interface",
+          "method",
+          "operator",
+          "parameter",
+          "reference",
+          "struct",
+          "variable"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "loadAllCustomFonts"
+        ],
+        "types": []
+      },
+      "CustomLanguageGrammar": {
+        "fields": [],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "fromJson"
+        ],
+        "types": []
+      },
+      "CustomTheme": {
+        "fields": [],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "create"
+        ],
+        "types": []
+      },
+      "CustomViewport": {
+        "fields": [
+          "lineWrap"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/scroll.dart"
+        ],
+        "methods": [
+          "CustomViewport",
+          "createRenderObject",
+          "updateRenderObject"
+        ],
+        "types": []
+      },
+      "DeleteOperation": {
+        "fields": [
+          "offset",
+          "text"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/undo_redo.dart"
+        ],
+        "methods": [
+          "DeleteOperation",
+          "canMergeWith",
+          "inverse",
+          "mergeWith",
+          "toString"
+        ],
+        "types": [
+          "EditOperation"
+        ]
+      },
+      "DocumentColor": {
+        "fields": [
+          "color",
+          "endColumn",
+          "line",
+          "startColumn"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "DocumentColor",
+          "fromLsp"
+        ],
+        "types": []
+      },
+      "DocumentHighlight": {
+        "fields": [
+          "endColumn",
+          "endLine",
+          "startColumn",
+          "startLine"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "DocumentHighlight",
+          "fromLsp"
+        ],
+        "types": []
+      },
+      "EditOperation": {
+        "fields": [
+          "selectionAfter",
+          "selectionBefore",
+          "timestamp"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/undo_redo.dart"
+        ],
+        "methods": [
+          "EditOperation",
+          "canMergeWith",
+          "inverse",
+          "mergeWith"
+        ],
+        "types": [
+          "EditOperation"
+        ]
+      },
+      "FindController": {
+        "fields": [
+          "findInputController",
+          "findInputFocusNode",
+          "get:caseSensitive",
+          "get:currentMatchIndex",
+          "get:isActive",
+          "get:isRegex",
+          "get:isReplaceMode",
+          "get:matchCount",
+          "get:matchWholeWord",
+          "replaceInputController",
+          "replaceInputFocusNode",
+          "set:caseSensitive",
+          "set:isActive",
+          "set:isRegex",
+          "set:isReplaceMode",
+          "set:matchWholeWord"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/find_controller.dart"
+        ],
+        "methods": [
+          "FindController",
+          "clear",
+          "dispose",
+          "find",
+          "next",
+          "previous",
+          "replace",
+          "replaceAll",
+          "toggleActive",
+          "toggleCaseSensitive",
+          "toggleMatchWholeWord",
+          "toggleRegex",
+          "toggleReplaceMode"
+        ],
+        "types": [
+          "CodeForgeController"
+        ]
+      },
+      "FoldRange": {
+        "fields": [
+          "endIndex",
+          "get:hashCode",
+          "isFolded",
+          "originallyFoldedChildren",
+          "startIndex"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/code_area.dart"
+        ],
+        "methods": [
+          "==",
+          "FoldRange",
+          "addOriginallyFoldedChild",
+          "clearOriginallyFoldedChildren",
+          "containsLine"
+        ],
+        "types": [
+          "FoldRange"
+        ]
+      },
+      "GhostText": {
+        "fields": [
+          "column",
+          "line",
+          "shouldPersist",
+          "style",
+          "text"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "GhostText"
+        ],
+        "types": []
+      },
+      "GutterDecoration": {
+        "fields": [
+          "color",
+          "endLine",
+          "get:hashCode",
+          "icon",
+          "id",
+          "priority",
+          "startLine",
+          "tooltip",
+          "type",
+          "width"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "==",
+          "GutterDecoration"
+        ],
+        "types": [
+          "GutterDecorationType"
+        ]
+      },
+      "GutterDecorationType": {
+        "fields": [
+          "colorBar",
+          "dot",
+          "icon"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "GutterStyle": {
+        "fields": [
+          "activeLineNumberColor",
+          "backgroundColor",
+          "errorLineNumberColor",
+          "foldedIcon",
+          "foldedIconColor",
+          "foldedLineHighlightColor",
+          "foldingIconSize",
+          "gutterWidth",
+          "inactiveLineNumberColor",
+          "lineNumberStyle",
+          "unfoldedIcon",
+          "unfoldedIconColor",
+          "warningLineNumberColor"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "GutterStyle"
+        ],
+        "types": []
+      },
+      "HighlightedLine": {
+        "fields": [
+          "span",
+          "text",
+          "version"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge/syntax_highlighter.dart"
+        ],
+        "methods": [
+          "HighlightedLine"
+        ],
+        "types": []
+      },
+      "HoverDetailsStyle": {
+        "fields": [],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "HoverDetailsStyle"
+        ],
+        "types": [
+          "OverlayStyle"
+        ]
+      },
+      "InlayHint": {
+        "fields": [
+          "column",
+          "kind",
+          "line",
+          "location",
+          "paddingLeft",
+          "paddingRight",
+          "text"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "InlayHint",
+          "fromLsp"
+        ],
+        "types": [
+          "InlayHintKind"
+        ]
+      },
+      "InlayHintKind": {
+        "fields": [
+          "parameter",
+          "type"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "InsertOperation": {
+        "fields": [
+          "offset",
+          "text"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/undo_redo.dart"
+        ],
+        "methods": [
+          "InsertOperation",
+          "canMergeWith",
+          "inverse",
+          "mergeWith",
+          "toString"
+        ],
+        "types": [
+          "EditOperation"
+        ]
+      },
+      "LineDecoration": {
+        "fields": [
+          "color",
+          "endLine",
+          "get:hashCode",
+          "id",
+          "priority",
+          "startLine",
+          "thickness",
+          "type"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "==",
+          "LineDecoration"
+        ],
+        "types": [
+          "LineDecorationType"
+        ]
+      },
+      "LineDecorationType": {
+        "fields": [
+          "background",
+          "leftBorder",
+          "underline",
+          "wavyUnderline"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LspClientCapabilities": {
+        "fields": [
+          "codeAction",
+          "codeCompletion",
+          "codeFolding",
+          "disableAll",
+          "documentColor",
+          "documentHighlight",
+          "goToDefinition",
+          "hoverInfo",
+          "inlayHint",
+          "rename",
+          "semanticHighlighting",
+          "signatureHelp"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "LspClientCapabilities"
+        ],
+        "types": []
+      },
+      "LspCompletion": {
+        "fields": [
+          "completionItem",
+          "icon",
+          "importUri",
+          "itemType",
+          "label",
+          "reference"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "LspCompletion",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "CompletionItemType"
+        ]
+      },
+      "LspConfig": {
+        "fields": [
+          "capabilities",
+          "disableError",
+          "disableWarning",
+          "get:hashCode",
+          "get:responses",
+          "get:serverTokenModifiers",
+          "get:serverTokenTypes",
+          "isInitialized",
+          "languageId",
+          "workspacePath"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "==",
+          "LspConfig",
+          "closeDocument",
+          "dispose",
+          "executeCommand",
+          "exitServer",
+          "formatDocument",
+          "formatRange",
+          "getCodeActions",
+          "getColorPresentation",
+          "getCompletions",
+          "getDeclaration",
+          "getDefinition",
+          "getDocumentColor",
+          "getDocumentHighlight",
+          "getDocumentLinks",
+          "getDocumentSymbols",
+          "getHover",
+          "getImplementation",
+          "getIncomingCalls",
+          "getInlayHints",
+          "getLSPFoldRanges",
+          "getOutgoingCalls",
+          "getReferences",
+          "getSemanticTokensFull",
+          "getSignatureHelp",
+          "getSubtypes",
+          "getSupertypes",
+          "getTypeDefinition",
+          "getWorkspaceSymbols",
+          "initialize",
+          "openDocument",
+          "prepareCallHierarchy",
+          "prepareRename",
+          "prepareTypeHierarchy",
+          "renameSymbol",
+          "resolveCompletionItem",
+          "saveDocument",
+          "shutdown",
+          "updateDocument"
+        ],
+        "types": [
+          "LspClientCapabilities",
+          "LspCompletion",
+          "LspSemanticToken",
+          "LspSignatureHelps"
+        ]
+      },
+      "LspErrors": {
+        "fields": [
+          "message",
+          "range",
+          "severity"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "LspErrors",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "LspSemanticToken": {
+        "fields": [
+          "get:end",
+          "length",
+          "line",
+          "modifierBitmask",
+          "start",
+          "tokenTypeName",
+          "typeIndex"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "LspSemanticToken",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "LspSignatureHelps": {
+        "fields": [
+          "activeParameter",
+          "activeSignature",
+          "documentation",
+          "label",
+          "parameters"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "LspSignatureHelps"
+        ],
+        "types": []
+      },
+      "LspSocketConfig": {
+        "fields": [
+          "serverUrl"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "LspSocketConfig",
+          "connect",
+          "dispose"
+        ],
+        "types": [
+          "LspConfig"
+        ]
+      },
+      "LspStdioConfig": {
+        "fields": [
+          "args",
+          "environment",
+          "executable",
+          "get:exitCode",
+          "get:pid",
+          "get:process"
+        ],
+        "libraries": [
+          "package:code_forge/LSP/lsp.dart",
+          "package:code_forge/code_forge.dart"
+        ],
+        "methods": [
+          "dispose",
+          "start"
+        ],
+        "types": [
+          "LspClientCapabilities",
+          "LspConfig",
+          "LspStdioConfig"
+        ]
+      },
+      "MatchHighlightStyle": {
+        "fields": [
+          "currentMatchStyle",
+          "otherMatchStyle"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "MatchHighlightStyle"
+        ],
+        "types": []
+      },
+      "OverlayStyle": {
+        "fields": [
+          "backgroundColor",
+          "elevation",
+          "focusColor",
+          "hoverColor",
+          "shape",
+          "splashColor",
+          "textStyle"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "OverlayStyle"
+        ],
+        "types": []
+      },
+      "RTLAwareScrollPhysics": {
+        "fields": [
+          "isMobile",
+          "isRTL"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/code_area.dart"
+        ],
+        "methods": [
+          "RTLAwareScrollPhysics",
+          "applyPhysicsToUserOffset",
+          "applyTo",
+          "createBallisticSimulation"
+        ],
+        "types": [
+          "RTLAwareScrollPhysics"
+        ]
+      },
+      "Render2DCodeField": {
+        "fields": [
+          "lineWrap"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/scroll.dart"
+        ],
+        "methods": [
+          "Render2DCodeField",
+          "layoutChildSequence"
+        ],
+        "types": []
+      },
+      "ReplaceOperation": {
+        "fields": [
+          "deletedText",
+          "insertedText",
+          "offset"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/undo_redo.dart"
+        ],
+        "methods": [
+          "ReplaceOperation",
+          "canMergeWith",
+          "inverse",
+          "mergeWith",
+          "toString"
+        ],
+        "types": [
+          "EditOperation"
+        ]
+      },
+      "Rope": {
+        "fields": [
+          "get:bidiSegments",
+          "get:cachedLines",
+          "get:containsRtl",
+          "get:isLtr",
+          "get:isMixed",
+          "get:isRtl",
+          "get:length",
+          "get:lineCount",
+          "get:lines",
+          "get:primaryDirection",
+          "get:textDirection"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge/rope.dart"
+        ],
+        "methods": [
+          "Rope",
+          "charAt",
+          "chunks",
+          "concatImmutable",
+          "copy",
+          "delete",
+          "deleteImmutable",
+          "findLineEnd",
+          "findLineStart",
+          "getBiDiSegmentsForLine",
+          "getBiDiSegmentsInRange",
+          "getLineAtOffset",
+          "getLineStartOffset",
+          "getLineText",
+          "getRtlSegments",
+          "getText",
+          "insert",
+          "insertImmutable",
+          "splitImmutable",
+          "substring",
+          "toStringWithBiDiControls"
+        ],
+        "types": [
+          "BiDiSegment",
+          "Rope",
+          "TextDirection"
+        ]
+      },
+      "SearchHighlight": {
+        "fields": [
+          "end",
+          "isCurrentMatch",
+          "start"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "SearchHighlight"
+        ],
+        "types": []
+      },
+      "SemanticWordSpan": {
+        "fields": [
+          "endChar",
+          "startChar",
+          "style",
+          "word"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge/syntax_highlighter.dart"
+        ],
+        "methods": [
+          "SemanticWordSpan"
+        ],
+        "types": []
+      },
+      "SuggestionStyle": {
+        "fields": [
+          "borderColor",
+          "borderWidth",
+          "classIconColor",
+          "detailTextStyle",
+          "iconSize",
+          "itemHeight",
+          "keywordIconColor",
+          "labelTextStyle",
+          "methodIconColor",
+          "propertyIconColor",
+          "selectedBackgroundColor",
+          "typeTextStyle",
+          "variableIconColor"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "SuggestionStyle"
+        ],
+        "types": [
+          "OverlayStyle"
+        ]
+      },
+      "SyntaxHighlighter": {
+        "fields": [
+          "baseTextStyle",
+          "editorTheme",
+          "get:documentVersion",
+          "isolateThreshold",
+          "language",
+          "languageId"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge/syntax_highlighter.dart"
+        ],
+        "methods": [
+          "SyntaxHighlighter",
+          "applyDocumentEdit",
+          "buildHighlightedParagraph",
+          "dispose",
+          "getLineSpan",
+          "invalidateAll",
+          "invalidateLines",
+          "invalidateRange",
+          "preHighlightLines",
+          "updateSemanticTokens"
+        ],
+        "types": [
+          "HighlightedLine",
+          "LspSemanticToken",
+          "SemanticWordSpan"
+        ]
+      },
+      "TextDirection": {
+        "fields": [
+          "ltr",
+          "mixed",
+          "rtl"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge/rope.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "UndoRedoController": {
+        "fields": [
+          "get:canRedo",
+          "get:canUndo",
+          "get:isUndoRedoInProgress",
+          "get:redoStackSize",
+          "get:undoStackSize",
+          "groupEdits",
+          "maxStackSize"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/undo_redo.dart"
+        ],
+        "methods": [
+          "UndoRedoController",
+          "beginCompoundOperation",
+          "clear",
+          "dispose",
+          "recordEdit",
+          "redo",
+          "setApplyEditCallback",
+          "undo"
+        ],
+        "types": [
+          "CompoundOperationHandle",
+          "EditOperation"
+        ]
+      },
+      "VirtualRemovedBlock": {
+        "fields": [
+          "afterLine",
+          "backgroundColor",
+          "content",
+          "get:lineCount",
+          "get:lines",
+          "textStyle"
+        ],
+        "libraries": [
+          "package:code_forge/code_forge.dart",
+          "package:code_forge/code_forge/styling.dart"
+        ],
+        "methods": [
+          "VirtualRemovedBlock"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:16:13Z",
+  "package": "code_forge",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "BiDiSegment",
+      "CodeForge",
+      "CustomViewport",
+      "DocumentColor",
+      "DocumentHighlight",
+      "GhostText",
+      "GutterDecoration",
+      "InlayHint",
+      "LineDecoration",
+      "LspClientCapabilities",
+      "LspSemanticToken",
+      "LspSignatureHelps",
+      "MatchHighlightStyle",
+      "RTLAwareScrollPhysics",
+      "SearchHighlight",
+      "VirtualRemovedBlock",
+      "_CodeField",
+      "_SnippetSuggestion"
+    ],
+    "digest": "db0272235e734e6699cdd29cceb26c1420e13dac0d2c0941491ed54bc9cc66eb",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "7c629d57b5fbe38a14790de5bc61a10704294c15b58a43c3f89723e8c1cd2bf1",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\t",
+      "\n",
+      " ",
+      "  ",
+      "   ",
+      " ...",
+      "\"",
+      "\"\"\"",
+      "#",
+      "$",
+      "$ccls/publishSemanticHighlight",
+      "$pattern",
+      "'",
+      "'''",
+      "(",
+      "(.+?)",
+      "(?:",
+      "(?:\\\\b)?\\(?(?:\\?[:<>=!][^)]*\\))?(?:\\\\b)?\\((?:\\?:|\\?<[!=][^)]*\\))?\\s*([^)]+)\\)(?:\\\\b)?",
+      "(?:\\s[^>]*)?>",
+      "(?<![.\\w])0[Bb][01_]+\\b",
+      "(?<![.\\w])0[Oo][0-7_]+\\b",
+      "(?<![.\\w])0[Xx][\\da-fA-F_]+\\b",
+      "(?<!\\w)(\\d+\\.?\\d*|\\.\\d+)([eE][+-]?\\d+)?[jJ]?\\b",
+      "(?>",
+      "([*+?])\\+",
+      "(\\w+)",
+      "(\\w+|[^\\w\\s]+)\\s*$",
+      "({[",
+      ")",
+      "-",
+      "-->",
+      ".",
+      "../LSP/lsp.dart",
+      "../code_forge.dart",
+      ".java",
+      "/",
+      "//",
+      "/>",
+      "/\\*",
+      "0",
+      "2.0",
+      ":",
+      "<",
+      "<(\\w+)(?:\\s[^>]*)?>$",
+      "</",
+      ">",
+      "?",
+      "@",
+      "@\\w+",
+      "Apply",
+      "Cancel",
+      "Cannot provide both filePath and initialText to CodeForge.",
+      "Class",
+      "Content-Length: (\\d+)",
+      "Copy",
+      "Ctrl+A",
+      "Ctrl+C",
+      "Ctrl+V",
+      "Ctrl+X",
+      "Cut",
+      "Editor is not initialized",
+      "Empty rope",
+      "Event",
+      "Field",
+      "Folding is not enabled or editor is not initialized",
+      "Interface",
+      "L",
+      "LSP/lsp.dart",
+      "Loading...",
+      "Method",
+      "No file found.\nPlease open a file by providing a valid filePath to the CodeForge widget",
+      "Operator",
+      "Parameter",
+      "Paste",
+      "Pick a color",
+      "R",
+      "Reference",
+      "Select All",
+      "Struct",
+      "The `filePath` parameter cannot be null inorder to use `LspConfig`.A valid file path is required to use the LSP services.",
+      "Unknown node type",
+      "Variable",
+      "[",
+      "[0-9a-fA-F]",
+      "[:alnum:]",
+      "[:alpha:]",
+      "[:digit:]",
+      "[:lower:]",
+      "[:upper:]",
+      "[:{[(]\\s*$",
+      "[A-Za-z_]\\w*|__\\w+__",
+      "[\\]",
+      "[\\w\\u0600-\\u06FF\\u08A0-\\u08FF\\u0590-\\u05FF]",
+      "[\\w\\u0600-\\u06FF\\u08A0-\\u08FF\\u0590-\\u05FF]+",
+      "[\\w\\u0600-\\u06FF\\u08A0-\\u08FF\\u0590-\\u05FF]+$",
+      "[^0-9a-fA-F]",
+      "\\",
+      "\\*/",
+      "\\.\\.\\.",
+      "\\H",
+      "\\P{",
+      "\\[\\]",
+      "\\\\.",
+      "\\\\b([a-zA-Z_]\\w*)\\\\b",
+      "\\\\s\\+",
+      "\\b",
+      "\\b(class)",
+      "\\b(def|func|function|fn)",
+      "\\h",
+      "\\p{",
+      "\\s*>",
+      "\\s+",
+      "\\w",
+      "]",
+      "^ +",
+      "^(\\s*\\w+|\\s*[^\\w\\s]+)",
+      "^[a-zA-Z_][a-zA-Z0-9_]*(?:\\s+[a-zA-Z_]+)*$",
+      "^\\(?\\.[\\+\\*]",
+      "^\\s*",
+      "_",
+      "abstract",
+      "activeParameter",
+      "activeParameterSupport",
+      "activeSignature",
+      "addition",
+      "additionalTextEdits",
+      "aliases",
+      "alpha",
+      "applyEdit",
+      "arguments",
+      "array",
+      "assets/icons/class.ttf",
+      "assets/icons/event.ttf",
+      "assets/icons/field.ttf",
+      "assets/icons/interface.ttf",
+      "assets/icons/method.ttf",
+      "assets/icons/operator.ttf",
+      "assets/icons/parameter.ttf",
+      "assets/icons/reference.ttf",
+      "assets/icons/struct.ttf",
+      "assets/icons/variable.ttf",
+      "async",
+      "attr",
+      "attribute",
+      "augmentsSyntaxTokens",
+      "begin",
+      "beginCaptures",
+      "blue",
+      "bold",
+      "boolean",
+      "built_in",
+      "bullet",
+      "callHierarchy/incomingCalls",
+      "callHierarchy/outgoingCalls",
+      "capabilities",
+      "change",
+      "changes",
+      "character",
+      "class",
+      "class-declaration",
+      "class-definition",
+      "class-title",
+      "code_forge/code_area.dart",
+      "code_forge/controller.dart",
+      "code_forge/find_controller.dart",
+      "code_forge/scroll.dart",
+      "code_forge/styling.dart",
+      "code_forge/undo_redo.dart",
+      "color",
+      "colorProvider",
+      "command",
+      "comment",
+      "comments",
+      "comments-base",
+      "completion",
+      "completionItem",
+      "completionItem/resolve",
+      "constant",
+      "constant.numeric",
+      "constructor",
+      "constructor-string",
+      "contentChanges",
+      "contentFormat",
+      "contentName",
+      "contents",
+      "context",
+      "contextSupport",
+      "controller.dart",
+      "dart",
+      "dart:async",
+      "dart:convert",
+      "dart:io",
+      "dart:math",
+      "dart:ui",
+      "data",
+      "declaration",
+      "decorator",
+      "defaultLibrary",
+      "definition",
+      "deletion",
+      "deprecated",
+      "detail",
+      "diagnostic",
+      "diagnostics",
+      "didSave",
+      "docstring",
+      "doctag",
+      "documentChanges",
+      "documentHighlight",
+      "documentaion",
+      "documentation",
+      "documentationFormat",
+      "dynamicRegistration",
+      "edit",
+      "edits",
+      "ellipsis",
+      "embedded",
+      "emphasis",
+      "enabled",
+      "end",
+      "endLine",
+      "entity",
+      "entity.name.class",
+      "entity.name.function",
+      "entity.name.type.class",
+      "enum",
+      "enumMember",
+      "error",
+      "event",
+      "exit",
+      "field",
+      "file",
+      "find_controller.dart",
+      "foldingRange",
+      "formats",
+      "formula",
+      "full",
+      "function",
+      "function-declaration",
+      "function-definition",
+      "function-params",
+      "function-params-typing",
+      "git-",
+      "green",
+      "highlight",
+      "hover",
+      "html",
+      "id",
+      "importUris",
+      "include",
+      "includeDeclaration",
+      "initializationOptions",
+      "initialize",
+      "initialized",
+      "inlayHint",
+      "insertSpaces",
+      "insertText",
+      "interface",
+      "invalid",
+      "isRetrigger",
+      "italic",
+      "item",
+      "items",
+      "jsonrpc",
+      "key",
+      "keyword",
+      "kind",
+      "label",
+      "labelOffsetSupport",
+      "language",
+      "languageId",
+      "legend",
+      "length",
+      "line",
+      "link",
+      "literal",
+      "location",
+      "lsRanges",
+      "lsp.dart",
+      "lsp_socket.dart",
+      "lsp_stdio.dart",
+      "macro",
+      "markdown",
+      "markup",
+      "match",
+      "message",
+      "meta",
+      "meta-keyword",
+      "meta-string",
+      "method",
+      "modification",
+      "modifier",
+      "modifierBitmask",
+      "module",
+      "module-access-module",
+      "multilineTokenSupport",
+      "name",
+      "namespace",
+      "newName",
+      "newText",
+      "null",
+      "number",
+      "number-dec",
+      "number-float",
+      "numeric",
+      "object",
+      "only",
+      "operator",
+      "options",
+      "other",
+      "overlappingTokenSupport",
+      "package",
+      "package:flutter/foundation.dart",
+      "package:flutter/gestures.dart",
+      "package:flutter/material.dart",
+      "package:flutter/rendering.dart",
+      "package:flutter/services.dart",
+      "package:flutter_colorpicker/flutter_colorpicker.dart",
+      "package:markdown_widget/markdown_widget.dart",
+      "package:re_highlight/languages/dart.dart",
+      "package:re_highlight/re_highlight.dart",
+      "package:re_highlight/styles/vs2015.dart",
+      "package:vector_math/vector_math_64.dart",
+      "package:web_socket_channel/web_socket_channel.dart",
+      "paddingLeft",
+      "paddingRight",
+      "parameter",
+      "parameterInformation",
+      "parameters",
+      "params",
+      "pattern-match",
+      "pattern-match-constructor",
+      "patterns",
+      "plaintext",
+      "position",
+      "processId",
+      "properties",
+      "property",
+      "publishDiagnostics",
+      "punctuation",
+      "query",
+      "quickfix",
+      "quote",
+      "range",
+      "ranges",
+      "readonly",
+      "red",
+      "ref",
+      "refactor.extract",
+      "refactor.inline",
+      "refactor.rewrite",
+      "regexp",
+      "relatedInformation",
+      "relative",
+      "repository",
+      "requests",
+      "resolveSupport",
+      "result",
+      "root",
+      "rootUri",
+      "rope.dart",
+      "scroll.dart",
+      "section",
+      "selector-attr",
+      "selector-class",
+      "selector-id",
+      "selector-pseudo",
+      "selector-tag",
+      "semanticTokens",
+      "semanticTokensProvider",
+      "severity",
+      "shutdown",
+      "signatureHelp",
+      "signatureInformation",
+      "signatures",
+      "snippetSupport",
+      "snippets",
+      "sortText",
+      "source",
+      "start",
+      "startLine",
+      "static",
+      "storage",
+      "string",
+      "string-quoted-single-line",
+      "string.quoted",
+      "string.quoted.docstring.multi",
+      "string.quoted.multi",
+      "string.quoted.single",
+      "strong",
+      "struct",
+      "styling.dart",
+      "subst",
+      "support",
+      "symbol",
+      "symbols",
+      "synchronization",
+      "syntax_highlighter.dart",
+      "tabSize",
+      "tag",
+      "template-variable",
+      "text",
+      "textDocument",
+      "textDocument/codeAction",
+      "textDocument/colorPresentation",
+      "textDocument/completion",
+      "textDocument/declaration",
+      "textDocument/definition",
+      "textDocument/didChange",
+      "textDocument/didClose",
+      "textDocument/didOpen",
+      "textDocument/didSave",
+      "textDocument/documentColor",
+      "textDocument/documentHighlight",
+      "textDocument/documentLink",
+      "textDocument/documentSymbol",
+      "textDocument/foldingRange",
+      "textDocument/formatting",
+      "textDocument/hover",
+      "textDocument/implementation",
+      "textDocument/inlayHint",
+      "textDocument/prepareCallHierarchy",
+      "textDocument/prepareRename",
+      "textDocument/prepareTypeHierarchy",
+      "textDocument/publishDiagnostics",
+      "textDocument/rangeFormatting",
+      "textDocument/references",
+      "textDocument/rename",
+      "textDocument/semanticTokens/full",
+      "textDocument/signatureHelp",
+      "textDocument/typeDefinition",
+      "textEdit",
+      "title",
+      "title.class",
+      "title.class_",
+      "title.function",
+      "tokenModifiers",
+      "tokenTypeName",
+      "tokenTypes",
+      "triggerCharacter",
+      "triggerKind",
+      "type",
+      "typeHierarchy/subtypes",
+      "typeHierarchy/supertypes",
+      "typeIndex",
+      "typeParameter",
+      "underline",
+      "undo_redo.dart",
+      "unknown",
+      "uri",
+      "value",
+      "variable",
+      "variable.language",
+      "version",
+      "workspace",
+      "workspace/applyEdit",
+      "workspace/executeCommand",
+      "workspace/symbol",
+      "workspaceFolders",
+      "xml",
+      "{",
+      "{}[]()",
+      "|",
+      "}"
+    ]
+  },
+  "version": "9.0.0"
+}

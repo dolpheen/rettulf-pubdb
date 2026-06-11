@@ -1,0 +1,2319 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "literalFalse",
+          "literalNull",
+          "literalTrue"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/base.dart",
+          "package:code_builder/src/emitter.dart",
+          "package:code_builder/src/matchers.dart",
+          "package:code_builder/src/specs/code.dart",
+          "package:code_builder/src/specs/expression.dart",
+          "package:code_builder/src/specs/reference.dart"
+        ],
+        "methods": [
+          "createTypeDef",
+          "declareConst",
+          "declareFinal",
+          "declareVar",
+          "equalsDart",
+          "lazyCode",
+          "lazySpec",
+          "literal",
+          "literalBool",
+          "literalConstList",
+          "literalConstMap",
+          "literalConstRecord",
+          "literalConstSet",
+          "literalList",
+          "literalMap",
+          "literalNullSafeSpread",
+          "literalNum",
+          "literalRecord",
+          "literalSet",
+          "literalSpread",
+          "literalString",
+          "refer",
+          "toClosure",
+          "toGenericClosure",
+          "visitAll"
+        ],
+        "types": [
+          "Code",
+          "DartEmitter",
+          "Expression",
+          "FunctionType",
+          "LiteralListExpression",
+          "LiteralMapExpression",
+          "LiteralRecordExpression",
+          "LiteralSetExpression",
+          "Method",
+          "Reference",
+          "Spec"
+        ]
+      },
+      "Allocator": {
+        "fields": [
+          "get:imports",
+          "none"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/allocator.dart"
+        ],
+        "methods": [
+          "Allocator",
+          "allocate",
+          "simplePrefixing"
+        ],
+        "types": [
+          "Allocator",
+          "Directive",
+          "Reference"
+        ]
+      },
+      "BinaryExpression": {
+        "fields": [
+          "addSpace",
+          "isConst",
+          "left",
+          "operator",
+          "right"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [
+          "accept"
+        ],
+        "types": [
+          "Expression",
+          "ExpressionVisitor"
+        ]
+      },
+      "Block": {
+        "fields": [
+          "get:statements"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/code.dart"
+        ],
+        "methods": [
+          "Block",
+          "accept",
+          "of"
+        ],
+        "types": [
+          "Block",
+          "BlockBuilder",
+          "Code",
+          "CodeVisitor",
+          "Spec"
+        ]
+      },
+      "BlockBuilder": {
+        "fields": [
+          "statements"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/code.dart"
+        ],
+        "methods": [
+          "BlockBuilder",
+          "addExpression"
+        ],
+        "types": [
+          "Block",
+          "BlockBuilder",
+          "Code",
+          "Expression"
+        ]
+      },
+      "Class": {
+        "fields": [
+          "get:abstract",
+          "get:annotations",
+          "get:constructors",
+          "get:docs",
+          "get:extend",
+          "get:fields",
+          "get:implements",
+          "get:methods",
+          "get:mixin",
+          "get:mixins",
+          "get:modifier",
+          "get:name",
+          "get:sealed",
+          "get:types"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/class.dart"
+        ],
+        "methods": [
+          "Class",
+          "accept"
+        ],
+        "types": [
+          "Class",
+          "ClassBuilder",
+          "ClassModifier",
+          "Constructor",
+          "Expression",
+          "Field",
+          "HasAnnotations",
+          "HasDartDocs",
+          "HasGenerics",
+          "Method",
+          "Reference",
+          "Spec",
+          "SpecVisitor"
+        ]
+      },
+      "ClassBuilder": {
+        "fields": [
+          "abstract",
+          "annotations",
+          "constructors",
+          "docs",
+          "extend",
+          "fields",
+          "implements",
+          "methods",
+          "mixin",
+          "mixins",
+          "modifier",
+          "name",
+          "sealed",
+          "types"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/class.dart"
+        ],
+        "methods": [
+          "ClassBuilder",
+          "update"
+        ],
+        "types": [
+          "Class",
+          "ClassBuilder",
+          "ClassModifier",
+          "Constructor",
+          "Expression",
+          "Field",
+          "HasAnnotationsBuilder",
+          "HasDartDocsBuilder",
+          "HasGenericsBuilder",
+          "Method",
+          "Reference"
+        ]
+      },
+      "ClassModifier": {
+        "fields": [
+          "base",
+          "final$",
+          "get:name",
+          "interface"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/class.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ClosureExpression": {
+        "fields": [
+          "method"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [
+          "accept"
+        ],
+        "types": [
+          "Expression",
+          "ExpressionVisitor",
+          "Method"
+        ]
+      },
+      "Code": {
+        "fields": [],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/code.dart"
+        ],
+        "methods": [
+          "Code",
+          "accept",
+          "scope"
+        ],
+        "types": [
+          "CodeVisitor",
+          "Spec"
+        ]
+      },
+      "CodeEmitter": {
+        "fields": [
+          "get:allocator"
+        ],
+        "libraries": [
+          "package:code_builder/src/specs/code.dart"
+        ],
+        "methods": [
+          "visitBlock",
+          "visitScopedCode",
+          "visitStaticCode"
+        ],
+        "types": [
+          "Allocator",
+          "Block",
+          "CodeVisitor",
+          "ScopedCode",
+          "StaticCode"
+        ]
+      },
+      "CodeExpression": {
+        "fields": [
+          "code"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [
+          "CodeExpression",
+          "accept"
+        ],
+        "types": [
+          "Code",
+          "Expression",
+          "ExpressionVisitor"
+        ]
+      },
+      "CodeVisitor": {
+        "fields": [],
+        "libraries": [
+          "package:code_builder/src/specs/code.dart"
+        ],
+        "methods": [
+          "visitBlock",
+          "visitScopedCode",
+          "visitStaticCode"
+        ],
+        "types": [
+          "Block",
+          "ScopedCode",
+          "SpecVisitor",
+          "StaticCode"
+        ]
+      },
+      "Constructor": {
+        "fields": [
+          "get:annotations",
+          "get:body",
+          "get:constant",
+          "get:docs",
+          "get:external",
+          "get:factory",
+          "get:initializers",
+          "get:lambda",
+          "get:name",
+          "get:optionalParameters",
+          "get:redirect",
+          "get:requiredParameters"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/constructor.dart"
+        ],
+        "methods": [
+          "Constructor"
+        ],
+        "types": [
+          "Code",
+          "Constructor",
+          "ConstructorBuilder",
+          "Expression",
+          "HasAnnotations",
+          "HasDartDocs",
+          "Parameter",
+          "Reference"
+        ]
+      },
+      "ConstructorBuilder": {
+        "fields": [
+          "annotations",
+          "body",
+          "constant",
+          "docs",
+          "external",
+          "factory",
+          "initializers",
+          "lambda",
+          "name",
+          "optionalParameters",
+          "redirect",
+          "requiredParameters"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/constructor.dart"
+        ],
+        "methods": [
+          "ConstructorBuilder"
+        ],
+        "types": [
+          "Code",
+          "Constructor",
+          "ConstructorBuilder",
+          "Expression",
+          "HasAnnotationsBuilder",
+          "HasDartDocsBuilder",
+          "Parameter",
+          "Reference"
+        ]
+      },
+      "DartEmitter": {
+        "fields": [
+          "allocator",
+          "orderDirectives"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/emitter.dart"
+        ],
+        "methods": [
+          "DartEmitter",
+          "scoped",
+          "visitAnnotation",
+          "visitClass",
+          "visitConstructor",
+          "visitDirective",
+          "visitEnum",
+          "visitExtension",
+          "visitExtensionType",
+          "visitField",
+          "visitFunctionType",
+          "visitLibrary",
+          "visitMethod",
+          "visitMixin",
+          "visitRecordType",
+          "visitReference",
+          "visitSpec",
+          "visitType",
+          "visitTypeDef",
+          "visitTypeParameters"
+        ],
+        "types": [
+          "Allocator",
+          "Class",
+          "CodeEmitter",
+          "Constructor",
+          "Directive",
+          "Enum",
+          "Expression",
+          "ExpressionEmitter",
+          "Extension",
+          "ExtensionType",
+          "Field",
+          "FunctionType",
+          "Library",
+          "Method",
+          "Mixin",
+          "RecordType",
+          "Reference",
+          "Spec",
+          "SpecVisitor",
+          "TypeDef",
+          "TypeReference"
+        ]
+      },
+      "Directive": {
+        "fields": [
+          "get:as",
+          "get:deferred",
+          "get:hide",
+          "get:show",
+          "get:type",
+          "get:url"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/directive.dart"
+        ],
+        "methods": [
+          "Directive",
+          "accept",
+          "compareTo",
+          "export",
+          "import",
+          "importDeferredAs",
+          "part",
+          "partOf"
+        ],
+        "types": [
+          "Directive",
+          "DirectiveBuilder",
+          "DirectiveType",
+          "Spec",
+          "SpecVisitor"
+        ]
+      },
+      "DirectiveBuilder": {
+        "fields": [
+          "as",
+          "deferred",
+          "hide",
+          "show",
+          "type",
+          "url"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/directive.dart"
+        ],
+        "methods": [
+          "DirectiveBuilder"
+        ],
+        "types": [
+          "Directive",
+          "DirectiveBuilder",
+          "DirectiveType"
+        ]
+      },
+      "DirectiveType": {
+        "fields": [
+          "export",
+          "import",
+          "part",
+          "partOf"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/directive.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Enum": {
+        "fields": [
+          "get:annotations",
+          "get:constructors",
+          "get:docs",
+          "get:fields",
+          "get:implements",
+          "get:methods",
+          "get:mixins",
+          "get:name",
+          "get:types",
+          "get:values"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/enum.dart"
+        ],
+        "methods": [
+          "Enum",
+          "accept"
+        ],
+        "types": [
+          "Constructor",
+          "Enum",
+          "EnumBuilder",
+          "EnumValue",
+          "Expression",
+          "Field",
+          "HasAnnotations",
+          "HasDartDocs",
+          "HasGenerics",
+          "Method",
+          "Reference",
+          "Spec",
+          "SpecVisitor"
+        ]
+      },
+      "EnumBuilder": {
+        "fields": [
+          "annotations",
+          "constructors",
+          "docs",
+          "fields",
+          "implements",
+          "methods",
+          "mixins",
+          "name",
+          "types",
+          "values"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/enum.dart"
+        ],
+        "methods": [
+          "EnumBuilder"
+        ],
+        "types": [
+          "Constructor",
+          "Enum",
+          "EnumBuilder",
+          "EnumValue",
+          "Expression",
+          "Field",
+          "HasAnnotationsBuilder",
+          "HasDartDocsBuilder",
+          "HasGenericsBuilder",
+          "Method",
+          "Reference"
+        ]
+      },
+      "EnumValue": {
+        "fields": [
+          "get:annotations",
+          "get:arguments",
+          "get:constructorName",
+          "get:docs",
+          "get:name",
+          "get:namedArguments",
+          "get:types"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/enum.dart"
+        ],
+        "methods": [
+          "EnumValue"
+        ],
+        "types": [
+          "EnumValue",
+          "EnumValueBuilder",
+          "Expression",
+          "HasAnnotations",
+          "HasDartDocs",
+          "HasGenerics",
+          "Reference"
+        ]
+      },
+      "EnumValueBuilder": {
+        "fields": [
+          "annotations",
+          "arguments",
+          "constructorName",
+          "docs",
+          "name",
+          "namedArguments",
+          "types"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/enum.dart"
+        ],
+        "methods": [
+          "EnumValueBuilder"
+        ],
+        "types": [
+          "EnumValue",
+          "EnumValueBuilder",
+          "Expression",
+          "HasAnnotationsBuilder",
+          "HasDartDocsBuilder",
+          "HasGenericsBuilder",
+          "Reference"
+        ]
+      },
+      "EqualsDart": {
+        "fields": [
+          "format"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/matchers.dart"
+        ],
+        "methods": [
+          "describe",
+          "describeMismatch",
+          "matches"
+        ],
+        "types": [
+          "DartEmitter",
+          "Spec"
+        ]
+      },
+      "Expression": {
+        "fields": [
+          "get:awaited",
+          "get:code",
+          "get:expression",
+          "get:isConst",
+          "get:nullChecked",
+          "get:nullSafeSpread",
+          "get:parenthesized",
+          "get:returned",
+          "get:spread",
+          "get:statement",
+          "get:thrown"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [
+          "Expression",
+          "accept",
+          "addAssign",
+          "and",
+          "asA",
+          "assign",
+          "assignConst",
+          "assignFinal",
+          "assignNullAware",
+          "assignVar",
+          "bitwiseAndAssign",
+          "bitwiseOrAssign",
+          "bitwiseXorAssign",
+          "call",
+          "cascade",
+          "conditional",
+          "divideAssign",
+          "equalTo",
+          "euclideanModuloAssign",
+          "greaterOrEqualTo",
+          "greaterThan",
+          "ifNullThen",
+          "index",
+          "intDivideAssign",
+          "isA",
+          "isNotA",
+          "lessOrEqualTo",
+          "lessThan",
+          "multiplyAssign",
+          "negate",
+          "notEqualTo",
+          "nullSafeProperty",
+          "operatorAdd",
+          "operatorBitwiseAnd",
+          "operatorBitwiseOr",
+          "operatorBitwiseXor",
+          "operatorDivide",
+          "operatorEuclideanModulo",
+          "operatorIntDivide",
+          "operatorMultiply",
+          "operatorShiftLeft",
+          "operatorShiftRight",
+          "operatorShiftRightUnsigned",
+          "operatorSubstract",
+          "operatorSubtract",
+          "operatorUnaryBitwiseComplement",
+          "operatorUnaryMinus",
+          "operatorUnaryPostfixDecrement",
+          "operatorUnaryPostfixIncrement",
+          "operatorUnaryPrefixDecrement",
+          "operatorUnaryPrefixIncrement",
+          "or",
+          "property",
+          "shiftLeftAssign",
+          "shiftRightAssign",
+          "shiftRightUnsignedAssign",
+          "subtractAssign"
+        ],
+        "types": [
+          "Code",
+          "Expression",
+          "ExpressionVisitor",
+          "ParenthesizedExpression",
+          "Reference",
+          "Spec"
+        ]
+      },
+      "ExpressionEmitter": {
+        "fields": [],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [
+          "startConstCode",
+          "visitBinaryExpression",
+          "visitClosureExpression",
+          "visitCodeExpression",
+          "visitInvokeExpression",
+          "visitLiteralExpression",
+          "visitLiteralListExpression",
+          "visitLiteralMapExpression",
+          "visitLiteralRecordExpression",
+          "visitLiteralSetExpression",
+          "visitParenthesizedExpression",
+          "visitToCodeExpression"
+        ],
+        "types": [
+          "BinaryExpression",
+          "ClosureExpression",
+          "CodeExpression",
+          "ExpressionVisitor",
+          "InvokeExpression",
+          "LiteralExpression",
+          "LiteralListExpression",
+          "LiteralMapExpression",
+          "LiteralRecordExpression",
+          "LiteralSetExpression",
+          "ParenthesizedExpression",
+          "ToCodeExpression"
+        ]
+      },
+      "ExpressionVisitor": {
+        "fields": [],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [
+          "visitBinaryExpression",
+          "visitClosureExpression",
+          "visitCodeExpression",
+          "visitInvokeExpression",
+          "visitLiteralExpression",
+          "visitLiteralListExpression",
+          "visitLiteralMapExpression",
+          "visitLiteralRecordExpression",
+          "visitLiteralSetExpression",
+          "visitParenthesizedExpression",
+          "visitToCodeExpression"
+        ],
+        "types": [
+          "BinaryExpression",
+          "ClosureExpression",
+          "CodeExpression",
+          "InvokeExpression",
+          "LiteralExpression",
+          "LiteralListExpression",
+          "LiteralMapExpression",
+          "LiteralRecordExpression",
+          "LiteralSetExpression",
+          "ParenthesizedExpression",
+          "SpecVisitor",
+          "ToCodeExpression"
+        ]
+      },
+      "Extension": {
+        "fields": [
+          "get:annotations",
+          "get:docs",
+          "get:fields",
+          "get:methods",
+          "get:name",
+          "get:on",
+          "get:types"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/extension.dart"
+        ],
+        "methods": [
+          "Extension",
+          "accept"
+        ],
+        "types": [
+          "Expression",
+          "Extension",
+          "ExtensionBuilder",
+          "Field",
+          "HasAnnotations",
+          "HasDartDocs",
+          "HasGenerics",
+          "Method",
+          "Reference",
+          "Spec",
+          "SpecVisitor"
+        ]
+      },
+      "ExtensionBuilder": {
+        "fields": [
+          "annotations",
+          "docs",
+          "fields",
+          "methods",
+          "name",
+          "on",
+          "types"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/extension.dart"
+        ],
+        "methods": [
+          "ExtensionBuilder"
+        ],
+        "types": [
+          "Expression",
+          "Extension",
+          "ExtensionBuilder",
+          "Field",
+          "HasAnnotationsBuilder",
+          "HasDartDocsBuilder",
+          "HasGenericsBuilder",
+          "Method",
+          "Reference"
+        ]
+      },
+      "ExtensionType": {
+        "fields": [
+          "get:annotations",
+          "get:constant",
+          "get:constructors",
+          "get:docs",
+          "get:fields",
+          "get:implements",
+          "get:methods",
+          "get:name",
+          "get:primaryConstructorName",
+          "get:representationDeclaration",
+          "get:types"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/extension_type.dart"
+        ],
+        "methods": [
+          "ExtensionType",
+          "accept"
+        ],
+        "types": [
+          "Constructor",
+          "Expression",
+          "ExtensionType",
+          "ExtensionTypeBuilder",
+          "Field",
+          "HasAnnotations",
+          "HasDartDocs",
+          "HasGenerics",
+          "Method",
+          "Reference",
+          "RepresentationDeclaration",
+          "Spec",
+          "SpecVisitor"
+        ]
+      },
+      "ExtensionTypeBuilder": {
+        "fields": [
+          "annotations",
+          "constant",
+          "constructors",
+          "docs",
+          "fields",
+          "implements",
+          "methods",
+          "name",
+          "primaryConstructorName",
+          "representationDeclaration",
+          "types"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/extension_type.dart"
+        ],
+        "methods": [
+          "ExtensionTypeBuilder",
+          "update"
+        ],
+        "types": [
+          "Constructor",
+          "Expression",
+          "ExtensionType",
+          "ExtensionTypeBuilder",
+          "Field",
+          "HasAnnotationsBuilder",
+          "HasDartDocsBuilder",
+          "HasGenericsBuilder",
+          "Method",
+          "Reference",
+          "RepresentationDeclaration"
+        ]
+      },
+      "Field": {
+        "fields": [
+          "get:annotations",
+          "get:assignment",
+          "get:docs",
+          "get:external",
+          "get:late",
+          "get:modifier",
+          "get:name",
+          "get:static",
+          "get:type"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/field.dart"
+        ],
+        "methods": [
+          "Field",
+          "accept"
+        ],
+        "types": [
+          "Code",
+          "Expression",
+          "Field",
+          "FieldBuilder",
+          "FieldModifier",
+          "HasAnnotations",
+          "HasDartDocs",
+          "Reference",
+          "Spec",
+          "SpecVisitor"
+        ]
+      },
+      "FieldBuilder": {
+        "fields": [
+          "annotations",
+          "assignment",
+          "docs",
+          "external",
+          "late",
+          "modifier",
+          "name",
+          "static",
+          "type"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/field.dart"
+        ],
+        "methods": [
+          "FieldBuilder"
+        ],
+        "types": [
+          "Code",
+          "Expression",
+          "Field",
+          "FieldBuilder",
+          "FieldModifier",
+          "HasAnnotationsBuilder",
+          "HasDartDocsBuilder",
+          "Reference"
+        ]
+      },
+      "FieldModifier": {
+        "fields": [
+          "constant",
+          "final$",
+          "var$"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/field.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "FunctionType": {
+        "fields": [
+          "get:isNullable",
+          "get:namedParameters",
+          "get:namedRequiredParameters",
+          "get:optionalParameters",
+          "get:requiredParameters",
+          "get:returnType",
+          "get:symbol",
+          "get:type",
+          "get:types",
+          "get:url"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/type_function.dart"
+        ],
+        "methods": [
+          "FunctionType",
+          "accept",
+          "constInstance",
+          "constInstanceNamed",
+          "newInstance",
+          "newInstanceNamed",
+          "toTypeDef"
+        ],
+        "types": [
+          "Code",
+          "Expression",
+          "FunctionType",
+          "FunctionTypeBuilder",
+          "HasGenerics",
+          "Reference",
+          "Spec",
+          "SpecVisitor"
+        ]
+      },
+      "FunctionTypeBuilder": {
+        "fields": [
+          "isNullable",
+          "namedParameters",
+          "namedRequiredParameters",
+          "optionalParameters",
+          "requiredParameters",
+          "returnType",
+          "symbol",
+          "types",
+          "url"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/type_function.dart"
+        ],
+        "methods": [
+          "FunctionTypeBuilder"
+        ],
+        "types": [
+          "FunctionType",
+          "FunctionTypeBuilder",
+          "HasGenericsBuilder",
+          "Reference"
+        ]
+      },
+      "HasAnnotations": {
+        "fields": [
+          "get:annotations"
+        ],
+        "libraries": [
+          "package:code_builder/src/mixins/annotations.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Expression"
+        ]
+      },
+      "HasAnnotationsBuilder": {
+        "fields": [
+          "annotations"
+        ],
+        "libraries": [
+          "package:code_builder/src/mixins/annotations.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Expression"
+        ]
+      },
+      "HasDartDocs": {
+        "fields": [
+          "get:docs"
+        ],
+        "libraries": [
+          "package:code_builder/src/mixins/dartdoc.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "HasDartDocsBuilder": {
+        "fields": [
+          "docs"
+        ],
+        "libraries": [
+          "package:code_builder/src/mixins/dartdoc.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "HasGenerics": {
+        "fields": [
+          "get:types"
+        ],
+        "libraries": [
+          "package:code_builder/src/mixins/generics.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Reference"
+        ]
+      },
+      "HasGenericsBuilder": {
+        "fields": [
+          "types"
+        ],
+        "libraries": [
+          "package:code_builder/src/mixins/generics.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Reference"
+        ]
+      },
+      "InvokeExpression": {
+        "fields": [
+          "isConst",
+          "name",
+          "namedArguments",
+          "positionalArguments",
+          "target",
+          "type",
+          "typeArguments"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [
+          "accept",
+          "constOf",
+          "newOf",
+          "toString"
+        ],
+        "types": [
+          "Expression",
+          "ExpressionVisitor",
+          "InvokeExpressionType",
+          "Reference"
+        ]
+      },
+      "InvokeExpressionType": {
+        "fields": [
+          "constInstance",
+          "newInstance"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LazyCode": {
+        "fields": [
+          "generate"
+        ],
+        "libraries": [
+          "package:code_builder/src/specs/code.dart"
+        ],
+        "methods": [
+          "accept"
+        ],
+        "types": [
+          "Code",
+          "CodeVisitor",
+          "Spec",
+          "SpecVisitor"
+        ]
+      },
+      "Library": {
+        "fields": [
+          "get:annotations",
+          "get:body",
+          "get:comments",
+          "get:directives",
+          "get:docs",
+          "get:generatedByComment",
+          "get:ignoreForFile",
+          "get:name"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/library.dart"
+        ],
+        "methods": [
+          "Library",
+          "accept"
+        ],
+        "types": [
+          "Directive",
+          "Expression",
+          "HasAnnotations",
+          "HasDartDocs",
+          "Library",
+          "LibraryBuilder",
+          "Spec",
+          "SpecVisitor"
+        ]
+      },
+      "LibraryBuilder": {
+        "fields": [
+          "annotations",
+          "body",
+          "comments",
+          "directives",
+          "docs",
+          "generatedByComment",
+          "ignoreForFile",
+          "name"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/library.dart"
+        ],
+        "methods": [
+          "LibraryBuilder"
+        ],
+        "types": [
+          "Directive",
+          "Expression",
+          "HasAnnotationsBuilder",
+          "HasDartDocsBuilder",
+          "Library",
+          "LibraryBuilder",
+          "Spec"
+        ]
+      },
+      "LiteralExpression": {
+        "fields": [
+          "literal"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Expression",
+          "ExpressionVisitor"
+        ]
+      },
+      "LiteralListExpression": {
+        "fields": [
+          "isConst",
+          "type",
+          "values"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Expression",
+          "ExpressionVisitor",
+          "Reference"
+        ]
+      },
+      "LiteralMapExpression": {
+        "fields": [
+          "isConst",
+          "keyType",
+          "valueType",
+          "values"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Expression",
+          "ExpressionVisitor",
+          "Reference"
+        ]
+      },
+      "LiteralRecordExpression": {
+        "fields": [
+          "isConst",
+          "namedFieldValues",
+          "positionalFieldValues"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Expression",
+          "ExpressionVisitor"
+        ]
+      },
+      "LiteralSetExpression": {
+        "fields": [
+          "isConst",
+          "type",
+          "values"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Expression",
+          "ExpressionVisitor",
+          "Reference"
+        ]
+      },
+      "LiteralSpreadExpression": {
+        "fields": [],
+        "libraries": [
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [],
+        "types": [
+          "LiteralExpression"
+        ]
+      },
+      "Method": {
+        "fields": [
+          "get:annotations",
+          "get:body",
+          "get:closure",
+          "get:docs",
+          "get:external",
+          "get:genericClosure",
+          "get:lambda",
+          "get:modifier",
+          "get:name",
+          "get:optionalParameters",
+          "get:requiredParameters",
+          "get:returns",
+          "get:static",
+          "get:type",
+          "get:types"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/method.dart"
+        ],
+        "methods": [
+          "Method",
+          "accept",
+          "returnsVoid"
+        ],
+        "types": [
+          "Code",
+          "Expression",
+          "HasAnnotations",
+          "HasDartDocs",
+          "HasGenerics",
+          "Method",
+          "MethodBuilder",
+          "MethodModifier",
+          "MethodType",
+          "Parameter",
+          "Reference",
+          "Spec",
+          "SpecVisitor"
+        ]
+      },
+      "MethodBuilder": {
+        "fields": [
+          "annotations",
+          "body",
+          "docs",
+          "external",
+          "lambda",
+          "modifier",
+          "name",
+          "optionalParameters",
+          "requiredParameters",
+          "returns",
+          "static",
+          "type",
+          "types"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/method.dart"
+        ],
+        "methods": [
+          "MethodBuilder",
+          "update"
+        ],
+        "types": [
+          "Code",
+          "Expression",
+          "HasAnnotationsBuilder",
+          "HasDartDocsBuilder",
+          "HasGenericsBuilder",
+          "Method",
+          "MethodBuilder",
+          "MethodModifier",
+          "MethodType",
+          "Parameter",
+          "Reference"
+        ]
+      },
+      "MethodModifier": {
+        "fields": [
+          "async",
+          "asyncStar",
+          "syncStar"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/method.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MethodType": {
+        "fields": [
+          "getter",
+          "setter"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/method.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Mixin": {
+        "fields": [
+          "get:annotations",
+          "get:base",
+          "get:docs",
+          "get:fields",
+          "get:implements",
+          "get:methods",
+          "get:name",
+          "get:on",
+          "get:types"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/mixin.dart"
+        ],
+        "methods": [
+          "Mixin",
+          "accept"
+        ],
+        "types": [
+          "Expression",
+          "Field",
+          "HasAnnotations",
+          "HasDartDocs",
+          "HasGenerics",
+          "Method",
+          "Mixin",
+          "MixinBuilder",
+          "Reference",
+          "Spec",
+          "SpecVisitor"
+        ]
+      },
+      "MixinBuilder": {
+        "fields": [
+          "annotations",
+          "base",
+          "docs",
+          "fields",
+          "implements",
+          "methods",
+          "name",
+          "on",
+          "types"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/mixin.dart"
+        ],
+        "methods": [
+          "MixinBuilder"
+        ],
+        "types": [
+          "Expression",
+          "Field",
+          "HasAnnotationsBuilder",
+          "HasDartDocsBuilder",
+          "HasGenericsBuilder",
+          "Method",
+          "Mixin",
+          "MixinBuilder",
+          "Reference"
+        ]
+      },
+      "Parameter": {
+        "fields": [
+          "get:annotations",
+          "get:covariant",
+          "get:defaultTo",
+          "get:docs",
+          "get:name",
+          "get:named",
+          "get:required",
+          "get:toSuper",
+          "get:toThis",
+          "get:type",
+          "get:types"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/method.dart"
+        ],
+        "methods": [
+          "Parameter"
+        ],
+        "types": [
+          "Code",
+          "Expression",
+          "HasAnnotations",
+          "HasDartDocs",
+          "HasGenerics",
+          "Parameter",
+          "ParameterBuilder",
+          "Reference"
+        ]
+      },
+      "ParameterBuilder": {
+        "fields": [
+          "annotations",
+          "covariant",
+          "defaultTo",
+          "docs",
+          "name",
+          "named",
+          "required",
+          "toSuper",
+          "toThis",
+          "type",
+          "types"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/method.dart"
+        ],
+        "methods": [
+          "ParameterBuilder",
+          "update"
+        ],
+        "types": [
+          "Code",
+          "Expression",
+          "HasAnnotationsBuilder",
+          "HasDartDocsBuilder",
+          "HasGenericsBuilder",
+          "Parameter",
+          "ParameterBuilder",
+          "Reference"
+        ]
+      },
+      "ParenthesizedExpression": {
+        "fields": [
+          "inner"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [
+          "accept"
+        ],
+        "types": [
+          "Expression",
+          "ExpressionVisitor"
+        ]
+      },
+      "RecordType": {
+        "fields": [
+          "get:isNullable",
+          "get:namedFieldTypes",
+          "get:positionalFieldTypes",
+          "get:symbol",
+          "get:type",
+          "get:url"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/type_record.dart"
+        ],
+        "methods": [
+          "RecordType",
+          "accept",
+          "constInstance",
+          "constInstanceNamed",
+          "newInstance",
+          "newInstanceNamed"
+        ],
+        "types": [
+          "Expression",
+          "RecordType",
+          "RecordTypeBuilder",
+          "Reference",
+          "Spec",
+          "SpecVisitor"
+        ]
+      },
+      "RecordTypeBuilder": {
+        "fields": [
+          "isNullable",
+          "namedFieldTypes",
+          "positionalFieldTypes",
+          "symbol",
+          "url"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/type_record.dart"
+        ],
+        "methods": [
+          "RecordTypeBuilder"
+        ],
+        "types": [
+          "RecordType",
+          "RecordTypeBuilder",
+          "Reference"
+        ]
+      },
+      "Reference": {
+        "fields": [
+          "get:expression",
+          "get:hashCode",
+          "get:type",
+          "symbol",
+          "url"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/reference.dart"
+        ],
+        "methods": [
+          "==",
+          "Reference",
+          "accept",
+          "constInstance",
+          "constInstanceNamed",
+          "newInstance",
+          "newInstanceNamed",
+          "toString"
+        ],
+        "types": [
+          "Expression",
+          "Reference",
+          "Spec",
+          "SpecVisitor"
+        ]
+      },
+      "RepresentationDeclaration": {
+        "fields": [
+          "get:annotations",
+          "get:declaredRepresentationType",
+          "get:docs",
+          "get:name"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/extension_type.dart"
+        ],
+        "methods": [
+          "RepresentationDeclaration"
+        ],
+        "types": [
+          "Expression",
+          "HasAnnotations",
+          "HasDartDocs",
+          "Reference",
+          "RepresentationDeclaration",
+          "RepresentationDeclarationBuilder"
+        ]
+      },
+      "RepresentationDeclarationBuilder": {
+        "fields": [
+          "annotations",
+          "declaredRepresentationType",
+          "docs",
+          "name"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/extension_type.dart"
+        ],
+        "methods": [
+          "RepresentationDeclarationBuilder",
+          "update"
+        ],
+        "types": [
+          "Expression",
+          "HasAnnotationsBuilder",
+          "HasDartDocsBuilder",
+          "Reference",
+          "RepresentationDeclaration",
+          "RepresentationDeclarationBuilder"
+        ]
+      },
+      "ScopedCode": {
+        "fields": [
+          "code"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/code.dart"
+        ],
+        "methods": [
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Code",
+          "CodeVisitor"
+        ]
+      },
+      "Spec": {
+        "fields": [],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/base.dart"
+        ],
+        "methods": [
+          "accept"
+        ],
+        "types": [
+          "SpecVisitor"
+        ]
+      },
+      "SpecVisitor": {
+        "fields": [],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/visitors.dart"
+        ],
+        "methods": [
+          "visitAnnotation",
+          "visitClass",
+          "visitConstructor",
+          "visitDirective",
+          "visitEnum",
+          "visitExtension",
+          "visitExtensionType",
+          "visitField",
+          "visitFunctionType",
+          "visitLibrary",
+          "visitMethod",
+          "visitMixin",
+          "visitRecordType",
+          "visitReference",
+          "visitSpec",
+          "visitType",
+          "visitTypeDef",
+          "visitTypeParameters"
+        ],
+        "types": [
+          "Class",
+          "Constructor",
+          "Directive",
+          "Enum",
+          "Expression",
+          "Extension",
+          "ExtensionType",
+          "Field",
+          "FunctionType",
+          "Library",
+          "Method",
+          "Mixin",
+          "RecordType",
+          "Reference",
+          "Spec",
+          "TypeDef",
+          "TypeReference"
+        ]
+      },
+      "StaticCode": {
+        "fields": [
+          "code"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/code.dart"
+        ],
+        "methods": [
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Code",
+          "CodeVisitor"
+        ]
+      },
+      "ToCodeExpression": {
+        "fields": [
+          "code",
+          "isStatement"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/expression.dart"
+        ],
+        "methods": [
+          "ToCodeExpression",
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Code",
+          "CodeVisitor",
+          "Expression"
+        ]
+      },
+      "TypeDef": {
+        "fields": [
+          "get:definition",
+          "get:name"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/typedef.dart"
+        ],
+        "methods": [
+          "TypeDef",
+          "accept"
+        ],
+        "types": [
+          "Expression",
+          "HasAnnotations",
+          "HasDartDocs",
+          "HasGenerics",
+          "Spec",
+          "SpecVisitor",
+          "TypeDef",
+          "TypeDefBuilder"
+        ]
+      },
+      "TypeDefBuilder": {
+        "fields": [
+          "annotations",
+          "definition",
+          "docs",
+          "name",
+          "types"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/typedef.dart"
+        ],
+        "methods": [
+          "TypeDefBuilder"
+        ],
+        "types": [
+          "Expression",
+          "HasAnnotationsBuilder",
+          "HasDartDocsBuilder",
+          "HasGenericsBuilder",
+          "Reference",
+          "TypeDef",
+          "TypeDefBuilder"
+        ]
+      },
+      "TypeReference": {
+        "fields": [
+          "get:bound",
+          "get:expression",
+          "get:isNullable",
+          "get:symbol",
+          "get:type",
+          "get:types",
+          "get:url"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/type_reference.dart"
+        ],
+        "methods": [
+          "TypeReference",
+          "accept",
+          "constInstance",
+          "constInstanceNamed",
+          "newInstance",
+          "newInstanceNamed"
+        ],
+        "types": [
+          "Expression",
+          "HasGenerics",
+          "Reference",
+          "Spec",
+          "SpecVisitor",
+          "TypeReference",
+          "TypeReferenceBuilder"
+        ]
+      },
+      "TypeReferenceBuilder": {
+        "fields": [
+          "bound",
+          "isNullable",
+          "symbol",
+          "types",
+          "url"
+        ],
+        "libraries": [
+          "package:code_builder/code_builder.dart",
+          "package:code_builder/src/specs/type_reference.dart"
+        ],
+        "methods": [
+          "TypeReferenceBuilder"
+        ],
+        "types": [
+          "HasGenericsBuilder",
+          "Reference",
+          "TypeReference",
+          "TypeReferenceBuilder"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:16:08Z",
+  "package": "code_builder",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "BinaryExpression",
+      "ClosureExpression",
+      "Code",
+      "CodeExpression",
+      "EqualsDart",
+      "Expression",
+      "InvokeExpression",
+      "LazyCode",
+      "LiteralExpression",
+      "LiteralListExpression",
+      "LiteralMapExpression",
+      "LiteralRecordExpression",
+      "LiteralSetExpression",
+      "ParenthesizedExpression",
+      "Reference",
+      "ScopedCode",
+      "SpecVisitor",
+      "StaticCode",
+      "ToCodeExpression",
+      "_LazyCode",
+      "_LazySpec",
+      "_NullAllocator"
+    ],
+    "digest": "92a79e4a0af09ae07ef000d69dc0c29c76825c90b62f0c6f4e282ecd6be92283",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "2f22d4ffed5e332fe7ba3e5b8f8770229be46d697ff03c203c20e80957ca7cef",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      " ",
+      "  {",
+      "  }",
+      " : ",
+      " = ",
+      " => ",
+      " async ",
+      " async* ",
+      " deferred ",
+      " extends ",
+      " hide ",
+      " implements ",
+      " on ",
+      " show ",
+      " sync* ",
+      " with ",
+      " {",
+      " { ",
+      " }",
+      " } ",
+      "!",
+      "!=",
+      "%",
+      "%=",
+      "&",
+      "&&",
+      "&=",
+      "'",
+      "(",
+      ")",
+      "*",
+      "*=",
+      "+",
+      "++",
+      "+=",
+      ",",
+      ", ",
+      "-",
+      "--",
+      "-=",
+      ".",
+      "..",
+      "...",
+      "...?",
+      "../allocator.dart",
+      "../base.dart",
+      "../emitter.dart",
+      "../expression.dart",
+      "../mixins/annotations.dart",
+      "../mixins/dartdoc.dart",
+      "../mixins/generics.dart",
+      "../specs/expression.dart",
+      "../specs/reference.dart",
+      "../visitors.dart",
+      "/",
+      "// ignore_for_file: no_leading_underscores_for_library_prefixes",
+      "/=",
+      ":",
+      ": ",
+      ";",
+      "<",
+      "<<",
+      "<<=",
+      "<=",
+      "=",
+      "==",
+      ">",
+      ">=",
+      ">>",
+      ">>=",
+      ">>>",
+      ">>>=",
+      "?",
+      "?.",
+      "??",
+      "??=",
+      "@",
+      "Block",
+      "Cannot \"const\" a function type.",
+      "Cannot \"const\" a record type.",
+      "Cannot include a single quote in a raw string",
+      "Cannot instantiate a function type.",
+      "Cannot instantiate a record type.",
+      "Class",
+      "Constructor",
+      "Directive",
+      "Enum",
+      "EnumValue",
+      "Extension",
+      "ExtensionType",
+      "Field",
+      "Function",
+      "FunctionType",
+      "Library",
+      "Method",
+      "Mixin",
+      "Parameter",
+      "RecordType",
+      "Reference",
+      "RepresentationDeclaration",
+      "TypeDef",
+      "TypeReference",
+      "Use `declareConst(name).assign(expression)`",
+      "Use `declareFinal(name).assign(expression)`",
+      "Use `declareVar(name).assign(expression)`",
+      "Use `operatorSubtract` instead",
+      "Use isConst instead",
+      "[",
+      "\\'",
+      "\\n",
+      "]",
+      "^",
+      "^=",
+      "_",
+      "abstract",
+      "abstract ",
+      "allocator.dart",
+      "annotations",
+      "arguments",
+      "as",
+      "assignment",
+      "await",
+      "base",
+      "base ",
+      "base.dart",
+      "body",
+      "bound",
+      "class.dart",
+      "class.g.dart",
+      "code.dart",
+      "code.g.dart",
+      "comments",
+      "const",
+      "const ",
+      "constant",
+      "constructor.dart",
+      "constructor.g.dart",
+      "constructorName",
+      "constructors",
+      "covariant",
+      "covariant ",
+      "dart:core",
+      "declaredRepresentationType",
+      "defaultTo",
+      "deferred",
+      "definition",
+      "directive.dart",
+      "directive.g.dart",
+      "directives",
+      "docs",
+      "dynamic",
+      "emitter.dart",
+      "enum.dart",
+      "enum.g.dart",
+      "export ",
+      "expression.dart",
+      "expression/binary.dart",
+      "expression/closure.dart",
+      "expression/code.dart",
+      "expression/invoke.dart",
+      "expression/literal.dart",
+      "expression/parenthesized.dart",
+      "extend",
+      "extension",
+      "extension type ",
+      "extension.dart",
+      "extension.g.dart",
+      "extension_type.dart",
+      "extension_type.g.dart",
+      "external",
+      "external ",
+      "factory",
+      "factory ",
+      "false",
+      "field.dart",
+      "field.g.dart",
+      "fields",
+      "final",
+      "final ",
+      "generatedByComment",
+      "get ",
+      "hide",
+      "ignoreForFile",
+      "implements",
+      "import ",
+      "initializers",
+      "interface",
+      "is",
+      "is!",
+      "isNullable",
+      "lambda",
+      "late",
+      "late ",
+      "library.dart",
+      "library.g.dart",
+      "library;",
+      "method.dart",
+      "method.g.dart",
+      "methods",
+      "mixin",
+      "mixin ",
+      "mixin.dart",
+      "mixin.g.dart",
+      "mixins",
+      "modifier",
+      "name",
+      "named",
+      "namedArguments",
+      "namedFieldTypes",
+      "namedParameters",
+      "namedRequiredParameters",
+      "null",
+      "on",
+      "optionalParameters",
+      "other",
+      "package:built_collection/built_collection.dart",
+      "package:built_value/built_value.dart",
+      "package:collection/collection.dart",
+      "package:matcher/matcher.dart",
+      "package:meta/meta.dart",
+      "part ",
+      "part of ",
+      "positionalFieldTypes",
+      "primaryConstructorName",
+      "r",
+      "redirect",
+      "reference.dart",
+      "representationDeclaration",
+      "required",
+      "required ",
+      "requiredParameters",
+      "return",
+      "returnType",
+      "returns",
+      "sealed",
+      "sealed ",
+      "set ",
+      "show",
+      "specs/class.dart",
+      "specs/code.dart",
+      "specs/constructor.dart",
+      "specs/directive.dart",
+      "specs/enum.dart",
+      "specs/expression.dart",
+      "specs/extension.dart",
+      "specs/extension_type.dart",
+      "specs/field.dart",
+      "specs/library.dart",
+      "specs/method.dart",
+      "specs/mixin.dart",
+      "specs/reference.dart",
+      "specs/type_function.dart",
+      "specs/type_record.dart",
+      "specs/type_reference.dart",
+      "specs/typedef.dart",
+      "src/allocator.dart",
+      "src/base.dart",
+      "src/emitter.dart",
+      "src/matchers.dart",
+      "src/specs/class.dart",
+      "src/specs/code.dart",
+      "src/specs/constructor.dart",
+      "src/specs/directive.dart",
+      "src/specs/enum.dart",
+      "src/specs/expression.dart",
+      "src/specs/extension.dart",
+      "src/specs/extension_type.dart",
+      "src/specs/field.dart",
+      "src/specs/library.dart",
+      "src/specs/method.dart",
+      "src/specs/mixin.dart",
+      "src/specs/reference.dart",
+      "src/specs/type_function.dart",
+      "src/specs/type_record.dart",
+      "src/specs/type_reference.dart",
+      "src/specs/typedef.dart",
+      "src/visitors.dart",
+      "statements",
+      "static",
+      "static ",
+      "super.",
+      "symbol",
+      "this.",
+      "throw",
+      "toSuper",
+      "toThis",
+      "true",
+      "type",
+      "type_function.dart",
+      "type_function.g.dart",
+      "type_record.dart",
+      "type_record.g.dart",
+      "type_reference.dart",
+      "type_reference.g.dart",
+      "typedef.dart",
+      "typedef.g.dart",
+      "types",
+      "url",
+      "values",
+      "var ",
+      "visitors.dart",
+      "void",
+      "{",
+      "|",
+      "|=",
+      "||",
+      "}",
+      "~",
+      "~/",
+      "~/="
+    ]
+  },
+  "version": "4.11.0"
+}
