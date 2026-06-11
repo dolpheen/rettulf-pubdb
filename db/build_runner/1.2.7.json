@@ -1,0 +1,946 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "configOption",
+          "defineOption",
+          "deleteFilesByDefaultOption",
+          "entrypointExtensionMarker",
+          "failOnSevereOption",
+          "get:dartLoader",
+          "hostnameOption",
+          "hotReloadOption",
+          "liveReloadOption",
+          "logPerformanceOption",
+          "logRequestsOption",
+          "lowResourcesModeOption",
+          "outputOption",
+          "releaseOption",
+          "scriptLocation",
+          "scriptSnapshotLocation",
+          "skipBuildScriptCheckOption",
+          "symlinkOption",
+          "trackPerformanceOption",
+          "verboseOption"
+        ],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/build_script_generate.dart",
+          "package:build_runner/src/build_script_generate/bootstrap.dart",
+          "package:build_runner/src/build_script_generate/build_script_generate.dart",
+          "package:build_runner/src/build_script_generate/builder_ordering.dart",
+          "package:build_runner/src/daemon/constants.dart",
+          "package:build_runner/src/entrypoint/clean.dart",
+          "package:build_runner/src/entrypoint/options.dart",
+          "package:build_runner/src/entrypoint/run.dart",
+          "package:build_runner/src/generate/build.dart",
+          "package:build_runner/src/generate/directory_watcher_factory.dart",
+          "package:build_runner/src/generate/watch_impl.dart",
+          "package:build_runner/src/logging/std_io_logging.dart",
+          "package:build_runner/src/package_graph/build_config_overrides.dart",
+          "package:build_runner/src/server/build_updates_client/hot_reload_client.dart",
+          "package:build_runner/src/server/graph_viz_main.dart",
+          "package:build_runner/src/server/path_to_asset_id.dart",
+          "package:build_runner/src/server/server.dart",
+          "package:build_runner/src/watcher/change_filter.dart",
+          "package:build_runner/src/watcher/collect_changes.dart"
+        ],
+        "methods": [
+          "assetIdToPath",
+          "assetServerPortFilePath",
+          "build",
+          "cleanUpGeneratedDirectory",
+          "cleanUpSourceOutputs",
+          "collectChanges",
+          "colorLog",
+          "createServeHandler",
+          "defaultDirectoryWatcherFactory",
+          "findBuildConfigOverrides",
+          "findBuilderOrder",
+          "generateAndRun",
+          "generateBuildScript",
+          "keys",
+          "main",
+          "pathToAssetId",
+          "run",
+          "shouldProcess",
+          "stdIOLogListener",
+          "watch"
+        ],
+        "types": [
+          "AssetChange",
+          "DartLoader",
+          "JsMap",
+          "ServeHandler",
+          "WatchImpl"
+        ]
+      },
+      "AssetChange": {
+        "fields": [
+          "get:hashCode",
+          "id",
+          "type"
+        ],
+        "libraries": [
+          "package:build_runner/src/watcher/asset_change.dart"
+        ],
+        "methods": [
+          "==",
+          "AssetChange",
+          "fromEvent",
+          "toString"
+        ],
+        "types": []
+      },
+      "AssetGraphHandler": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/server/asset_graph_handler.dart"
+        ],
+        "methods": [
+          "AssetGraphHandler",
+          "handle"
+        ],
+        "types": []
+      },
+      "AssetHandler": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/server/server.dart"
+        ],
+        "methods": [
+          "AssetHandler",
+          "handle"
+        ],
+        "types": []
+      },
+      "AssetServer": {
+        "fields": [
+          "get:port"
+        ],
+        "libraries": [
+          "package:build_runner/src/daemon/asset_server.dart"
+        ],
+        "methods": [
+          "run",
+          "stop"
+        ],
+        "types": [
+          "AssetServer",
+          "BuildRunnerDaemonBuilder"
+        ]
+      },
+      "BuildCommand": {
+        "fields": [
+          "get:description",
+          "get:invocation",
+          "get:name"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/build.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": [
+          "BuildRunnerCommand"
+        ]
+      },
+      "BuildCommandRunner": {
+        "fields": [
+          "builderApplications",
+          "get:usageWithoutDescription",
+          "packageGraph"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/runner.dart"
+        ],
+        "methods": [
+          "BuildCommandRunner"
+        ],
+        "types": []
+      },
+      "BuildRunnerCommand": {
+        "fields": [
+          "get:builderApplications",
+          "get:logger",
+          "get:packageGraph"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/base_command.dart"
+        ],
+        "methods": [
+          "BuildRunnerCommand",
+          "readOptions"
+        ],
+        "types": [
+          "SharedOptions"
+        ]
+      },
+      "BuildRunnerDaemonBuilder": {
+        "fields": [
+          "get:building",
+          "get:builds",
+          "get:changes",
+          "get:reader",
+          "logs"
+        ],
+        "libraries": [
+          "package:build_runner/src/daemon/daemon_builder.dart"
+        ],
+        "methods": [
+          "build",
+          "create",
+          "stop"
+        ],
+        "types": [
+          "BuildRunnerDaemonBuilder",
+          "SharedOptions"
+        ]
+      },
+      "BuildUpdatesOption": {
+        "fields": [
+          "hotReload",
+          "liveReload",
+          "none"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/options.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "BuildUpdatesWebSocketHandler": {
+        "fields": [
+          "connectionsByRootDir"
+        ],
+        "libraries": [
+          "package:build_runner/src/server/server.dart"
+        ],
+        "methods": [
+          "BuildUpdatesWebSocketHandler",
+          "close",
+          "createHandlerByRootDir",
+          "emitUpdateMessage"
+        ],
+        "types": [
+          "WatchImpl"
+        ]
+      },
+      "CleanCommand": {
+        "fields": [
+          "get:description",
+          "get:logger",
+          "get:name"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/clean.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": []
+      },
+      "DaemonCommand": {
+        "fields": [
+          "get:description",
+          "get:hidden",
+          "get:name"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/daemon.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": [
+          "BuildRunnerCommand"
+        ]
+      },
+      "DartLoader": {
+        "fields": [
+          "get:moduleParentsGraph",
+          "get:urlToModuleId"
+        ],
+        "libraries": [
+          "package:build_runner/src/server/build_updates_client/hot_reload_client.dart"
+        ],
+        "methods": [
+          "forceLoadModule",
+          "getModuleLibraries"
+        ],
+        "types": [
+          "JsError",
+          "JsMap"
+        ]
+      },
+      "HotReloadFailedException": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/server/build_updates_client/reloading_manager.dart"
+        ],
+        "methods": [
+          "HotReloadFailedException",
+          "toString"
+        ],
+        "types": []
+      },
+      "HotReloadableLibrary": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/server/build_updates_client/hot_reload_client.dart"
+        ],
+        "methods": [
+          "hot$onChildUpdate",
+          "hot$onDestroy",
+          "hot$onSelfUpdate"
+        ],
+        "types": [
+          "HotReloadableLibrary"
+        ]
+      },
+      "JsError": {
+        "fields": [
+          "get:message",
+          "get:stack"
+        ],
+        "libraries": [
+          "package:build_runner/src/server/build_updates_client/hot_reload_client.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "JsMap": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/server/build_updates_client/hot_reload_client.dart"
+        ],
+        "methods": [
+          "get",
+          "keys"
+        ],
+        "types": []
+      },
+      "Library": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/server/build_updates_client/module.dart"
+        ],
+        "methods": [
+          "onChildUpdate",
+          "onDestroy",
+          "onSelfUpdate"
+        ],
+        "types": [
+          "Library"
+        ]
+      },
+      "LibraryWrapper": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/server/build_updates_client/hot_reload_client.dart"
+        ],
+        "methods": [
+          "LibraryWrapper",
+          "onChildUpdate",
+          "onDestroy",
+          "onSelfUpdate"
+        ],
+        "types": [
+          "HotReloadableLibrary",
+          "Library"
+        ]
+      },
+      "Module": {
+        "fields": [
+          "libraries"
+        ],
+        "libraries": [
+          "package:build_runner/src/server/build_updates_client/module.dart"
+        ],
+        "methods": [
+          "Module",
+          "onChildUpdate",
+          "onDestroy",
+          "onSelfUpdate"
+        ],
+        "types": [
+          "Library",
+          "Module"
+        ]
+      },
+      "OnDeleteWriter": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/watcher/delete_writer.dart"
+        ],
+        "methods": [
+          "OnDeleteWriter",
+          "delete",
+          "writeAsBytes",
+          "writeAsString"
+        ],
+        "types": []
+      },
+      "PackageGraphWatcher": {
+        "fields": [
+          "controller",
+          "get:ready"
+        ],
+        "libraries": [
+          "package:build_runner/src/watcher/graph_watcher.dart"
+        ],
+        "methods": [
+          "PackageGraphWatcher",
+          "watch"
+        ],
+        "types": [
+          "AssetChange",
+          "PackageNodeWatcher"
+        ]
+      },
+      "PackageNodeWatcher": {
+        "fields": [
+          "get:watcher"
+        ],
+        "libraries": [
+          "package:build_runner/src/watcher/node_watcher.dart"
+        ],
+        "methods": [
+          "PackageNodeWatcher",
+          "watch"
+        ],
+        "types": [
+          "AssetChange"
+        ]
+      },
+      "PerfSortOrder": {
+        "fields": [
+          "durationAsc",
+          "durationDesc",
+          "innerDurationAsc",
+          "innerDurationDesc",
+          "startTimeAsc",
+          "startTimeDesc",
+          "stopTimeAsc",
+          "stopTimeDesc"
+        ],
+        "libraries": [
+          "package:build_runner/src/server/server.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ReloadHandler": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/server/build_updates_client/reload_handler.dart"
+        ],
+        "methods": [
+          "ReloadHandler",
+          "listener"
+        ],
+        "types": [
+          "ReloadingManager"
+        ]
+      },
+      "ReloadingManager": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/server/build_updates_client/reloading_manager.dart"
+        ],
+        "methods": [
+          "ReloadingManager",
+          "moduleTopologicalCompare",
+          "reload",
+          "updateGraph"
+        ],
+        "types": [
+          "Module"
+        ]
+      },
+      "ServeCommand": {
+        "fields": [
+          "get:description",
+          "get:invocation",
+          "get:name"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/serve.dart"
+        ],
+        "methods": [
+          "ServeCommand",
+          "readOptions",
+          "run"
+        ],
+        "types": [
+          "ServeOptions",
+          "WatchCommand"
+        ]
+      },
+      "ServeHandler": {
+        "fields": [
+          "get:buildResults",
+          "get:currentBuild"
+        ],
+        "libraries": [
+          "package:build_runner/src/server/server.dart"
+        ],
+        "methods": [
+          "handlerFor"
+        ],
+        "types": [
+          "AssetGraphHandler",
+          "AssetHandler",
+          "BuildUpdatesOption",
+          "BuildUpdatesWebSocketHandler",
+          "WatchImpl"
+        ]
+      },
+      "ServeOptions": {
+        "fields": [
+          "buildUpdates",
+          "hostName",
+          "logRequests",
+          "serveTargets"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/options.dart"
+        ],
+        "methods": [
+          "fromParsedArgs"
+        ],
+        "types": [
+          "BuildUpdatesOption",
+          "ServeTarget",
+          "SharedOptions"
+        ]
+      },
+      "ServeTarget": {
+        "fields": [
+          "dir",
+          "port"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/options.dart"
+        ],
+        "methods": [
+          "ServeTarget"
+        ],
+        "types": []
+      },
+      "SharedOptions": {
+        "fields": [
+          "buildDirs",
+          "builderConfigOverrides",
+          "configKey",
+          "deleteFilesByDefault",
+          "enableLowResourcesMode",
+          "isReleaseBuild",
+          "logPerformanceDir",
+          "outputMap",
+          "outputSymlinksOnly",
+          "skipBuildScriptCheck",
+          "trackPerformance",
+          "verbose"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/options.dart"
+        ],
+        "methods": [
+          "fromParsedArgs"
+        ],
+        "types": []
+      },
+      "Terminator": {
+        "fields": [
+          "shouldTerminate"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/terminator.dart"
+        ],
+        "methods": [
+          "Terminator",
+          "cancel"
+        ],
+        "types": []
+      },
+      "TestCommand": {
+        "fields": [
+          "get:description",
+          "get:invocation",
+          "get:name"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/test.dart"
+        ],
+        "methods": [
+          "TestCommand",
+          "readOptions",
+          "run"
+        ],
+        "types": [
+          "BuildRunnerCommand",
+          "SharedOptions"
+        ]
+      },
+      "WatchCommand": {
+        "fields": [
+          "get:description",
+          "get:invocation",
+          "get:name"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/watch.dart"
+        ],
+        "methods": [
+          "handleBuildResultsStream",
+          "run"
+        ],
+        "types": [
+          "BuildRunnerCommand"
+        ]
+      },
+      "WatchImpl": {
+        "fields": [
+          "buildResults",
+          "currentBuild",
+          "get:assetGraph",
+          "get:reader",
+          "get:ready",
+          "packageGraph"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/watch_impl.dart"
+        ],
+        "methods": [
+          "WatchImpl"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:14:57Z",
+  "package": "build_runner",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AssetChange"
+    ],
+    "digest": "fcdf93e5c96d7222b6a6ffa5509063ad00c4eacdf864d07b7da52ec6eda59b4b",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "6643714d9e93e235f08e8c0eae97ccc08c4df73c656ca7ece0a7bc071c5cbd10",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\n\nYou have hit a bug in build_runner",
+      "\u001b[2K\r",
+      " ",
+      "    Missing dev dependency on package:build_web_compilers, which is required to serve Dart compiled to JavaScript.\n\n    Please update your dev_dependencies section of your pubspec.yaml:\n\n    dev_dependencies:\n      build_runner: any\n      build_test: any\n      build_web_compilers: any",
+      "$assetDigests",
+      "$build",
+      "$buildUpdates",
+      "$dartLoader",
+      "$graph",
+      "$perf",
+      "*",
+      "*.build.yaml",
+      "-",
+      "--",
+      "--define \"<builder_key>=<option>=<value>\"",
+      "--output",
+      "--precompiled",
+      ".",
+      "../",
+      "../daemon/asset_server.dart",
+      "../daemon/daemon_builder.dart",
+      "../generate/build.dart",
+      "../generate/watch_impl.dart",
+      "../logging/std_io_logging.dart",
+      "../package_graph/build_config_overrides.dart",
+      "../server/server.dart",
+      ".asset_server_port",
+      ".dart",
+      ".js",
+      ".packages",
+      "/",
+      "/* ENTRYPOINT_EXTENTION_MARKER */",
+      ":",
+      "</div>",
+      "<html>\n  <body>\n    <p>\n      Performance information not available, you must pass the\n      `--track-performance` command line arg to enable performance tracking.\n    </p>\n  <body>\n</html>\n",
+      "=",
+      "A directory to copy the fully built package to. Or a mapping from a top-level directory in the package to the directory to write a filtered build output to. For example \"web:deploy\".",
+      "A directory to write performance logs to, must be in the current package. Implies `--track-performance`.",
+      "ApplyBuilders",
+      "Array.from",
+      "Bootstrap",
+      "Build",
+      "Build with release mode defaults for builders.",
+      "BuildConfigOverrides",
+      "BuildDefinition",
+      "BuildOptions",
+      "BuildScriptUpdates",
+      "BuilderApplication",
+      "BuilderOptions",
+      "Builds finished. Safe to exit\n",
+      "Builds the specified targets, watching the file system for updates and rebuilding as appropriate.",
+      "By default, the user will be prompted to delete any files which already exist but were not known to be generated by this specific build script.\n\nEnabling this option skips the prompt and deletes the files. This should typically be used in continues integration servers and tests, but not otherwise.",
+      "Cleaning up cache directory",
+      "Cleaning up source outputs",
+      "Cleans up output from previous builds. Does not clean up --output directories.",
+      "CreateOutputDir",
+      "Creating build script snapshot...",
+      "Daemon is already running.",
+      "Deleting cache and generated source files.\nThis shouldn't be necessary for most applications, unless you have made intentional edits to generated files (i.e. for testing). Consider filing a bug at https://github.com/dart-lang/build/issues/new if you are using this to work around an apparent (and reproducible) bug.",
+      "Deprecated argument - always enabled",
+      "Duplicate output directories are not allowed, got",
+      "Enables logging for each request to the server.",
+      "Enables performance tracking and the /$perf page.",
+      "Enables verbose logging.",
+      "Entrypoint",
+      "Error",
+      "Error spawning build script isolate, this is likely due to a Dart SDK update. Deleting snapshot and retrying...",
+      "Failed to deserialize AssetGraph. Skipping cleanup of generated files in source directories.",
+      "Found no known web directories to serve, but running in `serve` mode. You may expliclity provide a directory to serve with trailing args in <dir>[:<port>] format.",
+      "Generated build script could not be parsed.\nThis is likely caused by a misconfigured builder definition.",
+      "Generating build script",
+      "Heartbeat",
+      "IOEnvironment",
+      "Input root can not be nested",
+      "InputSet",
+      "List",
+      "Map",
+      "Missing dev dependency on package:build_test, which is required to run tests.\n\nPlease update your dev_dependencies section of your pubspec.yaml:\n\n  dev_dependencies:\n    build_runner: any\n    build_test: any\n    # If you need to run web tests, you will also need this dependency.\n    build_web_compilers: any\n",
+      "Module reloading wasn't handled by any of parents. Firing full page reload.",
+      "No asset graph found. Skipping cleanup of generated files in source directories.",
+      "Not Found",
+      "Object.keys",
+      "Object.values",
+      "Only top level directories are allowed as positional args",
+      "Only top level directories are supported",
+      "POST",
+      "Performs a single build of the test directory only and then runs tests using the compiled assets.",
+      "Performs a single build on the specified targets and then exits.",
+      "Please file an issue with reproduction steps at https://github.com/dart-lang/build/issues\n\n",
+      "Provide content in the query.",
+      "Read `build.<name>.yaml` instead of the default `build.yaml`",
+      "Reduce the amount of memory consumed by the build process. This will slow down builds but allow them to progress in resource constrained environments.",
+      "Running tests...\n",
+      "Runs a development server that serves the specified targets and runs builds based on file system updates.",
+      "SendPort",
+      "Serve",
+      "Sets the global `options` config for a builder by key.",
+      "Setting up file watchers",
+      "Skip validation for the digests of files imported by the build script.",
+      "Skipping tests due to build failure",
+      "Specify the hostname to serve on",
+      "Starting Build\n",
+      "Starting daemon...",
+      "Starts the build daemon.",
+      "String",
+      "Symlink files in the output directories, instead of copying.",
+      "Terminating builds due to build script update",
+      "Terminating builds due to package graph update, please restart the build.",
+      "Terminating. No further builds will be scheduled\n",
+      "The `test` command does not support positional args before the, `--` separator, which should separate build args from test args.",
+      "Unified interface for running Dart builds.",
+      "Waiting for all file watchers to be ready",
+      "Watch",
+      "^[a-z0-9_]+\\.build\\.yaml$",
+      "_builders",
+      "any",
+      "application/json",
+      "appliesBuilders",
+      "apply",
+      "applyPostProcess",
+      "args",
+      "asset_change.dart",
+      "asset_graph_handler.dart",
+      "assets.json",
+      "base_command.dart",
+      "benchmark",
+      "build",
+      "build.dart",
+      "build.yaml",
+      "build_runner",
+      "build_runner_test",
+      "build_test",
+      "build_web_compilers",
+      "builder_ordering.dart",
+      "c",
+      "checked",
+      "clean",
+      "clean.dart",
+      "config",
+      "daemon",
+      "daemon.dart",
+      "daemon_builder.dart",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:html",
+      "dart:io",
+      "dart:isolate",
+      "dart:js",
+      "defaultDevOptions",
+      "defaultGenerateFor",
+      "defaultOptions",
+      "defaultReleaseOptions",
+      "define",
+      "delete-conflicting-outputs",
+      "detailedSlices",
+      "details",
+      "edges",
+      "example",
+      "exclude",
+      "f",
+      "fail-on-severe",
+      "filter",
+      "from",
+      "glob",
+      "hidden",
+      "hideOutput",
+      "hideSkipped",
+      "hostname",
+      "hot$onChildUpdate",
+      "hot$onDestroy",
+      "hot$onSelfUpdate",
+      "hot-reload",
+      "hot_reload_client.dart",
+      "id",
+      "include",
+      "index.html",
+      "initializeGraph",
+      "isFailure",
+      "isOptional",
+      "json",
+      "label",
+      "lastKnownDigest",
+      "lib",
+      "lib/",
+      "lib/src/server/graph_viz.html",
+      "live-reload",
+      "live_reload_client",
+      "localhost",
+      "log-performance",
+      "log-requests",
+      "low-resources-mode",
+      "main",
+      "max-age=0, must-revalidate",
+      "module.dart",
+      "node_watcher.dart",
+      "nodes",
+      "o",
+      "options.dart",
+      "output",
+      "package:",
+      "package:args/args.dart",
+      "package:args/command_runner.dart",
+      "package:build/build.dart",
+      "package:build_config/build_config.dart",
+      "package:build_daemon/constants.dart",
+      "package:build_daemon/daemon_builder.dart",
+      "package:build_daemon/data/build_status.dart",
+      "package:build_daemon/data/build_target.dart",
+      "package:build_daemon/data/server_log.dart",
+      "package:build_daemon/src/daemon.dart",
+      "package:build_runner/build_runner.dart",
+      "package:build_runner/src/build_script_generate/build_script_generate.dart",
+      "package:build_runner/src/daemon/constants.dart",
+      "package:build_runner/src/entrypoint/options.dart",
+      "package:build_runner/src/generate/terminator.dart",
+      "package:build_runner/src/package_graph/build_config_overrides.dart",
+      "package:build_runner/src/watcher/asset_change.dart",
+      "package:build_runner/src/watcher/change_filter.dart",
+      "package:build_runner/src/watcher/collect_changes.dart",
+      "package:build_runner/src/watcher/delete_writer.dart",
+      "package:build_runner/src/watcher/graph_watcher.dart",
+      "package:build_runner/src/watcher/node_watcher.dart",
+      "package:build_runner_core/build_runner_core.dart",
+      "package:build_runner_core/src/asset_graph/graph.dart",
+      "package:build_runner_core/src/asset_graph/node.dart",
+      "package:build_runner_core/src/generate/build_impl.dart",
+      "package:build_runner_core/src/generate/performance_tracker.dart",
+      "package:code_builder/code_builder.dart",
+      "package:crypto/crypto.dart",
+      "package:dart_style/dart_style.dart",
+      "package:glob/glob.dart",
+      "package:graphs/graphs.dart",
+      "package:http_multi_server/http_multi_server.dart",
+      "package:io/ansi.dart",
+      "package:io/io.dart",
+      "package:js/js.dart",
+      "package:js/js_util.dart",
+      "package:logging/logging.dart",
+      "package:meta/meta.dart",
+      "package:mime/mime.dart",
+      "package:path/path.dart",
+      "package:pedantic/pedantic.dart",
+      "package:pub_semver/pub_semver.dart",
+      "package:pubspec_parse/pubspec_parse.dart",
+      "package:shelf/shelf.dart",
+      "package:shelf/shelf_io.dart",
+      "package:shelf_web_socket/shelf_web_socket.dart",
+      "package:stack_trace/stack_trace.dart",
+      "package:stream_transform/stream_transform.dart",
+      "package:timing/timing.dart",
+      "package:watcher/watcher.dart",
+      "package:web_socket_channel/web_socket_channel.dart",
+      "packages",
+      "path_to_asset_id.dart",
+      "phaseNumber",
+      "primary",
+      "pubspec.yaml",
+      "q",
+      "r",
+      "release",
+      "reload_handler.dart",
+      "reloading_manager.dart",
+      "result",
+      "rootDir",
+      "run",
+      "runner.dart",
+      "searchbox",
+      "searchform",
+      "selected",
+      "send",
+      "sendPort",
+      "serve",
+      "serve.dart",
+      "setData",
+      "skip-build-script-check",
+      "slicesResolution",
+      "sortOrder",
+      "src/build_script_generate/build_script_generate.dart",
+      "src/entrypoint/run.dart",
+      "state",
+      "symlink",
+      "terminator.dart",
+      "test",
+      "test.dart",
+      "text/html",
+      "to",
+      "toAllPackages",
+      "toDependentsOf",
+      "toNoneByDefault",
+      "toRoot",
+      "track-performance",
+      "true",
+      "type",
+      "v",
+      "verbose",
+      "wasOutput",
+      "watch",
+      "watch.dart",
+      "watch_impl.dart",
+      "web",
+      "|"
+    ]
+  },
+  "version": "1.2.7"
+}

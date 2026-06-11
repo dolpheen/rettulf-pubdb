@@ -1,0 +1,944 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "buildFilterOption",
+          "configOption",
+          "defineOption",
+          "deleteFilesByDefaultOption",
+          "enableExperimentOption",
+          "entrypointExtensionMarker",
+          "failOnSevereOption",
+          "get:asVersion",
+          "hostnameOption",
+          "lineLength",
+          "liveReloadOption",
+          "logPerformanceOption",
+          "logRequestsOption",
+          "lowResourcesModeOption",
+          "outputOption",
+          "releaseOption",
+          "scriptKernelCachedLocation",
+          "scriptKernelCachedSuffix",
+          "scriptKernelLocation",
+          "scriptKernelSuffix",
+          "scriptLocation",
+          "skipBuildScriptCheckOption",
+          "symlinkOption",
+          "trackPerformanceOption",
+          "usePollingWatcherOption",
+          "verboseOption"
+        ],
+        "libraries": [
+          "package:build_runner/build_runner.dart",
+          "package:build_runner/build_script_generate.dart",
+          "package:build_runner/src/build_script_generate/bootstrap.dart",
+          "package:build_runner/src/build_script_generate/build_script_generate.dart",
+          "package:build_runner/src/build_script_generate/builder_ordering.dart",
+          "package:build_runner/src/daemon/constants.dart",
+          "package:build_runner/src/entrypoint/base_command.dart",
+          "package:build_runner/src/entrypoint/clean.dart",
+          "package:build_runner/src/entrypoint/options.dart",
+          "package:build_runner/src/entrypoint/run.dart",
+          "package:build_runner/src/generate/build.dart",
+          "package:build_runner/src/generate/directory_watcher_factory.dart",
+          "package:build_runner/src/generate/watch_impl.dart",
+          "package:build_runner/src/logging/std_io_logging.dart",
+          "package:build_runner/src/package_graph/build_config_overrides.dart",
+          "package:build_runner/src/server/path_to_asset_id.dart",
+          "package:build_runner/src/server/server.dart",
+          "package:build_runner/src/watcher/change_filter.dart",
+          "package:build_runner/src/watcher/collect_changes.dart"
+        ],
+        "methods": [
+          "assetIdToPath",
+          "assetServerPort",
+          "assetServerPortFilePath",
+          "build",
+          "cleanFor",
+          "collectChanges",
+          "colorLog",
+          "createServeHandler",
+          "defaultDirectoryWatcherFactory",
+          "findBuildConfigOverrides",
+          "findBuildScriptOptions",
+          "findBuilderApplications",
+          "findBuilderOrder",
+          "generateAndRun",
+          "generateBuildScript",
+          "pathToAssetId",
+          "pollingDirectoryWatcherFactory",
+          "run",
+          "shouldProcess",
+          "stdIOLogListener",
+          "watch"
+        ],
+        "types": [
+          "AssetChange",
+          "ServeHandler",
+          "WatchImpl"
+        ]
+      },
+      "AssetChange": {
+        "fields": [
+          "get:hashCode",
+          "id",
+          "type"
+        ],
+        "libraries": [
+          "package:build_runner/src/watcher/asset_change.dart"
+        ],
+        "methods": [
+          "==",
+          "AssetChange",
+          "fromEvent",
+          "toString"
+        ],
+        "types": []
+      },
+      "AssetGraphHandler": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/server/asset_graph_handler.dart"
+        ],
+        "methods": [
+          "AssetGraphHandler",
+          "handle"
+        ],
+        "types": []
+      },
+      "AssetHandler": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/server/server.dart"
+        ],
+        "methods": [
+          "AssetHandler",
+          "handle"
+        ],
+        "types": []
+      },
+      "AssetServer": {
+        "fields": [
+          "get:port"
+        ],
+        "libraries": [
+          "package:build_runner/src/daemon/asset_server.dart"
+        ],
+        "methods": [
+          "run",
+          "stop"
+        ],
+        "types": [
+          "AssetServer",
+          "BuildRunnerDaemonBuilder",
+          "DaemonOptions"
+        ]
+      },
+      "AutoChangeProvider": {
+        "fields": [
+          "changes"
+        ],
+        "libraries": [
+          "package:build_runner/src/daemon/change_providers.dart"
+        ],
+        "methods": [
+          "AutoChangeProvider",
+          "collectChanges"
+        ],
+        "types": []
+      },
+      "BuildCommand": {
+        "fields": [
+          "get:description",
+          "get:invocation",
+          "get:name"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/build.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": [
+          "BuildRunnerCommand"
+        ]
+      },
+      "BuildCommandRunner": {
+        "fields": [
+          "argParser",
+          "builderApplications",
+          "get:usageWithoutDescription",
+          "packageGraph"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/runner.dart"
+        ],
+        "methods": [
+          "BuildCommandRunner"
+        ],
+        "types": []
+      },
+      "BuildRunnerCommand": {
+        "fields": [
+          "argParser",
+          "get:builderApplications",
+          "get:logger",
+          "get:packageGraph"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/base_command.dart"
+        ],
+        "methods": [
+          "BuildRunnerCommand",
+          "readOptions"
+        ],
+        "types": [
+          "SharedOptions"
+        ]
+      },
+      "BuildRunnerDaemonBuilder": {
+        "fields": [
+          "changeProvider",
+          "get:buildScriptUpdated",
+          "get:building",
+          "get:builds",
+          "get:reader",
+          "logs"
+        ],
+        "libraries": [
+          "package:build_runner/src/daemon/daemon_builder.dart"
+        ],
+        "methods": [
+          "build",
+          "create",
+          "stop"
+        ],
+        "types": [
+          "BuildRunnerDaemonBuilder",
+          "DaemonOptions"
+        ]
+      },
+      "BuildUpdatesOption": {
+        "fields": [
+          "liveReload",
+          "none"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/options.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "BuildUpdatesWebSocketHandler": {
+        "fields": [
+          "connectionsByRootDir"
+        ],
+        "libraries": [
+          "package:build_runner/src/server/server.dart"
+        ],
+        "methods": [
+          "BuildUpdatesWebSocketHandler",
+          "close",
+          "createHandlerByRootDir",
+          "emitUpdateMessage"
+        ],
+        "types": [
+          "WatchImpl"
+        ]
+      },
+      "CleanCommand": {
+        "fields": [
+          "argParser",
+          "get:description",
+          "get:logger",
+          "get:name"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/clean.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": []
+      },
+      "ConvertToExpression": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/build_script_generate/build_script_generate.dart"
+        ],
+        "methods": [
+          "toExpression"
+        ],
+        "types": []
+      },
+      "DaemonCommand": {
+        "fields": [
+          "get:description",
+          "get:hidden",
+          "get:name"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/daemon.dart"
+        ],
+        "methods": [
+          "DaemonCommand",
+          "readOptions",
+          "run"
+        ],
+        "types": [
+          "DaemonOptions",
+          "WatchCommand"
+        ]
+      },
+      "DaemonOptions": {
+        "fields": [
+          "buildMode",
+          "logRequests"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/options.dart"
+        ],
+        "methods": [
+          "fromParsedArgs"
+        ],
+        "types": [
+          "WatchOptions"
+        ]
+      },
+      "DoctorCommand": {
+        "fields": [
+          "get:description",
+          "get:hidden",
+          "get:name"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/doctor.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": [
+          "BuildRunnerCommand"
+        ]
+      },
+      "ManualChangeProvider": {
+        "fields": [
+          "get:changes"
+        ],
+        "libraries": [
+          "package:build_runner/src/daemon/change_providers.dart"
+        ],
+        "methods": [
+          "ManualChangeProvider",
+          "collectChanges"
+        ],
+        "types": []
+      },
+      "OnDeleteWriter": {
+        "fields": [],
+        "libraries": [
+          "package:build_runner/src/watcher/delete_writer.dart"
+        ],
+        "methods": [
+          "OnDeleteWriter",
+          "delete",
+          "writeAsBytes",
+          "writeAsString"
+        ],
+        "types": []
+      },
+      "PackageGraphWatcher": {
+        "fields": [
+          "get:ready"
+        ],
+        "libraries": [
+          "package:build_runner/src/watcher/graph_watcher.dart"
+        ],
+        "methods": [
+          "PackageGraphWatcher",
+          "watch"
+        ],
+        "types": [
+          "AssetChange",
+          "PackageNodeWatcher"
+        ]
+      },
+      "PackageNodeWatcher": {
+        "fields": [
+          "get:watcher",
+          "node"
+        ],
+        "libraries": [
+          "package:build_runner/src/watcher/node_watcher.dart"
+        ],
+        "methods": [
+          "PackageNodeWatcher",
+          "watch"
+        ],
+        "types": [
+          "AssetChange"
+        ]
+      },
+      "PerfSortOrder": {
+        "fields": [
+          "durationAsc",
+          "durationDesc",
+          "innerDurationAsc",
+          "innerDurationDesc",
+          "startTimeAsc",
+          "startTimeDesc",
+          "stopTimeAsc",
+          "stopTimeDesc"
+        ],
+        "libraries": [
+          "package:build_runner/src/server/server.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "RunCommand": {
+        "fields": [
+          "get:description",
+          "get:invocation",
+          "get:name"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/run_script.dart"
+        ],
+        "methods": [
+          "readOptions",
+          "run"
+        ],
+        "types": [
+          "BuildRunnerCommand",
+          "SharedOptions"
+        ]
+      },
+      "ServeCommand": {
+        "fields": [
+          "get:description",
+          "get:invocation",
+          "get:name"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/serve.dart"
+        ],
+        "methods": [
+          "ServeCommand",
+          "readOptions",
+          "run"
+        ],
+        "types": [
+          "ServeOptions",
+          "WatchCommand"
+        ]
+      },
+      "ServeHandler": {
+        "fields": [
+          "get:buildResults",
+          "get:currentBuild"
+        ],
+        "libraries": [
+          "package:build_runner/src/server/server.dart"
+        ],
+        "methods": [
+          "handlerFor"
+        ],
+        "types": [
+          "AssetGraphHandler",
+          "AssetHandler",
+          "BuildUpdatesOption",
+          "BuildUpdatesWebSocketHandler",
+          "WatchImpl"
+        ]
+      },
+      "ServeOptions": {
+        "fields": [
+          "buildUpdates",
+          "hostName",
+          "logRequests",
+          "serveTargets"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/options.dart"
+        ],
+        "methods": [
+          "fromParsedArgs"
+        ],
+        "types": [
+          "BuildUpdatesOption",
+          "ServeTarget",
+          "WatchOptions"
+        ]
+      },
+      "ServeTarget": {
+        "fields": [
+          "dir",
+          "port"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/options.dart"
+        ],
+        "methods": [
+          "ServeTarget"
+        ],
+        "types": []
+      },
+      "SharedOptions": {
+        "fields": [
+          "buildDirs",
+          "buildFilters",
+          "builderConfigOverrides",
+          "configKey",
+          "deleteFilesByDefault",
+          "enableExperiments",
+          "enableLowResourcesMode",
+          "isReleaseBuild",
+          "logPerformanceDir",
+          "outputSymlinksOnly",
+          "skipBuildScriptCheck",
+          "trackPerformance",
+          "verbose"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/options.dart"
+        ],
+        "methods": [
+          "fromParsedArgs"
+        ],
+        "types": []
+      },
+      "Terminator": {
+        "fields": [
+          "shouldTerminate"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/terminator.dart"
+        ],
+        "methods": [
+          "Terminator",
+          "cancel"
+        ],
+        "types": []
+      },
+      "TestCommand": {
+        "fields": [
+          "get:description",
+          "get:invocation",
+          "get:name"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/test.dart"
+        ],
+        "methods": [
+          "TestCommand",
+          "readOptions",
+          "run"
+        ],
+        "types": [
+          "BuildRunnerCommand",
+          "SharedOptions"
+        ]
+      },
+      "WatchCommand": {
+        "fields": [
+          "get:description",
+          "get:invocation",
+          "get:name"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/watch.dart"
+        ],
+        "methods": [
+          "WatchCommand",
+          "handleBuildResultsStream",
+          "readOptions",
+          "run"
+        ],
+        "types": [
+          "BuildRunnerCommand",
+          "WatchOptions"
+        ]
+      },
+      "WatchImpl": {
+        "fields": [
+          "buildResults",
+          "currentBuild",
+          "get:assetGraph",
+          "get:reader",
+          "packageGraph"
+        ],
+        "libraries": [
+          "package:build_runner/src/generate/watch_impl.dart"
+        ],
+        "methods": [
+          "WatchImpl"
+        ],
+        "types": []
+      },
+      "WatchOptions": {
+        "fields": [
+          "get:directoryWatcherFactory",
+          "usePollingWatcher"
+        ],
+        "libraries": [
+          "package:build_runner/src/entrypoint/options.dart"
+        ],
+        "methods": [
+          "fromParsedArgs"
+        ],
+        "types": [
+          "SharedOptions"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:15:01Z",
+  "package": "build_runner",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AssetChange"
+    ],
+    "digest": "b7133bd1a7b0bd91c8c3c460e03afff61e8ec7d752afea6181e9194d0452a3a9",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "2a19b682ad95d194552527958ce89a96cf70433da32279bdbd60cd49e8381c9b",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\n\nYou have hit a bug in build_runner",
+      "\u001b[2K\r",
+      " ",
+      "        // Ensure that the build script itself is not opted in to null safety,\n        // instead of taking the language version from the current package.\n        //\n        // @dart=2.9\n        //\n      ",
+      "    Missing dev dependency on package:build_web_compilers, which is required to serve Dart compiled to JavaScript.\n\n    Please update your dev_dependencies section of your pubspec.yaml:\n\n    dev_dependencies:\n      build_runner: any\n      build_test: any\n      build_web_compilers: any",
+      " See https://github.com/dart-lang/build/blob/master/docs/faq.md#why-cant-i-see-a-file-i-know-exists",
+      "$assetDigests",
+      "$buildUpdates",
+      "$graph",
+      "$perf",
+      "*",
+      "*.build.yaml",
+      "-",
+      "--",
+      "--build-filter",
+      "--define \"<builder_key>=<option>=<value>\"",
+      "--output",
+      "--precompiled",
+      ".",
+      "../",
+      "../build_script_generate/build_script_generate.dart",
+      "../daemon/asset_server.dart",
+      "../daemon/daemon_builder.dart",
+      "../generate/build.dart",
+      "../generate/directory_watcher_factory.dart",
+      "../generate/watch_impl.dart",
+      "../logging/std_io_logging.dart",
+      "../package_graph/build_config_overrides.dart",
+      "../server/server.dart",
+      ".asset_server_port",
+      ".cached",
+      ".dart",
+      ".dart_tool/package_config.json",
+      ".dill",
+      ".js",
+      ".packageLocations",
+      ".packages",
+      "/",
+      "/* ENTRYPOINT_EXTENTION_MARKER */",
+      "// ignore_for_file: directives_ordering",
+      "/fake",
+      ":",
+      "</div>",
+      "<html>\n  <body>\n    <p>\n      Performance information not available, you must pass the\n      `--track-performance` command line arg to enable performance tracking.\n    </p>\n  <body>\n</html>\n",
+      "=",
+      "A directory to copy the fully built package to. Or a mapping from a top-level directory in the package to the directory to write a filtered build output to. For example \"web:deploy\".",
+      "A directory to write performance logs to, must be in the current package. Implies `--track-performance`.",
+      "A list of dart language experiments to enable.",
+      "An explicit filter of files to build. Relative paths and `package:` uris are supported, including glob syntax for paths portions (but not package names).\n\nIf multiple filters are applied then outputs matching any filter will be built (they do not need to match all filters).",
+      "AssetServer",
+      "Bootstrap",
+      "Build",
+      "Build script updated. Shutting down the Build Daemon.",
+      "Build with release mode defaults for builders.",
+      "BuildConfigOverrides",
+      "BuildMode.Auto",
+      "BuilderApplication",
+      "BuilderOptions",
+      "Builds finished. Safe to exit\n",
+      "Builds the specified targets, watching the file system for updates and rebuilding as appropriate.",
+      "By default, the user will be prompted to delete any files which already exist but were not known to be generated by this specific build script.\n\nEnabling this option skips the prompt and deletes the files. This should typically be used in continues integration servers and tests, but not otherwise.",
+      "Check for misconfiguration of the build.",
+      "Cleaning up cache directory",
+      "Cleaning up source outputs",
+      "Cleans up output from previous builds. Does not clean up --output directories.",
+      "Core package locations file does not exist",
+      "Core packages locations have changed",
+      "Could not spawn isolate. Ensure that your file is in a valid directory (i.e. \"bin\", \"benchmark\", \"example\", \"test\", \"tool\").",
+      "Daemon is already running.",
+      "Deleting cache and generated source files.\nThis shouldn't be necessary for most applications, unless you have made intentional edits to generated files (i.e. for testing). Consider filing a bug at https://github.com/dart-lang/build/issues/new if you are using this to work around an apparent (and reproducible) bug.",
+      "Deprecated argument - always enabled",
+      "Duplicate output directories are not allowed, got",
+      "Enables automatic page reloading on rebuilds. ",
+      "Enables logging for each request to the server.",
+      "Enables performance tracking and the /$perf page.",
+      "Enables verbose logging.",
+      "Entrypoint",
+      "Error spawning build script isolate, this is likely due to a Dart SDK update. Deleting precompiled script and retrying...",
+      "Failed to deserialize AssetGraph. Skipping cleanup of generated files in source directories.",
+      "Found no known web directories to serve, but running in `serve` mode. You may expliclity provide a directory to serve with trailing args in <dir>[:<port>] format.",
+      "Generated build script could not be parsed.\nThis is likely caused by a misconfigured builder definition.",
+      "Generating build script",
+      "HEAD",
+      "Input root can not be nested",
+      "InputSet",
+      "Invalidated precompiled build script due to core package update",
+      "Invalidated precompiled build script due to missing asset graph.",
+      "List",
+      "Missing dev dependency on package:build_test, which is required to run tests.\n\nPlease update your dev_dependencies section of your pubspec.yaml:\n\n  dev_dependencies:\n    build_runner: any\n    build_test: any\n    # If you need to run web tests, you will also need this dependency.\n    build_web_compilers: any\n",
+      "Must specify an executable to run.",
+      "No asset graph found. Skipping cleanup of generated files in source directories.",
+      "No problems found!\n",
+      "Not Found",
+      "Only top level directories such as `web` or `test` can be served, got",
+      "Performs a single build of the test directory only and then runs tests using the compiled assets.",
+      "Performs a single build on the specified targets and then exits.",
+      "Performs a single build, and executes a Dart script with the given arguments.",
+      "Please file an issue with reproduction steps at https://github.com/dart-lang/build/issues\n\n",
+      "Precompiling build script...",
+      "Read `build.<name>.yaml` instead of the default `build.yaml`",
+      "Reduce the amount of memory consumed by the build process. This will slow down builds but allow them to progress in resource constrained environments.",
+      "Running tests...\n",
+      "Runs a development server that serves the specified targets and runs builds based on file system updates.",
+      "SendPort",
+      "Serve",
+      "Sets the global `options` config for a builder by key.",
+      "Setting up file watchers",
+      "Skip validation for the digests of files imported by the build script.",
+      "Skipping script run due to build failure",
+      "Skipping tests due to build failure",
+      "Specify the build mode of the daemon, e.g. auto or manual.",
+      "Specify the hostname to serve on",
+      "Starting Build\n",
+      "Starting daemon...",
+      "Starts the build daemon.",
+      "String",
+      "Symlink files in the output directories, instead of copying.",
+      "Terminating builds due to build script update",
+      "Terminating builds due to package graph update, please restart the build.",
+      "Terminating. No further builds will be scheduled\n",
+      "The `run` command does not support positional args before the `--` separator which should separate build args from script args.",
+      "The `test` command does not support positional args before the, `--` separator, which should separate build args from test args.",
+      "There was output on stdout while precompiling the build script; run with `--verbose` to see it (you will need to run a `clean` first to re-generate it).\n",
+      "Unable to read daemon asset port file.",
+      "Unified interface for running Dart builds.",
+      "Use a polling watcher instead of the current platforms default watcher implementation. This should generally only be used if you are having problems with the default watcher, as it is generally less efficient.",
+      "Waiting for all file watchers to be ready",
+      "Watch",
+      "^[a-z0-9_]+\\.build\\.yaml$",
+      "_$fake",
+      "_builders",
+      "application/json",
+      "appliesBuilders",
+      "apply",
+      "applyPostProcess",
+      "args",
+      "asset_change.dart",
+      "asset_graph_handler.dart",
+      "assets.json",
+      "base_command.dart",
+      "benchmark",
+      "build",
+      "build-filter",
+      "build.dart",
+      "build.yaml",
+      "build_daemon",
+      "build_runner",
+      "build_runner_core",
+      "build_runner_run_script",
+      "build_runner_test",
+      "build_test",
+      "build_web_compilers",
+      "builder_ordering.dart",
+      "c",
+      "change_providers.dart",
+      "checked",
+      "clean",
+      "clean.dart",
+      "config",
+      "daemon",
+      "daemon.dart",
+      "daemon_builder.dart",
+      "dart:async",
+      "dart:convert",
+      "dart:io",
+      "dart:isolate",
+      "defaultDevOptions",
+      "defaultGenerateFor",
+      "defaultOptions",
+      "defaultReleaseOptions",
+      "define",
+      "delete-conflicting-outputs",
+      "detailedSlices",
+      "directory",
+      "doctor",
+      "doctor.dart",
+      "edges",
+      "enable-experiment",
+      "example",
+      "exclude",
+      "exitCode",
+      "f",
+      "fail-on-severe",
+      "filter",
+      "from",
+      "glob",
+      "hidden",
+      "hideOutput",
+      "hideSkipped",
+      "hostname",
+      "id",
+      "include",
+      "index.html",
+      "isFailure",
+      "isOptional",
+      "label",
+      "lastKnownDigest",
+      "lib",
+      "lib/",
+      "lib/_internal/vm_platform_strong.dill",
+      "lib/src/server/graph_viz.html",
+      "live-reload",
+      "live_reload_client",
+      "localhost",
+      "log-performance",
+      "log-requests",
+      "low-resources-mode",
+      "main",
+      "max-age=0, must-revalidate",
+      "node_watcher.dart",
+      "nodes",
+      "o",
+      "options.dart",
+      "output",
+      "package",
+      "package:",
+      "package:*/**",
+      "package:analyzer/dart/analysis/features.dart",
+      "package:analyzer/dart/analysis/utilities.dart",
+      "package:args/args.dart",
+      "package:args/command_runner.dart",
+      "package:async/async.dart",
+      "package:build/build.dart",
+      "package:build/experiments.dart",
+      "package:build_config/build_config.dart",
+      "package:build_daemon/change_provider.dart",
+      "package:build_daemon/constants.dart",
+      "package:build_daemon/daemon.dart",
+      "package:build_daemon/daemon_builder.dart",
+      "package:build_daemon/data/build_status.dart",
+      "package:build_daemon/data/build_target.dart",
+      "package:build_daemon/data/serializers.dart",
+      "package:build_daemon/data/server_log.dart",
+      "package:build_runner/build_runner.dart",
+      "package:build_runner/src/build_script_generate/build_script_generate.dart",
+      "package:build_runner/src/daemon/constants.dart",
+      "package:build_runner/src/entrypoint/options.dart",
+      "package:build_runner/src/generate/terminator.dart",
+      "package:build_runner/src/logging/std_io_logging.dart",
+      "package:build_runner/src/package_graph/build_config_overrides.dart",
+      "package:build_runner/src/watcher/asset_change.dart",
+      "package:build_runner/src/watcher/change_filter.dart",
+      "package:build_runner/src/watcher/collect_changes.dart",
+      "package:build_runner/src/watcher/delete_writer.dart",
+      "package:build_runner/src/watcher/graph_watcher.dart",
+      "package:build_runner/src/watcher/node_watcher.dart",
+      "package:build_runner_core/build_runner_core.dart",
+      "package:build_runner_core/src/asset_graph/graph.dart",
+      "package:build_runner_core/src/asset_graph/node.dart",
+      "package:build_runner_core/src/generate/build_definition.dart",
+      "package:build_runner_core/src/generate/build_impl.dart",
+      "package:build_runner_core/src/generate/performance_tracker.dart",
+      "package:build_runner_core/src/generate/phase.dart",
+      "package:code_builder/code_builder.dart",
+      "package:crypto/crypto.dart",
+      "package:dart_style/dart_style.dart",
+      "package:frontend_server_client/frontend_server_client.dart",
+      "package:glob/glob.dart",
+      "package:graphs/graphs.dart",
+      "package:http_multi_server/http_multi_server.dart",
+      "package:io/ansi.dart",
+      "package:io/io.dart",
+      "package:logging/logging.dart",
+      "package:mime/mime.dart",
+      "package:package_config/package_config.dart",
+      "package:path/path.dart",
+      "package:pub_semver/pub_semver.dart",
+      "package:pubspec_parse/pubspec_parse.dart",
+      "package:shelf/shelf.dart",
+      "package:shelf/shelf_io.dart",
+      "package:shelf_web_socket/shelf_web_socket.dart",
+      "package:stack_trace/stack_trace.dart",
+      "package:stream_transform/stream_transform.dart",
+      "package:timing/timing.dart",
+      "package:watcher/watcher.dart",
+      "package:web_socket_channel/web_socket_channel.dart",
+      "packages",
+      "path_to_asset_id.dart",
+      "phaseNumber",
+      "primary",
+      "pubspec.yaml",
+      "q",
+      "r",
+      "release",
+      "result",
+      "run",
+      "run_script.dart",
+      "runner.dart",
+      "selected",
+      "send",
+      "sendPort",
+      "serve",
+      "serve.dart",
+      "skip-build-script-check",
+      "slicesResolution",
+      "sortOrder",
+      "src/build_script_generate/bootstrap.dart",
+      "src/build_script_generate/build_script_generate.dart",
+      "src/daemon/constants.dart",
+      "src/entrypoint/run.dart",
+      "state",
+      "symlink",
+      "terminator.dart",
+      "test",
+      "test.dart",
+      "text/html",
+      "text/x-dart",
+      "to",
+      "toAllPackages",
+      "toDependentsOf",
+      "toNoneByDefault",
+      "toRoot",
+      "track-performance",
+      "true",
+      "type",
+      "use-polling-watcher",
+      "v",
+      "verbose",
+      "void",
+      "waiting for subprocess to exit...",
+      "wasOutput",
+      "watch",
+      "watch.dart",
+      "watch_impl.dart",
+      "web",
+      "|"
+    ]
+  },
+  "version": "2.1.6"
+}
