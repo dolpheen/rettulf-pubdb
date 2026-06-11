@@ -1,0 +1,2999 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "get:globalThis",
+          "get:wasmHeapF32Buffer",
+          "get:wasmHeapU8Buffer",
+          "wasmWorker"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/audio_source.dart",
+          "package:flutter_soloud/src/bindings/bindings_player.dart",
+          "package:flutter_soloud/src/bindings/bindings_player_ffi.dart",
+          "package:flutter_soloud/src/bindings/js_extension.dart"
+        ],
+        "methods": [
+          "wasmAddAudioDataStream",
+          "wasmAddFilter",
+          "wasmAddVoiceToGroup",
+          "wasmAreOpusOggLibsAvailable",
+          "wasmCccall",
+          "wasmChangeDevice",
+          "wasmCountAudioSource",
+          "wasmCreateVoiceGroup",
+          "wasmCreateWorkerInWasm",
+          "wasmCwrap",
+          "wasmDeinit",
+          "wasmDestroyVoiceGroup",
+          "wasmDisposeAllSound",
+          "wasmDisposeSound",
+          "wasmFadeFilterParameter",
+          "wasmFadeGlobalVolume",
+          "wasmFadePan",
+          "wasmFadeRelativePlaySpeed",
+          "wasmFadeVolume",
+          "wasmFree",
+          "wasmFreeListPlaybackDevices",
+          "wasmGet3dSoundSpeed",
+          "wasmGetActiveVoiceCount",
+          "wasmGetAudioTexture",
+          "wasmGetAudioTexture2D",
+          "wasmGetBufferSize",
+          "wasmGetF32Value",
+          "wasmGetFft",
+          "wasmGetFilterParamNames",
+          "wasmGetFilterParams",
+          "wasmGetGlobalVolume",
+          "wasmGetI32Value",
+          "wasmGetIsValidVoiceHandle",
+          "wasmGetLength",
+          "wasmGetLoopPoint",
+          "wasmGetLooping",
+          "wasmGetMaxActiveVoiceCount",
+          "wasmGetPan",
+          "wasmGetPause",
+          "wasmGetPosition",
+          "wasmGetProtectVoice",
+          "wasmGetRelativePlaySpeed",
+          "wasmGetStreamTimeConsumed",
+          "wasmGetTextureValue",
+          "wasmGetVisualizationEnabled",
+          "wasmGetVoiceCount",
+          "wasmGetVolume",
+          "wasmGetWave",
+          "wasmInitEngine",
+          "wasmIsFilterActive",
+          "wasmIsInited",
+          "wasmIsVoiceGroup",
+          "wasmIsVoiceGroupEmpty",
+          "wasmListPlaybackDevices",
+          "wasmLoadFile",
+          "wasmLoadMem",
+          "wasmLoadWaveform",
+          "wasmMalloc",
+          "wasmOscillateFilterParameter",
+          "wasmOscillateGlobalVolume",
+          "wasmOscillatePan",
+          "wasmOscillateRelativePlaySpeed",
+          "wasmOscillateVolume",
+          "wasmPauseSwitch",
+          "wasmPlay",
+          "wasmPlay3d",
+          "wasmReadSamplesFromMem",
+          "wasmRemoveFilter",
+          "wasmResetBufferStream",
+          "wasmSchedulePause",
+          "wasmScheduleStop",
+          "wasmSeek",
+          "wasmSendToWorker",
+          "wasmSet3dListenerAt",
+          "wasmSet3dListenerParameters",
+          "wasmSet3dListenerPosition",
+          "wasmSet3dListenerUp",
+          "wasmSet3dListenerVelocity",
+          "wasmSet3dSoundSpeed",
+          "wasmSet3dSourceAttenuation",
+          "wasmSet3dSourceDopplerFactor",
+          "wasmSet3dSourceMinMaxDistance",
+          "wasmSet3dSourceParameters",
+          "wasmSet3dSourcePosition",
+          "wasmSet3dSourceVelocity",
+          "wasmSetBufferStream",
+          "wasmSetDataIsEnded",
+          "wasmSetFftSmoothing",
+          "wasmSetFilterParams",
+          "wasmSetGlobalVolume",
+          "wasmSetInaudibleBehavior",
+          "wasmSetLoopPoint",
+          "wasmSetLooping",
+          "wasmSetMaxActiveVoiceCount",
+          "wasmSetPan",
+          "wasmSetPanAbsolute",
+          "wasmSetPause",
+          "wasmSetProtectVoice",
+          "wasmSetRelativePlaySpeed",
+          "wasmSetSuperWave",
+          "wasmSetValue",
+          "wasmSetVisualizationEnabled",
+          "wasmSetVolume",
+          "wasmSetWaveform",
+          "wasmSetWaveformDetune",
+          "wasmSetWaveformFreq",
+          "wasmSetWaveformScale",
+          "wasmSpeechText",
+          "wasmStop",
+          "wasmUtf8ToString"
+        ],
+        "types": [
+          "AudioSource",
+          "SoundEventType"
+        ]
+      },
+      "AudioData": {
+        "fields": [
+          "ctrl",
+          "get:getSamplesKind"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/bindings/audio_data.dart"
+        ],
+        "methods": [
+          "AudioData",
+          "changeSamplesKind",
+          "dispose",
+          "getAudioData",
+          "updateSamples"
+        ],
+        "types": [
+          "AudioData",
+          "AudioDataCtrl",
+          "GetSamplesKind"
+        ]
+      },
+      "AudioDataCtrl": {
+        "fields": [
+          "dataIsTheSameAsBefore",
+          "get:samplesPtr",
+          "samples1D",
+          "samples2D",
+          "samplesWave",
+          "texture2DCallback",
+          "textureCallback",
+          "waveCallback"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/bindings/audio_data_ffi.dart",
+          "package:flutter_soloud/src/bindings/audio_data_web.dart"
+        ],
+        "methods": [
+          "allocSamples",
+          "dispose",
+          "get2DTexture",
+          "getFftAndWave",
+          "getWave"
+        ],
+        "types": [
+          "AudioData",
+          "GetSamplesKind"
+        ]
+      },
+      "AudioSource": {
+        "fields": [
+          "allInstancesFinishedController",
+          "filters",
+          "get:allInstancesFinished",
+          "get:soundEvents",
+          "handles",
+          "handlesInternal",
+          "soundEventsController",
+          "soundHash"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/audio_source.dart"
+        ],
+        "methods": [
+          "AudioSource",
+          "toString"
+        ],
+        "types": []
+      },
+      "BassBoostEnum": {
+        "fields": [
+          "boost",
+          "get:def",
+          "get:max",
+          "get:min",
+          "wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/bassboost_filter.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "BassBoostGlobal": {
+        "fields": [
+          "get:boost",
+          "get:wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/bassboost_filter.dart"
+        ],
+        "methods": [
+          "BassBoostGlobal"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "BassBoostSingle": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/filters/bassboost_filter.dart"
+        ],
+        "methods": [
+          "BassBoostSingle",
+          "boost",
+          "wet"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "BiquadResonantEnum": {
+        "fields": [
+          "frequency",
+          "get:def",
+          "get:max",
+          "get:min",
+          "resonance",
+          "type",
+          "wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/biquad_resonant_filter.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "BiquadResonantGlobal": {
+        "fields": [
+          "get:frequency",
+          "get:resonance",
+          "get:type",
+          "get:wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/biquad_resonant_filter.dart"
+        ],
+        "methods": [
+          "BiquadResonantGlobal"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "BiquadResonantSingle": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/filters/biquad_resonant_filter.dart"
+        ],
+        "methods": [
+          "BiquadResonantSingle",
+          "frequency",
+          "resonance",
+          "type",
+          "wet"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "BufferType": {
+        "fields": [
+          "f32le",
+          "opus",
+          "s16le",
+          "s32le",
+          "s8",
+          "value"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/enums.dart"
+        ],
+        "methods": [
+          "BufferType",
+          "toString"
+        ],
+        "types": []
+      },
+      "BufferingType": {
+        "fields": [
+          "preserved",
+          "released"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/enums.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Channels": {
+        "fields": [
+          "count",
+          "dolby71",
+          "mono",
+          "quad",
+          "stereo",
+          "surround51"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/enums.dart"
+        ],
+        "methods": [
+          "Channels",
+          "toString"
+        ],
+        "types": []
+      },
+      "Compressor": {
+        "fields": [
+          "attackTime",
+          "get:def",
+          "get:max",
+          "get:min",
+          "kneeWidth",
+          "makeupGain",
+          "ratio",
+          "releaseTime",
+          "threshold",
+          "wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/compressor.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "CompressorGlobal": {
+        "fields": [
+          "get:attackTime",
+          "get:kneeWidth",
+          "get:makeupGain",
+          "get:ratio",
+          "get:releaseTime",
+          "get:threshold",
+          "get:wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/compressor.dart"
+        ],
+        "methods": [
+          "CompressorGlobal"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "CompressorSingle": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/filters/compressor.dart"
+        ],
+        "methods": [
+          "CompressorSingle",
+          "attackTime",
+          "kneeWidth",
+          "makeupGain",
+          "ratio",
+          "releaseTime",
+          "threshold",
+          "wet"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "DoubleToDuration": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/bindings/bindings_player.dart"
+        ],
+        "methods": [
+          "toDuration"
+        ],
+        "types": []
+      },
+      "DurationToDouble": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/bindings/bindings_player.dart"
+        ],
+        "methods": [
+          "toDouble"
+        ],
+        "types": []
+      },
+      "EchoEnum": {
+        "fields": [
+          "decay",
+          "delay",
+          "filter",
+          "get:def",
+          "get:max",
+          "get:min",
+          "wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/echo_filter.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "EchoGlobal": {
+        "fields": [
+          "get:decay",
+          "get:delay",
+          "get:filter",
+          "get:wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/echo_filter.dart"
+        ],
+        "methods": [
+          "EchoGlobal"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "EchoSingle": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/filters/echo_filter.dart"
+        ],
+        "methods": [
+          "EchoSingle",
+          "decay",
+          "delay",
+          "filter",
+          "wet"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "EqualizerEnum": {
+        "fields": [
+          "band1",
+          "band2",
+          "band3",
+          "band4",
+          "band5",
+          "band6",
+          "band7",
+          "band8",
+          "get:def",
+          "get:max",
+          "get:min",
+          "wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/equalizer_filter.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "EqualizerGlobal": {
+        "fields": [
+          "get:band1",
+          "get:band2",
+          "get:band3",
+          "get:band4",
+          "get:band5",
+          "get:band6",
+          "get:band7",
+          "get:band8",
+          "get:wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/equalizer_filter.dart"
+        ],
+        "methods": [
+          "EqualizerGlobal"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "EqualizerSingle": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/filters/equalizer_filter.dart"
+        ],
+        "methods": [
+          "EqualizerSingle",
+          "band1",
+          "band2",
+          "band3",
+          "band4",
+          "band5",
+          "band6",
+          "band7",
+          "band8",
+          "wet"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "FilterBase": {
+        "fields": [
+          "filterType",
+          "get:index",
+          "get:isActive"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/filters.dart"
+        ],
+        "methods": [
+          "FilterBase",
+          "activate",
+          "deactivate"
+        ],
+        "types": [
+          "FilterType"
+        ]
+      },
+      "FilterParam": {
+        "fields": [
+          "get:value",
+          "set:value"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/filters.dart"
+        ],
+        "methods": [
+          "FilterParam",
+          "fadeFilterParameter",
+          "oscillateFilterParameter"
+        ],
+        "types": [
+          "FilterType"
+        ]
+      },
+      "FilterType": {
+        "fields": [
+          "bassboostFilter",
+          "biquadResonantFilter",
+          "compressorFilter",
+          "echoFilter",
+          "eqFilter",
+          "flangerFilter",
+          "freeverbFilter",
+          "get:numParameters",
+          "limiterFilter",
+          "lofiFilter",
+          "pitchShiftFilter",
+          "robotizeFilter",
+          "waveShaperFilter"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/filters/filters.dart"
+        ],
+        "methods": [
+          "activate",
+          "deactivate",
+          "fadeFilterParameter",
+          "isActive",
+          "oscillateFilterParameter",
+          "toString"
+        ],
+        "types": []
+      },
+      "FiltersGlobal": {
+        "fields": [
+          "get:bassBoostFilter",
+          "get:biquadResonantFilter",
+          "get:compressorFilter",
+          "get:echoFilter",
+          "get:equalizerFilter",
+          "get:flangerFilter",
+          "get:freeverbFilter",
+          "get:limiterFilter",
+          "get:lofiFilter",
+          "get:pitchShiftFilter",
+          "get:robotizeFilter",
+          "get:waveShaperFilter"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/filters.dart"
+        ],
+        "methods": [
+          "FiltersGlobal"
+        ],
+        "types": [
+          "BassBoostGlobal",
+          "BiquadResonantGlobal",
+          "CompressorGlobal",
+          "EchoGlobal",
+          "EqualizerGlobal",
+          "FlangerGlobal",
+          "FreeverbGlobal",
+          "LimiterGlobal",
+          "LofiGlobal",
+          "PitchShiftGlobal",
+          "RobotizeGlobal",
+          "WaveShaperGlobal"
+        ]
+      },
+      "FiltersSingle": {
+        "fields": [
+          "get:bassBoostFilter",
+          "get:biquadFilter",
+          "get:compressorFilter",
+          "get:echoFilter",
+          "get:equalizerFilter",
+          "get:flangerFilter",
+          "get:freeverbFilter",
+          "get:limiterFilter",
+          "get:lofiFilter",
+          "get:pitchShiftFilter",
+          "get:robotizeFilter",
+          "get:waveShaperFilter",
+          "soundHash"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/filters.dart"
+        ],
+        "methods": [
+          "FiltersSingle"
+        ],
+        "types": [
+          "BassBoostSingle",
+          "BiquadResonantSingle",
+          "CompressorSingle",
+          "EchoSingle",
+          "EqualizerSingle",
+          "FlangerSingle",
+          "FreeverbSingle",
+          "LimiterSingle",
+          "LofiSingle",
+          "PitchShiftSingle",
+          "RobotizeSingle",
+          "WaveShaperSingle"
+        ]
+      },
+      "FlangerEnum": {
+        "fields": [
+          "delay",
+          "freq",
+          "get:def",
+          "get:max",
+          "get:min",
+          "wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/flanger_filter.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "FlangerGlobal": {
+        "fields": [
+          "get:delay",
+          "get:freq",
+          "get:wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/flanger_filter.dart"
+        ],
+        "methods": [
+          "FlangerGlobal"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "FlangerSingle": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/filters/flanger_filter.dart"
+        ],
+        "methods": [
+          "FlangerSingle",
+          "delay",
+          "freq",
+          "wet"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "FlutterSoLoud": {
+        "fields": [
+          "fileLoadedEventsController",
+          "get:fileLoadedEvents",
+          "get:stateChangedEvents",
+          "get:voiceEndedEvents",
+          "stateChangedController",
+          "voiceEndedEventController"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/bindings/bindings_player.dart"
+        ],
+        "methods": [
+          "addAudioDataStream",
+          "addFilter",
+          "addVoicesToGroup",
+          "areOpusOggLibsAvailable",
+          "changeDevice",
+          "countAudioSource",
+          "createVoiceGroup",
+          "deinit",
+          "destroyVoiceGroup",
+          "disposeAllSound",
+          "disposeSound",
+          "fadeFilterParameter",
+          "fadeGlobalVolume",
+          "fadePan",
+          "fadeRelativePlaySpeed",
+          "fadeVolume",
+          "get3dSoundSpeed",
+          "getActiveVoiceCount",
+          "getAudioTexture",
+          "getAudioTexture2D",
+          "getBufferSize",
+          "getFft",
+          "getFilterParamNames",
+          "getFilterParams",
+          "getGlobalVolume",
+          "getIsValidVoiceHandle",
+          "getLength",
+          "getLoopPoint",
+          "getLooping",
+          "getMaxActiveVoiceCount",
+          "getPan",
+          "getPause",
+          "getPosition",
+          "getProtectVoice",
+          "getRelativePlaySpeed",
+          "getStreamTimeConsumed",
+          "getTextureValue",
+          "getVisualizationEnabled",
+          "getVoiceCount",
+          "getVolume",
+          "getWave",
+          "initEngine",
+          "isFilterActive",
+          "isInited",
+          "isVoiceGroup",
+          "isVoiceGroupEmpty",
+          "listPlaybackDevices",
+          "loadFile",
+          "loadMem",
+          "loadWaveform",
+          "oscillateFilterParameter",
+          "oscillateGlobalVolume",
+          "oscillatePan",
+          "oscillateRelativePlaySpeed",
+          "oscillateVolume",
+          "pauseSwitch",
+          "play",
+          "play3d",
+          "readSamplesFromFile",
+          "readSamplesFromMem",
+          "removeFilter",
+          "resetBufferStream",
+          "schedulePause",
+          "scheduleStop",
+          "seek",
+          "set3dListenerAt",
+          "set3dListenerParameters",
+          "set3dListenerPosition",
+          "set3dListenerUp",
+          "set3dListenerVelocity",
+          "set3dSoundSpeed",
+          "set3dSourceAttenuation",
+          "set3dSourceDopplerFactor",
+          "set3dSourceMinMaxDistance",
+          "set3dSourceParameters",
+          "set3dSourcePosition",
+          "set3dSourceVelocity",
+          "setBufferStream",
+          "setDartEventCallbacks",
+          "setDataIsEnded",
+          "setFftSmoothing",
+          "setFilterParams",
+          "setGlobalVolume",
+          "setInaudibleBehavior",
+          "setLoopPoint",
+          "setLooping",
+          "setMaxActiveVoiceCount",
+          "setPan",
+          "setPanAbsolute",
+          "setPause",
+          "setProtectVoice",
+          "setRelativePlaySpeed",
+          "setVisualizationEnabled",
+          "setVolume",
+          "setWaveform",
+          "setWaveformDetune",
+          "setWaveformFreq",
+          "setWaveformScale",
+          "setWaveformSuperWave",
+          "speechText",
+          "stop"
+        ],
+        "types": [
+          "AudioData",
+          "BufferingType",
+          "Channels",
+          "FilterType",
+          "LoadMode",
+          "PlaybackDevice",
+          "PlayerErrors",
+          "PlayerStateNotification",
+          "WaveForm"
+        ]
+      },
+      "FlutterSoLoudFfi": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/bindings/bindings_player.dart",
+          "package:flutter_soloud/src/bindings/bindings_player_ffi.dart"
+        ],
+        "methods": [
+          "FlutterSoLoudFfi",
+          "addAudioDataStream",
+          "addFilter",
+          "addVoicesToGroup",
+          "areOpusOggLibsAvailable",
+          "changeDevice",
+          "countAudioSource",
+          "createVoiceGroup",
+          "deinit",
+          "destroyVoiceGroup",
+          "disposeAllSound",
+          "disposeSound",
+          "fadeFilterParameter",
+          "fadeGlobalVolume",
+          "fadePan",
+          "fadeRelativePlaySpeed",
+          "fadeVolume",
+          "freeListPlaybackDevices",
+          "fromLookup",
+          "get3dSoundSpeed",
+          "getActiveVoiceCount",
+          "getAudioTexture",
+          "getAudioTexture2D",
+          "getBufferSize",
+          "getFft",
+          "getFilterParamNames",
+          "getFilterParams",
+          "getGlobalVolume",
+          "getIsValidVoiceHandle",
+          "getLength",
+          "getLoopPoint",
+          "getLooping",
+          "getMaxActiveVoiceCount",
+          "getPan",
+          "getPause",
+          "getPosition",
+          "getProtectVoice",
+          "getRelativePlaySpeed",
+          "getStreamTimeConsumed",
+          "getTextureValue",
+          "getVisualizationEnabled",
+          "getVoiceCount",
+          "getVolume",
+          "getWave",
+          "initEngine",
+          "isFilterActive",
+          "isInited",
+          "isVoiceGroup",
+          "isVoiceGroupEmpty",
+          "listPlaybackDevices",
+          "loadFile",
+          "loadMem",
+          "loadWaveform",
+          "nativeFree",
+          "oscillateFilterParameter",
+          "oscillateGlobalVolume",
+          "oscillatePan",
+          "oscillateRelativePlaySpeed",
+          "oscillateVolume",
+          "pauseSwitch",
+          "play",
+          "play3d",
+          "readSamplesFromFile",
+          "readSamplesFromMem",
+          "removeFilter",
+          "resetBufferStream",
+          "schedulePause",
+          "scheduleStop",
+          "seek",
+          "set3dListenerAt",
+          "set3dListenerParameters",
+          "set3dListenerPosition",
+          "set3dListenerUp",
+          "set3dListenerVelocity",
+          "set3dSoundSpeed",
+          "set3dSourceAttenuation",
+          "set3dSourceDopplerFactor",
+          "set3dSourceMinMaxDistance",
+          "set3dSourceParameters",
+          "set3dSourcePosition",
+          "set3dSourceVelocity",
+          "setBufferStream",
+          "setDartEventCallbacks",
+          "setDataIsEnded",
+          "setFftSmoothing",
+          "setFilterParams",
+          "setGlobalVolume",
+          "setInaudibleBehavior",
+          "setLoopPoint",
+          "setLooping",
+          "setMaxActiveVoiceCount",
+          "setPan",
+          "setPanAbsolute",
+          "setPause",
+          "setProtectVoice",
+          "setRelativePlaySpeed",
+          "setVisualizationEnabled",
+          "setVolume",
+          "setWaveform",
+          "setWaveformDetune",
+          "setWaveformFreq",
+          "setWaveformScale",
+          "setWaveformSuperWave",
+          "speechText",
+          "stop"
+        ],
+        "types": [
+          "AudioData",
+          "BufferingType",
+          "Channels",
+          "FilterType",
+          "FlutterSoLoud",
+          "LoadMode",
+          "PlaybackDevice",
+          "PlayerErrors",
+          "WaveForm"
+        ]
+      },
+      "FlutterSoLoudWeb": {
+        "fields": [
+          "workerController"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/bindings/bindings_player_web.dart"
+        ],
+        "methods": [
+          "addAudioDataStream",
+          "addFilter",
+          "addVoicesToGroup",
+          "areOpusOggLibsAvailable",
+          "changeDevice",
+          "countAudioSource",
+          "createVoiceGroup",
+          "deinit",
+          "destroyVoiceGroup",
+          "disposeAllSound",
+          "disposeSound",
+          "fadeFilterParameter",
+          "fadeGlobalVolume",
+          "fadePan",
+          "fadeRelativePlaySpeed",
+          "fadeVolume",
+          "get3dSoundSpeed",
+          "getActiveVoiceCount",
+          "getAudioTexture",
+          "getAudioTexture2D",
+          "getBufferSize",
+          "getFft",
+          "getFilterParamNames",
+          "getFilterParams",
+          "getGlobalVolume",
+          "getIsValidVoiceHandle",
+          "getLength",
+          "getLoopPoint",
+          "getLooping",
+          "getMaxActiveVoiceCount",
+          "getPan",
+          "getPause",
+          "getPosition",
+          "getProtectVoice",
+          "getRelativePlaySpeed",
+          "getStreamTimeConsumed",
+          "getTextureValue",
+          "getVisualizationEnabled",
+          "getVoiceCount",
+          "getVolume",
+          "getWave",
+          "initEngine",
+          "isFilterActive",
+          "isInited",
+          "isVoiceGroup",
+          "isVoiceGroupEmpty",
+          "listPlaybackDevices",
+          "loadFile",
+          "loadMem",
+          "loadWaveform",
+          "oscillateFilterParameter",
+          "oscillateGlobalVolume",
+          "oscillatePan",
+          "oscillateRelativePlaySpeed",
+          "oscillateVolume",
+          "pauseSwitch",
+          "play",
+          "play3d",
+          "readSamplesFromFile",
+          "readSamplesFromMem",
+          "removeFilter",
+          "resetBufferStream",
+          "schedulePause",
+          "scheduleStop",
+          "seek",
+          "sendMessageToWasmWorker",
+          "set3dListenerAt",
+          "set3dListenerParameters",
+          "set3dListenerPosition",
+          "set3dListenerUp",
+          "set3dListenerVelocity",
+          "set3dSoundSpeed",
+          "set3dSourceAttenuation",
+          "set3dSourceDopplerFactor",
+          "set3dSourceMinMaxDistance",
+          "set3dSourceParameters",
+          "set3dSourcePosition",
+          "set3dSourceVelocity",
+          "setBufferStream",
+          "setDartEventCallbacks",
+          "setDataIsEnded",
+          "setFftSmoothing",
+          "setFilterParams",
+          "setGlobalVolume",
+          "setInaudibleBehavior",
+          "setLoopPoint",
+          "setLooping",
+          "setMaxActiveVoiceCount",
+          "setPan",
+          "setPanAbsolute",
+          "setPause",
+          "setProtectVoice",
+          "setRelativePlaySpeed",
+          "setVisualizationEnabled",
+          "setVolume",
+          "setWaveform",
+          "setWaveformDetune",
+          "setWaveformFreq",
+          "setWaveformScale",
+          "setWaveformSuperWave",
+          "speechText",
+          "stop"
+        ],
+        "types": [
+          "AudioData",
+          "BufferingType",
+          "Channels",
+          "FilterType",
+          "FlutterSoLoud",
+          "LoadMode",
+          "PlaybackDevice",
+          "PlayerErrors",
+          "WaveForm",
+          "WorkerController"
+        ]
+      },
+      "FreeverbEnum": {
+        "fields": [
+          "damp",
+          "freeze",
+          "get:def",
+          "get:max",
+          "get:min",
+          "roomSize",
+          "wet",
+          "width"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/freeverb_filter.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "FreeverbGlobal": {
+        "fields": [
+          "get:damp",
+          "get:freeze",
+          "get:roomSize",
+          "get:wet",
+          "get:width"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/freeverb_filter.dart"
+        ],
+        "methods": [
+          "FreeverbGlobal"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "FreeverbSingle": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/filters/freeverb_filter.dart"
+        ],
+        "methods": [
+          "FreeverbSingle",
+          "damp",
+          "freeze",
+          "roomSize",
+          "wet",
+          "width"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "GetSamplesKind": {
+        "fields": [
+          "linear",
+          "texture",
+          "wave"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/bindings/audio_data.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Limiter": {
+        "fields": [
+          "attackTime",
+          "get:def",
+          "get:max",
+          "get:min",
+          "kneeWidth",
+          "outputCeiling",
+          "releaseTime",
+          "threshold",
+          "wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/limiter.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "LimiterGlobal": {
+        "fields": [
+          "get:attackTime",
+          "get:kneeWidth",
+          "get:outputCeiling",
+          "get:releaseTime",
+          "get:threshold",
+          "get:wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/limiter.dart"
+        ],
+        "methods": [
+          "LimiterGlobal"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "LimiterSingle": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/filters/limiter.dart"
+        ],
+        "methods": [
+          "LimiterSingle",
+          "attackTime",
+          "kneeWidth",
+          "outputCeiling",
+          "releaseTime",
+          "threshold",
+          "wet"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "LoadMode": {
+        "fields": [
+          "disk",
+          "memory"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/enums.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LofiEnum": {
+        "fields": [
+          "bitdepth",
+          "get:def",
+          "get:max",
+          "get:min",
+          "samplerate",
+          "wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/lofi_filter.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "LofiGlobal": {
+        "fields": [
+          "get:bitdepth",
+          "get:samplerate",
+          "get:wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/lofi_filter.dart"
+        ],
+        "methods": [
+          "LofiGlobal"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "LofiSingle": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/filters/lofi_filter.dart"
+        ],
+        "methods": [
+          "LofiSingle",
+          "bitdepth",
+          "samplerate",
+          "wet"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "PitchShiftEnum": {
+        "fields": [
+          "get:def",
+          "get:max",
+          "get:min",
+          "semitones",
+          "shift",
+          "wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/pitchshift_filter.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "PitchShiftGlobal": {
+        "fields": [
+          "get:semitones",
+          "get:shift",
+          "get:wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/pitchshift_filter.dart"
+        ],
+        "methods": [
+          "PitchShiftGlobal"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "PitchShiftSingle": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/filters/pitchshift_filter.dart"
+        ],
+        "methods": [
+          "PitchShiftSingle",
+          "semitones",
+          "shift",
+          "timeStretch",
+          "wet"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "PlaybackDevice": {
+        "fields": [
+          "id",
+          "isDefault",
+          "name"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/helpers/playback_device.dart"
+        ],
+        "methods": [
+          "PlaybackDevice",
+          "toString"
+        ],
+        "types": []
+      },
+      "PlayerErrors": {
+        "fields": [
+          "backendNotInited",
+          "bufferStreamCanBePlayedOnlyOnce",
+          "bufferStreamWithReleasedBufferTypeCannotBeSeeked",
+          "dllNotFound",
+          "failedToCreateOpusDecoder",
+          "failedToDecodeOpusPacket",
+          "fileAlreadyLoaded",
+          "fileLoadFailed",
+          "fileNotFound",
+          "filterAlreadyAdded",
+          "filterNotFound",
+          "filterParameterGetError",
+          "hashIsNotABufferStream",
+          "invalidParameter",
+          "maxActiveVoiceCountReached",
+          "maxNumberOfFiltersReached",
+          "noError",
+          "noPlaybackDevicesFound",
+          "notImplemented",
+          "nullPointer",
+          "outOfMemory",
+          "pcmBufferFull",
+          "playerAlreadyInited",
+          "soundHandleNotFound",
+          "soundHashNotFound",
+          "streamEndedAlready",
+          "unknownError",
+          "value",
+          "visualizationNotEnabled",
+          "wrongBufferTypeToAskForTimeConsumed"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/enums.dart"
+        ],
+        "methods": [
+          "PlayerErrors",
+          "toString"
+        ],
+        "types": []
+      },
+      "PlayerStateNotification": {
+        "fields": [
+          "interruptionBegan",
+          "interruptionEnded",
+          "rerouted",
+          "started",
+          "stopped",
+          "unlocked"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/enums.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ReadSamplesErrors": {
+        "fields": [
+          "failedToGetDataFormat",
+          "failedToReadPcmFrames",
+          "failedToSeekPcm",
+          "noBackend",
+          "readSamplesNoError",
+          "value"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/enums.dart"
+        ],
+        "methods": [
+          "ReadSamplesErrors",
+          "fromValue",
+          "toString"
+        ],
+        "types": [
+          "ReadSamplesErrors"
+        ]
+      },
+      "RobotizeEnum": {
+        "fields": [
+          "frequency",
+          "get:def",
+          "get:max",
+          "get:min",
+          "waveform",
+          "wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/robotize_filter.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "RobotizeGlobal": {
+        "fields": [
+          "get:frequency",
+          "get:waveform",
+          "get:wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/robotize_filter.dart"
+        ],
+        "methods": [
+          "RobotizeGlobal"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "RobotizeSingle": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/filters/robotize_filter.dart"
+        ],
+        "methods": [
+          "RobotizeSingle",
+          "frequency",
+          "waveform",
+          "wet"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "SoLoud": {
+        "fields": [
+          "filters",
+          "get:activeSounds",
+          "get:isInitialized",
+          "instance",
+          "loadedFileCompleters",
+          "voiceEndedCompleters"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/soloud.dart"
+        ],
+        "methods": [
+          "addAudioDataStream",
+          "addGlobalFilter",
+          "addVoicesToGroup",
+          "changeDevice",
+          "countAudioSource",
+          "createVoiceGroup",
+          "deinit",
+          "destroyVoiceGroup",
+          "disposeAllSources",
+          "disposeSource",
+          "fadeGlobalFilterParameter",
+          "fadeGlobalVolume",
+          "fadePan",
+          "fadeRelativePlaySpeed",
+          "fadeVolume",
+          "get3dSoundSpeed",
+          "getActiveVoiceCount",
+          "getBufferSize",
+          "getFilterParamNames",
+          "getFilterParameter",
+          "getGlobalFilterParameter",
+          "getGlobalVolume",
+          "getIsValidVoiceHandle",
+          "getLength",
+          "getLoopPoint",
+          "getLooping",
+          "getMaxActiveVoiceCount",
+          "getPan",
+          "getPause",
+          "getPosition",
+          "getProtectVoice",
+          "getRelativePlaySpeed",
+          "getStreamTimeConsumed",
+          "getVisualizationEnabled",
+          "getVoiceCount",
+          "getVolume",
+          "init",
+          "isFilterActive",
+          "isVoiceGroup",
+          "isVoiceGroupEmpty",
+          "listPlaybackDevices",
+          "loadAsset",
+          "loadFile",
+          "loadMem",
+          "loadUrl",
+          "loadWaveform",
+          "oscillateGlobalFilterParameter",
+          "oscillateGlobalVolume",
+          "oscillatePan",
+          "oscillateRelativePlaySpeed",
+          "oscillateVolume",
+          "pauseSwitch",
+          "play",
+          "play3d",
+          "readSamplesFromFile",
+          "readSamplesFromMem",
+          "removeGlobalFilter",
+          "resetBufferStream",
+          "schedulePause",
+          "scheduleStop",
+          "seek",
+          "set3dListenerAt",
+          "set3dListenerParameters",
+          "set3dListenerPosition",
+          "set3dListenerUp",
+          "set3dListenerVelocity",
+          "set3dSoundSpeed",
+          "set3dSourceAttenuation",
+          "set3dSourceDopplerFactor",
+          "set3dSourceMinMaxDistance",
+          "set3dSourceParameters",
+          "set3dSourcePosition",
+          "set3dSourceVelocity",
+          "setBufferStream",
+          "setDataIsEnded",
+          "setFftSmoothing",
+          "setFilterParameter",
+          "setGlobalFilterParameter",
+          "setGlobalVolume",
+          "setInaudibleBehavior",
+          "setLoopPoint",
+          "setLooping",
+          "setMaxActiveVoiceCount",
+          "setPan",
+          "setPanAbsolute",
+          "setPause",
+          "setProtectVoice",
+          "setRelativePlaySpeed",
+          "setVisualizationEnabled",
+          "setVolume",
+          "setWaveform",
+          "setWaveformDetune",
+          "setWaveformFreq",
+          "setWaveformScale",
+          "setWaveformSuperWave",
+          "speechText",
+          "stop"
+        ],
+        "types": [
+          "AudioSource",
+          "BufferType",
+          "BufferingType",
+          "Channels",
+          "FilterType",
+          "LoadMode",
+          "PlaybackDevice",
+          "SoLoud",
+          "SoLoudLoader",
+          "WaveForm"
+        ]
+      },
+      "SoLoudBackendNotInitedException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudBackendNotInitedException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudBufferStreamCanBePlayedOnlyOnceCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudBufferStreamCanBePlayedOnlyOnceCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudBufferStreamWithReleasedBufferTypeCannotBeSeekedCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudBufferStreamWithReleasedBufferTypeCannotBeSeekedCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudController": {
+        "fields": [
+          "get:soLoudFFI",
+          "nativeLib",
+          "soLoudFFI"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/bindings/soloud_controller.dart",
+          "package:flutter_soloud/src/bindings/soloud_controller_ffi.dart",
+          "package:flutter_soloud/src/bindings/soloud_controller_web.dart"
+        ],
+        "methods": [
+          "SoLoudController"
+        ],
+        "types": [
+          "FlutterSoLoudFfi",
+          "FlutterSoLoudWeb",
+          "SoLoudController"
+        ]
+      },
+      "SoLoudCppException": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudCppException",
+          "fromPlayerError",
+          "fromReadSampleError"
+        ],
+        "types": [
+          "PlayerErrors",
+          "ReadSamplesErrors",
+          "SoLoudException"
+        ]
+      },
+      "SoLoudCreateVoiceGroupDartException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudCreateVoiceGroupDartException"
+        ],
+        "types": [
+          "SoLoudDartException"
+        ]
+      },
+      "SoLoudDartException": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudDartException"
+        ],
+        "types": [
+          "SoLoudException"
+        ]
+      },
+      "SoLoudDllNotFoundException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudDllNotFoundException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudException": {
+        "fields": [
+          "get:description",
+          "message"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudException",
+          "toString"
+        ],
+        "types": []
+      },
+      "SoLoudFailedToCreateOpusDecoderCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudFailedToCreateOpusDecoderCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudFailedToDecodeOpusPacketCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudFailedToDecodeOpusPacketCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudFileLoadFailedException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudFileLoadFailedException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudFileNotFoundException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudFileNotFoundException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudFilterAlreadyAddedException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudFilterAlreadyAddedException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudFilterForSingleSoundOnWebDartException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudFilterForSingleSoundOnWebDartException"
+        ],
+        "types": [
+          "SoLoudDartException"
+        ]
+      },
+      "SoLoudFilterNotFoundException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudFilterNotFoundException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudFilterParameterGetErrorCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudFilterParameterGetErrorCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudHashIsNotABufferStreamCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudHashIsNotABufferStreamCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudInitializationStoppedByDeinitException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudInitializationStoppedByDeinitException"
+        ],
+        "types": [
+          "SoLoudDartException"
+        ]
+      },
+      "SoLoudInitializationTimedOutException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudInitializationTimedOutException"
+        ],
+        "types": [
+          "SoLoudDartException"
+        ]
+      },
+      "SoLoudInvalidParameterException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudInvalidParameterException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudIsolateSpawnFailedException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudIsolateSpawnFailedException"
+        ],
+        "types": [
+          "SoLoudDartException"
+        ]
+      },
+      "SoLoudLoader": {
+        "fields": [
+          "automaticCleanup"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/utils/loader.dart",
+          "package:flutter_soloud/src/utils/loader_base.dart",
+          "package:flutter_soloud/src/utils/loader_io.dart",
+          "package:flutter_soloud/src/utils/loader_web.dart"
+        ],
+        "methods": [
+          "SoLoudLoader",
+          "cleanUp",
+          "initialize",
+          "loadAsset",
+          "loadUrl"
+        ],
+        "types": [
+          "AudioSource",
+          "LoadMode"
+        ]
+      },
+      "SoLoudMaxFilterNumberReachedException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudMaxFilterNumberReachedException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudNetworkStatusCodeException": {
+        "fields": [
+          "get:description",
+          "statusCode"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudNetworkStatusCodeException"
+        ],
+        "types": [
+          "SoLoudDartException"
+        ]
+      },
+      "SoLoudNoPlaybackDevicesFoundCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudNoPlaybackDevicesFoundCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudNotImplementedException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudNotImplementedException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudNotInitializedException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudNotInitializedException"
+        ],
+        "types": [
+          "SoLoudDartException"
+        ]
+      },
+      "SoLoudNullPointerException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudNullPointerException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudOpusOggLibsNotAvailableException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudOpusOggLibsNotAvailableException"
+        ],
+        "types": [
+          "SoLoudDartException"
+        ]
+      },
+      "SoLoudOutOfMemoryException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudOutOfMemoryException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudPcmBufferFullCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudPcmBufferFullCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudPlayerAlreadyInitializedException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudPlayerAlreadyInitializedException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudReadSamplesFailedToGetDataFormatCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudReadSamplesFailedToGetDataFormatCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudReadSamplesFailedToReadPcmFramesCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudReadSamplesFailedToReadPcmFramesCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudReadSamplesFailedToSeekPcmCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudReadSamplesFailedToSeekPcmCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudReadSamplesNoBackendCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudReadSamplesNoBackendCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudSoundHandleNotFoundCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudSoundHandleNotFoundCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudSoundHashNotFoundCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudSoundHashNotFoundCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudSoundHashNotFoundDartException": {
+        "fields": [
+          "get:description",
+          "soundHash"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudSoundHashNotFoundDartException"
+        ],
+        "types": [
+          "SoLoudDartException"
+        ]
+      },
+      "SoLoudStreamEndedAlreadyCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudStreamEndedAlreadyCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudTemporaryFolderFailedException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudTemporaryFolderFailedException"
+        ],
+        "types": [
+          "SoLoudDartException"
+        ]
+      },
+      "SoLoudTools": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/tools/soloud_tools.dart"
+        ],
+        "methods": [
+          "createNotes"
+        ],
+        "types": [
+          "AudioSource",
+          "WaveForm"
+        ]
+      },
+      "SoLoudUnknownErrorException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudUnknownErrorException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudVisualizationNotEnabledException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudVisualizationNotEnabledException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudWrongBufferTypeToAskForTimeConsumedCppException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudWrongBufferTypeToAskForTimeConsumedCppException"
+        ],
+        "types": [
+          "SoLoudCppException"
+        ]
+      },
+      "SoLoudWrongOpusParamsException": {
+        "fields": [
+          "get:description"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/exceptions/exceptions.dart"
+        ],
+        "methods": [
+          "SoLoudWrongOpusParamsException"
+        ],
+        "types": [
+          "SoLoudDartException"
+        ]
+      },
+      "SoundEventType": {
+        "fields": [
+          "handleIsNoMoreValid",
+          "soundDisposed"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/audio_source.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "WaveForm": {
+        "fields": [
+          "bounce",
+          "fSaw",
+          "fSquare",
+          "humps",
+          "jaws",
+          "saw",
+          "sin",
+          "square",
+          "triangle"
+        ],
+        "libraries": [
+          "package:flutter_soloud/flutter_soloud.dart",
+          "package:flutter_soloud/src/enums.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "WaveShaperEnum": {
+        "fields": [
+          "amount",
+          "get:def",
+          "get:max",
+          "get:min",
+          "wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/wave_shaper_filter.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "WaveShaperGlobal": {
+        "fields": [
+          "get:amount",
+          "get:wet"
+        ],
+        "libraries": [
+          "package:flutter_soloud/src/filters/wave_shaper_filter.dart"
+        ],
+        "methods": [
+          "WaveShaperGlobal"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "WaveShaperSingle": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/filters/wave_shaper_filter.dart"
+        ],
+        "methods": [
+          "WaveShaperSingle",
+          "amount",
+          "wet"
+        ],
+        "types": [
+          "FilterParam"
+        ]
+      },
+      "WorkerController": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_soloud/src/worker/worker.dart"
+        ],
+        "methods": [
+          "kill",
+          "onReceive",
+          "sendMessage",
+          "setWasmWorker",
+          "spawn"
+        ],
+        "types": [
+          "WorkerController"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:23:25Z",
+  "package": "flutter_soloud",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "BassBoostGlobal",
+      "BiquadResonantGlobal",
+      "CompressorGlobal",
+      "EchoGlobal",
+      "EqualizerGlobal",
+      "FilterBase",
+      "FiltersGlobal",
+      "FiltersSingle",
+      "FlangerGlobal",
+      "FreeverbGlobal",
+      "LimiterGlobal",
+      "LofiGlobal",
+      "PitchShiftGlobal",
+      "PlaybackDevice",
+      "RobotizeGlobal",
+      "SoLoudBackendNotInitedException",
+      "SoLoudBufferStreamCanBePlayedOnlyOnceCppException",
+      "SoLoudBufferStreamWithReleasedBufferTypeCannotBeSeekedCppException",
+      "SoLoudCppException",
+      "SoLoudCreateVoiceGroupDartException",
+      "SoLoudDartException",
+      "SoLoudDllNotFoundException",
+      "SoLoudException",
+      "SoLoudFailedToCreateOpusDecoderCppException",
+      "SoLoudFailedToDecodeOpusPacketCppException",
+      "SoLoudFileLoadFailedException",
+      "SoLoudFileNotFoundException",
+      "SoLoudFilterAlreadyAddedException",
+      "SoLoudFilterForSingleSoundOnWebDartException",
+      "SoLoudFilterNotFoundException",
+      "SoLoudFilterParameterGetErrorCppException",
+      "SoLoudHashIsNotABufferStreamCppException",
+      "SoLoudInitializationStoppedByDeinitException",
+      "SoLoudInitializationTimedOutException",
+      "SoLoudInvalidParameterException",
+      "SoLoudIsolateSpawnFailedException",
+      "SoLoudMaxFilterNumberReachedException",
+      "SoLoudNetworkStatusCodeException",
+      "SoLoudNoPlaybackDevicesFoundCppException",
+      "SoLoudNotImplementedException",
+      "SoLoudNotInitializedException",
+      "SoLoudNullPointerException",
+      "SoLoudOpusOggLibsNotAvailableException",
+      "SoLoudOutOfMemoryException",
+      "SoLoudPcmBufferFullCppException",
+      "SoLoudPlayerAlreadyInitializedException",
+      "SoLoudReadSamplesFailedToGetDataFormatCppException",
+      "SoLoudReadSamplesFailedToReadPcmFramesCppException",
+      "SoLoudReadSamplesFailedToSeekPcmCppException",
+      "SoLoudReadSamplesNoBackendCppException",
+      "SoLoudSoundHandleNotFoundCppException",
+      "SoLoudSoundHashNotFoundCppException",
+      "SoLoudSoundHashNotFoundDartException",
+      "SoLoudStreamEndedAlreadyCppException",
+      "SoLoudTemporaryFolderFailedException",
+      "SoLoudUnknownErrorException",
+      "SoLoudVisualizationNotEnabledException",
+      "SoLoudWrongBufferTypeToAskForTimeConsumedCppException",
+      "SoLoudWrongOpusParamsException",
+      "WaveShaperGlobal",
+      "_BassBoostInternal",
+      "_BiquadResonantInternal",
+      "_CompressorInternal",
+      "_EchoInternal",
+      "_EqualizerInternal",
+      "_FlangerInternal",
+      "_FreeverbInternal",
+      "_LimiterInternal",
+      "_LofiInternal",
+      "_PitchShiftInternal",
+      "_RobotizeInternal",
+      "_TemporaryFileIdentifier",
+      "_WaveShaperInternal"
+    ],
+    "digest": "b43f921c7db74812146eb968580f169fad4b4d3e13c4d5e610f30a3189afea40",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "41a637d9527363db8686620def523e75be1704f8a52698693336fd8a513a8ccf",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      " (",
+      ")",
+      "*",
+      ".dart",
+      "0 >= octave <= 4 is not true!",
+      ": ",
+      "A null pointer was captured on the C++ side. This could happen when passing a non initialized pointer (with calloc()) to retrieve FFT or wave data. Or, setVisualization has not been enabled.",
+      "Amount",
+      "An error (nan or inf value) occurred while getting a filter parameter!",
+      "An error occurred while getting a filter parameter. This could happen when passing a value outside the parameter range and then trying to get it (on the C++ side).",
+      "An error occurred while initializing the backend to read samples. Probably for an unsupported or broken format. If you are trying to open an OGG file, please make sure that you have unset NO_OPUS_OGG_LIBS environment variable. Ref: https://docs.page/alnitak/flutter_soloud_docs/get_started/no_opus_ogg_libs  (on the C++ side).",
+      "An error occurred while reading PCM frames. (on the C++ side).",
+      "An error occurred while reading the decoder data format. Probably for an unsupported or broken format. (on the C++ side).",
+      "An error occurred while seeking audio data. (on the C++ side).",
+      "An invalid parameter was passed to SoLoud (on the C++ side).",
+      "An unknown error occurred on the C++ side.",
+      "Askind to add another filter, but no more then 8 is allowed (on the C++ side).",
+      "Asking for audio data is not enabled (on the C++ side). Please use `setVisualizationEnabled(true);` to enable.",
+      "Asking for audio data is not enabled! Please use `setVisualizationEnabled(true);` to enable!",
+      "Asking to add a filter that has already been added. Only one of each type is allowed (on the C++ side).",
+      "Attack Time",
+      "Band 1",
+      "Band 2",
+      "Band 3",
+      "Band 4",
+      "Band 5",
+      "Band 6",
+      "Band 7",
+      "Band 8",
+      "Bassboost",
+      "Biquad Resonant",
+      "Bitdepth",
+      "Boost",
+      "BufferStream can be played only once when using `BufferingType.release` buffer type!",
+      "BufferStream with released buffer type cannot be seeked.",
+      "Cannot clean up temporary directory. See warnings above.",
+      "Capture null pointer error. Could happens when passing a non initialized pointer (with calloc()) to retrieve FFT or wave data. Or, setVisualization has not been enabled.",
+      "Compressor",
+      "Couldn't initialize loader. Temporary directory couldn't be created.",
+      "DLL not found, or wrong DLL!",
+      "Damp",
+      "Decay",
+      "Delay",
+      "Dolby 7.1",
+      "Duplicate sounds found",
+      "Echo",
+      "Equalizer",
+      "Failed to create Opus decoder.",
+      "Failed to create an Opus decoder. This could happen when some internal error occurred while creating the decoder. Maybe not enough memory. (on the C++ side).",
+      "Failed to decode Opus data. This could happen when the data is corrupted. (on the C++ side).",
+      "Failed to decode Opus packet.",
+      "Failed to read PCM frames.",
+      "Failed to retrieve decoder data format.",
+      "Failed to seek audio data.",
+      "Feature not implemented!",
+      "File found, but could not be loaded! Could be a permission error or the file is corrupted.",
+      "File found, but could not be loaded! Could be a permission error or the file is corrupted. (on the C++ side).",
+      "File not found!",
+      "Filter",
+      "Filter not found!",
+      "Filters for single sounds are not supported on the Web platform.",
+      "Flanger",
+      "Freeverb",
+      "Freeze",
+      "Freq",
+      "Frequency",
+      "Given hash doesn't belong to a buffer stream.",
+      "Handle with id<0 is being constructed. These are reserved for invalid handles.",
+      "Initialization failed. Probably an unsupported format.",
+      "Knee Width",
+      "Limiter",
+      "Little Endian Float 32-bit",
+      "Little Endian Signed 16-bit",
+      "Little Endian Signed 32-bit",
+      "Loader has already been initialized. Not initializing again.",
+      "Lofi",
+      "Makeup Gain",
+      "Module._setInaudibleBehavior",
+      "Module_soloud.HEAPF32",
+      "Module_soloud.HEAPU8.buffer",
+      "Module_soloud.UTF8ToString",
+      "Module_soloud._addAudioDataStream",
+      "Module_soloud._addFilter",
+      "Module_soloud._addVoiceToGroup",
+      "Module_soloud._areOpusOggLibsAvailable",
+      "Module_soloud._changeDevice",
+      "Module_soloud._countAudioSource",
+      "Module_soloud._createVoiceGroup",
+      "Module_soloud._createWorkerInWasm",
+      "Module_soloud._destroyVoiceGroup",
+      "Module_soloud._dispose",
+      "Module_soloud._disposeAllSound",
+      "Module_soloud._disposeSound",
+      "Module_soloud._fadeFilterParameter",
+      "Module_soloud._fadeGlobalVolume",
+      "Module_soloud._fadePan",
+      "Module_soloud._fadeRelativePlaySpeed",
+      "Module_soloud._fadeVolume",
+      "Module_soloud._free",
+      "Module_soloud._freeListPlaybackDevices",
+      "Module_soloud._get3dSoundSpeed",
+      "Module_soloud._getActiveVoiceCount",
+      "Module_soloud._getAudioTexture",
+      "Module_soloud._getAudioTexture2D",
+      "Module_soloud._getBufferSize",
+      "Module_soloud._getFft",
+      "Module_soloud._getFilterParamNames",
+      "Module_soloud._getFilterParams",
+      "Module_soloud._getGlobalVolume",
+      "Module_soloud._getIsValidVoiceHandle",
+      "Module_soloud._getLength",
+      "Module_soloud._getLoopPoint",
+      "Module_soloud._getLooping",
+      "Module_soloud._getMaxActiveVoiceCount",
+      "Module_soloud._getPan",
+      "Module_soloud._getPause",
+      "Module_soloud._getPosition",
+      "Module_soloud._getProtectVoice",
+      "Module_soloud._getRelativePlaySpeed",
+      "Module_soloud._getStreamTimeConsumed",
+      "Module_soloud._getTextureValue",
+      "Module_soloud._getVisualizationEnabled",
+      "Module_soloud._getVoiceCount",
+      "Module_soloud._getVolume",
+      "Module_soloud._getWave",
+      "Module_soloud._initEngine",
+      "Module_soloud._isFilterActive",
+      "Module_soloud._isInited",
+      "Module_soloud._isVoiceGroup",
+      "Module_soloud._isVoiceGroupEmpty",
+      "Module_soloud._listPlaybackDevices",
+      "Module_soloud._loadFile",
+      "Module_soloud._loadMem",
+      "Module_soloud._loadWaveform",
+      "Module_soloud._malloc",
+      "Module_soloud._oscillateFilterParameter",
+      "Module_soloud._oscillateGlobalVolume",
+      "Module_soloud._oscillatePan",
+      "Module_soloud._oscillateRelativePlaySpeed",
+      "Module_soloud._oscillateVolume",
+      "Module_soloud._pauseSwitch",
+      "Module_soloud._play",
+      "Module_soloud._play3d",
+      "Module_soloud._readSamplesFromMem",
+      "Module_soloud._removeFilter",
+      "Module_soloud._resetBufferStream",
+      "Module_soloud._schedulePause",
+      "Module_soloud._scheduleStop",
+      "Module_soloud._seek",
+      "Module_soloud._sendToWorker",
+      "Module_soloud._set3dListenerAt",
+      "Module_soloud._set3dListenerParameters",
+      "Module_soloud._set3dListenerPosition",
+      "Module_soloud._set3dListenerUp",
+      "Module_soloud._set3dListenerVelocity",
+      "Module_soloud._set3dSoundSpeed",
+      "Module_soloud._set3dSourceAttenuation",
+      "Module_soloud._set3dSourceDopplerFactor",
+      "Module_soloud._set3dSourceMinMaxDistance",
+      "Module_soloud._set3dSourceParameters",
+      "Module_soloud._set3dSourcePosition",
+      "Module_soloud._set3dSourceVelocity",
+      "Module_soloud._setBufferStream",
+      "Module_soloud._setDataIsEnded",
+      "Module_soloud._setFftSmoothing",
+      "Module_soloud._setFilterParams",
+      "Module_soloud._setGlobalVolume",
+      "Module_soloud._setLoopPoint",
+      "Module_soloud._setLooping",
+      "Module_soloud._setMaxActiveVoiceCount",
+      "Module_soloud._setPan",
+      "Module_soloud._setPanAbsolute",
+      "Module_soloud._setPause",
+      "Module_soloud._setProtectVoice",
+      "Module_soloud._setRelativePlaySpeed",
+      "Module_soloud._setSuperWave",
+      "Module_soloud._setVisualizationEnabled",
+      "Module_soloud._setVolume",
+      "Module_soloud._setWaveform",
+      "Module_soloud._setWaveformDetune",
+      "Module_soloud._setWaveformFreq",
+      "Module_soloud._setWaveformScale",
+      "Module_soloud._speechText",
+      "Module_soloud._stop",
+      "Module_soloud.ccall",
+      "Module_soloud.cwrap",
+      "Module_soloud.getValue",
+      "Module_soloud.setValue",
+      "Module_soloud.wasmWorker",
+      "Mono",
+      "No error",
+      "No playback devices were found while initializing engine or when changing the output device.",
+      "No playback devices were found while initializing engine or when changing the output device. (on the C++ side).",
+      "Only [maxBufferSizeDuration] or [maxBufferSizeBytes] must be set.",
+      "Only mono and stereo channels are supported for Opus format",
+      "Opus Encoded Audio",
+      "Opus format only supports 48, 24, 16, 12 and 8 KHz sample rates",
+      "Out of memory on the C++ side.",
+      "Out of memory!",
+      "Output Ceiling",
+      "Pitchshift",
+      "Player not initialized!",
+      "Please, to manage global filters use SoLoud.filters instead",
+      "Quad",
+      "Ratio",
+      "Release Time",
+      "Resonance",
+      "Robotize",
+      "Room Size",
+      "Samplerate",
+      "Semitones",
+      "Shift",
+      "Signed 8-bit",
+      "SoLoud has not been initialized yet. Call `SoLoud.initialize()` first and await it, or await the `SoLoud.initialized` Future elsewhere. Alternately, you can check the synchronous `SoLoud.isInitialized` bool just before calling any SoLoud method.",
+      "SoLoud.createVoiceGroup() was not able to create  a new voice group.",
+      "SoLoud.deinit() was called during initialization.",
+      "SoLoudLoader-Temp-Files",
+      "Some parameters are invalid!",
+      "Stereo",
+      "Surround 5.1",
+      "Temporary directory hasn't been initialized, yet _getTempFile() is called.",
+      "Temporary directory hasn't been initialized, yet cleanUp() is called.",
+      "Temporary directory hasn't been initialized, yet loadAsset() is called.",
+      "Temporary directory hasn't been initialized, yet loadUrl() is called.",
+      "The DLL was not found.",
+      "The Opus and Ogg libraries are not available. If your target platform is Android, could happens that the NDK built files are not updated. If this is the case, or you just want to read more about enablig/disabling the libs, please read the documentation: https://github.com/alnitak/flutter_soloud/blob/main/NO_OPUS_OGG_LIBS.md",
+      "The audio isolate failed to spawn.",
+      "The buffer stream can be played only once when using `BufferingType.release` buffer type. (on the C++ side).",
+      "The buffer stream with released buffer type cannot be seeked. (on the C++ side).",
+      "The buffer type is not suitable for asking for time consumed. Please use a buffer of type `BufferingType.released`. (on the C++ side).",
+      "The engine took too long to initialize.",
+      "The feature is not implemented on the C++ side.",
+      "The file was not found (on the C++ side).",
+      "The fileAlreadyLoaded return from C++ should not be thrown as an error. It has no effect on functionality: the sound is already loaded, and we get the correct sound back, too.",
+      "The filter was not found (on the C++ side).",
+      "The given AudioSource is not a buffer stream. (on the C++ side).",
+      "The handle is not found! The playing handle could have been stopped or ended and it is no more valid!",
+      "The maximum number of active voices has been reached! Try to increase the maximum active voice count with `setMaxActiveVoiceCount`. Also, please read `play/play3d` documentation for more information about the maximum active voice count.",
+      "The maximum number of filters has been reached (default is 8)!",
+      "The pan argument must be in range -1 to 1 inclusive!",
+      "The panLeft argument must be in range -1 to 1 inclusive!",
+      "The panRight argument must be in range -1 to 1 inclusive!",
+      "The player has already been inited!",
+      "The player has already been initialized (on the C++ side).",
+      "The player is not initialized (on the C++ side).",
+      "The sound file has already been loaded!",
+      "The sound handle is not found (on the C++ side).",
+      "The sound with specified hash is not found (on the C++ side).",
+      "The sound with specified hash is not found (on the Dart side).",
+      "The sound with specified hash is not found!",
+      "There was a problem creating or opening the temporary folder that is used to hold audio files.",
+      "Threshold",
+      "Trying to add PCM data but the buffer is full or not large enough for the needed PCM data. Try increasing the buffer size. Or, stream buffer has been set to be ended. ",
+      "Trying to add PCM data but the buffer is full or not large enough for the needed PCM data. Try increasing the buffer size. Or, stream buffer has been set to be ended. (on the C++ side).",
+      "Trying to add PCM data but the stream is marked to be ended already, by the user or when the stream reached its maximum capacity, in this case the stream is automatically marked to be ended.",
+      "Trying to add PCM data but the stream is marked to be ended already, by the user or when the stream reached its maximum capacity, in this case the stream is automatically marked to be ended. (on the C++ side).",
+      "Trying to create a valid sound hash with the value 0",
+      "Trying to create an exception from PlayerErrors.maxActiveVoiceCountReached. This is a non-blocking error, so it should not be thrown as an exception. This is a bug in the library. Please report it.",
+      "Trying to create an exception from PlayerErrors.noError. This is a bug in the library. Please report it.",
+      "Trying to create an exception from ReadSamplesErrors.noError. This is a bug in the library. Please report it.",
+      "Trying to get time consumed from wrong buffer type. This is only available for `BufferingType.preserved` buffers.",
+      "Type",
+      "Unknown error!",
+      "Wave Shaper",
+      "Waveform",
+      "Wet",
+      "Width",
+      "Wrong Opus parameter(s). When using Opus, the sample rate must be 8, 12, 16, 24, or 48 kHz and the channel count must be 1 or 2.",
+      "[endTime] must be greater than [startTime].",
+      "[loadFile] in not supported on the web platfom! Please use [loadMem].",
+      "[readSamplesFromFile] in not supported on the web platfom! Please use [readSamplesFromMem].",
+      "[startTime] must be greater than or equal to 0.",
+      "addAudioDataStream",
+      "addAudioDataStream() result",
+      "addFilter",
+      "addVoiceToGroup",
+      "areOpusOggLibsAvailable",
+      "audio_data_web.dart",
+      "average",
+      "buffer",
+      "changeDevice",
+      "changeDevice() result",
+      "cleanUp() called",
+      "completeFileName",
+      "countAudioSource",
+      "createVoiceGroup",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:ffi",
+      "dart:io",
+      "dart:js_interop",
+      "dart:js_interop_unsafe",
+      "dart:math",
+      "dart:typed_data",
+      "deinit() called",
+      "destroyVoiceGroup",
+      "dispose",
+      "disposeAllSound",
+      "disposeSound",
+      "endTime",
+      "error",
+      "exceptions.dart",
+      "exceptions_from_cpp.dart",
+      "exceptions_from_dart.dart",
+      "fadeFilterParameter",
+      "fadeGlobalVolume",
+      "fadePan",
+      "fadeRelativePlaySpeed",
+      "fadeVolume",
+      "float",
+      "flutter_soloud.FlutterSoLoudFfi",
+      "flutter_soloud.SoLoud",
+      "flutter_soloud.SoLoudLoader_io",
+      "flutter_soloud.SoLoudLoader_web",
+      "flutter_soloud_plugin.dll",
+      "freeListPlaybackDevices",
+      "get3dSoundSpeed",
+      "getActiveVoiceCount",
+      "getAudioTexture",
+      "getAudioTexture2D",
+      "getBufferSize",
+      "getBufferSize() result",
+      "getFft",
+      "getFilterParamNames",
+      "getFilterParams",
+      "getGlobalFilterParameter()",
+      "getGlobalVolume",
+      "getIsValidVoiceHandle",
+      "getLength",
+      "getLoopPoint",
+      "getLooping",
+      "getMaxActiveVoiceCount",
+      "getPan",
+      "getPause",
+      "getPosition",
+      "getProtectVoice",
+      "getRelativePlaySpeed",
+      "getStreamTimeConsumed",
+      "getStreamTimeConsumed() result",
+      "getTextureValue",
+      "getVisualizationEnabled",
+      "getVoiceCount",
+      "getVolume",
+      "getWave",
+      "globalThis",
+      "hash",
+      "i32",
+      "i8",
+      "init() called",
+      "init() called when the native player is already initialized. This is expected after a hot restart but not otherwise. If you see this in production logs, there's probably a bug in your code. You may have neglected to deinit() SoLoud during the current lifetime of the app.",
+      "initEngine",
+      "initialize() called",
+      "initialize() result",
+      "isFilterActive",
+      "isInited",
+      "isVoiceGroup",
+      "isVoiceGroupEmpty",
+      "libflutter_soloud_plugin.so",
+      "listPlaybackDevices",
+      "loadFile",
+      "loadFile() result",
+      "loadMem",
+      "loadWaveform",
+      "loadWaveform() result",
+      "loader_base.dart",
+      "loader_io.dart",
+      "loader_web.dart",
+      "message",
+      "mode",
+      "nativeFree",
+      "numSamplesNeeded",
+      "oscillateFilterParameter",
+      "oscillateGlobalVolume",
+      "oscillatePan",
+      "oscillateRelativePlaySpeed",
+      "oscillateVolume",
+      "package:ffi/ffi.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/services.dart",
+      "package:flutter_soloud/src/audio_source.dart",
+      "package:flutter_soloud/src/bindings/audio_data.dart",
+      "package:flutter_soloud/src/bindings/audio_data_ffi.dart",
+      "package:flutter_soloud/src/bindings/bindings_player.dart",
+      "package:flutter_soloud/src/bindings/bindings_player_ffi.dart",
+      "package:flutter_soloud/src/bindings/bindings_player_web.dart",
+      "package:flutter_soloud/src/bindings/js_extension.dart",
+      "package:flutter_soloud/src/bindings/soloud_controller.dart",
+      "package:flutter_soloud/src/bindings/soloud_controller_ffi.dart",
+      "package:flutter_soloud/src/bindings/soloud_controller_web.dart",
+      "package:flutter_soloud/src/enums.dart",
+      "package:flutter_soloud/src/exceptions/exceptions.dart",
+      "package:flutter_soloud/src/filters/bassboost_filter.dart",
+      "package:flutter_soloud/src/filters/biquad_resonant_filter.dart",
+      "package:flutter_soloud/src/filters/compressor.dart",
+      "package:flutter_soloud/src/filters/echo_filter.dart",
+      "package:flutter_soloud/src/filters/equalizer_filter.dart",
+      "package:flutter_soloud/src/filters/filters.dart",
+      "package:flutter_soloud/src/filters/flanger_filter.dart",
+      "package:flutter_soloud/src/filters/freeverb_filter.dart",
+      "package:flutter_soloud/src/filters/limiter.dart",
+      "package:flutter_soloud/src/filters/lofi_filter.dart",
+      "package:flutter_soloud/src/filters/pitchshift_filter.dart",
+      "package:flutter_soloud/src/filters/robotize_filter.dart",
+      "package:flutter_soloud/src/filters/wave_shaper_filter.dart",
+      "package:flutter_soloud/src/helpers/playback_device.dart",
+      "package:flutter_soloud/src/soloud.dart",
+      "package:flutter_soloud/src/sound_handle.dart",
+      "package:flutter_soloud/src/sound_hash.dart",
+      "package:flutter_soloud/src/utils/loader.dart",
+      "package:flutter_soloud/src/worker/worker.dart",
+      "package:http/http.dart",
+      "package:logging/logging.dart",
+      "package:meta/meta.dart",
+      "package:path/path.dart",
+      "package:path_provider/path_provider.dart",
+      "package:web/web.dart",
+      "path",
+      "pauseSwitch",
+      "platform not supported",
+      "play",
+      "play()",
+      "play3d",
+      "play3d()",
+      "readSamplesFromFile",
+      "readSamplesFromMem",
+      "removeFilter",
+      "resetBufferStream",
+      "resetBufferStream() result",
+      "schedulePause",
+      "scheduleStop",
+      "seek",
+      "set3dListenerAt",
+      "set3dListenerParameters",
+      "set3dListenerPosition",
+      "set3dListenerUp",
+      "set3dListenerVelocity",
+      "set3dSoundSpeed",
+      "set3dSourceAttenuation",
+      "set3dSourceDopplerFactor",
+      "set3dSourceMinMaxDistance",
+      "set3dSourceParameters",
+      "set3dSourcePosition",
+      "set3dSourceVelocity",
+      "setBufferStream",
+      "setDartEventCallback",
+      "setDataIsEnded",
+      "setDataIsEnded() result",
+      "setFftSmoothing",
+      "setFilterParams",
+      "setGlobalVolume",
+      "setInaudibleBehavior",
+      "setLoopPoint",
+      "setLooping",
+      "setMaxActiveVoiceCount",
+      "setPan",
+      "setPanAbsolute",
+      "setPause",
+      "setProtectVoice",
+      "setRelativePlaySpeed",
+      "setSuperWave",
+      "setVisualizationEnabled",
+      "setVolume",
+      "setWaveform",
+      "setWaveformDetune",
+      "setWaveformFreq",
+      "setWaveformScale",
+      "speechText",
+      "speechText() result",
+      "src/audio_source.dart",
+      "src/bindings/audio_data.dart",
+      "src/enums.dart",
+      "src/exceptions/exceptions.dart",
+      "src/filters/filters.dart",
+      "src/helpers/playback_device.dart",
+      "src/soloud.dart",
+      "src/sound_handle.dart",
+      "src/sound_hash.dart",
+      "src/tools/soloud_tools.dart",
+      "startTime",
+      "stop",
+      "timeStamp",
+      "value",
+      "vm:entry-point",
+      "voiceEndedCallback"
+    ]
+  },
+  "version": "3.2.4"
+}
