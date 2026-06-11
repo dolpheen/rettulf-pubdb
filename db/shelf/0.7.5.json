@@ -1,0 +1,335 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "addChunkedEncoding"
+        ],
+        "libraries": [
+          "package:shelf/shelf.dart",
+          "package:shelf/shelf_io.dart",
+          "package:shelf/src/handler.dart",
+          "package:shelf/src/message.dart",
+          "package:shelf/src/middleware.dart",
+          "package:shelf/src/middleware/add_chunked_encoding.dart",
+          "package:shelf/src/middleware/logger.dart",
+          "package:shelf/src/util.dart"
+        ],
+        "methods": [
+          "addHeader",
+          "catchTopLevelErrors",
+          "createMiddleware",
+          "getBody",
+          "getHeader",
+          "handleRequest",
+          "hasHeader",
+          "logRequests",
+          "newFuture",
+          "serve",
+          "serveRequests",
+          "updateMap"
+        ],
+        "types": [
+          "Body",
+          "Message",
+          "Request",
+          "Response"
+        ]
+      },
+      "Body": {
+        "fields": [
+          "contentLength",
+          "encoding"
+        ],
+        "libraries": [
+          "package:shelf/src/body.dart"
+        ],
+        "methods": [
+          "Body",
+          "read"
+        ],
+        "types": []
+      },
+      "Cascade": {
+        "fields": [
+          "get:handler"
+        ],
+        "libraries": [
+          "package:shelf/shelf.dart",
+          "package:shelf/src/cascade.dart"
+        ],
+        "methods": [
+          "Cascade",
+          "add"
+        ],
+        "types": [
+          "Cascade"
+        ]
+      },
+      "HijackException": {
+        "fields": [],
+        "libraries": [
+          "package:shelf/shelf.dart",
+          "package:shelf/src/hijack_exception.dart"
+        ],
+        "methods": [
+          "HijackException",
+          "toString"
+        ],
+        "types": []
+      },
+      "IOServer": {
+        "fields": [
+          "get:url",
+          "server"
+        ],
+        "libraries": [
+          "package:shelf/shelf_io.dart",
+          "package:shelf/src/io_server.dart"
+        ],
+        "methods": [
+          "IOServer",
+          "bind",
+          "close",
+          "mount"
+        ],
+        "types": [
+          "IOServer",
+          "Server"
+        ]
+      },
+      "Message": {
+        "fields": [
+          "context",
+          "get:contentLength",
+          "get:encoding",
+          "get:isEmpty",
+          "get:mimeType",
+          "headers"
+        ],
+        "libraries": [
+          "package:shelf/src/message.dart"
+        ],
+        "methods": [
+          "Message",
+          "change",
+          "read",
+          "readAsString"
+        ],
+        "types": [
+          "Body",
+          "Message"
+        ]
+      },
+      "Pipeline": {
+        "fields": [
+          "get:middleware"
+        ],
+        "libraries": [
+          "package:shelf/shelf.dart",
+          "package:shelf/src/pipeline.dart"
+        ],
+        "methods": [
+          "Pipeline",
+          "addHandler",
+          "addMiddleware"
+        ],
+        "types": [
+          "Pipeline"
+        ]
+      },
+      "Request": {
+        "fields": [
+          "get:canHijack",
+          "get:ifModifiedSince",
+          "handlerPath",
+          "method",
+          "protocolVersion",
+          "requestedUri",
+          "url"
+        ],
+        "libraries": [
+          "package:shelf/shelf.dart",
+          "package:shelf/src/request.dart"
+        ],
+        "methods": [
+          "Request",
+          "change",
+          "hijack"
+        ],
+        "types": [
+          "Message",
+          "Request"
+        ]
+      },
+      "Response": {
+        "fields": [
+          "get:expires",
+          "get:lastModified",
+          "statusCode"
+        ],
+        "libraries": [
+          "package:shelf/shelf.dart",
+          "package:shelf/src/response.dart"
+        ],
+        "methods": [
+          "Response",
+          "change",
+          "forbidden",
+          "found",
+          "internalServerError",
+          "movedPermanently",
+          "notFound",
+          "notModified",
+          "ok",
+          "seeOther"
+        ],
+        "types": [
+          "Message",
+          "Response"
+        ]
+      },
+      "Server": {
+        "fields": [
+          "get:url"
+        ],
+        "libraries": [
+          "package:shelf/shelf.dart",
+          "package:shelf/src/server.dart"
+        ],
+        "methods": [
+          "close",
+          "mount"
+        ],
+        "types": []
+      },
+      "ServerHandler": {
+        "fields": [
+          "get:handler",
+          "get:server"
+        ],
+        "libraries": [
+          "package:shelf/shelf.dart",
+          "package:shelf/src/server_handler.dart"
+        ],
+        "methods": [
+          "ServerHandler"
+        ],
+        "types": [
+          "Server"
+        ]
+      },
+      "ShelfUnmodifiableMap": {
+        "fields": [],
+        "libraries": [
+          "package:shelf/src/shelf_unmodifiable_map.dart"
+        ],
+        "methods": [
+          "ShelfUnmodifiableMap",
+          "empty"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:04:17Z",
+  "package": "shelf",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "HijackException",
+      "Pipeline",
+      "ShelfUnmodifiableMap",
+      "_EmptyShelfUnmodifiableMap"
+    ],
+    "digest": "74f7f9b5b310bf64526b15fec6d4555bfb090140101336598af61d85ac047f15",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "601b518797123ebbf2af1c37fd50a9606e118823b3e12e83a9488b1a100d1e6a",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      ",",
+      "../hijack_exception.dart",
+      "../middleware.dart",
+      "../shelf_io.dart",
+      "/",
+      "0",
+      "1.1",
+      "A shelf request's underlying data stream was hijacked.\nThis exception is used for control flow and should only be handled by a Shelf adapter.",
+      "Bad Request",
+      "Can't get a handler for a cascade with no inner handlers.",
+      "Can't mount two handlers for the same server.",
+      "Caught HijackException, but the request wasn't hijacked.",
+      "Forbidden",
+      "Internal Server Error",
+      "Not Found",
+      "Request received after the server was closed.",
+      "The 'read' method can only be called once on a shelf.Request/shelf.Response object.",
+      "This request can't be hijacked.",
+      "This request has already been hijacked.",
+      "body.dart",
+      "cannot be empty.",
+      "charset",
+      "chunked",
+      "content-length",
+      "content-type",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:io",
+      "dart:io with Shelf",
+      "date",
+      "expires",
+      "handler.dart",
+      "hijack_exception.dart",
+      "http",
+      "identity",
+      "if-modified-since",
+      "last-modified",
+      "localhost",
+      "location",
+      "may not have a fragment.",
+      "message.dart",
+      "method",
+      "middleware.dart",
+      "multipart/byteranges",
+      "must be an absolute URL.",
+      "null response from handler.",
+      "package:async/async.dart",
+      "package:collection/collection.dart",
+      "package:http_parser/http_parser.dart",
+      "package:stack_trace/stack_trace.dart",
+      "package:stream_channel/stream_channel.dart",
+      "request.dart",
+      "requestedUri",
+      "response.dart",
+      "server.dart",
+      "shelf",
+      "shelf.dart",
+      "shelf.io.buffer_output",
+      "shelf.io.connection_info",
+      "shelf_unmodifiable_map.dart",
+      "src/cascade.dart",
+      "src/handler.dart",
+      "src/hijack_exception.dart",
+      "src/io_server.dart",
+      "src/middleware.dart",
+      "src/middleware/add_chunked_encoding.dart",
+      "src/middleware/logger.dart",
+      "src/pipeline.dart",
+      "src/request.dart",
+      "src/response.dart",
+      "src/server.dart",
+      "src/server_handler.dart",
+      "src/util.dart",
+      "statusCodes and shouldCascade may not both be passed.",
+      "text/plain",
+      "transfer-encoding",
+      "util.dart"
+    ]
+  },
+  "version": "0.7.5"
+}
