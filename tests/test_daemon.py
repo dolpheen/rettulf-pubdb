@@ -1356,6 +1356,133 @@ class GitRepositoryTests(unittest.TestCase):
         )
 
 
+class DefaultPipelineEvictionTests(unittest.TestCase):
+    """The base pipeline must drop each archive once it is done collecting."""
+
+    @staticmethod
+    def _make_client_factory(handler):
+        from collector import pubdev_client
+
+        def client_factory(**kwargs):
+            kwargs.pop("timeout", None)
+            return pubdev_client.PubDevClient(
+                client=httpx.Client(transport=httpx.MockTransport(handler)),
+                sleep=lambda _: None,
+                **kwargs,
+            )
+
+        return client_factory
+
+    @staticmethod
+    def _archive_bytes(files: dict[str, str]) -> bytes:
+        import io
+        import tarfile
+
+        buffer = io.BytesIO()
+        with tarfile.open(fileobj=buffer, mode="w:gz") as archive:
+            for name, content in files.items():
+                payload = content.encode("utf-8")
+                info = tarfile.TarInfo(name)
+                info.mode = 0o644
+                info.size = len(payload)
+                archive.addfile(info, io.BytesIO(payload))
+        return buffer.getvalue()
+
+    def test_base_collect_evicts_archive_cache_entry(self) -> None:
+        import hashlib
+
+        archive = self._archive_bytes({"lib/pkg.dart": "library pkg;"})
+        archive_url = "https://pub.dev/api/archives/pkg-1.0.0.tar.gz"
+        seen_during_collect: list[bool] = []
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            if request.url.path == "/api/packages/pkg":
+                version_info = {
+                    "version": "1.0.0",
+                    "archive_url": archive_url,
+                    "archive_sha256": hashlib.sha256(archive).hexdigest(),
+                }
+                return httpx.Response(
+                    200,
+                    json={"latest": version_info, "versions": [version_info]},
+                )
+            if request.url.path == "/api/archives/pkg-1.0.0.tar.gz":
+                return httpx.Response(200, content=archive)
+            return httpx.Response(404)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            cache_dir = Path(tmp) / "archives"
+            archive_path = cache_dir / "pkg-1.0.0.tar.gz"
+            extract_dir = cache_dir / "pkg-1.0.0"
+            client_factory = self._make_client_factory(handler)
+
+            def fake_api_surface(package_dir: Path, package: str, **_: object):
+                # The extracted source must still be present while we read it.
+                seen_during_collect.append((package_dir / "lib" / "pkg.dart").is_file())
+                return {"classes": {}}
+
+            def fake_source_fingerprint(package_dir: Path, package: str, **_: object):
+                return {"strategy": "fake-source-v1", "digest": "0" * 64}
+
+            pipeline = daemon.DefaultPipeline(archive_cache_dir=cache_dir)
+            item = daemon.WorkItem("pkg", "1.0.0", priority=daemon.PRIORITY_MISSING_BASE)
+
+            with mock.patch.object(daemon, "PubDevClient", client_factory), \
+                mock.patch.object(daemon, "collect_api_surface", fake_api_surface), \
+                mock.patch.object(
+                    daemon, "collect_source_fingerprint", fake_source_fingerprint
+                ):
+                entry = pipeline.collect(item)
+
+            self.assertEqual(entry["package"], "pkg")
+            self.assertEqual(seen_during_collect, [True])
+            # The archive cache holds no entry for this key once collection ends.
+            self.assertFalse(archive_path.exists())
+            self.assertFalse(extract_dir.exists())
+
+    def test_base_collect_evicts_even_when_surface_fails(self) -> None:
+        import hashlib
+
+        archive = self._archive_bytes({"lib/pkg.dart": "library pkg;"})
+        archive_url = "https://pub.dev/api/archives/pkg-2.0.0.tar.gz"
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            if request.url.path == "/api/packages/pkg":
+                version_info = {
+                    "version": "2.0.0",
+                    "archive_url": archive_url,
+                    "archive_sha256": hashlib.sha256(archive).hexdigest(),
+                }
+                return httpx.Response(
+                    200,
+                    json={"latest": version_info, "versions": [version_info]},
+                )
+            if request.url.path == "/api/archives/pkg-2.0.0.tar.gz":
+                return httpx.Response(200, content=archive)
+            return httpx.Response(404)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            cache_dir = Path(tmp) / "archives"
+            archive_path = cache_dir / "pkg-2.0.0.tar.gz"
+            extract_dir = cache_dir / "pkg-2.0.0"
+            client_factory = self._make_client_factory(handler)
+
+            def boom(*_args: object, **_kwargs: object):
+                raise RuntimeError("surface extraction failed")
+
+            pipeline = daemon.DefaultPipeline(archive_cache_dir=cache_dir)
+            item = daemon.WorkItem("pkg", "2.0.0", priority=daemon.PRIORITY_MISSING_BASE)
+
+            with mock.patch.object(daemon, "PubDevClient", client_factory), \
+                mock.patch.object(daemon, "collect_api_surface", boom):
+                with self.assertRaisesRegex(RuntimeError, "surface extraction failed"):
+                    pipeline.collect(item)
+
+            # A failed collection must not leak the archive either.
+            self.assertFalse(archive_path.exists())
+            self.assertFalse(extract_dir.exists())
+
+
 def _git(repo_root: Path, *args: str) -> None:
     subprocess.run(
         ["git", "-C", str(repo_root), *args],

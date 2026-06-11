@@ -127,11 +127,14 @@ v392persei@rettulf.v392persei.ru`.
   `/root/.cache/rettulf-pubdb` holds the **durable SQLite work queue `queue.db`**
   (precious, ~5 MB — survives restarts so discovery resumes) **and** `archives/`
   (extracted pub.dev sources). `archives/` is a re-download cache keyed by
-  `(package, version)` with **no eviction**, so it grows unbounded (reached
-  ~28 GB / 10k entries). Safe to prune for disk: only `queue.db` must persist,
-  and discovery skips already-collected packages so pruning their archives
-  triggers no re-download. `flutter-cache` is empty in `--base-only` mode. Disk
-  is 38 GB — `archives/` dominates; watch for fill.
+  `(package, version)` that is now **bounded**: each archive is **evicted once
+  the work item(s) using it finish** (reference-counted, so concurrent
+  base/obfuscated/flutter items sharing a key don't delete it early), so it
+  stays to roughly the in-flight set instead of growing unbounded (it had
+  reached ~28 GB / 10k entries before eviction landed). Safe to prune for disk:
+  only `queue.db` must persist, and discovery skips already-collected packages
+  so pruning their archives triggers no re-download. `flutter-cache` is empty in
+  `--base-only` mode. Disk is 38 GB; watch for fill.
 
 **Invariant — never let any `db/` path be gitignored.** The daemon publishes via
 one batched `git add -- <files>`; a single ignored path makes git exit non-zero

@@ -108,6 +108,135 @@ class PubDevClientTests(unittest.TestCase):
             self.assertEqual(user_agents, [pubdev_client.USER_AGENT] * 2)
             self.assertEqual(accepts[0], "application/vnd.pub.v2+json")
 
+    def test_evict_removes_archive_and_extract_and_refetch_recreates(self) -> None:
+        archive = _archive_bytes({"lib/pkg.dart": "library pkg;"})
+        archive_url = "https://pub.dev/api/archives/pkg-1.0.0.tar.gz"
+        calls = {"metadata": 0, "archive": 0}
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            if request.url.path == "/api/packages/pkg":
+                calls["metadata"] += 1
+                return httpx.Response(
+                    200,
+                    json=_metadata("pkg", "1.0.0", archive_url, _sha256(archive)),
+                )
+            if request.url.path == "/api/archives/pkg-1.0.0.tar.gz":
+                calls["archive"] += 1
+                return httpx.Response(200, content=archive)
+            return httpx.Response(404)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            cache_dir = Path(tmp)
+            archive_path = cache_dir / "pkg-1.0.0.tar.gz"
+            extract_dir = cache_dir / "pkg-1.0.0"
+
+            http_client = httpx.Client(transport=httpx.MockTransport(handler))
+            with pubdev_client.PubDevClient(
+                cache_dir=cache_dir,
+                client=http_client,
+                sleep=lambda _: None,
+            ) as client:
+                client.fetch("pkg", "1.0.0")
+                self.assertTrue(archive_path.is_file())
+                self.assertTrue(extract_dir.is_dir())
+
+                client.evict("pkg", "1.0.0")
+                self.assertFalse(archive_path.exists())
+                self.assertFalse(extract_dir.exists())
+
+                # The entry is gone, so a fresh fetch re-downloads and re-extracts.
+                lib_dir = client.fetch("pkg", "1.0.0")
+                self.assertTrue(archive_path.is_file())
+                self.assertEqual((lib_dir / "pkg.dart").read_text(), "library pkg;")
+
+            self.assertEqual(calls, {"metadata": 2, "archive": 2})
+
+    def test_evict_is_reference_counted(self) -> None:
+        archive = _archive_bytes({"lib/pkg.dart": "library pkg;"})
+        archive_url = "https://pub.dev/api/archives/pkg-1.0.0.tar.gz"
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            if request.url.path == "/api/packages/pkg":
+                return httpx.Response(
+                    200,
+                    json=_metadata("pkg", "1.0.0", archive_url, _sha256(archive)),
+                )
+            if request.url.path == "/api/archives/pkg-1.0.0.tar.gz":
+                return httpx.Response(200, content=archive)
+            return httpx.Response(404)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            cache_dir = Path(tmp)
+            archive_path = cache_dir / "pkg-1.0.0.tar.gz"
+            extract_dir = cache_dir / "pkg-1.0.0"
+
+            http_client = httpx.Client(transport=httpx.MockTransport(handler))
+            with pubdev_client.PubDevClient(
+                cache_dir=cache_dir,
+                client=http_client,
+                sleep=lambda _: None,
+            ) as client:
+                # Two fetches take two references on the same cache entry.
+                client.fetch("pkg", "1.0.0")
+                client.fetch("pkg", "1.0.0")
+
+                # First evict only drops a reference: files survive.
+                client.evict("pkg", "1.0.0")
+                self.assertTrue(archive_path.is_file())
+                self.assertTrue(extract_dir.is_dir())
+
+                # Second evict reaches zero references: files are removed.
+                client.evict("pkg", "1.0.0")
+                self.assertFalse(archive_path.exists())
+                self.assertFalse(extract_dir.exists())
+
+    def test_evict_removes_tmp_leftovers_and_is_idempotent(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            cache_dir = Path(tmp)
+            archive_tmp = cache_dir / ".pkg-1.0.0.tar.gz.tmp-1234"
+            extract_tmp = cache_dir / ".pkg-1.0.0.tmp-1234"
+            archive_tmp.write_bytes(b"partial")
+            extract_tmp.mkdir()
+            (extract_tmp / "lib").mkdir()
+
+            with pubdev_client.PubDevClient(cache_dir=cache_dir) as client:
+                # No matching fetch: evict still cleans the cache key, idempotently.
+                client.evict("pkg", "1.0.0")
+                self.assertFalse(archive_tmp.exists())
+                self.assertFalse(extract_tmp.exists())
+                client.evict("pkg", "1.0.0")
+
+    def test_module_level_evict_releases_entry(self) -> None:
+        archive = _archive_bytes({"lib/pkg.dart": "library pkg;"})
+        archive_url = "https://pub.dev/api/archives/pkg-1.0.0.tar.gz"
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            if request.url.path == "/api/packages/pkg":
+                return httpx.Response(
+                    200,
+                    json=_metadata("pkg", "1.0.0", archive_url, _sha256(archive)),
+                )
+            if request.url.path == "/api/archives/pkg-1.0.0.tar.gz":
+                return httpx.Response(200, content=archive)
+            return httpx.Response(404)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            cache_dir = Path(tmp)
+            archive_path = cache_dir / "pkg-1.0.0.tar.gz"
+            extract_dir = cache_dir / "pkg-1.0.0"
+
+            http_client = httpx.Client(transport=httpx.MockTransport(handler))
+            with pubdev_client.PubDevClient(
+                cache_dir=cache_dir,
+                client=http_client,
+                sleep=lambda _: None,
+            ) as client:
+                client.fetch("pkg", "1.0.0")
+
+            pubdev_client.evict("pkg", "1.0.0", cache_dir=cache_dir)
+            self.assertFalse(archive_path.exists())
+            self.assertFalse(extract_dir.exists())
+
     def test_429_honors_retry_after(self) -> None:
         archive = _archive_bytes({"lib/pkg.dart": ""})
         archive_url = "https://pub.dev/api/archives/pkg-1.0.0.tar.gz"

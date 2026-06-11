@@ -27,6 +27,7 @@ from collector.pipelines.obfuscated_build import (
     _build_target_snapshot,
     _cached_baseline_snapshot,
     _command_parts,
+    _evict_package_dir,
     _iso_now,
     _resolve_package_dir,
     _run_command,
@@ -287,134 +288,140 @@ def collect_flutter_variant_entry(
         archive_cache_dir=archive_cache_dir,
     )
 
-    runner = command_runner or _run_command
-    manager = flutter_manager or FlutterVersionManager(
-        cache_dir=flutter_cache_dir,
-        command_runner=runner,
-    )
-    sdk = manager.ensure(flutter_version, timeout=timeout)
-
-    sdk_constraint = read_package_sdk_constraint(package_root)
-    if not is_dart_sdk_compatible(sdk.dart_version, sdk_constraint):
-        reason = (
-            f"{package} {version} requires Dart SDK {sdk_constraint}, "
-            f"but Flutter {flutter_version} pins Dart {sdk.dart_version}"
-        )
-        raise FlutterVariantSkipped(
-            FlutterVariantSkip(
-                package=package,
-                version=version,
-                flutter_version=flutter_version,
-                reason=reason,
-                collected_at=_iso_now(),
-            )
-        )
-
-    helper_dart = (
-        str(dart_executable)
-        if dart_executable is not None
-        else shutil.which("dart") or str(sdk.dart_executable)
-    )
+    # A self-fetched archive holds one bounded-cache reference; release it once
+    # collection finishes (including the early Dart-incompatibility skip).
     try:
-        api_surface = collect_api_surface(
-            package_root,
-            package,
-            dart_executable=helper_dart,
-            helper_dir=helper_dir,
-            timeout=helper_timeout,
+        runner = command_runner or _run_command
+        manager = flutter_manager or FlutterVersionManager(
+            cache_dir=flutter_cache_dir,
+            command_runner=runner,
         )
-        source_fingerprint = collect_source_fingerprint(
-            package_root,
-            package,
-            dart_executable=helper_dart,
-            helper_dir=helper_dir,
-            timeout=helper_timeout,
-        )
-        manifest = collect_probe_manifest(
-            package_root,
-            package,
-            dart_executable=helper_dart,
-            helper_dir=helper_dir,
-            timeout=helper_timeout,
-        )
-    except Exception as exc:
-        raise FlutterVariantError(str(exc)) from exc
+        sdk = manager.ensure(flutter_version, timeout=timeout)
 
-    rettulf = _command_parts(rettulf_command)
-    with _work_root(work_dir, keep_work_dir=keep_work_dir) as root:
-        variant_root = root / variant_name(flutter_version)
-        variant_root.mkdir(parents=True, exist_ok=True)
+        sdk_constraint = read_package_sdk_constraint(package_root)
+        if not is_dart_sdk_compatible(sdk.dart_version, sdk_constraint):
+            reason = (
+                f"{package} {version} requires Dart SDK {sdk_constraint}, "
+                f"but Flutter {flutter_version} pins Dart {sdk.dart_version}"
+            )
+            raise FlutterVariantSkipped(
+                FlutterVariantSkip(
+                    package=package,
+                    version=version,
+                    flutter_version=flutter_version,
+                    reason=reason,
+                    collected_at=_iso_now(),
+                )
+            )
+
+        helper_dart = (
+            str(dart_executable)
+            if dart_executable is not None
+            else shutil.which("dart") or str(sdk.dart_executable)
+        )
         try:
-            baseline_snapshot = _cached_baseline_snapshot(
-                variant_root,
-                package=package,
-                version=version,
-                flutter_executable=str(sdk.flutter_executable),
-                rettulf_command=rettulf,
-                timeout=timeout,
-                android_abi=android_abi,
-                command_runner=runner,
-                sdk_constraint=PROBE_SDK_CONSTRAINT,
-                obfuscate=False,
+            api_surface = collect_api_surface(
+                package_root,
+                package,
+                dart_executable=helper_dart,
+                helper_dir=helper_dir,
+                timeout=helper_timeout,
             )
-            (
-                target_snapshot,
-                used_manifest,
-                used_probe_fallback,
-            ) = _build_target_snapshot(
-                variant_root,
-                package=package,
-                version=version,
-                manifest=manifest,
-                flutter_executable=str(sdk.flutter_executable),
-                rettulf_command=rettulf,
-                timeout=timeout,
-                android_abi=android_abi,
-                command_runner=runner,
-                sdk_constraint=PROBE_SDK_CONSTRAINT,
-                obfuscate=False,
+            source_fingerprint = collect_source_fingerprint(
+                package_root,
+                package,
+                dart_executable=helper_dart,
+                helper_dir=helper_dir,
+                timeout=helper_timeout,
             )
-        except ObfuscatedBuildError as exc:
+            manifest = collect_probe_manifest(
+                package_root,
+                package,
+                dart_executable=helper_dart,
+                helper_dir=helper_dir,
+                timeout=helper_timeout,
+            )
+        except Exception as exc:
             raise FlutterVariantError(str(exc)) from exc
 
-    reachable_surface = reachable_surface_metadata(
-        api_surface,
-        used_manifest,
-        coverage_threshold=coverage_threshold,
-    )
-    if used_probe_fallback:
-        requested_declarations = {
-            reference.declaration for reference in manifest.references
-        }
-        used_declarations = {
-            reference.declaration for reference in used_manifest.references
-        }
-        reachable_surface["partial"] = True
-        reachable_surface["probe_fallback"] = True
-        reachable_surface["omitted_declarations"] = sorted(
-            requested_declarations - used_declarations
-        )
+        rettulf = _command_parts(rettulf_command)
+        with _work_root(work_dir, keep_work_dir=keep_work_dir) as root:
+            variant_root = root / variant_name(flutter_version)
+            variant_root.mkdir(parents=True, exist_ok=True)
+            try:
+                baseline_snapshot = _cached_baseline_snapshot(
+                    variant_root,
+                    package=package,
+                    version=version,
+                    flutter_executable=str(sdk.flutter_executable),
+                    rettulf_command=rettulf,
+                    timeout=timeout,
+                    android_abi=android_abi,
+                    command_runner=runner,
+                    sdk_constraint=PROBE_SDK_CONSTRAINT,
+                    obfuscate=False,
+                )
+                (
+                    target_snapshot,
+                    used_manifest,
+                    used_probe_fallback,
+                ) = _build_target_snapshot(
+                    variant_root,
+                    package=package,
+                    version=version,
+                    manifest=manifest,
+                    flutter_executable=str(sdk.flutter_executable),
+                    rettulf_command=rettulf,
+                    timeout=timeout,
+                    android_abi=android_abi,
+                    command_runner=runner,
+                    sdk_constraint=PROBE_SDK_CONSTRAINT,
+                    obfuscate=False,
+                )
+            except ObfuscatedBuildError as exc:
+                raise FlutterVariantError(str(exc)) from exc
 
-    fingerprint = build_flutter_variant_fingerprint(
-        target_snapshot,
-        baseline_snapshot,
-        reachable_surface=reachable_surface,
-    )
-    return {
-        "pubdb_schema_version": 1,
-        "package": package,
-        "version": version,
-        "collected_at": _iso_now(),
-        "api_surface": api_surface,
-        "source_fingerprint": source_fingerprint,
-        "flutter_variants": [
-            {
-                "flutter_version": flutter_version,
-                "dart_version": sdk.dart_version,
-                "fingerprint": fingerprint,
+        reachable_surface = reachable_surface_metadata(
+            api_surface,
+            used_manifest,
+            coverage_threshold=coverage_threshold,
+        )
+        if used_probe_fallback:
+            requested_declarations = {
+                reference.declaration for reference in manifest.references
             }
-        ],
-    }
+            used_declarations = {
+                reference.declaration for reference in used_manifest.references
+            }
+            reachable_surface["partial"] = True
+            reachable_surface["probe_fallback"] = True
+            reachable_surface["omitted_declarations"] = sorted(
+                requested_declarations - used_declarations
+            )
+
+        fingerprint = build_flutter_variant_fingerprint(
+            target_snapshot,
+            baseline_snapshot,
+            reachable_surface=reachable_surface,
+        )
+        return {
+            "pubdb_schema_version": 1,
+            "package": package,
+            "version": version,
+            "collected_at": _iso_now(),
+            "api_surface": api_surface,
+            "source_fingerprint": source_fingerprint,
+            "flutter_variants": [
+                {
+                    "flutter_version": flutter_version,
+                    "dart_version": sdk.dart_version,
+                    "fingerprint": fingerprint,
+                }
+            ],
+        }
+    finally:
+        if package_dir is None:
+            _evict_package_dir(package, version, archive_cache_dir)
 
 
 def collect_flutter_variant_results(

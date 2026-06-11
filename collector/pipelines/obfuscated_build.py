@@ -95,87 +95,96 @@ def collect_obfuscated_build_entries(
         archive_cache_dir=archive_cache_dir,
     )
 
-    api_surface = collect_api_surface(
-        package_root,
-        package,
-        dart_executable=dart_executable,
-        helper_dir=helper_dir,
-        timeout=helper_timeout,
-    )
-    source_fingerprint = collect_source_fingerprint(
-        package_root,
-        package,
-        dart_executable=dart_executable,
-        helper_dir=helper_dir,
-        timeout=helper_timeout,
-    )
-    requested_manifest = collect_probe_manifest(
-        package_root,
-        package,
-        dart_executable=dart_executable,
-        helper_dir=helper_dir,
-        timeout=helper_timeout,
-    )
-
-    runner = command_runner or _run_command
-    rettulf = _command_parts(rettulf_command)
-    flutter = str(flutter_executable)
-
-    with _work_root(work_dir, keep_work_dir=keep_work_dir) as root:
-        baseline_snapshot = _cached_baseline_snapshot(
-            root,
-            package=package,
-            version=version,
-            flutter_executable=flutter,
-            rettulf_command=rettulf,
-            timeout=timeout,
-            android_abi=android_abi,
-            command_runner=runner,
+    # When we fetched the archive ourselves it holds one bounded-cache
+    # reference; release it once collection finishes (the probe builds below
+    # re-resolve the package through pub.dev, not the extracted cache).
+    try:
+        api_surface = collect_api_surface(
+            package_root,
+            package,
+            dart_executable=dart_executable,
+            helper_dir=helper_dir,
+            timeout=helper_timeout,
         )
-        target_snapshot, manifest, used_probe_fallback = _build_target_snapshot(
-            root,
-            package=package,
-            version=version,
-            manifest=requested_manifest,
-            flutter_executable=flutter,
-            rettulf_command=rettulf,
-            timeout=timeout,
-            android_abi=android_abi,
-            command_runner=runner,
+        source_fingerprint = collect_source_fingerprint(
+            package_root,
+            package,
+            dart_executable=dart_executable,
+            helper_dir=helper_dir,
+            timeout=helper_timeout,
+        )
+        requested_manifest = collect_probe_manifest(
+            package_root,
+            package,
+            dart_executable=dart_executable,
+            helper_dir=helper_dir,
+            timeout=helper_timeout,
         )
 
-    reachable_surface = reachable_surface_metadata(
-        api_surface,
-        manifest,
-        coverage_threshold=coverage_threshold,
-    )
-    if used_probe_fallback:
-        requested_declarations = {
-            reference.declaration for reference in requested_manifest.references
-        }
-        used_declarations = {reference.declaration for reference in manifest.references}
-        reachable_surface["partial"] = True
-        reachable_surface["probe_fallback"] = True
-        reachable_surface["omitted_declarations"] = sorted(
-            requested_declarations - used_declarations
-        )
+        runner = command_runner or _run_command
+        rettulf = _command_parts(rettulf_command)
+        flutter = str(flutter_executable)
 
-    obfuscated_fingerprint = build_obfuscated_fingerprint(
-        target_snapshot,
-        baseline_snapshot,
-        reachable_surface=reachable_surface,
-    )
-    return [
-        {
-            "pubdb_schema_version": 1,
-            "package": package,
-            "version": version,
-            "collected_at": _iso_now(),
-            "api_surface": api_surface,
-            "source_fingerprint": source_fingerprint,
-            "obfuscated_fingerprint": obfuscated_fingerprint,
-        }
-    ]
+        with _work_root(work_dir, keep_work_dir=keep_work_dir) as root:
+            baseline_snapshot = _cached_baseline_snapshot(
+                root,
+                package=package,
+                version=version,
+                flutter_executable=flutter,
+                rettulf_command=rettulf,
+                timeout=timeout,
+                android_abi=android_abi,
+                command_runner=runner,
+            )
+            target_snapshot, manifest, used_probe_fallback = _build_target_snapshot(
+                root,
+                package=package,
+                version=version,
+                manifest=requested_manifest,
+                flutter_executable=flutter,
+                rettulf_command=rettulf,
+                timeout=timeout,
+                android_abi=android_abi,
+                command_runner=runner,
+            )
+
+        reachable_surface = reachable_surface_metadata(
+            api_surface,
+            manifest,
+            coverage_threshold=coverage_threshold,
+        )
+        if used_probe_fallback:
+            requested_declarations = {
+                reference.declaration for reference in requested_manifest.references
+            }
+            used_declarations = {
+                reference.declaration for reference in manifest.references
+            }
+            reachable_surface["partial"] = True
+            reachable_surface["probe_fallback"] = True
+            reachable_surface["omitted_declarations"] = sorted(
+                requested_declarations - used_declarations
+            )
+
+        obfuscated_fingerprint = build_obfuscated_fingerprint(
+            target_snapshot,
+            baseline_snapshot,
+            reachable_surface=reachable_surface,
+        )
+        return [
+            {
+                "pubdb_schema_version": 1,
+                "package": package,
+                "version": version,
+                "collected_at": _iso_now(),
+                "api_surface": api_surface,
+                "source_fingerprint": source_fingerprint,
+                "obfuscated_fingerprint": obfuscated_fingerprint,
+            }
+        ]
+    finally:
+        if package_dir is None:
+            _evict_package_dir(package, version, archive_cache_dir)
 
 
 def _cached_baseline_snapshot(
@@ -568,6 +577,19 @@ def _resolve_package_dir(
     except PubDevError as exc:
         raise ObfuscatedBuildError(str(exc)) from exc
     return lib_dir.parent
+
+
+def _evict_package_dir(
+    package: str,
+    version: str,
+    archive_cache_dir: Path | str | None,
+) -> None:
+    """Release the bounded-cache reference taken by ``_resolve_package_dir``."""
+    try:
+        from collector.pubdev_client import evict
+    except ModuleNotFoundError:  # pragma: no cover - surfaced by _resolve_package_dir
+        return
+    evict(package, version, cache_dir=archive_cache_dir)
 
 
 @contextlib.contextmanager

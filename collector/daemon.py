@@ -70,6 +70,7 @@ from collector.pubdev_client import (
     USER_AGENT,
     PubDevClient,
     PubDevError,
+    evict,
 )
 
 JsonObject = dict[str, Any]
@@ -774,18 +775,25 @@ class DefaultPipeline:
         except PubDevError as exc:
             raise PipelineError(str(exc)) from exc
 
-        package_dir = lib_dir.parent
-        return {
-            "pubdb_schema_version": item.schema_version,
-            "package": item.package,
-            "version": item.version,
-            "collected_at": _iso_now(),
-            "api_surface": collect_api_surface(package_dir, item.package),
-            "source_fingerprint": collect_source_fingerprint(
-                package_dir,
-                item.package,
-            ),
-        }
+        # The fetch took one reference on the cached archive; release it once
+        # the surface/source reads below finish (success or failure) so the
+        # bounded cache can evict it. The entry JSON is fully built here, and
+        # commit/publish happens later without the archive.
+        try:
+            package_dir = lib_dir.parent
+            return {
+                "pubdb_schema_version": item.schema_version,
+                "package": item.package,
+                "version": item.version,
+                "collected_at": _iso_now(),
+                "api_surface": collect_api_surface(package_dir, item.package),
+                "source_fingerprint": collect_source_fingerprint(
+                    package_dir,
+                    item.package,
+                ),
+            }
+        finally:
+            evict(item.package, item.version, cache_dir=self.archive_cache_dir)
 
 
 class EntryValidator:

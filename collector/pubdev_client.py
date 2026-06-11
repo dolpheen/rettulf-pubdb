@@ -10,6 +10,7 @@ import json
 import os
 import shutil
 import tarfile
+import threading
 import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -37,6 +38,13 @@ INITIAL_BACKOFF_SECONDS = 0.2
 MAX_BACKOFF_SECONDS = 8.0
 MAX_RETRY_AFTER_SECONDS = 120.0
 MARKER_FILE = ".rettulf-pubdb.json"
+
+# In-flight reference counts keyed by the resolved absolute archive path, so the
+# bounded cache only evicts an entry once every work item using it has finished.
+# Collector workers are threads sharing this process, so the counter lives at
+# module scope (guarded by ``_REFCOUNT_LOCK``) rather than per ``PubDevClient``.
+_REFCOUNTS: dict[str, int] = {}
+_REFCOUNT_LOCK = threading.Lock()
 
 
 class PubDevError(RuntimeError):
@@ -111,7 +119,12 @@ class PubDevClient:
             self._client.close()
 
     def fetch(self, package: str, version: str) -> Path:
-        """Return the cached extracted lib/ directory for a package version."""
+        """Return the cached extracted lib/ directory for a package version.
+
+        Each successful fetch (cache hit or download+extract) takes one
+        reference on the cache entry; ``evict`` releases it. The archive's
+        files are only removed once the reference count drops back to zero.
+        """
         cache_key = _cache_key(package, version)
         archive_path = self.cache_dir / f"{cache_key}.tar.gz"
         extract_dir = self.cache_dir / cache_key
@@ -120,6 +133,7 @@ class PubDevClient:
 
         with _FileLock(lock_path):
             if self._cache_hit(package, version, archive_path, extract_dir):
+                _retain(archive_path)
                 return lib_dir
 
             metadata = self._metadata_for(package, version)
@@ -131,7 +145,32 @@ class PubDevClient:
                 version,
                 metadata.archive_sha256,
             )
+            _retain(archive_path)
             return lib_dir
+
+    def evict(self, package: str, version: str) -> None:
+        """Release one reference on a cached entry, deleting it at zero.
+
+        Idempotent: removes the ``<key>.tar.gz`` archive, the extracted
+        ``<key>/`` directory, and any ``.<key>.*tmp*`` leftovers once no
+        in-flight fetch still needs them. Calling it without a matching
+        ``fetch`` simply deletes the entry if present.
+        """
+        cache_key = _cache_key(package, version)
+        archive_path = self.cache_dir / f"{cache_key}.tar.gz"
+        extract_dir = self.cache_dir / cache_key
+        lock_path = self.cache_dir / ".locks" / f"{cache_key}.lock"
+
+        with _FileLock(lock_path):
+            if not _release(archive_path):
+                return
+            archive_path.unlink(missing_ok=True)
+            shutil.rmtree(extract_dir, ignore_errors=True)
+            for leftover in self.cache_dir.glob(f".{cache_key}.*tmp*"):
+                if leftover.is_dir():
+                    shutil.rmtree(leftover, ignore_errors=True)
+                else:
+                    leftover.unlink(missing_ok=True)
 
     def _cache_hit(
         self, package: str, version: str, archive_path: Path, extract_dir: Path
@@ -371,6 +410,12 @@ def fetch(package: str, version: str) -> Path:
         return client.fetch(package, version)
 
 
+def evict(package: str, version: str, cache_dir: Path | str | None = None) -> None:
+    """Release one reference on a cached archive, deleting it at zero."""
+    with PubDevClient(cache_dir=cache_dir) as client:
+        client.evict(package, version)
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="python -m collector.pubdev_client")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -386,6 +431,28 @@ def main(argv: list[str] | None = None) -> int:
 
     parser.error(f"unknown command: {args.command}")
     return 2
+
+
+def _refcount_key(archive_path: Path) -> str:
+    return str(archive_path.resolve())
+
+
+def _retain(archive_path: Path) -> None:
+    key = _refcount_key(archive_path)
+    with _REFCOUNT_LOCK:
+        _REFCOUNTS[key] = _REFCOUNTS.get(key, 0) + 1
+
+
+def _release(archive_path: Path) -> bool:
+    """Drop one reference; return ``True`` when the entry may now be deleted."""
+    key = _refcount_key(archive_path)
+    with _REFCOUNT_LOCK:
+        remaining = _REFCOUNTS.get(key, 0) - 1
+        if remaining > 0:
+            _REFCOUNTS[key] = remaining
+            return False
+        _REFCOUNTS.pop(key, None)
+        return True
 
 
 def _cache_key(package: str, version: str) -> str:
