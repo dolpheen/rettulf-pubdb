@@ -1,0 +1,141 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "completionCommandName"
+        ],
+        "libraries": [
+          "package:completion/completion.dart",
+          "package:completion/src/bot.dart",
+          "package:completion/src/generate.dart",
+          "package:completion/src/get_args_completions.dart",
+          "package:completion/src/try_completion.dart",
+          "package:completion/src/util.dart"
+        ],
+        "methods": [
+          "generateCompletionScript",
+          "getArgsCompletions",
+          "helpfulToString",
+          "log",
+          "require",
+          "requireArgumentNotNull",
+          "tryArgsCompletion",
+          "tryCompletion"
+        ],
+        "types": [
+          "Tag"
+        ]
+      },
+      "Tag": {
+        "fields": [
+          "get:longestTagLength",
+          "getArgsCompletions",
+          "name"
+        ],
+        "libraries": [
+          "package:completion/src/util.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Tuple": {
+        "fields": [
+          "get:hashCode",
+          "item1",
+          "item2"
+        ],
+        "libraries": [
+          "package:completion/src/bot.dart"
+        ],
+        "methods": [
+          "==",
+          "Tuple",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "Util": {
+        "fields": [],
+        "libraries": [
+          "package:completion/src/bot.dart"
+        ],
+        "methods": [
+          "getHashCode"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:16:22Z",
+  "package": "completion",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "Tag",
+      "Tuple"
+    ],
+    "digest": "e9cb01750d2909d157b969bef09232dddeed8bc4a02a004f40203c4dbb81069d",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "3413d80c18abdff79ff4892bcbb669216d4f06b69214af4a196311a6008452a4",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\nInstallation:\n\nVia shell config file  ~/.bashrc  (or ~/.zshrc)\n\n  Append the contents to config file\n  'source' the file in the config file\n\nYou may also have a directory on your system that is configured\n   for completion files, such as:\n\n   /usr/local/etc/bash_completion.d/\n",
+      " ",
+      " *",
+      "###-begin-{{binName}}-completion-###\n\nif type complete &>/dev/null; then\n  {{funcName}}() {\n    local si=\"$IFS\"\n    IFS=$'\\n' COMPREPLY=($(COMP_CWORD=\"$COMP_CWORD\" \\\n                           COMP_LINE=\"$COMP_LINE\" \\\n                           COMP_POINT=\"$COMP_POINT\" \\\n                           {{binName}} completion -- \"${COMP_WORDS[@]}\" \\\n                           2>/dev/null)) || return $?\n    IFS=\"$si\"\n  }\n  complete -F {{funcName}} {{binName}}\nelif type compdef &>/dev/null; then\n  {{funcName}}() {\n    si=$IFS\n    compadd -- $(COMP_CWORD=$((CURRENT-1)) \\\n                 COMP_LINE=$BUFFER \\\n                 COMP_POINT=0 \\\n                 {{binName}} completion -- \"${words[@]}\" \\\n                 2>/dev/null)\n    IFS=$si\n  }\n  compdef {{funcName}} {{binName}}\nelif type compctl &>/dev/null; then\n  {{funcName}}() {\n    local cword line point words si\n    read -Ac words\n    read -cn cword\n    let cword-=1\n    read -l line\n    read -ln point\n    si=\"$IFS\"\n    IFS=$'\\n' reply=($(COMP_CWORD=\"$cword\" \\\n                       COMP_LINE=\"$line\" \\\n                       COMP_POINT=\"$point\" \\\n                       {{binName}} completion -- \"${words[@]}\" \\\n                       2>/dev/null)) || return $?\n    IFS=\"$si\"\n  }\n  compctl -K {{funcName}} {{binName}}\nfi\n\n###-end-{{binName}}-completion-###\n",
+      ", ",
+      "-",
+      "--",
+      "--no-",
+      "-empty-",
+      ".",
+      "<unknown>",
+      "An error occurred while attemping completion",
+      "COMP_LINE",
+      "COMP_POINT",
+      "Completing with all available options.",
+      "Completion params not found",
+      "Environment variable COMP_LINE must be set",
+      "Exhausted options. No suggestions.",
+      "Provide the name of at least of one command",
+      "Starting completion",
+      "That's just sad. Give me a good argName",
+      "Useful for testing, but do not release with this set.",
+      "Useful for testing, but do not released with this set.",
+      "^[a-zA-Z0-9]((\\w|-|\\.)*[a-zA-Z0-9])?$",
+      "_",
+      "_completion.log",
+      "bot.dart",
+      "completing final arg",
+      "completion",
+      "cursor is in the middle of the line. NO-OP",
+      "dart:convert",
+      "dart:io",
+      "doing command completion",
+      "empty args. Complete with all available commands",
+      "file",
+      "getArgsCompletions",
+      "item1",
+      "item2",
+      "not providing completions. Wating for option value",
+      "package:args/args.dart",
+      "package:logging/logging.dart",
+      "package:path/path.dart",
+      "source",
+      "src/generate.dart",
+      "src/get_args_completions.dart",
+      "src/try_completion.dart",
+      "util.dart",
+      "{{binName}}",
+      "{{funcName}}"
+    ]
+  },
+  "version": "0.2.1"
+}
