@@ -1,0 +1,389 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "BASE64_DIGITS",
+          "MAX_INT32",
+          "MIN_INT32",
+          "VLQ_BASE_MASK",
+          "VLQ_BASE_SHIFT",
+          "VLQ_CONTINUATION_BIT",
+          "VLQ_CONTINUATION_MASK"
+        ],
+        "libraries": [
+          "package:source_maps/parser.dart",
+          "package:source_maps/source_maps.dart",
+          "package:source_maps/src/utils.dart",
+          "package:source_maps/src/vlq.dart"
+        ],
+        "methods": [
+          "binarySearch",
+          "decodeVlq",
+          "encodeVlq",
+          "parse",
+          "parseJson"
+        ],
+        "types": [
+          "Mapping"
+        ]
+      },
+      "Entry": {
+        "fields": [
+          "identifierName",
+          "source",
+          "target"
+        ],
+        "libraries": [
+          "package:source_maps/builder.dart",
+          "package:source_maps/source_maps.dart"
+        ],
+        "methods": [
+          "Entry",
+          "compareTo"
+        ],
+        "types": [
+          "Entry",
+          "Location"
+        ]
+      },
+      "File": {
+        "fields": [
+          "url"
+        ],
+        "libraries": [
+          "package:source_maps/source_maps.dart",
+          "package:source_maps/span.dart"
+        ],
+        "methods": [
+          "File",
+          "getColumn",
+          "getLine",
+          "getLocationMessage",
+          "getOffset",
+          "getText",
+          "text"
+        ],
+        "types": []
+      },
+      "FileLocation": {
+        "fields": [
+          "get:column",
+          "get:line",
+          "get:sourceUrl"
+        ],
+        "libraries": [
+          "package:source_maps/source_maps.dart",
+          "package:source_maps/span.dart"
+        ],
+        "methods": [
+          "FileLocation"
+        ],
+        "types": [
+          "File",
+          "Location"
+        ]
+      },
+      "FileSpan": {
+        "fields": [
+          "get:text"
+        ],
+        "libraries": [
+          "package:source_maps/source_maps.dart",
+          "package:source_maps/span.dart"
+        ],
+        "methods": [
+          "FileSpan",
+          "getLocationMessage",
+          "locations",
+          "union"
+        ],
+        "types": [
+          "File",
+          "FileLocation",
+          "FileSpan",
+          "Span"
+        ]
+      },
+      "FixedLocation": {
+        "fields": [
+          "column",
+          "line",
+          "sourceUrl"
+        ],
+        "libraries": [
+          "package:source_maps/source_maps.dart",
+          "package:source_maps/span.dart"
+        ],
+        "methods": [
+          "FixedLocation"
+        ],
+        "types": [
+          "Location"
+        ]
+      },
+      "FixedSpan": {
+        "fields": [
+          "text"
+        ],
+        "libraries": [
+          "package:source_maps/source_maps.dart",
+          "package:source_maps/span.dart"
+        ],
+        "methods": [
+          "FixedSpan"
+        ],
+        "types": [
+          "Span"
+        ]
+      },
+      "Location": {
+        "fields": [
+          "get:column",
+          "get:formatString",
+          "get:line",
+          "get:sourceUrl",
+          "offset"
+        ],
+        "libraries": [
+          "package:source_maps/source_maps.dart",
+          "package:source_maps/span.dart"
+        ],
+        "methods": [
+          "Location",
+          "compareTo",
+          "toString"
+        ],
+        "types": [
+          "Location"
+        ]
+      },
+      "Mapping": {
+        "fields": [],
+        "libraries": [
+          "package:source_maps/parser.dart",
+          "package:source_maps/source_maps.dart"
+        ],
+        "methods": [
+          "spanFor",
+          "spanForLocation"
+        ],
+        "types": [
+          "File",
+          "Location",
+          "Span"
+        ]
+      },
+      "MultiSectionMapping": {
+        "fields": [],
+        "libraries": [
+          "package:source_maps/parser.dart",
+          "package:source_maps/source_maps.dart"
+        ],
+        "methods": [
+          "fromJson",
+          "spanFor",
+          "toString"
+        ],
+        "types": [
+          "File",
+          "Mapping",
+          "Span"
+        ]
+      },
+      "Printer": {
+        "fields": [
+          "get:output",
+          "get:sourceMap",
+          "mappings",
+          "src",
+          "target"
+        ],
+        "libraries": [
+          "package:source_maps/printer.dart"
+        ],
+        "methods": [
+          "Printer",
+          "build"
+        ],
+        "types": [
+          "File",
+          "Span"
+        ]
+      },
+      "SingleMapping": {
+        "fields": [
+          "lines",
+          "names",
+          "targetUrl",
+          "urls"
+        ],
+        "libraries": [
+          "package:source_maps/parser.dart",
+          "package:source_maps/source_maps.dart"
+        ],
+        "methods": [
+          "fromJson",
+          "spanFor",
+          "toString"
+        ],
+        "types": [
+          "File",
+          "Mapping",
+          "Span",
+          "TargetLineEntry"
+        ]
+      },
+      "SourceMapBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:source_maps/builder.dart",
+          "package:source_maps/source_maps.dart"
+        ],
+        "methods": [
+          "addFromOffset",
+          "addLocation",
+          "addSpan",
+          "build",
+          "toJson"
+        ],
+        "types": [
+          "Entry",
+          "File",
+          "Location",
+          "Span"
+        ]
+      },
+      "Span": {
+        "fields": [
+          "end",
+          "get:formatLocation",
+          "get:length",
+          "get:sourceUrl",
+          "get:text",
+          "isIdentifier",
+          "start"
+        ],
+        "libraries": [
+          "package:source_maps/source_maps.dart",
+          "package:source_maps/span.dart"
+        ],
+        "methods": [
+          "==",
+          "Span",
+          "compareTo",
+          "getLocationMessage",
+          "toString",
+          "union"
+        ],
+        "types": [
+          "Location",
+          "Span"
+        ]
+      },
+      "TargetEntry": {
+        "fields": [
+          "column",
+          "sourceColumn",
+          "sourceLine",
+          "sourceNameId",
+          "sourceUrlId"
+        ],
+        "libraries": [
+          "package:source_maps/parser.dart",
+          "package:source_maps/source_maps.dart"
+        ],
+        "methods": [
+          "TargetEntry",
+          "toString"
+        ],
+        "types": []
+      },
+      "TargetLineEntry": {
+        "fields": [
+          "entries",
+          "line"
+        ],
+        "libraries": [
+          "package:source_maps/parser.dart",
+          "package:source_maps/source_maps.dart"
+        ],
+        "methods": [
+          "TargetLineEntry",
+          "toString"
+        ],
+        "types": [
+          "TargetEntry"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:05:18Z",
+  "package": "source_maps",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "_TokenKind"
+    ],
+    "digest": "0c7ad0a9b471c3605286949700e5117c6d14171fcf46fc6a7fbaaab3ae1d8e82",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "fd34179dd4263948de7df5e75a092cacc6f2deef6de153c1ef7a40606082cad3",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\u001b[0m",
+      "\u001b[31m",
+      " ",
+      "(",
+      ")",
+      ",",
+      ", lines: ",
+      ", names: ",
+      ", urls: ",
+      ":",
+      ";",
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
+      "]",
+      "^",
+      "builder.dart",
+      "can only compare locations of the same file",
+      "column",
+      "dart:collection",
+      "dart:json",
+      "dart:math",
+      "dart:utf",
+      "expected at least one section",
+      "file",
+      "incomplete VLQ value",
+      "line",
+      "map",
+      "map containing \"sections\" cannot contain \"mappings\", \"sources\", or \"names\".",
+      "mappings",
+      "missing \"file\" in source map",
+      "names",
+      "offset",
+      "offset missing column",
+      "offset missing line",
+      "parser.dart",
+      "section can't use both url and map entries",
+      "section missing offset",
+      "section missing url or map",
+      "sections",
+      "sourceRoot",
+      "sources",
+      "span.dart",
+      "src/utils.dart",
+      "src/vlq.dart",
+      "start and end must be from the same file",
+      "targetFile cannot be null",
+      "targetUrl: ",
+      "url",
+      "version"
+    ]
+  },
+  "version": "0.3.0+1"
+}

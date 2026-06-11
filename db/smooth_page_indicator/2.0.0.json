@@ -1,0 +1,783 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/customizable_effect.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "AnimatedSmoothIndicator": {
+        "fields": [
+          "activeIndex",
+          "axisDirection",
+          "count",
+          "effect",
+          "onDotClicked",
+          "textDirection"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/smooth_page_indicator.dart"
+        ],
+        "methods": [
+          "AnimatedSmoothIndicator",
+          "createState"
+        ],
+        "types": [
+          "AnimatedSmoothIndicator",
+          "IndicatorEffect"
+        ]
+      },
+      "BasicIndicatorEffect": {
+        "fields": [
+          "activeDotColor",
+          "dotColor",
+          "dotHeight",
+          "dotWidth",
+          "paintStyle",
+          "radius",
+          "spacing",
+          "strokeWidth"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/indicator_effect.dart"
+        ],
+        "methods": [
+          "BasicIndicatorEffect",
+          "calculateSize",
+          "hitTestDots",
+          "lerpDouble"
+        ],
+        "types": [
+          "IndicatorEffect"
+        ]
+      },
+      "BasicIndicatorPainter": {
+        "fields": [
+          "count",
+          "dotPaint",
+          "dotRadius",
+          "effectiveActiveColor",
+          "effectiveInactiveColor",
+          "get:distance",
+          "indicatorColors"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/painters/indicator_painter.dart"
+        ],
+        "methods": [
+          "BasicIndicatorPainter",
+          "buildStillDot",
+          "calcPortalTravel",
+          "maskStillDots",
+          "paintStillDots"
+        ],
+        "types": [
+          "BasicIndicatorEffect",
+          "DefaultIndicatorColors",
+          "IndicatorPainter"
+        ]
+      },
+      "ColorTransitionEffect": {
+        "fields": [
+          "activeStrokeWidth"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/color_transition_effect.dart"
+        ],
+        "methods": [
+          "ColorTransitionEffect",
+          "buildPainter",
+          "lerp"
+        ],
+        "types": [
+          "BasicIndicatorEffect",
+          "ColorTransitionEffect",
+          "DefaultIndicatorColors",
+          "IndicatorPainter"
+        ]
+      },
+      "CustomizableEffect": {
+        "fields": [
+          "activeColorOverride",
+          "activeDotDecoration",
+          "dotDecoration",
+          "inActiveColorOverride",
+          "spacing"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/customizable_effect.dart"
+        ],
+        "methods": [
+          "CustomizableEffect",
+          "buildPainter",
+          "calculateSize",
+          "hitTestDots",
+          "lerp"
+        ],
+        "types": [
+          "CustomizableEffect",
+          "DefaultIndicatorColors",
+          "DotDecoration",
+          "IndicatorEffect",
+          "IndicatorPainter"
+        ]
+      },
+      "CustomizablePainter": {
+        "fields": [
+          "count",
+          "effect"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/src/painters/customizable_painter.dart"
+        ],
+        "methods": [
+          "CustomizablePainter",
+          "paint"
+        ],
+        "types": [
+          "CustomizableEffect",
+          "IndicatorPainter"
+        ]
+      },
+      "DefaultIndicatorColors": {
+        "fields": [
+          "active",
+          "defaults",
+          "inactive"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/theme_defaults.dart"
+        ],
+        "methods": [
+          "DefaultIndicatorColors",
+          "fromContext",
+          "lerp",
+          "resolveActiveColor",
+          "resolveInactiveColor"
+        ],
+        "types": [
+          "BasicIndicatorEffect",
+          "DefaultIndicatorColors"
+        ]
+      },
+      "DotBorder": {
+        "fields": [
+          "color",
+          "get:neededSpace",
+          "none",
+          "padding",
+          "type",
+          "width"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/customizable_effect.dart"
+        ],
+        "methods": [
+          "DotBorder",
+          "lerp"
+        ],
+        "types": [
+          "DotBorder",
+          "DotBorderType"
+        ]
+      },
+      "DotBorderType": {
+        "fields": [
+          "none",
+          "solid"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/customizable_effect.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DotDecoration": {
+        "fields": [
+          "borderRadius",
+          "color",
+          "dotBorder",
+          "height",
+          "rotationAngle",
+          "verticalOffset",
+          "width"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/customizable_effect.dart"
+        ],
+        "methods": [
+          "DotDecoration",
+          "copyWith",
+          "lerp"
+        ],
+        "types": [
+          "DotBorder",
+          "DotDecoration"
+        ]
+      },
+      "ExpandingDotsEffect": {
+        "fields": [
+          "expansionFactor"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/expanding_dots_effect.dart"
+        ],
+        "methods": [
+          "ExpandingDotsEffect",
+          "buildPainter",
+          "calculateSize",
+          "hitTestDots",
+          "lerp"
+        ],
+        "types": [
+          "BasicIndicatorEffect",
+          "DefaultIndicatorColors",
+          "ExpandingDotsEffect",
+          "IndicatorPainter"
+        ]
+      },
+      "ExpandingDotsPainter": {
+        "fields": [
+          "effect"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/src/painters/expanding_dots_painter.dart"
+        ],
+        "methods": [
+          "ExpandingDotsPainter",
+          "paint"
+        ],
+        "types": [
+          "BasicIndicatorPainter",
+          "DefaultIndicatorColors",
+          "ExpandingDotsEffect"
+        ]
+      },
+      "IndicatorEffect": {
+        "fields": [],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/indicator_effect.dart"
+        ],
+        "methods": [
+          "IndicatorEffect",
+          "buildPainter",
+          "calculateSize",
+          "hitTestDots",
+          "lerp"
+        ],
+        "types": [
+          "DefaultIndicatorColors",
+          "IndicatorEffect",
+          "IndicatorPainter"
+        ]
+      },
+      "IndicatorPainter": {
+        "fields": [
+          "offset"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/painters/indicator_painter.dart"
+        ],
+        "methods": [
+          "IndicatorPainter",
+          "shouldRepaint"
+        ],
+        "types": [
+          "IndicatorPainter"
+        ]
+      },
+      "JumpingDotEffect": {
+        "fields": [
+          "jumpScale",
+          "verticalOffset"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/jumping_dot_effect.dart"
+        ],
+        "methods": [
+          "JumpingDotEffect",
+          "buildPainter",
+          "calculateSize",
+          "lerp"
+        ],
+        "types": [
+          "BasicIndicatorEffect",
+          "DefaultIndicatorColors",
+          "IndicatorPainter",
+          "JumpingDotEffect"
+        ]
+      },
+      "JumpingDotPainter": {
+        "fields": [
+          "effect"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/src/painters/jumping_dot_painter.dart"
+        ],
+        "methods": [
+          "JumpingDotPainter",
+          "paint"
+        ],
+        "types": [
+          "BasicIndicatorPainter",
+          "DefaultIndicatorColors",
+          "JumpingDotEffect"
+        ]
+      },
+      "Matrix4X": {
+        "fields": [],
+        "libraries": [
+          "package:smooth_page_indicator/src/painters/customizable_painter.dart"
+        ],
+        "methods": [
+          "rotateAngle"
+        ],
+        "types": []
+      },
+      "ScaleEffect": {
+        "fields": [
+          "activePaintStyle",
+          "activeStrokeWidth",
+          "scale"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/scale_effect.dart"
+        ],
+        "methods": [
+          "ScaleEffect",
+          "buildPainter",
+          "calculateSize",
+          "lerp"
+        ],
+        "types": [
+          "BasicIndicatorEffect",
+          "DefaultIndicatorColors",
+          "IndicatorPainter",
+          "ScaleEffect"
+        ]
+      },
+      "ScalePainter": {
+        "fields": [
+          "effect"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/src/painters/scale_painter.dart"
+        ],
+        "methods": [
+          "ScalePainter",
+          "paint"
+        ],
+        "types": [
+          "BasicIndicatorPainter",
+          "DefaultIndicatorColors",
+          "ScaleEffect"
+        ]
+      },
+      "ScrollingDotsEffect": {
+        "fields": [
+          "activeDotScale",
+          "activeStrokeWidth",
+          "fixedCenter",
+          "maxVisibleDots",
+          "smallDotScale"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/scrolling_dots_effect.dart"
+        ],
+        "methods": [
+          "ScrollingDotsEffect",
+          "buildPainter",
+          "calculateSize",
+          "hitTestDots",
+          "lerp"
+        ],
+        "types": [
+          "BasicIndicatorEffect",
+          "BasicIndicatorPainter",
+          "DefaultIndicatorColors",
+          "ScrollingDotsEffect"
+        ]
+      },
+      "ScrollingDotsPainter": {
+        "fields": [
+          "effect"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/src/painters/scrolling_dots_painter.dart"
+        ],
+        "methods": [
+          "ScrollingDotsPainter",
+          "paint"
+        ],
+        "types": [
+          "BasicIndicatorPainter",
+          "DefaultIndicatorColors",
+          "ScrollingDotsEffect"
+        ]
+      },
+      "ScrollingDotsWithFixedCenterPainter": {
+        "fields": [
+          "effect"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/src/painters/scrolling_dots_painter_with_fixed_center.dart"
+        ],
+        "methods": [
+          "ScrollingDotsWithFixedCenterPainter",
+          "paint"
+        ],
+        "types": [
+          "BasicIndicatorPainter",
+          "DefaultIndicatorColors",
+          "ScrollingDotsEffect"
+        ]
+      },
+      "SlideEffect": {
+        "fields": [
+          "type"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/slide_effect.dart"
+        ],
+        "methods": [
+          "SlideEffect",
+          "buildPainter",
+          "lerp"
+        ],
+        "types": [
+          "BasicIndicatorEffect",
+          "DefaultIndicatorColors",
+          "IndicatorPainter",
+          "SlideEffect",
+          "SlideType"
+        ]
+      },
+      "SlidePainter": {
+        "fields": [
+          "effect"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/src/painters/slide_painter.dart"
+        ],
+        "methods": [
+          "SlidePainter",
+          "paint"
+        ],
+        "types": [
+          "BasicIndicatorPainter",
+          "DefaultIndicatorColors",
+          "SlideEffect"
+        ]
+      },
+      "SlideType": {
+        "fields": [
+          "normal",
+          "slideUnder"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/slide_effect.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SmoothIndicator": {
+        "fields": [
+          "count",
+          "effect",
+          "offset",
+          "onDotClicked",
+          "quarterTurns",
+          "size"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/smooth_page_indicator.dart"
+        ],
+        "methods": [
+          "SmoothIndicator",
+          "build",
+          "debugFillProperties"
+        ],
+        "types": [
+          "IndicatorEffect"
+        ]
+      },
+      "SmoothPageIndicator": {
+        "fields": [
+          "axisDirection",
+          "controller",
+          "count",
+          "effect",
+          "onDotClicked",
+          "textDirection"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/smooth_page_indicator.dart"
+        ],
+        "methods": [
+          "SmoothPageIndicator",
+          "createState"
+        ],
+        "types": [
+          "IndicatorEffect",
+          "SmoothPageIndicator"
+        ]
+      },
+      "SmoothPageIndicatorTheme": {
+        "fields": [
+          "defaultColors",
+          "effect"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/theme_defaults.dart"
+        ],
+        "methods": [
+          "SmoothPageIndicatorTheme",
+          "copyWith",
+          "lerp",
+          "of",
+          "resolveDefaults"
+        ],
+        "types": [
+          "DefaultIndicatorColors",
+          "IndicatorEffect",
+          "SmoothPageIndicatorTheme"
+        ]
+      },
+      "SwapEffect": {
+        "fields": [
+          "type"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/swap_effect.dart"
+        ],
+        "methods": [
+          "SwapEffect",
+          "buildPainter",
+          "calculateSize",
+          "lerp"
+        ],
+        "types": [
+          "BasicIndicatorEffect",
+          "DefaultIndicatorColors",
+          "IndicatorPainter",
+          "SwapEffect",
+          "SwapType"
+        ]
+      },
+      "SwapPainter": {
+        "fields": [
+          "effect"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/src/painters/swap_painter.dart"
+        ],
+        "methods": [
+          "SwapPainter",
+          "paint"
+        ],
+        "types": [
+          "BasicIndicatorPainter",
+          "DefaultIndicatorColors",
+          "SwapEffect"
+        ]
+      },
+      "SwapType": {
+        "fields": [
+          "normal",
+          "yRotation",
+          "zRotation"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/swap_effect.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TransitionPainter": {
+        "fields": [
+          "effect"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/src/painters/color_transition_painter.dart"
+        ],
+        "methods": [
+          "TransitionPainter",
+          "paint"
+        ],
+        "types": [
+          "BasicIndicatorPainter",
+          "ColorTransitionEffect",
+          "DefaultIndicatorColors"
+        ]
+      },
+      "WormEffect": {
+        "fields": [
+          "type"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/worm_effect.dart"
+        ],
+        "methods": [
+          "WormEffect",
+          "buildPainter",
+          "lerp"
+        ],
+        "types": [
+          "BasicIndicatorEffect",
+          "DefaultIndicatorColors",
+          "IndicatorPainter",
+          "WormEffect",
+          "WormType"
+        ]
+      },
+      "WormPainter": {
+        "fields": [
+          "effect"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/src/painters/worm_painter.dart"
+        ],
+        "methods": [
+          "WormPainter",
+          "paint"
+        ],
+        "types": [
+          "BasicIndicatorPainter",
+          "DefaultIndicatorColors",
+          "WormEffect"
+        ]
+      },
+      "WormType": {
+        "fields": [
+          "normal",
+          "thin",
+          "thinUnderground",
+          "underground"
+        ],
+        "libraries": [
+          "package:smooth_page_indicator/smooth_page_indicator.dart",
+          "package:smooth_page_indicator/src/effects/worm_effect.dart"
+        ],
+        "methods": [],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:05:13Z",
+  "package": "smooth_page_indicator",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AnimatedSmoothIndicator",
+      "BasicIndicatorEffect",
+      "ColorTransitionEffect",
+      "CustomizableEffect",
+      "DefaultIndicatorColors",
+      "DotBorder",
+      "DotDecoration",
+      "ExpandingDotsEffect",
+      "IndicatorEffect",
+      "IndicatorPainter",
+      "JumpingDotEffect",
+      "ScaleEffect",
+      "ScrollingDotsEffect",
+      "SlideEffect",
+      "SmoothIndicator",
+      "SmoothPageIndicator",
+      "SmoothPageIndicatorTheme",
+      "SwapEffect",
+      "WormEffect"
+    ],
+    "digest": "11c13dd2f6a731a4127d7ff03b72e420a5edc42576dc3a58ffce7629cf3108ea",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "59cfcb4ad98f4ecf172383c12af99718f1e294858f8d1189230ae4b89f9f808c",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "../painters/color_transition_painter.dart",
+      "../painters/indicator_painter.dart",
+      "../theme_defaults.dart",
+      "Offset has not been initialized",
+      "ScrollingDotsWithFixedCenterPainter does not support infinite looping.",
+      "count",
+      "dart:math",
+      "dart:ui",
+      "effect",
+      "effects/indicator_effect.dart",
+      "effects/worm_effect.dart",
+      "indicator_effect.dart",
+      "indicator_painter.dart",
+      "offset",
+      "package:flutter/cupertino.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/material.dart",
+      "package:smooth_page_indicator/smooth_page_indicator.dart",
+      "package:smooth_page_indicator/src/effects/customizable_effect.dart",
+      "package:smooth_page_indicator/src/effects/expanding_dots_effect.dart",
+      "package:smooth_page_indicator/src/effects/indicator_effect.dart",
+      "package:smooth_page_indicator/src/effects/jumping_dot_effect.dart",
+      "package:smooth_page_indicator/src/effects/scale_effect.dart",
+      "package:smooth_page_indicator/src/effects/slide_effect.dart",
+      "package:smooth_page_indicator/src/effects/swap_effect.dart",
+      "package:smooth_page_indicator/src/effects/worm_effect.dart",
+      "package:smooth_page_indicator/src/painters/customizable_painter.dart",
+      "package:smooth_page_indicator/src/painters/expanding_dots_painter.dart",
+      "package:smooth_page_indicator/src/painters/indicator_painter.dart",
+      "package:smooth_page_indicator/src/painters/jumping_dot_painter.dart",
+      "package:smooth_page_indicator/src/painters/scale_painter.dart",
+      "package:smooth_page_indicator/src/painters/scrolling_dots_painter.dart",
+      "package:smooth_page_indicator/src/painters/scrolling_dots_painter_with_fixed_center.dart",
+      "package:smooth_page_indicator/src/painters/slide_painter.dart",
+      "package:smooth_page_indicator/src/painters/swap_painter.dart",
+      "package:smooth_page_indicator/src/painters/worm_painter.dart",
+      "package:smooth_page_indicator/src/theme_defaults.dart",
+      "painters/indicator_painter.dart",
+      "quarterTurns",
+      "size",
+      "src/effects/color_transition_effect.dart",
+      "src/effects/customizable_effect.dart",
+      "src/effects/expanding_dots_effect.dart",
+      "src/effects/indicator_effect.dart",
+      "src/effects/jumping_dot_effect.dart",
+      "src/effects/scale_effect.dart",
+      "src/effects/scrolling_dots_effect.dart",
+      "src/effects/slide_effect.dart",
+      "src/effects/swap_effect.dart",
+      "src/effects/worm_effect.dart",
+      "src/painters/indicator_painter.dart",
+      "src/smooth_page_indicator.dart",
+      "src/theme_defaults.dart",
+      "theme_defaults.dart"
+    ]
+  },
+  "version": "2.0.0"
+}
