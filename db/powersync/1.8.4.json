@@ -1,0 +1,1351 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "abortedResponse",
+          "attachedLogger",
+          "autoLogger",
+          "compactOperationInterval",
+          "debugLogger",
+          "invalidSqliteCharacters",
+          "isolateLogger",
+          "kDebugMode",
+          "kIsWeb",
+          "kProfileMode",
+          "kReleaseMode",
+          "libraryVersion",
+          "maxOpId",
+          "powerSyncDefaultSqliteOptions",
+          "uuid"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/bucket_storage.dart",
+          "package:powersync/src/isolate_completer.dart",
+          "package:powersync/src/log.dart",
+          "package:powersync/src/log_internal.dart",
+          "package:powersync/src/open_factory/abstract_powersync_open_factory.dart",
+          "package:powersync/src/open_factory/common_db_functions.dart",
+          "package:powersync/src/schema_logic.dart",
+          "package:powersync/src/stream_utils.dart",
+          "package:powersync/src/sync_types.dart",
+          "package:powersync/src/user_agent/user_agent.dart",
+          "package:powersync/src/user_agent/user_agent_native.dart",
+          "package:powersync/src/user_agent/user_agent_stub.dart",
+          "package:powersync/src/user_agent/user_agent_web.dart",
+          "package:powersync/src/uuid.dart",
+          "package:powersync/src/version.dart",
+          "package:powersync/src/web/powersync_db.worker.dart",
+          "package:powersync/src/web/worker_utils.dart",
+          "package:powersync/web_worker.dart"
+        ],
+        "methods": [
+          "addBroadcast",
+          "cancelAll",
+          "friendlyTableName",
+          "main",
+          "mergeStreams",
+          "ndjson",
+          "newlines",
+          "parseStreamingSyncLine",
+          "pauseAll",
+          "powerSyncUserAgent",
+          "resumeAll",
+          "setupCommonDBFunctions",
+          "setupPowerSyncDatabase",
+          "updateSchema",
+          "updateSchemaInIsolate",
+          "userAgentHeaders"
+        ],
+        "types": [
+          "Schema"
+        ]
+      },
+      "AbortController": {
+        "fields": [
+          "aborted",
+          "get:onAbort"
+        ],
+        "libraries": [
+          "package:powersync/src/abort_controller.dart"
+        ],
+        "methods": [
+          "abort",
+          "abortError",
+          "completeAbort"
+        ],
+        "types": []
+      },
+      "AbstractPowerSyncOpenFactory": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/open_factory/abstract_powersync_open_factory.dart"
+        ],
+        "methods": [
+          "AbstractPowerSyncOpenFactory",
+          "enableExtension",
+          "getLibraryForPlatform",
+          "open",
+          "pragmaStatements",
+          "setupFunctions"
+        ],
+        "types": []
+      },
+      "BucketChecksum": {
+        "fields": [
+          "bucket",
+          "checksum",
+          "count",
+          "lastOpId"
+        ],
+        "libraries": [
+          "package:powersync/src/sync_types.dart"
+        ],
+        "methods": [
+          "BucketChecksum",
+          "fromJson"
+        ],
+        "types": []
+      },
+      "BucketRequest": {
+        "fields": [
+          "after",
+          "name"
+        ],
+        "libraries": [
+          "package:powersync/src/sync_types.dart"
+        ],
+        "methods": [
+          "BucketRequest",
+          "toJson"
+        ],
+        "types": []
+      },
+      "BucketState": {
+        "fields": [
+          "bucket",
+          "get:hashCode",
+          "opId"
+        ],
+        "libraries": [
+          "package:powersync/src/bucket_storage.dart"
+        ],
+        "methods": [
+          "==",
+          "BucketState",
+          "toString"
+        ],
+        "types": []
+      },
+      "BucketStorage": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/bucket_storage.dart"
+        ],
+        "methods": [
+          "BucketStorage",
+          "autoCompact",
+          "deleteBucket",
+          "forceCompact",
+          "getBucketStates",
+          "getClientId",
+          "getCrudBatch",
+          "hasCompletedSync",
+          "hasCrud",
+          "nextCrudItem",
+          "removeBuckets",
+          "saveSyncData",
+          "select",
+          "setTargetCheckpoint",
+          "startSession",
+          "streamOp",
+          "syncLocalDatabase",
+          "updateLocalTarget",
+          "updateObjectsFromBuckets",
+          "validateChecksums",
+          "writeTransaction"
+        ],
+        "types": [
+          "BucketState",
+          "Checkpoint",
+          "CrudBatch",
+          "CrudEntry",
+          "SyncDataBatch",
+          "SyncLocalDatabaseResult"
+        ]
+      },
+      "Checkpoint": {
+        "fields": [
+          "checksums",
+          "lastOpId",
+          "writeCheckpoint"
+        ],
+        "libraries": [
+          "package:powersync/src/sync_types.dart"
+        ],
+        "methods": [
+          "Checkpoint",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "BucketChecksum"
+        ]
+      },
+      "ChecksumCache": {
+        "fields": [
+          "checksums",
+          "lastOpId"
+        ],
+        "libraries": [
+          "package:powersync/src/bucket_storage.dart"
+        ],
+        "methods": [
+          "ChecksumCache"
+        ],
+        "types": [
+          "BucketChecksum"
+        ]
+      },
+      "Column": {
+        "fields": [
+          "name",
+          "type"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "Column",
+          "integer",
+          "real",
+          "text",
+          "toJson"
+        ],
+        "types": [
+          "ColumnType"
+        ]
+      },
+      "ColumnType": {
+        "fields": [
+          "integer",
+          "real",
+          "sqlite",
+          "text"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "ColumnType",
+          "toString"
+        ],
+        "types": []
+      },
+      "CredentialsException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/exceptions.dart"
+        ],
+        "methods": [
+          "CredentialsException",
+          "toString"
+        ],
+        "types": []
+      },
+      "CrudBatch": {
+        "fields": [
+          "complete",
+          "crud",
+          "haveMore"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/crud.dart"
+        ],
+        "methods": [
+          "CrudBatch"
+        ],
+        "types": [
+          "CrudEntry"
+        ]
+      },
+      "CrudEntry": {
+        "fields": [
+          "clientId",
+          "get:hashCode",
+          "id",
+          "op",
+          "opData",
+          "table",
+          "transactionId"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/crud.dart"
+        ],
+        "methods": [
+          "==",
+          "CrudEntry",
+          "fromRow",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "UpdateType"
+        ]
+      },
+      "CrudTransaction": {
+        "fields": [
+          "complete",
+          "crud",
+          "transactionId"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/crud.dart"
+        ],
+        "methods": [
+          "CrudTransaction",
+          "toString"
+        ],
+        "types": [
+          "CrudEntry"
+        ]
+      },
+      "DevConnector": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/connector.dart"
+        ],
+        "methods": [
+          "clearDevToken",
+          "devLogin",
+          "fetchCredentials",
+          "getEndpoint",
+          "getUserId",
+          "hasCredentials",
+          "loadDevCredentials",
+          "storeDevCredentials",
+          "uploadData"
+        ],
+        "types": [
+          "DevCredentials",
+          "PowerSyncBackendConnector",
+          "PowerSyncCredentials",
+          "PowerSyncDatabase"
+        ]
+      },
+      "DevCredentials": {
+        "fields": [
+          "endpoint",
+          "token",
+          "userId"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/connector.dart"
+        ],
+        "methods": [
+          "DevCredentials",
+          "fromJson",
+          "fromOptionalString",
+          "fromString",
+          "toJson"
+        ],
+        "types": [
+          "DevCredentials"
+        ]
+      },
+      "Index": {
+        "fields": [
+          "columns",
+          "name"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "Index",
+          "ascending",
+          "fullName",
+          "toJson"
+        ],
+        "types": [
+          "IndexedColumn",
+          "Table"
+        ]
+      },
+      "IndexedColumn": {
+        "fields": [
+          "ascending",
+          "column"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "IndexedColumn",
+          "ascending",
+          "descending",
+          "toJson"
+        ],
+        "types": [
+          "Table"
+        ]
+      },
+      "IsolateResult": {
+        "fields": [
+          "future",
+          "get:completer",
+          "receivePort"
+        ],
+        "libraries": [
+          "package:powersync/src/isolate_completer.dart"
+        ],
+        "methods": [
+          "IsolateResult",
+          "close"
+        ],
+        "types": [
+          "PortCompleter"
+        ]
+      },
+      "IsolateTerminatedError": {
+        "fields": [
+          "get:stackTrace"
+        ],
+        "libraries": [
+          "package:powersync/src/isolate_completer.dart"
+        ],
+        "methods": [
+          "IsolateTerminatedError"
+        ],
+        "types": []
+      },
+      "OpType": {
+        "fields": [
+          "clear",
+          "move",
+          "put",
+          "remove",
+          "value"
+        ],
+        "libraries": [
+          "package:powersync/src/bucket_storage.dart"
+        ],
+        "methods": [
+          "OpType",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "OpType"
+        ]
+      },
+      "OplogEntry": {
+        "fields": [
+          "checksum",
+          "data",
+          "get:key",
+          "get:parsedData",
+          "op",
+          "opId",
+          "rowId",
+          "rowType",
+          "subkey"
+        ],
+        "libraries": [
+          "package:powersync/src/bucket_storage.dart"
+        ],
+        "methods": [
+          "OplogEntry",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "OpType"
+        ]
+      },
+      "PortCompleter": {
+        "fields": [
+          "sendPort"
+        ],
+        "libraries": [
+          "package:powersync/src/isolate_completer.dart"
+        ],
+        "methods": [
+          "PortCompleter",
+          "addExitHandler",
+          "complete",
+          "completeError",
+          "handle"
+        ],
+        "types": []
+      },
+      "PortResult": {
+        "fields": [
+          "get:error",
+          "get:result",
+          "get:value",
+          "stackTrace",
+          "success"
+        ],
+        "libraries": [
+          "package:powersync/src/isolate_completer.dart"
+        ],
+        "methods": [
+          "error",
+          "success"
+        ],
+        "types": []
+      },
+      "PowerSyncAsyncSqliteController": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/web/powersync_db.worker.dart",
+          "package:powersync/web_worker.dart"
+        ],
+        "methods": [
+          "handleCustomRequest",
+          "openDatabase"
+        ],
+        "types": []
+      },
+      "PowerSyncBackendConnector": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/connector.dart"
+        ],
+        "methods": [
+          "fetchCredentials",
+          "getCredentialsCached",
+          "invalidateCredentials",
+          "prefetchCredentials",
+          "uploadData"
+        ],
+        "types": [
+          "PowerSyncCredentials",
+          "PowerSyncDatabase"
+        ]
+      },
+      "PowerSyncCredentials": {
+        "fields": [
+          "endpoint",
+          "expiresAt",
+          "token",
+          "userId"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/connector.dart"
+        ],
+        "methods": [
+          "PowerSyncCredentials",
+          "endpointUri",
+          "fromJson",
+          "getExpiryDate",
+          "toString"
+        ],
+        "types": []
+      },
+      "PowerSyncDatabase": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/database/powersync_database.dart",
+          "package:powersync/src/powersync_database.dart"
+        ],
+        "methods": [
+          "PowerSyncDatabase",
+          "withDatabase",
+          "withFactory"
+        ],
+        "types": [
+          "PowerSyncDatabaseMixin",
+          "Schema",
+          "SqliteConnectionSetup"
+        ]
+      },
+      "PowerSyncDatabaseImpl": {
+        "fields": [
+          "database",
+          "get:closed",
+          "get:database",
+          "get:isInitialized",
+          "get:logger",
+          "get:schema",
+          "isInitialized",
+          "logger",
+          "openFactory",
+          "schema"
+        ],
+        "libraries": [
+          "package:powersync/src/database/native/native_powersync_database.dart",
+          "package:powersync/src/database/powersync_database_impl.dart",
+          "package:powersync/src/database/powersync_database_impl_stub.dart",
+          "package:powersync/src/database/web/web_powersync_database.dart"
+        ],
+        "methods": [
+          "PowerSyncDatabaseImpl",
+          "baseConnect",
+          "close",
+          "getAutoCommit",
+          "readLock",
+          "readTransaction",
+          "refreshSchema",
+          "updateSchema",
+          "withDatabase",
+          "withFactory",
+          "writeLock",
+          "writeTransaction"
+        ],
+        "types": [
+          "PowerSyncBackendConnector",
+          "PowerSyncDatabase",
+          "PowerSyncDatabaseMixin",
+          "Schema",
+          "SqliteConnectionSetup"
+        ]
+      },
+      "PowerSyncDatabaseMixin": {
+        "fields": [
+          "clientParams",
+          "currentStatus",
+          "disconnecter",
+          "get:closed",
+          "get:connected",
+          "get:database",
+          "get:isInitialized",
+          "get:logger",
+          "get:schema",
+          "retryDelay",
+          "statusStream",
+          "statusStreamController",
+          "updates"
+        ],
+        "libraries": [
+          "package:powersync/src/database/powersync_db_mixin.dart"
+        ],
+        "methods": [
+          "baseConnect",
+          "baseInit",
+          "close",
+          "connect",
+          "disconnect",
+          "disconnectAndClear",
+          "disconnectedAndClear",
+          "getAutoCommit",
+          "getClientId",
+          "getCrudBatch",
+          "getNextCrudTransaction",
+          "getUploadQueueStats",
+          "initialize",
+          "isolateConnectionFactory",
+          "readLock",
+          "refreshSchema",
+          "setStatus",
+          "updateSchema",
+          "waitForFirstSync",
+          "watch",
+          "writeLock"
+        ],
+        "types": [
+          "AbortController",
+          "CrudBatch",
+          "CrudTransaction",
+          "PowerSyncBackendConnector",
+          "Schema",
+          "SyncStatus",
+          "UploadQueueStats"
+        ]
+      },
+      "PowerSyncOpenFactory": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/open_factory.dart",
+          "package:powersync/src/open_factory/native/native_open_factory.dart",
+          "package:powersync/src/open_factory/open_factory_stub.dart",
+          "package:powersync/src/open_factory/web/web_open_factory.dart"
+        ],
+        "methods": [
+          "PowerSyncOpenFactory",
+          "enableExtension",
+          "getLibraryForPlatform",
+          "open",
+          "openConnection",
+          "setupFunctions"
+        ],
+        "types": [
+          "AbstractPowerSyncOpenFactory",
+          "SqliteConnectionSetup"
+        ]
+      },
+      "PowerSyncProtocolException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/exceptions.dart"
+        ],
+        "methods": [
+          "PowerSyncProtocolException",
+          "toString"
+        ],
+        "types": []
+      },
+      "PowerSyncUpdateNotification": {
+        "fields": [
+          "get:isEmpty",
+          "get:isNotEmpty"
+        ],
+        "libraries": [
+          "package:powersync/src/powersync_update_notification.dart"
+        ],
+        "methods": [
+          "PowerSyncUpdateNotification",
+          "containsAny",
+          "empty",
+          "fromRawTables",
+          "fromUpdateNotification",
+          "union"
+        ],
+        "types": [
+          "PowerSyncUpdateNotification"
+        ]
+      },
+      "PowersyncNotReadyException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/exceptions.dart"
+        ],
+        "methods": [
+          "PowersyncNotReadyException"
+        ],
+        "types": []
+      },
+      "Schema": {
+        "fields": [
+          "tables"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "Schema",
+          "toJson",
+          "validate"
+        ],
+        "types": [
+          "Table"
+        ]
+      },
+      "SqliteConnectionSetup": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/open_factory/abstract_powersync_open_factory.dart"
+        ],
+        "methods": [
+          "SqliteConnectionSetup",
+          "setup"
+        ],
+        "types": []
+      },
+      "SqliteOp": {
+        "fields": [
+          "args",
+          "sql"
+        ],
+        "libraries": [
+          "package:powersync/src/bucket_storage.dart"
+        ],
+        "methods": [
+          "SqliteOp"
+        ],
+        "types": []
+      },
+      "StreamingSyncCheckpoint": {
+        "fields": [
+          "checkpoint"
+        ],
+        "libraries": [
+          "package:powersync/src/sync_types.dart"
+        ],
+        "methods": [
+          "StreamingSyncCheckpoint",
+          "fromJson"
+        ],
+        "types": [
+          "Checkpoint"
+        ]
+      },
+      "StreamingSyncCheckpointComplete": {
+        "fields": [
+          "lastOpId"
+        ],
+        "libraries": [
+          "package:powersync/src/sync_types.dart"
+        ],
+        "methods": [
+          "StreamingSyncCheckpointComplete",
+          "fromJson"
+        ],
+        "types": []
+      },
+      "StreamingSyncCheckpointDiff": {
+        "fields": [
+          "lastOpId",
+          "removedBuckets",
+          "updatedBuckets",
+          "writeCheckpoint"
+        ],
+        "libraries": [
+          "package:powersync/src/sync_types.dart"
+        ],
+        "methods": [
+          "StreamingSyncCheckpointDiff",
+          "fromJson"
+        ],
+        "types": [
+          "BucketChecksum"
+        ]
+      },
+      "StreamingSyncImplementation": {
+        "fields": [
+          "adapter",
+          "clientId",
+          "credentialsCallback",
+          "crudMutex",
+          "get:aborted",
+          "get:isConnected",
+          "invalidCredentialsCallback",
+          "lastStatus",
+          "retryDelay",
+          "statusStream",
+          "syncMutex",
+          "syncParameters",
+          "updateStream",
+          "uploadCrud"
+        ],
+        "libraries": [
+          "package:powersync/src/streaming_sync.dart"
+        ],
+        "methods": [
+          "StreamingSyncImplementation",
+          "abort",
+          "crudLoop",
+          "getWriteCheckpoint",
+          "streamingSync",
+          "streamingSyncIteration",
+          "streamingSyncRequest",
+          "uploadAllCrud"
+        ],
+        "types": [
+          "AbortController",
+          "BucketStorage",
+          "PowerSyncCredentials",
+          "StreamingSyncRequest",
+          "SyncStatus"
+        ]
+      },
+      "StreamingSyncKeepalive": {
+        "fields": [
+          "tokenExpiresIn"
+        ],
+        "libraries": [
+          "package:powersync/src/sync_types.dart"
+        ],
+        "methods": [
+          "StreamingSyncKeepalive",
+          "fromJson"
+        ],
+        "types": []
+      },
+      "StreamingSyncRequest": {
+        "fields": [
+          "buckets",
+          "clientId",
+          "includeChecksum",
+          "parameters"
+        ],
+        "libraries": [
+          "package:powersync/src/sync_types.dart"
+        ],
+        "methods": [
+          "StreamingSyncRequest",
+          "toJson"
+        ],
+        "types": [
+          "BucketRequest"
+        ]
+      },
+      "SyncBucketData": {
+        "fields": [
+          "after",
+          "bucket",
+          "data",
+          "hasMore",
+          "nextAfter"
+        ],
+        "libraries": [
+          "package:powersync/src/bucket_storage.dart"
+        ],
+        "methods": [
+          "SyncBucketData",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "OplogEntry"
+        ]
+      },
+      "SyncDataBatch": {
+        "fields": [
+          "buckets"
+        ],
+        "libraries": [
+          "package:powersync/src/bucket_storage.dart"
+        ],
+        "methods": [
+          "SyncDataBatch"
+        ],
+        "types": [
+          "SyncBucketData"
+        ]
+      },
+      "SyncLocalDatabaseResult": {
+        "fields": [
+          "checkpointFailures",
+          "checkpointValid",
+          "get:hashCode",
+          "ready"
+        ],
+        "libraries": [
+          "package:powersync/src/bucket_storage.dart"
+        ],
+        "methods": [
+          "==",
+          "SyncLocalDatabaseResult",
+          "toString"
+        ],
+        "types": []
+      },
+      "SyncResponseException": {
+        "fields": [
+          "description",
+          "statusCode"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/exceptions.dart"
+        ],
+        "methods": [
+          "SyncResponseException",
+          "fromResponse",
+          "fromStreamedResponse",
+          "toString"
+        ],
+        "types": [
+          "SyncResponseException"
+        ]
+      },
+      "SyncStatus": {
+        "fields": [
+          "connected",
+          "connecting",
+          "downloadError",
+          "downloading",
+          "get:anyError",
+          "get:hashCode",
+          "hasSynced",
+          "lastSyncedAt",
+          "uploadError",
+          "uploading"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/sync_status.dart"
+        ],
+        "methods": [
+          "==",
+          "SyncStatus",
+          "copyWith",
+          "toString"
+        ],
+        "types": [
+          "SyncStatus"
+        ]
+      },
+      "Table": {
+        "fields": [
+          "columns",
+          "get:internalName",
+          "get:validName",
+          "get:viewName",
+          "indexes",
+          "insertOnly",
+          "localOnly",
+          "maxNumberOfColumns",
+          "name"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "Table",
+          "[]",
+          "insertOnly",
+          "localOnly",
+          "toJson",
+          "validate"
+        ],
+        "types": [
+          "Column",
+          "Index"
+        ]
+      },
+      "UpdateType": {
+        "fields": [
+          "delete",
+          "json",
+          "patch",
+          "put"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/crud.dart"
+        ],
+        "methods": [
+          "UpdateType",
+          "fromJson",
+          "fromJsonChecked",
+          "toJson"
+        ],
+        "types": [
+          "UpdateType"
+        ]
+      },
+      "UploadQueueStats": {
+        "fields": [
+          "count",
+          "size"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/sync_status.dart"
+        ],
+        "methods": [
+          "UploadQueueStats",
+          "toString"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:57:32Z",
+  "package": "powersync",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "BucketChecksum",
+      "BucketState",
+      "Checkpoint",
+      "Column",
+      "Index",
+      "IndexedColumn",
+      "IsolateTerminatedError",
+      "OplogEntry",
+      "PortResult",
+      "Schema",
+      "SqliteConnectionSetup",
+      "SyncBucketData",
+      "SyncLocalDatabaseResult",
+      "SyncStatus",
+      "Table"
+    ],
+    "digest": "edf9be1b420dd662c08e49587db74758162c9f6cc0cb4fca8ca9a23d3f6aacf5",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "4cc77c2c1947b2641c50139d42a0acc37e6d03c1b361c1a197a020b36cb902ea",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      ".",
+      "../connector.dart",
+      "../schema.dart",
+      "./native/native_powersync_database.dart",
+      "./open_factory/native/native_open_factory.dart",
+      "./open_factory/open_factory_stub.dart",
+      "./open_factory/web/web_open_factory.dart",
+      "./user_agent_native.dart",
+      "./user_agent_stub.dart",
+      "./user_agent_web.dart",
+      "./web/web_powersync_database.dart",
+      "1.8.4",
+      "9223372036854775807",
+      "Authorization",
+      "Authorization error",
+      "CLEAR",
+      "Cannot reach this point",
+      "Cannot update schema while connected",
+      "Caught exception when uploading. Upload will retry after a delay",
+      "Checkpoint diff without previous checkpoint",
+      "Configuration error",
+      "Content-Type",
+      "Credentials error",
+      "DELETE",
+      "DELETE FROM ps_crud WHERE id <= ?",
+      "Dart",
+      "Data upload error",
+      "Delaying due to previously encountered CRUD item.",
+      "FLUTTER_TEST",
+      "Failed due to server error.",
+      "INSERT INTO powersync_operations(op, data) VALUES (?, ?)",
+      "INSERT INTO powersync_operations(op, data) VALUES(?, ?)",
+      "INTEGER",
+      "MOVE",
+      "N/A",
+      "Not logged in",
+      "Override PowerSyncOpenFactory instead.",
+      "PATCH",
+      "POST",
+      "PRAGMA recursive_triggers = TRUE",
+      "PRAGMA wal_checkpoint(TRUNCATE)",
+      "PUT",
+      "Potentially previously uploaded CRUD entries are still present in the upload queue. \n                Make sure to handle uploads and complete CRUD transactions or batches by calling and awaiting their [.complete()] method.\n                The next upload iteration will be delayed.",
+      "PowerSync",
+      "PowerSync endpoint must be a valid URL",
+      "PowerSyncDatabase",
+      "Protocol error",
+      "REAL",
+      "REMOVE",
+      "Refreshing credentials",
+      "Request failed",
+      "SELECT * FROM ps_crud ORDER BY id ASC LIMIT 1",
+      "SELECT * FROM ps_crud ORDER BY id ASC LIMIT ?",
+      "SELECT 1 FROM ps_crud LIMIT 1",
+      "SELECT SUM(cast(data as blob) + 20) as size, count(*) as count FROM ps_crud",
+      "SELECT count(*) as count FROM ps_crud",
+      "SELECT id, tx_id, data FROM ps_crud ORDER BY id ASC LIMIT 1",
+      "SELECT id, tx_id, data FROM ps_crud ORDER BY id ASC LIMIT ?",
+      "SELECT id, tx_id, data FROM ps_crud WHERE tx_id = ? ORDER BY id ASC",
+      "SELECT last_insert_rowid() as result",
+      "SELECT name as bucket, cast(last_op as TEXT) as op_id FROM ps_buckets WHERE pending_delete = 0",
+      "SELECT powersync_client_id() as client_id",
+      "SELECT powersync_init()",
+      "SELECT powersync_last_synced_at() as synced_at",
+      "SELECT powersync_replace_schema(?)",
+      "SELECT powersync_rs_version() as version",
+      "SELECT powersync_validate_checkpoint(?) as result",
+      "SELECT seq FROM sqlite_sequence WHERE name = 'ps_crud'",
+      "Sync Isolate error",
+      "Sync Isolate exit",
+      "Sync service error",
+      "TEXT",
+      "UPDATE ps_buckets SET last_op = ? WHERE name = '$local'",
+      "UPDATE ps_buckets SET last_op = ? WHERE name IN (SELECT json_each.value FROM json_each(?))",
+      "UPDATE ps_buckets SET target_op = CAST(? as INTEGER) WHERE name='$local'",
+      "Unknown",
+      "Unsupported processor architecture. X86 Android emulators are not supported. Please use an x86_64 emulator instead. All physical Android devices are supported including 32bit ARM.",
+      "Use SqliteOpenFactory instead.",
+      "Use [PowerSyncDatabase.withFactory] instead.",
+      "Use [disconnectAndClear] instead.",
+      "User-Agent",
+      "User-Id",
+      "We will be removing this in version 2.",
+      "X-User-Agent",
+      "[\"'%,\\.#\\s\\[\\]]",
+      "[./]",
+      "[\\w.]+",
+      "^ps_data__(.+)$",
+      "^ps_data_local__(.+)$",
+      "aborted",
+      "abstract_powersync_open_factory.dart",
+      "after",
+      "application/json",
+      "ascending",
+      "bucket",
+      "bucket_storage.dart",
+      "buckets",
+      "checkpoint",
+      "checkpoint_complete",
+      "checkpoint_diff",
+      "checksum",
+      "clear_remove_ops",
+      "client_id",
+      "close",
+      "columns",
+      "connector.dart",
+      "count",
+      "crud.dart",
+      "crud.json",
+      "dart.library.js_util",
+      "dart.vm.product",
+      "dart.vm.profile",
+      "dart:async",
+      "dart:convert",
+      "dart:ffi",
+      "dart:io",
+      "dart:isolate",
+      "dart:js_interop",
+      "dart:math",
+      "data",
+      "database/powersync_database.dart",
+      "delete_bucket",
+      "delete_pending_buckets",
+      "details",
+      "dev/auth.json",
+      "dev/token.json",
+      "endpoint",
+      "error",
+      "exp",
+      "failed_buckets",
+      "gen_random_uuid",
+      "getCredentials",
+      "has_more",
+      "http",
+      "https",
+      "id",
+      "include_checksum",
+      "indexes",
+      "init",
+      "insert_only",
+      "invalidateCredentials",
+      "last_op_id",
+      "libpowersync.dylib",
+      "libpowersync.so",
+      "libpowersync_aarch64.so",
+      "libpowersync_x64.so",
+      "local_only",
+      "log",
+      "name",
+      "next_after",
+      "object_id",
+      "object_type",
+      "op",
+      "op_id",
+      "package:collection/collection.dart",
+      "package:fetch_client/fetch_client.dart",
+      "package:http/http.dart",
+      "package:logging/logging.dart",
+      "package:meta/meta.dart",
+      "package:powersync/powersync.dart",
+      "package:powersync/sqlite3_common.dart",
+      "package:powersync/sqlite_async.dart",
+      "package:powersync/src/abort_controller.dart",
+      "package:powersync/src/bucket_storage.dart",
+      "package:powersync/src/connector.dart",
+      "package:powersync/src/crud.dart",
+      "package:powersync/src/database/powersync_database.dart",
+      "package:powersync/src/database/powersync_database_impl.dart",
+      "package:powersync/src/database/powersync_db_mixin.dart",
+      "package:powersync/src/exceptions.dart",
+      "package:powersync/src/isolate_completer.dart",
+      "package:powersync/src/log.dart",
+      "package:powersync/src/log_internal.dart",
+      "package:powersync/src/open_factory/abstract_powersync_open_factory.dart",
+      "package:powersync/src/open_factory/common_db_functions.dart",
+      "package:powersync/src/open_factory/native/native_open_factory.dart",
+      "package:powersync/src/open_factory/web/web_open_factory.dart",
+      "package:powersync/src/powersync_update_notification.dart",
+      "package:powersync/src/schema.dart",
+      "package:powersync/src/schema_logic.dart",
+      "package:powersync/src/streaming_sync.dart",
+      "package:powersync/src/sync_status.dart",
+      "package:powersync/src/user_agent/user_agent.dart",
+      "package:powersync/src/uuid.dart",
+      "package:powersync/src/version.dart",
+      "package:sqlite_async/mutex.dart",
+      "package:sqlite_async/sqlite3.dart",
+      "package:sqlite_async/sqlite3_common.dart",
+      "package:sqlite_async/sqlite3_wasm.dart",
+      "package:sqlite_async/sqlite3_web.dart",
+      "package:sqlite_async/sqlite3_web_worker.dart",
+      "package:sqlite_async/sqlite_async.dart",
+      "package:universal_io/io.dart",
+      "package:uuid/data.dart",
+      "package:uuid/rng.dart",
+      "package:uuid/uuid.dart",
+      "parameters",
+      "password",
+      "powersync_connection_name",
+      "powersync_database.dart",
+      "powersync_database_impl_stub.dart",
+      "powersync_db.worker.js",
+      "powersync_diff",
+      "powersync_sleep",
+      "powersync_x64.dll",
+      "ps_",
+      "ps_data__",
+      "ps_data_local__",
+      "raw_data",
+      "removed_buckets",
+      "result",
+      "save",
+      "schema.dart",
+      "schema_logic.dart",
+      "select powersync_clear(?)",
+      "seq",
+      "size",
+      "sqlite3.wasm",
+      "sqlite3_powersync_init",
+      "src/connector.dart",
+      "src/crud.dart",
+      "src/database/powersync_database.dart",
+      "src/exceptions.dart",
+      "src/log.dart",
+      "src/open_factory.dart",
+      "src/powersync_database.dart",
+      "src/schema.dart",
+      "src/sync_status.dart",
+      "src/uuid.dart",
+      "src/web/powersync_db.worker.dart",
+      "status",
+      "stream",
+      "stream_utils.dart",
+      "subkey",
+      "sync/stream",
+      "sync_local",
+      "sync_status.dart",
+      "sync_types.dart",
+      "synced_at",
+      "tables",
+      "token",
+      "token_expires_in",
+      "tx_id",
+      "type",
+      "unknown",
+      "update",
+      "updated_buckets",
+      "uploadCrud",
+      "user",
+      "user_id",
+      "uuid",
+      "valid",
+      "version",
+      "view_name",
+      "worker_utils.dart",
+      "write_checkpoint"
+    ]
+  },
+  "version": "1.8.4"
+}
