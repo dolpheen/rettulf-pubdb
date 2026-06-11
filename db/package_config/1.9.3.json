@@ -1,0 +1,627 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "$colon",
+          "$cr",
+          "$dot",
+          "$hash",
+          "$lbrace",
+          "$lf",
+          "$question",
+          "$space",
+          "currentPath",
+          "dotPackagesPath",
+          "packageConfigJsonPath",
+          "parentPath"
+        ],
+        "libraries": [
+          "package:package_config/discovery.dart",
+          "package:package_config/package_config.dart",
+          "package:package_config/package_config_types.dart",
+          "package:package_config/packages_file.dart",
+          "package:package_config/src/discovery.dart",
+          "package:package_config/src/errors.dart",
+          "package:package_config/src/package_config_impl.dart",
+          "package:package_config/src/package_config_io.dart",
+          "package:package_config/src/package_config_json.dart",
+          "package:package_config/src/packages_file.dart",
+          "package:package_config/src/util.dart",
+          "package:package_config/src/util_io.dart"
+        ],
+        "methods": [
+          "checkForDotPackagesFile",
+          "checkForPackageConfigJsonFile",
+          "checkPackageName",
+          "checkValidPackageUri",
+          "defaultLoader",
+          "dirName",
+          "fileName",
+          "findPackagConfigInDirectory",
+          "findPackageConfig",
+          "findPackageConfigUri",
+          "findPackages",
+          "findPackagesFromFile",
+          "findPackagesFromNonFile",
+          "firstNonWhitespaceChar",
+          "getPackagesDirectory",
+          "isAbsoluteDirectoryUri",
+          "isUriPrefix",
+          "isValidPackageName",
+          "loadPackageConfig",
+          "loadPackageConfigUri",
+          "loadPackagesFile",
+          "packageConfigToJson",
+          "parse",
+          "parseAnyConfigFile",
+          "parseLanguageVersion",
+          "parsePackageConfigBytes",
+          "parsePackageConfigJson",
+          "parsePackageConfigString",
+          "pathJoin",
+          "pathJoinAll",
+          "readAnyConfigFile",
+          "readAnyConfigFileUri",
+          "readDotPackagesFile",
+          "readPackageConfigJsonFile",
+          "relativizeUri",
+          "savePackageConfig",
+          "throwError",
+          "write",
+          "writeDotPackages",
+          "writePackageConfigJsonFile",
+          "writePackageConfigJsonString",
+          "writePackageConfigJsonUtf8"
+        ],
+        "types": [
+          "LanguageVersion",
+          "PackageConfig",
+          "Packages"
+        ]
+      },
+      "ConflictException": {
+        "fields": [
+          "existingPackage",
+          "get:isRootConflict",
+          "isPackageRootConflict",
+          "package"
+        ],
+        "libraries": [
+          "package:package_config/src/package_config_impl.dart"
+        ],
+        "methods": [
+          "packageRoot",
+          "root"
+        ],
+        "types": [
+          "SimplePackage"
+        ]
+      },
+      "EmptyPackageTree": {
+        "fields": [
+          "get:allPackages"
+        ],
+        "libraries": [
+          "package:package_config/src/package_config_impl.dart"
+        ],
+        "methods": [
+          "EmptyPackageTree",
+          "packageOf"
+        ],
+        "types": [
+          "Package",
+          "PackageTree",
+          "SimplePackage"
+        ]
+      },
+      "FilePackagesDirectoryPackages": {
+        "fields": [
+          "get:packages"
+        ],
+        "libraries": [
+          "package:package_config/src/packages_io_impl.dart"
+        ],
+        "methods": [
+          "FilePackagesDirectoryPackages",
+          "asMap",
+          "getBase"
+        ],
+        "types": [
+          "PackagesBase"
+        ]
+      },
+      "InvalidLanguageVersion": {
+        "fields": [
+          "get:hashCode",
+          "get:major",
+          "get:minor"
+        ],
+        "libraries": [
+          "package:package_config/package_config.dart",
+          "package:package_config/package_config_types.dart",
+          "package:package_config/src/package_config.dart",
+          "package:package_config/src/package_config_impl.dart"
+        ],
+        "methods": [
+          "==",
+          "toString"
+        ],
+        "types": [
+          "LanguageVersion"
+        ]
+      },
+      "LanguageVersion": {
+        "fields": [
+          "get:hashCode",
+          "get:major",
+          "get:minor",
+          "maxValue"
+        ],
+        "libraries": [
+          "package:package_config/package_config.dart",
+          "package:package_config/package_config_types.dart",
+          "package:package_config/src/package_config.dart",
+          "package:package_config/src/package_config_impl.dart"
+        ],
+        "methods": [
+          "==",
+          "LanguageVersion",
+          "compareTo",
+          "parse",
+          "toString"
+        ],
+        "types": [
+          "LanguageVersion"
+        ]
+      },
+      "MapPackages": {
+        "fields": [
+          "get:defaultPackageName",
+          "get:packages"
+        ],
+        "libraries": [
+          "package:package_config/src/packages_impl.dart"
+        ],
+        "methods": [
+          "MapPackages",
+          "asMap",
+          "getBase",
+          "libraryMetadata",
+          "packageMetadata"
+        ],
+        "types": [
+          "PackagesBase"
+        ]
+      },
+      "MutablePackageTree": {
+        "fields": [
+          "get:allPackages",
+          "packages"
+        ],
+        "libraries": [
+          "package:package_config/src/package_config_impl.dart"
+        ],
+        "methods": [
+          "add",
+          "findPackageOf",
+          "packageOf"
+        ],
+        "types": [
+          "MutablePackageTree",
+          "Package",
+          "PackageTree",
+          "SimplePackage"
+        ]
+      },
+      "NoPackages": {
+        "fields": [
+          "get:defaultPackageName",
+          "get:packages"
+        ],
+        "libraries": [
+          "package:package_config/src/packages_impl.dart"
+        ],
+        "methods": [
+          "NoPackages",
+          "asMap",
+          "libraryMetadata",
+          "packageMetadata",
+          "resolve"
+        ],
+        "types": [
+          "Packages"
+        ]
+      },
+      "NonFilePackagesDirectoryPackages": {
+        "fields": [
+          "get:packages"
+        ],
+        "libraries": [
+          "package:package_config/src/packages_impl.dart"
+        ],
+        "methods": [
+          "NonFilePackagesDirectoryPackages",
+          "asMap",
+          "getBase"
+        ],
+        "types": [
+          "PackagesBase"
+        ]
+      },
+      "Package": {
+        "fields": [
+          "get:extraData",
+          "get:languageVersion",
+          "get:name",
+          "get:packageUriRoot",
+          "get:root"
+        ],
+        "libraries": [
+          "package:package_config/package_config.dart",
+          "package:package_config/package_config_types.dart",
+          "package:package_config/src/package_config.dart",
+          "package:package_config/src/package_config_impl.dart"
+        ],
+        "methods": [
+          "Package"
+        ],
+        "types": [
+          "LanguageVersion"
+        ]
+      },
+      "PackageConfig": {
+        "fields": [
+          "empty",
+          "get:extraData",
+          "get:packages",
+          "get:version",
+          "maxVersion"
+        ],
+        "libraries": [
+          "package:package_config/package_config.dart",
+          "package:package_config/package_config_types.dart",
+          "package:package_config/src/package_config.dart",
+          "package:package_config/src/package_config_impl.dart"
+        ],
+        "methods": [
+          "PackageConfig",
+          "[]",
+          "packageOf",
+          "parseBytes",
+          "parseJson",
+          "parseString",
+          "resolve",
+          "toJson",
+          "toPackageUri",
+          "writeBytes",
+          "writeString"
+        ],
+        "types": [
+          "Package",
+          "PackageConfig"
+        ]
+      },
+      "PackageConfigArgumentError": {
+        "fields": [],
+        "libraries": [
+          "package:package_config/src/errors.dart"
+        ],
+        "methods": [
+          "PackageConfigArgumentError",
+          "from"
+        ],
+        "types": [
+          "PackageConfigError"
+        ]
+      },
+      "PackageConfigError": {
+        "fields": [],
+        "libraries": [
+          "package:package_config/package_config.dart",
+          "package:package_config/package_config_types.dart",
+          "package:package_config/src/errors.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PackageConfigFormatException": {
+        "fields": [],
+        "libraries": [
+          "package:package_config/src/errors.dart"
+        ],
+        "methods": [
+          "PackageConfigFormatException",
+          "from"
+        ],
+        "types": [
+          "PackageConfigError"
+        ]
+      },
+      "PackageContext": {
+        "fields": [
+          "get:children",
+          "get:directory",
+          "get:packages"
+        ],
+        "libraries": [
+          "package:package_config/discovery_analysis.dart"
+        ],
+        "methods": [
+          "[]",
+          "asMap",
+          "findAll"
+        ],
+        "types": [
+          "PackageContext",
+          "Packages"
+        ]
+      },
+      "PackageTree": {
+        "fields": [
+          "get:allPackages"
+        ],
+        "libraries": [
+          "package:package_config/src/package_config_impl.dart"
+        ],
+        "methods": [
+          "packageOf"
+        ],
+        "types": [
+          "Package",
+          "SimplePackage"
+        ]
+      },
+      "Packages": {
+        "fields": [
+          "get:defaultPackageName",
+          "get:packages",
+          "noPackages"
+        ],
+        "libraries": [
+          "package:package_config/packages.dart"
+        ],
+        "methods": [
+          "asMap",
+          "libraryMetadata",
+          "packageMetadata",
+          "resolve"
+        ],
+        "types": [
+          "Packages"
+        ]
+      },
+      "PackagesBase": {
+        "fields": [
+          "get:defaultPackageName"
+        ],
+        "libraries": [
+          "package:package_config/src/packages_impl.dart"
+        ],
+        "methods": [
+          "getBase",
+          "libraryMetadata",
+          "packageMetadata",
+          "resolve"
+        ],
+        "types": [
+          "Packages"
+        ]
+      },
+      "SimpleInvalidLanguageVersion": {
+        "fields": [
+          "get:major",
+          "get:minor"
+        ],
+        "libraries": [
+          "package:package_config/src/package_config_impl.dart"
+        ],
+        "methods": [
+          "SimpleInvalidLanguageVersion",
+          "toString"
+        ],
+        "types": [
+          "InvalidLanguageVersion"
+        ]
+      },
+      "SimpleLanguageVersion": {
+        "fields": [
+          "get:hashCode",
+          "major",
+          "minor"
+        ],
+        "libraries": [
+          "package:package_config/src/package_config_impl.dart"
+        ],
+        "methods": [
+          "==",
+          "SimpleLanguageVersion",
+          "toString"
+        ],
+        "types": []
+      },
+      "SimplePackage": {
+        "fields": [
+          "extraData",
+          "languageVersion",
+          "name",
+          "packageUriRoot",
+          "root"
+        ],
+        "libraries": [
+          "package:package_config/src/package_config_impl.dart"
+        ],
+        "methods": [
+          "validate"
+        ],
+        "types": [
+          "LanguageVersion",
+          "Package",
+          "SimplePackage"
+        ]
+      },
+      "SimplePackageConfig": {
+        "fields": [
+          "extraData",
+          "get:packages",
+          "version"
+        ],
+        "libraries": [
+          "package:package_config/src/package_config_impl.dart"
+        ],
+        "methods": [
+          "SimplePackageConfig",
+          "[]",
+          "empty",
+          "packageOf",
+          "resolve",
+          "toPackageUri"
+        ],
+        "types": [
+          "Package",
+          "PackageConfig",
+          "PackageTree"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:53:12Z",
+  "package": "package_config",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "EmptyPackageTree",
+      "NoPackages",
+      "SimplePackageConfig"
+    ],
+    "digest": "1cd701520398d0a12780bd6ebed99262370ec6fa88fd1f67e2f00abb980ac998",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "59e936870931d756d0f791ab1d43dcf65801ae2690f95197b84194850cbf878c",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "  ",
+      "                                 !  $ &'()*+,-. 0123456789 ; =  @ABCDEFGHIJKLMNOPQRSTUVWXYZ    _ abcdefghijklmnopqrstuvwxyz   ~ ",
+      "# ",
+      "# generated by package:package_config at ",
+      ".",
+      "..",
+      "../",
+      "../packages.dart",
+      "./",
+      ".dart_tool",
+      ".dart_tool/package_config.json",
+      ".packages",
+      "/",
+      "/lib/",
+      "/packages",
+      "0",
+      ":",
+      "Default package entry value is not a valid package name",
+      "Directory does not exist.",
+      "Duplicate package name",
+      "File cannot be read",
+      "Leading zero not allowed",
+      "Location URI must not have fragment",
+      "Location URI must not have query",
+      "Missing '.'",
+      "Missing configVersion entry",
+      "Missing name entry",
+      "Missing number",
+      "Missing package name",
+      "Missing packages list",
+      "Missing rootUri entry",
+      "More than one default package entry",
+      "Must be absolute",
+      "Must be an absolute non-package: URI",
+      "Must not be a package URI",
+      "Must not be a package: URI",
+      "Must not have query or fragment part",
+      "No ':' on line",
+      "Not a package: URI",
+      "Not a valid package name",
+      "Number too large",
+      "Package URI as location for package",
+      "Package URIs must not have a fragment part",
+      "Package URIs must not have a host part",
+      "Package URIs must not have a query part",
+      "Package URIs must not start with a '/'",
+      "Package URIs must start with the package name followed by a '/'",
+      "Package location must not be a package: URI",
+      "Package names mus be non-empty",
+      "Package names must contain at least one non-'.' character",
+      "Same package name occured more than once",
+      "Same package name occured twice",
+      "The package URI root is not below the package root",
+      "U+",
+      "Unexpected trailing character",
+      "Use the package_config.json based API",
+      "allowDefaultPackage",
+      "array",
+      "baseLocation",
+      "baseUri",
+      "config",
+      "configVersion",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:io",
+      "dart:typed_data",
+      "defaultPackageName",
+      "discovery.dart",
+      "element of packages",
+      "errors.dart",
+      "file",
+      "generated",
+      "generator",
+      "generatorVersion",
+      "http",
+      "https",
+      "int",
+      "invalid",
+      "languageVersion",
+      "location",
+      "major",
+      "name",
+      "nonPackageUri",
+      "object",
+      "package",
+      "package entry",
+      "package:charcode/ascii.dart",
+      "package:path/path.dart",
+      "packageUri",
+      "packageUriRoot",
+      "package_config.dart",
+      "package_config.json",
+      "package_config_impl.dart",
+      "package_config_io.dart",
+      "package_config_json.dart",
+      "package_config_types.dart",
+      "packages",
+      "packages.dart",
+      "packages/",
+      "packages_file.dart",
+      "packages_impl.dart",
+      "root",
+      "rootUri",
+      "src/discovery.dart",
+      "src/errors.dart",
+      "src/package_config.dart",
+      "src/package_config_io.dart",
+      "src/packages_impl.dart",
+      "src/packages_io_impl.dart",
+      "src/util.dart",
+      "string",
+      "util.dart",
+      "util_io.dart",
+      "value",
+      "version",
+      "workingDirectory"
+    ]
+  },
+  "version": "1.9.3"
+}
