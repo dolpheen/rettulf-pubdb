@@ -1,0 +1,652 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "currentWorkspace",
+          "kAndroid",
+          "kIos",
+          "kLinux",
+          "kMacos",
+          "kWeb",
+          "kWindows",
+          "lineLength",
+          "logger",
+          "melosVersion"
+        ],
+        "libraries": [
+          "package:melos/src/command_runner.dart",
+          "package:melos/src/common/logger.dart",
+          "package:melos/src/common/package.dart",
+          "package:melos/src/common/utils.dart",
+          "package:melos/src/common/workspace.dart",
+          "package:melos/version.dart"
+        ],
+        "methods": [
+          "getAndroidSdkRoot",
+          "getFlutterSdkRoot",
+          "getMelosRoot",
+          "isPackageDirectory",
+          "isWorkspaceDirectory",
+          "loadYamlFile",
+          "loadYamlFileSync",
+          "melosYamlPathForDirectory",
+          "pubspecPathForDirectory",
+          "relativePath",
+          "startProcess"
+        ],
+        "types": [
+          "MelosWorkspace"
+        ]
+      },
+      "BootstrapCommand": {
+        "fields": [
+          "aliases",
+          "description",
+          "name"
+        ],
+        "libraries": [
+          "package:melos/src/command/bootstrap.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": []
+      },
+      "CleanCommand": {
+        "fields": [
+          "aliases",
+          "description",
+          "name"
+        ],
+        "libraries": [
+          "package:melos/src/command/clean.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": []
+      },
+      "ExecCommand": {
+        "fields": [
+          "aliases",
+          "description",
+          "name"
+        ],
+        "libraries": [
+          "package:melos/src/command/exec.dart"
+        ],
+        "methods": [
+          "ExecCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "FlutterDependenciesPubFile": {
+        "fields": [
+          "get:dependencyGraph",
+          "get:plugins"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_file_flutter_dependencies.dart"
+        ],
+        "methods": [
+          "fromDirectory",
+          "fromWorkspacePackage",
+          "toString"
+        ],
+        "types": [
+          "FlutterDependenciesPubFile",
+          "MelosPackage",
+          "MelosWorkspace",
+          "PubFile"
+        ]
+      },
+      "FlutterPluginsPubFile": {
+        "fields": [
+          "get:entries"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_file_flutter_plugins.dart"
+        ],
+        "methods": [
+          "fromDirectory",
+          "fromWorkspacePackage",
+          "toString"
+        ],
+        "types": [
+          "FlutterPluginsPubFile",
+          "MelosPackage",
+          "MelosWorkspace",
+          "PubFile"
+        ]
+      },
+      "IntellijProject": {
+        "fields": [
+          "get:pathDotIdea",
+          "get:pathDotName",
+          "get:pathModulesXml",
+          "get:pathTemplates"
+        ],
+        "libraries": [
+          "package:melos/src/common/intellij_project.dart"
+        ],
+        "methods": [
+          "cleanFiles",
+          "forceWriteToFile",
+          "fromWorkspace",
+          "getMelosBinForIde",
+          "ideaModuleStringForName",
+          "injectTemplateVariable",
+          "injectTemplateVariables",
+          "moduleTemplateFileForPackageType",
+          "pathPackageModuleIml",
+          "pathTemplatesForDirectory",
+          "readFileTemplate",
+          "writeFiles",
+          "writeFlutterRunScripts",
+          "writeFlutterTestScripts",
+          "writeMelosScripts",
+          "writeModulesXml",
+          "writeNameFile",
+          "writePackageModule",
+          "writeWorkspaceModule"
+        ],
+        "types": [
+          "IntellijProject",
+          "MelosPackage",
+          "MelosWorkspace",
+          "PackageType"
+        ]
+      },
+      "MelosCommandRunner": {
+        "fields": [
+          "instance"
+        ],
+        "libraries": [
+          "package:melos/src/command_runner.dart"
+        ],
+        "methods": [
+          "MelosCommandRunner",
+          "runCommand"
+        ],
+        "types": [
+          "MelosCommandRunner"
+        ]
+      },
+      "MelosPackage": {
+        "fields": [
+          "get:dependencies",
+          "get:devDependencies",
+          "get:flutterAppSupportsAndroid",
+          "get:flutterAppSupportsLinux",
+          "get:flutterAppSupportsMacos",
+          "get:flutterAppSupportsWeb",
+          "get:flutterAppSupportsWindows",
+          "get:flutterPluginSupportsAndroid",
+          "get:flutterPluginSupportsLinux",
+          "get:flutterPluginSupportsMacos",
+          "get:flutterPluginSupportsWeb",
+          "get:flutterPluginSupportsWindows",
+          "get:isFlutterApp",
+          "get:isFlutterPackage",
+          "get:isFlutterPlugin",
+          "get:isPrivate",
+          "get:name",
+          "get:path",
+          "get:pathRelativeToWorkspace",
+          "get:type",
+          "get:version"
+        ],
+        "libraries": [
+          "package:melos/src/common/package.dart"
+        ],
+        "methods": [
+          "clean",
+          "exec",
+          "fromPubspecPathAndWorkspace",
+          "getDependencyGraph",
+          "getPublishedVersions",
+          "linkPackages",
+          "toString"
+        ],
+        "types": [
+          "MelosPackage",
+          "MelosWorkspace",
+          "PackageType"
+        ]
+      },
+      "MelosWorkspace": {
+        "fields": [
+          "get:config",
+          "get:name",
+          "get:packages",
+          "get:path"
+        ],
+        "libraries": [
+          "package:melos/src/common/workspace.dart"
+        ],
+        "methods": [
+          "clean",
+          "exec",
+          "fromDirectory",
+          "generatePubspecFile",
+          "getDependencyGraph",
+          "linkPackages",
+          "loadPackages"
+        ],
+        "types": [
+          "MelosPackage",
+          "MelosWorkspace",
+          "MelosWorkspaceConfig"
+        ]
+      },
+      "MelosWorkspaceConfig": {
+        "fields": [
+          "get:dependencies",
+          "get:devDependencies",
+          "get:environment",
+          "get:name",
+          "get:packages",
+          "get:path",
+          "get:scripts",
+          "get:version"
+        ],
+        "libraries": [
+          "package:melos/src/common/workspace_config.dart"
+        ],
+        "methods": [
+          "fromDirectory"
+        ],
+        "types": [
+          "MelosWorkspaceConfig"
+        ]
+      },
+      "PackageConfigPubFile": {
+        "fields": [
+          "get:packages"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_file_package_config.dart"
+        ],
+        "methods": [
+          "fromDirectory",
+          "fromWorkspacePackage",
+          "toString"
+        ],
+        "types": [
+          "MelosPackage",
+          "MelosWorkspace",
+          "PackageConfigPubFile",
+          "PubFile"
+        ]
+      },
+      "PackageType": {
+        "fields": [
+          "dartPackage",
+          "flutterApp",
+          "flutterPackage",
+          "flutterPlugin"
+        ],
+        "libraries": [
+          "package:melos/src/common/package.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PackagesPubFile": {
+        "fields": [
+          "get:entries"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_file_packages.dart"
+        ],
+        "methods": [
+          "fromDirectory",
+          "fromWorkspacePackage",
+          "toString"
+        ],
+        "types": [
+          "MelosPackage",
+          "MelosWorkspace",
+          "PackagesPubFile",
+          "PubFile"
+        ]
+      },
+      "PubDepsList": {
+        "fields": [
+          "get:allEntries",
+          "sdks",
+          "sections"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_deps_list.dart"
+        ],
+        "methods": [
+          "parse"
+        ],
+        "types": [
+          "VersionedEntry"
+        ]
+      },
+      "PubFile": {
+        "fields": [
+          "get:filePath"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_file.dart"
+        ],
+        "methods": [
+          "PubFile",
+          "delete",
+          "write"
+        ],
+        "types": []
+      },
+      "PubspecLockPubFile": {
+        "fields": [
+          "get:packages"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_file_pubspec_lock.dart"
+        ],
+        "methods": [
+          "fromDirectory",
+          "fromWorkspacePackage",
+          "toString"
+        ],
+        "types": [
+          "MelosPackage",
+          "MelosWorkspace",
+          "PubFile",
+          "PubspecLockPubFile"
+        ]
+      },
+      "RunCommand": {
+        "fields": [
+          "aliases",
+          "description",
+          "invocation",
+          "name"
+        ],
+        "libraries": [
+          "package:melos/src/command/run.dart"
+        ],
+        "methods": [
+          "RunCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "UnpublishedCommand": {
+        "fields": [
+          "aliases",
+          "description",
+          "name"
+        ],
+        "libraries": [
+          "package:melos/src/command/unpublished.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": []
+      },
+      "VersionedEntry": {
+        "fields": [
+          "get:hashCode",
+          "name",
+          "version"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_deps_list.dart"
+        ],
+        "methods": [
+          "==",
+          "VersionedEntry",
+          "copy",
+          "fromMatch",
+          "toString"
+        ],
+        "types": [
+          "VersionedEntry"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:49:06Z",
+  "package": "melos",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "101761cbfa57af3616a534d99a46d412a1c9e0d5ca3a0beb0e07966950774dd9",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "89c9e5b67718b8aa5fdb2b6c7931d01ccf93e5e6bfdca4862b4333e6c04e2439",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\n# See https://dart.dev/tools/pub/glossary#lockfile\n",
+      "\nPackages:",
+      "\nWorkspace cleaned. You will need to run the bootstrap command again to use this workspace.",
+      " ",
+      "  ",
+      "# Generated by pub",
+      "# Generated file - do not modify or commit this file.",
+      "# This is a generated file; do not edit or check into version control.",
+      "$MELOS_PACKAGE_NAME",
+      "$USER_HOME$/.pub-cache/bin/melos",
+      "$USER_HOME$/AppData/Local/Pub/Cache/bin/melos.bat",
+      "%MELOS_SCRIPT%",
+      "([a-zA-Z ]+):\\n",
+      "(\\w+) SDK (.+)\\n",
+      "--",
+      "--dev",
+      "--style=list",
+      ".",
+      "../../version.dart",
+      "../command_runner.dart",
+      "../common/logger.dart",
+      "../common/package.dart",
+      "../common/utils.dart",
+      "../common/workspace.dart",
+      "../pub/pub_deps_list.dart",
+      "../pub/pub_file.dart",
+      "../pub/pub_file_flutter_dependencies.dart",
+      "../pub/pub_file_flutter_plugins.dart",
+      "../pub/pub_file_package_config.dart",
+      "../pub/pub_file_packages.dart",
+      "../pub/pub_file_pubspec_lock.dart",
+      ".flutter-plugins",
+      ".flutter-plugins-dependencies",
+      ".idea",
+      ".name",
+      ".packages",
+      ".tmpl",
+      "/",
+      "/C",
+      "/bin/sh",
+      "0.0.0",
+      "0.3.4",
+      "5",
+      ":",
+      "> Warning: skipped executing a script as \"rm\" is not supported on Windows.",
+      "A CLI for package development in monorepos.",
+      "ANDROID_SDK_ROOT",
+      "Android SDK root could not be found, ensure you've set the ANDROID_SDK_ROOT environment variable.",
+      "Available scripts:",
+      "Bootstrap failed, reason: pub get failed, see logs above.",
+      "Bootstrapping project",
+      "Clean this workspace and all packages. This deletes the temporary pub & ide files such as \".packages\" & \".flutter-plugins\". Supports all package filtering options.",
+      "Cleaning workspace...",
+      "Discover and list unpublished packages or package versions in your repository.",
+      "Does the \"melos.yaml\" file exist in the root?",
+      "Enable verbose logging.",
+      "Exclude packages with names matching the given glob.",
+      "Exclude private packages (`publish_to: none`). They are included by default.",
+      "Execute an arbitrary command in each package. Supports all package filtering options.",
+      "FAILED",
+      "Filter packages where the current local package version exists on pub.dev. Or \"-no-published\" to filter packages that have not had their current version published yet.",
+      "Flutter SDK could not be found.",
+      "Include only packages where a specific directory exists inside the package.",
+      "Include only packages where a specific file exists in the package.",
+      "Include only packages with names matching the given glob.",
+      "Initialize the workspace, link local packages together and install remaining package dependencies.",
+      "Invalid run script name specified.\n",
+      "Linking project packages",
+      "MELOS_PACKAGE_NAME",
+      "MELOS_PACKAGE_PATH",
+      "MELOS_PACKAGE_VERSION",
+      "MELOS_PARENT_PACKAGE_NAME",
+      "MELOS_PARENT_PACKAGE_PATH",
+      "MELOS_PARENT_PACKAGE_VERSION",
+      "MELOS_ROOT_PATH",
+      "MELOS_SCRIPT",
+      "Melos -&gt; Bootstrap Workspace",
+      "Melos -&gt; Clean Workspace",
+      "MelosWorkspace",
+      "NO UNPUBLISHED PACKAGES",
+      "RUNNING",
+      "Reading registry for package information",
+      "Run a script by name defined in the workspace melos.yaml config file.",
+      "Running postbootstrap script...\n",
+      "Running postclean script...\n",
+      "SDK",
+      "SUCCESS",
+      "Select a script to run:",
+      "Source package",
+      "UNPUBLISHED PACKAGES",
+      "Whether exec should fail fast and not execute the script in further packages if the script fails in a individual package.",
+      "You have no scripts defined in your melos.yaml file.\n",
+      "Your current directory does not appear to be a valid workspace.",
+      "[a-zA-Z_]\\w*",
+      "\\",
+      "\\\\",
+      "\\n",
+      "^",
+      "^([a-z_A-Z0-9-]*):(.*)$",
+      "^([a-z_A-Z0-9-]*)=(.*)$",
+      "_",
+      "android",
+      "bin/flutter",
+      "bootstrap",
+      "bs",
+      "c",
+      "clean",
+      "cmd",
+      "command/bootstrap.dart",
+      "command/clean.dart",
+      "command/exec.dart",
+      "command/run.dart",
+      "common/logger.dart",
+      "common/workspace.dart",
+      "concurrency",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:io",
+      "dart_package_module.iml",
+      "dependencies",
+      "dependency",
+      "dependencyGraph",
+      "dependency_overrides",
+      "deps",
+      "description",
+      "dev_dependencies",
+      "dir-exists",
+      "e",
+      "environment",
+      "example",
+      "exec",
+      "exit $?",
+      "f",
+      "fail-fast",
+      "file-exists",
+      "file:",
+      "flutter",
+      "flutter_app_module.iml",
+      "flutter_plugin_module.iml",
+      "get",
+      "global_packages",
+      "hosted",
+      "ignore",
+      "intellij",
+      "ios",
+      "linux",
+      "logger.dart",
+      "macos",
+      "melos",
+      "melos bootstrap",
+      "melos run <name>",
+      "melos unpublished",
+      "melos.yaml",
+      "modules",
+      "modules.xml",
+      "name",
+      "no-private",
+      "none",
+      "package.dart",
+      "package:args/args.dart",
+      "package:args/command_runner.dart",
+      "package:cli_util/cli_logging.dart",
+      "package:collection/collection.dart",
+      "package:glob/glob.dart",
+      "package:http/http.dart",
+      "package:melos/src/command/unpublished.dart",
+      "package:melos/src/common/intellij_project.dart",
+      "package:meta/meta.dart",
+      "package:path/path.dart",
+      "package:pool/pool.dart",
+      "package:prompts/prompts.dart",
+      "package:pub_semver/pub_semver.dart",
+      "package:string_scanner/string_scanner.dart",
+      "package:yaml/yaml.dart",
+      "package:yamlicious/yamlicious.dart",
+      "packages",
+      "path",
+      "platforms",
+      "plugin",
+      "plugins",
+      "postbootstrap",
+      "postclean",
+      "pub",
+      "pub.dartlang.org",
+      "publish_to",
+      "published",
+      "pubspec.lock",
+      "pubspec.yaml",
+      "r",
+      "relative",
+      "rm",
+      "rootUri",
+      "run",
+      "runConfigurations",
+      "scope",
+      "scriptArgs",
+      "scriptName",
+      "scriptPath",
+      "scripts",
+      "section header",
+      "shell_script.xml",
+      "src/command_runner.dart",
+      "templates",
+      "unp",
+      "unpublished",
+      "utils.dart",
+      "v",
+      "verbose",
+      "version",
+      "versions",
+      "web",
+      "which",
+      "windows",
+      "workspace.dart",
+      "workspace_config.dart",
+      "workspace_root_module.iml"
+    ]
+  },
+  "version": "0.3.4"
+}

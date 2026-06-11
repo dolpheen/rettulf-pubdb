@@ -1,0 +1,1038 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "currentWorkspace",
+          "get:isCI",
+          "kAndroid",
+          "kIos",
+          "kLinux",
+          "kMacos",
+          "kWeb",
+          "kWindows",
+          "lineLength",
+          "logger",
+          "melosVersion"
+        ],
+        "libraries": [
+          "package:melos/src/command_runner.dart",
+          "package:melos/src/common/git.dart",
+          "package:melos/src/common/logger.dart",
+          "package:melos/src/common/package.dart",
+          "package:melos/src/common/utils.dart",
+          "package:melos/src/common/workspace.dart",
+          "package:melos/version.dart"
+        ],
+        "methods": [
+          "getAndroidSdkRoot",
+          "getFlutterSdkRoot",
+          "getMelosRoot",
+          "gitAdd",
+          "gitCommit",
+          "gitCommitsForPackage",
+          "gitLatestTagForPackage",
+          "gitTagCreate",
+          "gitTagExists",
+          "gitTagFilterPattern",
+          "gitTagForPackageVersion",
+          "gitTagsForPackage",
+          "isPackageDirectory",
+          "isWorkspaceDirectory",
+          "listAsPaddedTable",
+          "loadYamlFile",
+          "loadYamlFileSync",
+          "melosStatePathForDirectory",
+          "melosYamlPathForDirectory",
+          "promptBool",
+          "pubspecPathForDirectory",
+          "relativePath",
+          "startProcess"
+        ],
+        "types": [
+          "GitCommit",
+          "MelosPackage",
+          "MelosWorkspace",
+          "TagReleaseType"
+        ]
+      },
+      "BootstrapCommand": {
+        "fields": [
+          "description",
+          "name"
+        ],
+        "libraries": [
+          "package:melos/src/command/bootstrap.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": []
+      },
+      "Changelog": {
+        "fields": [
+          "get:markdown",
+          "get:path",
+          "update"
+        ],
+        "libraries": [
+          "package:melos/src/common/changelog.dart"
+        ],
+        "methods": [
+          "Changelog",
+          "read",
+          "toString",
+          "write"
+        ],
+        "types": [
+          "MelosPendingPackageUpdate"
+        ]
+      },
+      "CleanCommand": {
+        "fields": [
+          "description",
+          "name"
+        ],
+        "libraries": [
+          "package:melos/src/command/clean.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": []
+      },
+      "ConventionalCommit": {
+        "fields": [
+          "get:isVersionableCommit",
+          "get:semverReleaseType",
+          "header",
+          "isBreakingChange",
+          "isMergeCommit",
+          "scopes",
+          "subject",
+          "type"
+        ],
+        "libraries": [
+          "package:melos/src/common/conventional_commit.dart"
+        ],
+        "methods": [
+          "fromCommitMessage",
+          "toString"
+        ],
+        "types": [
+          "ConventionalCommit",
+          "SemverReleaseType"
+        ]
+      },
+      "ExecCommand": {
+        "fields": [
+          "description",
+          "name"
+        ],
+        "libraries": [
+          "package:melos/src/command/exec.dart"
+        ],
+        "methods": [
+          "ExecCommand",
+          "execInPackages",
+          "run"
+        ],
+        "types": [
+          "MelosPackage"
+        ]
+      },
+      "FlutterDependenciesPubFile": {
+        "fields": [
+          "get:dependencyGraph",
+          "get:plugins"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_file_flutter_dependencies.dart"
+        ],
+        "methods": [
+          "fromDirectory",
+          "fromWorkspacePackage",
+          "toString"
+        ],
+        "types": [
+          "FlutterDependenciesPubFile",
+          "MelosPackage",
+          "MelosWorkspace",
+          "PubFile"
+        ]
+      },
+      "FlutterPluginsPubFile": {
+        "fields": [
+          "get:entries"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_file_flutter_plugins.dart"
+        ],
+        "methods": [
+          "fromDirectory",
+          "fromWorkspacePackage",
+          "toString"
+        ],
+        "types": [
+          "FlutterPluginsPubFile",
+          "MelosPackage",
+          "MelosWorkspace",
+          "PubFile"
+        ]
+      },
+      "GitCommit": {
+        "fields": [
+          "author",
+          "date",
+          "id",
+          "message"
+        ],
+        "libraries": [
+          "package:melos/src/common/git_commit.dart"
+        ],
+        "methods": [
+          "GitCommit",
+          "toString"
+        ],
+        "types": []
+      },
+      "IntellijProject": {
+        "fields": [
+          "get:pathDotIdea",
+          "get:pathDotName",
+          "get:pathModulesXml",
+          "get:pathTemplates"
+        ],
+        "libraries": [
+          "package:melos/src/common/intellij_project.dart"
+        ],
+        "methods": [
+          "cleanFiles",
+          "forceWriteToFile",
+          "fromWorkspace",
+          "getMelosBinForIde",
+          "ideaModuleStringForName",
+          "injectTemplateVariable",
+          "injectTemplateVariables",
+          "moduleTemplateFileForPackageType",
+          "pathPackageModuleIml",
+          "pathTemplatesForDirectory",
+          "readFileTemplate",
+          "writeFiles",
+          "writeFlutterRunScripts",
+          "writeFlutterTestScripts",
+          "writeMelosScripts",
+          "writeModulesXml",
+          "writeNameFile",
+          "writePackageModule",
+          "writeWorkspaceModule"
+        ],
+        "types": [
+          "IntellijProject",
+          "MelosPackage",
+          "MelosWorkspace",
+          "PackageType"
+        ]
+      },
+      "ListCommand": {
+        "fields": [
+          "aliases",
+          "description",
+          "invocation",
+          "name"
+        ],
+        "libraries": [
+          "package:melos/src/command/list.dart"
+        ],
+        "methods": [
+          "ListCommand",
+          "printDefaultFormat",
+          "printGraphFormat",
+          "printJsonFormat",
+          "printParsableFormat",
+          "run"
+        ],
+        "types": []
+      },
+      "MelosChangelog": {
+        "fields": [
+          "get:markdown"
+        ],
+        "libraries": [
+          "package:melos/src/common/changelog.dart"
+        ],
+        "methods": [
+          "MelosChangelog"
+        ],
+        "types": [
+          "Changelog",
+          "MelosPendingPackageUpdate"
+        ]
+      },
+      "MelosCommandRunner": {
+        "fields": [
+          "instance"
+        ],
+        "libraries": [
+          "package:melos/src/command_runner.dart"
+        ],
+        "methods": [
+          "MelosCommandRunner",
+          "runCommand"
+        ],
+        "types": [
+          "MelosCommandRunner"
+        ]
+      },
+      "MelosPackage": {
+        "fields": [
+          "get:dependencies",
+          "get:dependenciesInWorkspace",
+          "get:dependentsInWorkspace",
+          "get:devDependencies",
+          "get:devDependenciesInWorkspace",
+          "get:devDependentsInWorkspace",
+          "get:flutterAppSupportsAndroid",
+          "get:flutterAppSupportsIos",
+          "get:flutterAppSupportsLinux",
+          "get:flutterAppSupportsMacos",
+          "get:flutterAppSupportsWeb",
+          "get:flutterAppSupportsWindows",
+          "get:flutterPluginSupportsAndroid",
+          "get:flutterPluginSupportsIos",
+          "get:flutterPluginSupportsLinux",
+          "get:flutterPluginSupportsMacos",
+          "get:flutterPluginSupportsWeb",
+          "get:flutterPluginSupportsWindows",
+          "get:hasTests",
+          "get:isFlutterApp",
+          "get:isFlutterPackage",
+          "get:isFlutterPlugin",
+          "get:isPrivate",
+          "get:name",
+          "get:path",
+          "get:pathRelativeToWorkspace",
+          "get:type",
+          "get:version",
+          "get:workspace"
+        ],
+        "libraries": [
+          "package:melos/src/common/package.dart"
+        ],
+        "methods": [
+          "clean",
+          "exec",
+          "fromPubspecPathAndWorkspace",
+          "getDependencyGraph",
+          "getPublishedVersions",
+          "linkPackages",
+          "setDependencyVersion",
+          "setPubspecVersion",
+          "toString"
+        ],
+        "types": [
+          "MelosPackage",
+          "MelosWorkspace",
+          "PackageType"
+        ]
+      },
+      "MelosPendingPackageUpdate": {
+        "fields": [
+          "commits",
+          "get:changelog",
+          "get:currentVersion",
+          "get:hashCode",
+          "get:nextPreRelease",
+          "get:nextStableRelease",
+          "get:nextVersion",
+          "get:semverReleaseType",
+          "graduate",
+          "package",
+          "preId",
+          "prerelease",
+          "reason"
+        ],
+        "libraries": [
+          "package:melos/src/common/pending_package_update.dart"
+        ],
+        "methods": [
+          "==",
+          "MelosPendingPackageUpdate",
+          "toString"
+        ],
+        "types": [
+          "Changelog",
+          "ConventionalCommit",
+          "MelosPackage",
+          "PackageUpdateReason",
+          "SemverReleaseType"
+        ]
+      },
+      "MelosWorkspace": {
+        "fields": [
+          "get:config",
+          "get:isFlutterWorkspace",
+          "get:melosToolPath",
+          "get:name",
+          "get:packages",
+          "get:packagesNoScope",
+          "get:path",
+          "get:state"
+        ],
+        "libraries": [
+          "package:melos/src/common/workspace.dart"
+        ],
+        "methods": [
+          "clean",
+          "exec",
+          "execInMelosToolPath",
+          "fromDirectory",
+          "generatePubspecFile",
+          "getDependencyGraph",
+          "linkPackages",
+          "loadPackagesWithFilters"
+        ],
+        "types": [
+          "MelosPackage",
+          "MelosWorkspace",
+          "MelosWorkspaceConfig",
+          "MelosWorkspaceState"
+        ]
+      },
+      "MelosWorkspaceConfig": {
+        "fields": [
+          "get:dependencies",
+          "get:devDependencies",
+          "get:environment",
+          "get:generateIntellijIdeFiles",
+          "get:name",
+          "get:packages",
+          "get:path",
+          "get:scripts",
+          "get:version"
+        ],
+        "libraries": [
+          "package:melos/src/common/workspace_config.dart"
+        ],
+        "methods": [
+          "fromDirectory"
+        ],
+        "types": [
+          "MelosWorkspaceConfig"
+        ]
+      },
+      "MelosWorkspaceState": {
+        "fields": [
+          "get:gitSince",
+          "set:gitSince"
+        ],
+        "libraries": [
+          "package:melos/src/common/workspace_state.dart"
+        ],
+        "methods": [
+          "[]",
+          "[]=",
+          "fromDirectory"
+        ],
+        "types": [
+          "MelosWorkspaceState"
+        ]
+      },
+      "PackageConfigPubFile": {
+        "fields": [
+          "get:packages"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_file_package_config.dart"
+        ],
+        "methods": [
+          "fromDirectory",
+          "fromWorkspacePackage",
+          "toString"
+        ],
+        "types": [
+          "MelosPackage",
+          "MelosWorkspace",
+          "PackageConfigPubFile",
+          "PubFile"
+        ]
+      },
+      "PackageType": {
+        "fields": [
+          "dartPackage",
+          "flutterApp",
+          "flutterPackage",
+          "flutterPlugin"
+        ],
+        "libraries": [
+          "package:melos/src/common/package.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PackageUpdateReason": {
+        "fields": [
+          "commit",
+          "dependency",
+          "graduate"
+        ],
+        "libraries": [
+          "package:melos/src/common/pending_package_update.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PackagesPubFile": {
+        "fields": [
+          "get:entries"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_file_packages.dart"
+        ],
+        "methods": [
+          "fromDirectory",
+          "fromWorkspacePackage",
+          "toString"
+        ],
+        "types": [
+          "MelosPackage",
+          "MelosWorkspace",
+          "PackagesPubFile",
+          "PubFile"
+        ]
+      },
+      "PubDepsList": {
+        "fields": [
+          "get:allEntries",
+          "sdks",
+          "sections"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_deps_list.dart"
+        ],
+        "methods": [
+          "parse"
+        ],
+        "types": [
+          "VersionedEntry"
+        ]
+      },
+      "PubFile": {
+        "fields": [
+          "get:filePath"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_file.dart"
+        ],
+        "methods": [
+          "PubFile",
+          "delete",
+          "write"
+        ],
+        "types": []
+      },
+      "PublishCommand": {
+        "fields": [
+          "description",
+          "name"
+        ],
+        "libraries": [
+          "package:melos/src/command/publish.dart"
+        ],
+        "methods": [
+          "PublishCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "PubspecLockPubFile": {
+        "fields": [
+          "get:packages"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_file_pubspec_lock.dart"
+        ],
+        "methods": [
+          "fromDirectory",
+          "fromWorkspacePackage",
+          "toString"
+        ],
+        "types": [
+          "MelosPackage",
+          "MelosWorkspace",
+          "PubFile",
+          "PubspecLockPubFile"
+        ]
+      },
+      "RunCommand": {
+        "fields": [
+          "description",
+          "invocation",
+          "name"
+        ],
+        "libraries": [
+          "package:melos/src/command/run.dart"
+        ],
+        "methods": [
+          "RunCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "SemverReleaseType": {
+        "fields": [
+          "major",
+          "minor",
+          "patch"
+        ],
+        "libraries": [
+          "package:melos/src/common/conventional_commit.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TagReleaseType": {
+        "fields": [
+          "all",
+          "prerelease",
+          "stable"
+        ],
+        "libraries": [
+          "package:melos/src/common/git.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "VersionCommand": {
+        "fields": [
+          "description",
+          "name"
+        ],
+        "libraries": [
+          "package:melos/src/command/version.dart"
+        ],
+        "methods": [
+          "VersionCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "VersionedEntry": {
+        "fields": [
+          "get:hashCode",
+          "name",
+          "version"
+        ],
+        "libraries": [
+          "package:melos/src/pub/pub_deps_list.dart"
+        ],
+        "methods": [
+          "==",
+          "VersionedEntry",
+          "copy",
+          "fromMatch",
+          "toString"
+        ],
+        "types": [
+          "VersionedEntry"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:49:04Z",
+  "package": "melos",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "e2f288c3b42e4cbbfa0b5ce9fc6561e36fe04d2fa4308657161c5bf6ff8c6a4e",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "c2f710f81ef95b522ffb30f71619fa6da773b41d1a9010302ab45b0f6de5f5bb",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\n\n> Note: This release has breaking changes.",
+      "\n - ",
+      "\n# See https://dart.dev/tools/pub/glossary#lockfile\n",
+      "\nAll packages have successfully been published.",
+      "\nAll packages were validated successfully.",
+      "\nNo unpublished packages found - all local packages are already up to date.",
+      "\nPackages:",
+      "\nThe following packages WILL be published to the registry:\n",
+      "\nThe following packages will be validated only (dry run):\n",
+      "\nWorkspace cleaned. You will need to run the bootstrap command again to use this workspace.",
+      " ",
+      "  ",
+      " --dry-run",
+      "# Generated by pub",
+      "# Generated file - do not modify or commit this file.",
+      "# This file tracks workspace state.\n# Used by Melos tooling to assess current state of the workspace and\n# for package versioning.\n#\n# This file should be version controlled and should not be manually edited.\n",
+      "# This is a generated file; do not edit or check into version control.",
+      "$",
+      "$MELOS_PACKAGE_NAME",
+      "$USER_HOME$/.pub-cache/bin/melos",
+      "$USER_HOME$/AppData/Local/Pub/Cache/bin/melos.bat",
+      "$USER_HOME$/AppData/Roaming/Pub/Cache/bin/melos.bat",
+      "%MELOS_SCRIPT%",
+      "([a-zA-Z ]+):\\n",
+      "(\\w+) SDK (.+)\\n",
+      "**/version.dart",
+      ",",
+      "--",
+      "--dev",
+      "--dry-run",
+      "--force",
+      "--no-pager",
+      "--pretty=format:%H|||%aN <%aE>|||%ai|||%B||||",
+      "--sort=-creatordate",
+      "--style=list",
+      "--verbosity=warning",
+      "-a",
+      "-l",
+      "-m",
+      ".",
+      "../../version.dart",
+      "../command_runner.dart",
+      "../common/conventional_commit.dart",
+      "../common/git.dart",
+      "../common/intellij_project.dart",
+      "../common/logger.dart",
+      "../common/package.dart",
+      "../common/pending_package_update.dart",
+      "../common/utils.dart",
+      "../common/workspace.dart",
+      "../pub/pub_deps_list.dart",
+      "../pub/pub_file.dart",
+      "../pub/pub_file_flutter_dependencies.dart",
+      "../pub/pub_file_flutter_plugins.dart",
+      "../pub/pub_file_package_config.dart",
+      "../pub/pub_file_packages.dart",
+      "../pub/pub_file_pubspec_lock.dart",
+      ".flutter-plugins",
+      ".flutter-plugins-dependencies",
+      ".idea",
+      ".melos",
+      ".melos_tool",
+      ".name",
+      ".packages",
+      ".tmpl",
+      "/",
+      "/C",
+      "/bin/sh",
+      "0.0.0",
+      "0.3.10-dev.2",
+      "5",
+      ":",
+      "> Warning: skipped executing a script as \"cp\" is not supported on Windows.",
+      "> Warning: skipped executing a script as \"rm\" is not supported on Windows.",
+      "@",
+      "A CLI for Dart package development in monorepos.",
+      "ANDROID_SDK_ROOT",
+      "Android SDK root could not be found, ensure you've set the ANDROID_SDK_ROOT environment variable.",
+      "Automatically version and generate changelogs for all packages. Supports all Melos filtering flags.",
+      "Available scripts:",
+      "BREAKING:",
+      "BUILD_NUMBER",
+      "Bootstrap failed, reason: pub get failed, see logs above.",
+      "Bootstrapping project",
+      "By default, melos version will commit changes to pubspec.yaml files and tag the release. Pass --no-git-tag-version to disable the behavior.",
+      "CHANGELOG.md",
+      "CI",
+      "CONTINUOUS_INTEGRATION",
+      "Clean this workspace and all packages. This deletes the temporary pub & ide files such as \".packages\" & \".flutter-plugins\". Supports all package filtering options.",
+      "Cleaning workspace...",
+      "Continue?",
+      "Current Version",
+      "Does the \"melos.yaml\" file exist in the root?",
+      "Enable verbose logging.",
+      "Exclude packages with names matching the given glob. This option can be repeated.",
+      "Exclude private packages (`publish_to: none`). They are included by default.",
+      "Execute an arbitrary command in each package. Supports all package filtering options.",
+      "FAILED",
+      "Filter packages where the current local package version exists on pub.dev. Or \"-no-published\" to filter packages that have not had their current version published yet.",
+      "Flutter SDK could not be found.",
+      "Graduate current prerelease versioned packages to stable versions, e.g. \"0.10.0-dev.1\" becomes \"0.10.0\". Cannot be combined with prerelease flag.",
+      "Graduate package to a stable release. See pre-releases prior to this version for changelog entries.",
+      "Hint: if this is unexpected, try running the command again with a reduced number of filters applied.",
+      "Hint: try running \"melos list\" with the same filtering options to see a list of packages that were included.",
+      "Include only packages where a specific directory exists inside the package.",
+      "Include only packages where a specific file exists in the package.",
+      "Include only packages with names matching the given glob. This option can be repeated.",
+      "Initialize the workspace, link local packages together and install remaining package dependencies.",
+      "Invalid run script name specified.\n",
+      "Linking project packages",
+      "List local packages.",
+      "Local",
+      "MELOS_PACKAGE_NAME",
+      "MELOS_PACKAGE_PATH",
+      "MELOS_PACKAGE_VERSION",
+      "MELOS_PARENT_PACKAGE_NAME",
+      "MELOS_PARENT_PACKAGE_PATH",
+      "MELOS_PARENT_PACKAGE_VERSION",
+      "MELOS_ROOT_PATH",
+      "MELOS_SCRIPT",
+      "Melos -&gt; Bootstrap Workspace",
+      "Melos -&gt; Clean Workspace",
+      "MelosWorkspace",
+      "No packages were found that required versioning.",
+      "No packages were found with the current filters.",
+      "Only include packages that have been changed since the specified `ref`, e.g. a commit sha or git tag.",
+      "Operation was canceled.",
+      "PRIVATE",
+      "Package Name",
+      "Publish any unpublished packages or package versions in your repository to pub.dev. Dry run is on by default.",
+      "RUNNING",
+      "RUN_ID",
+      "Reading pub registry for package information",
+      "Registry",
+      "Roaming",
+      "Run a script by name defined in the workspace melos.yaml config file.",
+      "Running \"postversion\" lifecycle script...\n",
+      "Running \"version\" lifecycle script...\n",
+      "Running postbootstrap script...\n",
+      "Running postclean script...\n",
+      "SDK",
+      "SUCCESS",
+      "Select a script to run:",
+      "Show dependency graph as a JSON-formatted adjacency list.",
+      "Show extended information.",
+      "Show information as a JSON array.",
+      "Show parsable output instead of columnified view.",
+      "Show private packages that are hidden by default.",
+      "Source package",
+      "The following packages will be updated:\n",
+      "Update CHANGELOG.md files.",
+      "Update Reason",
+      "Update a dependency to the latest release.",
+      "Updated Version",
+      "Validate but do not publish the package.",
+      "Version any packages with changes as a prerelease. Cannot be combined with graduate flag.",
+      "WARNING:",
+      "Whether exec should fail fast and not execute the script in further packages if the script fails in a individual package.",
+      "You have no scripts defined in your melos.yaml file.\n",
+      "Your current directory does not appear to be a valid workspace.",
+      "[\\.\\?\\!]$",
+      "[^A-Za-z0-9]",
+      "[a-zA-Z_]\\w*",
+      "\\",
+      "\\)$",
+      "\\\\",
+      "\\n",
+      "^",
+      "^(?<type>build|chore|ci|docs|feat|fix|bug|perf|refactor|revert|style|test)(?<scope>\\([a-zA-Z0-9_,]+\\)?((?=:\\s)|(?=!:\\s)))?(?<breaking>!)?(?<subject>:\\s.*)?|^(?<merge>Merge \\w+)",
+      "^([a-z_A-Z0-9-]*):(.*)$",
+      "^([a-z_A-Z0-9-]*)=(.*)$",
+      "^(version\\s?:\\s*?['\"]?)(?<version>[-\\d\\.+\\w_]{5,})(.*$)",
+      "^:\\s",
+      "^\\(",
+      "_",
+      "a",
+      "add",
+      "all",
+      "android",
+      "bin/flutter",
+      "bootstrap",
+      "breaking",
+      "bug",
+      "c",
+      "changelog",
+      "changelog.dart",
+      "clean",
+      "cmd",
+      "command/bootstrap.dart",
+      "command/clean.dart",
+      "command/exec.dart",
+      "command/list.dart",
+      "command/publish.dart",
+      "command/run.dart",
+      "command/version.dart",
+      "commit",
+      "common/logger.dart",
+      "common/workspace.dart",
+      "concurrency",
+      "conventional_commit.dart",
+      "cp",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:io",
+      "dart:math",
+      "dart_package_module.iml",
+      "dependencies",
+      "dependency",
+      "dependency was updated",
+      "dependencyGraph",
+      "dependency_overrides",
+      "dependents",
+      "deps",
+      "description",
+      "dev",
+      "dev_dependencies",
+      "dir-exists",
+      "dirRelativeToPackageRoot",
+      "docs",
+      "dry-run",
+      "environment",
+      "example",
+      "exec",
+      "exec.dart",
+      "exit $?",
+      "f",
+      "fail-fast",
+      "feat",
+      "file-exists",
+      "file:",
+      "fileRelativeToPackageRoot",
+      "fix",
+      "flutter",
+      "flutterRunMainDartPathRelative",
+      "flutterRunName",
+      "flutterTestsName",
+      "flutterTestsRelativePath",
+      "flutter_app",
+      "flutter_app_module.iml",
+      "flutter_app_supports_android",
+      "flutter_app_supports_ios",
+      "flutter_app_supports_linux",
+      "flutter_app_supports_macos",
+      "flutter_app_supports_web",
+      "flutter_app_supports_windows",
+      "flutter_package",
+      "flutter_plugin",
+      "flutter_plugin_module.iml",
+      "flutter_plugin_supports_android",
+      "flutter_plugin_supports_ios",
+      "flutter_plugin_supports_linux",
+      "flutter_plugin_supports_macos",
+      "flutter_plugin_supports_web",
+      "flutter_plugin_supports_windows",
+      "flutter_run.xml",
+      "flutter_test.xml",
+      "g",
+      "get",
+      "git",
+      "git push --follow-tags",
+      "git-tag-version",
+      "git.dart",
+      "git.since",
+      "git_commit.dart",
+      "glob",
+      "global_packages",
+      "graduate",
+      "graduate to stable",
+      "graph",
+      "hosted",
+      "ide",
+      "ignore",
+      "intellij",
+      "ios",
+      "json",
+      "l",
+      "lib",
+      "linux",
+      "list",
+      "location",
+      "log",
+      "logger.dart",
+      "long",
+      "ls",
+      "macos",
+      "main.dart",
+      "melos",
+      "melos bootstrap",
+      "melos exec",
+      "melos list",
+      "melos run <name>",
+      "melos version",
+      "melos.yaml",
+      "merge",
+      "modules",
+      "modules.xml",
+      "n",
+      "name",
+      "no-private",
+      "none",
+      "p",
+      "package.dart",
+      "package:ansi_styles/ansi_styles.dart",
+      "package:args/args.dart",
+      "package:args/command_runner.dart",
+      "package:cli_util/cli_logging.dart",
+      "package:collection/collection.dart",
+      "package:glob/glob.dart",
+      "package:http/http.dart",
+      "package:melos/src/common/intellij_project.dart",
+      "package:meta/meta.dart",
+      "package:path/path.dart",
+      "package:pool/pool.dart",
+      "package:prompts/prompts.dart",
+      "package:pub_semver/pub_semver.dart",
+      "package:string_scanner/string_scanner.dart",
+      "package:yaml/yaml.dart",
+      "package:yamlicious/yamlicious.dart",
+      "packages",
+      "parsable",
+      "path",
+      "pending_package_update.dart",
+      "perf",
+      "platforms",
+      "plugin",
+      "plugins",
+      "postbootstrap",
+      "postclean",
+      "postversion",
+      "prerelease",
+      "private",
+      "pub",
+      "pub.dartlang.org",
+      "publish",
+      "publish_to",
+      "published",
+      "pubspec.lock",
+      "pubspec.yaml",
+      "ref",
+      "refactor",
+      "relative",
+      "revert",
+      "rm",
+      "rootUri",
+      "run",
+      "runConfigurations",
+      "scope",
+      "scriptArgs",
+      "scriptName",
+      "scriptPath",
+      "scripts",
+      "section header",
+      "shell_script.xml",
+      "since",
+      "source",
+      "src/command_runner.dart",
+      "subject",
+      "t",
+      "tag",
+      "templates",
+      "test",
+      "type",
+      "unknown",
+      "utils.dart",
+      "v",
+      "verbose",
+      "version",
+      "versions",
+      "web",
+      "which",
+      "windows",
+      "workspace.dart",
+      "workspace_config.dart",
+      "workspace_root_module.iml",
+      "workspace_state.dart",
+      "|||",
+      "||||\n"
+    ]
+  },
+  "version": "0.3.10-dev.2"
+}
