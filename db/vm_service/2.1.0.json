@@ -1,0 +1,2682 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "optional",
+          "vmServiceVersion"
+        ],
+        "libraries": [
+          "package:vm_service/src/stream_helpers.dart",
+          "package:vm_service/utils.dart",
+          "package:vm_service/vm_service.dart",
+          "package:vm_service/vm_service_io.dart"
+        ],
+        "methods": [
+          "convertToWebSocketUrl",
+          "createServiceObject",
+          "decodeBase64",
+          "followedBy",
+          "startWithMany",
+          "startWithStream",
+          "vmServiceConnect",
+          "vmServiceConnectUri"
+        ],
+        "types": [
+          "Log",
+          "VmService"
+        ]
+      },
+      "AllocationProfile": {
+        "fields": [
+          "dateLastAccumulatorReset",
+          "dateLastServiceGC",
+          "members",
+          "memoryUsage"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "AllocationProfile",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "AllocationProfile",
+          "ClassHeapStats",
+          "MemoryUsage",
+          "Response"
+        ]
+      },
+      "BoundField": {
+        "fields": [
+          "decl",
+          "value"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "BoundField",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "BoundField",
+          "FieldRef"
+        ]
+      },
+      "BoundVariable": {
+        "fields": [
+          "declarationTokenPos",
+          "name",
+          "scopeEndTokenPos",
+          "scopeStartTokenPos",
+          "value"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "BoundVariable",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "BoundVariable",
+          "Response"
+        ]
+      },
+      "Breakpoint": {
+        "fields": [
+          "breakpointNumber",
+          "get:hashCode",
+          "isSyntheticAsyncContinuation",
+          "location",
+          "resolved"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "Breakpoint",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Breakpoint",
+          "Obj"
+        ]
+      },
+      "Class": {
+        "fields": [
+          "error",
+          "fields",
+          "functions",
+          "get:hashCode",
+          "interfaces",
+          "isAbstract",
+          "isConst",
+          "library",
+          "location",
+          "mixin",
+          "name",
+          "subclasses",
+          "superClass",
+          "superType"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "Class",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Class",
+          "ClassRef",
+          "ErrorRef",
+          "FieldRef",
+          "FuncRef",
+          "InstanceRef",
+          "LibraryRef",
+          "Obj",
+          "SourceLocation"
+        ]
+      },
+      "ClassHeapStats": {
+        "fields": [
+          "accumulatedSize",
+          "bytesCurrent",
+          "classRef",
+          "instancesAccumulated",
+          "instancesCurrent"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "ClassHeapStats",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ClassHeapStats",
+          "ClassRef",
+          "Response"
+        ]
+      },
+      "ClassList": {
+        "fields": [
+          "classes"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "ClassList",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ClassList",
+          "ClassRef",
+          "Response"
+        ]
+      },
+      "ClassRef": {
+        "fields": [
+          "get:hashCode",
+          "name"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "ClassRef",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ClassRef",
+          "ObjRef"
+        ]
+      },
+      "Code": {
+        "fields": [
+          "get:hashCode",
+          "kind",
+          "name"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "Code",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Code",
+          "ObjRef"
+        ]
+      },
+      "CodeKind": {
+        "fields": [
+          "kCollected",
+          "kDart",
+          "kNative",
+          "kStub",
+          "kTag"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CodeRef": {
+        "fields": [
+          "get:hashCode",
+          "kind",
+          "name"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "CodeRef",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "CodeRef",
+          "ObjRef"
+        ]
+      },
+      "Context": {
+        "fields": [
+          "get:hashCode",
+          "length",
+          "parent",
+          "variables"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "Context",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Context",
+          "ContextElement",
+          "Obj"
+        ]
+      },
+      "ContextElement": {
+        "fields": [
+          "value"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "ContextElement",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ContextElement"
+        ]
+      },
+      "ContextRef": {
+        "fields": [
+          "get:hashCode",
+          "length"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "ContextRef",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ContextRef",
+          "ObjRef"
+        ]
+      },
+      "CpuSample": {
+        "fields": [
+          "stack",
+          "tid",
+          "timestamp",
+          "truncated",
+          "userTag",
+          "vmTag"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "CpuSample",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "CpuSample"
+        ]
+      },
+      "CpuSamples": {
+        "fields": [
+          "functions",
+          "maxStackDepth",
+          "pid",
+          "sampleCount",
+          "samplePeriod",
+          "samples",
+          "timeExtentMicros",
+          "timeOriginMicros",
+          "timeSpan"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "CpuSamples",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "CpuSample",
+          "CpuSamples",
+          "ProfileFunction",
+          "Response"
+        ]
+      },
+      "Error": {
+        "fields": [
+          "exception",
+          "get:hashCode",
+          "kind",
+          "message",
+          "stacktrace"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "Error",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Error",
+          "InstanceRef",
+          "Obj"
+        ]
+      },
+      "ErrorKind": {
+        "fields": [
+          "kInternalError",
+          "kLanguageError",
+          "kTerminationError",
+          "kUnhandledException"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ErrorRef": {
+        "fields": [
+          "get:hashCode",
+          "kind",
+          "message"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "ErrorRef",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ErrorRef",
+          "ObjRef"
+        ]
+      },
+      "Event": {
+        "fields": [
+          "alias",
+          "atAsyncSuspension",
+          "breakpoint",
+          "bytes",
+          "data",
+          "exception",
+          "extensionData",
+          "extensionKind",
+          "extensionRPC",
+          "flag",
+          "inspectee",
+          "isolate",
+          "kind",
+          "last",
+          "logRecord",
+          "method",
+          "newValue",
+          "pauseBreakpoints",
+          "service",
+          "status",
+          "timelineEvents",
+          "timestamp",
+          "topFrame",
+          "vm"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "Event",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Breakpoint",
+          "Event",
+          "ExtensionData",
+          "Frame",
+          "InstanceRef",
+          "IsolateRef",
+          "LogRecord",
+          "Response",
+          "TimelineEvent",
+          "VMRef"
+        ]
+      },
+      "EventKind": {
+        "fields": [
+          "kBreakpointAdded",
+          "kBreakpointRemoved",
+          "kBreakpointResolved",
+          "kExtension",
+          "kGC",
+          "kInspect",
+          "kIsolateExit",
+          "kIsolateReload",
+          "kIsolateRunnable",
+          "kIsolateStart",
+          "kIsolateUpdate",
+          "kLogging",
+          "kNone",
+          "kPauseBreakpoint",
+          "kPauseException",
+          "kPauseExit",
+          "kPauseInterrupted",
+          "kPausePostRequest",
+          "kPauseStart",
+          "kResume",
+          "kServiceExtensionAdded",
+          "kServiceRegistered",
+          "kServiceUnregistered",
+          "kVMFlagUpdate",
+          "kVMUpdate",
+          "kWriteEvent"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "EventStreams": {
+        "fields": [
+          "kDebug",
+          "kExtension",
+          "kGC",
+          "kHeapSnapshot",
+          "kIsolate",
+          "kLogging",
+          "kService",
+          "kStderr",
+          "kStdout",
+          "kTimeline",
+          "kVM"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ExceptionPauseMode": {
+        "fields": [
+          "kAll",
+          "kNone",
+          "kUnhandled"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ExtensionData": {
+        "fields": [
+          "data"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "ExtensionData",
+          "parse",
+          "toString"
+        ],
+        "types": [
+          "ExtensionData"
+        ]
+      },
+      "Field": {
+        "fields": [
+          "declaredType",
+          "get:hashCode",
+          "isConst",
+          "isFinal",
+          "isStatic",
+          "location",
+          "name",
+          "owner",
+          "staticValue"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "Field",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Field",
+          "InstanceRef",
+          "Obj",
+          "ObjRef",
+          "SourceLocation"
+        ]
+      },
+      "FieldRef": {
+        "fields": [
+          "declaredType",
+          "get:hashCode",
+          "isConst",
+          "isFinal",
+          "isStatic",
+          "name",
+          "owner"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "FieldRef",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "FieldRef",
+          "InstanceRef",
+          "ObjRef"
+        ]
+      },
+      "Flag": {
+        "fields": [
+          "comment",
+          "modified",
+          "name",
+          "valueAsString"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "Flag",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Flag"
+        ]
+      },
+      "FlagList": {
+        "fields": [
+          "flags"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "FlagList",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Flag",
+          "FlagList",
+          "Response"
+        ]
+      },
+      "Frame": {
+        "fields": [
+          "code",
+          "function",
+          "index",
+          "kind",
+          "location",
+          "vars"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "Frame",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "BoundVariable",
+          "CodeRef",
+          "Frame",
+          "FuncRef",
+          "Response",
+          "SourceLocation"
+        ]
+      },
+      "FrameKind": {
+        "fields": [
+          "kAsyncActivation",
+          "kAsyncCausal",
+          "kAsyncSuspensionMarker",
+          "kRegular"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Func": {
+        "fields": [
+          "code",
+          "get:hashCode",
+          "location",
+          "name",
+          "owner"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "Func",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "CodeRef",
+          "Func",
+          "Obj",
+          "SourceLocation"
+        ]
+      },
+      "FuncRef": {
+        "fields": [
+          "get:hashCode",
+          "isConst",
+          "isStatic",
+          "name",
+          "owner"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "FuncRef",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "FuncRef",
+          "ObjRef"
+        ]
+      },
+      "HeapSnapshotClass": {
+        "fields": [
+          "get:fields",
+          "get:libraryName",
+          "get:libraryUri",
+          "get:name"
+        ],
+        "libraries": [
+          "package:vm_service/src/snapshot_graph.dart",
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [],
+        "types": [
+          "HeapSnapshotField"
+        ]
+      },
+      "HeapSnapshotExternalProperty": {
+        "fields": [
+          "externalSize",
+          "name",
+          "object"
+        ],
+        "libraries": [
+          "package:vm_service/src/snapshot_graph.dart",
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "HeapSnapshotField": {
+        "fields": [
+          "get:index",
+          "get:name"
+        ],
+        "libraries": [
+          "package:vm_service/src/snapshot_graph.dart",
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "HeapSnapshotGraph": {
+        "fields": [
+          "get:capacity",
+          "get:classes",
+          "get:externalProperties",
+          "get:externalSize",
+          "get:flags",
+          "get:name",
+          "get:objects",
+          "get:referenceCount",
+          "get:shallowSize"
+        ],
+        "libraries": [
+          "package:vm_service/src/snapshot_graph.dart",
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "fromChunks",
+          "getSnapshot"
+        ],
+        "types": [
+          "HeapSnapshotClass",
+          "HeapSnapshotExternalProperty",
+          "HeapSnapshotGraph",
+          "HeapSnapshotObject",
+          "IsolateRef",
+          "VmService"
+        ]
+      },
+      "HeapSnapshotObject": {
+        "fields": [
+          "get:classId",
+          "get:data",
+          "get:references",
+          "get:shallowSize"
+        ],
+        "libraries": [
+          "package:vm_service/src/snapshot_graph.dart",
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "HeapSnapshotObjectLengthData": {
+        "fields": [
+          "length"
+        ],
+        "libraries": [
+          "package:vm_service/src/snapshot_graph.dart",
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "HeapSnapshotObjectLengthData"
+        ],
+        "types": []
+      },
+      "HeapSnapshotObjectNoData": {
+        "fields": [],
+        "libraries": [
+          "package:vm_service/src/snapshot_graph.dart",
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "HeapSnapshotObjectNoData"
+        ],
+        "types": []
+      },
+      "HeapSnapshotObjectNullData": {
+        "fields": [],
+        "libraries": [
+          "package:vm_service/src/snapshot_graph.dart",
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "HeapSnapshotObjectNullData"
+        ],
+        "types": []
+      },
+      "InboundReference": {
+        "fields": [
+          "parentField",
+          "parentListIndex",
+          "source"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "InboundReference",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "FieldRef",
+          "InboundReference",
+          "ObjRef"
+        ]
+      },
+      "InboundReferences": {
+        "fields": [
+          "references"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "InboundReferences",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "InboundReference",
+          "InboundReferences",
+          "Response"
+        ]
+      },
+      "Instance": {
+        "fields": [
+          "associations",
+          "bound",
+          "bytes",
+          "classRef",
+          "count",
+          "elements",
+          "fields",
+          "get:hashCode",
+          "isCaseSensitive",
+          "isMultiLine",
+          "kind",
+          "length",
+          "mirrorReferent",
+          "name",
+          "offset",
+          "parameterIndex",
+          "parameterizedClass",
+          "pattern",
+          "propertyKey",
+          "propertyValue",
+          "targetType",
+          "typeArguments",
+          "typeClass",
+          "valueAsString",
+          "valueAsStringIsTruncated"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "Instance",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "BoundField",
+          "ClassRef",
+          "Instance",
+          "InstanceRef",
+          "MapAssociation",
+          "Obj",
+          "TypeArgumentsRef"
+        ]
+      },
+      "InstanceKind": {
+        "fields": [
+          "kBool",
+          "kBoundedType",
+          "kClosure",
+          "kDouble",
+          "kFloat32List",
+          "kFloat32x4",
+          "kFloat32x4List",
+          "kFloat64List",
+          "kFloat64x2",
+          "kFloat64x2List",
+          "kInt",
+          "kInt16List",
+          "kInt32List",
+          "kInt32x4",
+          "kInt32x4List",
+          "kInt64List",
+          "kInt8List",
+          "kList",
+          "kMap",
+          "kMirrorReference",
+          "kNull",
+          "kPlainInstance",
+          "kRegExp",
+          "kStackTrace",
+          "kString",
+          "kType",
+          "kTypeParameter",
+          "kTypeRef",
+          "kUint16List",
+          "kUint32List",
+          "kUint64List",
+          "kUint8ClampedList",
+          "kUint8List",
+          "kWeakProperty"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "InstanceRef": {
+        "fields": [
+          "classRef",
+          "closureContext",
+          "closureFunction",
+          "get:hashCode",
+          "kind",
+          "length",
+          "name",
+          "parameterizedClass",
+          "pattern",
+          "typeClass",
+          "valueAsString",
+          "valueAsStringIsTruncated"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "InstanceRef",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ClassRef",
+          "ContextRef",
+          "FuncRef",
+          "InstanceRef",
+          "ObjRef"
+        ]
+      },
+      "InstanceSet": {
+        "fields": [
+          "instances",
+          "totalCount"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "InstanceSet",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "InstanceSet",
+          "ObjRef",
+          "Response"
+        ]
+      },
+      "Isolate": {
+        "fields": [
+          "breakpoints",
+          "error",
+          "exceptionPauseMode",
+          "extensionRPCs",
+          "get:hashCode",
+          "id",
+          "libraries",
+          "livePorts",
+          "name",
+          "number",
+          "pauseEvent",
+          "pauseOnExit",
+          "rootLib",
+          "runnable",
+          "startTime"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "Isolate",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Breakpoint",
+          "Error",
+          "Event",
+          "Isolate",
+          "LibraryRef",
+          "Response"
+        ]
+      },
+      "IsolateHelper": {
+        "fields": [],
+        "libraries": [
+          "package:vm_service/src/helpers.dart"
+        ],
+        "methods": [
+          "getTagCounters"
+        ],
+        "types": [
+          "Isolate",
+          "TagCounter"
+        ]
+      },
+      "IsolateRef": {
+        "fields": [
+          "get:hashCode",
+          "id",
+          "name",
+          "number"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "IsolateRef",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "IsolateRef",
+          "Response"
+        ]
+      },
+      "Library": {
+        "fields": [
+          "classes",
+          "debuggable",
+          "dependencies",
+          "functions",
+          "get:hashCode",
+          "name",
+          "scripts",
+          "uri",
+          "variables"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "Library",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ClassRef",
+          "FieldRef",
+          "FuncRef",
+          "Library",
+          "LibraryDependency",
+          "Obj",
+          "ScriptRef"
+        ]
+      },
+      "LibraryDependency": {
+        "fields": [
+          "isDeferred",
+          "isImport",
+          "prefix",
+          "target"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "LibraryDependency",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "LibraryDependency",
+          "LibraryRef"
+        ]
+      },
+      "LibraryRef": {
+        "fields": [
+          "get:hashCode",
+          "name",
+          "uri"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "LibraryRef",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "LibraryRef",
+          "ObjRef"
+        ]
+      },
+      "Log": {
+        "fields": [],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "severe",
+          "warning"
+        ],
+        "types": []
+      },
+      "LogRecord": {
+        "fields": [
+          "error",
+          "level",
+          "loggerName",
+          "message",
+          "sequenceNumber",
+          "stackTrace",
+          "time",
+          "zone"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "LogRecord",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "InstanceRef",
+          "LogRecord",
+          "Response"
+        ]
+      },
+      "MapAssociation": {
+        "fields": [
+          "key",
+          "value"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "MapAssociation",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "MapAssociation"
+        ]
+      },
+      "MemoryUsage": {
+        "fields": [
+          "externalUsage",
+          "heapCapacity",
+          "heapUsage"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "MemoryUsage",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "MemoryUsage",
+          "Response"
+        ]
+      },
+      "Message": {
+        "fields": [
+          "handler",
+          "index",
+          "location",
+          "messageObjectId",
+          "name",
+          "size"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "Message",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "FuncRef",
+          "Message",
+          "Response",
+          "SourceLocation"
+        ]
+      },
+      "NativeFunction": {
+        "fields": [
+          "name"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "NativeFunction",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "NativeFunction"
+        ]
+      },
+      "NullVal": {
+        "fields": [
+          "get:hashCode",
+          "valueAsString"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "NullVal",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Instance",
+          "NullVal"
+        ]
+      },
+      "NullValRef": {
+        "fields": [
+          "get:hashCode",
+          "valueAsString"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "NullValRef",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "InstanceRef",
+          "NullValRef"
+        ]
+      },
+      "Obj": {
+        "fields": [
+          "classRef",
+          "fixedId",
+          "get:hashCode",
+          "id",
+          "size"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "Obj",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ClassRef",
+          "Obj",
+          "Response"
+        ]
+      },
+      "ObjRef": {
+        "fields": [
+          "fixedId",
+          "get:hashCode",
+          "id"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "ObjRef",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ObjRef",
+          "Response"
+        ]
+      },
+      "ProfileFunction": {
+        "fields": [
+          "exclusiveTicks",
+          "function",
+          "inclusiveTicks",
+          "kind",
+          "resolvedUrl"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "ProfileFunction",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ProfileFunction"
+        ]
+      },
+      "RPCError": {
+        "fields": [
+          "callingMethod",
+          "code",
+          "data",
+          "get:details",
+          "message"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "RPCError",
+          "parse",
+          "toString"
+        ],
+        "types": [
+          "RPCError"
+        ]
+      },
+      "ReloadReport": {
+        "fields": [
+          "success"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "ReloadReport",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ReloadReport",
+          "Response"
+        ]
+      },
+      "Response": {
+        "fields": [
+          "json",
+          "type"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "Response",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Response"
+        ]
+      },
+      "RetainingObject": {
+        "fields": [
+          "parentField",
+          "parentListIndex",
+          "parentMapKey",
+          "value"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "RetainingObject",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ObjRef",
+          "RetainingObject"
+        ]
+      },
+      "RetainingPath": {
+        "fields": [
+          "elements",
+          "gcRootType",
+          "length"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "RetainingPath",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Response",
+          "RetainingObject",
+          "RetainingPath"
+        ]
+      },
+      "Script": {
+        "fields": [
+          "columnOffset",
+          "get:hashCode",
+          "library",
+          "lineOffset",
+          "source",
+          "tokenPosTable",
+          "uri"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "Script",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "LibraryRef",
+          "Obj",
+          "Script"
+        ]
+      },
+      "ScriptList": {
+        "fields": [
+          "scripts"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "ScriptList",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Response",
+          "ScriptList",
+          "ScriptRef"
+        ]
+      },
+      "ScriptRef": {
+        "fields": [
+          "get:hashCode",
+          "uri"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "ScriptRef",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ObjRef",
+          "ScriptRef"
+        ]
+      },
+      "Sentinel": {
+        "fields": [
+          "kind",
+          "valueAsString"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "Sentinel",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Response",
+          "Sentinel"
+        ]
+      },
+      "SentinelKind": {
+        "fields": [
+          "kBeingInitialized",
+          "kCollected",
+          "kExpired",
+          "kFree",
+          "kNotInitialized",
+          "kOptimizedOut"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ServiceExtensionRegistry": {
+        "fields": [
+          "get:onExtensionEvent",
+          "get:registeredExtensions"
+        ],
+        "libraries": [
+          "package:vm_service/src/service_extension_registry.dart",
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "ServiceExtensionRegistry",
+          "clientFor",
+          "registerExtension"
+        ],
+        "types": [
+          "Event",
+          "VmServerConnection"
+        ]
+      },
+      "SourceLocation": {
+        "fields": [
+          "endTokenPos",
+          "script",
+          "tokenPos"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "SourceLocation",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Response",
+          "ScriptRef",
+          "SourceLocation"
+        ]
+      },
+      "SourceReport": {
+        "fields": [
+          "ranges",
+          "scripts"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "SourceReport",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Response",
+          "ScriptRef",
+          "SourceReport",
+          "SourceReportRange"
+        ]
+      },
+      "SourceReportCoverage": {
+        "fields": [
+          "hits",
+          "misses"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "SourceReportCoverage",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "SourceReportCoverage"
+        ]
+      },
+      "SourceReportKind": {
+        "fields": [
+          "kCoverage",
+          "kPossibleBreakpoints"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SourceReportRange": {
+        "fields": [
+          "compiled",
+          "coverage",
+          "endPos",
+          "error",
+          "possibleBreakpoints",
+          "scriptIndex",
+          "startPos"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "SourceReportRange",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ErrorRef",
+          "SourceReportCoverage",
+          "SourceReportRange"
+        ]
+      },
+      "Stack": {
+        "fields": [
+          "asyncCausalFrames",
+          "awaiterFrames",
+          "frames",
+          "messages"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "Stack",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Frame",
+          "Message",
+          "Response",
+          "Stack"
+        ]
+      },
+      "StepOption": {
+        "fields": [
+          "kInto",
+          "kOut",
+          "kOver",
+          "kOverAsyncSuspension",
+          "kRewind"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Success": {
+        "fields": [],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "Success",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Response",
+          "Success"
+        ]
+      },
+      "TagCounter": {
+        "fields": [
+          "count",
+          "name"
+        ],
+        "libraries": [
+          "package:vm_service/src/helpers.dart"
+        ],
+        "methods": [
+          "TagCounter"
+        ],
+        "types": []
+      },
+      "Timeline": {
+        "fields": [
+          "timeExtentMicros",
+          "timeOriginMicros",
+          "traceEvents"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "Timeline",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Response",
+          "Timeline",
+          "TimelineEvent"
+        ]
+      },
+      "TimelineEvent": {
+        "fields": [],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "TimelineEvent",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "TimelineEvent"
+        ]
+      },
+      "TimelineFlags": {
+        "fields": [
+          "availableStreams",
+          "recordedStreams",
+          "recorderName"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "TimelineFlags",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Response",
+          "TimelineFlags"
+        ]
+      },
+      "Timestamp": {
+        "fields": [
+          "timestamp"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "Timestamp",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Response",
+          "Timestamp"
+        ]
+      },
+      "TypeArguments": {
+        "fields": [
+          "get:hashCode",
+          "name",
+          "types"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "TypeArguments",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "InstanceRef",
+          "Obj",
+          "TypeArguments"
+        ]
+      },
+      "TypeArgumentsRef": {
+        "fields": [
+          "get:hashCode",
+          "name"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "==",
+          "TypeArgumentsRef",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ObjRef",
+          "TypeArgumentsRef"
+        ]
+      },
+      "UnresolvedSourceLocation": {
+        "fields": [
+          "column",
+          "line",
+          "script",
+          "scriptUri",
+          "tokenPos"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "UnresolvedSourceLocation",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Response",
+          "ScriptRef",
+          "UnresolvedSourceLocation"
+        ]
+      },
+      "VM": {
+        "fields": [
+          "architectureBits",
+          "hostCPU",
+          "isolates",
+          "name",
+          "operatingSystem",
+          "pid",
+          "startTime",
+          "targetCPU",
+          "version"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "VM",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "IsolateRef",
+          "Response",
+          "VM"
+        ]
+      },
+      "VMRef": {
+        "fields": [
+          "name"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "VMRef",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Response",
+          "VMRef"
+        ]
+      },
+      "Version": {
+        "fields": [
+          "major",
+          "minor"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "Version",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "Response",
+          "Version"
+        ]
+      },
+      "VmServerConnection": {
+        "fields": [
+          "get:done"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "VmServerConnection"
+        ],
+        "types": [
+          "ServiceExtensionRegistry",
+          "VmServiceInterface"
+        ]
+      },
+      "VmService": {
+        "fields": [
+          "get:onDebugEvent",
+          "get:onDone",
+          "get:onExtensionEvent",
+          "get:onGCEvent",
+          "get:onHeapSnapshotEvent",
+          "get:onIsolateEvent",
+          "get:onLoggingEvent",
+          "get:onReceive",
+          "get:onSend",
+          "get:onServiceEvent",
+          "get:onStderrEvent",
+          "get:onStdoutEvent",
+          "get:onTimelineEvent",
+          "get:onVMEvent"
+        ],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "VmService",
+          "addBreakpoint",
+          "addBreakpointAtEntry",
+          "addBreakpointWithScriptUri",
+          "callMethod",
+          "callServiceExtension",
+          "clearCpuSamples",
+          "clearVMTimeline",
+          "dispose",
+          "evaluate",
+          "evaluateInFrame",
+          "getAllocationProfile",
+          "getCpuSamples",
+          "getFlagList",
+          "getInboundReferences",
+          "getInstances",
+          "getIsolate",
+          "getMemoryUsage",
+          "getObject",
+          "getRetainingPath",
+          "getScripts",
+          "getSourceReport",
+          "getStack",
+          "getVM",
+          "getVMTimeline",
+          "getVMTimelineFlags",
+          "getVMTimelineMicros",
+          "getVersion",
+          "invoke",
+          "kill",
+          "onEvent",
+          "pause",
+          "registerService",
+          "registerServiceCallback",
+          "reloadSources",
+          "removeBreakpoint",
+          "requestHeapSnapshot",
+          "resume",
+          "setExceptionPauseMode",
+          "setFlag",
+          "setLibraryDebuggable",
+          "setName",
+          "setVMName",
+          "setVMTimelineFlags",
+          "streamCancel",
+          "streamListen"
+        ],
+        "types": [
+          "AllocationProfile",
+          "Breakpoint",
+          "CpuSamples",
+          "Event",
+          "FlagList",
+          "InstanceSet",
+          "Log",
+          "ReloadReport",
+          "Response",
+          "RetainingPath",
+          "ScriptList",
+          "SourceReport",
+          "Stack",
+          "Success",
+          "Timeline",
+          "TimelineFlags",
+          "Timestamp",
+          "VM",
+          "Version",
+          "VmServiceInterface"
+        ]
+      },
+      "VmServiceInterface": {
+        "fields": [],
+        "libraries": [
+          "package:vm_service/vm_service.dart"
+        ],
+        "methods": [
+          "addBreakpoint",
+          "addBreakpointAtEntry",
+          "addBreakpointWithScriptUri",
+          "callServiceExtension",
+          "clearCpuSamples",
+          "clearVMTimeline",
+          "evaluate",
+          "evaluateInFrame",
+          "getAllocationProfile",
+          "getCpuSamples",
+          "getFlagList",
+          "getInboundReferences",
+          "getInstances",
+          "getIsolate",
+          "getMemoryUsage",
+          "getObject",
+          "getRetainingPath",
+          "getScripts",
+          "getSourceReport",
+          "getStack",
+          "getVM",
+          "getVMTimeline",
+          "getVMTimelineFlags",
+          "getVMTimelineMicros",
+          "getVersion",
+          "invoke",
+          "kill",
+          "onEvent",
+          "pause",
+          "registerService",
+          "reloadSources",
+          "removeBreakpoint",
+          "requestHeapSnapshot",
+          "resume",
+          "setExceptionPauseMode",
+          "setFlag",
+          "setLibraryDebuggable",
+          "setName",
+          "setVMName",
+          "setVMTimelineFlags",
+          "streamCancel",
+          "streamListen"
+        ],
+        "types": [
+          "AllocationProfile",
+          "Breakpoint",
+          "CpuSamples",
+          "Event",
+          "FlagList",
+          "InstanceSet",
+          "ReloadReport",
+          "Response",
+          "RetainingPath",
+          "ScriptList",
+          "SourceReport",
+          "Stack",
+          "Success",
+          "Timeline",
+          "TimelineFlags",
+          "Timestamp",
+          "VM",
+          "Version"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:20:30Z",
+  "package": "vm_service",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "HeapSnapshotObjectNoData",
+      "HeapSnapshotObjectNullData"
+    ],
+    "digest": "78411177861810823e84a0890a9ca1ebf26e66737520343bacebdefd92d9d2d3",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "9a8cc983ebe1d83892fd442f146fb4942f089b59d2169be1cd891e3b89d5e7f3",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "../vm_service.dart",
+      "/",
+      "/ws",
+      "2.0",
+      "3.27.0",
+      ":",
+      "@Class",
+      "@Code",
+      "@Context",
+      "@Error",
+      "@Field",
+      "@Function",
+      "@Instance",
+      "@Isolate",
+      "@Library",
+      "@Null",
+      "@Object",
+      "@Script",
+      "@TypeArguments",
+      "@VM",
+      "All",
+      "AllocationProfile",
+      "AsyncActivation",
+      "AsyncCausal",
+      "AsyncSuspensionMarker",
+      "BeingInitialized",
+      "Bool",
+      "BoundField",
+      "BoundVariable",
+      "BoundedType",
+      "Breakpoint",
+      "BreakpointAdded",
+      "BreakpointRemoved",
+      "BreakpointResolved",
+      "Class",
+      "ClassHeapStats",
+      "ClassList",
+      "ClassRef",
+      "Closure",
+      "Code",
+      "CodeRef",
+      "Collected",
+      "Context",
+      "ContextElement",
+      "ContextRef",
+      "Coverage",
+      "CpuSample",
+      "CpuSamples",
+      "Dart",
+      "Debug",
+      "Double",
+      "Error",
+      "ErrorRef",
+      "Event",
+      "Expired",
+      "Extension",
+      "ExtensionData",
+      "Field",
+      "FieldRef",
+      "Flag",
+      "FlagList",
+      "Float32List",
+      "Float32x4",
+      "Float32x4List",
+      "Float64List",
+      "Float64x2",
+      "Float64x2List",
+      "Frame",
+      "Free",
+      "FuncRef",
+      "Function",
+      "GC",
+      "HeapSnapshot",
+      "InboundReference",
+      "InboundReferences",
+      "Inspect",
+      "Instance",
+      "InstanceRef",
+      "InstanceSet",
+      "Int",
+      "Int16List",
+      "Int32List",
+      "Int32x4",
+      "Int32x4List",
+      "Int64List",
+      "Int8List",
+      "InternalError",
+      "Into",
+      "Invalid Request",
+      "Invalid null response from service",
+      "Isolate",
+      "IsolateExit",
+      "IsolateRef",
+      "IsolateReload",
+      "IsolateRunnable",
+      "IsolateStart",
+      "IsolateUpdate",
+      "LanguageError",
+      "Library",
+      "LibraryDependency",
+      "LibraryRef",
+      "List",
+      "LogRecord",
+      "Logging",
+      "Map",
+      "MapAssociation",
+      "MemoryUsage",
+      "Message",
+      "Method not found",
+      "MirrorReference",
+      "Native",
+      "NativeFunction",
+      "None",
+      "NotInitialized",
+      "Null",
+      "Obj",
+      "ObjRef",
+      "Object",
+      "OptimizedOut",
+      "Out",
+      "Over",
+      "OverAsyncSuspension",
+      "PauseBreakpoint",
+      "PauseException",
+      "PauseExit",
+      "PauseInterrupted",
+      "PausePostRequest",
+      "PauseStart",
+      "PlainInstance",
+      "PossibleBreakpoints",
+      "Prefer vmServiceConnectUri",
+      "ProfileFunction",
+      "RegExp",
+      "Regular",
+      "ReloadReport",
+      "Response",
+      "Resume",
+      "RetainingObject",
+      "RetainingPath",
+      "Rewind",
+      "Script",
+      "ScriptList",
+      "ScriptRef",
+      "Sentinel",
+      "Service",
+      "Service already registered",
+      "ServiceExtensionAdded",
+      "ServiceRegistered",
+      "ServiceUnregistered",
+      "SourceLocation",
+      "SourceReport",
+      "SourceReportCoverage",
+      "SourceReportRange",
+      "Stack",
+      "StackTrace",
+      "Stderr",
+      "Stdout",
+      "Stream already subscribed",
+      "Stream not subscribed",
+      "String",
+      "Stub",
+      "Success",
+      "Tag",
+      "TerminationError",
+      "Timeline",
+      "TimelineEvent",
+      "TimelineFlags",
+      "Timestamp",
+      "Type",
+      "TypeArguments",
+      "TypeArgumentsRef",
+      "TypeParameter",
+      "TypeRef",
+      "Uint16List",
+      "Uint32List",
+      "Uint64List",
+      "Uint8ClampedList",
+      "Uint8List",
+      "Unhandled",
+      "UnhandledException",
+      "UnresolvedSourceLocation",
+      "VM",
+      "VMFlagUpdate",
+      "VMRef",
+      "VMUpdate",
+      "Version",
+      "WeakProperty",
+      "WriteEvent",
+      "[Class]",
+      "[CpuSamples]",
+      "[FieldRef]",
+      "[Field]",
+      "[Isolate]",
+      "[Library]",
+      "[LogRecord]",
+      "[TimelineEvent ]",
+      "[VM]",
+      "_tagCounters",
+      "abstract",
+      "accumulatedSize",
+      "addBreakpoint",
+      "addBreakpointAtEntry",
+      "addBreakpointWithScriptUri",
+      "alias",
+      "architectureBits",
+      "argumentIds",
+      "associations",
+      "asyncCausalFrames",
+      "atAsyncSuspension",
+      "availableStreams",
+      "awaiterFrames",
+      "bound",
+      "breakpoint",
+      "breakpointId",
+      "breakpointNumber",
+      "breakpoints",
+      "bytes",
+      "bytesCurrent",
+      "class",
+      "classes",
+      "clearCpuSamples",
+      "clearVMTimeline",
+      "closureContext",
+      "closureFunction",
+      "code",
+      "column",
+      "columnOffset",
+      "comment",
+      "compiled",
+      "const",
+      "count",
+      "counters",
+      "coverage",
+      "dart:async",
+      "dart:convert",
+      "dart:io",
+      "dart:typed_data",
+      "data",
+      "dateLastAccumulatorReset",
+      "dateLastServiceGC",
+      "debuggable",
+      "decl",
+      "declarationTokenPos",
+      "declaredType",
+      "dependencies",
+      "details",
+      "disableBreakpoints",
+      "disposed",
+      "dynamic",
+      "elements",
+      "endPos",
+      "endTokenPos",
+      "error",
+      "evaluate",
+      "evaluateInFrame",
+      "event",
+      "exception",
+      "exceptionPauseMode",
+      "exclusiveTicks",
+      "expression",
+      "ext.",
+      "extensionData",
+      "extensionKind",
+      "extensionRPC",
+      "extensionRPCs",
+      "externalUsage",
+      "fields",
+      "final",
+      "fixedId",
+      "flag",
+      "flags",
+      "force",
+      "forceCompile",
+      "frameIndex",
+      "frames",
+      "function",
+      "functionId",
+      "functions",
+      "gc",
+      "gcRootType",
+      "getAllocationProfile",
+      "getCpuSamples",
+      "getFlagList",
+      "getInboundReferences",
+      "getInstances",
+      "getIsolate",
+      "getMemoryUsage",
+      "getObject",
+      "getRetainingPath",
+      "getScripts",
+      "getSourceReport",
+      "getStack",
+      "getVM",
+      "getVMTimeline",
+      "getVMTimelineFlags",
+      "getVMTimelineMicros",
+      "getVersion",
+      "handler",
+      "heapCapacity",
+      "heapUsage",
+      "hits",
+      "hostCPU",
+      "https",
+      "id",
+      "inclusiveTicks",
+      "index",
+      "inspectee",
+      "instances",
+      "instancesAccumulated",
+      "instancesCurrent",
+      "interfaces",
+      "invoke",
+      "isCaseSensitive",
+      "isDebuggable",
+      "isDeferred",
+      "isImport",
+      "isMultiLine",
+      "isSyntheticAsyncContinuation",
+      "isolate",
+      "isolateId",
+      "isolates",
+      "jsonrpc",
+      "key",
+      "kill",
+      "kind",
+      "last",
+      "length",
+      "level",
+      "libraries",
+      "library",
+      "libraryId",
+      "limit",
+      "line",
+      "lineOffset",
+      "livePorts",
+      "location",
+      "logRecord",
+      "loggerName",
+      "major",
+      "maxStackDepth",
+      "members",
+      "memoryUsage",
+      "message",
+      "messageObjectId",
+      "messages",
+      "method",
+      "minor",
+      "mirrorReferent",
+      "misses",
+      "mixin",
+      "mode",
+      "modified",
+      "name",
+      "names",
+      "newValue",
+      "number",
+      "objectId",
+      "offset",
+      "operatingSystem",
+      "optional",
+      "owner",
+      "package:meta/meta.dart",
+      "packagesUri",
+      "parameterIndex",
+      "parameterizedClass",
+      "params",
+      "parent",
+      "parentField",
+      "parentListIndex",
+      "parentMapKey",
+      "pattern",
+      "pause",
+      "pauseBreakpoints",
+      "pauseEvent",
+      "pauseOnExit",
+      "pid",
+      "possibleBreakpoints",
+      "prefix",
+      "propertyKey",
+      "propertyValue",
+      "ranges",
+      "recordedStreams",
+      "recorderName",
+      "references",
+      "registerExtension",
+      "registerService",
+      "reloadSources",
+      "removeBreakpoint",
+      "reports",
+      "requestHeapSnapshot",
+      "reset",
+      "resolved",
+      "resolvedUrl",
+      "result",
+      "resume",
+      "rootLib",
+      "rootLibUri",
+      "runnable",
+      "sampleCount",
+      "samplePeriod",
+      "samples",
+      "scope",
+      "scopeEndTokenPos",
+      "scopeStartTokenPos",
+      "script",
+      "scriptId",
+      "scriptIndex",
+      "scriptUri",
+      "scripts",
+      "selector",
+      "sequenceNumber",
+      "service",
+      "setExceptionPauseMode",
+      "setFlag",
+      "setLibraryDebuggable",
+      "setName",
+      "setVMName",
+      "setVMTimelineFlags",
+      "size",
+      "source",
+      "src/service_extension_registry.dart",
+      "src/snapshot_graph.dart",
+      "stack",
+      "stackTrace",
+      "stacktrace",
+      "startPos",
+      "startTime",
+      "static",
+      "staticValue",
+      "status",
+      "step",
+      "streamCancel",
+      "streamId",
+      "streamListen",
+      "streamNotify",
+      "stream_helpers.dart",
+      "subclasses",
+      "success",
+      "super",
+      "superType",
+      "target",
+      "targetCPU",
+      "targetId",
+      "targetType",
+      "tid",
+      "time",
+      "timeExtentMicros",
+      "timeOriginMicros",
+      "timeSpan",
+      "timelineEvents",
+      "timestamp",
+      "tokenPos",
+      "tokenPosTable",
+      "topFrame",
+      "totalCount",
+      "traceEvents",
+      "truncated",
+      "type",
+      "typeArguments",
+      "typeClass",
+      "types",
+      "uri",
+      "userTag",
+      "value",
+      "valueAsString",
+      "valueAsStringIsTruncated",
+      "variables",
+      "vars",
+      "version",
+      "vm",
+      "vmTag",
+      "vm_service.dart",
+      "ws",
+      "wss",
+      "zone"
+    ]
+  },
+  "version": "2.1.0"
+}
