@@ -1,0 +1,469 @@
+{
+  "api_surface": {
+    "classes": {
+      "AudioPlayer": {
+        "fields": [
+          "get:androidAudioSessionId",
+          "get:androidAudioSessionIdStream",
+          "get:automaticallyWaitsToMinimizeStalling",
+          "get:bufferedPosition",
+          "get:bufferedPositionStream",
+          "get:currentIndex",
+          "get:currentIndexStream",
+          "get:duration",
+          "get:durationFuture",
+          "get:durationStream",
+          "get:hasNext",
+          "get:hasPrevious",
+          "get:icyMetadata",
+          "get:icyMetadataStream",
+          "get:loopMode",
+          "get:loopModeStream",
+          "get:playbackEvent",
+          "get:playbackEventStream",
+          "get:playerState",
+          "get:playerStateStream",
+          "get:playing",
+          "get:playingStream",
+          "get:position",
+          "get:positionStream",
+          "get:processingState",
+          "get:processingStateStream",
+          "get:sequence",
+          "get:sequenceState",
+          "get:sequenceStateStream",
+          "get:sequenceStream",
+          "get:shuffleModeEnabled",
+          "get:shuffleModeEnabledStream",
+          "get:speed",
+          "get:speedStream",
+          "get:volume",
+          "get:volumeStream"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "AudioPlayer",
+          "createPositionStream",
+          "dispose",
+          "load",
+          "pause",
+          "play",
+          "seek",
+          "seekToNext",
+          "seekToPrevious",
+          "setAndroidAudioAttributes",
+          "setAsset",
+          "setAutomaticallyWaitsToMinimizeStalling",
+          "setClip",
+          "setFilePath",
+          "setLoopMode",
+          "setShuffleModeEnabled",
+          "setSpeed",
+          "setUrl",
+          "setVolume",
+          "stop"
+        ],
+        "types": [
+          "AudioSource",
+          "IcyMetadata",
+          "IndexedAudioSource",
+          "LoopMode",
+          "PlaybackEvent",
+          "PlayerState",
+          "ProcessingState",
+          "SequenceState"
+        ]
+      },
+      "AudioSource": {
+        "fields": [
+          "get:hashCode",
+          "get:sequence"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "==",
+          "AudioSource",
+          "fromJson",
+          "toJson",
+          "uri"
+        ],
+        "types": [
+          "AudioPlayer",
+          "AudioSource",
+          "IndexedAudioSource"
+        ]
+      },
+      "ClippingAudioSource": {
+        "fields": [
+          "child",
+          "end",
+          "start"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "ClippingAudioSource",
+          "toJson"
+        ],
+        "types": [
+          "IndexedAudioSource",
+          "UriAudioSource"
+        ]
+      },
+      "ConcatenatingAudioSource": {
+        "fields": [
+          "children",
+          "get:length",
+          "get:sequence",
+          "useLazyPreparation"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "ConcatenatingAudioSource",
+          "[]",
+          "add",
+          "addAll",
+          "clear",
+          "insert",
+          "insertAll",
+          "move",
+          "removeAt",
+          "removeRange",
+          "toJson"
+        ],
+        "types": [
+          "AudioSource",
+          "IndexedAudioSource"
+        ]
+      },
+      "DashAudioSource": {
+        "fields": [],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "DashAudioSource"
+        ],
+        "types": [
+          "UriAudioSource"
+        ]
+      },
+      "HlsAudioSource": {
+        "fields": [],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "HlsAudioSource"
+        ],
+        "types": [
+          "UriAudioSource"
+        ]
+      },
+      "IcyHeaders": {
+        "fields": [
+          "bitrate",
+          "genre",
+          "get:hashCode",
+          "isPublic",
+          "metadataInterval",
+          "name",
+          "url"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "==",
+          "IcyHeaders",
+          "fromJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "IcyInfo": {
+        "fields": [
+          "get:hashCode",
+          "title",
+          "url"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "==",
+          "IcyInfo",
+          "fromJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "IcyMetadata": {
+        "fields": [
+          "get:hashCode",
+          "headers",
+          "info"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "==",
+          "IcyMetadata",
+          "fromJson"
+        ],
+        "types": [
+          "IcyHeaders",
+          "IcyInfo"
+        ]
+      },
+      "IndexedAudioSource": {
+        "fields": [
+          "get:sequence",
+          "tag"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "IndexedAudioSource"
+        ],
+        "types": [
+          "AudioSource",
+          "IndexedAudioSource"
+        ]
+      },
+      "LoopMode": {
+        "fields": [
+          "all",
+          "off",
+          "one"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LoopingAudioSource": {
+        "fields": [
+          "child",
+          "count",
+          "get:sequence"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "LoopingAudioSource",
+          "toJson"
+        ],
+        "types": [
+          "AudioSource",
+          "IndexedAudioSource"
+        ]
+      },
+      "PlaybackEvent": {
+        "fields": [
+          "androidAudioSessionId",
+          "bufferedPosition",
+          "currentIndex",
+          "duration",
+          "icyMetadata",
+          "processingState",
+          "updatePosition",
+          "updateTime"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "PlaybackEvent",
+          "copyWith",
+          "toString"
+        ],
+        "types": [
+          "IcyMetadata",
+          "PlaybackEvent",
+          "ProcessingState",
+          "UriAudioSource"
+        ]
+      },
+      "PlayerException": {
+        "fields": [
+          "code",
+          "message"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "PlayerException",
+          "toString"
+        ],
+        "types": []
+      },
+      "PlayerInterruptedException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "PlayerInterruptedException",
+          "toString"
+        ],
+        "types": []
+      },
+      "PlayerState": {
+        "fields": [
+          "get:hashCode",
+          "playing",
+          "processingState"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "==",
+          "PlayerState",
+          "toString"
+        ],
+        "types": [
+          "ProcessingState"
+        ]
+      },
+      "ProcessingState": {
+        "fields": [
+          "buffering",
+          "completed",
+          "loading",
+          "none",
+          "ready"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ProgressiveAudioSource": {
+        "fields": [],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "ProgressiveAudioSource"
+        ],
+        "types": [
+          "UriAudioSource"
+        ]
+      },
+      "SequenceState": {
+        "fields": [
+          "currentIndex",
+          "get:currentSource",
+          "sequence"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "SequenceState"
+        ],
+        "types": [
+          "IndexedAudioSource"
+        ]
+      },
+      "UriAudioSource": {
+        "fields": [
+          "headers",
+          "uri"
+        ],
+        "libraries": [
+          "package:just_audio/just_audio.dart"
+        ],
+        "methods": [
+          "UriAudioSource",
+          "toJson"
+        ],
+        "types": [
+          "IndexedAudioSource"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:44:04Z",
+  "package": "just_audio",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "79712aca264008b03bf5c3b645c633ae13a6d0e8fcec1f4a455c72754197fe99",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "101adf7741934d202f0075359cb11333e194d61396eaf79c0f57d8e89384bd73",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      ",",
+      "GET",
+      "Unknown AudioSource type: ",
+      "^/",
+      "abort",
+      "asset",
+      "audioSource",
+      "audioSources",
+      "bitrate",
+      "clipping",
+      "concatenating",
+      "count",
+      "dart:async",
+      "dart:io",
+      "dart:math",
+      "dash",
+      "end",
+      "genre",
+      "headers",
+      "hls",
+      "host",
+      "http",
+      "id",
+      "info",
+      "isPublic",
+      "just_audio_asset_cache",
+      "looping",
+      "m3u8",
+      "metadataInterval",
+      "mpd",
+      "name",
+      "package:audio_session/audio_session.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/services.dart",
+      "package:flutter/widgets.dart",
+      "package:just_audio_platform_interface/just_audio_platform_interface.dart",
+      "package:path/path.dart",
+      "package:path_provider/path_provider.dart",
+      "package:rxdart/rxdart.dart",
+      "package:uuid/uuid.dart",
+      "progressive",
+      "start",
+      "title",
+      "type",
+      "uri",
+      "url",
+      "useLazyPreparation"
+    ]
+  },
+  "version": "0.5.0"
+}
