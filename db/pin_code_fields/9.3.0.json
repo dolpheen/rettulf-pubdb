@@ -1,0 +1,874 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/core/gestures/context_menu_builder.dart",
+          "package:pin_code_fields/src/core/gestures/selection_gesture_builder.dart",
+          "package:pin_code_fields/src/core/haptics.dart",
+          "package:pin_code_fields/src/core/pin_input.dart",
+          "package:pin_code_fields/src/material/animations/entry_animations.dart",
+          "package:pin_code_fields/src/material/shapes/circle_decoration.dart",
+          "package:pin_code_fields/src/material/shapes/filled_decoration.dart",
+          "package:pin_code_fields/src/material/shapes/outlined_decoration.dart",
+          "package:pin_code_fields/src/material/shapes/underlined_decoration.dart"
+        ],
+        "methods": [
+          "buildCircleDecoration",
+          "buildEntryAnimation",
+          "buildFilledDecoration",
+          "buildOutlinedDecoration",
+          "buildUnderlinedDecoration",
+          "defaultPinContextMenuBuilder",
+          "getDefaultSelectionControls",
+          "getEntryAnimationTransitionBuilder",
+          "triggerHaptic"
+        ],
+        "types": [
+          "HapticFeedbackType",
+          "MaterialPinAnimation",
+          "PinCellData"
+        ]
+      },
+      "CursorBlink": {
+        "fields": [
+          "animate",
+          "child",
+          "color",
+          "duration",
+          "height",
+          "width"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/material/animations/cursor_blink.dart"
+        ],
+        "methods": [
+          "CursorBlink",
+          "createState"
+        ],
+        "types": [
+          "CursorBlink"
+        ]
+      },
+      "ErrorShake": {
+        "fields": [
+          "child",
+          "duration",
+          "enabled",
+          "trigger"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/material/animations/error_shake.dart"
+        ],
+        "methods": [
+          "ErrorShake",
+          "createState"
+        ],
+        "types": [
+          "ErrorShake"
+        ]
+      },
+      "ErrorShakeState": {
+        "fields": [],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/material/animations/error_shake.dart"
+        ],
+        "methods": [
+          "build",
+          "didUpdateWidget",
+          "dispose",
+          "initState",
+          "shake"
+        ],
+        "types": [
+          "ErrorShake"
+        ]
+      },
+      "HapticFeedbackType": {
+        "fields": [
+          "heavy",
+          "light",
+          "medium",
+          "selection",
+          "vibrate"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/core/haptics.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "InvisibleTextField": {
+        "fields": [
+          "autofillHints",
+          "contextMenuBuilder",
+          "controller",
+          "editableTextKey",
+          "focusNode",
+          "inputFormatters",
+          "keyboardAppearance",
+          "keyboardType",
+          "length",
+          "onEditingComplete",
+          "onSelectionChanged",
+          "onSubmitted",
+          "readOnly",
+          "scrollPadding",
+          "selectionControls",
+          "selectionEnabled",
+          "textCapitalization",
+          "textInputAction"
+        ],
+        "libraries": [
+          "package:pin_code_fields/src/core/input_capture/invisible_text_field.dart"
+        ],
+        "methods": [
+          "InvisibleTextField",
+          "build"
+        ],
+        "types": []
+      },
+      "MaterialCellContent": {
+        "fields": [
+          "data",
+          "hintCharacter",
+          "hintStyle",
+          "hintWidget",
+          "obscureText",
+          "obscuringWidget",
+          "theme"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/material/cells/material_cell_content.dart"
+        ],
+        "methods": [
+          "MaterialCellContent",
+          "build"
+        ],
+        "types": [
+          "MaterialPinThemeData",
+          "PinCellData"
+        ]
+      },
+      "MaterialPinAnimation": {
+        "fields": [
+          "custom",
+          "fade",
+          "none",
+          "scale",
+          "slide"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/material/theme/material_pin_theme.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MaterialPinCell": {
+        "fields": [
+          "data",
+          "hintCharacter",
+          "hintStyle",
+          "hintWidget",
+          "obscureText",
+          "obscuringWidget",
+          "theme"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/material/cells/material_pin_cell.dart"
+        ],
+        "methods": [
+          "MaterialPinCell",
+          "build"
+        ],
+        "types": [
+          "MaterialPinThemeData",
+          "PinCellData"
+        ]
+      },
+      "MaterialPinField": {
+        "fields": [
+          "autoDismissKeyboard",
+          "autoFocus",
+          "autofillContextAction",
+          "autofillHints",
+          "blinkDuration",
+          "blinkWhenObscuring",
+          "clearErrorOnInput",
+          "clipboardValidator",
+          "crossAxisAlignment",
+          "enableAutofill",
+          "enableHapticFeedback",
+          "enablePaste",
+          "enabled",
+          "errorBuilder",
+          "errorText",
+          "errorTextStyle",
+          "hapticFeedbackType",
+          "hintCharacter",
+          "hintStyle",
+          "hintWidget",
+          "initialValue",
+          "inputFormatters",
+          "keyboardAppearance",
+          "keyboardType",
+          "length",
+          "mainAxisAlignment",
+          "mainAxisSize",
+          "mouseCursor",
+          "obscureText",
+          "obscuringWidget",
+          "onChanged",
+          "onClipboardFound",
+          "onCompleted",
+          "onEditingComplete",
+          "onLongPress",
+          "onSubmitted",
+          "onTap",
+          "onTapOutside",
+          "pinController",
+          "readOnly",
+          "scrollPadding",
+          "semanticHintBuilder",
+          "semanticLabel",
+          "separatorBuilder",
+          "textCapitalization",
+          "textInputAction",
+          "theme"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/material/material_pin_field.dart"
+        ],
+        "methods": [
+          "MaterialPinField",
+          "createState"
+        ],
+        "types": [
+          "HapticFeedbackType",
+          "MaterialPinField",
+          "MaterialPinTheme",
+          "PinInputController"
+        ]
+      },
+      "MaterialPinFormField": {
+        "fields": [
+          "autoDismissKeyboard",
+          "autoFocus",
+          "autofillContextAction",
+          "autofillHints",
+          "blinkDuration",
+          "blinkWhenObscuring",
+          "clearErrorOnInput",
+          "clipboardValidator",
+          "crossAxisAlignment",
+          "enableAutofill",
+          "enableHapticFeedback",
+          "enablePaste",
+          "formErrorSpace",
+          "formErrorStyle",
+          "hapticFeedbackType",
+          "hintCharacter",
+          "hintStyle",
+          "hintWidget",
+          "inputFormatters",
+          "keyboardAppearance",
+          "keyboardType",
+          "length",
+          "mainAxisAlignment",
+          "mainAxisSize",
+          "mouseCursor",
+          "obscureText",
+          "obscuringWidget",
+          "onChanged",
+          "onClipboardFound",
+          "onCompleted",
+          "onEditingComplete",
+          "onLongPress",
+          "onSubmitted",
+          "onTap",
+          "onTapOutside",
+          "pinController",
+          "readOnly",
+          "scrollPadding",
+          "semanticLabel",
+          "separatorBuilder",
+          "textCapitalization",
+          "textInputAction",
+          "theme"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/material/form/material_pin_form_field.dart"
+        ],
+        "methods": [
+          "MaterialPinFormField",
+          "createState"
+        ],
+        "types": [
+          "HapticFeedbackType",
+          "MaterialPinTheme",
+          "PinInputController"
+        ]
+      },
+      "MaterialPinRow": {
+        "fields": [
+          "cells",
+          "crossAxisAlignment",
+          "hintCharacter",
+          "hintStyle",
+          "hintWidget",
+          "mainAxisAlignment",
+          "mainAxisSize",
+          "obscureText",
+          "obscuringWidget",
+          "separatorBuilder",
+          "theme"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/material/layout/material_pin_row.dart"
+        ],
+        "methods": [
+          "MaterialPinRow",
+          "build"
+        ],
+        "types": [
+          "MaterialPinThemeData",
+          "PinCellData"
+        ]
+      },
+      "MaterialPinShape": {
+        "fields": [
+          "circle",
+          "filled",
+          "outlined",
+          "underlined"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/material/theme/material_pin_theme.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MaterialPinTheme": {
+        "fields": [
+          "animateCursor",
+          "animationCurve",
+          "animationDuration",
+          "borderColor",
+          "borderRadius",
+          "borderWidth",
+          "boxShadows",
+          "cellSize",
+          "completeBorderColor",
+          "completeFillColor",
+          "completeTextStyle",
+          "cursorAlignment",
+          "cursorBlinkDuration",
+          "cursorColor",
+          "cursorHeight",
+          "cursorWidget",
+          "cursorWidth",
+          "customEntryAnimationBuilder",
+          "disabledBorderColor",
+          "disabledColor",
+          "disabledFillColor",
+          "disabledTextStyle",
+          "elevation",
+          "enableErrorShake",
+          "entryAnimation",
+          "errorAnimationDuration",
+          "errorBorderColor",
+          "errorBorderWidth",
+          "errorBoxShadows",
+          "errorColor",
+          "errorFillColor",
+          "errorTextStyle",
+          "fillColor",
+          "filledBorderColor",
+          "filledFillColor",
+          "focusedBorderColor",
+          "focusedBorderWidth",
+          "focusedBoxShadows",
+          "focusedElevation",
+          "focusedFillColor",
+          "followingBorderColor",
+          "followingFillColor",
+          "get:hashCode",
+          "hintCharacter",
+          "hintStyle",
+          "obscuringCharacter",
+          "shape",
+          "showCursor",
+          "spacing",
+          "textGradient",
+          "textStyle"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/material/theme/material_pin_theme.dart"
+        ],
+        "methods": [
+          "==",
+          "MaterialPinTheme",
+          "copyWith",
+          "resolve"
+        ],
+        "types": [
+          "MaterialPinAnimation",
+          "MaterialPinShape",
+          "MaterialPinTheme",
+          "MaterialPinThemeData"
+        ]
+      },
+      "MaterialPinThemeData": {
+        "fields": [
+          "animateCursor",
+          "animationCurve",
+          "animationDuration",
+          "borderColor",
+          "borderRadius",
+          "borderWidth",
+          "boxShadows",
+          "cellSize",
+          "completeBorderColor",
+          "completeFillColor",
+          "completeTextStyle",
+          "cursorAlignment",
+          "cursorBlinkDuration",
+          "cursorColor",
+          "cursorHeight",
+          "cursorWidget",
+          "cursorWidth",
+          "customEntryAnimationBuilder",
+          "disabledBorderColor",
+          "disabledColor",
+          "disabledFillColor",
+          "disabledTextStyle",
+          "elevation",
+          "enableErrorShake",
+          "entryAnimation",
+          "errorAnimationDuration",
+          "errorBorderColor",
+          "errorBorderWidth",
+          "errorBoxShadows",
+          "errorColor",
+          "errorFillColor",
+          "errorTextStyle",
+          "fillColor",
+          "filledBorderColor",
+          "filledFillColor",
+          "focusedBorderColor",
+          "focusedBorderWidth",
+          "focusedBoxShadows",
+          "focusedElevation",
+          "focusedFillColor",
+          "followingBorderColor",
+          "followingFillColor",
+          "hintCharacter",
+          "hintStyle",
+          "obscuringCharacter",
+          "shape",
+          "showCursor",
+          "spacing",
+          "textGradient",
+          "textStyle"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/material/theme/material_pin_theme.dart"
+        ],
+        "methods": [
+          "MaterialPinThemeData"
+        ],
+        "types": [
+          "MaterialPinAnimation",
+          "MaterialPinShape"
+        ]
+      },
+      "MaterialPinThemeDataExtension": {
+        "fields": [
+          "get:materialPinTheme"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/material/theme/material_pin_theme_extension.dart"
+        ],
+        "methods": [],
+        "types": [
+          "MaterialPinTheme"
+        ]
+      },
+      "MaterialPinThemeExtension": {
+        "fields": [
+          "get:hashCode",
+          "theme"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/material/theme/material_pin_theme_extension.dart"
+        ],
+        "methods": [
+          "==",
+          "MaterialPinThemeExtension",
+          "copyWith",
+          "lerp"
+        ],
+        "types": [
+          "MaterialPinTheme",
+          "MaterialPinThemeExtension"
+        ]
+      },
+      "PinCellData": {
+        "fields": [
+          "character",
+          "get:hashCode",
+          "index",
+          "isBlinking",
+          "isComplete",
+          "isDisabled",
+          "isError",
+          "isFilled",
+          "isFocused",
+          "isFollowing",
+          "wasJustEntered",
+          "wasJustRemoved"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/core/pin_cell_data.dart"
+        ],
+        "methods": [
+          "==",
+          "PinCellData",
+          "copyWith",
+          "toString"
+        ],
+        "types": [
+          "PinCellData"
+        ]
+      },
+      "PinCellStateStyle": {
+        "fields": [
+          "borderColor",
+          "borderWidth",
+          "boxShadows",
+          "fillColor"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/material/cells/material_pin_cell.dart"
+        ],
+        "methods": [
+          "PinCellStateStyle",
+          "fromState"
+        ],
+        "types": [
+          "MaterialPinThemeData",
+          "PinCellData"
+        ]
+      },
+      "PinControllerMixin": {
+        "fields": [
+          "get:effectiveController",
+          "get:ownsController"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/core/pin_controller_mixin.dart"
+        ],
+        "methods": [
+          "disposePinController",
+          "initPinController",
+          "reinitPinController"
+        ],
+        "types": [
+          "PinInputController"
+        ]
+      },
+      "PinInput": {
+        "fields": [
+          "autoDismissKeyboard",
+          "autoFocus",
+          "autofillContextAction",
+          "autofillHints",
+          "blinkDuration",
+          "blinkWhenObscuring",
+          "builder",
+          "clearErrorOnInput",
+          "clipboardValidator",
+          "contextMenuBuilder",
+          "enableAutofill",
+          "enableHapticFeedback",
+          "enablePaste",
+          "enabled",
+          "hapticFeedbackType",
+          "initialValue",
+          "inputFormatters",
+          "keyboardAppearance",
+          "keyboardType",
+          "length",
+          "mouseCursor",
+          "obscureText",
+          "obscuringCharacter",
+          "onChanged",
+          "onClipboardFound",
+          "onCompleted",
+          "onEditingComplete",
+          "onLongPress",
+          "onSubmitted",
+          "onTap",
+          "onTapOutside",
+          "pinController",
+          "readOnly",
+          "scrollPadding",
+          "selectionControls",
+          "semanticHintBuilder",
+          "semanticLabel",
+          "textCapitalization",
+          "textInputAction"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/core/pin_input.dart"
+        ],
+        "methods": [
+          "PinInput",
+          "createState"
+        ],
+        "types": [
+          "HapticFeedbackType",
+          "PinInput",
+          "PinInputController"
+        ]
+      },
+      "PinInputController": {
+        "fields": [
+          "get:focusNode",
+          "get:hasError",
+          "get:hasFocus",
+          "get:isAttached",
+          "get:text",
+          "get:textController",
+          "set:text"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/core/pin_input_controller.dart"
+        ],
+        "methods": [
+          "PinInputController",
+          "attach",
+          "clear",
+          "clearError",
+          "detach",
+          "dispose",
+          "requestFocus",
+          "setErrorState",
+          "setText",
+          "triggerError",
+          "unfocus"
+        ],
+        "types": []
+      },
+      "PinInputFormField": {
+        "fields": [
+          "autoDismissKeyboard",
+          "autoFocus",
+          "autofillContextAction",
+          "autofillHints",
+          "blinkDuration",
+          "blinkWhenObscuring",
+          "clearErrorOnInput",
+          "clipboardValidator",
+          "contextMenuBuilder",
+          "enableAutofill",
+          "enableHapticFeedback",
+          "enablePaste",
+          "errorTextSpace",
+          "errorTextStyle",
+          "hapticFeedbackType",
+          "inputFormatters",
+          "keyboardAppearance",
+          "keyboardType",
+          "length",
+          "mouseCursor",
+          "obscureText",
+          "obscuringCharacter",
+          "onChanged",
+          "onClipboardFound",
+          "onCompleted",
+          "onEditingComplete",
+          "onLongPress",
+          "onSubmitted",
+          "onTap",
+          "onTapOutside",
+          "pinBuilder",
+          "pinController",
+          "readOnly",
+          "scrollPadding",
+          "selectionControls",
+          "semanticLabel",
+          "textCapitalization",
+          "textInputAction"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/core/form/pin_input_form_field.dart"
+        ],
+        "methods": [
+          "PinInputFormField",
+          "createState"
+        ],
+        "types": [
+          "HapticFeedbackType",
+          "PinInputController"
+        ]
+      },
+      "PinInputScope": {
+        "fields": [
+          "cells",
+          "hasFocus",
+          "obscureText",
+          "obscuringCharacter",
+          "requestFocus"
+        ],
+        "libraries": [
+          "package:pin_code_fields/pin_code_fields.dart",
+          "package:pin_code_fields/src/core/pin_input_scope.dart"
+        ],
+        "methods": [
+          "PinInputScope",
+          "maybeOf",
+          "of",
+          "updateShouldNotify"
+        ],
+        "types": [
+          "PinCellData",
+          "PinInputScope"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:56:42Z",
+  "package": "pin_code_fields",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "CursorBlink",
+      "ErrorShake",
+      "InvisibleTextField",
+      "MaterialCellContent",
+      "MaterialPinCell",
+      "MaterialPinField",
+      "MaterialPinRow",
+      "MaterialPinTheme",
+      "MaterialPinThemeData",
+      "MaterialPinThemeExtension",
+      "PinCellData",
+      "PinCellStateStyle",
+      "PinInput",
+      "PinInputScope"
+    ],
+    "digest": "d74db276af1e7096733216d69c1261d23953367587568040f10be094b2610369",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "048d763d5809d9bc3a8e7dfcd1b86553a09b692fc2662d8fc4f4051d50619dda",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "../../core/haptics.dart",
+      "../../core/pin_cell_data.dart",
+      "../../core/pin_controller_mixin.dart",
+      "../../core/pin_input.dart",
+      "../../core/pin_input_controller.dart",
+      "../animations/cursor_blink.dart",
+      "../animations/entry_animations.dart",
+      "../animations/error_shake.dart",
+      "../cells/material_pin_cell.dart",
+      "../core/haptics.dart",
+      "../core/pin_controller_mixin.dart",
+      "../core/pin_input.dart",
+      "../core/pin_input_controller.dart",
+      "../haptics.dart",
+      "../layout/material_pin_row.dart",
+      "../pin_controller_mixin.dart",
+      "../pin_input.dart",
+      "../pin_input_controller.dart",
+      "../shapes/circle_decoration.dart",
+      "../shapes/filled_decoration.dart",
+      "../shapes/outlined_decoration.dart",
+      "../shapes/underlined_decoration.dart",
+      "../theme/material_pin_theme.dart",
+      "../theme/material_pin_theme_extension.dart",
+      "Either child must be provided, or color, width, and height must all be provided",
+      "Length must be greater than 0",
+      "No PinInputScope found in context",
+      "Obscuring character must not be empty",
+      "PIN complete",
+      "[^0-9]",
+      "^[0-9]+$",
+      "animations/error_shake.dart",
+      "cursor",
+      "customEntryAnimationBuilder must be provided when entryAnimation is MaterialPinAnimation.custom",
+      "dart:async",
+      "digit",
+      "digits",
+      "empty",
+      "gestures/context_menu_builder.dart",
+      "gestures/selection_gesture_builder.dart",
+      "haptics.dart",
+      "input_capture/invisible_text_field.dart",
+      "layout/material_pin_row.dart",
+      "material_cell_content.dart",
+      "material_pin_theme.dart",
+      "package:flutter/cupertino.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/material.dart",
+      "package:flutter/services.dart",
+      "package:flutter/widgets.dart",
+      "pin_cell_data.dart",
+      "pin_controller_mixin.dart",
+      "pin_input_controller.dart",
+      "pin_input_scope.dart",
+      "src/core/form/pin_input_form_field.dart",
+      "src/core/haptics.dart",
+      "src/core/pin_cell_data.dart",
+      "src/core/pin_controller_mixin.dart",
+      "src/core/pin_input.dart",
+      "src/core/pin_input_controller.dart",
+      "src/core/pin_input_scope.dart",
+      "src/material/animations/cursor_blink.dart",
+      "src/material/animations/entry_animations.dart",
+      "src/material/animations/error_shake.dart",
+      "src/material/cells/material_cell_content.dart",
+      "src/material/cells/material_pin_cell.dart",
+      "src/material/form/material_pin_form_field.dart",
+      "src/material/layout/material_pin_row.dart",
+      "src/material/material_pin_field.dart",
+      "src/material/shapes/circle_decoration.dart",
+      "src/material/shapes/filled_decoration.dart",
+      "src/material/shapes/outlined_decoration.dart",
+      "src/material/shapes/underlined_decoration.dart",
+      "src/material/theme/material_pin_theme.dart",
+      "src/material/theme/material_pin_theme_extension.dart",
+      "theme/material_pin_theme.dart",
+      "theme/material_pin_theme_extension.dart",
+      "●"
+    ]
+  },
+  "version": "9.3.0"
+}
