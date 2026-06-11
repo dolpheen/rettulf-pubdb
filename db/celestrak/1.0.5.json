@@ -1,0 +1,859 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "defaultStaleThreshold",
+          "kBackoffBase",
+          "kBackoffMax",
+          "kCelestrakBaseUrl",
+          "kDefaultMaxAttempts",
+          "kDefaultMinRequestInterval",
+          "kDefaultTimeout",
+          "kDefaultTtl",
+          "kNotFoundSentinel",
+          "kSpaceTrackBaseUrl",
+          "kSpaceTrackDefaultTimeout"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/data/local/default_cache_store_io.dart",
+          "package:celestrak/src/data/local/default_cache_store_stub.dart",
+          "package:celestrak/src/data/parse_runner_native.dart",
+          "package:celestrak/src/data/parse_runner_stub.dart",
+          "package:celestrak/src/data/remote/celestrak_data_source.dart",
+          "package:celestrak/src/data/remote/spacetrack_data_source.dart",
+          "package:celestrak/src/domain/constants.dart",
+          "package:celestrak/src/domain/staleness.dart",
+          "package:celestrak/src/network/http_transport.dart",
+          "package:celestrak/src/network/socket_exception_io.dart",
+          "package:celestrak/src/network/socket_exception_stub.dart"
+        ],
+        "methods": [
+          "defaultCacheStore",
+          "isSocketException",
+          "runParse"
+        ],
+        "types": [
+          "CacheStore"
+        ]
+      },
+      "AuthenticationException": {
+        "fields": [
+          "statusCode",
+          "uri"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/failures.dart"
+        ],
+        "methods": [
+          "AuthenticationException",
+          "toString"
+        ],
+        "types": [
+          "CelestrakException"
+        ]
+      },
+      "CacheKeyBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:celestrak/src/data/local/cache_key_builder.dart"
+        ],
+        "methods": [
+          "forCategory",
+          "forGroup",
+          "forIntlDesignator",
+          "forName",
+          "forNoradId"
+        ],
+        "types": [
+          "CelestrakFormat",
+          "SatelliteCategory",
+          "TleSource"
+        ]
+      },
+      "CacheMissException": {
+        "fields": [
+          "key"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/failures.dart"
+        ],
+        "methods": [
+          "CacheMissException",
+          "toString"
+        ],
+        "types": [
+          "CelestrakException"
+        ]
+      },
+      "CacheStore": {
+        "fields": [],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/data/local/cache_store.dart"
+        ],
+        "methods": [
+          "age",
+          "clear",
+          "read",
+          "validateKey",
+          "write"
+        ],
+        "types": []
+      },
+      "CelestrakClient": {
+        "fields": [
+          "get:defaultFormat",
+          "get:defaultTtl",
+          "get:maxAttempts",
+          "get:staleThreshold",
+          "get:timeout"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/client/celestrak_client.dart"
+        ],
+        "methods": [
+          "CelestrakClient",
+          "cacheAge",
+          "categoryAge",
+          "clearCache",
+          "dispose",
+          "fetchByIntlDesignator",
+          "fetchByName",
+          "fetchByNoradId",
+          "fetchCategory",
+          "fetchCategoryByGroup",
+          "groupAge",
+          "intlDesignatorAge",
+          "isStale",
+          "nameAge",
+          "withStore"
+        ],
+        "types": [
+          "CacheStore",
+          "CelestrakFormat",
+          "Clock",
+          "SatelliteCategory",
+          "SatelliteTle",
+          "StalenessChecker",
+          "TleRepository"
+        ]
+      },
+      "CelestrakDataSource": {
+        "fields": [],
+        "libraries": [
+          "package:celestrak/src/data/remote/celestrak_data_source.dart"
+        ],
+        "methods": [
+          "CelestrakDataSource",
+          "fetchByGroup",
+          "fetchByIntlDesignator",
+          "fetchByName",
+          "fetchByNoradId",
+          "isValidIntlDesignator"
+        ],
+        "types": [
+          "CelestrakFormat",
+          "HttpTransport"
+        ]
+      },
+      "CelestrakException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/failures.dart"
+        ],
+        "methods": [
+          "CelestrakException",
+          "toString"
+        ],
+        "types": []
+      },
+      "CelestrakFormat": {
+        "fields": [
+          "omm",
+          "tle"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/enums.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Clock": {
+        "fields": [
+          "get:now"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/clock.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "FileCacheStore": {
+        "fields": [
+          "directory"
+        ],
+        "libraries": [
+          "package:celestrak/src/data/local/file_cache_store.dart"
+        ],
+        "methods": [
+          "FileCacheStore",
+          "age",
+          "clear",
+          "read",
+          "write"
+        ],
+        "types": [
+          "CacheStore"
+        ]
+      },
+      "HttpTransport": {
+        "fields": [],
+        "libraries": [
+          "package:celestrak/src/network/http_transport.dart"
+        ],
+        "methods": [
+          "HttpTransport",
+          "get"
+        ],
+        "types": []
+      },
+      "MemoryCacheStore": {
+        "fields": [],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/data/local/memory_cache_store.dart"
+        ],
+        "methods": [
+          "MemoryCacheStore",
+          "age",
+          "clear",
+          "read",
+          "write"
+        ],
+        "types": [
+          "CacheStore"
+        ]
+      },
+      "NetworkException": {
+        "fields": [
+          "cause",
+          "statusCode",
+          "uri"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/failures.dart"
+        ],
+        "methods": [
+          "NetworkException",
+          "toString"
+        ],
+        "types": [
+          "CelestrakException"
+        ]
+      },
+      "NullParseBenchmarkHook": {
+        "fields": [],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/data/parsers/parse_benchmark_hook.dart"
+        ],
+        "methods": [
+          "NullParseBenchmarkHook",
+          "onParseEnd",
+          "onParseStart"
+        ],
+        "types": [
+          "ParseBenchmarkHook"
+        ]
+      },
+      "Omm": {
+        "fields": [
+          "argOfPericenter",
+          "bstar",
+          "centerName",
+          "classificationType",
+          "eccentricity",
+          "elementSetNo",
+          "ephemerisType",
+          "epoch",
+          "get:hashCode",
+          "inclination",
+          "meanAnomaly",
+          "meanElementTheory",
+          "meanMotion",
+          "meanMotionDdot",
+          "meanMotionDot",
+          "noradCatId",
+          "objectId",
+          "objectName",
+          "raOfAscNode",
+          "refFrame",
+          "revAtEpoch",
+          "timeSystem"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/omm.dart"
+        ],
+        "methods": [
+          "==",
+          "Omm",
+          "copyWith",
+          "toString"
+        ],
+        "types": [
+          "Omm"
+        ]
+      },
+      "OmmParseException": {
+        "fields": [
+          "field"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/failures.dart"
+        ],
+        "methods": [
+          "OmmParseException",
+          "toString"
+        ],
+        "types": [
+          "CelestrakException"
+        ]
+      },
+      "OmmParser": {
+        "fields": [],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/data/parsers/omm_parser.dart"
+        ],
+        "methods": [
+          "OmmParser",
+          "parse",
+          "parseAllLazy"
+        ],
+        "types": [
+          "Omm",
+          "ParseBenchmarkHook"
+        ]
+      },
+      "ParseBenchmarkHook": {
+        "fields": [
+          "labelOmm",
+          "labelTle"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/data/parsers/parse_benchmark_hook.dart"
+        ],
+        "methods": [
+          "onParseEnd",
+          "onParseStart"
+        ],
+        "types": []
+      },
+      "RateLimitException": {
+        "fields": [
+          "retryAfter",
+          "uri"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/failures.dart"
+        ],
+        "methods": [
+          "RateLimitException",
+          "toString"
+        ],
+        "types": [
+          "CelestrakException"
+        ]
+      },
+      "SatelliteCategory": {
+        "fields": [
+          "active",
+          "amateur",
+          "cosmos2251Debris",
+          "galileo",
+          "get:group",
+          "glonass",
+          "gps",
+          "lastThirtyDays",
+          "starlink",
+          "stations",
+          "visual",
+          "weather"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/enums.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SatelliteNotFoundException": {
+        "fields": [
+          "noradId",
+          "uri"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/failures.dart"
+        ],
+        "methods": [
+          "SatelliteNotFoundException",
+          "toString"
+        ],
+        "types": [
+          "CelestrakException"
+        ]
+      },
+      "SatelliteTle": {
+        "fields": [
+          "epoch",
+          "fetchedAt",
+          "get:age",
+          "get:classification",
+          "get:hashCode",
+          "line1",
+          "line2",
+          "name",
+          "noradId",
+          "omm",
+          "source"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/satellite_tle.dart"
+        ],
+        "methods": [
+          "==",
+          "SatelliteTle",
+          "ageAt",
+          "copyWith",
+          "isStale",
+          "toString"
+        ],
+        "types": [
+          "Omm",
+          "SatelliteTle",
+          "TleSource"
+        ]
+      },
+      "SpaceTrackClient": {
+        "fields": [
+          "get:isEnabled",
+          "get:isLoggedIn"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/client/spacetrack_client.dart"
+        ],
+        "methods": [
+          "SpaceTrackClient",
+          "dispose",
+          "fetchByQuery",
+          "withClient"
+        ],
+        "types": [
+          "Clock",
+          "SatelliteTle",
+          "SpaceTrackDataSource",
+          "SpaceTrackQuery"
+        ]
+      },
+      "SpaceTrackDataSource": {
+        "fields": [
+          "get:isLoggedIn"
+        ],
+        "libraries": [
+          "package:celestrak/src/data/remote/spacetrack_data_source.dart"
+        ],
+        "methods": [
+          "SpaceTrackDataSource",
+          "fetchByNoradId",
+          "login"
+        ],
+        "types": [
+          "Clock"
+        ]
+      },
+      "SpaceTrackQuery": {
+        "fields": [
+          "get:hashCode",
+          "get:noradId"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/client/spacetrack_query.dart"
+        ],
+        "methods": [
+          "==",
+          "byNoradId",
+          "toString"
+        ],
+        "types": []
+      },
+      "StalenessChecker": {
+        "fields": [
+          "get:staleThreshold"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/staleness.dart"
+        ],
+        "methods": [
+          "StalenessChecker",
+          "ageOf",
+          "isFresh",
+          "isStale"
+        ],
+        "types": [
+          "Clock"
+        ]
+      },
+      "SystemClock": {
+        "fields": [
+          "get:now"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/clock.dart"
+        ],
+        "methods": [
+          "SystemClock"
+        ],
+        "types": [
+          "Clock"
+        ]
+      },
+      "TleOmmStitcher": {
+        "fields": [],
+        "libraries": [
+          "package:celestrak/src/data/parsers/tle_omm_stitcher.dart"
+        ],
+        "methods": [
+          "TleOmmStitcher",
+          "stitch"
+        ],
+        "types": [
+          "Omm",
+          "SatelliteTle"
+        ]
+      },
+      "TleParseException": {
+        "fields": [
+          "field"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/failures.dart"
+        ],
+        "methods": [
+          "TleParseException",
+          "toString"
+        ],
+        "types": [
+          "CelestrakException"
+        ]
+      },
+      "TleParser": {
+        "fields": [],
+        "libraries": [
+          "package:celestrak/src/data/parsers/tle_parser.dart"
+        ],
+        "methods": [
+          "TleParser",
+          "parse",
+          "parseAll",
+          "parseAllLazy"
+        ],
+        "types": [
+          "ParseBenchmarkHook",
+          "SatelliteTle"
+        ]
+      },
+      "TleRepository": {
+        "fields": [],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/tle_repository.dart"
+        ],
+        "methods": [
+          "cacheAge",
+          "categoryAge",
+          "clearCache",
+          "fetchByIntlDesignator",
+          "fetchByName",
+          "fetchByNoradId",
+          "fetchCategory",
+          "fetchCategoryByGroup",
+          "groupAge",
+          "intlDesignatorAge",
+          "nameAge"
+        ],
+        "types": [
+          "CelestrakFormat",
+          "SatelliteCategory",
+          "SatelliteTle"
+        ]
+      },
+      "TleRepositoryImpl": {
+        "fields": [],
+        "libraries": [
+          "package:celestrak/src/data/tle_repository_impl.dart"
+        ],
+        "methods": [
+          "TleRepositoryImpl",
+          "cacheAge",
+          "categoryAge",
+          "clearCache",
+          "fetchByIntlDesignator",
+          "fetchByName",
+          "fetchByNoradId",
+          "fetchCategory",
+          "fetchCategoryByGroup",
+          "groupAge",
+          "intlDesignatorAge",
+          "nameAge"
+        ],
+        "types": [
+          "CacheStore",
+          "CelestrakDataSource",
+          "CelestrakFormat",
+          "Clock",
+          "SatelliteCategory",
+          "SatelliteTle",
+          "TleRepository"
+        ]
+      },
+      "TleSource": {
+        "fields": [
+          "celestrak",
+          "local",
+          "spacetrack"
+        ],
+        "libraries": [
+          "package:celestrak/celestrak.dart",
+          "package:celestrak/src/domain/enums.dart"
+        ],
+        "methods": [],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:15:41Z",
+  "package": "celestrak",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AuthenticationException",
+      "CacheMissException",
+      "CelestrakDataSource",
+      "CelestrakException",
+      "FileCacheStore",
+      "NetworkException",
+      "NullParseBenchmarkHook",
+      "Omm",
+      "OmmParseException",
+      "OmmParser",
+      "RateLimitException",
+      "SatelliteNotFoundException",
+      "SatelliteTle",
+      "StalenessChecker",
+      "SystemClock",
+      "TleOmmStitcher",
+      "TleParseException",
+      "TleParser",
+      "TleRepositoryImpl",
+      "_OmmParseArgs",
+      "_TleParseArgs"
+    ],
+    "digest": "45a3e94f9c5d2057e5b027415bc410bf5237382dcdba5c1e761590951dd052c4",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "17b5188bb1455ace7185983d5d822b31cfdfbbba106df26aef14ba093777ff85",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      " ",
+      ", ",
+      "-",
+      ".",
+      ".bin",
+      ".ts",
+      "/ajaxauth/login",
+      "/basicspacedata/query",
+      "/class/gp",
+      "/format/json",
+      ":",
+      "ARG_OF_PERICENTER",
+      "BSTAR",
+      "CATNR",
+      "CENTER_NAME",
+      "CLASSIFICATION_TYPE",
+      "Cache keys must only contain alphanumeric characters and :, _, -, ~. Path traversal characters are not permitted.",
+      "Content-Type",
+      "Cookie",
+      "Derived cache key contains invalid characters.",
+      "EARTH",
+      "ECCENTRICITY",
+      "ELEMENT_SET_NO",
+      "EPHEMERIS_TYPE",
+      "EPOCH",
+      "FORMAT",
+      "GROUP",
+      "INCLINATION",
+      "INTDES",
+      "JSON",
+      "MEAN_ANOMALY",
+      "MEAN_ELEMENT_THEORY",
+      "MEAN_MOTION",
+      "MEAN_MOTION_DDOT",
+      "MEAN_MOTION_DOT",
+      "NAME",
+      "NORAD catalog numbers must be >= 1",
+      "NORAD_CAT_ID",
+      "No GP data found",
+      "OBJECT_ID",
+      "OBJECT_NAME",
+      "RA_OF_ASC_NODE",
+      "REF_FRAME",
+      "REV_AT_EPOCH",
+      "SGP4",
+      "Space-Track rate limit exceeded: HTTP 429",
+      "SpaceTrackClient has been disposed",
+      "SpaceTrackClient is disabled: no credentials were supplied. Provide a non-empty identity and password to enable Space-Track access, or check isEnabled before calling fetchByQuery.",
+      "TEME",
+      "TIME_SYSTEM",
+      "TLE",
+      "TLE_LINE1",
+      "TLE_LINE2",
+      "UTC",
+      "Z",
+      "[+-]\\d{2}:?\\d{2}$",
+      "[^a-z0-9:_\\-~]",
+      "^(195[7-9]|19[6-9]\\d|[2-9]\\d{3})-?\\d{1,3}[A-Za-z]{1,3}$",
+      "^[A-Za-z0-9:_\\-~]+$",
+      "_",
+      "_backoffFor requires retryNumber >= 1",
+      "active",
+      "amateur",
+      "application/x-www-form-urlencoded",
+      "baseUrl",
+      "celestrak.omm_parser",
+      "cosmos-2251-debris",
+      "dart:async",
+      "dart:convert",
+      "dart:developer",
+      "dart:io",
+      "dart:isolate",
+      "dart:math",
+      "dart:typed_data",
+      "fmt:",
+      "galileo",
+      "glo-ops",
+      "gps-ops",
+      "group",
+      "group must not be empty",
+      "https",
+      "https://celestrak.org/NORAD/elements/gp.php",
+      "https://www.space-track.org",
+      "identity={identity}&password={password}",
+      "intlDesignator",
+      "invalid NORAD ID format",
+      "invalid checksum",
+      "invalid epoch date/time",
+      "invalid epoch day field",
+      "invalid epoch format",
+      "key",
+      "last-30-days",
+      "line1",
+      "line1 too short",
+      "line1 too short for epoch",
+      "line2",
+      "maxAttempts",
+      "maxAttempts must be at least 1",
+      "missing required field",
+      "must be positive",
+      "name",
+      "name must not be empty or whitespace-only",
+      "noradId",
+      "omm",
+      "package:celestrak/src/client/celestrak_client.dart",
+      "package:celestrak/src/client/spacetrack_client.dart",
+      "package:celestrak/src/client/spacetrack_query.dart",
+      "package:celestrak/src/data/local/cache_key_builder.dart",
+      "package:celestrak/src/data/local/cache_store.dart",
+      "package:celestrak/src/data/local/default_cache_store_io.dart",
+      "package:celestrak/src/data/local/default_cache_store_stub.dart",
+      "package:celestrak/src/data/local/file_cache_store.dart",
+      "package:celestrak/src/data/local/memory_cache_store.dart",
+      "package:celestrak/src/data/parse_runner_native.dart",
+      "package:celestrak/src/data/parse_runner_stub.dart",
+      "package:celestrak/src/data/parsers/omm_parser.dart",
+      "package:celestrak/src/data/parsers/parse_benchmark_hook.dart",
+      "package:celestrak/src/data/parsers/tle_omm_stitcher.dart",
+      "package:celestrak/src/data/parsers/tle_parser.dart",
+      "package:celestrak/src/data/remote/celestrak_data_source.dart",
+      "package:celestrak/src/data/remote/spacetrack_data_source.dart",
+      "package:celestrak/src/data/tle_repository_impl.dart",
+      "package:celestrak/src/domain/clock.dart",
+      "package:celestrak/src/domain/constants.dart",
+      "package:celestrak/src/domain/enums.dart",
+      "package:celestrak/src/domain/failures.dart",
+      "package:celestrak/src/domain/omm.dart",
+      "package:celestrak/src/domain/satellite_tle.dart",
+      "package:celestrak/src/domain/staleness.dart",
+      "package:celestrak/src/domain/tle_repository.dart",
+      "package:celestrak/src/network/http_transport.dart",
+      "package:celestrak/src/network/socket_exception_io.dart",
+      "package:celestrak/src/network/socket_exception_stub.dart",
+      "package:http/http.dart",
+      "package:meta/meta.dart",
+      "retry-after",
+      "set-cookie",
+      "src/client/celestrak_client.dart",
+      "src/client/spacetrack_client.dart",
+      "src/client/spacetrack_query.dart",
+      "src/data/local/cache_store.dart",
+      "src/data/local/memory_cache_store.dart",
+      "src/data/parsers/omm_parser.dart",
+      "src/data/parsers/parse_benchmark_hook.dart",
+      "src/domain/clock.dart",
+      "src/domain/constants.dart",
+      "src/domain/enums.dart",
+      "src/domain/failures.dart",
+      "src/domain/omm.dart",
+      "src/domain/satellite_tle.dart",
+      "src/domain/staleness.dart",
+      "src/domain/tle_repository.dart",
+      "src/network/http_transport.dart",
+      "src:",
+      "starlink",
+      "stations",
+      "tle",
+      "uri",
+      "visual",
+      "weather",
+      "{identity}",
+      "{password}",
+      "~"
+    ]
+  },
+  "version": "1.0.5"
+}
