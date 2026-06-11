@@ -1,0 +1,1779 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "generatedFileHeader",
+          "paramOrderCommentedBanner",
+          "terradartCliVersion",
+          "todoClassDocCommentNoMm",
+          "todoClassDocCommentWithMm",
+          "todoDeprecatedParams",
+          "todoExtraGetters",
+          "wrapInitBannerTemplate"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/cli_runner.dart",
+          "package:terradart_codegen/src/cli/lint_override_command.dart",
+          "package:terradart_codegen/src/cli/version_command.dart",
+          "package:terradart_codegen/src/codegen/catalog_entry_builder.dart",
+          "package:terradart_codegen/src/codegen/constructor_params.dart",
+          "package:terradart_codegen/src/codegen/dart_type_writer.dart",
+          "package:terradart_codegen/src/codegen/doc_comment_builder.dart",
+          "package:terradart_codegen/src/codegen/enum_emitter.dart",
+          "package:terradart_codegen/src/codegen/generated_file_header.dart",
+          "package:terradart_codegen/src/codegen/getter_emitter.dart",
+          "package:terradart_codegen/src/codegen/naming.dart",
+          "package:terradart_codegen/src/codegen/override_linter.dart",
+          "package:terradart_codegen/src/codegen/sensitive_set_emitter.dart",
+          "package:terradart_codegen/src/codegen/wrap_init/wrap_init_templates.dart",
+          "package:terradart_codegen/src/codegen/wrapper_overrides/_registry.dart",
+          "package:terradart_codegen/src/parser/_type_decoder.dart"
+        ],
+        "methods": [
+          "buildCatalogEntry",
+          "buildClassDocComment",
+          "buildCliRunner",
+          "catalogConstructorParams",
+          "decodeSchemaJsonType",
+          "defaultMmFixtureDirForOverrideRoot",
+          "emitDerivedOutputGetters",
+          "emitEnumDeclaration",
+          "emitFilePrivateSensitiveSet",
+          "emitSensitiveStaticSet",
+          "enumName",
+          "filePrivateSensitiveConstName",
+          "firstSentence",
+          "lintExactlyOneMutualExclusion",
+          "lintOverride",
+          "lintOverrides",
+          "loadMmFixtures",
+          "loadWrapperOverrides",
+          "nestedAbstractClassName",
+          "orderedConstructorParams",
+          "paramIdentifier",
+          "resourceFileName",
+          "scanNestedTypes",
+          "sensitiveConstName",
+          "sensitiveFieldPaths",
+          "skipAttribute",
+          "skipNestedBlock",
+          "snakeToCamel",
+          "snakeToPascal",
+          "terraformAbstractClassName",
+          "writeDartType",
+          "writeEnumDartType"
+        ],
+        "types": [
+          "Attribute",
+          "CatalogEntryData",
+          "EnumName",
+          "LintViolation",
+          "LoadedOverrides",
+          "MmResourceOverrides",
+          "NestedBlockDef",
+          "ResourceDef",
+          "TypeDef",
+          "WrapperOverride"
+        ]
+      },
+      "AbstractClassEmitter": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/abstract_class_emitter.dart"
+        ],
+        "methods": [
+          "AbstractClassEmitter",
+          "emit"
+        ],
+        "types": [
+          "ResourceDef"
+        ]
+      },
+      "Attribute": {
+        "fields": [
+          "constraints",
+          "defaultValue",
+          "description",
+          "name",
+          "type"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/attribute.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "Attribute"
+        ],
+        "types": [
+          "Constraints",
+          "TypeDef"
+        ]
+      },
+      "BannerOnlyAxis": {
+        "fields": [
+          "banner"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_init/wrap_init_draft.dart"
+        ],
+        "methods": [
+          "BannerOnlyAxis"
+        ],
+        "types": [
+          "WrapInitAxis"
+        ]
+      },
+      "BlockDef": {
+        "fields": [
+          "attributes",
+          "description",
+          "nestedBlocks"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/nested_block.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "BlockDef"
+        ],
+        "types": [
+          "Attribute",
+          "NestedBlockDef"
+        ]
+      },
+      "BoolType": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "BoolType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "CatalogEntryData": {
+        "fields": [
+          "barrel",
+          "className",
+          "constructorParams",
+          "docComment",
+          "kind",
+          "nestedTypes",
+          "sensitiveFields",
+          "summary",
+          "tfType"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/catalog_metadata_emitter.dart"
+        ],
+        "methods": [
+          "CatalogEntryData"
+        ],
+        "types": []
+      },
+      "CatalogMetadataEmitter": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/catalog_metadata_emitter.dart"
+        ],
+        "methods": [
+          "emit"
+        ],
+        "types": [
+          "CatalogEntryData"
+        ]
+      },
+      "CliExitCodes": {
+        "fields": [
+          "dataError",
+          "software",
+          "success",
+          "usage"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/exit_codes.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Clock": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_init/clock.dart"
+        ],
+        "methods": [
+          "now"
+        ],
+        "types": []
+      },
+      "CommentedAxis": {
+        "fields": [
+          "banner",
+          "value"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_init/wrap_init_draft.dart"
+        ],
+        "methods": [
+          "CommentedAxis"
+        ],
+        "types": [
+          "WrapInitAxis"
+        ]
+      },
+      "Constraints": {
+        "fields": [
+          "computed",
+          "deprecationMessage",
+          "enumValues",
+          "forceNew",
+          "get:computedOnly",
+          "get:optionalAndComputed",
+          "max",
+          "maxLength",
+          "min",
+          "minLength",
+          "optional",
+          "regex",
+          "required",
+          "sensitive",
+          "writeOnly"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/constraints.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "Constraints",
+          "copyWith"
+        ],
+        "types": [
+          "Constraints"
+        ]
+      },
+      "CustomSlot": {
+        "fields": [
+          "argMapEntry",
+          "paramDeclaration"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/wrapper_override.dart"
+        ],
+        "methods": [
+          "CustomSlot"
+        ],
+        "types": []
+      },
+      "DataSourceClassEmitter": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/data_source_class_emitter.dart"
+        ],
+        "methods": [
+          "DataSourceClassEmitter",
+          "emit"
+        ],
+        "types": [
+          "ResourceDef"
+        ]
+      },
+      "DataSourceWrapperEmitter": {
+        "fields": [
+          "overrides"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/data_source_wrapper_emitter.dart"
+        ],
+        "methods": [
+          "DataSourceWrapperEmitter",
+          "emit"
+        ],
+        "types": [
+          "ResourceDef",
+          "WrapperOverride"
+        ]
+      },
+      "DynamicType": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "DynamicType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "EmittedEnum": {
+        "fields": [
+          "members",
+          "name"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/universal_invariants/enum_extractor.dart"
+        ],
+        "methods": [
+          "EmittedEnum"
+        ],
+        "types": []
+      },
+      "EnumExtractor": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/universal_invariants/enum_extractor.dart"
+        ],
+        "methods": [
+          "EnumExtractor",
+          "extract"
+        ],
+        "types": [
+          "EmittedEnum"
+        ]
+      },
+      "EnumName": {
+        "fields": [
+          "dartMembers",
+          "dartName",
+          "fieldPath",
+          "rawValues"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/naming.dart"
+        ],
+        "methods": [
+          "EnumName"
+        ],
+        "types": []
+      },
+      "EnumValueLength": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/universal_invariants/enum_value_length.dart"
+        ],
+        "methods": [
+          "scan"
+        ],
+        "types": []
+      },
+      "ExactlyOneOfEmitter": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_promote/exactly_one_of_emitter.dart"
+        ],
+        "methods": [
+          "ExactlyOneOfEmitter",
+          "emit"
+        ],
+        "types": [
+          "ResourceDef"
+        ]
+      },
+      "FilledAxis": {
+        "fields": [
+          "value"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_init/wrap_init_draft.dart"
+        ],
+        "methods": [
+          "FilledAxis"
+        ],
+        "types": [
+          "WrapInitAxis"
+        ]
+      },
+      "FixedClock": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_init/clock.dart"
+        ],
+        "methods": [
+          "FixedClock",
+          "now"
+        ],
+        "types": [
+          "Clock"
+        ]
+      },
+      "GoogleProviderRules": {
+        "fields": [
+          "get:outputDirAliases",
+          "get:providerId"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/providers/google_provider_rules.dart"
+        ],
+        "methods": [
+          "GoogleProviderRules",
+          "universalGetters"
+        ],
+        "types": [
+          "ProviderRules",
+          "ResourceDef"
+        ]
+      },
+      "IntType": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "IntType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "IrMerger": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/parser/ir_merger.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "IrMerger",
+          "merge"
+        ],
+        "types": [
+          "MmResourceOverrides",
+          "ProviderSchemaIR"
+        ]
+      },
+      "LintOverrideCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/lint_override_command.dart"
+        ],
+        "methods": [
+          "LintOverrideCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "LintViolation": {
+        "fields": [
+          "detail",
+          "rule",
+          "tfType"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/override_linter.dart"
+        ],
+        "methods": [
+          "LintViolation"
+        ],
+        "types": []
+      },
+      "ListType": {
+        "fields": [
+          "element"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "ListType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "LoadedOverrides": {
+        "fields": [
+          "dataSources",
+          "get:all",
+          "resources"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/yaml_loader.dart"
+        ],
+        "methods": [
+          "LoadedOverrides"
+        ],
+        "types": [
+          "WrapperOverride"
+        ]
+      },
+      "LoaderError": {
+        "fields": [
+          "code",
+          "column",
+          "filePath",
+          "hint",
+          "line",
+          "message"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/loader_errors.dart"
+        ],
+        "methods": [
+          "LoaderError",
+          "format"
+        ],
+        "types": [
+          "LoaderErrorCode"
+        ]
+      },
+      "LoaderErrorCode": {
+        "fields": [
+          "atomicWriteFailed",
+          "axisNotAllowedForDataSource",
+          "checkMismatch",
+          "outputDirInvalid",
+          "outputDirMismatchForDataSource",
+          "outputDirRequired",
+          "refuseOverwriteNonGenerated",
+          "tag",
+          "unknownKind",
+          "wrapInitTargetExists",
+          "wrapPromoteRequiresExistingYaml",
+          "wrapPromoteRequiresMm"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/loader_errors.dart"
+        ],
+        "methods": [
+          "LoaderErrorCode"
+        ],
+        "types": []
+      },
+      "LoaderErrorReport": {
+        "fields": [
+          "errors",
+          "get:isEmpty",
+          "get:isNotEmpty"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/loader_errors.dart"
+        ],
+        "methods": [
+          "LoaderErrorReport",
+          "fatal",
+          "format",
+          "toString"
+        ],
+        "types": [
+          "LoaderError"
+        ]
+      },
+      "MapType": {
+        "fields": [
+          "value"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "MapType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "MinItemsAssertEmitter": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_promote/min_items_assert_emitter.dart"
+        ],
+        "methods": [
+          "MinItemsAssertEmitter",
+          "emit"
+        ],
+        "types": [
+          "ResourceDef"
+        ]
+      },
+      "MmResourceOverrides": {
+        "fields": [
+          "description",
+          "exactlyOneOfGroups",
+          "fieldOverrides",
+          "product"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/parser/mm_yaml_parser.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "MmResourceOverrides"
+        ],
+        "types": [
+          "Constraints"
+        ]
+      },
+      "MmYamlParser": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/parser/mm_yaml_parser.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "MmYamlParser",
+          "parseString"
+        ],
+        "types": [
+          "MmResourceOverrides"
+        ]
+      },
+      "NestedBlockDef": {
+        "fields": [
+          "block",
+          "constraints",
+          "description",
+          "maxItems",
+          "minItems",
+          "name",
+          "nesting"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/nested_block.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "NestedBlockDef"
+        ],
+        "types": [
+          "BlockDef",
+          "Constraints",
+          "NestingMode"
+        ]
+      },
+      "NestedHelperPrefix": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/universal_invariants/nested_helper_prefix.dart"
+        ],
+        "methods": [
+          "scan"
+        ],
+        "types": []
+      },
+      "NestingMode": {
+        "fields": [
+          "group",
+          "list",
+          "map",
+          "set",
+          "single"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/nested_block.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "NumberType": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "NumberType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "ObjectType": {
+        "fields": [
+          "attrs"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "ObjectType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "OutputDirResolver": {
+        "fields": [
+          "aliases"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_init/output_dir_resolver.dart"
+        ],
+        "methods": [
+          "OutputDirResolver",
+          "resolve"
+        ],
+        "types": [
+          "WrapperOverrideKind"
+        ]
+      },
+      "PathWalker": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/universal_invariants/path_walker.dart"
+        ],
+        "methods": [
+          "PathWalker",
+          "resolveAttribute"
+        ],
+        "types": [
+          "Attribute",
+          "BlockDef"
+        ]
+      },
+      "ProseEnumExtractor": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_promote/prose_enum_extractor.dart"
+        ],
+        "methods": [
+          "ProseEnumExtractor",
+          "extract"
+        ],
+        "types": [
+          "ResourceDef"
+        ]
+      },
+      "ProviderRules": {
+        "fields": [
+          "get:outputDirAliases",
+          "get:providerId"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/providers/provider_rules.dart"
+        ],
+        "methods": [
+          "ProviderRules",
+          "universalGetters"
+        ],
+        "types": [
+          "ResourceDef"
+        ]
+      },
+      "ProviderSchemaIR": {
+        "fields": [
+          "dataSources",
+          "providerName",
+          "providerSource",
+          "providerVersion",
+          "resources"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/provider_schema_ir.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "ProviderSchemaIR"
+        ],
+        "types": [
+          "ResourceDef"
+        ]
+      },
+      "ResourceDef": {
+        "fields": [
+          "deprecationMessage",
+          "description",
+          "root",
+          "terraformType"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/resource_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "ResourceDef"
+        ],
+        "types": [
+          "BlockDef"
+        ]
+      },
+      "SchemaJsonParser": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/parser/schema_parser.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "SchemaJsonParser",
+          "parseString"
+        ],
+        "types": [
+          "ProviderSchemaIR"
+        ]
+      },
+      "SchemaStubBodyMode": {
+        "fields": [
+          "bare",
+          "nosuchmethod"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/wrapper_override.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SealedClass": {
+        "fields": [
+          "members",
+          "name"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/universal_invariants/sealed_class_extractor.dart"
+        ],
+        "methods": [
+          "SealedClass"
+        ],
+        "types": [
+          "SealedClassMember"
+        ]
+      },
+      "SealedClassExtractor": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/universal_invariants/sealed_class_extractor.dart"
+        ],
+        "methods": [
+          "SealedClassExtractor",
+          "extract"
+        ],
+        "types": [
+          "SealedClass"
+        ]
+      },
+      "SealedClassMember": {
+        "fields": [
+          "name",
+          "params"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/universal_invariants/sealed_class_extractor.dart"
+        ],
+        "methods": [
+          "SealedClassMember"
+        ],
+        "types": [
+          "SealedClassParam"
+        ]
+      },
+      "SealedClassParam": {
+        "fields": [
+          "name",
+          "required"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/universal_invariants/sealed_class_extractor.dart"
+        ],
+        "methods": [
+          "SealedClassParam"
+        ],
+        "types": []
+      },
+      "SetType": {
+        "fields": [
+          "element"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "SetType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "StringType": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "StringType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "SyntheticArgMapBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/universal_invariants/synthetic_argmap_builder.dart"
+        ],
+        "methods": [
+          "SyntheticArgMapBuilder",
+          "buildForPath"
+        ],
+        "types": []
+      },
+      "SyntheticInstanceBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/universal_invariants/synthetic_instance_builder.dart"
+        ],
+        "methods": [
+          "SyntheticInstanceBuilder",
+          "buildExpression"
+        ],
+        "types": [
+          "SealedClassMember"
+        ]
+      },
+      "SystemClock": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_init/clock.dart"
+        ],
+        "methods": [
+          "SystemClock",
+          "now"
+        ],
+        "types": [
+          "Clock"
+        ]
+      },
+      "TfArgWrap": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/universal_invariants/tf_arg_wrap.dart"
+        ],
+        "methods": [
+          "scan"
+        ],
+        "types": []
+      },
+      "TodoAxis": {
+        "fields": [
+          "seed",
+          "skeleton",
+          "todoMessage"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_init/wrap_init_draft.dart"
+        ],
+        "methods": [
+          "TodoAxis"
+        ],
+        "types": [
+          "WrapInitAxis"
+        ]
+      },
+      "TupleType": {
+        "fields": [
+          "elements"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "TupleType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "TypeDef": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "TypeDef"
+        ],
+        "types": []
+      },
+      "ValidValuesEmitter": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_promote/valid_values_emitter.dart"
+        ],
+        "methods": [
+          "ValidValuesEmitter",
+          "emit",
+          "enumNameFor",
+          "leafFieldName"
+        ],
+        "types": []
+      },
+      "VersionCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/version_command.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": []
+      },
+      "WrapCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/wrap_command.dart"
+        ],
+        "methods": [
+          "WrapCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "WrapInitAxis": {
+        "fields": [
+          "key"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_init/wrap_init_draft.dart"
+        ],
+        "methods": [
+          "WrapInitAxis"
+        ],
+        "types": []
+      },
+      "WrapInitCommand": {
+        "fields": [
+          "get:description",
+          "get:name",
+          "providers"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/wrap_init_command.dart"
+        ],
+        "methods": [
+          "WrapInitCommand",
+          "run"
+        ],
+        "types": [
+          "ProviderRules"
+        ]
+      },
+      "WrapInitDraft": {
+        "fields": [
+          "axes",
+          "bannerDate",
+          "terraformType"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_init/wrap_init_draft.dart"
+        ],
+        "methods": [
+          "WrapInitDraft"
+        ],
+        "types": [
+          "WrapInitAxis"
+        ]
+      },
+      "WrapInitEmitter": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_init/wrap_init_emitter.dart"
+        ],
+        "methods": [
+          "WrapInitEmitter",
+          "emit"
+        ],
+        "types": [
+          "WrapInitDraft"
+        ]
+      },
+      "WrapInitGenerator": {
+        "fields": [
+          "clock",
+          "outputDirResolver",
+          "providerRules"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_init/wrap_init_generator.dart"
+        ],
+        "methods": [
+          "WrapInitGenerator",
+          "generate"
+        ],
+        "types": [
+          "Clock",
+          "MmResourceOverrides",
+          "OutputDirResolver",
+          "ProviderRules",
+          "ResourceDef",
+          "WrapInitDraft",
+          "WrapperOverrideKind"
+        ]
+      },
+      "WrapPromoteCommand": {
+        "fields": [
+          "get:description",
+          "get:name",
+          "providers"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/wrap_promote_command.dart"
+        ],
+        "methods": [
+          "WrapPromoteCommand",
+          "run"
+        ],
+        "types": [
+          "ProviderRules"
+        ]
+      },
+      "WrapPromoteGenerator": {
+        "fields": [
+          "clock"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_promote/wrap_promote_generator.dart"
+        ],
+        "methods": [
+          "WrapPromoteGenerator",
+          "generate"
+        ],
+        "types": [
+          "Clock",
+          "MmResourceOverrides",
+          "ResourceDef"
+        ]
+      },
+      "WrapPromoteMarker": {
+        "fields": [
+          "beginMarker",
+          "endMarker"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrap_promote/wrap_promote_marker.dart"
+        ],
+        "methods": [
+          "stripMarkerSection",
+          "wrapWithMarkers"
+        ],
+        "types": []
+      },
+      "WrapperEmitter": {
+        "fields": [
+          "overrides"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_emitter.dart"
+        ],
+        "methods": [
+          "WrapperEmitter",
+          "emit"
+        ],
+        "types": [
+          "ResourceDef",
+          "WrapperOverride"
+        ]
+      },
+      "WrapperOverride": {
+        "fields": [
+          "argMapOrder",
+          "classDocComment",
+          "curatedDoc",
+          "customSlots",
+          "dartTypeOverrides",
+          "deprecatedParams",
+          "deriveClassDoc",
+          "deriveEnums",
+          "deriveOutputGetters",
+          "extraGetters",
+          "extraImports",
+          "extraSensitiveFields",
+          "fileLeadingComment",
+          "kind",
+          "outputDir",
+          "paramOrder",
+          "prelude",
+          "requiredParams",
+          "schemaStubBodyMode"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/wrapper_override.dart"
+        ],
+        "methods": [
+          "WrapperOverride"
+        ],
+        "types": [
+          "CustomSlot",
+          "SchemaStubBodyMode",
+          "WrapperOverrideKind"
+        ]
+      },
+      "WrapperOverrideKind": {
+        "fields": [
+          "dataSource",
+          "resource"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/wrapper_override.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "YamlOverrideLoader": {
+        "fields": [
+          "rootDir"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/yaml_loader.dart"
+        ],
+        "methods": [
+          "YamlOverrideLoader",
+          "load"
+        ],
+        "types": [
+          "LoadedOverrides"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:12:15Z",
+  "package": "terradart_codegen",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AbstractClassEmitter",
+      "Attribute",
+      "BannerOnlyAxis",
+      "BlockDef",
+      "BoolType",
+      "CommentedAxis",
+      "Constraints",
+      "CustomSlot",
+      "DataSourceClassEmitter",
+      "DynamicType",
+      "EmittedEnum",
+      "EnumExtractor",
+      "EnumName",
+      "ExactlyOneOfEmitter",
+      "FilledAxis",
+      "FixedClock",
+      "GoogleProviderRules",
+      "IntType",
+      "IrMerger",
+      "LintViolation",
+      "ListType",
+      "LoadedOverrides",
+      "MapType",
+      "MinItemsAssertEmitter",
+      "MmResourceOverrides",
+      "MmYamlParser",
+      "NestedBlockDef",
+      "NumberType",
+      "ObjectType",
+      "OutputDirResolver",
+      "PathWalker",
+      "ProseEnumExtractor",
+      "ProviderRules",
+      "ProviderSchemaIR",
+      "ResourceDef",
+      "SchemaJsonParser",
+      "SealedClass",
+      "SealedClassExtractor",
+      "SealedClassMember",
+      "SealedClassParam",
+      "SetType",
+      "StringType",
+      "SyntheticArgMapBuilder",
+      "SyntheticInstanceBuilder",
+      "SystemClock",
+      "TodoAxis",
+      "TupleType",
+      "TypeDef",
+      "ValidValuesEmitter",
+      "WrapInitAxis",
+      "WrapInitDraft",
+      "WrapInitEmitter",
+      "WrapperOverride"
+    ],
+    "digest": "3447ddfdddd239541da1cab82fcad7ae0261605319655c81be63c14b889111bb",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "5c4baae01918668eea4904dc8aa6571b70b5d32b22e079bacc1ca4cf68998e06",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\n\n",
+      "\n\nFix all errors above and re-run `terradart wrap`.",
+      "\n  Hint: ",
+      "\n  at ",
+      "\nRun `terradart wrap` to regenerate.",
+      "\r\n",
+      " ",
+      "         argMap: {",
+      "         terraformType: tfType,",
+      "         },",
+      "       );",
+      "      // Pattern: { if (optional != null) 'optional_key': optional!.toTfJson(), 'required_key': required.toTfJson(), ... }",
+      "      switch (this) {",
+      "      }",
+      "    @override",
+      "    Map<String, Object?> encode() {",
+      "    Map<String, Object?> encode();",
+      "    String get blockKey;",
+      "    String get terraformValue {",
+      "    required super.localName,",
+      "    super.dependsOn,",
+      "    super.lifecycle,",
+      "    }",
+      "    });",
+      "  ),",
+      "  @override",
+      "  CatalogEntry(",
+      "  bool get supportsDeletionProtection => true;",
+      "  final String terraformValue;",
+      "  }",
+      "  }) : super(",
+      "# ",
+      "# === end wrap-promote additions ===",
+      "# === wrap-promote additions (do not edit inside this block; regenerated by wrap-promote) ===",
+      "# Assert hints (curator: integrate into helper class constructors):",
+      "# Auto-generated by `terradart wrap-init` on {date}.\n# Review every TODO before committing.\n",
+      "# Skipped exactly_one_of group: fewer than 2 members.\n",
+      "# dartTypeOverrides entry (uncomment + integrate into the main yaml):",
+      "# dartTypeOverrides:",
+      "$",
+      "'",
+      "(?:sealed\\s+|final\\s+|abstract\\s+)?class\\s+([A-Z][A-Za-z0-9]+)\\s*(?:extends\\s+[^{]+)?(?:implements\\s+[^{]+)?\\s*\\{",
+      "([a-z][a-zA-Z0-9_]*)\\s*\\(\\s*'([^']*)'\\s*,?\\s*\\)",
+      ",",
+      ", ",
+      "--provider is required.",
+      ".",
+      "..",
+      "../../ir/attribute.dart",
+      "../../ir/nested_block.dart",
+      "../../ir/resource_def.dart",
+      "../../parser/mm_yaml_parser.dart",
+      "../codegen/catalog_entry_builder.dart",
+      "../codegen/catalog_metadata_emitter.dart",
+      "../codegen/data_source_wrapper_emitter.dart",
+      "../codegen/generated_file_header.dart",
+      "../codegen/override_linter.dart",
+      "../codegen/providers/google_provider_rules.dart",
+      "../codegen/providers/provider_rules.dart",
+      "../codegen/wrap_init/clock.dart",
+      "../codegen/wrap_init/output_dir_resolver.dart",
+      "../codegen/wrap_init/wrap_init_emitter.dart",
+      "../codegen/wrap_init/wrap_init_generator.dart",
+      "../codegen/wrap_promote/wrap_promote_generator.dart",
+      "../codegen/wrap_promote/wrap_promote_marker.dart",
+      "../codegen/wrapper_emitter.dart",
+      "../codegen/wrapper_overrides/_registry.dart",
+      "../codegen/wrapper_overrides/wrapper_override.dart",
+      "../codegen/wrapper_overrides/yaml_loader.dart",
+      "../dart_type_writer.dart",
+      "../ir/attribute.dart",
+      "../ir/constraints.dart",
+      "../ir/nested_block.dart",
+      "../ir/provider_schema_ir.dart",
+      "../ir/resource_def.dart",
+      "../ir/type_def.dart",
+      "../naming.dart",
+      "../parser/ir_merger.dart",
+      "../parser/mm_yaml_parser.dart",
+      "../parser/schema_parser.dart",
+      "../providers/provider_rules.dart",
+      "../wrap_init/clock.dart",
+      "../wrapper_overrides/wrapper_override.dart",
+      ".blockKey",
+      ".dart",
+      ".yaml",
+      "/",
+      "//",
+      "// GENERATED FILE - DO NOT EDIT",
+      "// GENERATED FILE - DO NOT EDIT\n// Run `terradart wrap` to regenerate.\n// ignore_for_file: prefer_relative_imports\n",
+      "// Generated by terradart codegen. DO NOT EDIT.",
+      "// Run `terradart wrap` to regenerate.",
+      "// gate7-ok",
+      "///",
+      "0.0.1-dev",
+      "7.31.0",
+      ":",
+      ";",
+      "?",
+      "Add `outputDir: <dir>` as a top-level key.",
+      "Allowed axes for data sources: kind, outputDir, schemaStubBodyMode, fileLeadingComment, classDocComment, paramOrder, argMapOrder, requiredParams, dartTypeOverrides, extraImports, extraGetters.",
+      "CI gate mode: fail (E301) if any emitted file differs from its on-disk counterpart. Implies no writes.",
+      "Choice",
+      "DIR",
+      "Deprecated.",
+      "Directory containing schema.json + mm/<resource>.yaml. Required.",
+      "Directory holding an existing <resource>.yaml from wrap-init. Required.",
+      "Directory where <resource>.yaml will be written. Required.",
+      "E101",
+      "E102",
+      "E103",
+      "E104",
+      "E201",
+      "E301",
+      "E401",
+      "E402",
+      "E403",
+      "E404",
+      "E501",
+      "Emit Layer 2 factory wrappers (+ data source Layer 1) from override YAML.",
+      "Lint wrapper override YAML for dead/conflicting derive-gate config.",
+      "List<Map<String, dynamic>>",
+      "List<Object?>",
+      "MM YAML fixture directory for phase-2 lint rules. Defaults to test/fixtures/wrap/source/mm beside the bundled override root.",
+      "MM YAML root must be a map.",
+      "Maintain terradart curated factories from Terraform provider schemas.",
+      "Map<String, Object?>",
+      "Map<String, dynamic>",
+      "NAMESPACE/NAME",
+      "No provider_schemas found.",
+      "Object?",
+      "Output directory for generated wrapper files.",
+      "Overlay MM-derived sealed-class skeletons + enums onto an existing wrap-init yaml.",
+      "Override-YAML directory to lint. Defaults to the bundled package:terradart_codegen registry.",
+      "Overwrite an existing <output>/<resource>.yaml (default: refuse).",
+      "Overwrite files that are missing or have a non-TerraDart generated-file header (E401 is suppressed).",
+      "Path to a local schema/MM YAML checkout used as input.",
+      "Possible values:\\s*([^.\\n]+?)(?:\\.|\\n|$)",
+      "Print the terradart CLI version and exit.",
+      "Regenerate only this Terraform type. Skips every other yaml override under the registry — useful when a sibling yaml has unstripped `wrap-promote` markers that would otherwise break the full-registry load.",
+      "Regenerate the marker section even if one already exists (default: refuse).",
+      "Scaffold a wrapper override YAML skeleton for one Terraform resource.",
+      "Set `kind: resource` or `kind: data_source`.",
+      "Set `schemaStubBodyMode: nosuchmethod` or `schemaStubBodyMode: bare`.",
+      "String",
+      "TERRAFORM_TYPE",
+      "Terraform provider id, e.g. \"hashicorp/google\". Default applies.",
+      "Terraform provider id, e.g. \"hashicorp/google\". Required.",
+      "TfRef<String> get id => TfRef.attribute<String>(this, 'id');",
+      "TfRef<String> get nameRef => TfRef.attribute<String>(this, 'name');",
+      "[A-Za-z_$][A-Za-z0-9_$]*",
+      "[\\s(;]",
+      "\\",
+      "\\$",
+      "\\'",
+      "\\\\",
+      "\\bget (\\w+)",
+      "\\n",
+      "\\n[ \\t]*\\n",
+      "\\s",
+      "\\s*\\{",
+      "\\s+",
+      "];",
+      "^(?:final\\s+|sealed\\s+|abstract\\s+|base\\s+|interface\\s+|mixin\\s+)*(?:class|enum|mixin)\\s+([A-Za-z_$][A-Za-z0-9_$]*)",
+      "^(?:sealed\\s+|final\\s+|abstract\\s+)?class\\s+([A-Z][A-Za-z0-9]+)\\s*[{(<]",
+      "^[A-Za-z][A-Za-z0-9_]{0,39}$",
+      "^[a-z0-9][a-z0-9-]*\\/[a-z0-9][a-z0-9-]*$",
+      "^[a-zA-Z_]",
+      "^[a-z][a-z0-9_]*$",
+      "^\\s*///\\s?",
+      "^\\s*final\\s+(String|int|bool|double|num)\\??\\s+[a-z][A-Za-z0-9]*\\s*;(?:\\s*//[^\\n]*)?",
+      "^_+",
+      "_",
+      "_catalog.g.dart",
+      "_type_decoder.dart",
+      "abstract",
+      "api_name",
+      "argMapEntry",
+      "argMapOrder",
+      "artifact_registry",
+      "as",
+      "assert",
+      "async",
+      "attribute.dart",
+      "attributes",
+      "await",
+      "bare",
+      "block",
+      "block_types",
+      "bool",
+      "break",
+      "case",
+      "catalog_metadata_emitter.dart",
+      "catch",
+      "check",
+      "choice",
+      "class",
+      "classDocComment",
+      "clock.dart",
+      "cloud_build",
+      "cloud_functions",
+      "cloud_run",
+      "cloud_scheduler",
+      "cloud_tasks",
+      "cloudbuild",
+      "cloudbuildv2",
+      "cloudfunctions2",
+      "cloudrunv2",
+      "cloudscheduler",
+      "cloudtasks",
+      "computed",
+      "const",
+      "const ",
+      "const List<CatalogEntry> terradartCatalog = <CatalogEntry>[",
+      "const\\s+\\w+\\s*\\(\\s*\\{([^}]*)\\}\\s*\\)\\s*[;:]",
+      "constraints.dart",
+      "constructor_params.dart",
+      "continue",
+      "covariant",
+      "curated-doc-without-derive-class-doc",
+      "curatedDoc",
+      "curatedDoc is set but deriveClassDoc is false. curatedDoc is only emitted when deriveClassDoc is true, so it is dead config. Set deriveClassDoc: true or remove curatedDoc.",
+      "customSlots",
+      "customSlots:",
+      "dart:convert",
+      "dart:io",
+      "dart:isolate",
+      "dartTypeOverrides",
+      "dart_type_writer.dart",
+      "data",
+      "dataSource",
+      "data_source",
+      "data_source_schemas",
+      "default",
+      "deferred",
+      "deletion_protection",
+      "deprecated",
+      "deprecatedParams",
+      "deprecation_message",
+      "derive-class-doc-dead-classdoccomment",
+      "deriveClassDoc",
+      "deriveClassDoc is true but classDocComment is still set. The emitter uses the derived doc, so classDocComment is dead config. Remove classDocComment (move any artisanal prose to curatedDoc).",
+      "deriveEnums",
+      "deriveOutputGetters",
+      "description",
+      "dir",
+      "do",
+      "doc_comment_builder.dart",
+      "dynamic",
+      "e.g",
+      "else",
+      "entries",
+      "entry",
+      "enum",
+      "enum\\s+([A-Z][A-Za-z0-9_]*)(?:\\s+implements\\s+TerraformEnum)?\\s*\\{([^}]*?)const\\s+\\1\\s*\\(this\\.terraformValue\\)\\s*;\\s*final\\s+String\\s+terraformValue\\s*;",
+      "enum\\s+(\\w+)\\s*\\{([^}]*)\\}",
+      "enum_emitter.dart",
+      "enum_values",
+      "etc",
+      "exactly-one-optional-fanout",
+      "exactly_one_of",
+      "exactly_one_of_emitter.dart",
+      "exit_codes.dart",
+      "expand the MM-seeded comment with a usage example, ForceNew callouts, and composition notes.",
+      "export",
+      "extends",
+      "extension",
+      "external",
+      "extraGetters",
+      "extraImports",
+      "extraSensitiveFields",
+      "factory",
+      "false",
+      "fileLeadingComment",
+      "final",
+      "final ",
+      "final\\s+class\\s+(\\w+)\\s+extends\\s+",
+      "finally",
+      "firebase_app_check",
+      "firebase_app_hosting",
+      "firebase_data_connect",
+      "firebase_remote_config",
+      "fixtures",
+      "for",
+      "force",
+      "get",
+      "getter_emitter.dart",
+      "google_",
+      "group",
+      "hashicorp/google",
+      "hide",
+      "i.e",
+      "iam",
+      "id",
+      "if",
+      "immutable",
+      "implements",
+      "import",
+      "import 'catalog_entry.dart';",
+      "import 'package:terradart_core/terradart_core.dart';",
+      "in",
+      "int",
+      "interface",
+      "is",
+      "kind",
+      "late",
+      "library",
+      "lint-override",
+      "lint_override_command.dart",
+      "list",
+      "loader_errors.dart",
+      "localName",
+      "map",
+      "max_items",
+      "max_length",
+      "min_items",
+      "min_items_assert_emitter.dart",
+      "min_length",
+      "mixin",
+      "mm",
+      "mm-dir",
+      "mm_yaml_parser.dart",
+      "name",
+      "nameRef",
+      "naming.dart",
+      "nested_block.dart",
+      "nesting_mode",
+      "new",
+      "nosuchmethod",
+      "null",
+      "num",
+      "number",
+      "o",
+      "object",
+      "on",
+      "only",
+      "operator",
+      "optional",
+      "output",
+      "outputDir",
+      "outputDir is required, e.g. \"outputDir: pubsub\".",
+      "output_dir_resolver.dart",
+      "p",
+      "package:args/command_runner.dart",
+      "package:dart_style/dart_style.dart",
+      "package:meta/meta.dart",
+      "package:path/path.dart",
+      "package:terradart_codegen/src/codegen/wrapper_overrides/yaml/",
+      "package:terradart_core/terradart_core.dart",
+      "package:yaml/yaml.dart",
+      "paramDeclaration",
+      "paramOrder",
+      "paramOrder is commented; uncomment + reorder only if natural schema order needs override.",
+      "part",
+      "prelude",
+      "prelude: |",
+      "product",
+      "project",
+      "project_iam",
+      "project_service",
+      "properties",
+      "prose_enum_extractor.dart",
+      "provider",
+      "provider_rules.dart",
+      "provider_schemas",
+      "regex",
+      "registry.terraform.io/",
+      "required",
+      "required ",
+      "requiredParams",
+      "resource",
+      "resource_def.dart",
+      "resource_schemas",
+      "resourcemanager",
+      "rethrow",
+      "return",
+      "review MM-derived deprecation messages and uncomment the entries that apply.",
+      "schema",
+      "schema.json",
+      "schemaStubBodyMode",
+      "sealed",
+      "sealed\\s+class\\s+(\\w+)\\s*\\{",
+      "sealed_class_extractor.dart",
+      "secret_manager",
+      "secretmanager",
+      "sensitive",
+      "sensitive_set_emitter.dart",
+      "service_account",
+      "service_networking",
+      "set",
+      "show",
+      "single",
+      "source",
+      "src/ir/attribute.dart",
+      "src/ir/constraints.dart",
+      "src/ir/nested_block.dart",
+      "src/ir/provider_schema_ir.dart",
+      "src/ir/resource_def.dart",
+      "src/ir/type_def.dart",
+      "src/parser/ir_merger.dart",
+      "src/parser/mm_yaml_parser.dart",
+      "src/parser/schema_parser.dart",
+      "static",
+      "string",
+      "super",
+      "switch",
+      "sync",
+      "terradart",
+      "terradart lint-override: could not resolve the bundled package:terradart_codegen yaml root.",
+      "terradart wrap-init: --output is required.",
+      "terradart wrap-init: --source is required.",
+      "terradart wrap-init: missing positional <resource>.",
+      "terradart wrap-promote: --output is required.",
+      "terradart wrap-promote: --source is required.",
+      "terradart wrap-promote: missing positional <resource>.",
+      "terradart wrap: --output is required.",
+      "terradart wrap: --source is required.",
+      "terradart wrap: failed to resolve package:terradart_codegen yaml root.",
+      "test",
+      "this",
+      "this.",
+      "throw",
+      "timeouts",
+      "true",
+      "try",
+      "tuple",
+      "type",
+      "type_def.dart",
+      "typedef",
+      "valid_values_emitter.dart",
+      "validation",
+      "var",
+      "verify the `id` / `name` attrs exist on this resource; uncomment the block below and add cross-resource hint getters (e.g. `topic.id` for downstream resources).",
+      "version",
+      "version_command.dart",
+      "void",
+      "vs",
+      "when",
+      "while",
+      "with",
+      "wrap",
+      "wrap-init",
+      "wrap-promote",
+      "wrap-promote marker section opened but not closed; refusing to strip.",
+      "wrap-promote: exactly_one_of group has <2 members; skipping.",
+      "wrap_command.dart",
+      "wrap_init_command.dart",
+      "wrap_init_draft.dart",
+      "wrap_init_templates.dart",
+      "wrap_promote_command.dart",
+      "wrap_promote_marker.dart",
+      "wrapper_override.dart",
+      "wrapper_overrides/wrapper_override.dart",
+      "write a class doc comment for this resource (MM YAML had no description).",
+      "write_only",
+      "yaml_loader.dart",
+      "yield",
+      "{",
+      "{date}",
+      "}",
+      "＄"
+    ]
+  },
+  "version": "0.12.4"
+}

@@ -1,0 +1,792 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_core/src/placeholder.dart"
+        ],
+        "methods": [
+          "placeholderFor"
+        ],
+        "types": []
+      },
+      "AppExport": {
+        "fields": [
+          "get:dartLiteralExpression",
+          "get:dartType",
+          "get:description",
+          "get:emitTerraformOutput",
+          "get:sensitive",
+          "get:terraformOutputName"
+        ],
+        "libraries": [
+          "package:terradart_core/src/app_export.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "AppExport"
+        ],
+        "types": []
+      },
+      "AttributeRef": {
+        "fields": [
+          "attr",
+          "get:bareAddress",
+          "get:interpolation",
+          "get:placeholder",
+          "owner"
+        ],
+        "libraries": [
+          "package:terradart_core/src/tf_ref.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [],
+        "types": [
+          "TfAddressed",
+          "TfRef"
+        ]
+      },
+      "DartConstantSpec": {
+        "fields": [
+          "dartType",
+          "doc",
+          "name",
+          "rhs"
+        ],
+        "libraries": [
+          "package:terradart_core/src/synth/output_emitter.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "DartConstantSpec"
+        ],
+        "types": []
+      },
+      "DartConstantsEmitter": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_core/src/synth/dart_constants_emitter.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "emit"
+        ],
+        "types": [
+          "DartConstantSpec"
+        ]
+      },
+      "Data": {
+        "fields": [
+          "get:kind",
+          "get:tfAddress"
+        ],
+        "libraries": [
+          "package:terradart_core/src/data.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "Data"
+        ],
+        "types": [
+          "Resource",
+          "ResourceKind"
+        ]
+      },
+      "DataRef": {
+        "fields": [
+          "attr",
+          "get:bareAddress",
+          "get:interpolation",
+          "get:placeholder",
+          "owner"
+        ],
+        "libraries": [
+          "package:terradart_core/src/tf_ref.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [],
+        "types": [
+          "TfAddressed",
+          "TfRef"
+        ]
+      },
+      "DependencyTarget": {
+        "fields": [
+          "get:bareAddress"
+        ],
+        "libraries": [
+          "package:terradart_core/src/lifecycle.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "DependencyTarget"
+        ],
+        "types": []
+      },
+      "DuplicateResourceError": {
+        "fields": [
+          "kind",
+          "localName",
+          "terraformType"
+        ],
+        "libraries": [
+          "package:terradart_core/src/duplicate_resource_error.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "DuplicateResourceError",
+          "toString"
+        ],
+        "types": [
+          "ResourceKind"
+        ]
+      },
+      "EnvBackedExport": {
+        "fields": [
+          "defaultValue",
+          "description",
+          "envVarName",
+          "get:dartLiteralExpression",
+          "get:dartType",
+          "get:emitTerraformOutput",
+          "get:sensitive",
+          "get:terraformOutputName"
+        ],
+        "libraries": [
+          "package:terradart_core/src/app_export.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "EnvBackedExport"
+        ],
+        "types": [
+          "AppExport"
+        ]
+      },
+      "GcsBackend": {
+        "fields": [
+          "bucket",
+          "get:backendType",
+          "prefix"
+        ],
+        "libraries": [
+          "package:terradart_core/src/backends.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "GcsBackend",
+          "toTfJson"
+        ],
+        "types": [
+          "StackBackend"
+        ]
+      },
+      "JsonEncoder": {
+        "fields": [
+          "defaultRequiredVersion"
+        ],
+        "libraries": [
+          "package:terradart_core/src/synth/json_encoder.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "dataGroup",
+          "dependsOn",
+          "encodeArg",
+          "encodeArgMap",
+          "encodeArgMapWithSensitive",
+          "encodeBareAddress",
+          "lifecycleBlock",
+          "outputBlock",
+          "providerBlock",
+          "resourceBlock",
+          "resourcesGroup",
+          "terraformBlock"
+        ],
+        "types": [
+          "DependencyTarget",
+          "LifecycleOptions",
+          "Resource",
+          "Stack",
+          "TerraformOutputSpec",
+          "TfArg",
+          "TfRef"
+        ]
+      },
+      "LifecycleOptions": {
+        "fields": [
+          "createBeforeDestroy",
+          "ignoreChanges",
+          "preventDestroy",
+          "replaceTriggeredBy"
+        ],
+        "libraries": [
+          "package:terradart_core/src/lifecycle.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "LifecycleOptions"
+        ],
+        "types": [
+          "TfRef"
+        ]
+      },
+      "LiteralResolver": {
+        "fields": [
+          "get:size"
+        ],
+        "libraries": [
+          "package:terradart_core/src/synth/literal_resolver.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "fromStack",
+          "lookup"
+        ],
+        "types": [
+          "Stack"
+        ]
+      },
+      "OutputEmissionResult": {
+        "fields": [
+          "dartConstants",
+          "terraformOutputs"
+        ],
+        "libraries": [
+          "package:terradart_core/src/synth/output_emitter.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "OutputEmissionResult"
+        ],
+        "types": [
+          "DartConstantSpec",
+          "TerraformOutputSpec"
+        ]
+      },
+      "OutputEmitter": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_core/src/synth/output_emitter.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": [
+          "LiteralResolver",
+          "OutputEmissionResult",
+          "Stack"
+        ]
+      },
+      "ProviderBinding": {
+        "fields": [
+          "get:providerAlias",
+          "get:providerName"
+        ],
+        "libraries": [
+          "package:terradart_core/src/resource.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "RefDependency": {
+        "fields": [
+          "get:bareAddress",
+          "ref"
+        ],
+        "libraries": [
+          "package:terradart_core/src/lifecycle.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "RefDependency"
+        ],
+        "types": [
+          "DependencyTarget",
+          "TfRef"
+        ]
+      },
+      "Resource": {
+        "fields": [
+          "argMap",
+          "dependsOn",
+          "get:$sensitiveFields",
+          "get:kind",
+          "get:tfAddress",
+          "lifecycle",
+          "localName",
+          "provider",
+          "schema",
+          "terraformType"
+        ],
+        "libraries": [
+          "package:terradart_core/src/resource.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "Resource"
+        ],
+        "types": [
+          "DependencyTarget",
+          "LifecycleOptions",
+          "ProviderBinding",
+          "ResourceKind",
+          "SchemaCarrier",
+          "TfArg"
+        ]
+      },
+      "ResourceAttributeExport": {
+        "fields": [
+          "dartType",
+          "description",
+          "get:dartLiteralExpression",
+          "get:emitTerraformOutput",
+          "get:terraformOutputName",
+          "literalEncoder",
+          "ref",
+          "sensitive"
+        ],
+        "libraries": [
+          "package:terradart_core/src/app_export.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "ResourceAttributeExport",
+          "encodeLiteral"
+        ],
+        "types": [
+          "AppExport",
+          "TfRef"
+        ]
+      },
+      "ResourceDependency": {
+        "fields": [
+          "get:bareAddress",
+          "target"
+        ],
+        "libraries": [
+          "package:terradart_core/src/lifecycle.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "ResourceDependency"
+        ],
+        "types": [
+          "DependencyTarget",
+          "TfAddressed"
+        ]
+      },
+      "ResourceIdExport": {
+        "fields": [
+          "description",
+          "get:dartLiteralExpression",
+          "get:dartType",
+          "get:emitTerraformOutput",
+          "get:terraformOutputName",
+          "ref",
+          "sensitive"
+        ],
+        "libraries": [
+          "package:terradart_core/src/app_export.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "ResourceIdExport"
+        ],
+        "types": [
+          "AppExport",
+          "TfRef"
+        ]
+      },
+      "ResourceKind": {
+        "fields": [
+          "data",
+          "resource"
+        ],
+        "libraries": [
+          "package:terradart_core/src/resource.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ResourceRef": {
+        "fields": [
+          "get:bareAddress",
+          "get:interpolation",
+          "get:placeholder",
+          "owner"
+        ],
+        "libraries": [
+          "package:terradart_core/src/tf_ref.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [],
+        "types": [
+          "SchemaCarrier",
+          "TfRef"
+        ]
+      },
+      "SchemaCarrier": {
+        "fields": [
+          "get:schema"
+        ],
+        "libraries": [
+          "package:terradart_core/src/tf_ref.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [],
+        "types": [
+          "TfAddressed"
+        ]
+      },
+      "Stack": {
+        "fields": [
+          "get:appExports",
+          "get:appExportsOutputPath",
+          "get:backend",
+          "get:dataSources",
+          "get:providers",
+          "get:requiredVersion",
+          "get:resources"
+        ],
+        "libraries": [
+          "package:terradart_core/src/stack.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "Stack",
+          "add",
+          "addData",
+          "addExport",
+          "setAppExportsOutputPath",
+          "setBackend",
+          "setRequiredVersion",
+          "synth"
+        ],
+        "types": [
+          "AppExport",
+          "Data",
+          "Resource",
+          "StackBackend",
+          "StackProvider"
+        ]
+      },
+      "StackBackend": {
+        "fields": [
+          "get:backendType"
+        ],
+        "libraries": [
+          "package:terradart_core/src/stack.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "toTfJson"
+        ],
+        "types": []
+      },
+      "StackProvider": {
+        "fields": [
+          "get:configArgs",
+          "get:providerAlias",
+          "get:providerName",
+          "get:source",
+          "get:versionConstraint"
+        ],
+        "libraries": [
+          "package:terradart_core/src/stack.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "toTfJson"
+        ],
+        "types": []
+      },
+      "StackSynth": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_core/src/synth/stack_synth.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "synth"
+        ],
+        "types": [
+          "Stack",
+          "SynthResult"
+        ]
+      },
+      "StringExport": {
+        "fields": [
+          "description",
+          "get:dartLiteralExpression",
+          "get:dartType",
+          "get:emitTerraformOutput",
+          "get:sensitive",
+          "get:terraformOutputName",
+          "value"
+        ],
+        "libraries": [
+          "package:terradart_core/src/app_export.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "StringExport"
+        ],
+        "types": [
+          "AppExport"
+        ]
+      },
+      "SynthResult": {
+        "fields": [
+          "dartConstants",
+          "dartConstantsPath",
+          "tfJson"
+        ],
+        "libraries": [
+          "package:terradart_core/src/synth/stack_synth.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "SynthResult"
+        ],
+        "types": []
+      },
+      "TerraformDurationExt": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_core/src/duration_helper.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "toTfDurationString"
+        ],
+        "types": []
+      },
+      "TerraformOutputSpec": {
+        "fields": [
+          "description",
+          "name",
+          "sensitive",
+          "value"
+        ],
+        "libraries": [
+          "package:terradart_core/src/synth/output_emitter.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "TerraformOutputSpec"
+        ],
+        "types": []
+      },
+      "TfAddressed": {
+        "fields": [
+          "get:tfAddress"
+        ],
+        "libraries": [
+          "package:terradart_core/src/tf_ref.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TfArg": {
+        "fields": [
+          "get:literalOrPlaceholder"
+        ],
+        "libraries": [
+          "package:terradart_core/src/tf_arg.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "TfArg",
+          "duration",
+          "literal",
+          "ref",
+          "toTfJson"
+        ],
+        "types": [
+          "TfArg",
+          "TfRef"
+        ]
+      },
+      "TfArgLiteral": {
+        "fields": [
+          "get:literalOrPlaceholder",
+          "value"
+        ],
+        "libraries": [
+          "package:terradart_core/src/tf_arg.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "TfArgLiteral",
+          "toTfJson"
+        ],
+        "types": [
+          "TfArg"
+        ]
+      },
+      "TfArgRef": {
+        "fields": [
+          "get:literalOrPlaceholder",
+          "ref"
+        ],
+        "libraries": [
+          "package:terradart_core/src/tf_arg.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "TfArgRef",
+          "toTfJson"
+        ],
+        "types": [
+          "TfArg",
+          "TfRef"
+        ]
+      },
+      "TfRef": {
+        "fields": [
+          "get:bareAddress",
+          "get:interpolation",
+          "get:placeholder"
+        ],
+        "libraries": [
+          "package:terradart_core/src/tf_ref.dart",
+          "package:terradart_core/terradart_core.dart"
+        ],
+        "methods": [
+          "TfRef",
+          "attribute",
+          "data",
+          "resource"
+        ],
+        "types": [
+          "SchemaCarrier",
+          "TfAddressed",
+          "TfRef"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:12:23Z",
+  "package": "terradart_core",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AppExport",
+      "AttributeRef",
+      "DartConstantSpec",
+      "DataRef",
+      "DependencyTarget",
+      "GcsBackend",
+      "LifecycleOptions",
+      "LiteralResolver",
+      "OutputEmissionResult",
+      "RefDependency",
+      "ResourceAttributeExport",
+      "ResourceDependency",
+      "ResourceIdExport",
+      "ResourceRef",
+      "SynthResult",
+      "TerraformOutputSpec",
+      "TfArg",
+      "TfArgLiteral",
+      "TfArgRef",
+      "TfRef",
+      "_DedupKey"
+    ],
+    "digest": "538364d8ac96f19625336929b350e594a6899f382b6bc1d0b66bef03bdb380f4",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "cbce8c20b67d6f17aceb171ae0b71233bdc0e22f2730a555d2da7a4b4652a778",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\r",
+      "${",
+      ".",
+      "// GENERATED CODE - DO NOT MODIFY BY HAND",
+      "// dart format off",
+      "// ignore_for_file: type=lint",
+      ">= 1.11.0",
+      "Stack has no providers registered. Pass at least one StackProvider in `Stack(providers: [...])` before calling synth().",
+      "String",
+      "StringExport value must not contain newlines (would break raw-string quoting in generated Dart constant).",
+      "Terraform durations must be non-negative.",
+      "Use Stack.addData() to register a Data<S>, not Stack.add().",
+      "[_\\-\\s]+",
+      "app_export.dart",
+      "backend",
+      "bucket",
+      "create_before_destroy",
+      "data",
+      "data.dart",
+      "depends_on",
+      "description",
+      "duplicate_resource_error.dart",
+      "duration_helper.dart",
+      "envVarName",
+      "gcs",
+      "ignore_changes",
+      "lifecycle",
+      "lifecycle.dart",
+      "must not be empty",
+      "name",
+      "output",
+      "package:meta/meta.dart",
+      "package:terradart_core/src/app_export.dart",
+      "package:terradart_core/src/backends.dart",
+      "package:terradart_core/src/lifecycle.dart",
+      "package:terradart_core/src/resource.dart",
+      "package:terradart_core/src/stack.dart",
+      "package:terradart_core/src/synth/dart_constants_emitter.dart",
+      "package:terradart_core/src/synth/json_encoder.dart",
+      "package:terradart_core/src/synth/literal_resolver.dart",
+      "package:terradart_core/src/synth/output_emitter.dart",
+      "package:terradart_core/src/tf_arg.dart",
+      "package:terradart_core/src/tf_ref.dart",
+      "placeholder.dart",
+      "prefix",
+      "prevent_destroy",
+      "provider",
+      "replace_triggered_by",
+      "required_providers",
+      "required_version",
+      "resource",
+      "resource.dart",
+      "sensitive",
+      "source",
+      "src/app_export.dart",
+      "src/backends.dart",
+      "src/data.dart",
+      "src/duplicate_resource_error.dart",
+      "src/duration_helper.dart",
+      "src/lifecycle.dart",
+      "src/resource.dart",
+      "src/stack.dart",
+      "src/synth/dart_constants_emitter.dart",
+      "src/synth/json_encoder.dart",
+      "src/synth/literal_resolver.dart",
+      "src/synth/output_emitter.dart",
+      "src/synth/stack_synth.dart",
+      "src/tf_arg.dart",
+      "src/tf_ref.dart",
+      "stack.dart",
+      "terraform",
+      "tf_arg.dart",
+      "tf_ref.dart",
+      "this",
+      "value",
+      "version",
+      "}"
+    ]
+  },
+  "version": "0.2.1-dev"
+}

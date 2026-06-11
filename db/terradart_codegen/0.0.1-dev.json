@@ -1,0 +1,711 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "terradartCliVersion"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/cli_runner.dart",
+          "package:terradart_codegen/src/cli/version_command.dart",
+          "package:terradart_codegen/src/codegen/codegen_entry.dart",
+          "package:terradart_codegen/src/codegen/dart_type_writer.dart",
+          "package:terradart_codegen/src/codegen/enum_emitter.dart",
+          "package:terradart_codegen/src/codegen/naming.dart",
+          "package:terradart_codegen/src/codegen/sensitive_set_emitter.dart",
+          "package:terradart_codegen/src/parser/_type_decoder.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "buildCliRunner",
+          "decodeSchemaJsonType",
+          "emitEnumDeclaration",
+          "emitSensitiveStaticSet",
+          "enumName",
+          "nestedAbstractClassName",
+          "resourceFileName",
+          "runCodegen",
+          "sensitiveConstName",
+          "snakeToCamel",
+          "snakeToPascal",
+          "terraformAbstractClassName",
+          "writeDartType",
+          "writeEnumDartType"
+        ],
+        "types": [
+          "CodegenResult",
+          "EnumName",
+          "ResourceDef",
+          "TypeDef"
+        ]
+      },
+      "AbstractClassEmitter": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/abstract_class_emitter.dart"
+        ],
+        "methods": [
+          "AbstractClassEmitter",
+          "emit"
+        ],
+        "types": [
+          "ResourceDef"
+        ]
+      },
+      "Attribute": {
+        "fields": [
+          "constraints",
+          "defaultValue",
+          "description",
+          "name",
+          "type"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/attribute.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "Attribute"
+        ],
+        "types": [
+          "Constraints",
+          "TypeDef"
+        ]
+      },
+      "BlockDef": {
+        "fields": [
+          "attributes",
+          "description",
+          "nestedBlocks"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/nested_block.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "BlockDef"
+        ],
+        "types": [
+          "Attribute",
+          "NestedBlockDef"
+        ]
+      },
+      "BoolType": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "BoolType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "CliExitCodes": {
+        "fields": [
+          "dataError",
+          "software",
+          "success",
+          "usage"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/exit_codes.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CodegenCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/codegen_command.dart"
+        ],
+        "methods": [
+          "CodegenCommand",
+          "run"
+        ],
+        "types": [
+          "CodegenExecutor"
+        ]
+      },
+      "CodegenExecutor": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/cli/codegen_command.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": [
+          "CodegenInvocation"
+        ]
+      },
+      "CodegenInvocation": {
+        "fields": [
+          "outputDir",
+          "provider",
+          "providerVersion",
+          "services",
+          "source"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/codegen_command.dart"
+        ],
+        "methods": [
+          "CodegenInvocation"
+        ],
+        "types": []
+      },
+      "CodegenResult": {
+        "fields": [
+          "emittedFiles"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/codegen_entry.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "CodegenResult"
+        ],
+        "types": []
+      },
+      "Constraints": {
+        "fields": [
+          "computed",
+          "deprecationMessage",
+          "enumValues",
+          "forceNew",
+          "get:optionalAndComputed",
+          "max",
+          "maxLength",
+          "min",
+          "minLength",
+          "optional",
+          "regex",
+          "required",
+          "sensitive",
+          "writeOnly"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/constraints.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "Constraints",
+          "copyWith"
+        ],
+        "types": [
+          "Constraints"
+        ]
+      },
+      "DynamicType": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "DynamicType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "EnumName": {
+        "fields": [
+          "dartMembers",
+          "dartName",
+          "fieldPath"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/naming.dart"
+        ],
+        "methods": [
+          "EnumName"
+        ],
+        "types": []
+      },
+      "FileEmitter": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/file_emitter.dart"
+        ],
+        "methods": [
+          "FileEmitter",
+          "emit"
+        ],
+        "types": [
+          "ProviderSchemaIR",
+          "ResourceDef"
+        ]
+      },
+      "IntType": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "IntType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "IrMerger": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/parser/ir_merger.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "IrMerger",
+          "merge"
+        ],
+        "types": [
+          "MmResourceOverrides",
+          "ProviderSchemaIR"
+        ]
+      },
+      "ListType": {
+        "fields": [
+          "element"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "ListType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "MapType": {
+        "fields": [
+          "value"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "MapType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "MmResourceOverrides": {
+        "fields": [
+          "description",
+          "fieldOverrides"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/parser/mm_yaml_parser.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "MmResourceOverrides"
+        ],
+        "types": [
+          "Constraints"
+        ]
+      },
+      "MmYamlParser": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/parser/mm_yaml_parser.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "MmYamlParser",
+          "parseString"
+        ],
+        "types": [
+          "MmResourceOverrides"
+        ]
+      },
+      "NestedBlockDef": {
+        "fields": [
+          "block",
+          "constraints",
+          "description",
+          "maxItems",
+          "minItems",
+          "name",
+          "nesting"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/nested_block.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "NestedBlockDef"
+        ],
+        "types": [
+          "BlockDef",
+          "Constraints",
+          "NestingMode"
+        ]
+      },
+      "NestingMode": {
+        "fields": [
+          "group",
+          "list",
+          "map",
+          "set",
+          "single"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/nested_block.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "NumberType": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "NumberType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "ObjectType": {
+        "fields": [
+          "attrs"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "ObjectType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "ProviderSchemaIR": {
+        "fields": [
+          "dataSources",
+          "providerName",
+          "providerSource",
+          "providerVersion",
+          "resources"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/provider_schema_ir.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "ProviderSchemaIR"
+        ],
+        "types": [
+          "ResourceDef"
+        ]
+      },
+      "ResourceDef": {
+        "fields": [
+          "deprecationMessage",
+          "description",
+          "root",
+          "terraformType"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/resource_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "ResourceDef"
+        ],
+        "types": [
+          "BlockDef"
+        ]
+      },
+      "SchemaJsonParser": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/parser/schema_parser.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "SchemaJsonParser",
+          "parseString"
+        ],
+        "types": [
+          "ProviderSchemaIR"
+        ]
+      },
+      "SetType": {
+        "fields": [
+          "element"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "SetType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "StringType": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "StringType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "TupleType": {
+        "fields": [
+          "elements"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "TupleType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "TypeDef": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "TypeDef"
+        ],
+        "types": []
+      },
+      "VersionCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/version_command.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:12:10Z",
+  "package": "terradart_codegen",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AbstractClassEmitter",
+      "Attribute",
+      "BlockDef",
+      "BoolType",
+      "CodegenInvocation",
+      "CodegenResult",
+      "Constraints",
+      "DynamicType",
+      "EnumName",
+      "IntType",
+      "IrMerger",
+      "ListType",
+      "MapType",
+      "MmResourceOverrides",
+      "MmYamlParser",
+      "NestedBlockDef",
+      "NumberType",
+      "ObjectType",
+      "ProviderSchemaIR",
+      "ResourceDef",
+      "SchemaJsonParser",
+      "SetType",
+      "StringType",
+      "TupleType",
+      "TypeDef",
+      "_DefaultCodegenExecutor",
+      "_NestedNamer"
+    ],
+    "digest": "12131e9b3a39f3b457da1c886579f62c13cfab5b5b934beb5607a6132bec9a5e",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "9c1aaa10f489272235c4bacd08d63b32c481c26ee17dd35fefdffbb9da382cf9",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      " ",
+      "  /// **ForceNew**: changing this re-creates the resource.",
+      "  /// Optional + Computed. Inferred from provider when null.",
+      "  /// Set semantics: order is irrelevant; duplicates are rejected by Terraform.",
+      "  @ForceNew()",
+      "  @Sensitive()",
+      "'",
+      ",",
+      ", ",
+      "--provider is required.",
+      "--source is required in v0.0.x. Pass a directory containing schema.json (and optional mm/*.yaml). Automatic registry fetch is deferred to a future plan.",
+      ".",
+      "../codegen/codegen_entry.dart",
+      "../ir/attribute.dart",
+      "../ir/constraints.dart",
+      "../ir/nested_block.dart",
+      "../ir/provider_schema_ir.dart",
+      "../ir/resource_def.dart",
+      "../ir/type_def.dart",
+      "../parser/ir_merger.dart",
+      "../parser/mm_yaml_parser.dart",
+      "../parser/schema_parser.dart",
+      ".yaml",
+      ".yml",
+      "/",
+      "0.0.1-dev",
+      "?",
+      "@Field",
+      "@Schema()",
+      "@StringField",
+      "Comma-separated service filter (e.g. \"pubsub,storage\"). Default = generate every service the provider exposes.",
+      "DIR",
+      "Deprecated.",
+      "Generate terradart Dart bindings from Terraform provider schemas.",
+      "List<Object?>",
+      "MM YAML root must be a map.",
+      "Map<String, Object?>",
+      "NAMESPACE/NAME",
+      "No provider_schemas found.",
+      "Object?",
+      "Optional path to a local schema/MM YAML checkout. If omitted, the generator fetches it itself.",
+      "Output directory for generated Dart files.",
+      "PATH",
+      "Print the terradart CLI version and exit.",
+      "Provider version (e.g. 5.32.0). Defaults to registry latest.",
+      "Read a Terraform provider schema and emit terradart Dart bindings.",
+      "SEMVER",
+      "String",
+      "Terraform provider id, e.g. \"hashicorp/google\". Required.",
+      "\\",
+      "\\'",
+      "\\\\",
+      "\\n",
+      "^[a-z0-9][a-z0-9-]*\\/[a-z0-9][a-z0-9-]*$",
+      "_",
+      "_type_decoder.dart",
+      "abstract_class_emitter.dart",
+      "api_name",
+      "attribute.dart",
+      "attributes",
+      "block",
+      "block_types",
+      "bool",
+      "codegen",
+      "codegen_command.dart",
+      "computed",
+      "constraints.dart",
+      "dart:convert",
+      "dart:io",
+      "dart_type_writer.dart",
+      "data_source_schemas",
+      "default",
+      "deprecated",
+      "deprecation_message",
+      "description",
+      "dynamic",
+      "enum_emitter.dart",
+      "enum_values",
+      "exit_codes.dart",
+      "file_emitter.dart",
+      "google_",
+      "group",
+      "immutable",
+      "int",
+      "list",
+      "map",
+      "max_items",
+      "max_length",
+      "min_items",
+      "min_length",
+      "mm",
+      "mm_yaml_parser.dart",
+      "name",
+      "naming.dart",
+      "nested_block.dart",
+      "nesting_mode",
+      "num",
+      "number",
+      "o",
+      "object",
+      "optional",
+      "output",
+      "p",
+      "package:args/command_runner.dart",
+      "package:dart_style/dart_style.dart",
+      "package:meta/meta.dart",
+      "package:path/path.dart",
+      "package:yaml/yaml.dart",
+      "properties",
+      "provider",
+      "provider_schemas",
+      "regex",
+      "registry.terraform.io/",
+      "required",
+      "resource_def.dart",
+      "resource_schemas",
+      "schema.json",
+      "sensitive",
+      "sensitive_set_emitter.dart",
+      "services",
+      "set",
+      "single",
+      "source",
+      "src/codegen/codegen_entry.dart",
+      "src/ir/attribute.dart",
+      "src/ir/constraints.dart",
+      "src/ir/nested_block.dart",
+      "src/ir/provider_schema_ir.dart",
+      "src/ir/resource_def.dart",
+      "src/ir/type_def.dart",
+      "src/parser/ir_merger.dart",
+      "src/parser/mm_yaml_parser.dart",
+      "src/parser/schema_parser.dart",
+      "string",
+      "svc1,svc2,...",
+      "terradart",
+      "terradart_generated",
+      "tuple",
+      "type",
+      "type_def.dart",
+      "validation",
+      "version",
+      "version_command.dart",
+      "write_only",
+      "}"
+    ]
+  },
+  "version": "0.0.1-dev"
+}

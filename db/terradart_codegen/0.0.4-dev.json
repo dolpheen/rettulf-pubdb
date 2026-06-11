@@ -1,0 +1,1027 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "generatedFileHeader",
+          "terradartCliVersion"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/cli_runner.dart",
+          "package:terradart_codegen/src/cli/version_command.dart",
+          "package:terradart_codegen/src/codegen/codegen_entry.dart",
+          "package:terradart_codegen/src/codegen/dart_type_writer.dart",
+          "package:terradart_codegen/src/codegen/enum_emitter.dart",
+          "package:terradart_codegen/src/codegen/generated_file_header.dart",
+          "package:terradart_codegen/src/codegen/naming.dart",
+          "package:terradart_codegen/src/codegen/sensitive_set_emitter.dart",
+          "package:terradart_codegen/src/codegen/wrapper_overrides/_registry.dart",
+          "package:terradart_codegen/src/parser/_type_decoder.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "buildCliRunner",
+          "decodeSchemaJsonType",
+          "emitEnumDeclaration",
+          "emitSensitiveStaticSet",
+          "enumName",
+          "loadWrapperOverrides",
+          "nestedAbstractClassName",
+          "resourceFileName",
+          "runCodegen",
+          "sensitiveConstName",
+          "snakeToCamel",
+          "snakeToPascal",
+          "terraformAbstractClassName",
+          "writeDartType",
+          "writeEnumDartType"
+        ],
+        "types": [
+          "CodegenResult",
+          "EnumName",
+          "LoadedOverrides",
+          "ResourceDef",
+          "TypeDef"
+        ]
+      },
+      "AbstractClassEmitter": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/abstract_class_emitter.dart"
+        ],
+        "methods": [
+          "AbstractClassEmitter",
+          "emit"
+        ],
+        "types": [
+          "ResourceDef"
+        ]
+      },
+      "Attribute": {
+        "fields": [
+          "constraints",
+          "defaultValue",
+          "description",
+          "name",
+          "type"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/attribute.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "Attribute"
+        ],
+        "types": [
+          "Constraints",
+          "TypeDef"
+        ]
+      },
+      "BlockDef": {
+        "fields": [
+          "attributes",
+          "description",
+          "nestedBlocks"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/nested_block.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "BlockDef"
+        ],
+        "types": [
+          "Attribute",
+          "NestedBlockDef"
+        ]
+      },
+      "BoolType": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "BoolType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "CliExitCodes": {
+        "fields": [
+          "dataError",
+          "software",
+          "success",
+          "usage"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/exit_codes.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CodegenCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/codegen_command.dart"
+        ],
+        "methods": [
+          "CodegenCommand",
+          "run"
+        ],
+        "types": [
+          "CodegenExecutor"
+        ]
+      },
+      "CodegenExecutor": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/cli/codegen_command.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": [
+          "CodegenInvocation"
+        ]
+      },
+      "CodegenInvocation": {
+        "fields": [
+          "outputDir",
+          "provider",
+          "providerVersion",
+          "services",
+          "source"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/codegen_command.dart"
+        ],
+        "methods": [
+          "CodegenInvocation"
+        ],
+        "types": []
+      },
+      "CodegenResult": {
+        "fields": [
+          "emittedFiles"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/codegen_entry.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "CodegenResult"
+        ],
+        "types": []
+      },
+      "Constraints": {
+        "fields": [
+          "computed",
+          "deprecationMessage",
+          "enumValues",
+          "forceNew",
+          "get:optionalAndComputed",
+          "max",
+          "maxLength",
+          "min",
+          "minLength",
+          "optional",
+          "regex",
+          "required",
+          "sensitive",
+          "writeOnly"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/constraints.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "Constraints",
+          "copyWith"
+        ],
+        "types": [
+          "Constraints"
+        ]
+      },
+      "CustomSlot": {
+        "fields": [
+          "argMapEntry",
+          "paramDeclaration"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/wrapper_override.dart"
+        ],
+        "methods": [
+          "CustomSlot"
+        ],
+        "types": []
+      },
+      "DataSourceClassEmitter": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/data_source_class_emitter.dart"
+        ],
+        "methods": [
+          "DataSourceClassEmitter",
+          "emit"
+        ],
+        "types": [
+          "ResourceDef"
+        ]
+      },
+      "DataSourceWrapperEmitter": {
+        "fields": [
+          "overrides"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/data_source_wrapper_emitter.dart"
+        ],
+        "methods": [
+          "DataSourceWrapperEmitter",
+          "emit"
+        ],
+        "types": [
+          "ResourceDef",
+          "WrapperOverride"
+        ]
+      },
+      "DynamicType": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "DynamicType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "EnumName": {
+        "fields": [
+          "dartMembers",
+          "dartName",
+          "fieldPath"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/naming.dart"
+        ],
+        "methods": [
+          "EnumName"
+        ],
+        "types": []
+      },
+      "FileEmitter": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/file_emitter.dart"
+        ],
+        "methods": [
+          "FileEmitter",
+          "emit"
+        ],
+        "types": [
+          "ProviderSchemaIR",
+          "ResourceDef"
+        ]
+      },
+      "IntType": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "IntType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "IrMerger": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/parser/ir_merger.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "IrMerger",
+          "merge"
+        ],
+        "types": [
+          "MmResourceOverrides",
+          "ProviderSchemaIR"
+        ]
+      },
+      "ListType": {
+        "fields": [
+          "element"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "ListType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "LoadedOverrides": {
+        "fields": [
+          "dataSources",
+          "get:all",
+          "resources"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/yaml_loader.dart"
+        ],
+        "methods": [
+          "LoadedOverrides"
+        ],
+        "types": [
+          "WrapperOverride"
+        ]
+      },
+      "LoaderError": {
+        "fields": [
+          "code",
+          "column",
+          "filePath",
+          "hint",
+          "line",
+          "message"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/loader_errors.dart"
+        ],
+        "methods": [
+          "LoaderError",
+          "format"
+        ],
+        "types": [
+          "LoaderErrorCode"
+        ]
+      },
+      "LoaderErrorCode": {
+        "fields": [
+          "atomicWriteFailed",
+          "axisNotAllowedForDataSource",
+          "checkMismatch",
+          "outputDirInvalid",
+          "outputDirMismatchForDataSource",
+          "outputDirRequired",
+          "refuseOverwriteNonGenerated",
+          "tag",
+          "unknownKind"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/loader_errors.dart"
+        ],
+        "methods": [
+          "LoaderErrorCode"
+        ],
+        "types": []
+      },
+      "LoaderErrorReport": {
+        "fields": [
+          "errors",
+          "get:isEmpty",
+          "get:isNotEmpty"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/loader_errors.dart"
+        ],
+        "methods": [
+          "LoaderErrorReport",
+          "fatal",
+          "format",
+          "toString"
+        ],
+        "types": [
+          "LoaderError"
+        ]
+      },
+      "MapType": {
+        "fields": [
+          "value"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "MapType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "MmResourceOverrides": {
+        "fields": [
+          "description",
+          "fieldOverrides"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/parser/mm_yaml_parser.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "MmResourceOverrides"
+        ],
+        "types": [
+          "Constraints"
+        ]
+      },
+      "MmYamlParser": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/parser/mm_yaml_parser.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "MmYamlParser",
+          "parseString"
+        ],
+        "types": [
+          "MmResourceOverrides"
+        ]
+      },
+      "NestedBlockDef": {
+        "fields": [
+          "block",
+          "constraints",
+          "description",
+          "maxItems",
+          "minItems",
+          "name",
+          "nesting"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/nested_block.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "NestedBlockDef"
+        ],
+        "types": [
+          "BlockDef",
+          "Constraints",
+          "NestingMode"
+        ]
+      },
+      "NestingMode": {
+        "fields": [
+          "group",
+          "list",
+          "map",
+          "set",
+          "single"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/nested_block.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "NumberType": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "NumberType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "ObjectType": {
+        "fields": [
+          "attrs"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "ObjectType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "ProviderSchemaIR": {
+        "fields": [
+          "dataSources",
+          "providerName",
+          "providerSource",
+          "providerVersion",
+          "resources"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/provider_schema_ir.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "ProviderSchemaIR"
+        ],
+        "types": [
+          "ResourceDef"
+        ]
+      },
+      "ResourceDef": {
+        "fields": [
+          "deprecationMessage",
+          "description",
+          "root",
+          "terraformType"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/resource_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "ResourceDef"
+        ],
+        "types": [
+          "BlockDef"
+        ]
+      },
+      "SchemaJsonParser": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/parser/schema_parser.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "SchemaJsonParser",
+          "parseString"
+        ],
+        "types": [
+          "ProviderSchemaIR"
+        ]
+      },
+      "SchemaStubBodyMode": {
+        "fields": [
+          "bare",
+          "nosuchmethod"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/wrapper_override.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SetType": {
+        "fields": [
+          "element"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "SetType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "StringType": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "StringType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "TupleType": {
+        "fields": [
+          "elements"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "TupleType"
+        ],
+        "types": [
+          "TypeDef"
+        ]
+      },
+      "TypeDef": {
+        "fields": [],
+        "libraries": [
+          "package:terradart_codegen/src/ir/type_def.dart",
+          "package:terradart_codegen/terradart_codegen.dart"
+        ],
+        "methods": [
+          "TypeDef"
+        ],
+        "types": []
+      },
+      "VersionCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/version_command.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": []
+      },
+      "WrapCommand": {
+        "fields": [
+          "get:description",
+          "get:name"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/cli/wrap_command.dart"
+        ],
+        "methods": [
+          "WrapCommand",
+          "run"
+        ],
+        "types": []
+      },
+      "WrapperEmitter": {
+        "fields": [
+          "overrides"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_emitter.dart"
+        ],
+        "methods": [
+          "WrapperEmitter",
+          "emit"
+        ],
+        "types": [
+          "ResourceDef",
+          "WrapperOverride"
+        ]
+      },
+      "WrapperOverride": {
+        "fields": [
+          "argMapOrder",
+          "classDocComment",
+          "customSlots",
+          "dartTypeOverrides",
+          "deprecatedParams",
+          "extraGetters",
+          "extraImports",
+          "fileLeadingComment",
+          "kind",
+          "outputDir",
+          "paramOrder",
+          "prelude",
+          "requiredParams",
+          "schemaStubBodyMode",
+          "schemaStubComment"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/wrapper_override.dart"
+        ],
+        "methods": [
+          "WrapperOverride"
+        ],
+        "types": [
+          "CustomSlot",
+          "SchemaStubBodyMode",
+          "WrapperOverrideKind"
+        ]
+      },
+      "WrapperOverrideKind": {
+        "fields": [
+          "dataSource",
+          "resource"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/wrapper_override.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "YamlOverrideLoader": {
+        "fields": [
+          "rootDir"
+        ],
+        "libraries": [
+          "package:terradart_codegen/src/codegen/wrapper_overrides/yaml_loader.dart"
+        ],
+        "methods": [
+          "YamlOverrideLoader",
+          "load"
+        ],
+        "types": [
+          "LoadedOverrides"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:12:11Z",
+  "package": "terradart_codegen",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AbstractClassEmitter",
+      "Attribute",
+      "BlockDef",
+      "BoolType",
+      "CodegenInvocation",
+      "CodegenResult",
+      "Constraints",
+      "CustomSlot",
+      "DataSourceClassEmitter",
+      "DynamicType",
+      "EnumName",
+      "IntType",
+      "IrMerger",
+      "ListType",
+      "LoadedOverrides",
+      "MapType",
+      "MmResourceOverrides",
+      "MmYamlParser",
+      "NestedBlockDef",
+      "NumberType",
+      "ObjectType",
+      "ProviderSchemaIR",
+      "ResourceDef",
+      "SchemaJsonParser",
+      "SetType",
+      "StringType",
+      "TupleType",
+      "TypeDef",
+      "WrapperOverride",
+      "_DefaultCodegenExecutor",
+      "_NestedNamer"
+    ],
+    "digest": "5fbc3c7d28e015e540e199e6a6d0af6d6ea63d71e51733522972324c83cfed7c",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "25177c6350e44652fcd7cc88d4a3fd8eff0b584cc7c08130966823045aabba00",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\n\n",
+      "\n\nFix all errors above and re-run `terradart wrap`.",
+      "\n  Hint: ",
+      "\n  at ",
+      "\nRun `terradart wrap` to regenerate.",
+      "\r\n",
+      " ",
+      "         argMap: {",
+      "         terraformType: $tfType,",
+      "         },",
+      "       );",
+      "    required super.localName,",
+      "    super.dependsOn,",
+      "    super.lifecycle,",
+      "  // ignore: constant_identifier_names",
+      "  // ignore: non_constant_identifier_names",
+      "  /// **ForceNew**: changing this re-creates the resource.",
+      "  /// Optional + Computed. Inferred from provider when null.",
+      "  /// Set semantics: order is irrelevant; duplicates are rejected by Terraform.",
+      "  @ForceNew()",
+      "  @Sensitive()",
+      "  @override",
+      "  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);",
+      "  }) : super(",
+      "'",
+      ",",
+      ", ",
+      "--provider is required.",
+      "--source is required in v0.0.x. Pass a directory containing schema.json (and optional mm/*.yaml). Automatic registry fetch is deferred to a future plan.",
+      ".",
+      "..",
+      "../codegen/codegen_entry.dart",
+      "../codegen/data_source_class_emitter.dart",
+      "../codegen/data_source_wrapper_emitter.dart",
+      "../codegen/generated_file_header.dart",
+      "../codegen/wrapper_emitter.dart",
+      "../codegen/wrapper_overrides/_registry.dart",
+      "../ir/attribute.dart",
+      "../ir/constraints.dart",
+      "../ir/nested_block.dart",
+      "../ir/provider_schema_ir.dart",
+      "../ir/resource_def.dart",
+      "../ir/type_def.dart",
+      "../parser/ir_merger.dart",
+      "../parser/mm_yaml_parser.dart",
+      "../parser/schema_parser.dart",
+      ".yaml",
+      ".yml",
+      "/",
+      "//",
+      "// GENERATED FILE - DO NOT EDIT",
+      "// GENERATED FILE - DO NOT EDIT\n// Run `terradart wrap` to regenerate.\n// ignore_for_file: prefer_relative_imports\n",
+      "// Tiny const carrier for `Data<S>.schema`. Inert in v0.0.x synth — only\n// consumed by `ResourceRef<S>.placeholder` (a future surface). We\n// keep this stub inline.",
+      "// Tiny const carrier for `Resource<S>.schema`. Inert in v0.0.x synth — only\n// consumed by `ResourceRef<S>.placeholder` (a future surface). We\n// keep this stub inline. `noSuchMethod` satisfies the abstract field\n// getters; they are never invoked in v0.0.x.",
+      "// ignore_for_file: unused_element",
+      "0.0.1-dev",
+      "7.31.0",
+      ":",
+      "?",
+      "@Field",
+      "@Schema()",
+      "@StringField",
+      "Add `outputDir: <dir>` as a top-level key.",
+      "Allowed axes for data sources: kind, outputDir, schemaStubBodyMode, fileLeadingComment, classDocComment, paramOrder, argMapOrder, requiredParams, dartTypeOverrides, extraImports, extraGetters.",
+      "CI gate mode: fail (E301) if any emitted file differs from its on-disk counterpart. Implies no writes.",
+      "Comma-separated service filter (e.g. \"pubsub,storage\"). Default = generate every service the provider exposes.",
+      "DIR",
+      "Deprecated.",
+      "E101",
+      "E102",
+      "E103",
+      "E104",
+      "E201",
+      "E301",
+      "E401",
+      "E501",
+      "Emit Layer 2 factory wrappers (+ data source Layer 1) from override YAML.",
+      "Generate terradart Dart bindings from Terraform provider schemas.",
+      "List<Map<String, dynamic>>",
+      "List<Object?>",
+      "MM YAML root must be a map.",
+      "Map<String, Object?>",
+      "Map<String, dynamic>",
+      "NAMESPACE/NAME",
+      "No provider_schemas found.",
+      "Object?",
+      "Optional path to a local schema/MM YAML checkout. If omitted, the generator fetches it itself.",
+      "Output directory for generated Dart files.",
+      "Output directory for generated wrapper files.",
+      "Overwrite files that are missing or have a non-TerraDart generated-file header (E401 is suppressed).",
+      "PATH",
+      "Path to a local schema/MM YAML checkout used as input.",
+      "Print the terradart CLI version and exit.",
+      "Provider version (e.g. 5.32.0). Defaults to registry latest.",
+      "Read a Terraform provider schema and emit terradart Dart bindings.",
+      "SEMVER",
+      "Set `kind: resource` or `kind: data_source`.",
+      "Set `schemaStubBodyMode: nosuchmethod` or `schemaStubBodyMode: bare`.",
+      "String",
+      "Terraform provider id, e.g. \"hashicorp/google\". Required.",
+      "\\",
+      "\\'",
+      "\\\\",
+      "\\n",
+      "^[a-z0-9][a-z0-9-]*\\/[a-z0-9][a-z0-9-]*$",
+      "^[a-z][a-z0-9_]*$",
+      "_",
+      "_type_decoder.dart",
+      "abstract_class_emitter.dart",
+      "api_name",
+      "argMapEntry",
+      "argMapOrder",
+      "attribute.dart",
+      "attributes",
+      "bare",
+      "block",
+      "block_types",
+      "bool",
+      "check",
+      "classDocComment",
+      "codegen",
+      "codegen_command.dart",
+      "computed",
+      "constraints.dart",
+      "customSlots",
+      "dart:convert",
+      "dart:io",
+      "dart:isolate",
+      "dartTypeOverrides",
+      "dart_type_writer.dart",
+      "data",
+      "data_source",
+      "data_source_schemas",
+      "default",
+      "deprecated",
+      "deprecatedParams",
+      "deprecation_message",
+      "description",
+      "dynamic",
+      "enum_emitter.dart",
+      "enum_values",
+      "exit_codes.dart",
+      "extraGetters",
+      "extraImports",
+      "fileLeadingComment",
+      "file_emitter.dart",
+      "force",
+      "generated",
+      "google_",
+      "group",
+      "id",
+      "immutable",
+      "import 'package:terradart_core/terradart_core.dart';",
+      "int",
+      "kind",
+      "list",
+      "loader_errors.dart",
+      "map",
+      "max_items",
+      "max_length",
+      "min_items",
+      "min_length",
+      "mm",
+      "mm_yaml_parser.dart",
+      "name",
+      "naming.dart",
+      "nested_block.dart",
+      "nesting_mode",
+      "nosuchmethod",
+      "num",
+      "number",
+      "o",
+      "object",
+      "optional",
+      "output",
+      "outputDir",
+      "outputDir is required, e.g. \"outputDir: pubsub\".",
+      "p",
+      "package:args/command_runner.dart",
+      "package:dart_style/dart_style.dart",
+      "package:meta/meta.dart",
+      "package:path/path.dart",
+      "package:terradart_codegen/src/codegen/wrapper_overrides/yaml/",
+      "package:yaml/yaml.dart",
+      "paramDeclaration",
+      "paramOrder",
+      "prelude",
+      "properties",
+      "provider",
+      "provider_schemas",
+      "regex",
+      "registry.terraform.io/",
+      "required",
+      "required ",
+      "requiredParams",
+      "resource",
+      "resource_def.dart",
+      "resource_schemas",
+      "schema.json",
+      "schemaStubBodyMode",
+      "schemaStubComment",
+      "sensitive",
+      "sensitive_set_emitter.dart",
+      "services",
+      "set",
+      "single",
+      "source",
+      "src/codegen/codegen_entry.dart",
+      "src/ir/attribute.dart",
+      "src/ir/constraints.dart",
+      "src/ir/nested_block.dart",
+      "src/ir/provider_schema_ir.dart",
+      "src/ir/resource_def.dart",
+      "src/ir/type_def.dart",
+      "src/parser/ir_merger.dart",
+      "src/parser/mm_yaml_parser.dart",
+      "src/parser/schema_parser.dart",
+      "string",
+      "svc1,svc2,...",
+      "terradart",
+      "terradart wrap: --output is required.",
+      "terradart wrap: --source is required.",
+      "terradart wrap: failed to resolve package:terradart_codegen yaml root.",
+      "terradart_generated",
+      "timeouts",
+      "tuple",
+      "type",
+      "type_def.dart",
+      "validation",
+      "version",
+      "version_command.dart",
+      "wrap",
+      "wrap_command.dart",
+      "wrapper_override.dart",
+      "wrapper_overrides/wrapper_override.dart",
+      "write_only",
+      "yaml_loader.dart",
+      "}"
+    ]
+  },
+  "version": "0.0.4-dev"
+}
