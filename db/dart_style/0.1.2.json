@@ -1,0 +1,602 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "debugFormatter",
+          "indentsPerNest",
+          "invalidSplits",
+          "spacesPerIndent",
+          "unicodeMidDot",
+          "unicodeSection",
+          "useAnsiColors"
+        ],
+        "libraries": [
+          "package:dart_style/src/debug.dart",
+          "package:dart_style/src/io.dart",
+          "package:dart_style/src/line_splitter.dart"
+        ],
+        "methods": [
+          "dumpChunks",
+          "dumpLine",
+          "dumpLines",
+          "processDirectory",
+          "processFile"
+        ],
+        "types": [
+          "Chunk",
+          "LinePrefix",
+          "SplitParam",
+          "SplitSet"
+        ]
+      },
+      "Chunk": {
+        "fields": [
+          "get:canAddText",
+          "get:indent",
+          "get:isDouble",
+          "get:isHardSplit",
+          "get:isInExpression",
+          "get:isSoftSplit",
+          "get:nesting",
+          "get:param",
+          "get:spaceWhenUnsplit",
+          "get:text"
+        ],
+        "libraries": [
+          "package:dart_style/src/chunk.dart"
+        ],
+        "methods": [
+          "Chunk",
+          "allowText",
+          "appendText",
+          "applySplit",
+          "harden",
+          "toString"
+        ],
+        "types": [
+          "Selection",
+          "SplitParam"
+        ]
+      },
+      "Color": {
+        "fields": [
+          "bold",
+          "cyan",
+          "gray",
+          "green",
+          "magenta",
+          "noColor",
+          "none",
+          "red"
+        ],
+        "libraries": [
+          "package:dart_style/src/debug.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Cost": {
+        "fields": [
+          "assignment",
+          "normal",
+          "overflowChar"
+        ],
+        "libraries": [
+          "package:dart_style/src/chunk.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DartFormatter": {
+        "fields": [
+          "indent",
+          "lineEnding",
+          "pageWidth"
+        ],
+        "libraries": [
+          "package:dart_style/dart_style.dart",
+          "package:dart_style/src/dart_formatter.dart"
+        ],
+        "methods": [
+          "DartFormatter",
+          "format",
+          "formatSource",
+          "formatStatement"
+        ],
+        "types": [
+          "SourceCode"
+        ]
+      },
+      "ErrorListener": {
+        "fields": [],
+        "libraries": [
+          "package:dart_style/src/error_listener.dart"
+        ],
+        "methods": [
+          "onError",
+          "throwIfErrors"
+        ],
+        "types": []
+      },
+      "FormatterException": {
+        "fields": [
+          "errors"
+        ],
+        "libraries": [
+          "package:dart_style/dart_style.dart",
+          "package:dart_style/src/formatter_exception.dart"
+        ],
+        "methods": [
+          "FormatterException",
+          "message",
+          "toString"
+        ],
+        "types": []
+      },
+      "LinePrefix": {
+        "fields": [
+          "get:hashCode",
+          "get:nestingIndent",
+          "length",
+          "splitParams",
+          "unsplitParams"
+        ],
+        "libraries": [
+          "package:dart_style/src/line_prefix.dart"
+        ],
+        "methods": [
+          "==",
+          "LinePrefix",
+          "expand",
+          "getNextLineIndent",
+          "toString"
+        ],
+        "types": [
+          "Chunk",
+          "LinePrefix",
+          "NestingStack",
+          "SplitParam"
+        ]
+      },
+      "LineSplitter": {
+        "fields": [],
+        "libraries": [
+          "package:dart_style/src/line_splitter.dart"
+        ],
+        "methods": [
+          "LineSplitter",
+          "apply"
+        ],
+        "types": [
+          "Chunk",
+          "Span"
+        ]
+      },
+      "LineWriter": {
+        "fields": [
+          "get:needsToPreserveNewlines",
+          "get:pageWidth"
+        ],
+        "libraries": [
+          "package:dart_style/src/line_writer.dart"
+        ],
+        "methods": [
+          "LineWriter",
+          "end",
+          "endMultisplit",
+          "endSelectionFromEnd",
+          "endSpan",
+          "indent",
+          "multisplit",
+          "nestExpression",
+          "preemptMultisplits",
+          "preserveNewlines",
+          "startMultisplit",
+          "startSelectionFromEnd",
+          "startSpan",
+          "unindent",
+          "unnest",
+          "write",
+          "writeComments",
+          "writeSplit",
+          "writeWhitespace"
+        ],
+        "types": [
+          "DartFormatter",
+          "SourceCode",
+          "SourceComment",
+          "SplitParam",
+          "Whitespace"
+        ]
+      },
+      "Multisplit": {
+        "fields": [
+          "get:param",
+          "startChunk"
+        ],
+        "libraries": [
+          "package:dart_style/src/multisplit.dart"
+        ],
+        "methods": [
+          "Multisplit",
+          "harden"
+        ],
+        "types": [
+          "SplitParam"
+        ]
+      },
+      "NestingStack": {
+        "fields": [
+          "get:hashCode",
+          "indent"
+        ],
+        "libraries": [
+          "package:dart_style/src/nesting.dart"
+        ],
+        "methods": [
+          "==",
+          "NestingStack",
+          "applySplit",
+          "toString"
+        ],
+        "types": [
+          "Chunk",
+          "NestingStack"
+        ]
+      },
+      "Selection": {
+        "fields": [
+          "get:selectionEnd",
+          "get:selectionStart",
+          "get:text"
+        ],
+        "libraries": [
+          "package:dart_style/src/chunk.dart"
+        ],
+        "methods": [
+          "endSelection",
+          "endSelectionFromEnd",
+          "startSelection",
+          "startSelectionFromEnd"
+        ],
+        "types": []
+      },
+      "SourceCode": {
+        "fields": [
+          "isCompilationUnit",
+          "selectionLength",
+          "selectionStart",
+          "text",
+          "uri"
+        ],
+        "libraries": [
+          "package:dart_style/dart_style.dart",
+          "package:dart_style/src/dart_formatter.dart"
+        ],
+        "methods": [
+          "SourceCode"
+        ],
+        "types": []
+      },
+      "SourceComment": {
+        "fields": [
+          "isLineComment",
+          "isStartOfLine",
+          "linesBefore",
+          "text"
+        ],
+        "libraries": [
+          "package:dart_style/src/chunk.dart"
+        ],
+        "methods": [
+          "SourceComment"
+        ],
+        "types": [
+          "Selection"
+        ]
+      },
+      "SourceVisitor": {
+        "fields": [],
+        "libraries": [
+          "package:dart_style/src/source_visitor.dart"
+        ],
+        "methods": [
+          "SourceVisitor",
+          "modifier",
+          "newline",
+          "oneOrTwoNewlines",
+          "run",
+          "space",
+          "spaceOrNewline",
+          "split",
+          "token",
+          "twoNewlines",
+          "visit",
+          "visitAdjacentStrings",
+          "visitAnnotation",
+          "visitArgumentList",
+          "visitAsExpression",
+          "visitAssertStatement",
+          "visitAssignmentExpression",
+          "visitAwaitExpression",
+          "visitBinaryExpression",
+          "visitBlock",
+          "visitBlockFunctionBody",
+          "visitBody",
+          "visitBooleanLiteral",
+          "visitBreakStatement",
+          "visitCascadeExpression",
+          "visitCatchClause",
+          "visitClassDeclaration",
+          "visitClassTypeAlias",
+          "visitCommaSeparatedNodes",
+          "visitComment",
+          "visitCommentReference",
+          "visitCompilationUnit",
+          "visitConditionalExpression",
+          "visitConstructorDeclaration",
+          "visitConstructorFieldInitializer",
+          "visitConstructorInitializers",
+          "visitConstructorName",
+          "visitConstructorRedirects",
+          "visitContinueStatement",
+          "visitDeclarationMetadata",
+          "visitDeclaredIdentifier",
+          "visitDefaultFormalParameter",
+          "visitDoStatement",
+          "visitDoubleLiteral",
+          "visitEmptyFunctionBody",
+          "visitEmptyStatement",
+          "visitEnumConstantDeclaration",
+          "visitEnumDeclaration",
+          "visitExportDirective",
+          "visitExpressionFunctionBody",
+          "visitExpressionStatement",
+          "visitExtendsClause",
+          "visitFieldDeclaration",
+          "visitFieldFormalParameter",
+          "visitForEachStatement",
+          "visitForStatement",
+          "visitFormalParameterList",
+          "visitFunctionDeclaration",
+          "visitFunctionDeclarationStatement",
+          "visitFunctionExpression",
+          "visitFunctionExpressionInvocation",
+          "visitFunctionTypeAlias",
+          "visitFunctionTypedFormalParameter",
+          "visitHideCombinator",
+          "visitIfStatement",
+          "visitImplementsClause",
+          "visitImportDirective",
+          "visitIndexExpression",
+          "visitInstanceCreationExpression",
+          "visitIntegerLiteral",
+          "visitInterpolationExpression",
+          "visitInterpolationString",
+          "visitIsExpression",
+          "visitLabel",
+          "visitLabeledStatement",
+          "visitLibraryDirective",
+          "visitLibraryIdentifier",
+          "visitListLiteral",
+          "visitMapLiteral",
+          "visitMapLiteralEntry",
+          "visitMemberMetadata",
+          "visitMethodDeclaration",
+          "visitMethodInvocation",
+          "visitNamedExpression",
+          "visitNativeClause",
+          "visitNativeFunctionBody",
+          "visitNodes",
+          "visitNullLiteral",
+          "visitParameterMetadata",
+          "visitParenthesizedExpression",
+          "visitPartDirective",
+          "visitPartOfDirective",
+          "visitPostfixExpression",
+          "visitPrefixExpression",
+          "visitPrefixedIdentifier",
+          "visitPropertyAccess",
+          "visitRedirectingConstructorInvocation",
+          "visitRethrowExpression",
+          "visitReturnStatement",
+          "visitScriptTag",
+          "visitShowCombinator",
+          "visitSimpleFormalParameter",
+          "visitSimpleIdentifier",
+          "visitSimpleStringLiteral",
+          "visitStringInterpolation",
+          "visitSuperConstructorInvocation",
+          "visitSuperExpression",
+          "visitSwitchCase",
+          "visitSwitchDefault",
+          "visitSwitchStatement",
+          "visitSymbolLiteral",
+          "visitThisExpression",
+          "visitThrowExpression",
+          "visitTopLevelVariableDeclaration",
+          "visitTryStatement",
+          "visitTypeArgumentList",
+          "visitTypeName",
+          "visitTypeParameter",
+          "visitTypeParameterList",
+          "visitVariableDeclaration",
+          "visitVariableDeclarationList",
+          "visitVariableDeclarationStatement",
+          "visitWhileStatement",
+          "visitWithClause",
+          "visitYieldStatement",
+          "writePrecedingCommentsAndNewlines",
+          "zeroSplit"
+        ],
+        "types": [
+          "DartFormatter",
+          "LineWriter",
+          "SourceCode",
+          "SplitParam"
+        ]
+      },
+      "Span": {
+        "fields": [
+          "cost",
+          "get:end",
+          "start"
+        ],
+        "libraries": [
+          "package:dart_style/src/chunk.dart"
+        ],
+        "methods": [
+          "Span",
+          "close",
+          "toString"
+        ],
+        "types": []
+      },
+      "SplitParam": {
+        "fields": [
+          "cost",
+          "get:hashCode",
+          "id",
+          "implies"
+        ],
+        "libraries": [
+          "package:dart_style/src/chunk.dart"
+        ],
+        "methods": [
+          "==",
+          "SplitParam",
+          "toString"
+        ],
+        "types": []
+      },
+      "SplitSet": {
+        "fields": [
+          "get:weight"
+        ],
+        "libraries": [
+          "package:dart_style/src/line_splitter.dart"
+        ],
+        "methods": [
+          "SplitSet",
+          "add",
+          "getNesting",
+          "shouldSplitAt",
+          "toString"
+        ],
+        "types": [
+          "SplitSet"
+        ]
+      },
+      "Whitespace": {
+        "fields": [
+          "name",
+          "nestedNewline",
+          "newline",
+          "newlineFlushLeft",
+          "oneOrTwoNewlines",
+          "space",
+          "spaceOrNewline",
+          "twoNewlines"
+        ],
+        "libraries": [
+          "package:dart_style/src/whitespace.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:17:08Z",
+  "package": "dart_style",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "FormatterException",
+      "Whitespace"
+    ],
+    "digest": "d929861c1e46b75135306fb64ec0a6cfac23e6c6b4102c416a39fad55f869b3e",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "47f725d907e62b89ee614bbbd4317b1a42f843a5e07e183f53874e75c9b2b001",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\r",
+      "\r\n",
+      "\u001b[0m",
+      "\u001b[1;30m",
+      "\u001b[1m",
+      "\u001b[31m",
+      "\u001b[32m",
+      "\u001b[35m",
+      "\u001b[36m",
+      "\u001b[39m",
+      " ",
+      "(",
+      "(no split info)",
+      ")",
+      ",",
+      "->",
+      ".",
+      "...",
+      "../dart_style.dart",
+      ".dart",
+      ";",
+      "<unknown>",
+      "Could not format because the source could not be parsed:",
+      "Is selectionStart is provided, selectionLength must be too.",
+      "[",
+      "]",
+      "chunk.dart",
+      "dart:io",
+      "dart:math",
+      "dart_formatter.dart",
+      "debug.dart",
+      "double",
+      "error_listener.dart",
+      "formatter_exception.dart",
+      "hard",
+      "line_prefix.dart",
+      "line_splitter.dart",
+      "line_writer.dart",
+      "multisplit.dart",
+      "nestedNewline",
+      "nesting.dart",
+      "newline",
+      "newlineFlushLeft",
+      "oneOrTwoNewlines",
+      "package:analyzer/analyzer.dart",
+      "package:analyzer/src/generated/parser.dart",
+      "package:analyzer/src/generated/scanner.dart",
+      "package:analyzer/src/generated/source.dart",
+      "package:analyzer/src/string_source.dart",
+      "package:dart_style/dart_style.dart",
+      "package:path/path.dart",
+      "package:source_span/source_span.dart",
+      "selectionLength must be non-negative.",
+      "selectionLength must end within text.",
+      "selectionStart must be non-negative.",
+      "selectionStart must be within text.",
+      "source_visitor.dart",
+      "space",
+      "spaceOrNewline",
+      "src/dart_formatter.dart",
+      "src/formatter_exception.dart",
+      "twoNewlines",
+      "uri must be `null`, a Uri, or a String.",
+      "whitespace.dart",
+      "{",
+      "| ",
+      "}",
+      "§",
+      "·"
+    ]
+  },
+  "version": "0.1.2"
+}
