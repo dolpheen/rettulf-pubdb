@@ -1,0 +1,33 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:node_preamble/preamble.dart"
+        ],
+        "methods": [
+          "getPreamble"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:51:51Z",
+  "package": "node_preamble",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "010a7dee8bf9e641b158ed0480c7e5f7c8ffdaae20a695a06e1a38ddf1222196",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "  global.location = { href: \"file://\" + process.cwd() + \"/\" };\n  global.scheduleImmediate = setImmediate;\n  global.self = global;\n  global.require = require;\n  global.process = process;\n  \n  function computeCurrentScript() {\n    try {\n      throw new Error();\n    } catch(e) {\n      var stack = e.stack;\n      var re = new RegExp(\"^ *at [^(]*\\\\((.*):[0-9]*:[0-9]*\\\\)$\", \"mg\");\n      var lastMatch = null;\n      do {\n        var match = re.exec(stack);\n        if (match != null) lastMatch = match;\n      } while (match != null);\n      return lastMatch[1];\n    }\n  }\n\n  var cachedCurrentScript = null;\n  global.document = {\n    get currentScript() {\n      if (cachedCurrentScript == null) {\n        cachedCurrentScript = {src: computeCurrentScript()};\n      }\n      return cachedCurrentScript;\n    }\n  };\n\n  global.dartDeferredLibraryLoader = function(uri, successCallback, errorCallback) {\n    try {\n      load(uri);\n      successCallback();\n    } catch (error) {\n      errorCallback(error);\n    }\n  };\n"
+    ]
+  },
+  "version": "1.0.0"
+}

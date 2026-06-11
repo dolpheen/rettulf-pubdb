@@ -1,0 +1,35 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:node_preamble/preamble.dart"
+        ],
+        "methods": [
+          "getPreamble"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:51:53Z",
+  "package": "node_preamble",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "cb212c0db1c474b7f40b42da46c74fb652f71f20cecd6645c336f521b2d87595",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "// make sure to keep this as 'var'\n// we don't want block scoping\n\nvar dartNodePreambleSelf = typeof global !== \"undefined\" ? global : window;\n\nvar self = Object.create(dartNodePreambleSelf);\n\nself.scheduleImmediate = self.setImmediate\n    ? function (cb) {\n        dartNodePreambleSelf.setImmediate(cb);\n      }\n    : function(cb) {\n        setTimeout(cb, 0);\n      };\n\n// CommonJS globals.\nself.require = require;\nself.exports = exports;\n\n// Node.js specific exports, check to see if they exist & or polyfilled\n\nif (typeof process !== \"undefined\") {\n  self.process = process;\n}\n\nif (typeof __dirname !== \"undefined\") {\n  self.__dirname = __dirname;\n}\n\nif (typeof __filename !== \"undefined\") {\n  self.__filename = __filename;\n}\n\n// if we're running in a browser, Dart supports most of this out of box\n// make sure we only run these in Node.js environment\n\nvar dartNodeIsActuallyNode = !dartNodePreambleSelf.window\n\ntry {\n  // Check if we're in a Web Worker instead.\n  if (typeof WorkerGlobalScope !== 'undefined' && dartNodePreambleSelf instanceof WorkerGlobalScope) {\n    dartNodeIsActuallyNode = false;\n  }\n\n  // Check if we're in Electron.\n  if (dartNodeIsActuallyNode && dartNodePreambleSelf.process && dartNodePreambleSelf.versions && process.versions.hasOwnProperty('electron')) {\n    dartNodeIsActuallyNode = false;\n  }\n} catch(e) {}\n\nif (dartNodeIsActuallyNode) {\n  // This line is to:\n  // 1) Prevent Webpack from bundling.\n  // 2) In Webpack on Node.js, make sure we're using the native Node.js require, which is available via __non_webpack_require__\n  // https://github.com/mbullington/node_preamble.dart/issues/18#issuecomment-527305561\n  var url = (\"undefined\" !== typeof __webpack_require__ ? __non_webpack_require__ : require)(\"url\");\n\n  self.location = {\n    get href() {\n      if (url.pathToFileURL) {\n        return url.pathToFileURL(process.cwd()).href + \"/\";\n      } else {\n        // This isn't really a correct transformation, but it's the best we have\n        // for versions of Node <10.12.0 which introduced `url.pathToFileURL()`.\n        // For example, it will fail for paths that contain characters that need\n        // to be escaped in URLs.\n        return \"file://\" + (function() {\n          var cwd = process.cwd();\n          if (process.platform != \"win32\") return cwd;\n          return \"/\" + cwd.replace(/\\\\/g, \"/\");\n        })() + \"/\"\n      }\n    }\n  };\n\n  (function() {\n    function computeCurrentScript() {\n      try {\n        throw new Error();\n      } catch(e) {\n        var stack = e.stack;\n        var re = new RegExp(\"^ *at [^(]*\\\\((.*):[0-9]*:[0-9]*\\\\)$\", \"mg\");\n        var lastMatch = null;\n        do {\n          var match = re.exec(stack);\n          if (match != null) lastMatch = match;\n        } while (match != null);\n        return lastMatch[1];\n      }\n    }\n\n    var cachedCurrentScript = null;\n    self.document = {\n      get currentScript() {\n        if (cachedCurrentScript == null) {\n          cachedCurrentScript = {src: computeCurrentScript()};\n        }\n        return cachedCurrentScript;\n      }\n    };\n  })();\n\n  self.dartDeferredLibraryLoader = function(uri, successCallback, errorCallback) {\n    try {\n     load(uri);\n      successCallback();\n    } catch (error) {\n      errorCallback(error);\n    }\n  };\n}\n",
+      "var dartNodePreambleSelf=\"undefined\"!=typeof global?global:window,self=Object.create(dartNodePreambleSelf);if(self.scheduleImmediate=self.setImmediate?function(e){dartNodePreambleSelf.setImmediate(e)}:function(e){setTimeout(e,0)},self.require=require,self.exports=exports,\"undefined\"!=typeof process)self.process=process;if(\"undefined\"!=typeof __dirname)self.__dirname=__dirname;if(\"undefined\"!=typeof __filename)self.__filename=__filename;var dartNodeIsActuallyNode=!dartNodePreambleSelf.window;try{if(\"undefined\"!=typeof WorkerGlobalScope&&dartNodePreambleSelf instanceof WorkerGlobalScope)dartNodeIsActuallyNode=!1;if(dartNodeIsActuallyNode&&dartNodePreambleSelf.process&&dartNodePreambleSelf.versions&&process.versions.hasOwnProperty(\"electron\"))dartNodeIsActuallyNode=!1}catch(e){}if(dartNodeIsActuallyNode){var url=(\"undefined\"!=typeof __webpack_require__?__non_webpack_require__:require)(\"url\");self.location={get href(){if(url.pathToFileURL)return url.pathToFileURL(process.cwd()).href+\"/\";else return\"file://\"+function(){var e=process.cwd();if(\"win32\"!=process.platform)return e;else return\"/\"+e.replace(/\\\\/g,\"/\")}()+\"/\"}},function(){function e(){try{throw new Error}catch(o){var e=o.stack,r=new RegExp(\"^ *at [^(]*\\\\((.*):[0-9]*:[0-9]*\\\\)$\",\"mg\"),l=null;do{var t=r.exec(e);if(null!=t)l=t}while(null!=t);return l[1]}}var r=null;self.document={get currentScript(){if(null==r)r={src:e()};return r}}}(),self.dartDeferredLibraryLoader=function(e,r,l){try{load(e),r()}catch(e){l(e)}}}"
+    ]
+  },
+  "version": "1.4.9"
+}

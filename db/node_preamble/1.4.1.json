@@ -1,0 +1,35 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:node_preamble/preamble.dart"
+        ],
+        "methods": [
+          "getPreamble"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:51:52Z",
+  "package": "node_preamble",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "80979d5c5620a1fa6b1465cf13a2a35e04f91bc5942e5cb0f6814c565c2d4755",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "var self = Object.create(global);\n\n// TODO: This isn't really a correct transformation. For example, it will fail\n// for paths that contain characters that need to be escaped in URLs. Once\n// dart-lang/sdk#27979 is fixed, it should be possible to make it better.\nself.location = {\n  href: \"file://\" + (function() {\n    var cwd = process.cwd();\n    if (process.platform != \"win32\") return cwd;\n    return \"/\" + cwd.replace(/\\\\/g, \"/\");\n  })() + \"/\"\n};\n\nself.scheduleImmediate = setImmediate;\nself.require = require;\nself.exports = exports;\nself.process = process;\n\nself.__dirname = __dirname;\nself.__filename = __filename;\n\n(function() {\n  function computeCurrentScript() {\n    try {\n      throw new Error();\n    } catch(e) {\n      var stack = e.stack;\n      var re = new RegExp(\"^ *at [^(]*\\\\((.*):[0-9]*:[0-9]*\\\\)$\", \"mg\");\n      var lastMatch = null;\n      do {\n        var match = re.exec(stack);\n        if (match != null) lastMatch = match;\n      } while (match != null);\n      return lastMatch[1];\n    }\n  }\n\n  var cachedCurrentScript = null;\n  self.document = {\n    get currentScript() {\n      if (cachedCurrentScript == null) {\n        cachedCurrentScript = {src: computeCurrentScript()};\n      }\n      return cachedCurrentScript;\n    }\n  };\n})();\n\nself.dartDeferredLibraryLoader = function(uri, successCallback, errorCallback) {\n  try {\n    load(uri);\n    successCallback();\n  } catch (error) {\n    errorCallback(error);\n  }\n};\n",
+      "var self=Object.create(global);self.location={href:\"file://\"+function(){var e=process.cwd();return\"win32\"!=process.platform?e:\"/\"+e.replace(/\\\\/g,\"/\")}()+\"/\"},self.scheduleImmediate=setImmediate,self.require=require,self.exports=exports,self.process=process,self.__dirname=__dirname,self.__filename=__filename,function(){var e=null;self.document={get currentScript(){return null==e&&(e={src:function(){try{throw new Error}catch(n){var e=n.stack,r=new RegExp(\"^ *at [^(]*\\\\((.*):[0-9]*:[0-9]*\\\\)$\",\"mg\"),l=null;do{var t=r.exec(e);null!=t&&(l=t)}while(null!=t);return l[1]}}()}),e}}}(),self.dartDeferredLibraryLoader=function(e,r,l){try{load(e),r()}catch(e){l(e)}};"
+    ]
+  },
+  "version": "1.4.1"
+}
