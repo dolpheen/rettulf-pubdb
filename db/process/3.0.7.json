@@ -1,0 +1,325 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "kManifestName"
+        ],
+        "libraries": [
+          "package:process/src/interface/common.dart",
+          "package:process/src/record_replay/common.dart",
+          "package:process/src/record_replay/constants.dart",
+          "package:process/src/record_replay/manifest_entry.dart"
+        ],
+        "methods": [
+          "checkRequiredField",
+          "getExecutablePath",
+          "sanitize"
+        ],
+        "types": []
+      },
+      "CanRunManifestEntry": {
+        "fields": [
+          "executable",
+          "result",
+          "type"
+        ],
+        "libraries": [
+          "package:process/src/record_replay/can_run_manifest_entry.dart"
+        ],
+        "methods": [
+          "CanRunManifestEntry",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "ManifestEntry"
+        ]
+      },
+      "CommandElement": {
+        "fields": [
+          "get:sanitized",
+          "raw"
+        ],
+        "libraries": [
+          "package:process/record_replay.dart",
+          "package:process/src/record_replay/command_element.dart"
+        ],
+        "methods": [
+          "CommandElement",
+          "toString"
+        ],
+        "types": []
+      },
+      "JsonBuilder": {
+        "fields": [
+          "entry"
+        ],
+        "libraries": [
+          "package:process/src/record_replay/manifest_entry.dart"
+        ],
+        "methods": [
+          "add"
+        ],
+        "types": [
+          "JsonBuilder"
+        ]
+      },
+      "LocalProcessManager": {
+        "fields": [],
+        "libraries": [
+          "package:process/process.dart",
+          "package:process/src/interface/local_process_manager.dart"
+        ],
+        "methods": [
+          "LocalProcessManager",
+          "canRun",
+          "killPid",
+          "run",
+          "runSync",
+          "start"
+        ],
+        "types": [
+          "ProcessManager"
+        ]
+      },
+      "Manifest": {
+        "fields": [
+          "get:length"
+        ],
+        "libraries": [
+          "package:process/src/record_replay/manifest.dart"
+        ],
+        "methods": [
+          "Manifest",
+          "add",
+          "findPendingCanRunEntry",
+          "findPendingRunEntry",
+          "fromJson",
+          "getRunEntry",
+          "toJson"
+        ],
+        "types": [
+          "ManifestEntry"
+        ]
+      },
+      "ManifestEntry": {
+        "fields": [
+          "get:invoked",
+          "get:type"
+        ],
+        "libraries": [
+          "package:process/src/record_replay/manifest_entry.dart"
+        ],
+        "methods": [
+          "setInvoked",
+          "toJson"
+        ],
+        "types": []
+      },
+      "ProcessManager": {
+        "fields": [],
+        "libraries": [
+          "package:process/process.dart",
+          "package:process/src/interface/process_manager.dart"
+        ],
+        "methods": [
+          "canRun",
+          "killPid",
+          "run",
+          "runSync",
+          "start"
+        ],
+        "types": []
+      },
+      "ProcessWrapper": {
+        "fields": [
+          "delegate",
+          "get:done",
+          "get:exitCode",
+          "get:pid",
+          "get:stderr",
+          "get:stdin",
+          "get:stdout"
+        ],
+        "libraries": [
+          "package:process/process.dart",
+          "package:process/src/interface/process_wrapper.dart"
+        ],
+        "methods": [
+          "ProcessWrapper",
+          "kill"
+        ],
+        "types": []
+      },
+      "RecordingProcessManager": {
+        "fields": [
+          "delegate",
+          "destination",
+          "get:fs"
+        ],
+        "libraries": [
+          "package:process/record_replay.dart",
+          "package:process/src/record_replay/recording_process_manager.dart"
+        ],
+        "methods": [
+          "RecordingProcessManager",
+          "canRun",
+          "flush",
+          "killPid",
+          "run",
+          "runSync",
+          "start"
+        ],
+        "types": [
+          "Manifest",
+          "ProcessManager"
+        ]
+      },
+      "ReplayProcessManager": {
+        "fields": [
+          "location",
+          "streamDelay"
+        ],
+        "libraries": [
+          "package:process/record_replay.dart",
+          "package:process/src/record_replay/replay_process_manager.dart"
+        ],
+        "methods": [
+          "canRun",
+          "create",
+          "killPid",
+          "run",
+          "runSync",
+          "start"
+        ],
+        "types": [
+          "Manifest",
+          "ProcessManager",
+          "ReplayProcessManager"
+        ]
+      },
+      "RunManifestEntry": {
+        "fields": [
+          "basename",
+          "command",
+          "environment",
+          "exitCode",
+          "get:arguments",
+          "get:daemon",
+          "get:executable",
+          "get:notResponding",
+          "includeParentEnvironment",
+          "mode",
+          "pid",
+          "runInShell",
+          "set:daemon",
+          "set:notResponding",
+          "stderrEncoding",
+          "stdoutEncoding",
+          "type",
+          "workingDirectory"
+        ],
+        "libraries": [
+          "package:process/src/record_replay/run_manifest_entry.dart"
+        ],
+        "methods": [
+          "RunManifestEntry",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "ManifestEntry"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:59:30Z",
+  "package": "process",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "LocalProcessManager",
+      "ProcessWrapper"
+    ],
+    "digest": "dfc0cf9d732c7659043d79f5e7a4d8fceb6e8ced353d229cf918c8de0e82c623",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "2d5ddd78fa65499ea40cdc9988fda797abcac643446266246ed39a0bea60a0c0",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "  ",
+      "-",
+      "../interface/process_manager.dart",
+      "000",
+      ":",
+      ";",
+      "Does not represent a valid recording",
+      "Doesn't exist",
+      "MANIFEST.txt",
+      "No matching invocation found",
+      "PATH",
+      "PATHEXT",
+      "android",
+      "basename",
+      "body",
+      "can_run",
+      "can_run_manifest_entry.dart",
+      "command",
+      "command_element.dart",
+      "common.dart",
+      "constants.dart",
+      "daemon",
+      "dart:async",
+      "dart:convert",
+      "dart:io",
+      "env",
+      "environment",
+      "executable",
+      "exitCode",
+      "fuchsia",
+      "includeParentEnvironment",
+      "ios",
+      "linux",
+      "location",
+      "macos",
+      "manifest.dart",
+      "manifest_entry.dart",
+      "mode",
+      "notResponding",
+      "package:file/file.dart",
+      "package:file/local.dart",
+      "package:intl/intl.dart",
+      "package:path/path.dart",
+      "package:platform/platform.dart",
+      "package:process/process.dart",
+      "pid",
+      "posix",
+      "process_manager.dart",
+      "recording_process_manager.dart",
+      "replay_process_manager.dart",
+      "result",
+      "run",
+      "runInShell",
+      "run_manifest_entry.dart",
+      "src/interface/local_process_manager.dart",
+      "src/interface/process_manager.dart",
+      "src/interface/process_wrapper.dart",
+      "src/record_replay/command_element.dart",
+      "src/record_replay/recording_process_manager.dart",
+      "src/record_replay/replay_process_manager.dart",
+      "stderr",
+      "stderrEncoding",
+      "stdout",
+      "stdoutEncoding",
+      "system",
+      "type",
+      "windows",
+      "workingDirectory",
+      "xcrun"
+    ]
+  },
+  "version": "3.0.7"
+}
