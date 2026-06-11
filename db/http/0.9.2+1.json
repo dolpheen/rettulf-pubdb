@@ -1,0 +1,414 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "get:async",
+          "get:emptyStream"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/mock_client.dart",
+          "package:http/src/utils.dart",
+          "package:http/testing.dart"
+        ],
+        "methods": [
+          "chainToCompleter",
+          "delete",
+          "encodingForCharset",
+          "get",
+          "head",
+          "isPlainAscii",
+          "mapToQuery",
+          "onDone",
+          "post",
+          "put",
+          "queryToMap",
+          "read",
+          "readBytes",
+          "requiredEncodingForCharset",
+          "split1",
+          "store",
+          "streamFromIterable",
+          "syncFuture",
+          "tee",
+          "toByteStream",
+          "toUint8List",
+          "writeStreamToSink"
+        ],
+        "types": [
+          "BaseRequest",
+          "ByteStream",
+          "Pair",
+          "Request",
+          "Response",
+          "StreamedResponse"
+        ]
+      },
+      "BaseClient": {
+        "fields": [],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/base_client.dart"
+        ],
+        "methods": [
+          "close",
+          "delete",
+          "get",
+          "head",
+          "post",
+          "put",
+          "read",
+          "readBytes",
+          "send"
+        ],
+        "types": [
+          "BaseRequest",
+          "Client",
+          "Response",
+          "StreamedResponse"
+        ]
+      },
+      "BaseRequest": {
+        "fields": [
+          "get:contentLength",
+          "get:finalized",
+          "get:followRedirects",
+          "get:maxRedirects",
+          "get:persistentConnection",
+          "headers",
+          "method",
+          "set:contentLength",
+          "set:followRedirects",
+          "set:maxRedirects",
+          "set:persistentConnection",
+          "url"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/base_request.dart"
+        ],
+        "methods": [
+          "BaseRequest",
+          "finalize",
+          "send",
+          "toString"
+        ],
+        "types": [
+          "ByteStream",
+          "StreamedResponse"
+        ]
+      },
+      "BaseResponse": {
+        "fields": [
+          "contentLength",
+          "headers",
+          "isRedirect",
+          "persistentConnection",
+          "reasonPhrase",
+          "request",
+          "statusCode"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/base_response.dart"
+        ],
+        "methods": [
+          "BaseResponse"
+        ],
+        "types": [
+          "BaseRequest"
+        ]
+      },
+      "ByteStream": {
+        "fields": [],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/byte_stream.dart"
+        ],
+        "methods": [
+          "ByteStream",
+          "bytesToString",
+          "fromBytes",
+          "toBytes",
+          "toStringStream"
+        ],
+        "types": []
+      },
+      "Client": {
+        "fields": [],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/client.dart"
+        ],
+        "methods": [
+          "Client",
+          "close",
+          "delete",
+          "get",
+          "head",
+          "post",
+          "put",
+          "read",
+          "readBytes",
+          "send"
+        ],
+        "types": [
+          "BaseRequest",
+          "Response",
+          "StreamedResponse"
+        ]
+      },
+      "IOClient": {
+        "fields": [],
+        "libraries": [
+          "package:http/src/io_client.dart"
+        ],
+        "methods": [
+          "IOClient",
+          "close",
+          "send"
+        ],
+        "types": [
+          "BaseClient",
+          "BaseRequest",
+          "StreamedResponse"
+        ]
+      },
+      "MockClient": {
+        "fields": [],
+        "libraries": [
+          "package:http/src/mock_client.dart",
+          "package:http/testing.dart"
+        ],
+        "methods": [
+          "MockClient",
+          "send",
+          "streaming"
+        ],
+        "types": [
+          "BaseClient",
+          "BaseRequest",
+          "StreamedResponse"
+        ]
+      },
+      "MultipartFile": {
+        "fields": [
+          "contentType",
+          "field",
+          "filename",
+          "get:isFinalized",
+          "length"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/multipart_file.dart"
+        ],
+        "methods": [
+          "MultipartFile",
+          "finalize",
+          "fromBytes",
+          "fromPath",
+          "fromString"
+        ],
+        "types": [
+          "ByteStream",
+          "MultipartFile"
+        ]
+      },
+      "MultipartRequest": {
+        "fields": [
+          "fields",
+          "get:contentLength",
+          "get:files",
+          "set:contentLength"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/multipart_request.dart"
+        ],
+        "methods": [
+          "MultipartRequest",
+          "finalize"
+        ],
+        "types": [
+          "BaseRequest",
+          "ByteStream",
+          "MultipartFile"
+        ]
+      },
+      "Pair": {
+        "fields": [
+          "first",
+          "get:hashCode",
+          "last"
+        ],
+        "libraries": [
+          "package:http/src/utils.dart"
+        ],
+        "methods": [
+          "==",
+          "Pair",
+          "toString"
+        ],
+        "types": []
+      },
+      "Request": {
+        "fields": [
+          "get:body",
+          "get:bodyBytes",
+          "get:bodyFields",
+          "get:contentLength",
+          "get:encoding",
+          "set:body",
+          "set:bodyBytes",
+          "set:bodyFields",
+          "set:contentLength",
+          "set:encoding"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/request.dart"
+        ],
+        "methods": [
+          "Request",
+          "finalize"
+        ],
+        "types": [
+          "BaseRequest",
+          "ByteStream"
+        ]
+      },
+      "Response": {
+        "fields": [
+          "bodyBytes",
+          "get:body"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/response.dart"
+        ],
+        "methods": [
+          "Response",
+          "bytes",
+          "fromStream"
+        ],
+        "types": [
+          "BaseRequest",
+          "BaseResponse",
+          "Response",
+          "StreamedResponse"
+        ]
+      },
+      "StreamedRequest": {
+        "fields": [
+          "get:sink"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/streamed_request.dart"
+        ],
+        "methods": [
+          "StreamedRequest",
+          "finalize"
+        ],
+        "types": [
+          "BaseRequest",
+          "ByteStream"
+        ]
+      },
+      "StreamedResponse": {
+        "fields": [
+          "stream"
+        ],
+        "libraries": [
+          "package:http/http.dart",
+          "package:http/src/streamed_response.dart"
+        ],
+        "methods": [
+          "StreamedResponse"
+        ],
+        "types": [
+          "BaseRequest",
+          "BaseResponse",
+          "ByteStream"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:35:50Z",
+  "package": "http",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "cb8684abc85128534cddaa2c9752383821dc683211cbfc741e3a87f4a0b7c60e",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "2e3954b18b89919b2aad1b11707cdcf55a1e65157ec4bc493df981042542b79b",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\r\n",
+      "&",
+      ",",
+      "--",
+      "--\r\n",
+      "=",
+      "Can't finalize a finalized MultipartFile.",
+      "Can't finalize a finalized Request.",
+      "Can't modify a finalized Request.",
+      "Cannot access the body fields of a Request without content-type \"application/x-www-form-urlencoded\".",
+      "Cannot set the contentLength property of multipart requests.",
+      "Cannot set the contentLength property of non-streaming Request objects.",
+      "DELETE",
+      "GET",
+      "HEAD",
+      "POST",
+      "PUT",
+      "^[\\x00-\\x7F]+$",
+      "application",
+      "application/x-www-form-urlencoded",
+      "base_client.dart",
+      "base_request.dart",
+      "base_response.dart",
+      "binary",
+      "byte_stream.dart",
+      "client.dart",
+      "content-transfer-encoding",
+      "content-type",
+      "dart-http-boundary-",
+      "dart:async",
+      "dart:convert",
+      "dart:io",
+      "dart:math",
+      "dart:typed_data",
+      "io_client.dart",
+      "multipart_file.dart",
+      "octet-stream",
+      "package:path/path.dart",
+      "package:stack_trace/stack_trace.dart",
+      "plain",
+      "request.dart",
+      "response.dart",
+      "src/base_client.dart",
+      "src/base_request.dart",
+      "src/base_response.dart",
+      "src/byte_stream.dart",
+      "src/client.dart",
+      "src/mock_client.dart",
+      "src/multipart_file.dart",
+      "src/multipart_request.dart",
+      "src/request.dart",
+      "src/response.dart",
+      "src/streamed_request.dart",
+      "src/streamed_response.dart",
+      "streamed_response.dart",
+      "text",
+      "utils.dart",
+      "x-www-form-urlencoded"
+    ]
+  },
+  "version": "0.9.2+1"
+}
