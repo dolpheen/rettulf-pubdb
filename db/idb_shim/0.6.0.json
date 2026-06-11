@@ -1,0 +1,717 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "DATABASE_DB_ESTIMATED_SIZE",
+          "DATABASE_DB_VERSION",
+          "GLOBAL_STORE_DB_ESTIMATED_SIZE",
+          "GLOBAL_STORE_DB_NAME",
+          "GLOBAL_STORE_DB_VERSION",
+          "IDB_DIRECTION_NEXT",
+          "IDB_DIRECTION_PREV",
+          "IDB_FACTORY_BROWSER",
+          "IDB_FACTORY_MEMORY",
+          "IDB_FACTORY_NATIVE",
+          "IDB_FACTORY_PERSISTENT",
+          "IDB_FACTORY_WEBSQL",
+          "IDB_MODE_READ_ONLY",
+          "IDB_MODE_READ_WRITE",
+          "INTERNAL_SIGNATURE",
+          "devWarning",
+          "get:idbBrowserFactory",
+          "get:idbDevWarning",
+          "get:idbMemoryFactory",
+          "get:idbNativeFactory",
+          "get:idbPersistentFactory",
+          "get:idbWebSqlFactory",
+          "get:sqlDatabaseFactory",
+          "set:devPrintEnabled",
+          "set:tekartikDevPrintEnabled"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_browser.dart",
+          "package:idb_shim/idb_client.dart",
+          "package:idb_shim/idb_client_memory.dart",
+          "package:idb_shim/idb_client_native.dart",
+          "package:idb_shim/idb_client_websql.dart",
+          "package:idb_shim/idb_console.dart",
+          "package:idb_shim/src/common/common_value.dart",
+          "package:idb_shim/src/utils/core_imports.dart",
+          "package:idb_shim/src/utils/dev_utils.dart",
+          "package:idb_shim/src/utils/test_utils.dart",
+          "package:idb_shim/src/websql/websql_client_constants.dart",
+          "package:idb_shim/src/websql/websql_wrapper.dart"
+        ],
+        "methods": [
+          "checkKeyValue",
+          "cloneValue",
+          "decodeKey",
+          "decodeValue",
+          "devError",
+          "devPrint",
+          "encodeKey",
+          "encodeValue",
+          "getIdbFactory",
+          "idbDevPrint",
+          "solo_group",
+          "solo_test",
+          "tekartikDevError",
+          "tekartikDevPrint"
+        ],
+        "types": [
+          "Event",
+          "IdbFactory",
+          "IdbMemoryFactory",
+          "IdbNativeFactory",
+          "IdbWebSqlFactory",
+          "SqlDatabaseFactory",
+          "VersionChangeEvent"
+        ]
+      },
+      "AutoIncrementMemoryPrimaryIndex": {
+        "fields": [
+          "autoIncrementIndex"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client_memory.dart"
+        ],
+        "methods": [
+          "AutoIncrementMemoryPrimaryIndex",
+          "getKey"
+        ],
+        "types": [
+          "MemoryPrimaryIndex"
+        ]
+      },
+      "Cursor": {
+        "fields": [
+          "get:direction",
+          "get:key",
+          "get:primaryKey"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client.dart"
+        ],
+        "methods": [
+          "advance",
+          "delete",
+          "next",
+          "update"
+        ],
+        "types": []
+      },
+      "CursorWithValue": {
+        "fields": [
+          "get:value"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Cursor"
+        ]
+      },
+      "Database": {
+        "fields": [
+          "get:factory",
+          "get:name",
+          "get:objectStoreNames",
+          "get:onVersionChange",
+          "get:version"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client.dart"
+        ],
+        "methods": [
+          "Database",
+          "close",
+          "createObjectStore",
+          "deleteObjectStore",
+          "transaction",
+          "transactionList"
+        ],
+        "types": [
+          "IdbFactory",
+          "ObjectStore",
+          "Transaction",
+          "VersionChangeEvent"
+        ]
+      },
+      "DatabaseError": {
+        "fields": [
+          "get:message"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client.dart"
+        ],
+        "methods": [
+          "DatabaseError",
+          "toString"
+        ],
+        "types": []
+      },
+      "DatabaseReadOnlyError": {
+        "fields": [],
+        "libraries": [
+          "package:idb_shim/idb_client.dart"
+        ],
+        "methods": [
+          "DatabaseReadOnlyError"
+        ],
+        "types": [
+          "DatabaseError"
+        ]
+      },
+      "DatabaseStoreNotFoundError": {
+        "fields": [],
+        "libraries": [
+          "package:idb_shim/idb_client.dart"
+        ],
+        "methods": [
+          "DatabaseStoreNotFoundError"
+        ],
+        "types": [
+          "DatabaseError"
+        ]
+      },
+      "Event": {
+        "fields": [],
+        "libraries": [
+          "package:idb_shim/idb_client.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "IdbFactory": {
+        "fields": [
+          "get:name",
+          "get:persistent",
+          "get:supportsDatabaseNames",
+          "supported"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client.dart"
+        ],
+        "methods": [
+          "IdbFactory",
+          "deleteDatabase",
+          "getDatabaseNames",
+          "open"
+        ],
+        "types": [
+          "Database",
+          "IdbFactory"
+        ]
+      },
+      "IdbMemoryFactory": {
+        "fields": [
+          "dbMap",
+          "get:name",
+          "get:persistent",
+          "get:supportsDatabaseNames"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client_memory.dart"
+        ],
+        "methods": [
+          "IdbMemoryFactory",
+          "deleteDatabase",
+          "getDatabaseNames",
+          "open"
+        ],
+        "types": [
+          "Database",
+          "IdbFactory",
+          "IdbMemoryFactory"
+        ]
+      },
+      "IdbNativeFactory": {
+        "fields": [
+          "get:name",
+          "get:persistent",
+          "get:supported",
+          "get:supportsDatabaseNames"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client_native.dart"
+        ],
+        "methods": [
+          "IdbNativeFactory",
+          "deleteDatabase",
+          "getDatabaseNames",
+          "open"
+        ],
+        "types": [
+          "Database",
+          "IdbFactory",
+          "IdbNativeFactory"
+        ]
+      },
+      "IdbWebSqlFactory": {
+        "fields": [
+          "get:name",
+          "get:persistent",
+          "get:supported",
+          "get:supportsDatabaseNames"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client_websql.dart"
+        ],
+        "methods": [
+          "IdbWebSqlFactory",
+          "deleteDatabase",
+          "getDatabaseNames",
+          "open"
+        ],
+        "types": [
+          "Database",
+          "IdbFactory",
+          "IdbWebSqlFactory"
+        ]
+      },
+      "Index": {
+        "fields": [
+          "get:keyPath",
+          "get:multiEntry",
+          "get:name",
+          "get:unique"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client.dart"
+        ],
+        "methods": [
+          "count",
+          "get",
+          "getKey",
+          "openCursor",
+          "openKeyCursor"
+        ],
+        "types": [
+          "Cursor",
+          "CursorWithValue",
+          "KeyRange"
+        ]
+      },
+      "KeyRange": {
+        "fields": [
+          "get:lower",
+          "get:lowerOpen",
+          "get:upper",
+          "get:upperOpen"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client.dart"
+        ],
+        "methods": [
+          "KeyRange",
+          "bound",
+          "contains",
+          "lowerBound",
+          "only",
+          "toString",
+          "upperBound"
+        ],
+        "types": []
+      },
+      "MemoryCursorBaseController": {
+        "fields": [
+          "autoAdvance",
+          "ctlr",
+          "currentItemCount",
+          "currentItemIndex",
+          "currentKeyIndex",
+          "direction",
+          "get:store",
+          "get:stream",
+          "get:transaction",
+          "index"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client_memory.dart"
+        ],
+        "methods": [
+          "MemoryCursorBaseController",
+          "advance",
+          "autoNext",
+          "execute",
+          "newCursor"
+        ],
+        "types": [
+          "Cursor",
+          "KeyRange",
+          "MemoryObjectStore"
+        ]
+      },
+      "MemoryCursorController": {
+        "fields": [],
+        "libraries": [
+          "package:idb_shim/idb_client_memory.dart"
+        ],
+        "methods": [
+          "MemoryCursorController",
+          "newCursor"
+        ],
+        "types": [
+          "Cursor",
+          "KeyRange",
+          "MemoryCursorBaseController"
+        ]
+      },
+      "MemoryObjectStore": {
+        "fields": [
+          "get:autoIncrement",
+          "get:database",
+          "get:indexNames",
+          "get:keyPath",
+          "get:name",
+          "transaction"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client_memory.dart"
+        ],
+        "methods": [
+          "MemoryObjectStore",
+          "add",
+          "checkAndUpdateAllIndecies",
+          "clear",
+          "count",
+          "createIndex",
+          "delete",
+          "getObject",
+          "getSync",
+          "inTransaction",
+          "inWritableTransaction",
+          "index",
+          "openCursor",
+          "put",
+          "removeAllIndecies",
+          "updateAllIndecies"
+        ],
+        "types": [
+          "CursorWithValue",
+          "Index",
+          "KeyRange",
+          "ObjectStore"
+        ]
+      },
+      "MemoryPrimaryIndex": {
+        "fields": [],
+        "libraries": [
+          "package:idb_shim/idb_client_memory.dart"
+        ],
+        "methods": [
+          "MemoryPrimaryIndex",
+          "getKey"
+        ],
+        "types": []
+      },
+      "ObjectStore": {
+        "fields": [
+          "get:autoIncrement",
+          "get:indexNames",
+          "get:keyPath",
+          "get:name"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client.dart"
+        ],
+        "methods": [
+          "add",
+          "clear",
+          "count",
+          "createIndex",
+          "delete",
+          "getObject",
+          "index",
+          "openCursor",
+          "put",
+          "toString"
+        ],
+        "types": [
+          "CursorWithValue",
+          "Index",
+          "KeyRange"
+        ]
+      },
+      "OpenDBRequest": {
+        "fields": [],
+        "libraries": [
+          "package:idb_shim/idb_client.dart"
+        ],
+        "methods": [
+          "OpenDBRequest"
+        ],
+        "types": [
+          "Database",
+          "Request",
+          "Transaction"
+        ]
+      },
+      "Request": {
+        "fields": [
+          "result",
+          "transaction"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client.dart"
+        ],
+        "methods": [
+          "Request"
+        ],
+        "types": [
+          "Database",
+          "Transaction"
+        ]
+      },
+      "SqlDatabase": {
+        "fields": [
+          "get:DEBUG",
+          "get:supported",
+          "set:debug"
+        ],
+        "libraries": [
+          "package:idb_shim/src/websql/websql_wrapper.dart"
+        ],
+        "methods": [
+          "SqlDatabase",
+          "debugLog",
+          "transaction"
+        ],
+        "types": [
+          "SqlDatabase",
+          "SqlTransaction"
+        ]
+      },
+      "SqlDatabaseFactory": {
+        "fields": [],
+        "libraries": [
+          "package:idb_shim/src/websql/websql_wrapper.dart"
+        ],
+        "methods": [
+          "openDatabase"
+        ],
+        "types": [
+          "SqlDatabase"
+        ]
+      },
+      "SqlTransaction": {
+        "fields": [
+          "EMPTY_ARGS",
+          "get:completed"
+        ],
+        "libraries": [
+          "package:idb_shim/src/websql/websql_wrapper.dart"
+        ],
+        "methods": [
+          "SqlTransaction",
+          "commit",
+          "complete",
+          "dropTableIfExists",
+          "dropTablesIfExists",
+          "execute",
+          "ping",
+          "selectCount"
+        ],
+        "types": [
+          "SqlDatabase",
+          "SqlTransaction"
+        ]
+      },
+      "Transaction": {
+        "fields": [
+          "database",
+          "get:completed"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client.dart"
+        ],
+        "methods": [
+          "Transaction",
+          "objectStore"
+        ],
+        "types": [
+          "Database",
+          "ObjectStore"
+        ]
+      },
+      "VersionChangeEvent": {
+        "fields": [
+          "get:currentTarget",
+          "get:database",
+          "get:newVersion",
+          "get:oldVersion",
+          "get:target",
+          "get:transaction"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Database",
+          "Transaction"
+        ]
+      },
+      "WithCurrentTransaction": {
+        "fields": [
+          "currentTransaction"
+        ],
+        "libraries": [
+          "package:idb_shim/idb_client_memory.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Transaction"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:36:23Z",
+  "package": "idb_shim",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "ded5455398df04bf2985d3e98c48655945fa4fbd6933b66ce079c7ffd6b6a39e",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "04c882b1490181d370169f1d9bf43c216c17cb9b2d9bfb4ba900d15b867d8093",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "  empty",
+      " WHERE 1=1",
+      ", ",
+      ", ?",
+      "-",
+      "...",
+      "0",
+      "1",
+      "= ?",
+      "?",
+      "?, ",
+      "ASC",
+      "BEGIN TRANSACTION",
+      "BLOB PRIMARY KEY",
+      "COMMIT",
+      "CREATE ",
+      "CREATE TABLE stores (name TEXT UNIQUE, key_path TEXT, auto_increment BOOLEAN, indecies TEXT)",
+      "CREATE TABLE version (internal_version INT, signature TEXT)",
+      "CREATE TABLE version (internal_version INT, value INT, signature TEXT)",
+      "DELETE",
+      "DELETE FROM stores WHERE name = ?",
+      "DESC",
+      "DROP TABLE IF EXISTS stores",
+      "DROP TABLE IF EXISTS version",
+      "INSERT",
+      "INSERT INTO stores (name, key_path, auto_increment) VALUES (?, ?, ?)",
+      "INSERT INTO version (internal_version, signature) VALUES (?, ?)",
+      "INSERT INTO version (internal_version, value, signature) VALUES (?, ?, ?)",
+      "INTEGER PRIMARY KEY AUTOINCREMENT",
+      "IS NULL",
+      "Key already exists in the object store",
+      "NotFoundError: One of the specified object stores was not found.",
+      "ReadOnlyError: The transaction is read-only.",
+      "SELECT",
+      "SELECT 0 WHERE 0 = 1",
+      "SELECT COUNT(*) as _count FROM ",
+      "SELECT internal_version, signature FROM version",
+      "SELECT internal_version, value, signature FROM version",
+      "SELECT key_path, auto_increment, indecies FROM stores WHERE name = ?",
+      "SELECT name FROM stores",
+      "SELECT name, key_path, auto_increment, indecies FROM stores",
+      "SELECT value FROM version WHERE value > ?",
+      "UNIQUE ",
+      "UPDATE",
+      "UPDATE stores SET indecies = ? WHERE name = ?",
+      "UPDATE version SET value = ?",
+      "[",
+      "]",
+      "_COUNT",
+      "_count",
+      "auto_increment",
+      "browser",
+      "cannot call deleteObjectStore outside of a versionChangedEvent",
+      "cannot create objectStore outside of a versionChangedEvent",
+      "com.tekartik.idb",
+      "com.tekartik.idb.global_store",
+      "dart:async",
+      "dart:convert",
+      "dart:html",
+      "dart:indexed_db",
+      "dart:web_sql",
+      "databases",
+      "databases WHERE name = ?",
+      "dbName cannot be null",
+      "dev_utils.dart",
+      "idb_client.dart",
+      "indecies",
+      "internal error - addOperation - not the current transaction",
+      "internal error - complete - not the current transaction",
+      "internal_version",
+      "key",
+      "key_path",
+      "kr",
+      "memory",
+      "multi_entry",
+      "name",
+      "name cannot be null",
+      "native",
+      "neither keyPath nor autoIncrement set and trying to add object without key",
+      "neither keyPath nor autoIncrement set and trying to put object without key",
+      "next",
+      "onVersionChange should be called only once",
+      "package:idb_shim/idb_client.dart",
+      "package:idb_shim/idb_client_memory.dart",
+      "package:idb_shim/idb_client_native.dart",
+      "package:idb_shim/idb_client_websql.dart",
+      "package:idb_shim/src/common/common_value.dart",
+      "package:idb_shim/src/websql/websql_client_constants.dart",
+      "package:idb_shim/src/websql/websql_wrapper.dart",
+      "package:unittest/unittest.dart",
+      "persistent",
+      "prev",
+      "readonly",
+      "readwrite",
+      "signature",
+      "src/client/client.dart",
+      "src/client/error.dart",
+      "src/memory/memory_cursor.dart",
+      "src/memory/memory_database.dart",
+      "src/memory/memory_error.dart",
+      "src/memory/memory_index.dart",
+      "src/memory/memory_item.dart",
+      "src/memory/memory_object_store.dart",
+      "src/memory/memory_transaction.dart",
+      "src/native/native_cursor.dart",
+      "src/native/native_database.dart",
+      "src/native/native_error.dart",
+      "src/native/native_event.dart",
+      "src/native/native_index.dart",
+      "src/native/native_key_range.dart",
+      "src/native/native_object_store.dart",
+      "src/native/native_transaction.dart",
+      "src/utils/core_imports.dart",
+      "src/websql/websql_cursor.dart",
+      "src/websql/websql_database.dart",
+      "src/websql/websql_error.dart",
+      "src/websql/websql_global_store.dart",
+      "src/websql/websql_index.dart",
+      "src/websql/websql_object_store.dart",
+      "src/websql/websql_query.dart",
+      "src/websql/websql_transaction.dart",
+      "src/websql/websql_utils.dart",
+      "stores",
+      "unique",
+      "value",
+      "version",
+      "version and onUpgradeNeeded must be specified together",
+      "version cannot be 0",
+      "websql"
+    ]
+  },
+  "version": "0.6.0"
+}
