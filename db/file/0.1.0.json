@@ -1,0 +1,422 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:file/file.dart",
+          "package:file/io.dart",
+          "package:file/src/interface.dart",
+          "package:file/src/memory_utils.dart",
+          "package:file/src/sync.dart",
+          "package:file/src/utils.dart",
+          "package:file/sync.dart",
+          "package:file/sync_io.dart",
+          "package:file/testing/common.dart"
+        ],
+        "methods": [
+          "cloneSafe",
+          "createUsersDirectory",
+          "getParentPath",
+          "getType",
+          "insertFiles",
+          "resolvePath",
+          "runCommonTests"
+        ],
+        "types": [
+          "Directory",
+          "FileSystem",
+          "FileSystemEntityType"
+        ]
+      },
+      "Directory": {
+        "fields": [],
+        "libraries": [
+          "package:file/file.dart",
+          "package:file/io.dart",
+          "package:file/src/interface.dart"
+        ],
+        "methods": [
+          "exists",
+          "list"
+        ],
+        "types": [
+          "FileSystemEntity"
+        ]
+      },
+      "File": {
+        "fields": [],
+        "libraries": [
+          "package:file/file.dart",
+          "package:file/io.dart",
+          "package:file/src/interface.dart"
+        ],
+        "methods": [
+          "exists",
+          "readAsBytes",
+          "readAsString",
+          "writeAsBytes",
+          "writeAsString"
+        ],
+        "types": [
+          "File",
+          "FileSystemEntity"
+        ]
+      },
+      "FileSystem": {
+        "fields": [],
+        "libraries": [
+          "package:file/file.dart",
+          "package:file/io.dart",
+          "package:file/src/interface.dart"
+        ],
+        "methods": [
+          "directory",
+          "file",
+          "type"
+        ],
+        "types": [
+          "Directory",
+          "File",
+          "FileSystemEntityType"
+        ]
+      },
+      "FileSystemEntity": {
+        "fields": [
+          "get:fileSystem",
+          "get:parent",
+          "get:path"
+        ],
+        "libraries": [
+          "package:file/file.dart",
+          "package:file/io.dart",
+          "package:file/src/interface.dart"
+        ],
+        "methods": [
+          "copy",
+          "create",
+          "delete",
+          "exists",
+          "rename"
+        ],
+        "types": [
+          "Directory",
+          "FileSystem",
+          "FileSystemEntity"
+        ]
+      },
+      "FileSystemEntityException": {
+        "fields": [
+          "message",
+          "path"
+        ],
+        "libraries": [
+          "package:file/file.dart",
+          "package:file/io.dart",
+          "package:file/src/interface.dart",
+          "package:file/src/sync.dart",
+          "package:file/sync.dart",
+          "package:file/sync_io.dart"
+        ],
+        "methods": [
+          "FileSystemEntityException",
+          "toString"
+        ],
+        "types": []
+      },
+      "FileSystemEntityType": {
+        "fields": [
+          "DIRECTORY",
+          "FILE",
+          "LINK",
+          "NOT_FOUND"
+        ],
+        "libraries": [
+          "package:file/file.dart",
+          "package:file/io.dart",
+          "package:file/src/interface.dart",
+          "package:file/src/sync.dart",
+          "package:file/sync.dart",
+          "package:file/sync_io.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Link": {
+        "fields": [],
+        "libraries": [
+          "package:file/file.dart",
+          "package:file/io.dart",
+          "package:file/src/interface.dart"
+        ],
+        "methods": [
+          "exists"
+        ],
+        "types": [
+          "FileSystemEntity"
+        ]
+      },
+      "LocalFileSystem": {
+        "fields": [],
+        "libraries": [
+          "package:file/io.dart",
+          "package:file/src/backends/local.dart"
+        ],
+        "methods": [
+          "LocalFileSystem",
+          "directory",
+          "file",
+          "type"
+        ],
+        "types": [
+          "Directory",
+          "File",
+          "FileSystem",
+          "FileSystemEntityType"
+        ]
+      },
+      "MemoryFileStorage": {
+        "fields": [],
+        "libraries": [
+          "package:file/file.dart",
+          "package:file/io.dart",
+          "package:file/src/memory_utils.dart",
+          "package:file/sync.dart",
+          "package:file/sync_io.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MemoryFileStorageImpl": {
+        "fields": [
+          "data"
+        ],
+        "libraries": [
+          "package:file/src/memory_utils.dart"
+        ],
+        "methods": [],
+        "types": [
+          "MemoryFileStorage"
+        ]
+      },
+      "MemoryFileSystem": {
+        "fields": [
+          "get:storage"
+        ],
+        "libraries": [
+          "package:file/file.dart",
+          "package:file/io.dart",
+          "package:file/src/backends/memory.dart"
+        ],
+        "methods": [
+          "MemoryFileSystem",
+          "directory",
+          "file",
+          "toMap",
+          "type"
+        ],
+        "types": [
+          "Directory",
+          "File",
+          "FileSystem",
+          "FileSystemEntityType",
+          "MemoryFileStorage",
+          "MemoryFileStorageImpl"
+        ]
+      },
+      "SyncDirectory": {
+        "fields": [],
+        "libraries": [
+          "package:file/src/sync.dart",
+          "package:file/sync.dart",
+          "package:file/sync_io.dart"
+        ],
+        "methods": [
+          "exists",
+          "list"
+        ],
+        "types": [
+          "SyncFileSystemEntity"
+        ]
+      },
+      "SyncFile": {
+        "fields": [],
+        "libraries": [
+          "package:file/src/sync.dart",
+          "package:file/sync.dart",
+          "package:file/sync_io.dart"
+        ],
+        "methods": [
+          "exists",
+          "readAsBytes",
+          "readAsString",
+          "writeAsBytes",
+          "writeAsString"
+        ],
+        "types": [
+          "SyncFile",
+          "SyncFileSystemEntity"
+        ]
+      },
+      "SyncFileSystem": {
+        "fields": [],
+        "libraries": [
+          "package:file/src/sync.dart",
+          "package:file/sync.dart",
+          "package:file/sync_io.dart"
+        ],
+        "methods": [
+          "directory",
+          "file",
+          "type"
+        ],
+        "types": [
+          "FileSystemEntityType",
+          "SyncDirectory",
+          "SyncFile"
+        ]
+      },
+      "SyncFileSystemEntity": {
+        "fields": [
+          "get:fileSystem",
+          "get:parent",
+          "get:path"
+        ],
+        "libraries": [
+          "package:file/src/sync.dart",
+          "package:file/sync.dart",
+          "package:file/sync_io.dart"
+        ],
+        "methods": [
+          "copy",
+          "create",
+          "delete",
+          "exists",
+          "rename"
+        ],
+        "types": [
+          "SyncDirectory",
+          "SyncFileSystem",
+          "SyncFileSystemEntity"
+        ]
+      },
+      "SyncLocalFileSystem": {
+        "fields": [],
+        "libraries": [
+          "package:file/src/sync/local.dart",
+          "package:file/sync_io.dart"
+        ],
+        "methods": [
+          "SyncLocalFileSystem",
+          "directory",
+          "file",
+          "type"
+        ],
+        "types": [
+          "FileSystemEntityType",
+          "SyncDirectory",
+          "SyncFile",
+          "SyncFileSystem"
+        ]
+      },
+      "SyncMemoryFileSystem": {
+        "fields": [
+          "get:storage"
+        ],
+        "libraries": [
+          "package:file/src/sync/memory.dart",
+          "package:file/sync.dart",
+          "package:file/sync_io.dart"
+        ],
+        "methods": [
+          "SyncMemoryFileSystem",
+          "directory",
+          "file",
+          "toMap",
+          "type"
+        ],
+        "types": [
+          "FileSystemEntityType",
+          "MemoryFileStorage",
+          "MemoryFileStorageImpl",
+          "SyncDirectory",
+          "SyncFile",
+          "SyncFileSystem"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:18:35Z",
+  "package": "file",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "LocalFileSystem",
+      "SyncLocalFileSystem"
+    ],
+    "digest": "eb3d450002e60969e2e8c779c9de2aea693d7f14697954cc2ce32e8a85013209",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "e2dc5c1383dbff6f1d33728260304e5821916ef350ee3234417ae94dca393891",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "../memory_utils.dart",
+      "/",
+      "Cannot non-recursively delete a non-empty directory",
+      "Jack will fill this in",
+      "Jill will fill this in",
+      "No support for symbolic links in system",
+      "Not a supported operation",
+      "Not found",
+      "Path must begin with \"/\"",
+      "README",
+      "Unable to copy or move to an existing path",
+      "[Common]",
+      "[Directory]",
+      "[File]",
+      "and by default, be empty",
+      "dart:async",
+      "dart:convert",
+      "dart:io",
+      "interface.dart",
+      "interface/directory.dart",
+      "interface/file.dart",
+      "interface/file_system.dart",
+      "interface/file_system_entity.dart",
+      "interface/link.dart",
+      "jack",
+      "jill",
+      "local/local_directory.dart",
+      "local/local_file.dart",
+      "local/local_file_system.dart",
+      "local/local_file_system_entity.dart",
+      "memory/memory_directory.dart",
+      "memory/memory_file.dart",
+      "memory/memory_file_system.dart",
+      "memory/memory_file_system_entity.dart",
+      "non-recursively",
+      "package:file/file.dart",
+      "package:file/src/backends/local.dart",
+      "package:file/src/backends/memory.dart",
+      "package:file/src/interface.dart",
+      "package:file/src/memory_utils.dart",
+      "package:file/src/sync.dart",
+      "package:file/src/sync/local.dart",
+      "package:file/src/sync/memory.dart",
+      "package:file/src/utils.dart",
+      "package:file/sync.dart",
+      "package:test/test.dart",
+      "profile.jpg",
+      "recursively",
+      "should be able to write and read to the file system",
+      "should exist after being created",
+      "should list files",
+      "should not exist by default",
+      "users"
+    ]
+  },
+  "version": "0.1.0"
+}
