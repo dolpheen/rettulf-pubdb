@@ -1,0 +1,955 @@
+{
+  "api_surface": {
+    "classes": {
+      "Blend": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/blend/blend.dart",
+          "package:material_color_utilities/material_color_utilities.dart"
+        ],
+        "methods": [
+          "cam16Ucs",
+          "harmonize",
+          "hctHue"
+        ],
+        "types": []
+      },
+      "Box": {
+        "fields": [
+          "b0",
+          "b1",
+          "g0",
+          "g1",
+          "r0",
+          "r1",
+          "vol"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/quantize/quantizer_wu.dart"
+        ],
+        "methods": [
+          "Box",
+          "toString"
+        ],
+        "types": []
+      },
+      "Cam16": {
+        "fields": [
+          "astar",
+          "bstar",
+          "chroma",
+          "hue",
+          "j",
+          "jstar",
+          "m",
+          "q",
+          "s"
+        ],
+        "libraries": [
+          "package:material_color_utilities/hct/cam16.dart",
+          "package:material_color_utilities/material_color_utilities.dart"
+        ],
+        "methods": [
+          "Cam16",
+          "distance",
+          "fromInt",
+          "fromIntInViewingConditions",
+          "fromJch",
+          "fromJchInViewingConditions",
+          "fromUcs",
+          "fromUcsInViewingConditions",
+          "fromXyzInViewingConditions",
+          "toInt",
+          "viewed",
+          "xyzInViewingConditions"
+        ],
+        "types": [
+          "Cam16",
+          "ViewingConditions"
+        ]
+      },
+      "ColorUtils": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/utils/color_utils.dart"
+        ],
+        "methods": [
+          "alphaFromArgb",
+          "argbFromLab",
+          "argbFromLinrgb",
+          "argbFromLstar",
+          "argbFromRgb",
+          "argbFromXyz",
+          "blueFromArgb",
+          "delinearized",
+          "greenFromArgb",
+          "isOpaque",
+          "labFromArgb",
+          "linearized",
+          "lstarFromArgb",
+          "lstarFromY",
+          "redFromArgb",
+          "whitePointD65",
+          "xyzFromArgb",
+          "yFromLstar"
+        ],
+        "types": []
+      },
+      "Contrast": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/contrast/contrast.dart",
+          "package:material_color_utilities/material_color_utilities.dart"
+        ],
+        "methods": [
+          "darker",
+          "darkerUnsafe",
+          "lighter",
+          "lighterUnsafe",
+          "ratioOfTones"
+        ],
+        "types": []
+      },
+      "CorePalette": {
+        "fields": [
+          "error",
+          "get:hashCode",
+          "neutral",
+          "neutralVariant",
+          "primary",
+          "secondary",
+          "size",
+          "tertiary"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/palettes/core_palette.dart"
+        ],
+        "methods": [
+          "==",
+          "asList",
+          "contentOf",
+          "fromList",
+          "of",
+          "toString"
+        ],
+        "types": [
+          "CorePalette",
+          "TonalPalette"
+        ]
+      },
+      "CreateBoxesResult": {
+        "fields": [
+          "requestedCount",
+          "resultCount"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/quantize/quantizer_wu.dart"
+        ],
+        "methods": [
+          "CreateBoxesResult"
+        ],
+        "types": []
+      },
+      "Direction": {
+        "fields": [
+          "blue",
+          "green",
+          "red"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/quantize/quantizer_wu.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DislikeAnalyzer": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/dislike/dislike_analyzer.dart",
+          "package:material_color_utilities/material_color_utilities.dart"
+        ],
+        "methods": [
+          "fixIfDisliked",
+          "isDisliked"
+        ],
+        "types": [
+          "Hct"
+        ]
+      },
+      "DistanceAndIndex": {
+        "fields": [
+          "distance",
+          "index"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/quantize/quantizer_wsmeans.dart"
+        ],
+        "methods": [
+          "DistanceAndIndex",
+          "compareTo"
+        ],
+        "types": [
+          "DistanceAndIndex"
+        ]
+      },
+      "DynamicColor": {
+        "fields": [
+          "background",
+          "chroma",
+          "hue",
+          "tone",
+          "toneDeltaConstraint",
+          "toneMaxContrast",
+          "toneMinContrast"
+        ],
+        "libraries": [
+          "package:material_color_utilities/dynamiccolor/dynamic_color.dart",
+          "package:material_color_utilities/material_color_utilities.dart"
+        ],
+        "methods": [
+          "DynamicColor",
+          "calculateDynamicTone",
+          "enableLightForeground",
+          "ensureToneDelta",
+          "foregroundTone",
+          "fromPalette",
+          "getArgb",
+          "getHct",
+          "getTone",
+          "toneAllowsLightForeground",
+          "toneMaxContrastDefault",
+          "toneMinContrastDefault",
+          "tonePrefersLightForeground"
+        ],
+        "types": [
+          "DynamicColor",
+          "DynamicScheme",
+          "Hct",
+          "TonalPalette",
+          "ToneDeltaConstraint"
+        ]
+      },
+      "DynamicScheme": {
+        "fields": [
+          "contrastLevel",
+          "errorPalette",
+          "isDark",
+          "neutralPalette",
+          "neutralVariantPalette",
+          "primaryPalette",
+          "secondaryPalette",
+          "sourceColorArgb",
+          "sourceColorHct",
+          "tertiaryPalette",
+          "variant"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/scheme/dynamic_scheme.dart"
+        ],
+        "methods": [
+          "DynamicScheme",
+          "getRotatedHue"
+        ],
+        "types": [
+          "Hct",
+          "TonalPalette",
+          "Variant"
+        ]
+      },
+      "Hct": {
+        "fields": [
+          "get:chroma",
+          "get:hashCode",
+          "get:hue",
+          "get:tone",
+          "set:chroma",
+          "set:hue",
+          "set:tone"
+        ],
+        "libraries": [
+          "package:material_color_utilities/hct/hct.dart",
+          "package:material_color_utilities/material_color_utilities.dart"
+        ],
+        "methods": [
+          "==",
+          "from",
+          "fromInt",
+          "inViewingConditions",
+          "toInt",
+          "toString"
+        ],
+        "types": [
+          "Hct",
+          "ViewingConditions"
+        ]
+      },
+      "HctSolver": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/hct/src/hct_solver.dart"
+        ],
+        "methods": [
+          "solveToCam",
+          "solveToInt"
+        ],
+        "types": [
+          "Cam16"
+        ]
+      },
+      "MaterialDynamicColors": {
+        "fields": [
+          "background",
+          "contentAccentToneDelta",
+          "error",
+          "errorContainer",
+          "inverseOnPrimary",
+          "inverseOnSurface",
+          "inversePrimary",
+          "inverseSurface",
+          "onBackground",
+          "onError",
+          "onErrorContainer",
+          "onPrimary",
+          "onPrimaryContainer",
+          "onPrimaryFixed",
+          "onPrimaryFixedVariant",
+          "onSecondary",
+          "onSecondaryContainer",
+          "onSecondaryFixed",
+          "onSecondaryFixedVariant",
+          "onSurface",
+          "onSurfaceVariant",
+          "onTertiary",
+          "onTertiaryContainer",
+          "onTertiaryFixed",
+          "onTertiaryFixedVariant",
+          "outline",
+          "outlineVariant",
+          "primary",
+          "primaryContainer",
+          "primaryFixed",
+          "primaryFixedDim",
+          "scrim",
+          "secondary",
+          "secondaryContainer",
+          "secondaryFixed",
+          "secondaryFixedDim",
+          "shadow",
+          "surface",
+          "surfaceBright",
+          "surfaceContainer",
+          "surfaceContainerHigh",
+          "surfaceContainerHighest",
+          "surfaceContainerLow",
+          "surfaceContainerLowest",
+          "surfaceDim",
+          "surfaceTint",
+          "surfaceVariant",
+          "tertiary",
+          "tertiaryContainer",
+          "tertiaryFixed",
+          "tertiaryFixedDim"
+        ],
+        "libraries": [
+          "package:material_color_utilities/dynamiccolor/material_dynamic_colors.dart",
+          "package:material_color_utilities/material_color_utilities.dart"
+        ],
+        "methods": [
+          "highestSurface",
+          "viewingConditionsForAlbers"
+        ],
+        "types": [
+          "DynamicColor",
+          "DynamicScheme",
+          "ViewingConditions"
+        ]
+      },
+      "MathUtils": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/utils/math_utils.dart"
+        ],
+        "methods": [
+          "clampDouble",
+          "clampInt",
+          "differenceDegrees",
+          "lerp",
+          "matrixMultiply",
+          "rotationDirection",
+          "sanitizeDegreesDouble",
+          "sanitizeDegreesInt",
+          "signum"
+        ],
+        "types": []
+      },
+      "MaximizeResult": {
+        "fields": [
+          "cutLocation",
+          "maximum"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/quantize/quantizer_wu.dart"
+        ],
+        "methods": [
+          "MaximizeResult"
+        ],
+        "types": []
+      },
+      "PointProvider": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/quantize/src/point_provider.dart"
+        ],
+        "methods": [
+          "distance",
+          "fromInt",
+          "toInt"
+        ],
+        "types": []
+      },
+      "PointProviderLab": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/quantize/src/point_provider_lab.dart"
+        ],
+        "methods": [
+          "PointProviderLab",
+          "distance",
+          "fromInt",
+          "toInt"
+        ],
+        "types": [
+          "PointProvider"
+        ]
+      },
+      "Quantizer": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/quantize/quantizer.dart"
+        ],
+        "methods": [
+          "quantize"
+        ],
+        "types": [
+          "QuantizerResult"
+        ]
+      },
+      "QuantizerCelebi": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/quantize/quantizer_celebi.dart"
+        ],
+        "methods": [
+          "quantize"
+        ],
+        "types": [
+          "Quantizer",
+          "QuantizerResult"
+        ]
+      },
+      "QuantizerMap": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/quantize/quantizer_map.dart"
+        ],
+        "methods": [
+          "quantize"
+        ],
+        "types": [
+          "Quantizer",
+          "QuantizerResult"
+        ]
+      },
+      "QuantizerResult": {
+        "fields": [
+          "colorToCount",
+          "inputPixelToClusterPixel"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/quantize/quantizer.dart"
+        ],
+        "methods": [
+          "QuantizerResult"
+        ],
+        "types": []
+      },
+      "QuantizerWsmeans": {
+        "fields": [
+          "debug"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/quantize/quantizer_wsmeans.dart"
+        ],
+        "methods": [
+          "debugLog",
+          "quantize"
+        ],
+        "types": [
+          "PointProvider",
+          "QuantizerResult"
+        ]
+      },
+      "QuantizerWu": {
+        "fields": [
+          "cubes",
+          "indexBits",
+          "maxIndex",
+          "moments",
+          "momentsB",
+          "momentsG",
+          "momentsR",
+          "sideLength",
+          "totalSize",
+          "weights"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/quantize/quantizer_wu.dart"
+        ],
+        "methods": [
+          "bottom",
+          "computeMoments",
+          "constructHistogram",
+          "createBoxes",
+          "createResult",
+          "cut",
+          "getIndex",
+          "maximize",
+          "quantize",
+          "top",
+          "variance",
+          "volume"
+        ],
+        "types": [
+          "Box",
+          "CreateBoxesResult",
+          "Direction",
+          "MaximizeResult",
+          "Quantizer",
+          "QuantizerResult"
+        ]
+      },
+      "Scheme": {
+        "fields": [
+          "background",
+          "error",
+          "errorContainer",
+          "inverseOnSurface",
+          "inversePrimary",
+          "inverseSurface",
+          "onBackground",
+          "onError",
+          "onErrorContainer",
+          "onPrimary",
+          "onPrimaryContainer",
+          "onSecondary",
+          "onSecondaryContainer",
+          "onSurface",
+          "onSurfaceVariant",
+          "onTertiary",
+          "onTertiaryContainer",
+          "outline",
+          "outlineVariant",
+          "primary",
+          "primaryContainer",
+          "scrim",
+          "secondary",
+          "secondaryContainer",
+          "shadow",
+          "surface",
+          "surfaceVariant",
+          "tertiary",
+          "tertiaryContainer"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/scheme/scheme.dart"
+        ],
+        "methods": [
+          "Scheme",
+          "dark",
+          "darkContent",
+          "darkFromCorePalette",
+          "light",
+          "lightContent",
+          "lightFromCorePalette"
+        ],
+        "types": [
+          "CorePalette",
+          "Scheme"
+        ]
+      },
+      "SchemeContent": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/scheme/scheme_content.dart"
+        ],
+        "methods": [
+          "SchemeContent"
+        ],
+        "types": [
+          "DynamicScheme",
+          "Hct"
+        ]
+      },
+      "SchemeExpressive": {
+        "fields": [
+          "hues",
+          "secondaryRotations",
+          "tertiaryRotations"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/scheme/scheme_expressive.dart"
+        ],
+        "methods": [
+          "SchemeExpressive"
+        ],
+        "types": [
+          "DynamicScheme",
+          "Hct"
+        ]
+      },
+      "SchemeFidelity": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/scheme/scheme_fidelity.dart"
+        ],
+        "methods": [
+          "SchemeFidelity"
+        ],
+        "types": [
+          "DynamicScheme",
+          "Hct"
+        ]
+      },
+      "SchemeMonochrome": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/scheme/scheme_monochrome.dart"
+        ],
+        "methods": [
+          "SchemeMonochrome"
+        ],
+        "types": [
+          "DynamicScheme",
+          "Hct"
+        ]
+      },
+      "SchemeNeutral": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/scheme/scheme_neutral.dart"
+        ],
+        "methods": [
+          "SchemeNeutral"
+        ],
+        "types": [
+          "DynamicScheme",
+          "Hct"
+        ]
+      },
+      "SchemeTonalSpot": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/scheme/scheme_tonal_spot.dart"
+        ],
+        "methods": [
+          "SchemeTonalSpot"
+        ],
+        "types": [
+          "DynamicScheme",
+          "Hct"
+        ]
+      },
+      "SchemeVibrant": {
+        "fields": [
+          "hues",
+          "secondaryRotations",
+          "tertiaryRotations"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/scheme/scheme_vibrant.dart"
+        ],
+        "methods": [
+          "SchemeVibrant"
+        ],
+        "types": [
+          "DynamicScheme",
+          "Hct"
+        ]
+      },
+      "Score": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/score/score.dart"
+        ],
+        "methods": [
+          "argbToProportion",
+          "score"
+        ],
+        "types": []
+      },
+      "StringUtils": {
+        "fields": [],
+        "libraries": [
+          "package:material_color_utilities/utils/string_utils.dart"
+        ],
+        "methods": [
+          "argbFromHex",
+          "hexFromArgb"
+        ],
+        "types": []
+      },
+      "TemperatureCache": {
+        "fields": [
+          "get:coldest",
+          "get:complement",
+          "get:hctsByHue",
+          "get:hctsByTemp",
+          "get:inputRelativeTemperature",
+          "get:tempsByHct",
+          "get:warmest",
+          "input"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/temperature/temperature_cache.dart"
+        ],
+        "methods": [
+          "TemperatureCache",
+          "analogous",
+          "isBetween",
+          "rawTemperature",
+          "relativeTemperature"
+        ],
+        "types": [
+          "Hct"
+        ]
+      },
+      "TonalPalette": {
+        "fields": [
+          "commonSize",
+          "commonTones",
+          "get:asList",
+          "get:chroma",
+          "get:hashCode",
+          "get:hue"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/palettes/tonal_palette.dart"
+        ],
+        "methods": [
+          "==",
+          "fromHct",
+          "fromList",
+          "get",
+          "getHct",
+          "of",
+          "toString"
+        ],
+        "types": [
+          "Hct",
+          "TonalPalette"
+        ]
+      },
+      "ToneDeltaConstraint": {
+        "fields": [
+          "delta",
+          "keepAway",
+          "keepAwayPolarity"
+        ],
+        "libraries": [
+          "package:material_color_utilities/dynamiccolor/src/tone_delta_constraint.dart"
+        ],
+        "methods": [
+          "ToneDeltaConstraint"
+        ],
+        "types": [
+          "DynamicColor",
+          "TonePolarity"
+        ]
+      },
+      "TonePolarity": {
+        "fields": [
+          "darker",
+          "lighter",
+          "noPreference"
+        ],
+        "libraries": [
+          "package:material_color_utilities/dynamiccolor/src/tone_delta_constraint.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Variant": {
+        "fields": [
+          "content",
+          "description",
+          "expressive",
+          "fidelity",
+          "label",
+          "monochrome",
+          "neutral",
+          "tonalSpot",
+          "vibrant"
+        ],
+        "libraries": [
+          "package:material_color_utilities/material_color_utilities.dart",
+          "package:material_color_utilities/scheme/variant.dart"
+        ],
+        "methods": [
+          "Variant"
+        ],
+        "types": []
+      },
+      "ViewingConditions": {
+        "fields": [
+          "adaptingLuminance",
+          "aw",
+          "backgroundLstar",
+          "backgroundYTowhitePointY",
+          "c",
+          "discountingIlluminant",
+          "drgbInverse",
+          "fLRoot",
+          "fl",
+          "nC",
+          "nbb",
+          "ncb",
+          "rgbD",
+          "sRgb",
+          "standard",
+          "surround",
+          "whitePoint",
+          "z"
+        ],
+        "libraries": [
+          "package:material_color_utilities/hct/viewing_conditions.dart",
+          "package:material_color_utilities/material_color_utilities.dart"
+        ],
+        "methods": [
+          "ViewingConditions",
+          "make"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:48:50Z",
+  "package": "material_color_utilities",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "PointProviderLab",
+      "QuantizerResult",
+      "Scheme",
+      "ViewingConditions"
+    ],
+    "digest": "27973d9e40a1d1abdcaa8354f824b6ff6a5e31775d9a085a754eaacbfbfa19eb",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "139cb6eecb725ed82dc4aa37380f69b5fcbdf069b8941ad57e1b34e3f0abd16f",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "#",
+      "All colors are grayscale, no chroma.",
+      "Almost identical to Fidelity.\nTokens and palettes match source color.\nPrimary Container is source color, adjusted to ensure contrast with surfaces.\n\nTertiary palette is analogue of source color.\nFound by dividing color wheel by 6, then finding the 2 colors adjacent to source.\nThe one that increases hue is used.",
+      "Close to grayscale, a hint of chroma.",
+      "Pastel colors, high chroma palettes. (max).\nThe primary palette's chroma is at maximum.\nUse Fidelity instead if tokens should alter their tone to match the palette vibrancy.",
+      "Pastel colors, medium chroma palettes.\nThe primary palette's hue is different from source color, for variety.",
+      "Pastel tokens, low chroma palettes (32).\nDefault Material You theme at 2021 launch.",
+      "Tokens and palettes match source color.\nPrimary Container is source color, adjusted to ensure contrast with surfaces.\nFor example, if source color is black, it is lightened so it doesn't match surfaces in dark mode.\n\nTertiary palette is complement of source color.",
+      "blend/blend.dart",
+      "cam16.dart",
+      "color_utils.dart",
+      "content",
+      "contrast/contrast.dart",
+      "dart:core",
+      "dart:math",
+      "dislike/dislike_analyzer.dart",
+      "dynamic_color.dart",
+      "dynamic_scheme.dart",
+      "dynamiccolor/dynamic_color.dart",
+      "dynamiccolor/material_dynamic_colors.dart",
+      "expressive",
+      "fidelity",
+      "hct/cam16.dart",
+      "hct/hct.dart",
+      "hct/viewing_conditions.dart",
+      "monochrome",
+      "neutral",
+      "package:collection/collection.dart",
+      "package:material_color_utilities/contrast/contrast.dart",
+      "package:material_color_utilities/dislike/dislike_analyzer.dart",
+      "package:material_color_utilities/dynamiccolor/dynamic_color.dart",
+      "package:material_color_utilities/hct/cam16.dart",
+      "package:material_color_utilities/hct/hct.dart",
+      "package:material_color_utilities/hct/viewing_conditions.dart",
+      "package:material_color_utilities/palettes/core_palette.dart",
+      "package:material_color_utilities/palettes/tonal_palette.dart",
+      "package:material_color_utilities/scheme/dynamic_scheme.dart",
+      "package:material_color_utilities/scheme/variant.dart",
+      "package:material_color_utilities/temperature/temperature_cache.dart",
+      "package:material_color_utilities/utils/color_utils.dart",
+      "package:material_color_utilities/utils/math_utils.dart",
+      "palettes/core_palette.dart",
+      "palettes/tonal_palette.dart",
+      "point_provider.dart",
+      "quantize/quantizer.dart",
+      "quantize/quantizer_celebi.dart",
+      "quantize/quantizer_map.dart",
+      "quantize/quantizer_wsmeans.dart",
+      "quantize/quantizer_wu.dart",
+      "quantizer.dart",
+      "quantizer_map.dart",
+      "quantizer_wsmeans.dart",
+      "quantizer_wu.dart",
+      "scheme/dynamic_scheme.dart",
+      "scheme/scheme.dart",
+      "scheme/scheme_content.dart",
+      "scheme/scheme_expressive.dart",
+      "scheme/scheme_fidelity.dart",
+      "scheme/scheme_monochrome.dart",
+      "scheme/scheme_neutral.dart",
+      "scheme/scheme_tonal_spot.dart",
+      "scheme/scheme_vibrant.dart",
+      "scheme/variant.dart",
+      "score/score.dart",
+      "src/hct_solver.dart",
+      "src/point_provider.dart",
+      "src/point_provider_lab.dart",
+      "src/tone_delta_constraint.dart",
+      "temperature/temperature_cache.dart",
+      "tonal spot",
+      "tone",
+      "variant.dart",
+      "vibrant",
+      "viewing_conditions.dart"
+    ]
+  },
+  "version": "0.4.0"
+}
