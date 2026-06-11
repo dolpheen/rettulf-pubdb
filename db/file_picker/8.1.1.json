@@ -1,0 +1,513 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "bifEditBox",
+          "bifNewDialogStyle",
+          "bifReturnOnlyFsDirs",
+          "defaultDialogTitle",
+          "maximumPathLength",
+          "ofnAllowMultiSelect",
+          "ofnExplorer",
+          "ofnFileMustExist",
+          "ofnHideReadOnly",
+          "ofnNoChangeDir",
+          "ofnOverwritePrompt"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/file_picker.dart",
+          "package:file_picker/src/file_picker_io.dart",
+          "package:file_picker/src/utils.dart",
+          "package:file_picker/src/windows/file_picker_windows_ffi_types.dart"
+        ],
+        "methods": [
+          "createPlatformFile",
+          "filePathsToPlatformFiles",
+          "isAlpha",
+          "isExecutableOnPath",
+          "runExecutableWithArguments"
+        ],
+        "types": [
+          "PlatformFile"
+        ]
+      },
+      "BROWSEINFOA": {
+        "fields": [
+          "hwndOwner",
+          "iImage",
+          "lParam",
+          "lpfn",
+          "lpszTitle",
+          "pidlRoot",
+          "pszDisplayName",
+          "ulFlags"
+        ],
+        "libraries": [
+          "package:file_picker/src/windows/file_picker_windows_ffi_types.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DialogHandler": {
+        "fields": [],
+        "libraries": [
+          "package:file_picker/src/linux/dialog_handler.dart"
+        ],
+        "methods": [
+          "DialogHandler",
+          "fileTypeToFileFilter",
+          "generateCommandLineArguments",
+          "resultStringToFilePaths",
+          "toCaseInsensitive"
+        ],
+        "types": [
+          "FileType"
+        ]
+      },
+      "FilePicker": {
+        "fields": [
+          "get:platform",
+          "set:platform"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/file_picker.dart"
+        ],
+        "methods": [
+          "FilePicker",
+          "clearTemporaryFiles",
+          "getDirectoryPath",
+          "pickFiles",
+          "saveFile"
+        ],
+        "types": [
+          "FilePicker",
+          "FilePickerResult",
+          "FilePickerStatus",
+          "FileType"
+        ]
+      },
+      "FilePickerIO": {
+        "fields": [],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/file_picker_io.dart"
+        ],
+        "methods": [
+          "clearTemporaryFiles",
+          "getDirectoryPath",
+          "pickFiles",
+          "registerWith",
+          "saveFile"
+        ],
+        "types": [
+          "FilePicker",
+          "FilePickerResult",
+          "FilePickerStatus",
+          "FileType"
+        ]
+      },
+      "FilePickerLinux": {
+        "fields": [],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/linux/file_picker_linux.dart"
+        ],
+        "methods": [
+          "getDirectoryPath",
+          "pickFiles",
+          "registerWith",
+          "saveFile"
+        ],
+        "types": [
+          "FilePicker",
+          "FilePickerResult",
+          "FilePickerStatus",
+          "FileType"
+        ]
+      },
+      "FilePickerMacOS": {
+        "fields": [],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/file_picker_macos.dart"
+        ],
+        "methods": [
+          "escapeDialogTitle",
+          "fileTypeToFileFilter",
+          "generateCommandLineArguments",
+          "getDirectoryPath",
+          "pickFiles",
+          "registerWith",
+          "resultStringToFilePaths",
+          "saveFile"
+        ],
+        "types": [
+          "FilePicker",
+          "FilePickerResult",
+          "FilePickerStatus",
+          "FileType"
+        ]
+      },
+      "FilePickerResult": {
+        "fields": [
+          "files",
+          "get:count",
+          "get:hashCode",
+          "get:isSinglePick",
+          "get:names",
+          "get:paths",
+          "get:xFiles"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/file_picker_result.dart"
+        ],
+        "methods": [
+          "==",
+          "FilePickerResult",
+          "toString"
+        ],
+        "types": [
+          "PlatformFile"
+        ]
+      },
+      "FilePickerStatus": {
+        "fields": [
+          "done",
+          "picking"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/file_picker.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "FilePickerWeb": {
+        "fields": [],
+        "libraries": [
+          "package:file_picker/_internal/file_picker_web.dart"
+        ],
+        "methods": [
+          "pickFiles",
+          "registerWith"
+        ],
+        "types": [
+          "FilePicker",
+          "FilePickerResult",
+          "FilePickerStatus",
+          "FileType"
+        ]
+      },
+      "FilePickerWindows": {
+        "fields": [],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/windows/file_picker_windows.dart",
+          "package:file_picker/src/windows/file_picker_windows_stub.dart"
+        ],
+        "methods": [
+          "FilePickerWindows",
+          "extractSelectedFilesFromOpenFileNameW",
+          "fileTypeToFileFilter",
+          "getDirectoryPath",
+          "pickFiles",
+          "registerWith",
+          "saveFile",
+          "validateFileName"
+        ],
+        "types": [
+          "FilePicker",
+          "FilePickerResult",
+          "FilePickerStatus",
+          "FileType",
+          "OPENFILENAMEW"
+        ]
+      },
+      "FileType": {
+        "fields": [
+          "any",
+          "audio",
+          "custom",
+          "image",
+          "media",
+          "video"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/file_picker.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "IllegalCharacterInFileNameException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:file_picker/src/exceptions.dart"
+        ],
+        "methods": [
+          "IllegalCharacterInFileNameException",
+          "toString"
+        ],
+        "types": []
+      },
+      "KDialogHandler": {
+        "fields": [],
+        "libraries": [
+          "package:file_picker/src/linux/kdialog_handler.dart"
+        ],
+        "methods": [
+          "fileTypeToFileFilter",
+          "generateCommandLineArguments",
+          "resultStringToFilePaths"
+        ],
+        "types": [
+          "DialogHandler",
+          "FileType"
+        ]
+      },
+      "OPENFILENAMEW": {
+        "fields": [
+          "dwReserved",
+          "flags",
+          "flagsEx",
+          "hInstance",
+          "hwndOwner",
+          "lCustData",
+          "lStructSize",
+          "lpTemplateName",
+          "lpfnHook",
+          "lpstrCustomFilter",
+          "lpstrDefExt",
+          "lpstrFile",
+          "lpstrFileTitle",
+          "lpstrFilter",
+          "lpstrInitialDir",
+          "lpstrTitle",
+          "nFileExtension",
+          "nFileOffset",
+          "nFilterIndex",
+          "nMaxCustFilter",
+          "nMaxFile",
+          "nMaxFileTitle",
+          "pvReserved"
+        ],
+        "libraries": [
+          "package:file_picker/src/windows/file_picker_windows_ffi_types.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PlatformFile": {
+        "fields": [
+          "bytes",
+          "get:extension",
+          "get:hashCode",
+          "get:path",
+          "get:xFile",
+          "identifier",
+          "name",
+          "readStream",
+          "size"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/platform_file.dart"
+        ],
+        "methods": [
+          "==",
+          "PlatformFile",
+          "fromMap",
+          "toString"
+        ],
+        "types": []
+      },
+      "QarmaAndZenityHandler": {
+        "fields": [],
+        "libraries": [
+          "package:file_picker/src/linux/qarma_and_zenity_handler.dart"
+        ],
+        "methods": [
+          "fileTypeToFileFilter",
+          "generateCommandLineArguments",
+          "resultStringToFilePaths"
+        ],
+        "types": [
+          "DialogHandler",
+          "FileType"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:18:55Z",
+  "package": "file_picker",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "FilePickerResult"
+    ],
+    "digest": "e304bc25b5b9ebd72165fd16b74d7e87acb31c81abf107c1edc61e08acb27af2",
+    "event_channels": [
+      "miguelruivo.flutter.plugins.filepickerevent"
+    ],
+    "ffi_symbols": [
+      "FindWindowA",
+      "GetOpenFileNameW",
+      "GetSaveFileNameW"
+    ],
+    "hierarchy_hash": "c14cc0bb064a42a26433aa4e03884eec1a941591aeda4f5a006a9eab4bbe2839",
+    "method_channels": [
+      "miguelruivo.flutter.plugins.filepicker"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "      On web `path` is unavailable and accessing it causes this exception.\n      You should access `bytes` property instead,\n      Read more about it [here](https://github.com/miguelpruivo/flutter_file_picker/wiki/FAQ)\n      ",
+      " *.",
+      " File, ",
+      "\"",
+      "\", \"",
+      "\"aac\", \"midi\", \"mp3\", \"ogg\", \"wav\"",
+      "\"avi\", \"flv\", \"m4v\", \"mkv\", \"mov\", \"mp4\", \"mpeg\", \"webm\", \"wmv\", \"bmp\", \"gif\", \"jpeg\", \"jpg\", \"png\"",
+      "\"avi\", \"flv\", \"mkv\", \"mov\", \"mp4\", \"m4v\", \"mpeg\", \"webm\", \"wmv\"",
+      "\"bmp\", \"gif\", \"jpeg\", \"jpg\", \"png\"",
+      "*.aac *.midi *.mp3 *.ogg *.wav",
+      "*.avi *.flv *.mkv *.mov *.mp4 *.mpeg *.webm *.wmv",
+      "*.avi *.flv *.mkv *.mov *.mp4 *.mpeg *.webm *.wmv *.bmp *.gif *.jpeg *.jpg *.png",
+      "*.bmp *.gif *.jpeg *.jpg *.png",
+      ", alias ",
+      ",*.",
+      "--confirm-overwrite",
+      "--directory",
+      "--file-selection",
+      "--getexistingdirectory",
+      "--getopenfilename",
+      "--getsavefilename",
+      "--multiple",
+      "--save",
+      "--separate-output",
+      "--title",
+      "-e",
+      ".",
+      "./src/file_picker.dart",
+      "./src/file_picker_io.dart",
+      "./src/file_picker_macos.dart",
+      "./src/file_picker_result.dart",
+      "./src/linux/file_picker_linux.dart",
+      "./src/platform_file.dart",
+      "./src/windows/file_picker_windows.dart",
+      "./src/windows/file_picker_windows_stub.dart",
+      "/",
+      "/Volumes",
+      ":",
+      ";*.",
+      "A",
+      "All Files (*.*)\u0000*.*\u0000\u0000",
+      "Audios (*.aac,*.midi,*.mp3,*.ogg,*.wav)\u0000*.aac;*.midi;*.mp3;*.ogg;*.wav\u0000\u0000",
+      "Custom extension filters are only allowed with FileType.custom. Remove the extension filter or change the FileType to FileType.custom.",
+      "FLUTTER_RUNNER_WIN32_WINDOW",
+      "FindWindowA",
+      "GetOpenFileNameW",
+      "GetSaveFileNameW",
+      "Images (*.bmp,*.gif,*.jpeg,*.jpg,*.png)\u0000*.bmp;*.gif;*.jpeg;*.jpg;*.png\u0000\u0000",
+      "MethodChannelFilePicker",
+      "Picking paths is unsupported on Web. Please, use bytes property instead.",
+      "Reserved characters may not be used in file names. See: https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file#naming-conventions",
+      "Videos (*.avi,*.flv,*.mkv,*.mov,*.mp4,*.mpeg,*.webm,*.wmv)\u0000*.avi;*.flv;*.mkv;*.mov;*.mp4;*.mpeg;*.webm;*.wmv\u0000\u0000",
+      "Videos (*.avi,*.flv,*.mkv,*.mov,*.mp4,*.mpeg,*.webm,*.wmv)\u0000*.avi;*.flv;*.mkv;*.mov;*.mp4;*.mpeg;*.webm;*.wmv\u0000Images (*.bmp,*.gif,*.jpeg,*.jpg,*.png)\u0000*.bmp;*.gif;*.jpeg;*.jpg;*.png\u0000\u0000",
+      "Z",
+      "[<>:\\/\\\\|?*\"]",
+      "\\",
+      "\\\n",
+      "\\\"",
+      "\\\\",
+      "__file_picker_web-file-input",
+      "a",
+      "alias ",
+      "allowCompression",
+      "allowMultipleSelection",
+      "allowedExtensions",
+      "audio/*",
+      "body",
+      "bytes",
+      "cancel",
+      "change",
+      "choose ",
+      "clear",
+      "clearTemporaryFiles() has not been implemented.",
+      "comdlg32.dll",
+      "compressionQuality",
+      "custom",
+      "dart:async",
+      "dart:ffi",
+      "dart:io",
+      "dart:isolate",
+      "dart:js_interop",
+      "dart:math",
+      "dart:typed_data",
+      "dir",
+      "file",
+      "file ",
+      "fileName",
+      "fileType",
+      "flt-file-picker-inputs",
+      "focus",
+      "folder ",
+      "getDirectoryPath() has not been implemented.",
+      "identifier",
+      "image/*",
+      "initialDirectory",
+      "kdialog",
+      "miguelruivo.flutter.plugins.filepicker",
+      "miguelruivo.flutter.plugins.filepickerevent",
+      "name",
+      "name ",
+      "none",
+      "osascript",
+      "package:cross_file/cross_file.dart",
+      "package:ffi/ffi.dart",
+      "package:file_picker/file_picker.dart",
+      "package:file_picker/src/exceptions.dart",
+      "package:file_picker/src/file_picker.dart",
+      "package:file_picker/src/file_picker_result.dart",
+      "package:file_picker/src/linux/dialog_handler.dart",
+      "package:file_picker/src/linux/kdialog_handler.dart",
+      "package:file_picker/src/linux/qarma_and_zenity_handler.dart",
+      "package:file_picker/src/platform_file.dart",
+      "package:file_picker/src/utils.dart",
+      "package:file_picker/src/windows/file_picker_windows_ffi_types.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/services.dart",
+      "package:flutter_web_plugins/flutter_web_plugins.dart",
+      "package:path/path.dart",
+      "package:plugin_platform_interface/plugin_platform_interface.dart",
+      "package:web/web.dart",
+      "package:win32/win32.dart",
+      "path",
+      "pickFiles() has not been implemented.",
+      "qarma",
+      "save",
+      "saveFile() has not been implemented.",
+      "size",
+      "unknown file type",
+      "unknown_path",
+      "user32.dll",
+      "video/*",
+      "video/*|image/*",
+      "which",
+      "with multiple selections allowed ",
+      "withData",
+      "z",
+      "zenity",
+      "|/"
+    ]
+  },
+  "version": "8.1.1"
+}
