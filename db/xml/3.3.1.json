@@ -1,0 +1,2113 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "attributeNodeTypes",
+          "attributeQuote",
+          "childrenNodeTypes",
+          "entityToChar",
+          "eventDefinitionParser",
+          "xml",
+          "xmlData",
+          "xmlUri",
+          "xmlns"
+        ],
+        "libraries": [
+          "package:xml/src/xml/nodes/document.dart",
+          "package:xml/src/xml/nodes/document_fragment.dart",
+          "package:xml/src/xml/nodes/element.dart",
+          "package:xml/src/xml/utils/entities.dart",
+          "package:xml/src/xml/utils/name.dart",
+          "package:xml/src/xml/utils/name_matcher.dart",
+          "package:xml/src/xml_events/parser.dart",
+          "package:xml/xml.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "createNameMatcher",
+          "encodeXmlAttributeValue",
+          "encodeXmlAttributeValueWithQuotes",
+          "encodeXmlText",
+          "parse",
+          "parseEvents"
+        ],
+        "types": [
+          "NamespaceData",
+          "XmlAttributeType",
+          "XmlDocument",
+          "XmlEvent",
+          "XmlNamed",
+          "XmlNodeType"
+        ]
+      },
+      "NamespaceData": {
+        "fields": [
+          "get:name",
+          "prefix",
+          "used"
+        ],
+        "libraries": [
+          "package:xml/src/xml/builder.dart"
+        ],
+        "methods": [
+          "NamespaceData"
+        ],
+        "types": [
+          "XmlName"
+        ]
+      },
+      "XmlAncestorsIterable": {
+        "fields": [
+          "get:iterator",
+          "start"
+        ],
+        "libraries": [
+          "package:xml/src/xml/iterators/ancestors.dart"
+        ],
+        "methods": [
+          "XmlAncestorsIterable"
+        ],
+        "types": [
+          "XmlNode"
+        ]
+      },
+      "XmlAncestorsIterator": {
+        "fields": [
+          "current"
+        ],
+        "libraries": [
+          "package:xml/src/xml/iterators/ancestors.dart"
+        ],
+        "methods": [
+          "XmlAncestorsIterator",
+          "moveNext"
+        ],
+        "types": [
+          "XmlNode"
+        ]
+      },
+      "XmlAttribute": {
+        "fields": [
+          "attributeType",
+          "get:nodeType",
+          "get:value",
+          "name",
+          "set:value"
+        ],
+        "libraries": [
+          "package:xml/src/xml/nodes/attribute.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlAttribute",
+          "accept"
+        ],
+        "types": [
+          "XmlAttributeType",
+          "XmlName",
+          "XmlNamed",
+          "XmlNode",
+          "XmlNodeType",
+          "XmlVisitor"
+        ]
+      },
+      "XmlAttributeType": {
+        "fields": [
+          "DOUBLE_QUOTE",
+          "SINGLE_QUOTE"
+        ],
+        "libraries": [
+          "package:xml/src/xml/utils/attribute_type.dart",
+          "package:xml/xml.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "XmlBuilder": {
+        "fields": [
+          "optimizeNamespaces"
+        ],
+        "libraries": [
+          "package:xml/src/xml/builder.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlBuilder",
+          "attribute",
+          "build",
+          "cdata",
+          "comment",
+          "element",
+          "namespace",
+          "processing",
+          "text"
+        ],
+        "types": [
+          "XmlAttributeType",
+          "XmlNode",
+          "XmlNodeBuilder"
+        ]
+      },
+      "XmlCDATA": {
+        "fields": [
+          "get:nodeType"
+        ],
+        "libraries": [
+          "package:xml/src/xml/nodes/cdata.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlCDATA",
+          "accept"
+        ],
+        "types": [
+          "XmlData",
+          "XmlNodeType",
+          "XmlVisitor"
+        ]
+      },
+      "XmlCDATAEvent": {
+        "fields": [
+          "get:hashCode",
+          "get:nodeType",
+          "text"
+        ],
+        "libraries": [
+          "package:xml/src/xml_events/events/cdata_event.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "==",
+          "XmlCDATAEvent",
+          "accept"
+        ],
+        "types": [
+          "XmlEvent",
+          "XmlEventVisitor",
+          "XmlNodeType"
+        ]
+      },
+      "XmlCharacterDataParser": {
+        "fields": [
+          "get:children"
+        ],
+        "libraries": [
+          "package:xml/src/xml/utils/entities.dart"
+        ],
+        "methods": [
+          "XmlCharacterDataParser",
+          "copy",
+          "hasEqualProperties",
+          "parseOn"
+        ],
+        "types": [
+          "XmlCharacterDataParser"
+        ]
+      },
+      "XmlComment": {
+        "fields": [
+          "get:nodeType"
+        ],
+        "libraries": [
+          "package:xml/src/xml/nodes/comment.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlComment",
+          "accept"
+        ],
+        "types": [
+          "XmlData",
+          "XmlNodeType",
+          "XmlVisitor"
+        ]
+      },
+      "XmlCommentEvent": {
+        "fields": [
+          "get:hashCode",
+          "get:nodeType",
+          "text"
+        ],
+        "libraries": [
+          "package:xml/src/xml_events/events/comment_event.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "==",
+          "XmlCommentEvent",
+          "accept"
+        ],
+        "types": [
+          "XmlEvent",
+          "XmlEventVisitor",
+          "XmlNodeType"
+        ]
+      },
+      "XmlData": {
+        "fields": [
+          "get:text",
+          "set:text"
+        ],
+        "libraries": [
+          "package:xml/src/xml/nodes/data.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlData"
+        ],
+        "types": [
+          "XmlNode"
+        ]
+      },
+      "XmlDescendantsIterable": {
+        "fields": [
+          "get:iterator",
+          "start"
+        ],
+        "libraries": [
+          "package:xml/src/xml/iterators/descendants.dart"
+        ],
+        "methods": [
+          "XmlDescendantsIterable"
+        ],
+        "types": [
+          "XmlNode"
+        ]
+      },
+      "XmlDescendantsIterator": {
+        "fields": [
+          "current",
+          "todo"
+        ],
+        "libraries": [
+          "package:xml/src/xml/iterators/descendants.dart"
+        ],
+        "methods": [
+          "XmlDescendantsIterator",
+          "moveNext",
+          "push"
+        ],
+        "types": [
+          "XmlNode"
+        ]
+      },
+      "XmlDoctype": {
+        "fields": [
+          "get:nodeType"
+        ],
+        "libraries": [
+          "package:xml/src/xml/nodes/doctype.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlDoctype",
+          "accept"
+        ],
+        "types": [
+          "XmlData",
+          "XmlNodeType",
+          "XmlVisitor"
+        ]
+      },
+      "XmlDoctypeEvent": {
+        "fields": [
+          "get:hashCode",
+          "get:nodeType",
+          "text"
+        ],
+        "libraries": [
+          "package:xml/src/xml_events/events/doctype_event.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "==",
+          "XmlDoctypeEvent",
+          "accept"
+        ],
+        "types": [
+          "XmlEvent",
+          "XmlEventVisitor",
+          "XmlNodeType"
+        ]
+      },
+      "XmlDocument": {
+        "fields": [
+          "get:doctypeElement",
+          "get:document",
+          "get:nodeType",
+          "get:rootElement",
+          "get:text"
+        ],
+        "libraries": [
+          "package:xml/src/xml/nodes/document.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlDocument",
+          "accept"
+        ],
+        "types": [
+          "XmlDoctype",
+          "XmlDocument",
+          "XmlElement",
+          "XmlNode",
+          "XmlNodeType",
+          "XmlParent",
+          "XmlVisitor"
+        ]
+      },
+      "XmlDocumentBuilder": {
+        "fields": [
+          "children",
+          "get:attributes",
+          "namespaces"
+        ],
+        "libraries": [
+          "package:xml/src/xml/builder.dart"
+        ],
+        "methods": [
+          "build"
+        ],
+        "types": [
+          "NamespaceData",
+          "XmlAttribute",
+          "XmlNode",
+          "XmlNodeBuilder"
+        ]
+      },
+      "XmlDocumentFragment": {
+        "fields": [
+          "get:document",
+          "get:nodeType",
+          "get:text"
+        ],
+        "libraries": [
+          "package:xml/src/xml/nodes/document_fragment.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlDocumentFragment",
+          "accept"
+        ],
+        "types": [
+          "XmlDocument",
+          "XmlNode",
+          "XmlNodeType",
+          "XmlParent",
+          "XmlVisitor"
+        ]
+      },
+      "XmlElement": {
+        "fields": [
+          "attributes",
+          "get:nodeType",
+          "isSelfClosing",
+          "name"
+        ],
+        "libraries": [
+          "package:xml/src/xml/nodes/element.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlElement",
+          "accept",
+          "getAttribute",
+          "getAttributeNode"
+        ],
+        "types": [
+          "XmlAttribute",
+          "XmlName",
+          "XmlNamed",
+          "XmlNode",
+          "XmlNodeList",
+          "XmlNodeType",
+          "XmlParent",
+          "XmlVisitor"
+        ]
+      },
+      "XmlElementAttribute": {
+        "fields": [
+          "attributeType",
+          "get:hashCode",
+          "name",
+          "value"
+        ],
+        "libraries": [
+          "package:xml/src/xml_events/events/start_element_event.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "==",
+          "XmlElementAttribute"
+        ],
+        "types": [
+          "XmlAttributeType",
+          "XmlNamed"
+        ]
+      },
+      "XmlElementBuilder": {
+        "fields": [
+          "attributes",
+          "children",
+          "isSelfClosing",
+          "name",
+          "namespaces"
+        ],
+        "libraries": [
+          "package:xml/src/xml/builder.dart"
+        ],
+        "methods": [
+          "build"
+        ],
+        "types": [
+          "NamespaceData",
+          "XmlAttribute",
+          "XmlName",
+          "XmlNode",
+          "XmlNodeBuilder"
+        ]
+      },
+      "XmlEndElementEvent": {
+        "fields": [
+          "get:hashCode",
+          "get:nodeType",
+          "name"
+        ],
+        "libraries": [
+          "package:xml/src/xml_events/events/end_element_event.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "==",
+          "XmlEndElementEvent",
+          "accept"
+        ],
+        "types": [
+          "XmlEvent",
+          "XmlEventVisitor",
+          "XmlNamed",
+          "XmlNodeType"
+        ]
+      },
+      "XmlEvent": {
+        "fields": [
+          "get:nodeType"
+        ],
+        "libraries": [
+          "package:xml/src/xml_events/event.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "XmlEventVisitor",
+          "XmlNodeType"
+        ]
+      },
+      "XmlEventCodec": {
+        "fields": [
+          "get:decoder",
+          "get:encoder"
+        ],
+        "libraries": [
+          "package:xml/src/xml_events/codec/event_codec.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "XmlEventCodec"
+        ],
+        "types": [
+          "XmlEvent"
+        ]
+      },
+      "XmlEventDecoder": {
+        "fields": [],
+        "libraries": [
+          "package:xml/src/xml_events/converters/event_decoder.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "XmlEventDecoder",
+          "convert",
+          "startChunkedConversion"
+        ],
+        "types": [
+          "XmlEvent"
+        ]
+      },
+      "XmlEventDefinition": {
+        "fields": [],
+        "libraries": [
+          "package:xml/src/xml_events/parser.dart"
+        ],
+        "methods": [
+          "attribute",
+          "cdata",
+          "characterData",
+          "comment",
+          "doctype",
+          "endElement",
+          "processing",
+          "start",
+          "startElement"
+        ],
+        "types": [
+          "XmlProductionDefinition"
+        ]
+      },
+      "XmlEventEncoder": {
+        "fields": [],
+        "libraries": [
+          "package:xml/src/xml_events/converters/event_encoder.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "XmlEventEncoder",
+          "convert",
+          "startChunkedConversion"
+        ],
+        "types": [
+          "XmlEvent"
+        ]
+      },
+      "XmlEventIterable": {
+        "fields": [
+          "get:iterator",
+          "input"
+        ],
+        "libraries": [
+          "package:xml/src/xml_events/iterable.dart"
+        ],
+        "methods": [
+          "XmlEventIterable"
+        ],
+        "types": [
+          "XmlEvent"
+        ]
+      },
+      "XmlEventIterator": {
+        "fields": [
+          "context",
+          "current"
+        ],
+        "libraries": [
+          "package:xml/src/xml_events/iterator.dart"
+        ],
+        "methods": [
+          "XmlEventIterator",
+          "moveNext"
+        ],
+        "types": [
+          "XmlEvent"
+        ]
+      },
+      "XmlEventVisitor": {
+        "fields": [],
+        "libraries": [
+          "package:xml/src/xml_events/visitor.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "visit",
+          "visitCDATAEvent",
+          "visitCommentEvent",
+          "visitDoctypeEvent",
+          "visitEndElementEvent",
+          "visitProcessingEvent",
+          "visitStartElementEvent",
+          "visitTextEvent"
+        ],
+        "types": [
+          "XmlCDATAEvent",
+          "XmlCommentEvent",
+          "XmlDoctypeEvent",
+          "XmlEndElementEvent",
+          "XmlEvent",
+          "XmlProcessingEvent",
+          "XmlStartElementEvent",
+          "XmlTextEvent"
+        ]
+      },
+      "XmlException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:xml/src/xml/utils/exceptions.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlException",
+          "toString"
+        ],
+        "types": []
+      },
+      "XmlFollowingIterable": {
+        "fields": [
+          "get:iterator",
+          "start"
+        ],
+        "libraries": [
+          "package:xml/src/xml/iterators/following.dart"
+        ],
+        "methods": [
+          "XmlFollowingIterable"
+        ],
+        "types": [
+          "XmlNode"
+        ]
+      },
+      "XmlFollowingIterator": {
+        "fields": [
+          "current",
+          "todo"
+        ],
+        "libraries": [
+          "package:xml/src/xml/iterators/following.dart"
+        ],
+        "methods": [
+          "XmlFollowingIterator",
+          "moveNext"
+        ],
+        "types": [
+          "XmlNode"
+        ]
+      },
+      "XmlGrammarDefinition": {
+        "fields": [],
+        "libraries": [
+          "package:xml/src/xml/grammar.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "attribute",
+          "attributeValueDouble",
+          "attributeValueSingle",
+          "cdata",
+          "characterData",
+          "comment",
+          "createAttribute",
+          "createCDATA",
+          "createComment",
+          "createDoctype",
+          "createDocument",
+          "createElement",
+          "createProcessing",
+          "createQualified",
+          "createText",
+          "doctype",
+          "document",
+          "element",
+          "processing",
+          "qualified",
+          "spaceText"
+        ],
+        "types": [
+          "XmlAttributeType",
+          "XmlProductionDefinition"
+        ]
+      },
+      "XmlName": {
+        "fields": [
+          "get:hashCode",
+          "get:local",
+          "get:namespaceUri",
+          "get:prefix",
+          "get:qualified"
+        ],
+        "libraries": [
+          "package:xml/src/xml/utils/name.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "==",
+          "XmlName",
+          "accept",
+          "fromString",
+          "internal"
+        ],
+        "types": [
+          "XmlOwned",
+          "XmlVisitable",
+          "XmlVisitor",
+          "XmlWritable"
+        ]
+      },
+      "XmlNamed": {
+        "fields": [
+          "get:localName",
+          "get:name",
+          "get:namespacePrefix"
+        ],
+        "libraries": [
+          "package:xml/src/xml/utils/named.dart",
+          "package:xml/src/xml_events/events/named.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [],
+        "types": [
+          "XmlName"
+        ]
+      },
+      "XmlNode": {
+        "fields": [
+          "get:ancestors",
+          "get:attributes",
+          "get:children",
+          "get:depth",
+          "get:descendants",
+          "get:document",
+          "get:firstChild",
+          "get:following",
+          "get:lastChild",
+          "get:nextSibling",
+          "get:nodeType",
+          "get:preceding",
+          "get:previousSibling",
+          "get:text"
+        ],
+        "libraries": [
+          "package:xml/src/xml/nodes/node.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "copy",
+          "normalize"
+        ],
+        "types": [
+          "XmlAttribute",
+          "XmlDocument",
+          "XmlNode",
+          "XmlNodeType",
+          "XmlOwned",
+          "XmlVisitable",
+          "XmlWritable"
+        ]
+      },
+      "XmlNodeBuilder": {
+        "fields": [
+          "get:attributes",
+          "get:children",
+          "get:namespaces"
+        ],
+        "libraries": [
+          "package:xml/src/xml/builder.dart"
+        ],
+        "methods": [
+          "build"
+        ],
+        "types": [
+          "NamespaceData",
+          "XmlAttribute",
+          "XmlNode"
+        ]
+      },
+      "XmlNodeCodec": {
+        "fields": [
+          "get:decoder",
+          "get:encoder"
+        ],
+        "libraries": [
+          "package:xml/src/xml_events/codec/node_codec.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "XmlNodeCodec"
+        ],
+        "types": [
+          "XmlEvent",
+          "XmlNode"
+        ]
+      },
+      "XmlNodeDecoder": {
+        "fields": [],
+        "libraries": [
+          "package:xml/src/xml_events/converters/node_decoder.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "XmlNodeDecoder",
+          "convert",
+          "startChunkedConversion"
+        ],
+        "types": [
+          "XmlEvent",
+          "XmlNode"
+        ]
+      },
+      "XmlNodeEncoder": {
+        "fields": [],
+        "libraries": [
+          "package:xml/src/xml_events/converters/node_encoder.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "XmlNodeEncoder",
+          "convert",
+          "startChunkedConversion"
+        ],
+        "types": [
+          "XmlEvent",
+          "XmlNode"
+        ]
+      },
+      "XmlNodeList": {
+        "fields": [
+          "set:length",
+          "validNodeTypes"
+        ],
+        "libraries": [
+          "package:xml/src/xml/utils/node_list.dart"
+        ],
+        "methods": [
+          "XmlNodeList",
+          "[]=",
+          "add",
+          "addAll",
+          "clear",
+          "fillRange",
+          "insert",
+          "insertAll",
+          "remove",
+          "removeAt",
+          "removeLast",
+          "removeRange",
+          "removeWhere",
+          "replaceRange",
+          "retainWhere",
+          "setAll",
+          "setRange"
+        ],
+        "types": [
+          "XmlNode",
+          "XmlNodeType",
+          "XmlOwned"
+        ]
+      },
+      "XmlNodeType": {
+        "fields": [
+          "ATTRIBUTE",
+          "CDATA",
+          "COMMENT",
+          "DOCUMENT",
+          "DOCUMENT_FRAGMENT",
+          "DOCUMENT_TYPE",
+          "ELEMENT",
+          "PROCESSING",
+          "TEXT"
+        ],
+        "libraries": [
+          "package:xml/src/xml/utils/node_type.dart",
+          "package:xml/xml.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "XmlNodeTypeException": {
+        "fields": [],
+        "libraries": [
+          "package:xml/src/xml/utils/exceptions.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlNodeTypeException",
+          "checkNotNull",
+          "checkValidType"
+        ],
+        "types": [
+          "XmlException",
+          "XmlNode",
+          "XmlNodeType"
+        ]
+      },
+      "XmlNormalizer": {
+        "fields": [
+          "defaultInstance"
+        ],
+        "libraries": [
+          "package:xml/src/xml/visitors/normalizer.dart",
+          "package:xml/src/xml_events/converters/normalizer.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "XmlNormalizer",
+          "convert",
+          "startChunkedConversion",
+          "visitDocument",
+          "visitDocumentFragment",
+          "visitElement"
+        ],
+        "types": [
+          "XmlDocument",
+          "XmlDocumentFragment",
+          "XmlElement",
+          "XmlEvent",
+          "XmlNormalizer",
+          "XmlVisitor"
+        ]
+      },
+      "XmlOwned": {
+        "fields": [
+          "get:hasParent",
+          "get:parent",
+          "get:root"
+        ],
+        "libraries": [
+          "package:xml/src/xml/utils/owned.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "attachParent",
+          "detachParent"
+        ],
+        "types": [
+          "XmlNode"
+        ]
+      },
+      "XmlParent": {
+        "fields": [
+          "children"
+        ],
+        "libraries": [
+          "package:xml/src/xml/nodes/parent.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlParent",
+          "findAllElements",
+          "findElements"
+        ],
+        "types": [
+          "XmlElement",
+          "XmlNode",
+          "XmlNodeList",
+          "XmlNodeType"
+        ]
+      },
+      "XmlParentException": {
+        "fields": [],
+        "libraries": [
+          "package:xml/src/xml/utils/exceptions.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlParentException",
+          "checkNoParent"
+        ],
+        "types": [
+          "XmlException",
+          "XmlOwned"
+        ]
+      },
+      "XmlParserDefinition": {
+        "fields": [],
+        "libraries": [
+          "package:xml/src/xml/parser.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "createAttribute",
+          "createCDATA",
+          "createComment",
+          "createDoctype",
+          "createDocument",
+          "createElement",
+          "createProcessing",
+          "createQualified",
+          "createText"
+        ],
+        "types": [
+          "XmlAttribute",
+          "XmlAttributeType",
+          "XmlCDATA",
+          "XmlComment",
+          "XmlDoctype",
+          "XmlDocument",
+          "XmlElement",
+          "XmlGrammarDefinition",
+          "XmlName",
+          "XmlNode",
+          "XmlProcessing",
+          "XmlText"
+        ]
+      },
+      "XmlParserException": {
+        "fields": [
+          "column",
+          "line"
+        ],
+        "libraries": [
+          "package:xml/src/xml/utils/exceptions.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlParserException",
+          "toString"
+        ],
+        "types": [
+          "XmlException"
+        ]
+      },
+      "XmlPrecedingIterable": {
+        "fields": [
+          "get:iterator",
+          "start"
+        ],
+        "libraries": [
+          "package:xml/src/xml/iterators/preceding.dart"
+        ],
+        "methods": [
+          "XmlPrecedingIterable"
+        ],
+        "types": [
+          "XmlNode"
+        ]
+      },
+      "XmlPrecedingIterator": {
+        "fields": [
+          "current",
+          "start",
+          "todo"
+        ],
+        "libraries": [
+          "package:xml/src/xml/iterators/preceding.dart"
+        ],
+        "methods": [
+          "XmlPrecedingIterator",
+          "moveNext"
+        ],
+        "types": [
+          "XmlNode"
+        ]
+      },
+      "XmlPrefixName": {
+        "fields": [
+          "get:namespaceUri",
+          "local",
+          "prefix",
+          "qualified"
+        ],
+        "libraries": [
+          "package:xml/src/xml/utils/prefix_name.dart"
+        ],
+        "methods": [
+          "XmlPrefixName"
+        ],
+        "types": [
+          "XmlName"
+        ]
+      },
+      "XmlPrettyWriter": {
+        "fields": [
+          "indent",
+          "level"
+        ],
+        "libraries": [
+          "package:xml/src/xml/visitors/pretty_writer.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlPrettyWriter",
+          "newLine",
+          "visitCDATA",
+          "visitComment",
+          "visitDoctype",
+          "visitElement",
+          "visitProcessing",
+          "visitText"
+        ],
+        "types": [
+          "XmlCDATA",
+          "XmlComment",
+          "XmlDoctype",
+          "XmlElement",
+          "XmlProcessing",
+          "XmlText",
+          "XmlWriter"
+        ]
+      },
+      "XmlProcessing": {
+        "fields": [
+          "get:nodeType",
+          "target"
+        ],
+        "libraries": [
+          "package:xml/src/xml/nodes/processing.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlProcessing",
+          "accept"
+        ],
+        "types": [
+          "XmlData",
+          "XmlNodeType",
+          "XmlVisitor"
+        ]
+      },
+      "XmlProcessingEvent": {
+        "fields": [
+          "get:hashCode",
+          "get:nodeType",
+          "target",
+          "text"
+        ],
+        "libraries": [
+          "package:xml/src/xml_events/events/processing_event.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "==",
+          "XmlProcessingEvent",
+          "accept"
+        ],
+        "types": [
+          "XmlEvent",
+          "XmlEventVisitor",
+          "XmlNodeType"
+        ]
+      },
+      "XmlProductionDefinition": {
+        "fields": [],
+        "libraries": [
+          "package:xml/src/xml/production.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "attribute",
+          "attributeValue",
+          "attributeValueDouble",
+          "attributeValueSingle",
+          "attributes",
+          "cdata",
+          "characterData",
+          "comment",
+          "content",
+          "doctype",
+          "document",
+          "element",
+          "misc",
+          "nameChar",
+          "nameStartChar",
+          "nameToken",
+          "processing",
+          "qualified",
+          "space",
+          "spaceOptional",
+          "spaceText",
+          "start"
+        ],
+        "types": []
+      },
+      "XmlSimpleName": {
+        "fields": [
+          "get:namespaceUri",
+          "get:prefix",
+          "get:qualified",
+          "local"
+        ],
+        "libraries": [
+          "package:xml/src/xml/utils/simple_name.dart"
+        ],
+        "methods": [
+          "XmlSimpleName"
+        ],
+        "types": [
+          "XmlName"
+        ]
+      },
+      "XmlStartElementEvent": {
+        "fields": [
+          "attributes",
+          "get:hashCode",
+          "get:nodeType",
+          "isSelfClosing",
+          "name"
+        ],
+        "libraries": [
+          "package:xml/src/xml_events/events/start_element_event.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "==",
+          "XmlStartElementEvent",
+          "accept"
+        ],
+        "types": [
+          "XmlElementAttribute",
+          "XmlEvent",
+          "XmlEventVisitor",
+          "XmlNamed",
+          "XmlNodeType"
+        ]
+      },
+      "XmlTagException": {
+        "fields": [],
+        "libraries": [
+          "package:xml/src/xml/utils/exceptions.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlTagException"
+        ],
+        "types": [
+          "XmlException"
+        ]
+      },
+      "XmlText": {
+        "fields": [
+          "get:nodeType"
+        ],
+        "libraries": [
+          "package:xml/src/xml/nodes/text.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlText",
+          "accept"
+        ],
+        "types": [
+          "XmlData",
+          "XmlNodeType",
+          "XmlVisitor"
+        ]
+      },
+      "XmlTextEvent": {
+        "fields": [
+          "get:hashCode",
+          "get:nodeType",
+          "text"
+        ],
+        "libraries": [
+          "package:xml/src/xml_events/events/text_event.dart",
+          "package:xml/xml_events.dart"
+        ],
+        "methods": [
+          "==",
+          "XmlTextEvent",
+          "accept"
+        ],
+        "types": [
+          "XmlEvent",
+          "XmlEventVisitor",
+          "XmlNodeType"
+        ]
+      },
+      "XmlToken": {
+        "fields": [
+          "closeCDATA",
+          "closeComment",
+          "closeDoctype",
+          "closeDoctypeBlock",
+          "closeElement",
+          "closeEndElement",
+          "closeProcessing",
+          "doubleQuote",
+          "equals",
+          "namespace",
+          "openCDATA",
+          "openComment",
+          "openDoctype",
+          "openDoctypeBlock",
+          "openElement",
+          "openEndElement",
+          "openProcessing",
+          "singleQuote",
+          "whitespace"
+        ],
+        "libraries": [
+          "package:xml/src/xml/utils/token.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "XmlTransformer": {
+        "fields": [
+          "defaultInstance"
+        ],
+        "libraries": [
+          "package:xml/src/xml/visitors/transformer.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "visitAttribute",
+          "visitCDATA",
+          "visitComment",
+          "visitDoctype",
+          "visitDocument",
+          "visitDocumentFragment",
+          "visitElement",
+          "visitName",
+          "visitProcessing",
+          "visitText"
+        ],
+        "types": [
+          "XmlAttribute",
+          "XmlCDATA",
+          "XmlComment",
+          "XmlDoctype",
+          "XmlDocument",
+          "XmlDocumentFragment",
+          "XmlElement",
+          "XmlName",
+          "XmlProcessing",
+          "XmlText",
+          "XmlTransformer",
+          "XmlVisitor"
+        ]
+      },
+      "XmlVisitable": {
+        "fields": [],
+        "libraries": [
+          "package:xml/src/xml/visitors/visitable.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "accept"
+        ],
+        "types": [
+          "XmlVisitor"
+        ]
+      },
+      "XmlVisitor": {
+        "fields": [],
+        "libraries": [
+          "package:xml/src/xml/visitors/visitor.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "visit",
+          "visitAttribute",
+          "visitCDATA",
+          "visitComment",
+          "visitDoctype",
+          "visitDocument",
+          "visitDocumentFragment",
+          "visitElement",
+          "visitName",
+          "visitProcessing",
+          "visitText"
+        ],
+        "types": [
+          "XmlAttribute",
+          "XmlCDATA",
+          "XmlComment",
+          "XmlDoctype",
+          "XmlDocument",
+          "XmlDocumentFragment",
+          "XmlElement",
+          "XmlName",
+          "XmlProcessing",
+          "XmlText",
+          "XmlVisitable"
+        ]
+      },
+      "XmlWritable": {
+        "fields": [],
+        "libraries": [
+          "package:xml/src/xml/utils/writable.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "toString",
+          "toXmlString",
+          "writePrettyTo",
+          "writeTo"
+        ],
+        "types": [
+          "XmlVisitable"
+        ]
+      },
+      "XmlWriter": {
+        "fields": [
+          "buffer"
+        ],
+        "libraries": [
+          "package:xml/src/xml/visitors/writer.dart",
+          "package:xml/xml.dart"
+        ],
+        "methods": [
+          "XmlWriter",
+          "visitAttribute",
+          "visitCDATA",
+          "visitComment",
+          "visitDoctype",
+          "visitDocument",
+          "visitDocumentFragment",
+          "visitElement",
+          "visitName",
+          "visitProcessing",
+          "visitText",
+          "writeAttributes",
+          "writeChildren"
+        ],
+        "types": [
+          "XmlAttribute",
+          "XmlCDATA",
+          "XmlComment",
+          "XmlDoctype",
+          "XmlDocument",
+          "XmlDocumentFragment",
+          "XmlElement",
+          "XmlName",
+          "XmlNode",
+          "XmlProcessing",
+          "XmlText",
+          "XmlVisitor"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:26:15Z",
+  "package": "xml",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "XmlEventCodec",
+      "XmlEventDecoder",
+      "XmlEventEncoder",
+      "XmlNodeCodec",
+      "XmlNodeDecoder",
+      "XmlNodeEncoder",
+      "XmlNormalizer"
+    ],
+    "digest": "7e456d22c2d0420d379a5d440d16d193021d0676d04a5dd8c1b7ae76c16cb3df",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "e1ae099778a47beb4e137263b009c5347230294883a12be8d2c01d426265f1c2",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\t",
+      "\n",
+      "\r",
+      " ",
+      "  ",
+      "\"",
+      "#",
+      "#document-fragment",
+      "&",
+      "&#x9;",
+      "&#xA;",
+      "&#xD;",
+      "&amp;",
+      "&apos;",
+      "&lt;",
+      "&quot;",
+      "'",
+      "*",
+      "-->",
+      "/>",
+      ":",
+      ":A-Z_a-zÀ-ÖØ-öø-˿Ͱ-ͽͿ-῿‌-‍⁰-↏Ⰰ-⿯、퟿豈-﷏ﷰ-�",
+      ";",
+      "<",
+      "<!--",
+      "<!DOCTYPE",
+      "<![CDATA[",
+      "</",
+      "<?",
+      "=",
+      ">",
+      "?>",
+      "A-Fa-f0-9",
+      "AElig",
+      "Aacute",
+      "Acirc",
+      "Agrave",
+      "Alpha",
+      "Aring",
+      "Atilde",
+      "Auml",
+      "Beta",
+      "Ccedil",
+      "Chi",
+      "Dagger",
+      "Delta",
+      "ETH",
+      "Eacute",
+      "Ecirc",
+      "Egrave",
+      "Empty XML document",
+      "Epsilon",
+      "Eta",
+      "Euml",
+      "Expected name",
+      "Gamma",
+      "Iacute",
+      "Icirc",
+      "Igrave",
+      "Illegal name matcher.",
+      "Invalid name",
+      "Iota",
+      "Iuml",
+      "Kappa",
+      "Lambda",
+      "Mu",
+      "Node must not be null.",
+      "Ntilde",
+      "Nu",
+      "OElig",
+      "Oacute",
+      "Ocirc",
+      "Ograve",
+      "Omega",
+      "Omicron",
+      "Oslash",
+      "Otilde",
+      "Ouml",
+      "Phi",
+      "Pi",
+      "Prime",
+      "Psi",
+      "Rho",
+      "Scaron",
+      "Sigma",
+      "THORN",
+      "Tau",
+      "Theta",
+      "Uacute",
+      "Ucirc",
+      "Ugrave",
+      "Unable to define attributes at the document level.",
+      "Unable to parse chracter data.",
+      "Unsupported length change of node list.",
+      "Unsupported range filling of node list.",
+      "Upsilon",
+      "Uuml",
+      "Xi",
+      "Yacute",
+      "Yuml",
+      "Zeta",
+      "[",
+      "[\"&<\\n\\r\\t]",
+      "[&<]|]]>",
+      "['&<\\n\\r\\t]",
+      "]",
+      "]]&gt;",
+      "]]>",
+      "aacute",
+      "acirc",
+      "acute",
+      "aelig",
+      "agrave",
+      "alefsym",
+      "alpha",
+      "amp",
+      "and",
+      "ang",
+      "apos",
+      "aring",
+      "asymp",
+      "atilde",
+      "auml",
+      "bdquo",
+      "beta",
+      "brvbar",
+      "bull",
+      "cap",
+      "ccedil",
+      "cedil",
+      "cent",
+      "chi",
+      "circ",
+      "clubs",
+      "cong",
+      "copy",
+      "crarr",
+      "cup",
+      "curren",
+      "dArr",
+      "dagger",
+      "darr",
+      "dart:collection",
+      "dart:convert",
+      "deg",
+      "delta",
+      "diams",
+      "divide",
+      "eacute",
+      "ecirc",
+      "egrave",
+      "empty",
+      "emsp",
+      "ensp",
+      "epsilon",
+      "equiv",
+      "eta",
+      "eth",
+      "euml",
+      "euro",
+      "exist",
+      "fnof",
+      "forall",
+      "frac12",
+      "frac14",
+      "frac34",
+      "frasl",
+      "gamma",
+      "ge",
+      "gt",
+      "hArr",
+      "harr",
+      "hearts",
+      "hellip",
+      "http://www.w3.org/XML/1998/namespace",
+      "iacute",
+      "icirc",
+      "iexcl",
+      "igrave",
+      "image",
+      "infin",
+      "int",
+      "iota",
+      "iquest",
+      "isin",
+      "iuml",
+      "kappa",
+      "lArr",
+      "lambda",
+      "lang",
+      "laquo",
+      "larr",
+      "lceil",
+      "ldquo",
+      "le",
+      "lfloor",
+      "lowast",
+      "loz",
+      "lrm",
+      "lsaquo",
+      "lsquo",
+      "lt",
+      "macr",
+      "mdash",
+      "micro",
+      "middot",
+      "minus",
+      "mu",
+      "nabla",
+      "nbsp",
+      "ndash",
+      "ne",
+      "ni",
+      "not",
+      "notin",
+      "nsub",
+      "ntilde",
+      "nu",
+      "oacute",
+      "ocirc",
+      "oelig",
+      "ograve",
+      "oline",
+      "omega",
+      "omicron",
+      "oplus",
+      "or",
+      "ordf",
+      "ordm",
+      "oslash",
+      "otilde",
+      "otimes",
+      "ouml",
+      "package:collection/collection.dart",
+      "package:convert/convert.dart",
+      "package:petitparser/petitparser.dart",
+      "package:xml/src/xml/builder.dart",
+      "package:xml/src/xml/grammar.dart",
+      "package:xml/src/xml/iterators/ancestors.dart",
+      "package:xml/src/xml/iterators/descendants.dart",
+      "package:xml/src/xml/iterators/following.dart",
+      "package:xml/src/xml/iterators/preceding.dart",
+      "package:xml/src/xml/nodes/attribute.dart",
+      "package:xml/src/xml/nodes/cdata.dart",
+      "package:xml/src/xml/nodes/comment.dart",
+      "package:xml/src/xml/nodes/data.dart",
+      "package:xml/src/xml/nodes/doctype.dart",
+      "package:xml/src/xml/nodes/document.dart",
+      "package:xml/src/xml/nodes/document_fragment.dart",
+      "package:xml/src/xml/nodes/element.dart",
+      "package:xml/src/xml/nodes/node.dart",
+      "package:xml/src/xml/nodes/parent.dart",
+      "package:xml/src/xml/nodes/processing.dart",
+      "package:xml/src/xml/nodes/text.dart",
+      "package:xml/src/xml/parser.dart",
+      "package:xml/src/xml/production.dart",
+      "package:xml/src/xml/utils/attribute_type.dart",
+      "package:xml/src/xml/utils/entities.dart",
+      "package:xml/src/xml/utils/exceptions.dart",
+      "package:xml/src/xml/utils/name.dart",
+      "package:xml/src/xml/utils/name_matcher.dart",
+      "package:xml/src/xml/utils/named.dart",
+      "package:xml/src/xml/utils/node_list.dart",
+      "package:xml/src/xml/utils/node_type.dart",
+      "package:xml/src/xml/utils/owned.dart",
+      "package:xml/src/xml/utils/prefix_name.dart",
+      "package:xml/src/xml/utils/simple_name.dart",
+      "package:xml/src/xml/utils/token.dart",
+      "package:xml/src/xml/utils/writable.dart",
+      "package:xml/src/xml/visitors/normalizer.dart",
+      "package:xml/src/xml/visitors/pretty_writer.dart",
+      "package:xml/src/xml/visitors/transformer.dart",
+      "package:xml/src/xml/visitors/visitable.dart",
+      "package:xml/src/xml/visitors/visitor.dart",
+      "package:xml/src/xml/visitors/writer.dart",
+      "package:xml/src/xml_events/codec/event_codec.dart",
+      "package:xml/src/xml_events/codec/node_codec.dart",
+      "package:xml/src/xml_events/converters/event_decoder.dart",
+      "package:xml/src/xml_events/converters/event_encoder.dart",
+      "package:xml/src/xml_events/converters/node_decoder.dart",
+      "package:xml/src/xml_events/converters/node_encoder.dart",
+      "package:xml/src/xml_events/converters/normalizer.dart",
+      "package:xml/src/xml_events/event.dart",
+      "package:xml/src/xml_events/events/cdata_event.dart",
+      "package:xml/src/xml_events/events/comment_event.dart",
+      "package:xml/src/xml_events/events/doctype_event.dart",
+      "package:xml/src/xml_events/events/end_element_event.dart",
+      "package:xml/src/xml_events/events/named.dart",
+      "package:xml/src/xml_events/events/processing_event.dart",
+      "package:xml/src/xml_events/events/start_element_event.dart",
+      "package:xml/src/xml_events/events/text_event.dart",
+      "package:xml/src/xml_events/iterable.dart",
+      "package:xml/src/xml_events/iterator.dart",
+      "package:xml/src/xml_events/parser.dart",
+      "package:xml/src/xml_events/visitor.dart",
+      "package:xml/xml.dart",
+      "para",
+      "part",
+      "permil",
+      "perp",
+      "phi",
+      "pi",
+      "piv",
+      "plusmn",
+      "pound",
+      "prime",
+      "prod",
+      "prop",
+      "psi",
+      "quot",
+      "rArr",
+      "radic",
+      "rang",
+      "raquo",
+      "rarr",
+      "rceil",
+      "rdquo",
+      "real",
+      "reg",
+      "rfloor",
+      "rho",
+      "rlm",
+      "rsaquo",
+      "rsquo",
+      "sbquo",
+      "scaron",
+      "sdot",
+      "sect",
+      "shy",
+      "sigma",
+      "sigmaf",
+      "sim",
+      "spades",
+      "sub",
+      "sube",
+      "sum",
+      "sup",
+      "sup1",
+      "sup2",
+      "sup3",
+      "supe",
+      "szlig",
+      "tau",
+      "text",
+      "there4",
+      "theta",
+      "thetasym",
+      "thinsp",
+      "thorn",
+      "tilde",
+      "times",
+      "trade",
+      "uArr",
+      "uacute",
+      "uarr",
+      "ucirc",
+      "ugrave",
+      "uml",
+      "upsih",
+      "upsilon",
+      "uuml",
+      "value",
+      "weierp",
+      "xX",
+      "xi",
+      "xml",
+      "xmlns",
+      "yacute",
+      "yen",
+      "yuml",
+      "zeta",
+      "zwj",
+      "zwnj",
+      " ",
+      "¡",
+      "¢",
+      "£",
+      "¤",
+      "¥",
+      "¦",
+      "§",
+      "¨",
+      "©",
+      "ª",
+      "«",
+      "¬",
+      "­",
+      "®",
+      "¯",
+      "°",
+      "±",
+      "²",
+      "³",
+      "´",
+      "µ",
+      "¶",
+      "·",
+      "¸",
+      "¹",
+      "º",
+      "»",
+      "¼",
+      "½",
+      "¾",
+      "¿",
+      "À",
+      "Á",
+      "Â",
+      "Ã",
+      "Ä",
+      "Å",
+      "Æ",
+      "Ç",
+      "È",
+      "É",
+      "Ê",
+      "Ë",
+      "Ì",
+      "Í",
+      "Î",
+      "Ï",
+      "Ð",
+      "Ñ",
+      "Ò",
+      "Ó",
+      "Ô",
+      "Õ",
+      "Ö",
+      "×",
+      "Ø",
+      "Ù",
+      "Ú",
+      "Û",
+      "Ü",
+      "Ý",
+      "Þ",
+      "ß",
+      "à",
+      "á",
+      "â",
+      "ã",
+      "ä",
+      "å",
+      "æ",
+      "ç",
+      "è",
+      "é",
+      "ê",
+      "ë",
+      "ì",
+      "í",
+      "î",
+      "ï",
+      "ð",
+      "ñ",
+      "ò",
+      "ó",
+      "ô",
+      "õ",
+      "ö",
+      "÷",
+      "ø",
+      "ù",
+      "ú",
+      "û",
+      "ü",
+      "ý",
+      "þ",
+      "ÿ",
+      "Œ",
+      "œ",
+      "Š",
+      "š",
+      "Ÿ",
+      "ƒ",
+      "ˆ",
+      "˜",
+      "Α",
+      "Β",
+      "Γ",
+      "Δ",
+      "Ε",
+      "Ζ",
+      "Η",
+      "Θ",
+      "Ι",
+      "Κ",
+      "Λ",
+      "Μ",
+      "Ν",
+      "Ξ",
+      "Ο",
+      "Π",
+      "Ρ",
+      "Σ",
+      "Τ",
+      "Υ",
+      "Φ",
+      "Χ",
+      "Ψ",
+      "Ω",
+      "α",
+      "β",
+      "γ",
+      "δ",
+      "ε",
+      "ζ",
+      "η",
+      "θ",
+      "ι",
+      "κ",
+      "λ",
+      "μ",
+      "ν",
+      "ξ",
+      "ο",
+      "π",
+      "ρ",
+      "ς",
+      "σ",
+      "τ",
+      "υ",
+      "φ",
+      "χ",
+      "ψ",
+      "ω",
+      "ϑ",
+      "ϒ",
+      "ϖ",
+      " ",
+      " ",
+      " ",
+      "‌",
+      "‍",
+      "‎",
+      "‏",
+      "–",
+      "—",
+      "‘",
+      "’",
+      "‚",
+      "“",
+      "”",
+      "„",
+      "†",
+      "‡",
+      "•",
+      "…",
+      "‰",
+      "′",
+      "″",
+      "‹",
+      "›",
+      "‾",
+      "⁄",
+      "€",
+      "ℑ",
+      "℘",
+      "ℜ",
+      "™",
+      "ℵ",
+      "←",
+      "↑",
+      "→",
+      "↓",
+      "↔",
+      "↵",
+      "⇐",
+      "⇑",
+      "⇒",
+      "⇓",
+      "⇔",
+      "∀",
+      "∂",
+      "∃",
+      "∅",
+      "∇",
+      "∈",
+      "∉",
+      "∋",
+      "∏",
+      "∑",
+      "−",
+      "∗",
+      "√",
+      "∝",
+      "∞",
+      "∠",
+      "∧",
+      "∨",
+      "∩",
+      "∪",
+      "∫",
+      "∴",
+      "∼",
+      "≅",
+      "≈",
+      "≠",
+      "≡",
+      "≤",
+      "≥",
+      "⊂",
+      "⊃",
+      "⊄",
+      "⊆",
+      "⊇",
+      "⊕",
+      "⊗",
+      "⊥",
+      "⋅",
+      "⌈",
+      "⌉",
+      "⌊",
+      "⌋",
+      "◊",
+      "♠",
+      "♣",
+      "♥",
+      "♦",
+      "〈",
+      "〉"
+    ]
+  },
+  "version": "3.3.1"
+}
