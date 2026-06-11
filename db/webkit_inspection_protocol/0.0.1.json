@@ -1,0 +1,482 @@
+{
+  "api_surface": {
+    "classes": {
+      "ChromeConnection": {
+        "fields": [
+          "get:url"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "ChromeConnection",
+          "getTab",
+          "getTabs"
+        ],
+        "types": [
+          "ChromeTab"
+        ]
+      },
+      "ChromeTab": {
+        "fields": [
+          "get:description",
+          "get:devtoolsFrontendUrl",
+          "get:faviconUrl",
+          "get:hasIcon",
+          "get:id",
+          "get:isBackgroundPage",
+          "get:isChromeExtension",
+          "get:title",
+          "get:type",
+          "get:url",
+          "get:webSocketDebuggerUrl"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "fromMap",
+          "toString"
+        ],
+        "types": []
+      },
+      "ConsoleMessageEvent": {
+        "fields": [
+          "get:level",
+          "get:repeatCount",
+          "get:text",
+          "get:url"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "ConsoleMessageEvent",
+          "getStackTrace",
+          "toString"
+        ],
+        "types": [
+          "WipCallFrame",
+          "WipEvent"
+        ]
+      },
+      "DebuggerPausedEvent": {
+        "fields": [
+          "get:data",
+          "get:reason"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "DebuggerPausedEvent",
+          "getCallFrames",
+          "toString"
+        ],
+        "types": [
+          "WipCallFrame",
+          "WipEvent"
+        ]
+      },
+      "ScriptParsedEvent": {
+        "fields": [
+          "get:endColumn",
+          "get:endLine",
+          "get:isContentScript",
+          "get:scriptId",
+          "get:sourceMapURL",
+          "get:startColumn",
+          "get:startLine",
+          "get:url"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "ScriptParsedEvent"
+        ],
+        "types": [
+          "WipEvent"
+        ]
+      },
+      "WipCallFrame": {
+        "fields": [
+          "get:callFrameId",
+          "get:functionName",
+          "get:location",
+          "get:thisObject"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "WipCallFrame",
+          "getScopeChain",
+          "toString"
+        ],
+        "types": [
+          "WipLocation",
+          "WipObject",
+          "WipRemoteObject",
+          "WipScope"
+        ]
+      },
+      "WipConnection": {
+        "fields": [
+          "console",
+          "debugger",
+          "get:onClose",
+          "page",
+          "runtime",
+          "url"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "close",
+          "connect",
+          "toString"
+        ],
+        "types": [
+          "WipConnection",
+          "WipConsole",
+          "WipDebugger",
+          "WipPage",
+          "WipRuntime"
+        ]
+      },
+      "WipConsole": {
+        "fields": [
+          "get:onCleared",
+          "get:onMessage"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "WipConsole",
+          "clearMessages",
+          "disable",
+          "enable"
+        ],
+        "types": [
+          "ConsoleMessageEvent",
+          "WipConnection",
+          "WipDomain"
+        ]
+      },
+      "WipConsoleCallFrame": {
+        "fields": [
+          "get:columnNumber",
+          "get:functionName",
+          "get:lineNumber",
+          "get:scriptId",
+          "get:url"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "WipConsoleCallFrame"
+        ],
+        "types": [
+          "WipObject"
+        ]
+      },
+      "WipDebugger": {
+        "fields": [
+          "get:onPaused",
+          "get:onResumed"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "WipDebugger",
+          "disable",
+          "enable",
+          "getScript",
+          "getScriptSource",
+          "pause",
+          "resume",
+          "setPauseOnExceptions",
+          "stepInto",
+          "stepOut",
+          "stepOver"
+        ],
+        "types": [
+          "WipConnection",
+          "WipDomain",
+          "WipScript"
+        ]
+      },
+      "WipDomain": {
+        "fields": [
+          "connection"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "WipDomain"
+        ],
+        "types": [
+          "WipConnection"
+        ]
+      },
+      "WipError": {
+        "fields": [
+          "error",
+          "id"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "WipError",
+          "toString"
+        ],
+        "types": []
+      },
+      "WipEvent": {
+        "fields": [
+          "get:method",
+          "get:params"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "WipEvent",
+          "toString"
+        ],
+        "types": [
+          "WipObject"
+        ]
+      },
+      "WipLocation": {
+        "fields": [
+          "get:columnNumber",
+          "get:lineNumber",
+          "get:scriptId"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "WipLocation",
+          "toString"
+        ],
+        "types": [
+          "WipObject"
+        ]
+      },
+      "WipObject": {
+        "fields": [
+          "map"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "WipObject"
+        ],
+        "types": []
+      },
+      "WipPage": {
+        "fields": [],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "WipPage",
+          "disable",
+          "enable",
+          "navigate",
+          "reload"
+        ],
+        "types": [
+          "WipConnection",
+          "WipDomain"
+        ]
+      },
+      "WipRemoteObject": {
+        "fields": [
+          "get:className",
+          "get:description",
+          "get:objectId",
+          "get:subtype",
+          "get:type",
+          "get:value"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "WipRemoteObject"
+        ],
+        "types": [
+          "WipObject"
+        ]
+      },
+      "WipResponse": {
+        "fields": [
+          "id",
+          "result"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "WipResponse",
+          "toString"
+        ],
+        "types": []
+      },
+      "WipRuntime": {
+        "fields": [],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "WipRuntime"
+        ],
+        "types": [
+          "WipConnection",
+          "WipDomain"
+        ]
+      },
+      "WipScope": {
+        "fields": [
+          "get:object",
+          "get:scope"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "WipScope"
+        ],
+        "types": [
+          "WipObject",
+          "WipRemoteObject"
+        ]
+      },
+      "WipScript": {
+        "fields": [
+          "get:endColumn",
+          "get:endLine",
+          "get:isContentScript",
+          "get:scriptId",
+          "get:sourceMapURL",
+          "get:startColumn",
+          "get:startLine",
+          "get:url"
+        ],
+        "libraries": [
+          "package:webkit_inspection_protocol/webkit_inspection_protocol.dart"
+        ],
+        "methods": [
+          "WipScript",
+          "toString"
+        ],
+        "types": [
+          "WipObject"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:21:49Z",
+  "package": "webkit_inspection_protocol",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "db8561424eee021bc8dfae43a653c32123dc09c6de17f402ec6d1fc1c34e0ef1",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "c6341fae3ad8ab47f347838769c1f1fbc91b30edca8c712f3fd85794e3c82d76",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      ".",
+      "Console",
+      "Console.clearMessages",
+      "Console.disable",
+      "Console.enable",
+      "Console.messageAdded",
+      "Console.messageRepeatCountUpdated",
+      "Console.messagesCleared",
+      "Debugger",
+      "Debugger.disable",
+      "Debugger.enable",
+      "Debugger.getScriptSource",
+      "Debugger.globalObjectCleared",
+      "Debugger.pause",
+      "Debugger.paused",
+      "Debugger.resume",
+      "Debugger.resumed",
+      "Debugger.scriptParsed",
+      "Debugger.setPauseOnExceptions",
+      "Debugger.stepInto",
+      "Debugger.stepOut",
+      "Debugger.stepOver",
+      "Page",
+      "Page.disable",
+      "Page.enable",
+      "Page.navigate",
+      "background_page",
+      "callFrameId",
+      "callFrames",
+      "chrome-extension://",
+      "className",
+      "columnNumber",
+      "count",
+      "dart:async",
+      "dart:convert",
+      "dart:io",
+      "data",
+      "description",
+      "devtoolsFrontendUrl",
+      "endColumn",
+      "endLine",
+      "error",
+      "faviconUrl",
+      "functionName",
+      "id",
+      "ignoreCache",
+      "isContentScript",
+      "level",
+      "lineNumber",
+      "location",
+      "message",
+      "method",
+      "object",
+      "objectId",
+      "params",
+      "reason",
+      "repeatCount",
+      "result",
+      "scope",
+      "scopeChain",
+      "scriptId",
+      "scriptSource",
+      "scriptToEvaluateOnLoad",
+      "sourceMapURL",
+      "stackTrace",
+      "startColumn",
+      "startLine",
+      "state",
+      "subtype",
+      "text",
+      "this",
+      "title",
+      "type",
+      "url",
+      "value",
+      "webSocketDebuggerUrl"
+    ]
+  },
+  "version": "0.0.1"
+}

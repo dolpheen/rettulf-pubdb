@@ -1,0 +1,3549 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "clock",
+          "defaultInterval",
+          "defaultTimeout",
+          "defaultUri",
+          "defaultUserPrefs",
+          "get:stdinLineReader",
+          "jsonWireElementStr",
+          "lockedPrefs",
+          "w3cElementStr"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/async/common.dart",
+          "package:webdriver/src/async/common_io.dart",
+          "package:webdriver/src/async/common_stub.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/src/common/request_client.dart",
+          "package:webdriver/src/common/utils.dart",
+          "package:webdriver/src/handler/json_wire/utils.dart",
+          "package:webdriver/src/handler/w3c/utils.dart",
+          "package:webdriver/src/sync/common.dart",
+          "package:webdriver/src/sync/common_io.dart",
+          "package:webdriver/src/sync/common_stub.dart",
+          "package:webdriver/support/async.dart",
+          "package:webdriver/support/firefox_profile.dart",
+          "package:webdriver/support/stdio_stepper.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "createAsyncWebDriver",
+          "createAsyncWebElement",
+          "createDriver",
+          "createSyncWebDriver",
+          "deserialize",
+          "elementPrefix",
+          "fromExistingSession",
+          "fromExistingSessionSync",
+          "getExceptionFromJsonWireResponse",
+          "getExceptionFromW3cResponse",
+          "getHandler",
+          "parseJsonWireResponse",
+          "parseW3cResponse",
+          "serialize",
+          "waitFor"
+        ],
+        "types": [
+          "AsyncRequestClient",
+          "LineReader",
+          "PrefsOption",
+          "SyncRequestClient",
+          "WebDriver",
+          "WebDriverCommandEvent",
+          "WebDriverException",
+          "WebDriverHandler",
+          "WebDriverResponse",
+          "WebDriverSpec",
+          "WebElement"
+        ]
+      },
+      "Alert": {
+        "fields": [
+          "get:hashCode",
+          "get:text"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/async/alert.dart",
+          "package:webdriver/src/sync/alert.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "==",
+          "Alert",
+          "accept",
+          "dismiss",
+          "sendKeys",
+          "toString"
+        ],
+        "types": [
+          "AsyncRequestClient",
+          "SyncRequestClient",
+          "WebDriverHandler"
+        ]
+      },
+      "AlertHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/webdriver_handler.dart"
+        ],
+        "methods": [
+          "buildAcceptRequest",
+          "buildDismissRequest",
+          "buildGetTextRequest",
+          "buildSendTextRequest",
+          "parseAcceptResponse",
+          "parseDismissResponse",
+          "parseGetTextResponse",
+          "parseSendTextResponse"
+        ],
+        "types": [
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "AsyncIoRequestClient": {
+        "fields": [
+          "client"
+        ],
+        "libraries": [
+          "package:webdriver/async_io.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/request/async_io_request_client.dart"
+        ],
+        "methods": [
+          "AsyncIoRequestClient",
+          "sendRaw",
+          "toString"
+        ],
+        "types": [
+          "AsyncRequestClient",
+          "Lock",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "AsyncRequestClient": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/request_client.dart"
+        ],
+        "methods": [
+          "AsyncRequestClient",
+          "addEventListener",
+          "send",
+          "sendRaw"
+        ],
+        "types": [
+          "RequestClient",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "AsyncXhrRequestClient": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_html.dart",
+          "package:webdriver/src/request/async_xhr_request_client.dart"
+        ],
+        "methods": [
+          "AsyncXhrRequestClient",
+          "sendRaw",
+          "toString"
+        ],
+        "types": [
+          "AsyncRequestClient",
+          "Lock",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "Attributes": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/async/common.dart",
+          "package:webdriver/src/sync/common.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "Attributes",
+          "[]"
+        ],
+        "types": []
+      },
+      "BooleanOption": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/support/firefox_profile.dart"
+        ],
+        "methods": [
+          "BooleanOption"
+        ],
+        "types": [
+          "PrefsOption"
+        ]
+      },
+      "Browser": {
+        "fields": [
+          "android",
+          "chrome",
+          "firefox",
+          "ie",
+          "opera",
+          "safari"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/capabilities.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "BrowserPlatform": {
+        "fields": [
+          "android",
+          "linux",
+          "mac",
+          "windows"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/capabilities.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "By": {
+        "fields": [
+          "get:hashCode",
+          "using",
+          "value"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/by.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "==",
+          "By",
+          "className",
+          "cssSelector",
+          "id",
+          "linkText",
+          "name",
+          "partialLinkText",
+          "tagName",
+          "toJson",
+          "toString",
+          "xpath"
+        ],
+        "types": []
+      },
+      "Capabilities": {
+        "fields": [
+          "acceptInsecureCerts",
+          "acceptSslCerts",
+          "browserName",
+          "browserVersion",
+          "chromeOptions",
+          "enableProfiling",
+          "firefoxOptions",
+          "get:android",
+          "get:chrome",
+          "get:empty",
+          "get:firefox",
+          "hasNativeEvents",
+          "loggingPrefs",
+          "pageLoadStrategy",
+          "platformName",
+          "proxy",
+          "rotatable",
+          "setWindowRect",
+          "supportSqlDatabase",
+          "supportsAlerts",
+          "supportsApplicationCache",
+          "supportsBrowserConnection",
+          "supportsFindingByCss",
+          "supportsLocationContext",
+          "supportsWebStorage",
+          "takesScreenshot",
+          "timeouts",
+          "unexpectedAlertBehaviour",
+          "unhandledPromptBehavior"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/capabilities.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Clock": {
+        "fields": [
+          "get:now"
+        ],
+        "libraries": [
+          "package:webdriver/support/async.dart"
+        ],
+        "methods": [
+          "Clock",
+          "sleep",
+          "waitFor"
+        ],
+        "types": []
+      },
+      "Cookie": {
+        "fields": [
+          "domain",
+          "expiry",
+          "name",
+          "path",
+          "secure",
+          "value"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/cookie.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "Cookie",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "Cookies": {
+        "fields": [
+          "get:all",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/async/cookies.dart",
+          "package:webdriver/src/sync/cookies.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "==",
+          "Cookies",
+          "add",
+          "delete",
+          "deleteAll",
+          "getCookie",
+          "toString"
+        ],
+        "types": [
+          "AsyncRequestClient",
+          "Cookie",
+          "SyncRequestClient",
+          "WebDriverHandler"
+        ]
+      },
+      "CookiesHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/webdriver_handler.dart"
+        ],
+        "methods": [
+          "buildAddCookieRequest",
+          "buildDeleteAllCookiesRequest",
+          "buildDeleteCookieRequest",
+          "buildGetAllCookiesRequest",
+          "buildGetCookieRequest",
+          "parseAddCookieResponse",
+          "parseDeleteAllCookiesResponse",
+          "parseDeleteCookieResponse",
+          "parseGetAllCookiesResponse",
+          "parseGetCookieResponse"
+        ],
+        "types": [
+          "Cookie",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "CoreHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/webdriver_handler.dart"
+        ],
+        "methods": [
+          "buildCurrentUrlRequest",
+          "buildDeleteSessionRequest",
+          "buildElementScreenshotRequest",
+          "buildExecuteAsyncRequest",
+          "buildExecuteRequest",
+          "buildPageSourceRequest",
+          "buildScreenshotRequest",
+          "buildTitleRequest",
+          "parseCurrentUrlResponse",
+          "parseDeleteSessionResponse",
+          "parseExecuteAsyncResponse",
+          "parseExecuteResponse",
+          "parsePageSourceResponse",
+          "parseScreenshotResponse",
+          "parseTitleResponse"
+        ],
+        "types": [
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "ElementClickInterceptedException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "ElementClickInterceptedException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "ElementFinder": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/webdriver_handler.dart"
+        ],
+        "methods": [
+          "buildFindActiveElementRequest",
+          "buildFindElementRequest",
+          "buildFindElementsRequest",
+          "parseFindActiveElementResponse",
+          "parseFindElementResponse",
+          "parseFindElementResponseCore",
+          "parseFindElementsResponse"
+        ],
+        "types": [
+          "By",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "ElementHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/webdriver_handler.dart"
+        ],
+        "methods": [
+          "buildAttributeRequest",
+          "buildClearRequest",
+          "buildClickRequest",
+          "buildCssPropertyRequest",
+          "buildDisplayedRequest",
+          "buildEnabledRequest",
+          "buildLocationRequest",
+          "buildNameRequest",
+          "buildPropertyRequest",
+          "buildSelectedRequest",
+          "buildSeleniumAttributeRequest",
+          "buildSendKeysRequest",
+          "buildSizeRequest",
+          "buildTextRequest",
+          "parseAttributeResponse",
+          "parseClearResponse",
+          "parseClickResponse",
+          "parseCssPropertyResponse",
+          "parseDisplayedResponse",
+          "parseEnabledResponse",
+          "parseLocationResponse",
+          "parseNameResponse",
+          "parsePropertyResponse",
+          "parseSelectedResponse",
+          "parseSeleniumAttributeResponse",
+          "parseSendKeysResponse",
+          "parseSizeResponse",
+          "parseTextResponse"
+        ],
+        "types": [
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "ElementIsNotSelectableException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "ElementIsNotSelectableException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "ElementNotInteractableException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "ElementNotInteractableException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "ElementNotVisibleException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "ElementNotVisibleException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "FirefoxProfile": {
+        "fields": [
+          "get:prefs",
+          "get:userPrefs",
+          "profileDirectory"
+        ],
+        "libraries": [
+          "package:webdriver/support/firefox_profile.dart"
+        ],
+        "methods": [
+          "FirefoxProfile",
+          "loadPrefsFile",
+          "removeOption",
+          "setOption",
+          "toJson"
+        ],
+        "types": [
+          "PrefsOption"
+        ]
+      },
+      "FrameHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/webdriver_handler.dart"
+        ],
+        "methods": [
+          "buildSwitchByElementRequest",
+          "buildSwitchByIdRequest",
+          "buildSwitchToParentRequest",
+          "parseSwitchByElementResponse",
+          "parseSwitchByIdResponse",
+          "parseSwitchToParentResponse"
+        ],
+        "types": [
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "HttpMethod": {
+        "fields": [
+          "httpDelete",
+          "httpGet",
+          "httpPost",
+          "name"
+        ],
+        "libraries": [
+          "package:webdriver/src/common/request.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "IMEEngineActivationFailedException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "IMEEngineActivationFailedException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "IMENotAvailableException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "IMENotAvailableException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "InferSessionHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/infer_handler.dart"
+        ],
+        "methods": [
+          "buildCreateRequest",
+          "buildInfoRequest",
+          "parseCreateResponse",
+          "parseInfoResponse"
+        ],
+        "types": [
+          "SessionHandler",
+          "SessionInfo",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "InferWebDriverHandler": {
+        "fields": [
+          "get:alert",
+          "get:cookies",
+          "get:core",
+          "get:element",
+          "get:elementFinder",
+          "get:frame",
+          "get:keyboard",
+          "get:logs",
+          "get:mouse",
+          "get:navigation",
+          "get:timeouts",
+          "get:window",
+          "session"
+        ],
+        "libraries": [
+          "package:webdriver/src/handler/infer_handler.dart"
+        ],
+        "methods": [
+          "buildGeneralRequest",
+          "parseGeneralResponse"
+        ],
+        "types": [
+          "AlertHandler",
+          "CookiesHandler",
+          "CoreHandler",
+          "ElementFinder",
+          "ElementHandler",
+          "FrameHandler",
+          "HttpMethod",
+          "KeyboardHandler",
+          "LogsHandler",
+          "MouseHandler",
+          "NavigationHandler",
+          "SessionHandler",
+          "TimeoutsHandler",
+          "WebDriverHandler",
+          "WebDriverRequest",
+          "WebDriverResponse",
+          "WindowHandler"
+        ]
+      },
+      "InsecureCertificateException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "InsecureCertificateException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "IntegerOption": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/support/firefox_profile.dart"
+        ],
+        "methods": [
+          "IntegerOption"
+        ],
+        "types": [
+          "PrefsOption"
+        ]
+      },
+      "InvalidArgumentException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "InvalidArgumentException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "InvalidCookieDomainException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "InvalidCookieDomainException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "InvalidElementCoordinatesException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "InvalidElementCoordinatesException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "InvalidElementStateException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "InvalidElementStateException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "InvalidOption": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/support/firefox_profile.dart"
+        ],
+        "methods": [
+          "InvalidOption"
+        ],
+        "types": [
+          "PrefsOption"
+        ]
+      },
+      "InvalidRequestException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "InvalidRequestException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "InvalidResponseException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "InvalidResponseException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "InvalidSelectorException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "InvalidSelectorException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "InvalidSessionIdException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "InvalidSessionIdException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "JavaScriptException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "JavaScriptException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "JsonWireAlertHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/json_wire/alert.dart"
+        ],
+        "methods": [
+          "buildAcceptRequest",
+          "buildDismissRequest",
+          "buildGetTextRequest",
+          "buildSendTextRequest",
+          "parseAcceptResponse",
+          "parseDismissResponse",
+          "parseGetTextResponse",
+          "parseSendTextResponse"
+        ],
+        "types": [
+          "AlertHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "JsonWireCookiesHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/json_wire/cookies.dart"
+        ],
+        "methods": [
+          "buildAddCookieRequest",
+          "buildDeleteAllCookiesRequest",
+          "buildDeleteCookieRequest",
+          "buildGetAllCookiesRequest",
+          "buildGetCookieRequest",
+          "parseAddCookieResponse",
+          "parseDeleteAllCookiesResponse",
+          "parseDeleteCookieResponse",
+          "parseGetAllCookiesResponse",
+          "parseGetCookieResponse"
+        ],
+        "types": [
+          "Cookie",
+          "CookiesHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "JsonWireCoreHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/json_wire/core.dart"
+        ],
+        "methods": [
+          "buildCurrentUrlRequest",
+          "buildDeleteSessionRequest",
+          "buildElementScreenshotRequest",
+          "buildExecuteAsyncRequest",
+          "buildExecuteRequest",
+          "buildPageSourceRequest",
+          "buildScreenshotRequest",
+          "buildTitleRequest",
+          "parseCurrentUrlResponse",
+          "parseDeleteSessionResponse",
+          "parseExecuteAsyncResponse",
+          "parseExecuteResponse",
+          "parsePageSourceResponse",
+          "parseScreenshotResponse",
+          "parseTitleResponse"
+        ],
+        "types": [
+          "CoreHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "JsonWireElementFinder": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/json_wire/element_finder.dart"
+        ],
+        "methods": [
+          "buildFindActiveElementRequest",
+          "buildFindElementRequest",
+          "buildFindElementsRequest",
+          "parseFindActiveElementResponse",
+          "parseFindElementResponseCore",
+          "parseFindElementsResponse"
+        ],
+        "types": [
+          "By",
+          "ElementFinder",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "JsonWireElementHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/json_wire/element.dart"
+        ],
+        "methods": [
+          "buildAttributeRequest",
+          "buildClearRequest",
+          "buildClickRequest",
+          "buildCssPropertyRequest",
+          "buildDisplayedRequest",
+          "buildEnabledRequest",
+          "buildLocationRequest",
+          "buildNameRequest",
+          "buildPropertyRequest",
+          "buildSelectedRequest",
+          "buildSeleniumAttributeRequest",
+          "buildSendKeysRequest",
+          "buildSizeRequest",
+          "buildTextRequest",
+          "parseAttributeResponse",
+          "parseClearResponse",
+          "parseClickResponse",
+          "parseCssPropertyResponse",
+          "parseDisplayedResponse",
+          "parseEnabledResponse",
+          "parseLocationResponse",
+          "parseNameResponse",
+          "parsePropertyResponse",
+          "parseSelectedResponse",
+          "parseSeleniumAttributeResponse",
+          "parseSendKeysResponse",
+          "parseSizeResponse",
+          "parseTextResponse"
+        ],
+        "types": [
+          "ElementHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "JsonWireFrameHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/json_wire/frame.dart"
+        ],
+        "methods": [
+          "buildSwitchByElementRequest",
+          "buildSwitchByIdRequest",
+          "buildSwitchToParentRequest",
+          "parseSwitchByElementResponse",
+          "parseSwitchByIdResponse",
+          "parseSwitchToParentResponse"
+        ],
+        "types": [
+          "FrameHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "JsonWireKeyboardHandler": {
+        "fields": [
+          "nullChar"
+        ],
+        "libraries": [
+          "package:webdriver/src/handler/json_wire/keyboard.dart"
+        ],
+        "methods": [
+          "buildSendChordRequest",
+          "buildSendKeysRequest",
+          "parseSendChordResponse",
+          "parseSendKeysResponse"
+        ],
+        "types": [
+          "KeyboardHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "JsonWireLogsHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/json_wire/logs.dart"
+        ],
+        "methods": [
+          "buildGetLogsRequest",
+          "parseGetLogsResponse"
+        ],
+        "types": [
+          "LogEntry",
+          "LogsHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "JsonWireMouseHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/json_wire/mouse.dart"
+        ],
+        "methods": [
+          "buildClickRequest",
+          "buildDoubleClickRequest",
+          "buildDownRequest",
+          "buildMoveToRequest",
+          "buildUpRequest",
+          "parseClickResponse",
+          "parseDoubleClickResponse",
+          "parseDownResponse",
+          "parseMoveToResponse",
+          "parseUpResponse"
+        ],
+        "types": [
+          "MouseButton",
+          "MouseHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "JsonWireNavigationHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/json_wire/navigation.dart"
+        ],
+        "methods": [
+          "buildBackRequest",
+          "buildForwardRequest",
+          "buildNavigateToRequest",
+          "buildRefreshRequest",
+          "parseBackResponse",
+          "parseForwardResponse",
+          "parseNavigateToResponse",
+          "parseRefreshResponse"
+        ],
+        "types": [
+          "NavigationHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "JsonWireSessionHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/json_wire/session.dart"
+        ],
+        "methods": [
+          "buildCreateRequest",
+          "buildInfoRequest",
+          "parseCreateResponse",
+          "parseInfoResponse"
+        ],
+        "types": [
+          "SessionHandler",
+          "SessionInfo",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "JsonWireTimeoutsHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/json_wire/timeouts.dart"
+        ],
+        "methods": [
+          "buildSetImplicitTimeoutRequest",
+          "buildSetPageLoadTimeoutRequest",
+          "buildSetScriptTimeoutRequest",
+          "parseSetImplicitTimeoutResponse",
+          "parseSetPageLoadTimeoutResponse",
+          "parseSetScriptTimeoutResponse"
+        ],
+        "types": [
+          "TimeoutsHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "JsonWireWebDriverHandler": {
+        "fields": [
+          "alert",
+          "cookies",
+          "core",
+          "element",
+          "elementFinder",
+          "frame",
+          "get:session",
+          "keyboard",
+          "logs",
+          "mouse",
+          "navigation",
+          "timeouts",
+          "window"
+        ],
+        "libraries": [
+          "package:webdriver/src/handler/json_wire_handler.dart"
+        ],
+        "methods": [
+          "buildGeneralRequest",
+          "parseGeneralResponse",
+          "toString"
+        ],
+        "types": [
+          "AlertHandler",
+          "CookiesHandler",
+          "CoreHandler",
+          "ElementFinder",
+          "ElementHandler",
+          "FrameHandler",
+          "HttpMethod",
+          "KeyboardHandler",
+          "LogsHandler",
+          "MouseHandler",
+          "NavigationHandler",
+          "SessionHandler",
+          "TimeoutsHandler",
+          "WebDriverHandler",
+          "WebDriverRequest",
+          "WebDriverResponse",
+          "WindowHandler"
+        ]
+      },
+      "JsonWireWindowHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/json_wire/window.dart"
+        ],
+        "methods": [
+          "buildCloseRequest",
+          "buildGetActiveWindowRequest",
+          "buildGetWindowsRequest",
+          "buildInnerSizeRequest",
+          "buildLocationRequest",
+          "buildMaximizeRequest",
+          "buildMinimizeRequest",
+          "buildRectRequest",
+          "buildSetActiveRequest",
+          "buildSetLocationRequest",
+          "buildSetRectRequest",
+          "buildSetSizeRequest",
+          "buildSizeRequest",
+          "parseCloseResponse",
+          "parseGetActiveWindowResponse",
+          "parseGetWindowsResponse",
+          "parseInnerSizeResponse",
+          "parseLocationResponse",
+          "parseMaximizeResponse",
+          "parseMinimizeResponse",
+          "parseRectResponse",
+          "parseSetActiveResponse",
+          "parseSetLocationResponse",
+          "parseSetRectResponse",
+          "parseSetSizeResponse",
+          "parseSizeResponse"
+        ],
+        "types": [
+          "WebDriverRequest",
+          "WebDriverResponse",
+          "WindowHandler"
+        ]
+      },
+      "Keyboard": {
+        "fields": [
+          "add",
+          "alt",
+          "backSpace",
+          "cancel",
+          "clear",
+          "command",
+          "control",
+          "decimal",
+          "delete",
+          "deleteChar",
+          "divide",
+          "down",
+          "end",
+          "enter",
+          "equals",
+          "escape",
+          "f1",
+          "f10",
+          "f11",
+          "f12",
+          "f2",
+          "f3",
+          "f4",
+          "f5",
+          "f6",
+          "f7",
+          "f8",
+          "f9",
+          "get:hashCode",
+          "help",
+          "home",
+          "insert",
+          "left",
+          "meta",
+          "multiply",
+          "nullChar",
+          "numpad0",
+          "numpad1",
+          "numpad2",
+          "numpad3",
+          "numpad4",
+          "numpad5",
+          "numpad6",
+          "numpad7",
+          "numpad8",
+          "numpad9",
+          "pageDown",
+          "pageUp",
+          "pause",
+          "returnChar",
+          "right",
+          "semicolon",
+          "separator",
+          "shift",
+          "space",
+          "subtract",
+          "tab",
+          "up"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/async/keyboard.dart",
+          "package:webdriver/src/sync/keyboard.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "==",
+          "Keyboard",
+          "sendChord",
+          "sendKeys",
+          "toString"
+        ],
+        "types": [
+          "AsyncRequestClient",
+          "SyncRequestClient",
+          "WebDriverHandler"
+        ]
+      },
+      "KeyboardHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/webdriver_handler.dart"
+        ],
+        "methods": [
+          "buildSendChordRequest",
+          "buildSendKeysRequest",
+          "parseSendChordResponse",
+          "parseSendKeysResponse"
+        ],
+        "types": [
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "LineReader": {
+        "fields": [
+          "cr",
+          "encoding",
+          "get:onLine",
+          "lf"
+        ],
+        "libraries": [
+          "package:webdriver/support/stdio_stepper.dart"
+        ],
+        "methods": [
+          "LineReader"
+        ],
+        "types": []
+      },
+      "Lock": {
+        "fields": [
+          "awaitChecking",
+          "get:isHeld"
+        ],
+        "libraries": [
+          "package:webdriver/support/async.dart"
+        ],
+        "methods": [
+          "Lock",
+          "acquire",
+          "release"
+        ],
+        "types": []
+      },
+      "LogEntry": {
+        "fields": [
+          "level",
+          "message",
+          "timestamp"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/log.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "LogEntry",
+          "fromMap",
+          "toString"
+        ],
+        "types": []
+      },
+      "LogLevel": {
+        "fields": [
+          "all",
+          "debug",
+          "info",
+          "off",
+          "severe",
+          "warning"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/log.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LogType": {
+        "fields": [
+          "browser",
+          "client",
+          "driver",
+          "performance",
+          "profiler",
+          "server"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/log.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Logs": {
+        "fields": [
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/async/logs.dart",
+          "package:webdriver/src/sync/logs.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "==",
+          "Logs",
+          "get",
+          "toString"
+        ],
+        "types": [
+          "AsyncRequestClient",
+          "LogEntry",
+          "SyncRequestClient",
+          "WebDriverHandler"
+        ]
+      },
+      "LogsHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/webdriver_handler.dart"
+        ],
+        "methods": [
+          "buildGetLogsRequest",
+          "parseGetLogsResponse"
+        ],
+        "types": [
+          "LogEntry",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "Mouse": {
+        "fields": [
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/async/mouse.dart",
+          "package:webdriver/src/sync/mouse.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "==",
+          "Mouse",
+          "click",
+          "doubleClick",
+          "down",
+          "hide",
+          "moveTo",
+          "moveToElementCenter",
+          "moveToElementTopLeft",
+          "toString",
+          "up"
+        ],
+        "types": [
+          "AsyncRequestClient",
+          "MouseButton",
+          "SyncRequestClient",
+          "WebDriverHandler",
+          "WebElement"
+        ]
+      },
+      "MouseButton": {
+        "fields": [
+          "auxiliary",
+          "primary",
+          "secondary",
+          "value",
+          "x1",
+          "x2"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/mouse.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "MouseButton"
+        ],
+        "types": [
+          "MouseButton"
+        ]
+      },
+      "MouseHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/webdriver_handler.dart"
+        ],
+        "methods": [
+          "buildClickRequest",
+          "buildDoubleClickRequest",
+          "buildDownRequest",
+          "buildMoveToRequest",
+          "buildUpRequest",
+          "parseClickResponse",
+          "parseDoubleClickResponse",
+          "parseDownResponse",
+          "parseMoveToResponse",
+          "parseUpResponse"
+        ],
+        "types": [
+          "MouseButton",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "MoveTargetOutOfBoundsException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "MoveTargetOutOfBoundsException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "NavigationHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/webdriver_handler.dart"
+        ],
+        "methods": [
+          "buildBackRequest",
+          "buildForwardRequest",
+          "buildNavigateToRequest",
+          "buildRefreshRequest",
+          "parseBackResponse",
+          "parseForwardResponse",
+          "parseNavigateToResponse",
+          "parseRefreshResponse"
+        ],
+        "types": [
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "NoSuchAlertException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "NoSuchAlertException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "NoSuchCookieException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "NoSuchCookieException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "NoSuchDriverException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "NoSuchDriverException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "NoSuchElementException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "NoSuchElementException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "NoSuchFrameException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "NoSuchFrameException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "NoSuchWindowException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "NoSuchWindowException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "PrefsOption": {
+        "fields": [
+          "get:asPrefString",
+          "get:hashCode",
+          "name",
+          "value"
+        ],
+        "libraries": [
+          "package:webdriver/support/firefox_profile.dart"
+        ],
+        "methods": [
+          "==",
+          "PrefsOption",
+          "parse"
+        ],
+        "types": []
+      },
+      "RequestClient": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/request_client.dart"
+        ],
+        "methods": [
+          "RequestClient",
+          "resolve",
+          "toString"
+        ],
+        "types": []
+      },
+      "ScriptTimeoutException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "ScriptTimeoutException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "SearchContext": {
+        "fields": [
+          "get:asyncContext",
+          "get:driver"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/async/common.dart",
+          "package:webdriver/src/sync/common.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "findElement",
+          "findElements"
+        ],
+        "types": [
+          "By",
+          "SearchContext",
+          "WebDriver",
+          "WebElement"
+        ]
+      },
+      "SessionHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/webdriver_handler.dart"
+        ],
+        "methods": [
+          "buildCreateRequest",
+          "buildInfoRequest",
+          "parseCreateResponse",
+          "parseInfoResponse"
+        ],
+        "types": [
+          "SessionInfo",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "SessionInfo": {
+        "fields": [
+          "capabilities",
+          "id",
+          "spec"
+        ],
+        "libraries": [
+          "package:webdriver/src/common/session.dart"
+        ],
+        "methods": [
+          "SessionInfo"
+        ],
+        "types": [
+          "WebDriverSpec"
+        ]
+      },
+      "SessionNotCreatedException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "SessionNotCreatedException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "StaleElementReferenceException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "StaleElementReferenceException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "StdioStepper": {
+        "fields": [
+          "enabled"
+        ],
+        "libraries": [
+          "package:webdriver/support/stdio_stepper.dart"
+        ],
+        "methods": [
+          "StdioStepper",
+          "step"
+        ],
+        "types": [
+          "LineReader",
+          "Stepper"
+        ]
+      },
+      "Stepper": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/async/stepper.dart"
+        ],
+        "methods": [
+          "Stepper",
+          "step"
+        ],
+        "types": []
+      },
+      "StringOption": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/support/firefox_profile.dart"
+        ],
+        "methods": [
+          "StringOption"
+        ],
+        "types": [
+          "PrefsOption"
+        ]
+      },
+      "SyncHttpRequestClient": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/request/sync_http_request_client.dart"
+        ],
+        "methods": [
+          "SyncHttpRequestClient",
+          "sendRaw",
+          "toString"
+        ],
+        "types": [
+          "SyncRequestClient",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "SyncRequestClient": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/request_client.dart"
+        ],
+        "methods": [
+          "SyncRequestClient",
+          "addEventListener",
+          "send",
+          "sendRaw"
+        ],
+        "types": [
+          "RequestClient",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "TargetLocator": {
+        "fields": [
+          "get:alert",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/async/target_locator.dart",
+          "package:webdriver/src/sync/target_locator.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "==",
+          "TargetLocator",
+          "frame",
+          "parentFrame",
+          "toString",
+          "window"
+        ],
+        "types": [
+          "Alert",
+          "AsyncRequestClient",
+          "SyncRequestClient",
+          "WebDriver",
+          "WebDriverHandler",
+          "Window"
+        ]
+      },
+      "TimeoutException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "TimeoutException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "Timeouts": {
+        "fields": [
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/async/timeouts.dart",
+          "package:webdriver/src/sync/timeouts.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "==",
+          "Timeouts",
+          "setImplicitTimeout",
+          "setPageLoadTimeout",
+          "setScriptTimeout",
+          "toString"
+        ],
+        "types": [
+          "AsyncRequestClient",
+          "SyncRequestClient",
+          "WebDriverHandler"
+        ]
+      },
+      "TimeoutsHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/webdriver_handler.dart"
+        ],
+        "methods": [
+          "buildSetImplicitTimeoutRequest",
+          "buildSetPageLoadTimeoutRequest",
+          "buildSetScriptTimeoutRequest",
+          "parseSetImplicitTimeoutResponse",
+          "parseSetPageLoadTimeoutResponse",
+          "parseSetScriptTimeoutResponse"
+        ],
+        "types": [
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "UnableToCaptureScreenException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "UnableToCaptureScreenException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "UnableToSetCookieException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "UnableToSetCookieException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "UnexpectedAlertOpenException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "UnexpectedAlertOpenException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "UnknownCommandException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "UnknownCommandException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "UnknownException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "UnknownException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "UnknownMethodException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "UnknownMethodException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "UnsupportedOperationException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "UnsupportedOperationException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      },
+      "W3cAlertHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/w3c/alert.dart"
+        ],
+        "methods": [
+          "buildAcceptRequest",
+          "buildDismissRequest",
+          "buildGetTextRequest",
+          "buildSendTextRequest",
+          "parseAcceptResponse",
+          "parseDismissResponse",
+          "parseGetTextResponse",
+          "parseSendTextResponse"
+        ],
+        "types": [
+          "AlertHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "W3cCookiesHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/w3c/cookies.dart"
+        ],
+        "methods": [
+          "buildAddCookieRequest",
+          "buildDeleteAllCookiesRequest",
+          "buildDeleteCookieRequest",
+          "buildGetAllCookiesRequest",
+          "buildGetCookieRequest",
+          "parseAddCookieResponse",
+          "parseDeleteAllCookiesResponse",
+          "parseDeleteCookieResponse",
+          "parseGetAllCookiesResponse",
+          "parseGetCookieResponse"
+        ],
+        "types": [
+          "Cookie",
+          "CookiesHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "W3cCoreHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/w3c/core.dart"
+        ],
+        "methods": [
+          "buildCurrentUrlRequest",
+          "buildDeleteSessionRequest",
+          "buildElementScreenshotRequest",
+          "buildExecuteAsyncRequest",
+          "buildExecuteRequest",
+          "buildPageSourceRequest",
+          "buildScreenshotRequest",
+          "buildTitleRequest",
+          "parseCurrentUrlResponse",
+          "parseDeleteSessionResponse",
+          "parseExecuteAsyncResponse",
+          "parseExecuteResponse",
+          "parsePageSourceResponse",
+          "parseScreenshotResponse",
+          "parseTitleResponse"
+        ],
+        "types": [
+          "CoreHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "W3cElementFinder": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/w3c/element_finder.dart"
+        ],
+        "methods": [
+          "buildFindActiveElementRequest",
+          "buildFindElementRequest",
+          "buildFindElementsRequest",
+          "parseFindActiveElementResponse",
+          "parseFindElementResponseCore",
+          "parseFindElementsResponse"
+        ],
+        "types": [
+          "By",
+          "ElementFinder",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "W3cElementHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/w3c/element.dart"
+        ],
+        "methods": [
+          "buildAttributeRequest",
+          "buildClearRequest",
+          "buildClickRequest",
+          "buildCssPropertyRequest",
+          "buildDisplayedRequest",
+          "buildEnabledRequest",
+          "buildLocationRequest",
+          "buildNameRequest",
+          "buildPropertyRequest",
+          "buildSelectedRequest",
+          "buildSeleniumAttributeRequest",
+          "buildSendKeysRequest",
+          "buildSizeRequest",
+          "buildTextRequest",
+          "parseAttributeResponse",
+          "parseClearResponse",
+          "parseClickResponse",
+          "parseCssPropertyResponse",
+          "parseDisplayedResponse",
+          "parseEnabledResponse",
+          "parseLocationResponse",
+          "parseNameResponse",
+          "parsePropertyResponse",
+          "parseSelectedResponse",
+          "parseSeleniumAttributeResponse",
+          "parseSendKeysResponse",
+          "parseSizeResponse",
+          "parseTextResponse"
+        ],
+        "types": [
+          "ElementHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "W3cFrameHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/w3c/frame.dart"
+        ],
+        "methods": [
+          "buildSwitchByElementRequest",
+          "buildSwitchByIdRequest",
+          "buildSwitchToParentRequest",
+          "parseSwitchByElementResponse",
+          "parseSwitchByIdResponse",
+          "parseSwitchToParentResponse"
+        ],
+        "types": [
+          "FrameHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "W3cKeyboardHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/w3c/keyboard.dart"
+        ],
+        "methods": [
+          "buildSendChordRequest",
+          "buildSendKeysRequest",
+          "parseSendChordResponse",
+          "parseSendKeysResponse"
+        ],
+        "types": [
+          "KeyboardHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "W3cLogsHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/w3c_handler.dart"
+        ],
+        "methods": [
+          "buildGetLogsRequest",
+          "parseGetLogsResponse"
+        ],
+        "types": [
+          "LogEntry",
+          "LogsHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "W3cMouseHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/w3c/mouse.dart"
+        ],
+        "methods": [
+          "buildClickRequest",
+          "buildDoubleClickRequest",
+          "buildDownRequest",
+          "buildMoveToRequest",
+          "buildUpRequest",
+          "parseClickResponse",
+          "parseDoubleClickResponse",
+          "parseDownResponse",
+          "parseMoveToResponse",
+          "parseUpResponse"
+        ],
+        "types": [
+          "MouseButton",
+          "MouseHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "W3cNavigationHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/w3c/navigation.dart"
+        ],
+        "methods": [
+          "buildBackRequest",
+          "buildForwardRequest",
+          "buildNavigateToRequest",
+          "buildRefreshRequest",
+          "parseBackResponse",
+          "parseForwardResponse",
+          "parseNavigateToResponse",
+          "parseRefreshResponse"
+        ],
+        "types": [
+          "NavigationHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "W3cSessionHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/w3c/session.dart"
+        ],
+        "methods": [
+          "buildCreateRequest",
+          "buildInfoRequest",
+          "parseCreateResponse",
+          "parseInfoResponse"
+        ],
+        "types": [
+          "SessionHandler",
+          "SessionInfo",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "W3cTimeoutsHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/w3c/timeouts.dart"
+        ],
+        "methods": [
+          "buildSetImplicitTimeoutRequest",
+          "buildSetPageLoadTimeoutRequest",
+          "buildSetScriptTimeoutRequest",
+          "parseSetImplicitTimeoutResponse",
+          "parseSetPageLoadTimeoutResponse",
+          "parseSetScriptTimeoutResponse"
+        ],
+        "types": [
+          "TimeoutsHandler",
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "W3cWebDriverHandler": {
+        "fields": [
+          "alert",
+          "cookies",
+          "core",
+          "element",
+          "elementFinder",
+          "frame",
+          "get:logs",
+          "keyboard",
+          "mouse",
+          "navigation",
+          "session",
+          "timeouts",
+          "window"
+        ],
+        "libraries": [
+          "package:webdriver/src/handler/w3c_handler.dart"
+        ],
+        "methods": [
+          "buildGeneralRequest",
+          "parseGeneralResponse",
+          "toString"
+        ],
+        "types": [
+          "AlertHandler",
+          "CookiesHandler",
+          "CoreHandler",
+          "ElementFinder",
+          "ElementHandler",
+          "FrameHandler",
+          "HttpMethod",
+          "KeyboardHandler",
+          "LogsHandler",
+          "MouseHandler",
+          "NavigationHandler",
+          "SessionHandler",
+          "TimeoutsHandler",
+          "WebDriverHandler",
+          "WebDriverRequest",
+          "WebDriverResponse",
+          "WindowHandler"
+        ]
+      },
+      "W3cWindowHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/handler/w3c/window.dart"
+        ],
+        "methods": [
+          "buildCloseRequest",
+          "buildGetActiveWindowRequest",
+          "buildGetWindowsRequest",
+          "buildInnerSizeRequest",
+          "buildLocationRequest",
+          "buildMaximizeRequest",
+          "buildMinimizeRequest",
+          "buildRectRequest",
+          "buildSetActiveRequest",
+          "buildSetLocationRequest",
+          "buildSetRectRequest",
+          "buildSetSizeRequest",
+          "buildSizeRequest",
+          "parseCloseResponse",
+          "parseGetActiveWindowResponse",
+          "parseGetWindowsResponse",
+          "parseInnerSizeResponse",
+          "parseLocationResponse",
+          "parseMaximizeResponse",
+          "parseMinimizeResponse",
+          "parseRectResponse",
+          "parseSetActiveResponse",
+          "parseSetLocationResponse",
+          "parseSetRectResponse",
+          "parseSetSizeResponse",
+          "parseSizeResponse"
+        ],
+        "types": [
+          "WebDriverRequest",
+          "WebDriverResponse",
+          "WindowHandler"
+        ]
+      },
+      "WebDriver": {
+        "fields": [
+          "capabilities",
+          "get:activeElement",
+          "get:asyncContext",
+          "get:asyncDriver",
+          "get:cookies",
+          "get:currentUrl",
+          "get:driver",
+          "get:keyboard",
+          "get:logs",
+          "get:mouse",
+          "get:pageSource",
+          "get:switchTo",
+          "get:syncDriver",
+          "get:timeouts",
+          "get:title",
+          "get:window",
+          "get:windows",
+          "id",
+          "notifyListeners",
+          "spec",
+          "stepper",
+          "uri"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/async/web_driver.dart",
+          "package:webdriver/src/sync/web_driver.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "WebDriver",
+          "addEventListener",
+          "back",
+          "captureElementScreenshotAsBase64",
+          "captureElementScreenshotAsList",
+          "captureScreenshot",
+          "captureScreenshotAsBase64",
+          "captureScreenshotAsList",
+          "close",
+          "deleteRequest",
+          "execute",
+          "executeAsync",
+          "findElement",
+          "findElementByXpath",
+          "findElements",
+          "forward",
+          "get",
+          "getElement",
+          "getRequest",
+          "postRequest",
+          "quit",
+          "refresh",
+          "toString"
+        ],
+        "types": [
+          "AsyncRequestClient",
+          "By",
+          "Cookies",
+          "Keyboard",
+          "Logs",
+          "Mouse",
+          "SearchContext",
+          "Stepper",
+          "SyncRequestClient",
+          "TargetLocator",
+          "Timeouts",
+          "WebDriver",
+          "WebDriverHandler",
+          "WebDriverSpec",
+          "WebElement",
+          "Window"
+        ]
+      },
+      "WebDriverCommandEvent": {
+        "fields": [
+          "endPoint",
+          "endTime",
+          "exception",
+          "method",
+          "params",
+          "result",
+          "stackTrace",
+          "startTime"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/command_event.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "WebDriverCommandEvent",
+          "toString"
+        ],
+        "types": []
+      },
+      "WebDriverException": {
+        "fields": [
+          "get:hashCode",
+          "message",
+          "statusCode"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "==",
+          "WebDriverException",
+          "toString"
+        ],
+        "types": []
+      },
+      "WebDriverHandler": {
+        "fields": [
+          "get:alert",
+          "get:cookies",
+          "get:core",
+          "get:element",
+          "get:elementFinder",
+          "get:frame",
+          "get:keyboard",
+          "get:logs",
+          "get:mouse",
+          "get:navigation",
+          "get:session",
+          "get:timeouts",
+          "get:window"
+        ],
+        "libraries": [
+          "package:webdriver/src/common/webdriver_handler.dart"
+        ],
+        "methods": [
+          "buildGeneralRequest",
+          "parseGeneralResponse"
+        ],
+        "types": [
+          "AlertHandler",
+          "CookiesHandler",
+          "CoreHandler",
+          "ElementFinder",
+          "ElementHandler",
+          "FrameHandler",
+          "HttpMethod",
+          "KeyboardHandler",
+          "LogsHandler",
+          "MouseHandler",
+          "NavigationHandler",
+          "SessionHandler",
+          "TimeoutsHandler",
+          "WebDriverRequest",
+          "WebDriverResponse",
+          "WindowHandler"
+        ]
+      },
+      "WebDriverRequest": {
+        "fields": [
+          "body",
+          "method",
+          "uri"
+        ],
+        "libraries": [
+          "package:webdriver/src/common/request.dart"
+        ],
+        "methods": [
+          "WebDriverRequest",
+          "deleteRequest",
+          "getRequest",
+          "nullRequest",
+          "postRequest",
+          "toString"
+        ],
+        "types": [
+          "HttpMethod"
+        ]
+      },
+      "WebDriverResponse": {
+        "fields": [
+          "body",
+          "reasonPhrase",
+          "statusCode"
+        ],
+        "libraries": [
+          "package:webdriver/src/common/request.dart"
+        ],
+        "methods": [
+          "WebDriverResponse",
+          "toString"
+        ],
+        "types": []
+      },
+      "WebDriverSpec": {
+        "fields": [
+          "Auto",
+          "JsonWire",
+          "W3c"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/spec.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "WebElement": {
+        "fields": [
+          "context",
+          "driver",
+          "get:asyncContext",
+          "get:asyncElement",
+          "get:attributes",
+          "get:cssProperties",
+          "get:displayed",
+          "get:enabled",
+          "get:hashCode",
+          "get:id",
+          "get:location",
+          "get:name",
+          "get:parent",
+          "get:parents",
+          "get:properties",
+          "get:rect",
+          "get:selected",
+          "get:seleniumAttributes",
+          "get:size",
+          "get:text",
+          "id",
+          "index",
+          "locator"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/async/web_element.dart",
+          "package:webdriver/src/common/web_element.dart",
+          "package:webdriver/src/sync/web_element.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "==",
+          "WebElement",
+          "clear",
+          "click",
+          "equals",
+          "findElement",
+          "findElements",
+          "sendKeys",
+          "toJson",
+          "toString",
+          "toStringDeep"
+        ],
+        "types": [
+          "AsyncRequestClient",
+          "Attributes",
+          "By",
+          "SearchContext",
+          "SyncRequestClient",
+          "WebDriver",
+          "WebDriverHandler",
+          "WebElement"
+        ]
+      },
+      "Window": {
+        "fields": [
+          "get:hashCode",
+          "get:innerSize",
+          "get:location",
+          "get:rect",
+          "get:size",
+          "id",
+          "set:location",
+          "set:rect",
+          "set:size"
+        ],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/async/window.dart",
+          "package:webdriver/src/sync/window.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "==",
+          "Window",
+          "close",
+          "maximize",
+          "minimize",
+          "setAsActive",
+          "setLocation",
+          "setRect",
+          "setSize",
+          "toString"
+        ],
+        "types": [
+          "AsyncRequestClient",
+          "SyncRequestClient",
+          "WebDriverHandler"
+        ]
+      },
+      "WindowHandler": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/src/common/webdriver_handler.dart"
+        ],
+        "methods": [
+          "buildCloseRequest",
+          "buildGetActiveWindowRequest",
+          "buildGetWindowsRequest",
+          "buildInnerSizeRequest",
+          "buildLocationRequest",
+          "buildMaximizeRequest",
+          "buildMinimizeRequest",
+          "buildRectRequest",
+          "buildSetActiveRequest",
+          "buildSetLocationRequest",
+          "buildSetRectRequest",
+          "buildSetSizeRequest",
+          "buildSizeRequest",
+          "parseCloseResponse",
+          "parseGetActiveWindowResponse",
+          "parseGetWindowsResponse",
+          "parseInnerSizeResponse",
+          "parseLocationResponse",
+          "parseMaximizeResponse",
+          "parseMinimizeResponse",
+          "parseRectResponse",
+          "parseSetActiveResponse",
+          "parseSetLocationResponse",
+          "parseSetRectResponse",
+          "parseSetSizeResponse",
+          "parseSizeResponse"
+        ],
+        "types": [
+          "WebDriverRequest",
+          "WebDriverResponse"
+        ]
+      },
+      "XPathLookupException": {
+        "fields": [],
+        "libraries": [
+          "package:webdriver/async_core.dart",
+          "package:webdriver/async_html.dart",
+          "package:webdriver/async_io.dart",
+          "package:webdriver/core.dart",
+          "package:webdriver/io.dart",
+          "package:webdriver/src/common/exception.dart",
+          "package:webdriver/sync_core.dart",
+          "package:webdriver/sync_io.dart"
+        ],
+        "methods": [
+          "XPathLookupException"
+        ],
+        "types": [
+          "WebDriverException"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:21:48Z",
+  "package": "webdriver",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "By",
+      "Clock",
+      "ElementClickInterceptedException",
+      "ElementIsNotSelectableException",
+      "ElementNotInteractableException",
+      "ElementNotVisibleException",
+      "HttpMethod",
+      "IMEEngineActivationFailedException",
+      "IMENotAvailableException",
+      "InsecureCertificateException",
+      "InvalidArgumentException",
+      "InvalidCookieDomainException",
+      "InvalidElementCoordinatesException",
+      "InvalidElementStateException",
+      "InvalidRequestException",
+      "InvalidResponseException",
+      "InvalidSelectorException",
+      "InvalidSessionIdException",
+      "JavaScriptException",
+      "LogEntry",
+      "MouseButton",
+      "MoveTargetOutOfBoundsException",
+      "NoSuchAlertException",
+      "NoSuchCookieException",
+      "NoSuchDriverException",
+      "NoSuchElementException",
+      "NoSuchFrameException",
+      "NoSuchWindowException",
+      "ScriptTimeoutException",
+      "SessionNotCreatedException",
+      "StaleElementReferenceException",
+      "Stepper",
+      "TimeoutException",
+      "UnableToCaptureScreenException",
+      "UnableToSetCookieException",
+      "UnexpectedAlertOpenException",
+      "UnknownCommandException",
+      "UnknownException",
+      "UnknownMethodException",
+      "UnsupportedOperationException",
+      "WebDriverException",
+      "XPathLookupException"
+    ],
+    "digest": "77a7f55b640feffa078fa0d2b9f07163179ee19217f14332bca939ba48d27208",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "cb255ca302abc4a96e5dbd69fdf11c401efcdf4b1d1c855bdfd7ea4c6111873b",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "  Actual: ",
+      "\"",
+      "#",
+      ")",
+      "*",
+      "*/",
+      "-(\\w)",
+      ".",
+      "../../async_core.dart",
+      "../../common/by.dart",
+      "../../common/capabilities.dart",
+      "../../common/cookie.dart",
+      "../../common/exception.dart",
+      "../../common/log.dart",
+      "../../common/mouse.dart",
+      "../../common/request.dart",
+      "../../common/session.dart",
+      "../../common/spec.dart",
+      "../../common/web_element.dart",
+      "../../common/webdriver_handler.dart",
+      "../../support/async.dart",
+      "../../sync_core.dart",
+      "../common/by.dart",
+      "../common/capabilities.dart",
+      "../common/command_event.dart",
+      "../common/cookie.dart",
+      "../common/exception.dart",
+      "../common/log.dart",
+      "../common/mouse.dart",
+      "../common/request.dart",
+      "../common/request_client.dart",
+      "../common/session.dart",
+      "../common/spec.dart",
+      "../common/utils.dart",
+      "../common/web_element.dart",
+      "../common/webdriver_handler.dart",
+      "../handler/infer_handler.dart",
+      "../handler/json_wire/utils.dart",
+      "../handler/json_wire_handler.dart",
+      "../handler/w3c/utils.dart",
+      "../handler/w3c_handler.dart",
+      "../request/async_io_request_client.dart",
+      "../request/sync_http_request_client.dart",
+      "../src/async/stepper.dart",
+      ".findElement(",
+      ".findElements(",
+      "/$",
+      "/*",
+      "//",
+      "<empty response>",
+      "<no message>",
+      "ALL",
+      "Accept",
+      "An invalid option can't be serialized.",
+      "AsyncIo",
+      "AsyncXhr",
+      "DEBUG",
+      "DELETE",
+      "ELEMENT",
+      "Expected: ",
+      "GET",
+      "Get Window Rect is not supported in JsonWire.",
+      "INFO",
+      "JsonWire",
+      "Move to an absolute location is only supported in W3C spec.",
+      "No lock to release",
+      "Not implemented",
+      "OFF",
+      "Only `bool`, `int` and `String` are valid parameter types.",
+      "POST",
+      "SEVERE",
+      "Set Window Rect is not supported in JsonWire.",
+      "SyncHttp",
+      "This is not supported in the W3C spec.",
+      "Unsupported for InferHandler",
+      "Unsupported in JsonWire",
+      "Use captureScreenshotAsBase64 or captureScreenshotAsList!",
+      "W3C",
+      "WARNING",
+      "[",
+      "\\",
+      "\\\"",
+      "\\\\",
+      "]",
+      "`b` or `break`: throw exception",
+      "`c` or `continue`: execute command",
+      "`d` or `disable`: disable stepper",
+      "`h` or `help`: display this message",
+      "`q` or `quit`: terminate vm",
+      "`s` or `skip`: skip command",
+      "about:blank",
+      "acceptInsecureCerts",
+      "acceptSslCerts",
+      "accept_alert",
+      "actions",
+      "activeElement",
+      "alert.dart",
+      "alert/accept",
+      "alert/dismiss",
+      "alert/text",
+      "alert_text",
+      "alwaysMatch",
+      "android",
+      "app.update.auto",
+      "app.update.enabled",
+      "application",
+      "application/json",
+      "applicationCacheEnabled",
+      "args",
+      "async_core.dart",
+      "b",
+      "back",
+      "break",
+      "browser",
+      "browser.EULA.3.accepted",
+      "browser.EULA.override",
+      "browser.displayedE10SNotice",
+      "browser.dom.window.dump.enabled",
+      "browser.download.manager.showWhenStarting",
+      "browser.link.open_external",
+      "browser.link.open_newwindow",
+      "browser.newtab.url",
+      "browser.newtabpage.enabled",
+      "browser.offline",
+      "browser.reader.detectedFirstArticle",
+      "browser.safebrowsing.enabled",
+      "browser.safebrowsing.malware.enabled",
+      "browser.search.update",
+      "browser.selfsupport.url",
+      "browser.sessionstore.resume_from_crash",
+      "browser.shell.checkDefaultBrowser",
+      "browser.startup.homepage",
+      "browser.startup.page",
+      "browser.tabs.warnOnClose",
+      "browser.tabs.warnOnOpen",
+      "browserConnectionEnabled",
+      "browserName",
+      "browserVersion",
+      "button",
+      "buttondown",
+      "buttonup",
+      "c",
+      "capabilities",
+      "chrome",
+      "class name",
+      "className",
+      "click",
+      "client",
+      "command_event.dart",
+      "common.dart",
+      "common_io.dart",
+      "common_stub.dart",
+      "continue",
+      "cookie",
+      "cookies.dart",
+      "css selector",
+      "cssSelector",
+      "cssSelectorsEnabled",
+      "d",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:html",
+      "dart:io",
+      "dart:math",
+      "databaseEnabled",
+      "datareporting.healthreport.logging.consoleEnabled",
+      "datareporting.healthreport.service.enabled",
+      "datareporting.healthreport.service.firstRun",
+      "datareporting.healthreport.uploadEnabled",
+      "datareporting.policy.dataSubmissionEnabled",
+      "datareporting.policy.dataSubmissionPolicyAccepted",
+      "desiredCapabilities",
+      "devtools.errorconsole.enabled",
+      "disable",
+      "dismiss_alert",
+      "dom.disable_open_during_load",
+      "dom.max_chrome_script_run_time",
+      "dom.max_script_run_time",
+      "dom.report_all_js_exceptions",
+      "domain",
+      "doubleclick",
+      "driver",
+      "element",
+      "element click intercepted",
+      "element not interactable",
+      "element-6066-11e4-a52e-4f735466cecf",
+      "element/active",
+      "elements",
+      "error",
+      "execute",
+      "execute/async",
+      "execute/sync",
+      "execute_async",
+      "expiry",
+      "extensions.autoDisableScopes",
+      "extensions.blocklist.enabled",
+      "extensions.logging.enabled",
+      "extensions.update.enabled",
+      "extensions.update.notifyUser",
+      "false",
+      "firefox",
+      "firefox_profile",
+      "forward",
+      "frame",
+      "frame/parent",
+      "goog:chromeOptions",
+      "h",
+      "handle",
+      "handlesAlerts",
+      "height",
+      "help",
+      "http://127.0.0.1:4444/wd/hub/",
+      "id",
+      "implicit",
+      "insecure certificate",
+      "internet explorer",
+      "invalid",
+      "invalid argument",
+      "invalid cookie domain",
+      "invalid element state",
+      "invalid selector",
+      "invalid session id",
+      "javascript",
+      "javascript error",
+      "javascript.enabled",
+      "javascript.options.showInConsole",
+      "json",
+      "json_wire/alert.dart",
+      "json_wire/cookies.dart",
+      "json_wire/core.dart",
+      "json_wire/element.dart",
+      "json_wire/element_finder.dart",
+      "json_wire/frame.dart",
+      "json_wire/keyboard.dart",
+      "json_wire/logs.dart",
+      "json_wire/mouse.dart",
+      "json_wire/navigation.dart",
+      "json_wire/session.dart",
+      "json_wire/timeouts.dart",
+      "json_wire/utils.dart",
+      "json_wire/window.dart",
+      "key",
+      "keyDown",
+      "keyUp",
+      "keyboard.dart",
+      "keys",
+      "level",
+      "link text",
+      "linkText",
+      "linux",
+      "locationContextEnabled",
+      "log",
+      "loggingPrefs",
+      "logs.dart",
+      "mac",
+      "message",
+      "mouse.dart",
+      "mouses",
+      "move target out of bounds",
+      "moveto",
+      "moz:firefoxOptions",
+      "ms",
+      "name",
+      "nativeEvents",
+      "network.http.max-connections-per-server",
+      "network.http.phishy-userpass-length",
+      "network.manage-offline-status",
+      "no such alert",
+      "no such cookie",
+      "no such element",
+      "no such frame",
+      "no such window",
+      "no-cache",
+      "offline-apps.allow_by_default",
+      "opera",
+      "origin",
+      "outerHTML",
+      "package:archive/archive.dart",
+      "package:matcher/matcher.dart",
+      "package:path/path.dart",
+      "package:stack_trace/stack_trace.dart",
+      "package:sync_http/sync_http.dart",
+      "package:webdriver/",
+      "package:webdriver/async_core.dart",
+      "package:webdriver/async_io.dart",
+      "package:webdriver/src/async/alert.dart",
+      "package:webdriver/src/async/common.dart",
+      "package:webdriver/src/async/cookies.dart",
+      "package:webdriver/src/async/keyboard.dart",
+      "package:webdriver/src/async/logs.dart",
+      "package:webdriver/src/async/mouse.dart",
+      "package:webdriver/src/async/target_locator.dart",
+      "package:webdriver/src/async/timeouts.dart",
+      "package:webdriver/src/async/web_driver.dart",
+      "package:webdriver/src/async/web_element.dart",
+      "package:webdriver/src/async/window.dart",
+      "package:webdriver/src/common/by.dart",
+      "package:webdriver/src/common/capabilities.dart",
+      "package:webdriver/src/common/command_event.dart",
+      "package:webdriver/src/common/cookie.dart",
+      "package:webdriver/src/common/exception.dart",
+      "package:webdriver/src/common/log.dart",
+      "package:webdriver/src/common/mouse.dart",
+      "package:webdriver/src/common/spec.dart",
+      "package:webdriver/src/request/async_io_request_client.dart",
+      "package:webdriver/src/request/async_xhr_request_client.dart",
+      "package:webdriver/src/sync/alert.dart",
+      "package:webdriver/src/sync/common.dart",
+      "package:webdriver/src/sync/cookies.dart",
+      "package:webdriver/src/sync/keyboard.dart",
+      "package:webdriver/src/sync/logs.dart",
+      "package:webdriver/src/sync/mouse.dart",
+      "package:webdriver/src/sync/target_locator.dart",
+      "package:webdriver/src/sync/timeouts.dart",
+      "package:webdriver/src/sync/web_driver.dart",
+      "package:webdriver/src/sync/web_element.dart",
+      "package:webdriver/src/sync/window.dart",
+      "package:webdriver/sync_core.dart",
+      "page load",
+      "pageLoad",
+      "pageLoadStrategy",
+      "parentElement",
+      "partial link text",
+      "partialLinkText",
+      "path",
+      "performance",
+      "platformName",
+      "pointer",
+      "pointerDown",
+      "pointerMove",
+      "pointerUp",
+      "prefs.js",
+      "process ended by user.",
+      "profiler",
+      "prompts.tab_modal.enabled",
+      "proxy",
+      "q",
+      "quit",
+      "refresh",
+      "request.dart",
+      "return { width: window.innerWidth, height: window.innerHeight };",
+      "rotatable",
+      "s",
+      "safari",
+      "screenshot",
+      "script",
+      "script timeout",
+      "secure",
+      "security.csp.enable",
+      "security.fileuri.origin_policy",
+      "security.fileuri.strict_origin_policy",
+      "security.warn_entering_secure",
+      "security.warn_entering_secure.show_once",
+      "security.warn_entering_weak",
+      "security.warn_entering_weak.show_once",
+      "security.warn_leaving_secure",
+      "security.warn_leaving_secure.show_once",
+      "security.warn_submit_insecure",
+      "security.warn_viewing_mixed",
+      "security.warn_viewing_mixed.show_once",
+      "server",
+      "session",
+      "session not created",
+      "session.dart",
+      "sessionId",
+      "setWindowRect",
+      "signon.rememberSignons",
+      "skip",
+      "source",
+      "spec.dart",
+      "src/async/web_driver.dart",
+      "src/common/capabilities.dart",
+      "src/common/request_client.dart",
+      "src/common/session.dart",
+      "src/common/spec.dart",
+      "src/common/utils.dart",
+      "src/request/async_io_request_client.dart",
+      "src/request/async_xhr_request_client.dart",
+      "src/request/sync_http_request_client.dart",
+      "src/sync/web_driver.dart",
+      "stale element reference",
+      "startup.homepage_welcome_url",
+      "status",
+      "stdin has been closed",
+      "stepper.dart",
+      "sync_core.dart",
+      "tag name",
+      "tagName",
+      "takesScreenshot",
+      "target_locator.dart",
+      "text",
+      "timeout",
+      "timeouts",
+      "timeouts.dart",
+      "timestamp",
+      "title",
+      "toolkit.networkmanager.disable",
+      "toolkit.telemetry.enabled",
+      "toolkit.telemetry.prompted",
+      "toolkit.telemetry.rejected",
+      "true",
+      "type",
+      "unable to capture screen",
+      "unable to set cookie",
+      "unexpected alert open",
+      "unexpectedAlertBehaviour",
+      "unhandledPromptBehavior",
+      "unknown command",
+      "unknown error",
+      "unknown method",
+      "unsupported operation",
+      "url",
+      "user.js",
+      "user_pref\\(\"([^\"]+)\", (\"?.+?\"?)\\);",
+      "using",
+      "utf-8",
+      "utils.dart",
+      "value",
+      "viewport",
+      "w3c/alert.dart",
+      "w3c/cookies.dart",
+      "w3c/core.dart",
+      "w3c/element.dart",
+      "w3c/element_finder.dart",
+      "w3c/frame.dart",
+      "w3c/keyboard.dart",
+      "w3c/mouse.dart",
+      "w3c/navigation.dart",
+      "w3c/session.dart",
+      "w3c/timeouts.dart",
+      "w3c/utils.dart",
+      "w3c/window.dart",
+      "webStorageEnabled",
+      "web_driver.dart",
+      "web_element.dart",
+      "webdriver.logging.profiler.enabled",
+      "webdriver_accept_untrusted_certs",
+      "webdriver_assume_untrusted_issuer",
+      "webdriver_handler.dart",
+      "width",
+      "window",
+      "window.dart",
+      "window/current/maximize",
+      "window/current/position",
+      "window/current/size",
+      "window/handles",
+      "window/maximize",
+      "window/minimize",
+      "window/rect",
+      "window_handle",
+      "window_handles",
+      "windows",
+      "x",
+      "xoffset",
+      "xpath",
+      "xpinstall.signatures.required",
+      "y",
+      "yoffset",
+      "{}",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "version": "3.0.0-nullsafety.1"
+}
