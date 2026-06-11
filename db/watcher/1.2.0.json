@@ -1,0 +1,593 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "logForTesting",
+          "logSeparateIsolateForTesting",
+          "overridableDateTimeNow"
+        ],
+        "libraries": [
+          "package:watcher/src/async_queue.dart",
+          "package:watcher/src/custom_watcher_factory.dart",
+          "package:watcher/src/directory_watcher/polling/polling_directory_watcher.dart",
+          "package:watcher/src/testing.dart",
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "createCustomDirectoryWatcher",
+          "createCustomFileWatcher",
+          "isDirectoryNotFoundException",
+          "registerCustomWatcher"
+        ],
+        "types": [
+          "DirectoryWatcher",
+          "FileWatcher",
+          "LogEntry"
+        ]
+      },
+      "AsyncQueue": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/async_queue.dart"
+        ],
+        "methods": [
+          "AsyncQueue",
+          "add",
+          "clear"
+        ],
+        "types": []
+      },
+      "BatchEvents": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/event_batching.dart"
+        ],
+        "methods": [
+          "batchBufferedByPathAndConvertEvents",
+          "batchNearbyMicrotasksAndConvertEvents"
+        ],
+        "types": [
+          "Event"
+        ]
+      },
+      "ChangeType": {
+        "fields": [
+          "ADD",
+          "MODIFY",
+          "REMOVE"
+        ],
+        "libraries": [
+          "package:watcher/src/watch_event.dart",
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "ChangeType",
+          "toString"
+        ],
+        "types": []
+      },
+      "DirectoryRobustRecursiveListing": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/directory_watcher/polling/directory_list.dart"
+        ],
+        "methods": [
+          "listRecursively",
+          "listRecursivelyIgnoringErrors"
+        ],
+        "types": []
+      },
+      "DirectoryTree": {
+        "fields": [
+          "watchedDirectory"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/recursive/directory_tree.dart"
+        ],
+        "methods": [
+          "DirectoryTree",
+          "emitDeleteTree",
+          "poll"
+        ],
+        "types": [
+          "DirectoryTree",
+          "EventTree",
+          "WatchEvent"
+        ]
+      },
+      "DirectoryWatcher": {
+        "fields": [
+          "get:directory"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher.dart",
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "DirectoryWatcher"
+        ],
+        "types": [
+          "Watcher"
+        ]
+      },
+      "Event": {
+        "fields": [
+          "error",
+          "logEntry",
+          "sendPort",
+          "stackTrace",
+          "type",
+          "watchEvent"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/recursive/isolate_recursive_directory_watcher.dart"
+        ],
+        "methods": [
+          "close",
+          "error",
+          "log",
+          "ready",
+          "sendPort",
+          "watchEvent"
+        ],
+        "types": [
+          "EventType",
+          "LogEntry",
+          "WatchEvent"
+        ]
+      },
+      "EventExtensions": {
+        "fields": [
+          "get:absolutePath"
+        ],
+        "libraries": [
+          "package:watcher/src/paths.dart"
+        ],
+        "methods": [
+          "isIn",
+          "pathRelativeTo"
+        ],
+        "types": [
+          "Event"
+        ]
+      },
+      "EventTree": {
+        "fields": [
+          "get:entries",
+          "get:isSingleEvent"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/recursive/event_tree.dart"
+        ],
+        "methods": [
+          "EventTree",
+          "[]",
+          "add",
+          "singleEvent",
+          "toString"
+        ],
+        "types": [
+          "EventTree"
+        ]
+      },
+      "EventType": {
+        "fields": [
+          "close",
+          "createDirectory",
+          "createFile",
+          "delete",
+          "error",
+          "get:isIgnoredOnLinux",
+          "get:isIgnoredOnWindows",
+          "get:isNeverReceivedOnMacOS",
+          "log",
+          "modifyDirectory",
+          "modifyFile",
+          "moveDirectory",
+          "moveFile",
+          "ready",
+          "sendPort",
+          "watchEvent"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/recursive/isolate_recursive_directory_watcher.dart",
+          "package:watcher/src/event.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "FileSystemEntityExtensions": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/paths.dart"
+        ],
+        "methods": [
+          "pathRelativeTo",
+          "pathSegmentRelativeTo"
+        ],
+        "types": []
+      },
+      "FileWatcher": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/file_watcher.dart",
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "FileWatcher"
+        ],
+        "types": [
+          "Watcher"
+        ]
+      },
+      "IgnoringError": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/directory_watcher/polling/directory_list.dart"
+        ],
+        "methods": [
+          "ignoring"
+        ],
+        "types": []
+      },
+      "IsolateRecursiveDirectoryWatcher": {
+        "fields": [
+          "get:events",
+          "get:isReady",
+          "get:ready",
+          "path"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/recursive/isolate_recursive_directory_watcher.dart"
+        ],
+        "methods": [
+          "IsolateRecursiveDirectoryWatcher",
+          "close"
+        ],
+        "types": [
+          "LogEntry",
+          "ManuallyClosedWatcher",
+          "WatchEvent"
+        ]
+      },
+      "LinuxDirectoryWatcher": {
+        "fields": [
+          "get:directory"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/linux/linux_directory_watcher.dart"
+        ],
+        "methods": [
+          "LinuxDirectoryWatcher"
+        ],
+        "types": [
+          "DirectoryWatcher",
+          "ResubscribableWatcher"
+        ]
+      },
+      "LogEntry": {
+        "fields": [
+          "message",
+          "timestamp"
+        ],
+        "libraries": [
+          "package:watcher/src/testing.dart"
+        ],
+        "methods": [
+          "LogEntry",
+          "compareTo",
+          "toString",
+          "withMessage"
+        ],
+        "types": [
+          "LogEntry"
+        ]
+      },
+      "ManuallyClosedRecursiveDirectoryWatcher": {
+        "fields": [
+          "get:directory",
+          "get:events",
+          "get:isReady",
+          "get:ready",
+          "path"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/recursive/recursive_directory_watcher.dart"
+        ],
+        "methods": [
+          "ManuallyClosedRecursiveDirectoryWatcher",
+          "close"
+        ],
+        "types": [
+          "DirectoryWatcher",
+          "ManuallyClosedWatcher",
+          "WatchEvent",
+          "WatchedDirectoryTree"
+        ]
+      },
+      "ManuallyClosedWatcher": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/resubscribable.dart"
+        ],
+        "methods": [
+          "close"
+        ],
+        "types": [
+          "Watcher"
+        ]
+      },
+      "NativeFileWatcher": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/file_watcher/native.dart"
+        ],
+        "methods": [
+          "NativeFileWatcher"
+        ],
+        "types": [
+          "FileWatcher",
+          "ResubscribableWatcher"
+        ]
+      },
+      "NativeWatch": {
+        "fields": [
+          "watchedDirectory"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/linux/native_watch.dart"
+        ],
+        "methods": [
+          "NativeWatch",
+          "close"
+        ],
+        "types": [
+          "Event"
+        ]
+      },
+      "PollingDirectoryWatcher": {
+        "fields": [
+          "get:directory"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/polling/polling_directory_watcher.dart",
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "PollingDirectoryWatcher"
+        ],
+        "types": [
+          "DirectoryWatcher",
+          "ResubscribableWatcher"
+        ]
+      },
+      "PollingFileWatcher": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/file_watcher/polling.dart",
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "PollingFileWatcher"
+        ],
+        "types": [
+          "FileWatcher",
+          "ResubscribableWatcher"
+        ]
+      },
+      "RecursiveDirectoryWatcher": {
+        "fields": [
+          "get:directory"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/recursive/recursive_directory_watcher.dart"
+        ],
+        "methods": [
+          "RecursiveDirectoryWatcher"
+        ],
+        "types": [
+          "DirectoryWatcher",
+          "ResubscribableWatcher"
+        ]
+      },
+      "RecursiveNativeWatch": {
+        "fields": [
+          "watchedDirectory"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/recursive/recursive_native_watch.dart"
+        ],
+        "methods": [
+          "RecursiveNativeWatch",
+          "close"
+        ],
+        "types": [
+          "Event",
+          "EventTree"
+        ]
+      },
+      "ResubscribableWatcher": {
+        "fields": [
+          "get:events",
+          "get:isReady",
+          "get:ready",
+          "path"
+        ],
+        "libraries": [
+          "package:watcher/src/resubscribable.dart"
+        ],
+        "methods": [
+          "ResubscribableWatcher"
+        ],
+        "types": [
+          "ManuallyClosedWatcher",
+          "WatchEvent",
+          "Watcher"
+        ]
+      },
+      "WatchEvent": {
+        "fields": [
+          "path",
+          "type"
+        ],
+        "libraries": [
+          "package:watcher/src/watch_event.dart",
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "WatchEvent",
+          "toString"
+        ],
+        "types": [
+          "ChangeType"
+        ]
+      },
+      "WatchTree": {
+        "fields": [
+          "watchedDirectory"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/linux/watch_tree.dart"
+        ],
+        "methods": [
+          "WatchTree",
+          "stopWatching"
+        ],
+        "types": [
+          "NativeWatch",
+          "WatchEvent",
+          "WatchTree"
+        ]
+      },
+      "WatchTreeRoot": {
+        "fields": [
+          "watch",
+          "watchedDirectory"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/linux/watch_tree_root.dart"
+        ],
+        "methods": [
+          "WatchTreeRoot",
+          "stopWatching"
+        ],
+        "types": [
+          "WatchEvent",
+          "WatchTree"
+        ]
+      },
+      "WatchedDirectoryTree": {
+        "fields": [
+          "directoryTree",
+          "nativeWatch",
+          "watchedDirectory"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/recursive/watched_directory_tree.dart"
+        ],
+        "methods": [
+          "WatchedDirectoryTree",
+          "stopWatching"
+        ],
+        "types": [
+          "DirectoryTree",
+          "RecursiveNativeWatch",
+          "WatchEvent"
+        ]
+      },
+      "Watcher": {
+        "fields": [
+          "get:events",
+          "get:isReady",
+          "get:path",
+          "get:ready"
+        ],
+        "libraries": [
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "Watcher"
+        ],
+        "types": [
+          "WatchEvent"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:21:03Z",
+  "package": "watcher",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "ChangeType"
+    ],
+    "digest": "07c5a50a90ee8443f05d166ac6549d3d38bcf42e2b6b2af5a648cd06110cff85",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "7d10c5b02ea8cf91dad639d53c93a91edba5df73f5786c0de4c6e5b7d74eee78",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "../../async_queue.dart",
+      "../../directory_watcher.dart",
+      "../../event.dart",
+      "../../event_batching.dart",
+      "../../paths.dart",
+      "../../polling.dart",
+      "../../resubscribable.dart",
+      "../../testing.dart",
+      "../../watch_event.dart",
+      "../event.dart",
+      "../event_batching.dart",
+      "../file_watcher.dart",
+      "../polling.dart",
+      "../resubscribable.dart",
+      "../watch_event.dart",
+      "../watcher.dart",
+      "Cannot resolve symbolic links",
+      "Directory watcher closed unexpectedly",
+      "Expires in 1.0.0. Use DirectoryWatcher.path instead.",
+      "Failed to watch path",
+      "Segment cannot be empty.",
+      "SocketException: Access is denied",
+      "add",
+      "custom_watcher_factory.dart",
+      "dart:async",
+      "dart:collection",
+      "dart:io",
+      "dart:isolate",
+      "directory_list.dart",
+      "directory_tree.dart",
+      "directory_watcher/linux/linux_directory_watcher.dart",
+      "directory_watcher/recursive/recursive_directory_watcher.dart",
+      "event",
+      "event.dart",
+      "event_tree.dart",
+      "file_watcher/native.dart",
+      "isolate_recursive_directory_watcher.dart",
+      "modify",
+      "native_watch.dart",
+      "package:path/path.dart",
+      "paths.dart",
+      "recursive_directory_watcher.dart",
+      "recursive_native_watch.dart",
+      "remove",
+      "src/custom_watcher_factory.dart",
+      "src/directory_watcher.dart",
+      "src/directory_watcher/polling/polling_directory_watcher.dart",
+      "src/file_watcher.dart",
+      "src/file_watcher/polling.dart",
+      "src/watch_event.dart",
+      "testing.dart",
+      "watch_event.dart",
+      "watch_tree.dart",
+      "watch_tree_root.dart",
+      "watched_directory_tree.dart",
+      "windows"
+    ]
+  },
+  "version": "1.2.0"
+}

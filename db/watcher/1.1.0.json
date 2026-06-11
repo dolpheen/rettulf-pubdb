@@ -1,0 +1,316 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/async_queue.dart",
+          "package:watcher/src/custom_watcher_factory.dart",
+          "package:watcher/src/stat.dart",
+          "package:watcher/src/utils.dart",
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "createCustomDirectoryWatcher",
+          "createCustomFileWatcher",
+          "isDirectoryNotFoundException",
+          "mockGetModificationTime",
+          "modificationTime",
+          "registerCustomWatcher",
+          "unionAll"
+        ],
+        "types": [
+          "DirectoryWatcher",
+          "FileWatcher"
+        ]
+      },
+      "AsyncQueue": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/async_queue.dart"
+        ],
+        "methods": [
+          "AsyncQueue",
+          "add",
+          "clear"
+        ],
+        "types": []
+      },
+      "BatchEvents": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/utils.dart"
+        ],
+        "methods": [
+          "batchEvents"
+        ],
+        "types": []
+      },
+      "ChangeType": {
+        "fields": [
+          "ADD",
+          "MODIFY",
+          "REMOVE"
+        ],
+        "libraries": [
+          "package:watcher/src/watch_event.dart",
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "ChangeType",
+          "toString"
+        ],
+        "types": []
+      },
+      "DirectoryWatcher": {
+        "fields": [
+          "get:directory"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher.dart",
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "DirectoryWatcher"
+        ],
+        "types": [
+          "Watcher"
+        ]
+      },
+      "FileWatcher": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/file_watcher.dart",
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "FileWatcher"
+        ],
+        "types": [
+          "Watcher"
+        ]
+      },
+      "LinuxDirectoryWatcher": {
+        "fields": [
+          "get:directory"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/linux.dart"
+        ],
+        "methods": [
+          "LinuxDirectoryWatcher"
+        ],
+        "types": [
+          "DirectoryWatcher",
+          "ResubscribableWatcher"
+        ]
+      },
+      "MacOSDirectoryWatcher": {
+        "fields": [
+          "get:directory"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/mac_os.dart"
+        ],
+        "methods": [
+          "MacOSDirectoryWatcher"
+        ],
+        "types": [
+          "DirectoryWatcher",
+          "ResubscribableWatcher"
+        ]
+      },
+      "ManuallyClosedWatcher": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/resubscribable.dart"
+        ],
+        "methods": [
+          "close"
+        ],
+        "types": [
+          "Watcher"
+        ]
+      },
+      "NativeFileWatcher": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/file_watcher/native.dart"
+        ],
+        "methods": [
+          "NativeFileWatcher"
+        ],
+        "types": [
+          "FileWatcher",
+          "ResubscribableWatcher"
+        ]
+      },
+      "PathSet": {
+        "fields": [
+          "get:paths",
+          "root"
+        ],
+        "libraries": [
+          "package:watcher/src/path_set.dart"
+        ],
+        "methods": [
+          "PathSet",
+          "add",
+          "clear",
+          "contains",
+          "containsDir",
+          "remove"
+        ],
+        "types": []
+      },
+      "PollingDirectoryWatcher": {
+        "fields": [
+          "get:directory"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/polling.dart",
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "PollingDirectoryWatcher"
+        ],
+        "types": [
+          "DirectoryWatcher",
+          "ResubscribableWatcher"
+        ]
+      },
+      "PollingFileWatcher": {
+        "fields": [],
+        "libraries": [
+          "package:watcher/src/file_watcher/polling.dart",
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "PollingFileWatcher"
+        ],
+        "types": [
+          "FileWatcher",
+          "ResubscribableWatcher"
+        ]
+      },
+      "ResubscribableWatcher": {
+        "fields": [
+          "get:events",
+          "get:isReady",
+          "get:ready",
+          "path"
+        ],
+        "libraries": [
+          "package:watcher/src/resubscribable.dart"
+        ],
+        "methods": [
+          "ResubscribableWatcher"
+        ],
+        "types": [
+          "ManuallyClosedWatcher",
+          "WatchEvent",
+          "Watcher"
+        ]
+      },
+      "WatchEvent": {
+        "fields": [
+          "path",
+          "type"
+        ],
+        "libraries": [
+          "package:watcher/src/watch_event.dart",
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "WatchEvent",
+          "toString"
+        ],
+        "types": [
+          "ChangeType"
+        ]
+      },
+      "Watcher": {
+        "fields": [
+          "get:events",
+          "get:isReady",
+          "get:path",
+          "get:ready"
+        ],
+        "libraries": [
+          "package:watcher/watcher.dart"
+        ],
+        "methods": [
+          "Watcher"
+        ],
+        "types": [
+          "WatchEvent"
+        ]
+      },
+      "WindowsDirectoryWatcher": {
+        "fields": [
+          "get:directory"
+        ],
+        "libraries": [
+          "package:watcher/src/directory_watcher/windows.dart"
+        ],
+        "methods": [
+          "WindowsDirectoryWatcher"
+        ],
+        "types": [
+          "DirectoryWatcher",
+          "ResubscribableWatcher"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:21:02Z",
+  "package": "watcher",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "ChangeType"
+    ],
+    "digest": "28c183ff4266a65c5f1bc00cefdab5f521ed5ce93f1d7f157eec79536f814af0",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "5066303183253193202b5f780e74200541c095311adf81c2219b2a4ca5cc6f87",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "../async_queue.dart",
+      "../directory_watcher.dart",
+      "../file_watcher.dart",
+      "../path_set.dart",
+      "../resubscribable.dart",
+      "../stat.dart",
+      "../utils.dart",
+      "../watch_event.dart",
+      "../watcher.dart",
+      "Directory watcher closed unexpectedly",
+      "Expires in 1.0.0. Use DirectoryWatcher.path instead.",
+      "add",
+      "custom_watcher_factory.dart",
+      "dart:async",
+      "dart:collection",
+      "dart:io",
+      "directory_watcher/linux.dart",
+      "directory_watcher/mac_os.dart",
+      "directory_watcher/windows.dart",
+      "file_watcher/native.dart",
+      "modify",
+      "package:async/async.dart",
+      "package:path/path.dart",
+      "remove",
+      "src/custom_watcher_factory.dart",
+      "src/directory_watcher.dart",
+      "src/directory_watcher/polling.dart",
+      "src/file_watcher.dart",
+      "src/file_watcher/polling.dart",
+      "src/watch_event.dart",
+      "unreachable",
+      "windows"
+    ]
+  },
+  "version": "1.1.0"
+}
