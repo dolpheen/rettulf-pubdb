@@ -1,0 +1,373 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/generate/run_builder.dart"
+        ],
+        "methods": [
+          "runBuilder"
+        ],
+        "types": [
+          "AssetId",
+          "AssetReader",
+          "AssetWriter",
+          "Builder",
+          "Resolvers"
+        ]
+      },
+      "Asset": {
+        "fields": [
+          "id",
+          "stringContents"
+        ],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/asset/asset.dart"
+        ],
+        "methods": [
+          "Asset",
+          "toString"
+        ],
+        "types": [
+          "AssetId"
+        ]
+      },
+      "AssetId": {
+        "fields": [
+          "get:extension",
+          "get:hashCode",
+          "package",
+          "path"
+        ],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/asset/id.dart"
+        ],
+        "methods": [
+          "==",
+          "AssetId",
+          "addExtension",
+          "changeExtension",
+          "compareTo",
+          "deserialize",
+          "parse",
+          "serialize",
+          "toString"
+        ],
+        "types": [
+          "AssetId"
+        ]
+      },
+      "AssetNotFoundException": {
+        "fields": [
+          "assetId"
+        ],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/asset/exceptions.dart"
+        ],
+        "methods": [
+          "AssetNotFoundException",
+          "toString"
+        ],
+        "types": [
+          "AssetId"
+        ]
+      },
+      "AssetReader": {
+        "fields": [],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/asset/reader.dart"
+        ],
+        "methods": [
+          "hasInput",
+          "readAsString"
+        ],
+        "types": [
+          "AssetId"
+        ]
+      },
+      "AssetWriter": {
+        "fields": [],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/asset/writer.dart"
+        ],
+        "methods": [
+          "writeAsString"
+        ],
+        "types": [
+          "Asset"
+        ]
+      },
+      "AssetWriterSpy": {
+        "fields": [
+          "get:assetsWritten"
+        ],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/asset/writer.dart"
+        ],
+        "methods": [
+          "AssetWriterSpy",
+          "writeAsString"
+        ],
+        "types": [
+          "Asset",
+          "AssetWriter"
+        ]
+      },
+      "BuildStep": {
+        "fields": [
+          "get:input",
+          "get:logger"
+        ],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/builder/build_step.dart"
+        ],
+        "methods": [
+          "hasInput",
+          "readAsString",
+          "resolve",
+          "writeAsString"
+        ],
+        "types": [
+          "Asset",
+          "AssetId",
+          "AssetReader",
+          "AssetWriter",
+          "Resolver"
+        ]
+      },
+      "BuildStepImpl": {
+        "fields": [
+          "input",
+          "logger"
+        ],
+        "libraries": [
+          "package:build/src/builder/build_step_impl.dart"
+        ],
+        "methods": [
+          "BuildStepImpl",
+          "complete",
+          "hasInput",
+          "readAsString",
+          "resolve",
+          "writeAsString"
+        ],
+        "types": [
+          "Asset",
+          "AssetId",
+          "AssetReader",
+          "AssetWriter",
+          "ManagedBuildStep",
+          "Resolver",
+          "Resolvers"
+        ]
+      },
+      "Builder": {
+        "fields": [],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/builder/builder.dart"
+        ],
+        "methods": [
+          "build",
+          "declareOutputs"
+        ],
+        "types": [
+          "AssetId",
+          "BuildStep"
+        ]
+      },
+      "InvalidInputException": {
+        "fields": [
+          "assetId"
+        ],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/asset/exceptions.dart"
+        ],
+        "methods": [
+          "InvalidInputException",
+          "toString"
+        ],
+        "types": [
+          "AssetId"
+        ]
+      },
+      "InvalidOutputException": {
+        "fields": [
+          "asset",
+          "message"
+        ],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/asset/exceptions.dart"
+        ],
+        "methods": [
+          "InvalidOutputException",
+          "toString"
+        ],
+        "types": [
+          "Asset"
+        ]
+      },
+      "ManagedBuildStep": {
+        "fields": [],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/builder/build_step.dart"
+        ],
+        "methods": [
+          "ManagedBuildStep",
+          "complete"
+        ],
+        "types": [
+          "Asset",
+          "AssetId",
+          "AssetReader",
+          "AssetWriter",
+          "BuildStep",
+          "Resolvers"
+        ]
+      },
+      "MultiplexingBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/builder/multiplexing_builder.dart"
+        ],
+        "methods": [
+          "MultiplexingBuilder",
+          "build",
+          "declareOutputs",
+          "toString"
+        ],
+        "types": [
+          "AssetId",
+          "BuildStep",
+          "Builder"
+        ]
+      },
+      "PackageNotFoundException": {
+        "fields": [
+          "name"
+        ],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/asset/exceptions.dart"
+        ],
+        "methods": [
+          "PackageNotFoundException",
+          "toString"
+        ],
+        "types": []
+      },
+      "Resolver": {
+        "fields": [
+          "get:libraries"
+        ],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/analyzer/resolver.dart"
+        ],
+        "methods": [
+          "getLibrary",
+          "getLibraryByName",
+          "release"
+        ],
+        "types": [
+          "AssetId"
+        ]
+      },
+      "Resolvers": {
+        "fields": [],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/analyzer/resolver.dart"
+        ],
+        "methods": [
+          "get"
+        ],
+        "types": [
+          "AssetId",
+          "BuildStep",
+          "Resolver"
+        ]
+      },
+      "UnexpectedOutputException": {
+        "fields": [
+          "asset"
+        ],
+        "libraries": [
+          "package:build/build.dart",
+          "package:build/src/builder/exceptions.dart"
+        ],
+        "methods": [
+          "UnexpectedOutputException",
+          "toString"
+        ],
+        "types": [
+          "Asset"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:14:38Z",
+  "package": "build",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "b2f8544472af6b702d184cac2bb8c0f1ac0bc9d30b47d248177221616767ae35",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "5e4ba3cdb435cc9c29c8c97a2595d424b9bcd74a6bee9e5901fcc887b32dd199",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "../analyzer/resolver.dart",
+      "../asset/asset.dart",
+      "../asset/exceptions.dart",
+      "../asset/id.dart",
+      "../asset/reader.dart",
+      "../asset/writer.dart",
+      "../builder/build_step.dart",
+      "../builder/builder.dart",
+      "/",
+      "\\",
+      "asset.dart",
+      "build_step.dart",
+      "build_step_impl.dart",
+      "builder.dart",
+      "dart:async",
+      "dart:convert",
+      "exceptions.dart",
+      "id.dart",
+      "lib/",
+      "package:analyzer/dart/element/element.dart",
+      "package:logging/logging.dart",
+      "package:path/path.dart",
+      "runBuilder",
+      "src/analyzer/resolver.dart",
+      "src/asset/asset.dart",
+      "src/asset/exceptions.dart",
+      "src/asset/id.dart",
+      "src/asset/reader.dart",
+      "src/asset/writer.dart",
+      "src/builder/build_step.dart",
+      "src/builder/builder.dart",
+      "src/builder/exceptions.dart",
+      "src/builder/multiplexing_builder.dart",
+      "src/generate/run_builder.dart",
+      "|"
+    ]
+  },
+  "version": "0.6.1"
+}
