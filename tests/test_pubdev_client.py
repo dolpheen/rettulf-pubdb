@@ -33,6 +33,26 @@ def _archive_bytes(files: dict[str, str]) -> bytes:
     return buffer.getvalue()
 
 
+def _archive_bytes_with_appledouble() -> bytes:
+    """Build an archive mixing a real source file with a binary AppleDouble file."""
+    buffer = io.BytesIO()
+    with tarfile.open(fileobj=buffer, mode="w:gz") as archive:
+        source = b"library foo;"
+        source_info = tarfile.TarInfo("lib/foo.dart")
+        source_info.mode = 0o644
+        source_info.size = len(source)
+        archive.addfile(source_info, io.BytesIO(source))
+
+        # macOS AppleDouble metadata: not valid UTF-8, so the Dart helpers
+        # would crash on it if it reached disk.
+        junk = b"\x00\x05\x16\x07\x00\x02\x00\x00Mac OS X\xff\xfe"
+        junk_info = tarfile.TarInfo("lib/._foo.dart")
+        junk_info.mode = 0o644
+        junk_info.size = len(junk)
+        archive.addfile(junk_info, io.BytesIO(junk))
+    return buffer.getvalue()
+
+
 def _sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
@@ -107,6 +127,33 @@ class PubDevClientTests(unittest.TestCase):
             self.assertEqual(calls, {"metadata": 1, "archive": 1})
             self.assertEqual(user_agents, [pubdev_client.USER_AGENT] * 2)
             self.assertEqual(accepts[0], "application/vnd.pub.v2+json")
+
+    def test_extract_skips_appledouble_files(self) -> None:
+        archive = _archive_bytes_with_appledouble()
+        archive_url = "https://pub.dev/api/archives/pkg-1.0.0.tar.gz"
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            if request.url.path == "/api/packages/pkg":
+                return httpx.Response(
+                    200,
+                    json=_metadata("pkg", "1.0.0", archive_url, _sha256(archive)),
+                )
+            if request.url.path == "/api/archives/pkg-1.0.0.tar.gz":
+                return httpx.Response(200, content=archive)
+            return httpx.Response(404)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            http_client = httpx.Client(transport=httpx.MockTransport(handler))
+            with pubdev_client.PubDevClient(
+                cache_dir=Path(tmp),
+                client=http_client,
+                sleep=lambda _: None,
+            ) as client:
+                # The AppleDouble member must not break the "safe extract".
+                lib_dir = client.fetch("pkg", "1.0.0")
+
+            self.assertTrue((lib_dir / "foo.dart").is_file())
+            self.assertFalse((lib_dir / "._foo.dart").exists())
 
     def test_evict_removes_archive_and_extract_and_refetch_recreates(self) -> None:
         archive = _archive_bytes({"lib/pkg.dart": "library pkg;"})

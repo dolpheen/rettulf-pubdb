@@ -473,7 +473,14 @@ def _sha256_file(path: Path) -> str:
 
 def _safe_extract(archive: tarfile.TarFile, destination: Path) -> None:
     destination_root = destination.resolve()
-    members = archive.getmembers()
+    # Drop macOS AppleDouble metadata files (basename starts with ``._``):
+    # they are binary junk occasionally published into archives and must not
+    # land on disk, where the Dart helpers would try to read them as UTF-8.
+    members = [
+        member
+        for member in archive.getmembers()
+        if not member.name.rsplit("/", 1)[-1].startswith("._")
+    ]
     for member in members:
         target = (destination / member.name).resolve()
         if not _is_relative_to(target, destination_root):

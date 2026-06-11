@@ -165,6 +165,24 @@ class ApiSurfaceTests(unittest.TestCase):
 
         self.assertIn("Survives", surface["classes"])
 
+    def test_appledouble_dart_file_does_not_abort_collection(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            package_dir = Path(tmp)
+            _write(
+                package_dir / "lib" / "sample.dart",
+                """
+                class Survives {}
+                """,
+            )
+            # macOS AppleDouble sidecar: binary, invalid UTF-8. The helper must
+            # skip it rather than crash the whole package's collection.
+            apple_double = package_dir / "lib" / "._sample.dart"
+            apple_double.write_bytes(b"\x00\x05\x16\x07Mac OS X\xff\xfe")
+
+            surface = collect_api_surface(package_dir, "sample")
+
+        self.assertIn("Survives", surface["classes"])
+
     def test_provider_6_0_5_matches_committed_fixture(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             with PubDevClient(cache_dir=Path(tmp)) as client:
