@@ -1,0 +1,671 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "anonymous",
+          "get:crossOriginIsolated",
+          "get:onMessage",
+          "messageEvent"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/basic.dart",
+          "package:flutter_rust_bridge/src/ffi.dart",
+          "package:flutter_rust_bridge/src/ffi/io.dart",
+          "package:flutter_rust_bridge/src/ffi/stub.dart",
+          "package:flutter_rust_bridge/src/ffi/web.dart",
+          "package:flutter_rust_bridge/src/helpers.dart",
+          "package:flutter_rust_bridge/src/isolate.dart",
+          "package:flutter_rust_bridge/src/isolate/io.dart",
+          "package:flutter_rust_bridge/src/isolate/stub.dart",
+          "package:flutter_rust_bridge/src/isolate/web.dart",
+          "package:flutter_rust_bridge/src/typed_data/web.dart",
+          "package:flutter_rust_bridge/src/utils.dart"
+        ],
+        "methods": [
+          "[]=",
+          "broadcastPort",
+          "castInt",
+          "eval",
+          "singleCompletePort",
+          "uint8ListToBool",
+          "warn"
+        ],
+        "types": [
+          "PortLike",
+          "ReceivePort",
+          "TypedArray",
+          "WasmModule"
+        ]
+      },
+      "BigInt64Array": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_rust_bridge/src/typed_data/web.dart"
+        ],
+        "methods": [
+          "BigInt64Array",
+          "fromList",
+          "sublistView",
+          "view"
+        ],
+        "types": [
+          "TypedArray"
+        ]
+      },
+      "BigUint64Array": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_rust_bridge/src/typed_data/web.dart"
+        ],
+        "methods": [
+          "BigUint64Array",
+          "fromList",
+          "sublistView",
+          "view"
+        ],
+        "types": [
+          "TypedArray"
+        ]
+      },
+      "Channel": {
+        "fields": [
+          "get:receivePort",
+          "get:sendPort"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/src/isolate/web.dart"
+        ],
+        "methods": [
+          "Channel",
+          "broadcastChannel",
+          "messageChannel"
+        ],
+        "types": []
+      },
+      "FfiException": {
+        "fields": [
+          "code",
+          "details",
+          "message"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/platform_independent.dart"
+        ],
+        "methods": [
+          "FfiException",
+          "toString"
+        ],
+        "types": []
+      },
+      "FlutterRustBridgeBase": {
+        "fields": [
+          "inner"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/basic.dart"
+        ],
+        "methods": [
+          "FlutterRustBridgeBase",
+          "executeNormal",
+          "executeStream",
+          "executeSync"
+        ],
+        "types": [
+          "FlutterRustBridgeSyncTask",
+          "FlutterRustBridgeTask",
+          "FlutterRustBridgeWireBase"
+        ]
+      },
+      "FlutterRustBridgeBaseTask": {
+        "fields": [
+          "argValues",
+          "constMeta",
+          "get:argMap",
+          "get:argMapEntries",
+          "get:debugName",
+          "hint"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/platform_independent.dart"
+        ],
+        "methods": [
+          "FlutterRustBridgeBaseTask"
+        ],
+        "types": [
+          "FlutterRustBridgeTaskConstMeta"
+        ]
+      },
+      "FlutterRustBridgeSetupMixin": {
+        "fields": [
+          "kHintSetup"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/helpers.dart"
+        ],
+        "methods": [
+          "executeNormal",
+          "executeStream",
+          "log",
+          "setup",
+          "setupMixinConstructor"
+        ],
+        "types": [
+          "FlutterRustBridgeBase",
+          "FlutterRustBridgeTask",
+          "FlutterRustBridgeWireBase"
+        ]
+      },
+      "FlutterRustBridgeSyncTask": {
+        "fields": [
+          "callFfi",
+          "parseSuccessData"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/basic.dart"
+        ],
+        "methods": [
+          "FlutterRustBridgeSyncTask"
+        ],
+        "types": [
+          "FlutterRustBridgeBaseTask",
+          "FlutterRustBridgeTaskConstMeta",
+          "WireSyncReturnStruct"
+        ]
+      },
+      "FlutterRustBridgeTask": {
+        "fields": [
+          "callFfi",
+          "parseSuccessData"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/basic.dart"
+        ],
+        "methods": [
+          "FlutterRustBridgeTask"
+        ],
+        "types": [
+          "FlutterRustBridgeBaseTask",
+          "FlutterRustBridgeTaskConstMeta"
+        ]
+      },
+      "FlutterRustBridgeTaskConstMeta": {
+        "fields": [
+          "argNames",
+          "debugName",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/platform_independent.dart"
+        ],
+        "methods": [
+          "==",
+          "FlutterRustBridgeTaskConstMeta",
+          "toString"
+        ],
+        "types": []
+      },
+      "FlutterRustBridgeTimeoutException": {
+        "fields": [
+          "debugName",
+          "duration",
+          "stackTrace"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/platform_independent.dart"
+        ],
+        "methods": [
+          "FlutterRustBridgeTimeoutException",
+          "toString"
+        ],
+        "types": []
+      },
+      "FlutterRustBridgeTimeoutMixin": {
+        "fields": [
+          "get:timeLimitForExecuteNormal"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/helpers.dart"
+        ],
+        "methods": [
+          "executeNormal"
+        ],
+        "types": [
+          "FlutterRustBridgeBase",
+          "FlutterRustBridgeTask",
+          "FlutterRustBridgeWireBase"
+        ]
+      },
+      "FlutterRustBridgeWasmWireBase": {
+        "fields": [
+          "get:init",
+          "init"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/basic.dart",
+          "package:flutter_rust_bridge/src/ffi.dart",
+          "package:flutter_rust_bridge/src/ffi/stub.dart",
+          "package:flutter_rust_bridge/src/ffi/web.dart",
+          "package:flutter_rust_bridge/src/helpers.dart"
+        ],
+        "methods": [
+          "FlutterRustBridgeWasmWireBase"
+        ],
+        "types": [
+          "FlutterRustBridgeWireBase",
+          "WasmModule"
+        ]
+      },
+      "FlutterRustBridgeWireBase": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/basic.dart",
+          "package:flutter_rust_bridge/src/ffi.dart",
+          "package:flutter_rust_bridge/src/ffi/io.dart",
+          "package:flutter_rust_bridge/src/ffi/stub.dart",
+          "package:flutter_rust_bridge/src/ffi/web.dart",
+          "package:flutter_rust_bridge/src/helpers.dart"
+        ],
+        "methods": [
+          "free_WireSyncReturnStruct",
+          "storeDartPostCObject",
+          "store_dart_post_cobject"
+        ],
+        "types": [
+          "WireSyncReturnStruct"
+        ]
+      },
+      "Int64List": {
+        "fields": [
+          "inner"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/typed_data.dart",
+          "package:flutter_rust_bridge/src/typed_data/io.dart",
+          "package:flutter_rust_bridge/src/typed_data/web.dart"
+        ],
+        "methods": [
+          "+",
+          "Int64List",
+          "dart2js",
+          "dart2raw",
+          "from",
+          "fromList",
+          "js2dart",
+          "raw2dart",
+          "sublistView",
+          "view"
+        ],
+        "types": [
+          "BigInt64Array",
+          "Int64List",
+          "TypedList"
+        ]
+      },
+      "JS": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/basic.dart",
+          "package:flutter_rust_bridge/src/ffi.dart",
+          "package:flutter_rust_bridge/src/ffi/stub.dart",
+          "package:flutter_rust_bridge/src/helpers.dart"
+        ],
+        "methods": [
+          "JS"
+        ],
+        "types": []
+      },
+      "MissingHeaderException": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/helpers.dart"
+        ],
+        "methods": [
+          "MissingHeaderException",
+          "toString"
+        ],
+        "types": []
+      },
+      "Modules": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/basic.dart",
+          "package:flutter_rust_bridge/src/ffi.dart",
+          "package:flutter_rust_bridge/src/ffi/stub.dart",
+          "package:flutter_rust_bridge/src/ffi/web.dart",
+          "package:flutter_rust_bridge/src/helpers.dart"
+        ],
+        "methods": [
+          "Modules",
+          "initializeModule",
+          "noModules"
+        ],
+        "types": [
+          "WasmModule"
+        ]
+      },
+      "NativeType": {
+        "fields": [
+          "get:nativePort"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/basic.dart",
+          "package:flutter_rust_bridge/src/ffi.dart",
+          "package:flutter_rust_bridge/src/ffi/stub.dart",
+          "package:flutter_rust_bridge/src/helpers.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PlatformMismatchException": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/helpers.dart"
+        ],
+        "methods": [
+          "PlatformMismatchException",
+          "toString"
+        ],
+        "types": []
+      },
+      "PortLike": {
+        "fields": [
+          "get:nativePort"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/src/isolate/web.dart"
+        ],
+        "methods": [
+          "broadcastChannel",
+          "close",
+          "messagePort",
+          "postMessage"
+        ],
+        "types": []
+      },
+      "RawReceivePort": {
+        "fields": [
+          "channel",
+          "get:receivePort",
+          "get:sendPort",
+          "set:handler"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/src/isolate/web.dart"
+        ],
+        "methods": [
+          "RawReceivePort",
+          "close"
+        ],
+        "types": [
+          "Channel"
+        ]
+      },
+      "ReceivePort": {
+        "fields": [
+          "get:sendPort",
+          "port"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/src/isolate/web.dart"
+        ],
+        "methods": [
+          "ReceivePort",
+          "close",
+          "listen"
+        ],
+        "types": [
+          "RawReceivePort"
+        ]
+      },
+      "StoreDartPostCObjectExt": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/basic.dart",
+          "package:flutter_rust_bridge/src/ffi.dart",
+          "package:flutter_rust_bridge/src/ffi/io.dart",
+          "package:flutter_rust_bridge/src/ffi/stub.dart",
+          "package:flutter_rust_bridge/src/helpers.dart"
+        ],
+        "methods": [
+          "storeDartPostCObject"
+        ],
+        "types": [
+          "FlutterRustBridgeWireBase"
+        ]
+      },
+      "TypedArray": {
+        "fields": [
+          "get:buffer",
+          "length"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/src/typed_data/web.dart"
+        ],
+        "methods": [
+          "at"
+        ],
+        "types": []
+      },
+      "TypedList": {
+        "fields": [
+          "get:buffer",
+          "get:inner",
+          "get:length",
+          "set:length"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/src/typed_data/web.dart"
+        ],
+        "methods": [
+          "[]",
+          "[]=",
+          "dart2js",
+          "js2dart"
+        ],
+        "types": [
+          "TypedArray"
+        ]
+      },
+      "Uint64List": {
+        "fields": [
+          "inner"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/typed_data.dart",
+          "package:flutter_rust_bridge/src/typed_data/io.dart",
+          "package:flutter_rust_bridge/src/typed_data/web.dart"
+        ],
+        "methods": [
+          "+",
+          "Uint64List",
+          "dart2js",
+          "dart2raw",
+          "from",
+          "fromList",
+          "js2dart",
+          "raw2dart",
+          "sublistView",
+          "view"
+        ],
+        "types": [
+          "BigUint64Array",
+          "TypedList",
+          "Uint64List"
+        ]
+      },
+      "UnmodifiableTypedListException": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/helpers.dart"
+        ],
+        "methods": [
+          "UnmodifiableTypedListException",
+          "toString"
+        ],
+        "types": []
+      },
+      "WasmModule": {
+        "fields": [],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/basic.dart",
+          "package:flutter_rust_bridge/src/ffi.dart",
+          "package:flutter_rust_bridge/src/ffi/io.dart",
+          "package:flutter_rust_bridge/src/ffi/stub.dart",
+          "package:flutter_rust_bridge/src/ffi/web.dart",
+          "package:flutter_rust_bridge/src/helpers.dart"
+        ],
+        "methods": [
+          "bind",
+          "call",
+          "cast",
+          "initialize"
+        ],
+        "types": [
+          "Modules",
+          "WasmModule"
+        ]
+      },
+      "WireSyncReturnStruct": {
+        "fields": [
+          "get:buffer",
+          "get:isSuccess",
+          "len",
+          "ptr",
+          "success"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+          "package:flutter_rust_bridge/src/basic.dart",
+          "package:flutter_rust_bridge/src/ffi.dart",
+          "package:flutter_rust_bridge/src/ffi/io.dart",
+          "package:flutter_rust_bridge/src/ffi/stub.dart",
+          "package:flutter_rust_bridge/src/helpers.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "WireSyncReturnStructExt": {
+        "fields": [
+          "get:buffer",
+          "get:isSuccess"
+        ],
+        "libraries": [
+          "package:flutter_rust_bridge/src/ffi/web.dart"
+        ],
+        "methods": [],
+        "types": [
+          "WireSyncReturnStruct"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:20:59Z",
+  "package": "flutter_rust_bridge",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "Channel",
+      "FfiException",
+      "FlutterRustBridgeBaseTask",
+      "FlutterRustBridgeSyncTask",
+      "FlutterRustBridgeTask",
+      "FlutterRustBridgeTaskConstMeta",
+      "FlutterRustBridgeTimeoutException",
+      "JS",
+      "MissingHeaderException",
+      "Modules",
+      "PlatformMismatchException",
+      "UnmodifiableTypedListException",
+      "_Anonymous",
+      "_FlutterRustBridgeSetupMixinSkipWaitHint",
+      "_WasmBindgenNoModules"
+    ],
+    "digest": "10efa4032e60a1f389bf4958f509d333f1f00687c4f6d79c2b546f3cee4193af",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "99bf2805348cb9cdb1ab6bc0ec671ba0d0673d58559c9e591a968d7cd752b5e2",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "../helpers.dart",
+      "../isolate.dart",
+      "BigInt64Array",
+      "BigUint64Array",
+      "Buffers cannot be shared due to missing cross-origin headers.\nMake sure your web server responds with the following headers:\n- Cross-Origin-Opener-Policy: same-origin\n- Cross-Origin-Embedder-Policy: credentialless OR require-corp\n\nIf running from Flutter, consider `flutter build web` and running a custom static-file server.",
+      "Cannot modify the length of typed lists.",
+      "EXECUTE_SYNC",
+      "EXECUTE_SYNC_ABORT",
+      "FlutterRustBridgeSetupMixin.setupMixinConstructor complete setup",
+      "FlutterRustBridgeSetupMixin.setupMixinConstructor start setup",
+      "Function",
+      "Future not completed",
+      "Ignoring transferables for BroadcastPort:",
+      "Not implemented on non-WASM platforms",
+      "Number",
+      "TypedArray",
+      "Warning: crossOriginIsolated is null, browser might not support buffer sharing.",
+      "console.warn",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:ffi",
+      "dart:html",
+      "dart:isolate",
+      "dart:typed_data",
+      "ffi.dart",
+      "ffi/io.dart",
+      "ffi/stub.dart",
+      "ffi/web.dart",
+      "io.dart",
+      "isolate.dart",
+      "isolate/io.dart",
+      "isolate/stub.dart",
+      "isolate/web.dart",
+      "message",
+      "package:flutter_rust_bridge/flutter_rust_bridge.dart",
+      "package:flutter_rust_bridge/src/basic.dart",
+      "package:flutter_rust_bridge/src/ffi/web.dart",
+      "package:flutter_rust_bridge/src/platform_independent.dart",
+      "package:flutter_rust_bridge/src/utils.dart",
+      "package:js/js.dart",
+      "package:js/js_util.dart",
+      "package:meta/meta.dart",
+      "src/basic.dart",
+      "src/helpers.dart",
+      "src/platform_independent.dart",
+      "src/typed_data.dart",
+      "stub.dart",
+      "toString",
+      "typed_data/io.dart",
+      "typed_data/web.dart",
+      "wasm_bindgen",
+      "web.dart",
+      "window.wasm_bindgen = wasm_bindgen"
+    ]
+  },
+  "version": "1.46.0"
+}
