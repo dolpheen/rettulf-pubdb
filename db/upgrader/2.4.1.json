@@ -1,0 +1,385 @@
+{
+  "api_surface": {
+    "classes": {
+      "Appcast": {
+        "fields": [
+          "client",
+          "items",
+          "osVersionString"
+        ],
+        "libraries": [
+          "package:upgrader/src/appcast.dart",
+          "package:upgrader/upgrader.dart"
+        ],
+        "methods": [
+          "Appcast",
+          "bestItem",
+          "parseAppcastItemsFromFile",
+          "parseAppcastItemsFromUri",
+          "parseItemsFromXMLString"
+        ],
+        "types": [
+          "AppcastItem"
+        ]
+      },
+      "AppcastConfiguration": {
+        "fields": [
+          "supportedOS",
+          "url"
+        ],
+        "libraries": [
+          "package:upgrader/src/upgrader.dart",
+          "package:upgrader/upgrader.dart"
+        ],
+        "methods": [
+          "AppcastConfiguration"
+        ],
+        "types": []
+      },
+      "AppcastConstants": {
+        "fields": [
+          "AttributeDSASignature",
+          "AttributeDeltaFrom",
+          "AttributeEDSignature",
+          "AttributeLength",
+          "AttributeOsType",
+          "AttributeShortVersionString",
+          "AttributeURL",
+          "AttributeVersion",
+          "ElementCriticalUpdate",
+          "ElementDeltas",
+          "ElementDescription",
+          "ElementEnclosure",
+          "ElementLink",
+          "ElementMaximumSystemVersion",
+          "ElementMinimumSystemVersion",
+          "ElementPubDate",
+          "ElementReleaseNotesLink",
+          "ElementTags",
+          "ElementTitle"
+        ],
+        "libraries": [
+          "package:upgrader/src/appcast.dart",
+          "package:upgrader/upgrader.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "AppcastItem": {
+        "fields": [
+          "contentLength",
+          "dateString",
+          "displayVersionString",
+          "fileURL",
+          "get:isCriticalUpdate",
+          "infoURL",
+          "itemDescription",
+          "maximumSystemVersion",
+          "minimumSystemVersion",
+          "osString",
+          "releaseNotesURL",
+          "tags",
+          "title",
+          "versionString"
+        ],
+        "libraries": [
+          "package:upgrader/src/appcast.dart",
+          "package:upgrader/upgrader.dart"
+        ],
+        "methods": [
+          "AppcastItem",
+          "hostSupportsItem"
+        ],
+        "types": []
+      },
+      "ITunesResults": {
+        "fields": [],
+        "libraries": [
+          "package:upgrader/src/itunes_search_api.dart",
+          "package:upgrader/upgrader.dart"
+        ],
+        "methods": [
+          "bundleId",
+          "currency",
+          "trackViewUrl",
+          "version"
+        ],
+        "types": []
+      },
+      "ITunesSearchAPI": {
+        "fields": [
+          "client",
+          "debugEnabled",
+          "iTunesDocumentationURL",
+          "lookupPrefixURL",
+          "searchPrefixURL"
+        ],
+        "libraries": [
+          "package:upgrader/src/itunes_search_api.dart",
+          "package:upgrader/upgrader.dart"
+        ],
+        "methods": [
+          "lookupByBundleId",
+          "lookupById",
+          "lookupURLByBundleId",
+          "lookupURLById",
+          "lookupURLByQSP"
+        ],
+        "types": []
+      },
+      "UpgradeAlert": {
+        "fields": [
+          "child"
+        ],
+        "libraries": [
+          "package:upgrader/src/upgrade_alert.dart",
+          "package:upgrader/upgrader.dart"
+        ],
+        "methods": [
+          "UpgradeAlert",
+          "build"
+        ],
+        "types": [
+          "AppcastConfiguration",
+          "UpgraderMessages"
+        ]
+      },
+      "UpgradeCard": {
+        "fields": [
+          "margin"
+        ],
+        "libraries": [
+          "package:upgrader/src/upgrade_alert.dart",
+          "package:upgrader/upgrader.dart"
+        ],
+        "methods": [
+          "UpgradeCard",
+          "build"
+        ],
+        "types": [
+          "AppcastConfiguration",
+          "UpgraderMessages"
+        ]
+      },
+      "Upgrader": {
+        "fields": [
+          "appcastConfig",
+          "canDismissDialog",
+          "client",
+          "countryCode",
+          "daysUntilAlertAgain",
+          "debugDisplayAlways",
+          "debugDisplayOnce",
+          "debugLogging",
+          "messages",
+          "minAppVersion",
+          "notInitializedExceptionMessage",
+          "onIgnore",
+          "onLater",
+          "onUpdate",
+          "showIgnore",
+          "showLater"
+        ],
+        "libraries": [
+          "package:upgrader/src/upgrader.dart",
+          "package:upgrader/upgrader.dart"
+        ],
+        "methods": [
+          "Upgrader",
+          "alreadyIgnoredThisVersion",
+          "appName",
+          "belowMinAppVersion",
+          "blocked",
+          "checkVersion",
+          "clearSavedSettings",
+          "currentAppStoreListingURL",
+          "currentAppStoreVersion",
+          "currentInstalledVersion",
+          "findCountryCode",
+          "initialize",
+          "installAppStoreListingURL",
+          "installAppStoreVersion",
+          "installPackageInfo",
+          "isTooSoon",
+          "isUpdateAvailable",
+          "message",
+          "onUserIgnored",
+          "onUserLater",
+          "onUserUpdated",
+          "resetSingleton",
+          "saveLastAlerted",
+          "shouldDisplayUpgrade"
+        ],
+        "types": [
+          "AppcastConfiguration",
+          "Upgrader",
+          "UpgraderMessages"
+        ]
+      },
+      "UpgraderMessage": {
+        "fields": [
+          "body",
+          "buttonTitleIgnore",
+          "buttonTitleLater",
+          "buttonTitleUpdate",
+          "prompt",
+          "title"
+        ],
+        "libraries": [
+          "package:upgrader/src/upgrade_messages.dart",
+          "package:upgrader/upgrader.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "UpgraderMessages": {
+        "fields": [
+          "get:body",
+          "get:buttonTitleIgnore",
+          "get:buttonTitleLater",
+          "get:buttonTitleUpdate",
+          "get:prompt",
+          "get:title",
+          "languageCode"
+        ],
+        "libraries": [
+          "package:upgrader/src/upgrade_messages.dart",
+          "package:upgrader/upgrader.dart"
+        ],
+        "methods": [
+          "UpgraderMessages",
+          "findLanguageCode",
+          "message"
+        ],
+        "types": [
+          "UpgraderMessage"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:17:13Z",
+  "package": "upgrader",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "_AlertStyleWidget"
+    ],
+    "digest": "beb16d59580dbfc6291522ed1afcb34db1f55457c79014740af153124aef5e3f",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "6a9926180c6274fc926e21a69e480667fe915deca181ff92f6a4881c37176dbc",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "&",
+      "A new version of {{appName}} is available! Version {{currentAppStoreVersion}} is now available-you have {{currentInstalledVersion}}.",
+      "ACTUALIZAR",
+      "ATUALIZAR",
+      "Atualizar aplicação?",
+      "Há uma nova versão do {{appName}} disponível! A versão {{currentAppStoreVersion}} já está disponível, você tem a {{currentInstalledVersion}}.",
+      "IGNORAR",
+      "IGNORE",
+      "IGNORER",
+      "LATER",
+      "MAINTENANT",
+      "MAIS TARDE",
+      "Mettre à jour l'application?",
+      "MÁS TARDE",
+      "PLUS TARD",
+      "TargetPlatform.",
+      "UPDATE NOW",
+      "US",
+      "Une nouvelle version de {{appName}} est disponible ! La version {{currentAppStoreVersion}} est maintenant disponible, vous avez la version {{currentInstalledVersion}}.",
+      "Update App?",
+      "UpgradeCard: build UpgradeCard",
+      "UpgradeCard: will display",
+      "UpgradeCard: will not display",
+      "Você quer atualizar agora?",
+      "Voulez-vous mettre à jour maintenant?",
+      "Would you like to update it now?",
+      "appcast.dart",
+      "ar",
+      "bundleId",
+      "country",
+      "currency",
+      "dart:async",
+      "dart:convert",
+      "dart:io",
+      "description",
+      "en",
+      "enclosure",
+      "es",
+      "fr",
+      "https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/",
+      "https://itunes.apple.com/lookup",
+      "https://itunes.apple.com/search",
+      "id",
+      "initialize() not called. Must be called first.",
+      "item",
+      "itunes_search_api.dart",
+      "lastTimeAlerted",
+      "lastVersionAlerted",
+      "length",
+      "link",
+      "package:device_info/device_info.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/material.dart",
+      "package:http/http.dart",
+      "package:package_info/package_info.dart",
+      "package:shared_preferences/shared_preferences.dart",
+      "package:upgrader/upgrader.dart",
+      "package:url_launcher/url_launcher.dart",
+      "package:version/version.dart",
+      "package:xml/xml.dart",
+      "pt",
+      "pubDate",
+      "resultCount",
+      "results",
+      "semanticLabel",
+      "sparkle:criticalUpdate",
+      "sparkle:deltaFrom",
+      "sparkle:deltas",
+      "sparkle:dsaSignature",
+      "sparkle:edSignature",
+      "sparkle:maximumSystemVersion",
+      "sparkle:minimumSystemVersion",
+      "sparkle:os",
+      "sparkle:releaseNotesLink",
+      "sparkle:shortVersionString",
+      "sparkle:tags",
+      "sparkle:version",
+      "src/appcast.dart",
+      "src/itunes_search_api.dart",
+      "src/upgrade_alert.dart",
+      "src/upgrade_messages.dart",
+      "src/upgrader.dart",
+      "title",
+      "trackViewUrl",
+      "upgrade_messages.dart",
+      "upgrader: appcast is available for this platform",
+      "upgrader: build UpgradeAlert",
+      "upgrader: button tapped: ignore",
+      "upgrader: button tapped: later",
+      "upgrader: button tapped: update now",
+      "upgrader: empty _appStoreListingURL",
+      "upgrader: response empty",
+      "url",
+      "userIgnoredVersion",
+      "version",
+      "{{appName}}",
+      "{{currentAppStoreVersion}}",
+      "{{currentInstalledVersion}}",
+      "¡Una nueva versión de {{appName}} está disponible! La versión {{currentAppStoreVersion}} ya está disponible-usted tiene {{currentInstalledVersion}}.",
+      "¿Actualizar la aplicación?",
+      "¿Le gustaría actualizar ahora?",
+      "تجاهل",
+      "حدث الآن",
+      "لاحقاً",
+      "نسخة جديدة من {{appName}} متوفرة! النسخة {{currentAppStoreVersion}} متوفرة الآن, أنت تستخدم النسخة {{currentInstalledVersion}}.",
+      "هل تريد تحديث التطبيق؟",
+      "هل تفضل أن يتم التحديث الآن"
+    ]
+  },
+  "version": "2.4.1"
+}
