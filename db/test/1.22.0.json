@@ -1,0 +1,902 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "defaultSettings",
+          "get:document",
+          "get:window"
+        ],
+        "libraries": [
+          "package:test/bootstrap/browser.dart",
+          "package:test/bootstrap/node.dart",
+          "package:test/src/bootstrap/browser.dart",
+          "package:test/src/bootstrap/node.dart",
+          "package:test/src/executable.dart",
+          "package:test/src/runner/browser/chrome.dart",
+          "package:test/src/runner/browser/default_settings.dart",
+          "package:test/src/runner/browser/dom.dart",
+          "package:test/src/runner/browser/post_message_channel.dart",
+          "package:test/src/runner/node/platform.dart",
+          "package:test/src/runner/node/socket_channel.dart",
+          "package:test/src/runner/wasm/default_settings.dart",
+          "package:test/src/util/math.dart"
+        ],
+        "methods": [
+          "createHTMLIFrameElement",
+          "createHTMLScriptElement",
+          "createMessageChannel",
+          "createWebSocket",
+          "determineEncoding",
+          "getString",
+          "internalBootstrapBrowserTest",
+          "internalBootstrapNodeTest",
+          "main",
+          "postMessageChannel",
+          "randomBase64",
+          "socketChannel"
+        ],
+        "types": [
+          "Event",
+          "HTMLDocument",
+          "HTMLIFrameElement",
+          "HTMLScriptElement",
+          "MessageChannel",
+          "WebSocket",
+          "Window"
+        ]
+      },
+      "Browser": {
+        "fields": [
+          "get:name",
+          "get:observatoryUrl",
+          "get:onExit",
+          "get:remoteDebuggerUrl",
+          "output"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/browser.dart"
+        ],
+        "methods": [
+          "Browser",
+          "close"
+        ],
+        "types": []
+      },
+      "BrowserManager": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/browser_manager.dart"
+        ],
+        "methods": [
+          "close",
+          "load",
+          "start"
+        ],
+        "types": [
+          "Browser",
+          "BrowserManager",
+          "ExecutableSettings"
+        ]
+      },
+      "BrowserPlatform": {
+        "fields": [
+          "get:url"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/platform.dart"
+        ],
+        "methods": [
+          "close",
+          "closeEphemeral",
+          "customizePlatform",
+          "load",
+          "mergePlatformSettings",
+          "parsePlatformSettings",
+          "start"
+        ],
+        "types": [
+          "BrowserPlatform",
+          "ExecutableSettings"
+        ]
+      },
+      "BrowserWasmPlatform": {
+        "fields": [
+          "get:url"
+        ],
+        "libraries": [
+          "package:test/src/runner/wasm/platform.dart"
+        ],
+        "methods": [
+          "close",
+          "closeEphemeral",
+          "customizePlatform",
+          "load",
+          "mergePlatformSettings",
+          "parsePlatformSettings",
+          "start"
+        ],
+        "types": [
+          "BrowserWasmPlatform",
+          "ExecutableSettings"
+        ]
+      },
+      "CSSStyleDeclaration": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Chrome": {
+        "fields": [
+          "name",
+          "remoteDebuggerUrl"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/chrome.dart"
+        ],
+        "methods": [
+          "Chrome",
+          "gatherCoverage"
+        ],
+        "types": [
+          "Browser",
+          "ExecutableSettings"
+        ]
+      },
+      "Document": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Node"
+        ]
+      },
+      "DocumentExtension": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [
+          "createElement",
+          "querySelector"
+        ],
+        "types": [
+          "Document",
+          "Element"
+        ]
+      },
+      "DomElementExtension": {
+        "fields": [
+          "get:classList"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "DomTokenList",
+          "Element"
+        ]
+      },
+      "DomTokenList": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DomTokenListExtension": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [
+          "add",
+          "contains",
+          "remove"
+        ],
+        "types": [
+          "DomTokenList"
+        ]
+      },
+      "Element": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Node"
+        ]
+      },
+      "Event": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "EventExtension": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [
+          "stopPropagation"
+        ],
+        "types": [
+          "Event"
+        ]
+      },
+      "EventTarget": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "EventTargetExtension": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [
+          "addEventListener",
+          "removeEventListener"
+        ],
+        "types": [
+          "EventTarget"
+        ]
+      },
+      "ExecutableSettings": {
+        "fields": [
+          "arguments",
+          "get:executable",
+          "get:headless"
+        ],
+        "libraries": [
+          "package:test/src/runner/executable_settings.dart"
+        ],
+        "methods": [
+          "ExecutableSettings",
+          "merge",
+          "parse"
+        ],
+        "types": [
+          "ExecutableSettings"
+        ]
+      },
+      "Firefox": {
+        "fields": [
+          "name"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/firefox.dart"
+        ],
+        "methods": [
+          "Firefox"
+        ],
+        "types": [
+          "Browser",
+          "ExecutableSettings"
+        ]
+      },
+      "HTMLBodyElement": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "HTMLElement"
+        ]
+      },
+      "HTMLDocument": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Document"
+        ]
+      },
+      "HTMLDocumentExtension": {
+        "fields": [
+          "get:body",
+          "get:title"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "HTMLBodyElement",
+          "HTMLDocument"
+        ]
+      },
+      "HTMLElement": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Element"
+        ]
+      },
+      "HTMLIFrameElement": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "HTMLElement"
+        ]
+      },
+      "HTMLIFrameElementExtension": {
+        "fields": [
+          "get:contentWindow",
+          "get:src",
+          "set:src"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "HTMLIFrameElement",
+          "Window"
+        ]
+      },
+      "HTMLScriptElement": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "HTMLElement"
+        ]
+      },
+      "HTMLScriptElementExtension": {
+        "fields": [
+          "set:src"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "HTMLScriptElement"
+        ]
+      },
+      "InternetExplorer": {
+        "fields": [
+          "name"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/internet_explorer.dart"
+        ],
+        "methods": [
+          "InternetExplorer"
+        ],
+        "types": [
+          "Browser",
+          "ExecutableSettings"
+        ]
+      },
+      "Location": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LocationExtension": {
+        "fields": [
+          "get:href",
+          "get:origin"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Location"
+        ]
+      },
+      "MessageChannel": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MessageChannelExtension": {
+        "fields": [
+          "get:port1",
+          "get:port2"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "MessageChannel",
+          "MessagePort"
+        ]
+      },
+      "MessageEvent": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Event"
+        ]
+      },
+      "MessageEventExtension": {
+        "fields": [
+          "get:data",
+          "get:origin",
+          "get:ports"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "MessageEvent",
+          "MessagePort"
+        ]
+      },
+      "MessagePort": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "EventTarget"
+        ]
+      },
+      "MessagePortExtension": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [
+          "postMessage",
+          "start"
+        ],
+        "types": [
+          "MessagePort"
+        ]
+      },
+      "Navigator": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "NavigatorExtension": {
+        "fields": [
+          "get:userAgent"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Navigator"
+        ]
+      },
+      "Node": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "EventTarget"
+        ]
+      },
+      "NodeExtension": {
+        "fields": [
+          "get:parentNode"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [
+          "appendChild",
+          "remove",
+          "removeChild"
+        ],
+        "types": [
+          "Node"
+        ]
+      },
+      "NodePlatform": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/node/platform.dart"
+        ],
+        "methods": [
+          "NodePlatform",
+          "close",
+          "customizePlatform",
+          "load",
+          "mergePlatformSettings",
+          "parsePlatformSettings"
+        ],
+        "types": [
+          "ExecutableSettings"
+        ]
+      },
+      "OneOffHandler": {
+        "fields": [
+          "get:handler"
+        ],
+        "libraries": [
+          "package:test/src/util/one_off_handler.dart"
+        ],
+        "methods": [
+          "create"
+        ],
+        "types": []
+      },
+      "PackageMap": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/util/package_map.dart"
+        ],
+        "methods": [
+          "toPackageMap",
+          "toPackagesDirPackageMap"
+        ],
+        "types": []
+      },
+      "PathHandler": {
+        "fields": [
+          "get:handler"
+        ],
+        "libraries": [
+          "package:test/src/util/path_handler.dart"
+        ],
+        "methods": [
+          "add",
+          "nestedIn"
+        ],
+        "types": []
+      },
+      "Safari": {
+        "fields": [
+          "name"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/safari.dart"
+        ],
+        "methods": [
+          "Safari"
+        ],
+        "types": [
+          "Browser",
+          "ExecutableSettings"
+        ]
+      },
+      "Subscription": {
+        "fields": [
+          "listener",
+          "target",
+          "type"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [
+          "Subscription",
+          "cancel"
+        ],
+        "types": [
+          "EventTarget"
+        ]
+      },
+      "WebSocket": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "EventTarget"
+        ]
+      },
+      "WebSocketExtension": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [
+          "send"
+        ],
+        "types": [
+          "WebSocket"
+        ]
+      },
+      "Window": {
+        "fields": [],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [],
+        "types": [
+          "EventTarget"
+        ]
+      },
+      "WindowExtension": {
+        "fields": [
+          "get:location",
+          "get:navigator"
+        ],
+        "libraries": [
+          "package:test/src/runner/browser/dom.dart"
+        ],
+        "methods": [
+          "getComputedStyle",
+          "postMessage"
+        ],
+        "types": [
+          "CSSStyleDeclaration",
+          "Element",
+          "Location",
+          "MessagePort",
+          "Navigator",
+          "Window"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:13:50Z",
+  "package": "test",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "8f81bf6c9cb0d493e887837583f5d70caf9882c0c6fa4041175c2e831e632d96",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "d3df0fb5718f17a53f949aadd9a5c306ee471ce11fb09d00c3bfeb484028e223",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "--bwsi",
+      "--disable-default-apps",
+      "--disable-dev-shm-usage",
+      "--disable-extensions",
+      "--disable-gpu",
+      "--disable-popup-blocking",
+      "--disable-translate",
+      "--enable-logging=stdout",
+      "--headless",
+      "--js-flags=--experimental-wasm-gc --wasm-gc-js-interop --experimental-wasm-stack-switching --experimental-wasm-type-reflection",
+      "--no-default-browser-check",
+      "--no-first-run",
+      "--no-remote",
+      "--profile",
+      "--remote-debugging-port=0",
+      "--server-mode",
+      "--v=1",
+      "-Dnode=true",
+      "-extoff",
+      ".",
+      "../../util/math.dart",
+      "../../util/one_off_handler.dart",
+      "../../util/package_map.dart",
+      "../../util/path_handler.dart",
+      "../browser/browser_manager.dart",
+      "../executable_settings.dart",
+      "../runner/browser/post_message_channel.dart",
+      "../runner/node/socket_channel.dart",
+      "../src/bootstrap/browser.dart",
+      "../src/bootstrap/node.dart",
+      ".html",
+      "/Applications/Firefox.app/Contents/MacOS/firefox-bin",
+      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+      "/Applications/Safari.app/Contents/MacOS/Safari",
+      "/packages/",
+      "/packages/$sdk",
+      "1",
+      "Chrome",
+      "Content-Type",
+      "DevTools listening",
+      "Firefox",
+      "Google\\Chrome\\Application\\chrome.exe",
+      "Internet Explorer",
+      "Internet Explorer\\iexplore.exe",
+      "LOCALAPPDATA",
+      "Linux and Mac OS executables may not be relative paths.",
+      "MOZ_CRASHREPORTER_DISABLE",
+      "MessageChannel",
+      "Mozilla Firefox\\firefox.exe",
+      "Must be a boolean.",
+      "Must be a map or a string.",
+      "Must be a string.",
+      "NODE_PATH",
+      "Not found.",
+      "PROGRAMFILES",
+      "PROGRAMFILES(X86)",
+      "Profiler.enable",
+      "Profiler.startPreciseCoverage",
+      "Profiler.takePreciseCoverage",
+      "Safari",
+      "The wasm platform doesn't support precompiled suites",
+      "WARNING: Running with the experimental wasm platform. This platform is temporary and will be removed in the future, without a breaking change release, in favor of a different method of running wasm tests.This platform should only be used for experimentation at this time.\n",
+      "WASM browser tests don't support the `--pub-serve` argument",
+      "WebSocket",
+      "addEventListener",
+      "application/dart",
+      "application/javascript",
+      "application/json",
+      "application/wasm",
+      "arguments",
+      "browser",
+      "browser.dart",
+      "browser_manager.dart",
+      "callCount",
+      "channel",
+      "chrome.dart",
+      "closeSuite",
+      "command",
+      "createElement",
+      "dart2wasm_runtime.mjs",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:io",
+      "dart:js_util",
+      "dart:math",
+      "dart:typed_data",
+      "data",
+      "debug",
+      "default_settings.dart",
+      "detailed",
+      "displayPause",
+      "document",
+      "dom.dart",
+      "done",
+      "event",
+      "executable",
+      "file",
+      "firefox",
+      "firefox.dart",
+      "getComputedStyle",
+      "google-chrome",
+      "google-chrome-beta",
+      "headless",
+      "href",
+      "id",
+      "iframe",
+      "internet_explorer.dart",
+      "linux",
+      "loadSuite",
+      "localhost",
+      "mac_os",
+      "managerUrl",
+      "message",
+      "metadata",
+      "net",
+      "node",
+      "node.exe",
+      "node_modules",
+      "org-dartlang-sdk:///sdk",
+      "package",
+      "package:async/async.dart",
+      "package:collection/collection.dart",
+      "package:coverage/coverage.dart",
+      "package:http_multi_server/http_multi_server.dart",
+      "package:io/io.dart",
+      "package:js/js.dart",
+      "package:node_preamble/preamble.dart",
+      "package:package_config/package_config.dart",
+      "package:path/path.dart",
+      "package:pool/pool.dart",
+      "package:shelf/shelf.dart",
+      "package:shelf/shelf_io.dart",
+      "package:shelf_packages_handler/shelf_packages_handler.dart",
+      "package:shelf_static/shelf_static.dart",
+      "package:shelf_web_socket/shelf_web_socket.dart",
+      "package:source_span/source_span.dart",
+      "package:stream_channel/stream_channel.dart",
+      "package:test/src/runner/browser/static/default.html.tpl",
+      "package:test/src/runner/browser/static/favicon.ico",
+      "package:test/src/runner/wasm/static/default.html.tpl",
+      "package:test/src/runner/wasm/static/run_wasm_chrome.js",
+      "package:test_api/backend.dart",
+      "package:test_api/expect.dart",
+      "package:test_api/fake.dart",
+      "package:test_api/src/backend/runtime.dart",
+      "package:test_core/scaffolding.dart",
+      "package:test_core/src/bootstrap/vm.dart",
+      "package:test_core/src/executable.dart",
+      "package:test_core/src/runner/application_exception.dart",
+      "package:test_core/src/runner/configuration.dart",
+      "package:test_core/src/runner/dart2js_compiler_pool.dart",
+      "package:test_core/src/runner/environment.dart",
+      "package:test_core/src/runner/hack_register_platform.dart",
+      "package:test_core/src/runner/load_exception.dart",
+      "package:test_core/src/runner/package_version.dart",
+      "package:test_core/src/runner/platform.dart",
+      "package:test_core/src/runner/plugin/customizable_platform.dart",
+      "package:test_core/src/runner/plugin/environment.dart",
+      "package:test_core/src/runner/plugin/platform_helpers.dart",
+      "package:test_core/src/runner/plugin/remote_platform_helpers.dart",
+      "package:test_core/src/runner/runner_suite.dart",
+      "package:test_core/src/runner/suite.dart",
+      "package:test_core/src/runner/wasm_compiler_pool.dart",
+      "package:test_core/src/util/errors.dart",
+      "package:test_core/src/util/io.dart",
+      "package:test_core/src/util/package_config.dart",
+      "package:test_core/src/util/pair.dart",
+      "package:test_core/src/util/stack_trace_mapper.dart",
+      "package:test_core/test_core.dart",
+      "package:typed_data/typed_data.dart",
+      "package:web_socket_channel/web_socket_channel.dart",
+      "package:webkit_inspection_protocol/webkit_inspection_protocol.dart",
+      "package:yaml/yaml.dart",
+      "packages/$sdk",
+      "packages/test/dart.js",
+      "packages/test/src/runner/browser/static/index.html",
+      "ping",
+      "port",
+      "ports",
+      "postMessage",
+      "prefs.js",
+      "process.argv",
+      "ready",
+      "redirect.html",
+      "removeEventListener",
+      "require",
+      "restart",
+      "result",
+      "resume",
+      "runner/browser/platform.dart",
+      "runner/node/platform.dart",
+      "runner/wasm/platform.dart",
+      "safari.dart",
+      "script",
+      "test",
+      "test.browser.mapper",
+      "test.node.mapper",
+      "test_",
+      "text/html",
+      "url",
+      "user_pref(\"browser.shell.checkDefaultBrowser\", false);\nuser_pref(\"dom.disable_open_during_load\", false);\nuser_pref(\"dom.max_script_run_time\", 0);\n",
+      "utf8",
+      "window",
+      "window.parent.postMessage",
+      "windows",
+      "ws",
+      "{{jsRuntimeUrl}}",
+      "{{testName}}",
+      "{{testScript}}",
+      "{{wasmUrl}}"
+    ]
+  },
+  "version": "1.22.0"
+}
