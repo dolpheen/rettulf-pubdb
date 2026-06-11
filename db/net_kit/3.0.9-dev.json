@@ -1,0 +1,566 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/src/utility/typedef/request_type_def.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ApiException": {
+        "fields": [
+          "message",
+          "messages",
+          "statusCode"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/manager/error/api_exception.dart"
+        ],
+        "methods": [
+          "ApiException",
+          "fromJson"
+        ],
+        "types": [
+          "NetKitErrorParams"
+        ]
+      },
+      "AuthTokenModel": {
+        "fields": [
+          "accessToken",
+          "refreshToken"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/model/auth_token_model.dart"
+        ],
+        "methods": [
+          "AuthTokenModel"
+        ],
+        "types": []
+      },
+      "AuthenticationManagerMixin": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/manager/net_kit_manager.dart"
+        ],
+        "methods": [],
+        "types": [
+          "ErrorHandlingMixin",
+          "RequestManagerMixin",
+          "TokenManagerMixin"
+        ]
+      },
+      "Converter": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/src/utility/converter.dart"
+        ],
+        "methods": [
+          "Converter",
+          "toListModel",
+          "toModel"
+        ],
+        "types": []
+      },
+      "ErrorHandlingInterceptor": {
+        "fields": [
+          "logger",
+          "refreshTokenPath",
+          "requestQueue",
+          "tokenManager"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/manager/net_kit_manager.dart"
+        ],
+        "methods": [
+          "ErrorHandlingInterceptor",
+          "getErrorInterceptor"
+        ],
+        "types": [
+          "ErrorInterceptor",
+          "INetKitLogger",
+          "RequestQueue",
+          "TokenManager"
+        ]
+      },
+      "ErrorHandlingMixin": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/manager/net_kit_manager.dart"
+        ],
+        "methods": [],
+        "types": [
+          "RequestManagerMixin"
+        ]
+      },
+      "ErrorInterceptor": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/src/model/error_interceptor.dart"
+        ],
+        "methods": [
+          "ErrorInterceptor"
+        ],
+        "types": []
+      },
+      "HttpAdapter": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/src/manager/adapter/io_http_adapter.dart",
+          "package:net_kit/src/manager/adapter/web_http_adapter.dart"
+        ],
+        "methods": [
+          "getAdapter"
+        ],
+        "types": [
+          "IHttpAdapter"
+        ]
+      },
+      "HttpStatuses": {
+        "fields": [
+          "badRequest",
+          "code",
+          "expectationFailed",
+          "forbidden",
+          "internalServerError",
+          "multipleChoices",
+          "notFound",
+          "ok",
+          "serviceUnavailable",
+          "unauthorized"
+        ],
+        "libraries": [
+          "package:net_kit/src/enum/http_status_codes.dart"
+        ],
+        "methods": [
+          "HttpStatuses"
+        ],
+        "types": []
+      },
+      "IHttpAdapter": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/src/manager/adapter/i_http_adapter.dart"
+        ],
+        "methods": [
+          "getAdapter"
+        ],
+        "types": []
+      },
+      "INetKitLogger": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/src/manager/logger/i_net_kit_logger.dart"
+        ],
+        "methods": [
+          "debug",
+          "error",
+          "fatal",
+          "info",
+          "setLogLevel",
+          "trace",
+          "warning"
+        ],
+        "types": [
+          "LogLevel"
+        ]
+      },
+      "INetKitManager": {
+        "fields": [
+          "get:baseOptions",
+          "get:parameters"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/manager/i_net_kit_manager.dart"
+        ],
+        "methods": [
+          "INetKitManager",
+          "addHeader",
+          "authenticate",
+          "clearAllHeaders",
+          "dispose",
+          "getAllHeaders",
+          "removeAccessToken",
+          "removeHeader",
+          "removeRefreshToken",
+          "requestList",
+          "requestModel",
+          "requestVoid",
+          "setAccessToken",
+          "setRefreshToken",
+          "uploadFormData",
+          "uploadMultipartData"
+        ],
+        "types": [
+          "AuthTokenModel",
+          "NetKitParams",
+          "RequestMethod"
+        ]
+      },
+      "INetKitModel": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/model/i_net_kit_model.dart"
+        ],
+        "methods": [
+          "INetKitModel",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "INetKitModel"
+        ]
+      },
+      "LogLevel": {
+        "fields": [
+          "all",
+          "debug",
+          "error",
+          "fatal",
+          "info",
+          "off",
+          "trace",
+          "warning"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/enum/log_level.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LogLevelExtension": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/enum/log_level.dart"
+        ],
+        "methods": [
+          "toLevel"
+        ],
+        "types": [
+          "LogLevel"
+        ]
+      },
+      "NetKitErrorParams": {
+        "fields": [
+          "couldNotParseError",
+          "jsonIsEmptyError",
+          "jsonNullError",
+          "jsonUnsupportedObjectError",
+          "messageKey",
+          "noInternetError",
+          "notMapTypeError",
+          "statusCodeKey"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/manager/params/net_kit_error_params.dart"
+        ],
+        "methods": [
+          "NetKitErrorParams"
+        ],
+        "types": []
+      },
+      "NetKitLogger": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/src/manager/logger/net_kit_logger.dart"
+        ],
+        "methods": [
+          "debug",
+          "error",
+          "fatal",
+          "info",
+          "setLogLevel",
+          "trace",
+          "warning"
+        ],
+        "types": [
+          "INetKitLogger",
+          "LogLevel"
+        ]
+      },
+      "NetKitManager": {
+        "fields": [
+          "get:baseOptions",
+          "onTokenRefreshed",
+          "parameters"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/manager/net_kit_manager.dart"
+        ],
+        "methods": [
+          "NetKitManager",
+          "addHeader",
+          "authenticate",
+          "clearAllHeaders",
+          "dispose",
+          "getAllHeaders",
+          "getRefreshToken",
+          "removeHeader",
+          "requestList",
+          "requestModel",
+          "requestVoid",
+          "uploadFormData",
+          "uploadMultipartData"
+        ],
+        "types": [
+          "AuthTokenModel",
+          "AuthenticationManagerMixin",
+          "Converter",
+          "ErrorHandlingMixin",
+          "INetKitLogger",
+          "INetKitManager",
+          "LogLevel",
+          "NetKitErrorParams",
+          "NetKitParams",
+          "RequestManagerMixin",
+          "RequestMethod",
+          "TokenManagerMixin",
+          "UploadManagerMixin"
+        ]
+      },
+      "NetKitParams": {
+        "fields": [
+          "accessTokenKey",
+          "baseOptions",
+          "get:isNetKitLoggerEnabled",
+          "interceptor",
+          "internetStatusSubscription",
+          "logLevel",
+          "loggerEnabled",
+          "refreshTokenKey",
+          "testMode"
+        ],
+        "libraries": [
+          "package:net_kit/src/manager/params/net_kit_params.dart"
+        ],
+        "methods": [
+          "NetKitParams"
+        ],
+        "types": [
+          "LogLevel"
+        ]
+      },
+      "RequestManagerMixin": {
+        "fields": [
+          "get:baseOptions",
+          "get:parameters"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/manager/net_kit_manager.dart"
+        ],
+        "methods": [],
+        "types": [
+          "NetKitParams"
+        ]
+      },
+      "RequestMethod": {
+        "fields": [
+          "delete",
+          "get",
+          "patch",
+          "post",
+          "put"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/enum/request_method.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "RequestQueue": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/src/manager/queue/request_queue.dart"
+        ],
+        "methods": [
+          "RequestQueue",
+          "add",
+          "dequeue",
+          "processQueue",
+          "rejectQueuedRequests"
+        ],
+        "types": []
+      },
+      "TokenManager": {
+        "fields": [
+          "addBearerToken",
+          "addRefreshToken",
+          "logger",
+          "onTokensUpdated",
+          "refreshTokenRequest",
+          "retryRequest"
+        ],
+        "libraries": [
+          "package:net_kit/src/manager/token/token_manager.dart"
+        ],
+        "methods": [
+          "TokenManager",
+          "refreshTokens",
+          "retryOriginalRequest"
+        ],
+        "types": [
+          "AuthTokenModel",
+          "INetKitLogger"
+        ]
+      },
+      "TokenManagerMixin": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/manager/net_kit_manager.dart"
+        ],
+        "methods": [
+          "extractTokens",
+          "removeAccessToken",
+          "removeRefreshToken",
+          "setAccessToken",
+          "setRefreshToken"
+        ],
+        "types": [
+          "AuthTokenModel",
+          "ErrorHandlingMixin",
+          "RequestManagerMixin"
+        ]
+      },
+      "UploadManagerMixin": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/manager/net_kit_manager.dart"
+        ],
+        "methods": [],
+        "types": [
+          "RequestManagerMixin"
+        ]
+      },
+      "VoidModel": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/src/model/void_model.dart"
+        ],
+        "methods": [
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "INetKitModel"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:51:37Z",
+  "package": "net_kit",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "ApiException",
+      "AuthTokenModel",
+      "Converter",
+      "INetKitManager",
+      "INetKitModel",
+      "NetKitErrorParams",
+      "NetKitParams"
+    ],
+    "digest": "86ed7c7b0551301b2962ca07f706b6338f535818b8b10cc2984d9f0154d259b6",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "fb5fc3edfb433d5a9f01203093da46fcf85de1560310317d585c7838dfc2ee49",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "../../../net_kit.dart",
+      "../../enum/http_status_codes.dart",
+      "../../enum/log_level.dart",
+      "../../net_kit.dart",
+      "../../utility/typedef/request_type_def.dart",
+      "../enum/http_status_codes.dart",
+      "../enum/log_level.dart",
+      "../enum/request_method.dart",
+      "../logger/i_net_kit_logger.dart",
+      "../manager/error/api_exception.dart",
+      "../model/auth_token_model.dart",
+      "../model/error_interceptor.dart",
+      "../model/i_net_kit_model.dart",
+      "../model/void_model.dart",
+      "../net_kit_manager.dart",
+      "../params/net_kit_error_params.dart",
+      "../utility/converter.dart",
+      "../utility/typedef/request_type_def.dart",
+      "Authorization",
+      "Content-Type",
+      "Could not parse the error",
+      "Could not parse the list response",
+      "Could not parse the response: Not a Map type",
+      "Empty error message",
+      "No internet connection",
+      "Notifying tokens updated...",
+      "Original request retried successfully",
+      "Refresh-Token",
+      "Refreshing token...",
+      "Retrying original request after token refresh",
+      "The data is not a list",
+      "Token refresh in progress, queuing request",
+      "Token refreshed successfully.",
+      "Tokens updated successfully.",
+      "Unsupported object",
+      "adapter/io_http_adapter.dart",
+      "adapter/web_http_adapter.dart",
+      "dart:async",
+      "dart:convert",
+      "dart:core",
+      "error/api_exception.dart",
+      "i_http_adapter.dart",
+      "i_net_kit_logger.dart",
+      "i_net_kit_manager.dart",
+      "interceptors/error_handling_interceptor.dart",
+      "logger/i_net_kit_logger.dart",
+      "logger/net_kit_logger.dart",
+      "message",
+      "mixin/authentication_manager_mixin.dart",
+      "mixin/error_handling_mixin.dart",
+      "mixin/request_manager_mixin.dart",
+      "mixin/token_manager_mixin.dart",
+      "mixin/upload_manager_mixin.dart",
+      "multipart/form-data",
+      "package:dio/browser.dart",
+      "package:dio/dio.dart",
+      "package:dio/io.dart",
+      "package:dio/src/cancel_token.dart",
+      "package:dio/src/dio_exception.dart",
+      "package:dio/src/multipart_file.dart",
+      "package:dio/src/options.dart",
+      "package:logger/logger.dart",
+      "params/net_kit_error_params.dart",
+      "params/net_kit_params.dart",
+      "queue/request_queue.dart",
+      "src/enum/log_level.dart",
+      "src/enum/request_method.dart",
+      "src/manager/error/api_exception.dart",
+      "src/manager/i_net_kit_manager.dart",
+      "src/manager/net_kit_manager.dart",
+      "src/manager/params/net_kit_error_params.dart",
+      "src/model/auth_token_model.dart",
+      "src/model/i_net_kit_model.dart",
+      "status",
+      "token/token_manager.dart",
+      "typedef/request_type_def.dart"
+    ]
+  },
+  "version": "3.0.9-dev"
+}

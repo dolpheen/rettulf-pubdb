@@ -1,0 +1,1277 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "buildIdNoteName",
+          "buildIdNoteType",
+          "buildIdSectionName",
+          "isolateDataSymbolName",
+          "isolateSymbolName",
+          "vmDataSymbolName",
+          "vmSymbolName"
+        ],
+        "libraries": [
+          "package:native_stack_traces/elf.dart",
+          "package:native_stack_traces/native_stack_traces.dart",
+          "package:native_stack_traces/src/constants.dart",
+          "package:native_stack_traces/src/convert.dart",
+          "package:native_stack_traces/src/reader.dart"
+        ],
+        "methods": [
+          "collectPCOffsets",
+          "paddedHex",
+          "tryParseSymbolOffset"
+        ],
+        "types": [
+          "PCOffset"
+        ]
+      },
+      "CallInfo": {
+        "fields": [
+          "get:isInternal"
+        ],
+        "libraries": [
+          "package:native_stack_traces/native_stack_traces.dart",
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CompilationUnit": {
+        "fields": [
+          "header",
+          "referenceTable"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [
+          "callInfo",
+          "fromReader",
+          "nameOfOrigin",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "CallInfo",
+          "CompilationUnit",
+          "CompilationUnitHeader",
+          "DebugInformationEntry",
+          "LineNumberInfo",
+          "Reader"
+        ]
+      },
+      "CompilationUnitHeader": {
+        "fields": [
+          "abbreviations",
+          "abbreviationsOffset",
+          "addressSize",
+          "size",
+          "version"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [
+          "fromReader",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "CompilationUnitHeader",
+          "Reader"
+        ]
+      },
+      "DartCallInfo": {
+        "fields": [
+          "column",
+          "filename",
+          "function",
+          "get:hashCode",
+          "get:isInternal",
+          "inlined",
+          "internal",
+          "line"
+        ],
+        "libraries": [
+          "package:native_stack_traces/native_stack_traces.dart",
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [
+          "==",
+          "DartCallInfo",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "CallInfo"
+        ]
+      },
+      "DebugInfo": {
+        "fields": [
+          "units"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [
+          "callInfo",
+          "fromReader",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "CallInfo",
+          "CompilationUnit",
+          "DebugInfo",
+          "LineNumberInfo",
+          "Reader"
+        ]
+      },
+      "DebugInformationEntry": {
+        "fields": [
+          "attributes",
+          "children",
+          "code",
+          "get:abstractOrigin",
+          "get:callColumn",
+          "get:callFileIndex",
+          "get:callLine",
+          "get:highPC",
+          "get:isArtificial",
+          "get:lowPC",
+          "get:name",
+          "get:sectionOffset"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [
+          "[]",
+          "callInfo",
+          "containsKey",
+          "containsPC",
+          "fromReader",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "CallInfo",
+          "CompilationUnit",
+          "CompilationUnitHeader",
+          "DebugInformationEntry",
+          "LineNumberProgram",
+          "Reader"
+        ]
+      },
+      "Dwarf": {
+        "fields": [
+          "get:buildId",
+          "isolateStartAddress",
+          "vmStartAddress"
+        ],
+        "libraries": [
+          "package:native_stack_traces/native_stack_traces.dart",
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [
+          "callInfoFor",
+          "dumpFileInfo",
+          "fromBytes",
+          "fromDwarfContainer",
+          "fromFile",
+          "fromReader",
+          "toString",
+          "virtualAddressOf",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "CallInfo",
+          "DebugInfo",
+          "Dwarf",
+          "DwarfContainer",
+          "LineNumberInfo",
+          "PCOffset",
+          "Reader"
+        ]
+      },
+      "DwarfContainer": {
+        "fields": [
+          "get:buildId",
+          "get:debugLineStringTable",
+          "get:debugStringTable",
+          "get:isolateStartAddress",
+          "get:vmStartAddress"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/dwarf_container.dart"
+        ],
+        "methods": [
+          "abbreviationsTableReader",
+          "debugInfoReader",
+          "lineNumberInfoReader",
+          "staticSymbolAt",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "DwarfContainerStringTable",
+          "DwarfContainerSymbol",
+          "Reader"
+        ]
+      },
+      "DwarfContainerStringTable": {
+        "fields": [],
+        "libraries": [
+          "package:native_stack_traces/src/dwarf_container.dart"
+        ],
+        "methods": [
+          "[]"
+        ],
+        "types": []
+      },
+      "DwarfContainerSymbol": {
+        "fields": [
+          "get:name",
+          "get:value"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/dwarf_container.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DwarfStackTraceDecoder": {
+        "fields": [],
+        "libraries": [
+          "package:native_stack_traces/native_stack_traces.dart",
+          "package:native_stack_traces/src/convert.dart"
+        ],
+        "methods": [
+          "DwarfStackTraceDecoder",
+          "bind"
+        ],
+        "types": [
+          "Dwarf"
+        ]
+      },
+      "DynamicTable": {
+        "fields": [],
+        "libraries": [
+          "package:native_stack_traces/elf.dart",
+          "package:native_stack_traces/src/elf.dart"
+        ],
+        "methods": [
+          "[]",
+          "containsKey",
+          "fromReader",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "DynamicTable",
+          "DynamicTableTag",
+          "Reader",
+          "Section",
+          "SectionHeaderEntry"
+        ]
+      },
+      "DynamicTableTag": {
+        "fields": [
+          "DT_HASH",
+          "DT_NEEDED",
+          "DT_NULL",
+          "DT_PLTGOT",
+          "DT_PLTRELSZ",
+          "DT_RELA",
+          "DT_RELAENT",
+          "DT_RELASZ",
+          "DT_STRSZ",
+          "DT_STRTAB",
+          "DT_SYMENT",
+          "DT_SYMTAB"
+        ],
+        "libraries": [
+          "package:native_stack_traces/elf.dart",
+          "package:native_stack_traces/src/elf.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Elf": {
+        "fields": [
+          "get:buildId",
+          "get:debugLineStringTable",
+          "get:debugStringTable",
+          "get:isolateStartAddress",
+          "get:vmStartAddress"
+        ],
+        "libraries": [
+          "package:native_stack_traces/elf.dart",
+          "package:native_stack_traces/src/elf.dart"
+        ],
+        "methods": [
+          "abbreviationsTableReader",
+          "debugInfoReader",
+          "dynamicSymbolFor",
+          "fromBuffer",
+          "fromFile",
+          "fromReader",
+          "lineNumberInfoReader",
+          "namedSections",
+          "sectionHasValidSegmentAddresses",
+          "staticSymbolAt",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "DwarfContainer",
+          "DwarfContainerStringTable",
+          "Elf",
+          "ElfHeader",
+          "ProgramHeader",
+          "Reader",
+          "Section",
+          "SectionHeader",
+          "SectionHeaderEntry",
+          "StringTable",
+          "Symbol"
+        ]
+      },
+      "ElfHeader": {
+        "fields": [
+          "endian",
+          "entry",
+          "flags",
+          "get:programHeaderSize",
+          "get:sectionHeaderSize",
+          "headerSize",
+          "programHeaderCount",
+          "programHeaderEntrySize",
+          "programHeaderOffset",
+          "sectionHeaderCount",
+          "sectionHeaderEntrySize",
+          "sectionHeaderOffset",
+          "sectionHeaderStringsIndex",
+          "wordSize"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/elf.dart"
+        ],
+        "methods": [
+          "fromReader",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "ElfHeader",
+          "Reader"
+        ]
+      },
+      "FileEntry": {
+        "fields": [
+          "directoryIndex",
+          "lastModified",
+          "name",
+          "size"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [
+          "fromReader",
+          "toString"
+        ],
+        "types": [
+          "FileEntry",
+          "Reader"
+        ]
+      },
+      "FileInfo": {
+        "fields": [],
+        "libraries": [
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [
+          "[]",
+          "containsKey",
+          "fromReader",
+          "fromReaderDwarf5",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "FileEntry",
+          "FileInfo",
+          "Reader"
+        ]
+      },
+      "InstructionsSection": {
+        "fields": [
+          "isolate",
+          "none",
+          "vm"
+        ],
+        "libraries": [
+          "package:native_stack_traces/native_stack_traces.dart",
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LineNumberInfo": {
+        "fields": [
+          "programs"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [
+          "[]",
+          "containsKey",
+          "fromReader",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "LineNumberInfo",
+          "LineNumberProgram",
+          "Reader"
+        ]
+      },
+      "LineNumberProgram": {
+        "fields": [
+          "cachedLookups",
+          "calculatedMatrix",
+          "header"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [
+          "[]",
+          "column",
+          "containsKey",
+          "filename",
+          "fromReader",
+          "lineNumber",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "LineNumberProgram",
+          "LineNumberProgramHeader",
+          "LineNumberState",
+          "Reader"
+        ]
+      },
+      "LineNumberProgramHeader": {
+        "fields": [
+          "defaultIsStatement",
+          "filesInfo",
+          "headerLength",
+          "includeDirectories",
+          "lineBase",
+          "lineRange",
+          "minimumInstructionLength",
+          "opcodeBase",
+          "size",
+          "standardOpcodeLengths",
+          "version"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [
+          "fromReader",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "FileInfo",
+          "LineNumberProgramHeader",
+          "Reader"
+        ]
+      },
+      "LineNumberState": {
+        "fields": [
+          "address",
+          "basicBlock",
+          "column",
+          "defaultIsStatement",
+          "discriminator",
+          "endSequence",
+          "epilogueBegin",
+          "fileIndex",
+          "isStatement",
+          "isa",
+          "line",
+          "opIndex",
+          "prologueEnd"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [
+          "LineNumberState",
+          "clone",
+          "reset",
+          "toString"
+        ],
+        "types": [
+          "LineNumberState"
+        ]
+      },
+      "LoadCommand": {
+        "fields": [
+          "LC_SEGMENT",
+          "LC_SEGMENT_64",
+          "LC_SYMTAB",
+          "cmd",
+          "cmdsize"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/macho.dart"
+        ],
+        "methods": [
+          "fromReader",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "LoadCommand",
+          "Reader"
+        ]
+      },
+      "MachO": {
+        "fields": [
+          "get:buildId",
+          "get:debugLineStringTable",
+          "get:debugStringTable",
+          "get:isolateStartAddress",
+          "get:vmStartAddress"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/macho.dart"
+        ],
+        "methods": [
+          "abbreviationsTableReader",
+          "debugInfoReader",
+          "fromFile",
+          "fromReader",
+          "handleDSYM",
+          "lineNumberInfoReader",
+          "staticSymbolAt",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "DwarfContainer",
+          "DwarfContainerStringTable",
+          "LoadCommand",
+          "MachO",
+          "MachOHeader",
+          "Reader",
+          "SegmentCommand",
+          "StringTable",
+          "Symbol",
+          "SymbolTable"
+        ]
+      },
+      "MachOHeader": {
+        "fields": [
+          "cpusubtype",
+          "cputype",
+          "filetype",
+          "flags",
+          "magic",
+          "ncmds",
+          "reserved",
+          "size",
+          "sizeofcmds"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/macho.dart"
+        ],
+        "methods": [
+          "fromReader",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "MachOHeader",
+          "Reader"
+        ]
+      },
+      "Note": {
+        "fields": [
+          "description",
+          "name",
+          "type"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/elf.dart"
+        ],
+        "methods": [
+          "fromReader",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "Note",
+          "Reader",
+          "Section",
+          "SectionHeaderEntry"
+        ]
+      },
+      "PCOffset": {
+        "fields": [
+          "get:hashCode",
+          "offset",
+          "section"
+        ],
+        "libraries": [
+          "package:native_stack_traces/native_stack_traces.dart",
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [
+          "==",
+          "PCOffset",
+          "callInfoFrom",
+          "toString",
+          "virtualAddressIn"
+        ],
+        "types": [
+          "CallInfo",
+          "Dwarf",
+          "InstructionsSection"
+        ]
+      },
+      "ProgramHeader": {
+        "fields": [
+          "get:length"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/elf.dart"
+        ],
+        "methods": [
+          "[]",
+          "fromReader",
+          "loadSegmentFor",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "ElfHeader",
+          "ProgramHeader",
+          "ProgramHeaderEntry",
+          "Reader"
+        ]
+      },
+      "ProgramHeaderEntry": {
+        "fields": [
+          "align",
+          "filesz",
+          "flags",
+          "memsz",
+          "offset",
+          "paddr",
+          "type",
+          "vaddr",
+          "wordSize"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/elf.dart"
+        ],
+        "methods": [
+          "fromReader",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "ProgramHeaderEntry",
+          "Reader"
+        ]
+      },
+      "Reader": {
+        "fields": [
+          "bdata",
+          "get:bytes",
+          "get:done",
+          "get:endian",
+          "get:length",
+          "get:offset",
+          "get:start",
+          "get:wordSize",
+          "set:endian",
+          "set:wordSize"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/reader.dart"
+        ],
+        "methods": [
+          "fromFile",
+          "fromTypedData",
+          "readByte",
+          "readBytes",
+          "readFixedLengthNullTerminatedString",
+          "readLEB128EncodedInteger",
+          "readNullTerminatedString",
+          "readRawBytes",
+          "readRepeated",
+          "readRepeatedWithOffsets",
+          "readWord",
+          "refocusedCopy",
+          "seek",
+          "toString",
+          "writeCurrentReaderPosition"
+        ],
+        "types": [
+          "Reader"
+        ]
+      },
+      "Section": {
+        "fields": [
+          "addr",
+          "align",
+          "flags",
+          "get:length",
+          "get:offset",
+          "get:virtualAddress",
+          "headerEntry",
+          "nreloc",
+          "offset",
+          "reloff",
+          "reserved1",
+          "reserved2",
+          "reserved3",
+          "sectname",
+          "segname",
+          "size"
+        ],
+        "libraries": [
+          "package:native_stack_traces/elf.dart",
+          "package:native_stack_traces/src/elf.dart",
+          "package:native_stack_traces/src/macho.dart"
+        ],
+        "methods": [
+          "fromReader",
+          "refocus",
+          "refocusedCopy",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "Reader",
+          "Section",
+          "SectionHeaderEntry"
+        ]
+      },
+      "SectionHeader": {
+        "fields": [
+          "entries"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/elf.dart"
+        ],
+        "methods": [
+          "fromReader",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "ElfHeader",
+          "Reader",
+          "SectionHeader",
+          "SectionHeaderEntry"
+        ]
+      },
+      "SectionHeaderEntry": {
+        "fields": [
+          "addr",
+          "addrAlign",
+          "entrySize",
+          "flags",
+          "get:hasBits",
+          "get:isAllocated",
+          "get:isExecutable",
+          "get:isWritable",
+          "info",
+          "link",
+          "name",
+          "nameIndex",
+          "offset",
+          "size",
+          "type",
+          "wordSize"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/elf.dart"
+        ],
+        "methods": [
+          "fromReader",
+          "setName",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "Reader",
+          "SectionHeaderEntry",
+          "StringTable"
+        ]
+      },
+      "SegmentCommand": {
+        "fields": [
+          "fileoff",
+          "filesize",
+          "flags",
+          "initprot",
+          "maxprot",
+          "nsects",
+          "sections",
+          "segname",
+          "vmaddr",
+          "vmsize"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/macho.dart"
+        ],
+        "methods": [
+          "fromReader",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "LoadCommand",
+          "Reader",
+          "Section",
+          "SegmentCommand"
+        ]
+      },
+      "StackTraceHeader": {
+        "fields": [],
+        "libraries": [
+          "package:native_stack_traces/native_stack_traces.dart",
+          "package:native_stack_traces/src/convert.dart"
+        ],
+        "methods": [
+          "StackTraceHeader",
+          "offsetOf"
+        ],
+        "types": [
+          "PCOffset"
+        ]
+      },
+      "StringTable": {
+        "fields": [],
+        "libraries": [
+          "package:native_stack_traces/src/elf.dart",
+          "package:native_stack_traces/src/macho.dart"
+        ],
+        "methods": [
+          "[]",
+          "fromReader",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "DwarfContainerStringTable",
+          "Reader",
+          "Section",
+          "SectionHeaderEntry",
+          "StringTable"
+        ]
+      },
+      "StubCallInfo": {
+        "fields": [
+          "get:hashCode",
+          "name",
+          "offset"
+        ],
+        "libraries": [
+          "package:native_stack_traces/native_stack_traces.dart",
+          "package:native_stack_traces/src/dwarf.dart"
+        ],
+        "methods": [
+          "==",
+          "StubCallInfo",
+          "toString"
+        ],
+        "types": [
+          "CallInfo"
+        ]
+      },
+      "Symbol": {
+        "fields": [
+          "desc",
+          "get:bind",
+          "get:type",
+          "get:visibility",
+          "index",
+          "info",
+          "name",
+          "nameIndex",
+          "other",
+          "sect",
+          "sectionIndex",
+          "size",
+          "type",
+          "value"
+        ],
+        "libraries": [
+          "package:native_stack_traces/elf.dart",
+          "package:native_stack_traces/src/elf.dart",
+          "package:native_stack_traces/src/macho.dart"
+        ],
+        "methods": [
+          "fromReader",
+          "toString",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "DwarfContainerSymbol",
+          "Reader",
+          "Symbol",
+          "SymbolBinding",
+          "SymbolType",
+          "SymbolVisibility"
+        ]
+      },
+      "SymbolBinding": {
+        "fields": [
+          "STB_GLOBAL",
+          "STB_LOCAL",
+          "STB_WEAK"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/elf.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SymbolTable": {
+        "fields": [
+          "get:keys",
+          "get:values"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/elf.dart",
+          "package:native_stack_traces/src/macho.dart"
+        ],
+        "methods": [
+          "[]",
+          "containsKey",
+          "fromReader",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "Reader",
+          "Section",
+          "SectionHeaderEntry",
+          "StringTable",
+          "Symbol",
+          "SymbolTable"
+        ]
+      },
+      "SymbolTableCommand": {
+        "fields": [],
+        "libraries": [
+          "package:native_stack_traces/src/macho.dart"
+        ],
+        "methods": [
+          "fromReader",
+          "load",
+          "writeToStringBuffer"
+        ],
+        "types": [
+          "LoadCommand",
+          "Reader",
+          "SymbolTable",
+          "SymbolTableCommand"
+        ]
+      },
+      "SymbolType": {
+        "fields": [
+          "STT_FUNC",
+          "STT_NOTYPE",
+          "STT_OBJECT"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/elf.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SymbolVisibility": {
+        "fields": [
+          "STV_DEFAULT",
+          "STV_HIDDEN",
+          "STV_INTERNAL",
+          "STV_PROTECTED"
+        ],
+        "libraries": [
+          "package:native_stack_traces/src/elf.dart"
+        ],
+        "methods": [],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:51:26Z",
+  "package": "native_stack_traces",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "b74fe7d5cbe52ccb70cb7017ab0766840d618de85363b49cdaefd70e07ed182b",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "6051747ee5059e592677521920f538488d0c3b63f74e7142047c271f1c2364e2",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      " ",
+      "  ",
+      "    ",
+      "      ",
+      "                 Section information",
+      "               Header",
+      "             ELF header information",
+      "            Load commands",
+      "            Program header information",
+      "            Section header information",
+      "          Debug information",
+      "         Abbreviation tables",
+      "        Line number information",
+      "    #(\\d+) abs (?<absolute>[\\da-f]+)(?: virt (?<virtual>[\\da-f]+))? (?<rest>.*)$",
+      "    Attributes:",
+      "    Children: ",
+      "    Opcode ",
+      "    Tag: ",
+      "  Abbreviations offset: 0x",
+      "  Address size: ",
+      "  Default value of is_stmt: ",
+      "  Description: ",
+      "  Header length: ",
+      "  Line base: ",
+      "  Line range: ",
+      "  Min instruction length: ",
+      "  Name: \"",
+      "  Opcode base: ",
+      "  Size: ",
+      "  Type: ",
+      "  Version: ",
+      " (",
+      " (at offset 0x",
+      " => ",
+      " a global",
+      " a local",
+      " a weak",
+      " and big-endian",
+      " and little-endian",
+      " at offset 0x",
+      " bits",
+      " bytes at location 0x",
+      " bytes long.",
+      " hidden",
+      " in section ",
+      " internal",
+      " of size ",
+      " protected",
+      " symbol that points to ",
+      " symbols of size ",
+      "\"",
+      "\" (@ ",
+      "\" =>",
+      "\" is a dynamic table:",
+      "\" is a note:",
+      "\" is a string table:",
+      "\" is a symbol table:",
+      "\" is unparsed and ",
+      "\" of size ",
+      "(?<symbol>",
+      "(Offset ",
+      ")",
+      ") ",
+      "):",
+      ")\\+(?<offset>(?:0x)?[\\da-f]+)",
+      "----------------------------------------",
+      "-----------------------------------------------------",
+      ".dSYM",
+      ".debug_abbrev",
+      ".debug_info",
+      ".debug_line",
+      ".debug_line_str",
+      ".debug_str",
+      ".dynstr",
+      ".dynsym",
+      ".note.gnu.build-id",
+      ".strtab",
+      ".symtab",
+      "0",
+      "0x",
+      "64-bit DWARF format detected",
+      ":",
+      ": ",
+      "<unknown file>",
+      "<unresolved>",
+      "Abbreviation code: ",
+      "Abbreviations table:",
+      "Address alignment: 0x",
+      "Address: 0x",
+      "Alignment: 0x",
+      "Attempted to execute extended opcode 0",
+      "Bytes around current position:",
+      "Child ",
+      "Children (",
+      "Compilation unit:",
+      "Contents",
+      "Cpu Subtype: 0x",
+      "Cpu Type: 0x",
+      "DT_HASH",
+      "DT_NEEDED",
+      "DT_NULL",
+      "DT_PLTGOT",
+      "DT_PLTRELSZ",
+      "DT_RELA",
+      "DT_RELASZ",
+      "DT_STRSZ",
+      "DT_STRTAB",
+      "DT_SYMENT",
+      "DT_SYMTAB",
+      "DWARF",
+      "DW_AT",
+      "DW_CHILDREN_no",
+      "DW_CHILDREN_yes",
+      "DW_FORM",
+      "DW_LNCT",
+      "DW_LNE_define_file instruction not handled",
+      "DW_TAG",
+      "Debug information entry at offset 0x",
+      "Dir",
+      "Endianness: ",
+      "Entry",
+      "Entry ",
+      "Entry point: 0x",
+      "Entry size: ",
+      "File information:",
+      "File is truncated before program header",
+      "File is truncated before section header",
+      "File is truncated within the program header",
+      "File is truncated within the section header",
+      "Filetype: 0x",
+      "Flags: 0x",
+      "Format is ",
+      "GNU",
+      "Include directories:",
+      "Info: 0x",
+      "Internal reader error: reading Elf64_Xword in 32-bit ELF file",
+      "Length: 0x",
+      "Line number program @ 0x",
+      "Link: ",
+      "MD5",
+      "Magic: 0x",
+      "Missing entry format(s)",
+      "Multiple directory formats not currently handled",
+      "Name",
+      "Name: ",
+      "No .debug_line_str available",
+      "No .debug_str available",
+      "No DWARF information in Mach-O file",
+      "No address size available",
+      "No file information.",
+      "No include directories.",
+      "Number of commands: ",
+      "Offset: 0x",
+      "PT_DYNAMIC",
+      "PT_GNU_EH_FRAME",
+      "PT_GNU_RELRO",
+      "PT_GNU_STACK",
+      "PT_LOAD",
+      "PT_NOTE",
+      "PT_NULL",
+      "PT_PHDR",
+      "Physical address: 0x",
+      "Program header entry count: ",
+      "Program header entry size: ",
+      "Program header offset: 0x",
+      "Reserved: 0x",
+      "Resources",
+      "Results of line number program:",
+      "SHT_DYNAMIC",
+      "SHT_DYNSYM",
+      "SHT_HASH",
+      "SHT_NOBITS",
+      "SHT_NOTE",
+      "SHT_NULL",
+      "SHT_PROGBITS",
+      "SHT_STRTAB",
+      "SHT_SYMTAB",
+      "Section \"",
+      "Section header entry count: ",
+      "Section header entry size: ",
+      "Section header offset: 0x",
+      "Section header string table index invalid",
+      "Section header strings index: ",
+      "Sections:",
+      "Segment \"",
+      "Size",
+      "Size in file: ",
+      "Size in memory: ",
+      "Size of commands: ",
+      "Size: ",
+      "Standard opcode lengths:",
+      "Start:  0x",
+      "Symbol table with ",
+      "Time",
+      "Type: ",
+      "Unexpected e_ident[EI_CLASS] value",
+      "Unexpected e_ident[EI_VERSION] value",
+      "Unexpected e_indent[EI_DATA] value",
+      "Unexpected e_version value",
+      "Unexpected value for instructions section",
+      "Uninterpreted command 0x",
+      "Unknown tag ",
+      "Unrecognized reserved initial length value",
+      "Unterminated directory entry",
+      "Virtual address: 0x",
+      "Word size: ",
+      "__DWARF",
+      "__debug_abbrev",
+      "__debug_info",
+      "__debug_line",
+      "__debug_line_str",
+      "__debug_str",
+      "_kDartIsolateSnapshotData",
+      "_kDartIsolateSnapshotInstructions",
+      "_kDartVmSnapshotData",
+      "_kDartVmSnapshotInstructions",
+      "absolute",
+      "constants.dart",
+      "dart:async",
+      "dart:collection",
+      "dart:io",
+      "dart:math",
+      "dart:typed_data",
+      "debugLineStringTable",
+      "debugStringTable",
+      "dwarf.dart",
+      "dwarf_container.dart",
+      "elf.dart",
+      "isolate_instructions(?:=|: )([\\da-f]+),? vm_instructions(?:=|: )([\\da-f]+)",
+      "macho.dart",
+      "name",
+      "offset",
+      "package:path/path.dart",
+      "reader.dart",
+      "rest",
+      "src/constants.dart",
+      "src/convert.dart",
+      "src/dwarf.dart",
+      "src/elf.dart",
+      "symbol",
+      "virtual",
+      "|",
+      "ELF"
+    ]
+  },
+  "version": "0.5.0"
+}

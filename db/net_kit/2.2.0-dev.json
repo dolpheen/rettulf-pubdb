@@ -1,0 +1,380 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/src/utility/typedef/request_type_def.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ApiException": {
+        "fields": [
+          "message",
+          "messages",
+          "statusCode"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/manager/error/api_exception.dart"
+        ],
+        "methods": [
+          "ApiException",
+          "fromJson"
+        ],
+        "types": [
+          "NetKitErrorParams"
+        ]
+      },
+      "Converter": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/src/utility/converter.dart"
+        ],
+        "methods": [
+          "Converter",
+          "toListModel",
+          "toModel"
+        ],
+        "types": [
+          "INetKitLogger"
+        ]
+      },
+      "ErrorHandler": {
+        "fields": [
+          "errorParams"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/manager/net_kit_manager.dart"
+        ],
+        "methods": [
+          "ErrorHandler"
+        ],
+        "types": [
+          "NetKitErrorParams"
+        ]
+      },
+      "HttpAdapter": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/src/manager/adapter/io_http_adapter.dart",
+          "package:net_kit/src/manager/adapter/web_http_adapter.dart"
+        ],
+        "methods": [
+          "getAdapter"
+        ],
+        "types": [
+          "IHttpAdapter"
+        ]
+      },
+      "HttpStatuses": {
+        "fields": [
+          "badRequest",
+          "code",
+          "expectationFailed",
+          "forbidden",
+          "internalServerError",
+          "multipleChoices",
+          "notFound",
+          "ok",
+          "serviceUnavailable",
+          "unauthorized"
+        ],
+        "libraries": [
+          "package:net_kit/src/enum/http_status_codes.dart"
+        ],
+        "methods": [
+          "HttpStatuses"
+        ],
+        "types": []
+      },
+      "IHttpAdapter": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/src/manager/adapter/i_http_adapter.dart"
+        ],
+        "methods": [
+          "getAdapter"
+        ],
+        "types": []
+      },
+      "INetKitLogger": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/src/manager/logger/i_net_kit_logger.dart"
+        ],
+        "methods": [
+          "debug",
+          "error",
+          "fatal",
+          "info",
+          "setLogLevel",
+          "trace",
+          "warning"
+        ],
+        "types": [
+          "LogLevel"
+        ]
+      },
+      "INetKitManager": {
+        "fields": [
+          "get:baseOptions",
+          "get:parameters"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/manager/i_net_kit_manager.dart"
+        ],
+        "methods": [
+          "INetKitManager",
+          "addBearerToken",
+          "addHeader",
+          "clearAllHeaders",
+          "dispose",
+          "getAllHeaders",
+          "removeBearerToken",
+          "removeHeader",
+          "requestList",
+          "requestModel",
+          "requestVoid"
+        ],
+        "types": [
+          "NetKitParams",
+          "RequestMethod"
+        ]
+      },
+      "INetKitModel": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/model/i_net_kit_model.dart"
+        ],
+        "methods": [
+          "INetKitModel",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "INetKitModel"
+        ]
+      },
+      "LogLevel": {
+        "fields": [
+          "all",
+          "debug",
+          "error",
+          "fatal",
+          "info",
+          "off",
+          "trace",
+          "warning"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/enum/log_level.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LogLevelExtension": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/enum/log_level.dart"
+        ],
+        "methods": [
+          "toLevel"
+        ],
+        "types": [
+          "LogLevel"
+        ]
+      },
+      "NetKitErrorParams": {
+        "fields": [
+          "couldNotParseError",
+          "jsonIsEmptyError",
+          "jsonNullError",
+          "jsonUnsupportedObjectError",
+          "messageKey",
+          "noInternetError",
+          "notMapTypeError",
+          "statusCodeKey"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/manager/params/net_kit_error_params.dart"
+        ],
+        "methods": [
+          "NetKitErrorParams"
+        ],
+        "types": []
+      },
+      "NetKitLogger": {
+        "fields": [],
+        "libraries": [
+          "package:net_kit/src/manager/logger/net_kit_logger.dart"
+        ],
+        "methods": [
+          "debug",
+          "error",
+          "fatal",
+          "info",
+          "setLogLevel",
+          "trace",
+          "warning"
+        ],
+        "types": [
+          "INetKitLogger",
+          "LogLevel"
+        ]
+      },
+      "NetKitManager": {
+        "fields": [
+          "get:baseOptions",
+          "parameters"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/manager/net_kit_manager.dart"
+        ],
+        "methods": [
+          "NetKitManager",
+          "addBearerToken",
+          "addHeader",
+          "clearAllHeaders",
+          "dispose",
+          "getAllHeaders",
+          "isRequestFailed",
+          "removeBearerToken",
+          "removeHeader",
+          "requestList",
+          "requestModel",
+          "requestVoid"
+        ],
+        "types": [
+          "Converter",
+          "ErrorHandler",
+          "INetKitLogger",
+          "INetKitManager",
+          "LogLevel",
+          "NetKitParams",
+          "RequestMethod"
+        ]
+      },
+      "NetKitParams": {
+        "fields": [
+          "baseOptions",
+          "get:isNetKitLoggerEnabled",
+          "interceptor",
+          "internetStatusSubscription",
+          "logLevel",
+          "loggerEnabled",
+          "testMode"
+        ],
+        "libraries": [
+          "package:net_kit/src/manager/params/net_kit_params.dart"
+        ],
+        "methods": [
+          "NetKitParams"
+        ],
+        "types": [
+          "LogLevel"
+        ]
+      },
+      "RequestMethod": {
+        "fields": [
+          "delete",
+          "get",
+          "patch",
+          "post",
+          "put"
+        ],
+        "libraries": [
+          "package:net_kit/net_kit.dart",
+          "package:net_kit/src/enum/request_method.dart"
+        ],
+        "methods": [],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:51:33Z",
+  "package": "net_kit",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "ApiException",
+      "INetKitManager",
+      "INetKitModel",
+      "NetKitErrorParams",
+      "NetKitParams"
+    ],
+    "digest": "96e62680133579beb40f87c57e0926f4101f03b7c5d33978566b0b3760cc07b7",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "81a9517cefd0556be875cd2d83cbc75a144b280dcaf5d2ef0747126e99408368",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "../../../net_kit.dart",
+      "../../enum/http_status_codes.dart",
+      "../../enum/log_level.dart",
+      "../../utility/typedef/request_type_def.dart",
+      "../enum/http_status_codes.dart",
+      "../enum/log_level.dart",
+      "../enum/request_method.dart",
+      "../manager/error/api_exception.dart",
+      "../manager/logger/i_net_kit_logger.dart",
+      "../model/i_net_kit_model.dart",
+      "../net_kit_manager.dart",
+      "../params/net_kit_error_params.dart",
+      "../utility/converter.dart",
+      "../utility/typedef/request_type_def.dart",
+      "Authorization",
+      "Could not parse the error",
+      "Could not parse the list response",
+      "Could not parse the response: Not a Map type",
+      "Empty error message",
+      "No internet connection",
+      "The data is not a list",
+      "Unsupported object",
+      "adapter/io_http_adapter.dart",
+      "adapter/web_http_adapter.dart",
+      "dart:async",
+      "dart:convert",
+      "dart:core",
+      "error/api_exception.dart",
+      "error/error_handler.dart",
+      "i_http_adapter.dart",
+      "i_net_kit_logger.dart",
+      "i_net_kit_manager.dart",
+      "logger/i_net_kit_logger.dart",
+      "logger/net_kit_logger.dart",
+      "message",
+      "package:dio/browser.dart",
+      "package:dio/dio.dart",
+      "package:dio/io.dart",
+      "package:dio/src/cancel_token.dart",
+      "package:dio/src/dio_exception.dart",
+      "package:dio/src/multipart_file.dart",
+      "package:dio/src/options.dart",
+      "package:logger/logger.dart",
+      "params/net_kit_error_params.dart",
+      "params/net_kit_params.dart",
+      "src/enum/log_level.dart",
+      "src/enum/request_method.dart",
+      "src/manager/error/api_exception.dart",
+      "src/manager/i_net_kit_manager.dart",
+      "src/manager/net_kit_manager.dart",
+      "src/manager/params/net_kit_error_params.dart",
+      "src/model/i_net_kit_model.dart",
+      "status",
+      "typedef/request_type_def.dart"
+    ]
+  },
+  "version": "2.2.0-dev"
+}
