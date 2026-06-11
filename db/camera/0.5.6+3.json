@@ -1,0 +1,523 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:camera/camera.dart"
+        ],
+        "methods": [
+          "availableCameras",
+          "serializeResolutionPreset"
+        ],
+        "types": [
+          "CameraDescription",
+          "CameraImage",
+          "ResolutionPreset"
+        ]
+      },
+      "Camera": {
+        "fields": [
+          "set:previewTexture"
+        ],
+        "libraries": [
+          "package:camera/new/camera.dart",
+          "package:camera/new/src/support_android/camera.dart"
+        ],
+        "methods": [
+          "getCameraInfo",
+          "getNumberOfCameras",
+          "open",
+          "release",
+          "startPreview",
+          "stopPreview"
+        ],
+        "types": [
+          "Camera",
+          "CameraInfo",
+          "NativeMethodCallHandler",
+          "NativeTexture"
+        ]
+      },
+      "CameraApi": {
+        "fields": [
+          "android",
+          "iOS",
+          "supportAndroid"
+        ],
+        "libraries": [
+          "package:camera/new/camera.dart",
+          "package:camera/new/src/common/camera_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CameraChannel": {
+        "fields": [
+          "callbacks",
+          "channel",
+          "nextHandle"
+        ],
+        "libraries": [
+          "package:camera/new/src/common/camera_channel.dart"
+        ],
+        "methods": [
+          "registerCallback",
+          "unregisterCallback"
+        ],
+        "types": []
+      },
+      "CameraConfigurator": {
+        "fields": [
+          "get:previewTextureId"
+        ],
+        "libraries": [
+          "package:camera/new/camera.dart",
+          "package:camera/new/src/common/camera_interface.dart"
+        ],
+        "methods": [
+          "addPreviewTexture",
+          "dispose",
+          "initialize",
+          "start",
+          "stop"
+        ],
+        "types": []
+      },
+      "CameraController": {
+        "fields": [
+          "api",
+          "configurator",
+          "description",
+          "enableAudio",
+          "get:isDisposed",
+          "resolutionPreset"
+        ],
+        "libraries": [
+          "package:camera/camera.dart",
+          "package:camera/new/camera.dart",
+          "package:camera/new/src/camera_controller.dart"
+        ],
+        "methods": [
+          "CameraController",
+          "availableCameras",
+          "customConfigurator",
+          "dispose",
+          "initialize",
+          "pauseVideoRecording",
+          "prepareForVideoRecording",
+          "resumeVideoRecording",
+          "start",
+          "startImageStream",
+          "startVideoRecording",
+          "stop",
+          "stopImageStream",
+          "stopVideoRecording",
+          "takePicture"
+        ],
+        "types": [
+          "CameraApi",
+          "CameraConfigurator",
+          "CameraController",
+          "CameraDescription",
+          "CameraValue",
+          "ResolutionPreset"
+        ]
+      },
+      "CameraDescription": {
+        "fields": [
+          "get:direction",
+          "get:hashCode",
+          "get:name",
+          "lensDirection",
+          "name",
+          "sensorOrientation"
+        ],
+        "libraries": [
+          "package:camera/camera.dart",
+          "package:camera/new/camera.dart",
+          "package:camera/new/src/common/camera_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "CameraDescription",
+          "toString"
+        ],
+        "types": [
+          "CameraLensDirection",
+          "LensDirection"
+        ]
+      },
+      "CameraException": {
+        "fields": [
+          "code",
+          "description"
+        ],
+        "libraries": [
+          "package:camera/camera.dart"
+        ],
+        "methods": [
+          "CameraException",
+          "toString"
+        ],
+        "types": []
+      },
+      "CameraImage": {
+        "fields": [
+          "format",
+          "height",
+          "planes",
+          "width"
+        ],
+        "libraries": [
+          "package:camera/camera.dart"
+        ],
+        "methods": [],
+        "types": [
+          "ImageFormat",
+          "Plane"
+        ]
+      },
+      "CameraInfo": {
+        "fields": [
+          "facing",
+          "get:direction",
+          "get:name",
+          "id",
+          "orientation"
+        ],
+        "libraries": [
+          "package:camera/new/camera.dart",
+          "package:camera/new/src/support_android/camera_info.dart"
+        ],
+        "methods": [
+          "CameraInfo",
+          "fromMap"
+        ],
+        "types": [
+          "CameraDescription",
+          "Facing",
+          "LensDirection"
+        ]
+      },
+      "CameraLensDirection": {
+        "fields": [
+          "back",
+          "external",
+          "front"
+        ],
+        "libraries": [
+          "package:camera/camera.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CameraMappable": {
+        "fields": [],
+        "libraries": [
+          "package:camera/new/src/common/camera_mixins.dart"
+        ],
+        "methods": [
+          "asMap"
+        ],
+        "types": []
+      },
+      "CameraPreview": {
+        "fields": [
+          "controller"
+        ],
+        "libraries": [
+          "package:camera/camera.dart"
+        ],
+        "methods": [
+          "CameraPreview",
+          "build"
+        ],
+        "types": [
+          "CameraController"
+        ]
+      },
+      "CameraTesting": {
+        "fields": [
+          "channel",
+          "get:nextHandle",
+          "set:nextHandle"
+        ],
+        "libraries": [
+          "package:camera/new/camera.dart",
+          "package:camera/new/src/camera_testing.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CameraValue": {
+        "fields": [
+          "errorDescription",
+          "get:aspectRatio",
+          "get:hasError",
+          "get:isRecordingPaused",
+          "isInitialized",
+          "isRecordingVideo",
+          "isStreamingImages",
+          "isTakingPicture",
+          "previewSize"
+        ],
+        "libraries": [
+          "package:camera/camera.dart"
+        ],
+        "methods": [
+          "CameraValue",
+          "copyWith",
+          "toString",
+          "uninitialized"
+        ],
+        "types": [
+          "CameraValue"
+        ]
+      },
+      "Facing": {
+        "fields": [
+          "back",
+          "front"
+        ],
+        "libraries": [
+          "package:camera/new/camera.dart",
+          "package:camera/new/src/support_android/camera_info.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ImageFormat": {
+        "fields": [
+          "group",
+          "raw"
+        ],
+        "libraries": [
+          "package:camera/camera.dart"
+        ],
+        "methods": [],
+        "types": [
+          "ImageFormatGroup"
+        ]
+      },
+      "ImageFormatGroup": {
+        "fields": [
+          "bgra8888",
+          "unknown",
+          "yuv420"
+        ],
+        "libraries": [
+          "package:camera/camera.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LensDirection": {
+        "fields": [
+          "back",
+          "front",
+          "unknown"
+        ],
+        "libraries": [
+          "package:camera/new/camera.dart",
+          "package:camera/new/src/common/camera_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "NativeMethodCallHandler": {
+        "fields": [
+          "handle"
+        ],
+        "libraries": [
+          "package:camera/new/src/common/camera_mixins.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "NativeTexture": {
+        "fields": [
+          "textureId"
+        ],
+        "libraries": [
+          "package:camera/new/camera.dart",
+          "package:camera/new/src/common/native_texture.dart"
+        ],
+        "methods": [
+          "allocate",
+          "asMap",
+          "release"
+        ],
+        "types": [
+          "CameraMappable",
+          "NativeTexture"
+        ]
+      },
+      "Plane": {
+        "fields": [
+          "bytes",
+          "bytesPerPixel",
+          "bytesPerRow",
+          "height",
+          "width"
+        ],
+        "libraries": [
+          "package:camera/camera.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ResolutionPreset": {
+        "fields": [
+          "high",
+          "low",
+          "max",
+          "medium",
+          "ultraHigh",
+          "veryHigh"
+        ],
+        "libraries": [
+          "package:camera/camera.dart"
+        ],
+        "methods": [],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T07:15:32Z",
+  "package": "camera",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "CameraInfo",
+      "CameraPreview",
+      "CameraValue"
+    ],
+    "digest": "7063e0e7bea4b7a3e901c644c262931f9ae37579932d62eb61e196e53c378632",
+    "event_channels": [
+      "plugins.flutter.io/camera/imageStream"
+    ],
+    "ffi_symbols": [],
+    "hierarchy_hash": "fe08dd80969c71f7787c4a72807203bb701313d90350a94e9bd2913efc0f5ba4",
+    "method_channels": [
+      "flutter.plugins.io/camera",
+      "plugins.flutter.io/camera"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "../common/camera_channel.dart",
+      "../common/camera_interface.dart",
+      "../common/camera_mixins.dart",
+      "../common/native_texture.dart",
+      "A camera has started streaming images.",
+      "A video recording is already started.",
+      "Camera#getCameraInfo",
+      "Camera#getNumberOfCameras",
+      "Camera#open",
+      "Camera#previewTexture",
+      "Camera#release",
+      "Camera#startPreview",
+      "Camera#stopPreview",
+      "Initialize was not called.",
+      "No camera is streaming images",
+      "No video is recording",
+      "Previous capture has not returned yet.",
+      "This controller has been disposed.",
+      "Uninitialized CameraController",
+      "Uninitialized CameraController.",
+      "Unknown CameraLensDirection value",
+      "Unknown ResolutionPreset value",
+      "availableCameras",
+      "back",
+      "bytes",
+      "bytesPerPixel",
+      "bytesPerRow",
+      "camera.dart",
+      "cameraClosing",
+      "cameraHandle",
+      "cameraId",
+      "cameraName",
+      "camera_channel.dart",
+      "camera_image.dart",
+      "camera_info.dart",
+      "camera_mixins.dart",
+      "common/camera_channel.dart",
+      "common/camera_interface.dart",
+      "dart:async",
+      "dart:typed_data",
+      "dispose",
+      "enableAudio",
+      "error",
+      "errorDescription",
+      "eventType",
+      "external",
+      "facing",
+      "filePath",
+      "flutter.plugins.io/camera",
+      "format",
+      "front",
+      "handle",
+      "handleCallback",
+      "height",
+      "high",
+      "id",
+      "initialize",
+      "lensFacing",
+      "low",
+      "max",
+      "medium",
+      "name",
+      "nativeTexture",
+      "orientation",
+      "package:flutter/foundation.dart",
+      "package:flutter/services.dart",
+      "package:flutter/widgets.dart",
+      "path",
+      "pauseVideoRecording",
+      "pauseVideoRecording was called on uninitialized CameraController",
+      "pauseVideoRecording was called when no video is recording.",
+      "planes",
+      "plugins.flutter.io/camera",
+      "plugins.flutter.io/camera/imageStream",
+      "prepareForVideoRecording",
+      "previewHeight",
+      "previewWidth",
+      "resolutionPreset",
+      "resumeVideoRecording",
+      "resumeVideoRecording was called on uninitialized CameraController",
+      "resumeVideoRecording was called when no video is recording.",
+      "sensorOrientation",
+      "src/camera_controller.dart",
+      "src/camera_testing.dart",
+      "src/common/camera_interface.dart",
+      "src/common/native_texture.dart",
+      "src/support_android/camera.dart",
+      "src/support_android/camera_info.dart",
+      "startImageStream",
+      "startImageStream was called on uninitialized CameraController.",
+      "startImageStream was called while a camera was streaming images.",
+      "startImageStream was called while a video is being recorded.",
+      "startVideoRecording",
+      "startVideoRecording was called on uninitialized CameraController",
+      "startVideoRecording was called when a recording is already started.",
+      "startVideoRecording was called while a camera was streaming images.",
+      "stopImageStream",
+      "stopImageStream was called on uninitialized CameraController.",
+      "stopImageStream was called when no camera is streaming images.",
+      "stopImageStream was called while a video is being recorded.",
+      "stopVideoRecording",
+      "stopVideoRecording was called on uninitialized CameraController",
+      "stopVideoRecording was called when no video is recording.",
+      "takePicture",
+      "takePicture was called before the previous capture returned.",
+      "takePicture was called on uninitialized CameraController",
+      "textureHandle",
+      "textureId",
+      "ultraHigh",
+      "veryHigh",
+      "width"
+    ]
+  },
+  "version": "0.5.6+3"
+}
