@@ -51,7 +51,7 @@ class _Collector {
     return libDir
         .listSync(recursive: true)
         .whereType<File>()
-        .where((file) => file.path.endsWith('.dart'))
+        .where((file) => file.path.endsWith('.dart') && !_isAppleDouble(file))
         .toList()
       ..sort((a, b) => _relativePath(a).compareTo(_relativePath(b)));
   }
@@ -676,6 +676,9 @@ bool _isBuiltinType(String name) {
     'String',
   }.contains(name);
 }
+
+bool _isAppleDouble(File file) =>
+    file.uri.pathSegments.last.startsWith('._');
 
 String _normalizePath(String path) =>
     path.replaceAll(Platform.pathSeparator, '/');

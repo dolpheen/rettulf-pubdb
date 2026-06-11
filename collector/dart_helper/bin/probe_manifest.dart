@@ -49,7 +49,7 @@ class _Collector {
     return libDir
         .listSync()
         .whereType<File>()
-        .where((file) => file.path.endsWith('.dart'))
+        .where((file) => file.path.endsWith('.dart') && !_isAppleDouble(file))
         .toList()
       ..sort((a, b) => _relativePath(a).compareTo(_relativePath(b)));
   }
@@ -515,6 +515,9 @@ String _memberDeclaration(String owner, String bucket, String name) =>
 bool _isPartFile(CompilationUnit unit) {
   return unit.directives.any((directive) => directive is PartOfDirective);
 }
+
+bool _isAppleDouble(File file) =>
+    file.uri.pathSegments.last.startsWith('._');
 
 String _normalizePath(String path) =>
     path.replaceAll(Platform.pathSeparator, '/');
