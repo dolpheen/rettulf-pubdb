@@ -1,0 +1,1460 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "x"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/api/build_and_link.dart",
+          "package:hooks/src/args_parser.dart",
+          "package:hooks/src/avoid_import_outside_src_rule_test.dart",
+          "package:hooks/src/extension.dart",
+          "package:hooks/src/hooks/syntax.g.dart",
+          "package:hooks/src/test.dart",
+          "package:hooks/src/utils/uri.dart",
+          "package:hooks/src/validation.dart"
+        ],
+        "methods": [
+          "build",
+          "fileSystemPathToUri",
+          "getInputArgument",
+          "link",
+          "setOrRemove",
+          "sortOnKey",
+          "testBuildHook",
+          "toJson"
+        ],
+        "types": [
+          "BuildInput",
+          "BuildOutput",
+          "BuildOutputBuilder",
+          "EncodedAsset",
+          "LinkInput",
+          "LinkOutputBuilder",
+          "PackageUserDefines",
+          "ProtocolExtension"
+        ]
+      },
+      "AssetRouting": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "AssetRouting"
+        ],
+        "types": []
+      },
+      "AssetSyntax": {
+        "fields": [
+          "get:encoding",
+          "get:type"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "AssetSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "JsonObjectSyntax"
+        ]
+      },
+      "BuildConfig": {
+        "fields": [
+          "get:linkingEnabled"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "BuildConfigSyntax",
+          "HookConfig"
+        ]
+      },
+      "BuildConfigBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "setupBuild"
+        ],
+        "types": [
+          "BuildConfigSyntax",
+          "HookConfigBuilder"
+        ]
+      },
+      "BuildConfigSyntax": {
+        "fields": [
+          "get:linkingEnabled"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "BuildConfigSyntax",
+          "fromJson",
+          "setup",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "ConfigSyntax"
+        ]
+      },
+      "BuildError": {
+        "fields": [
+          "get:exitCode",
+          "get:failureType"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "BuildError"
+        ],
+        "types": [
+          "FailureType",
+          "HookError"
+        ]
+      },
+      "BuildInput": {
+        "fields": [
+          "get:assets",
+          "get:config",
+          "get:metadata",
+          "get:outputFile"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "BuildInput"
+        ],
+        "types": [
+          "BuildConfig",
+          "BuildInputAssets",
+          "BuildInputMetadata",
+          "BuildInputSyntax",
+          "HookInput"
+        ]
+      },
+      "BuildInputAssets": {
+        "fields": [
+          "get:encodedAssets"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "[]"
+        ],
+        "types": [
+          "BuildInput",
+          "EncodedAsset"
+        ]
+      },
+      "BuildInputBuilder": {
+        "fields": [
+          "get:config"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "addExtension",
+          "build",
+          "setupBuildInput"
+        ],
+        "types": [
+          "BuildConfigBuilder",
+          "BuildInput",
+          "EncodedAsset",
+          "HookInputBuilder",
+          "ProtocolExtension"
+        ]
+      },
+      "BuildInputMetadata": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "[]"
+        ],
+        "types": [
+          "BuildInput",
+          "PackageMetadata"
+        ]
+      },
+      "BuildInputSyntax": {
+        "fields": [
+          "get:assets",
+          "get:config"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "BuildInputSyntax",
+          "fromJson",
+          "setup",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "AssetSyntax",
+          "BuildConfigSyntax",
+          "HookInputSyntax"
+        ]
+      },
+      "BuildOutput": {
+        "fields": [
+          "get:assets"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "BuildOutput"
+        ],
+        "types": [
+          "BuildOutputAssets",
+          "BuildOutputMaybeFailure",
+          "BuildOutputSyntax",
+          "HookOutput"
+        ]
+      },
+      "BuildOutputAssets": {
+        "fields": [
+          "get:encodedAssets",
+          "get:encodedAssetsForBuild",
+          "get:encodedAssetsForLinking"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "BuildOutput",
+          "EncodedAsset"
+        ]
+      },
+      "BuildOutputAssetsBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "addEncodedAsset",
+          "addEncodedAssets"
+        ],
+        "types": [
+          "AssetRouting",
+          "BuildOutputBuilder",
+          "EncodedAsset"
+        ]
+      },
+      "BuildOutputBuilder": {
+        "fields": [
+          "get:assets",
+          "get:metadata"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "build"
+        ],
+        "types": [
+          "BuildOutput",
+          "BuildOutputAssetsBuilder",
+          "BuildOutputMetadataBuilder",
+          "HookOutputBuilder"
+        ]
+      },
+      "BuildOutputFailure": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "BuildOutputMaybeFailure",
+          "HookOutputFailure"
+        ]
+      },
+      "BuildOutputMaybeFailure": {
+        "fields": [
+          "get:json"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "BuildOutputMaybeFailure"
+        ],
+        "types": []
+      },
+      "BuildOutputMetadataBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "[]=",
+          "addAll"
+        ],
+        "types": [
+          "BuildOutputBuilder"
+        ]
+      },
+      "BuildOutputSyntax": {
+        "fields": [
+          "get:assetsForBuild",
+          "get:assetsForLinking",
+          "set:assetsForBuild",
+          "set:assetsForLinking"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "BuildOutputSyntax",
+          "fromJson",
+          "setup",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "AssetSyntax",
+          "HookOutputSyntax"
+        ]
+      },
+      "Builder": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/api/builder.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": [
+          "BuildInput",
+          "BuildOutputBuilder"
+        ]
+      },
+      "ConfigSyntax": {
+        "fields": [
+          "get:buildAssetTypes",
+          "get:extensions",
+          "set:buildAssetTypes",
+          "set:extensions"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "ConfigSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "JsonObjectSyntax"
+        ]
+      },
+      "DateTimeExtension": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/src/utils/datetime.dart"
+        ],
+        "methods": [
+          "roundDownToSeconds"
+        ],
+        "types": []
+      },
+      "DirectoryExtension": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/src/utils/file.dart"
+        ],
+        "methods": [
+          "lastModified"
+        ],
+        "types": []
+      },
+      "EncodedAsset": {
+        "fields": [
+          "encoding",
+          "get:hashCode",
+          "jsonPath",
+          "type"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/encoded_asset.dart"
+        ],
+        "methods": [
+          "==",
+          "EncodedAsset",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "EncodedMetadataAsset": {
+        "fields": [
+          "get:asMetadataAsset",
+          "get:isMetadataAsset"
+        ],
+        "libraries": [
+          "package:hooks/src/metadata.dart"
+        ],
+        "methods": [],
+        "types": [
+          "EncodedAsset",
+          "MetadataAsset"
+        ]
+      },
+      "FailureSyntax": {
+        "fields": [
+          "get:type"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "FailureSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "FailureTypeSyntax",
+          "JsonObjectSyntax"
+        ]
+      },
+      "FailureType": {
+        "fields": [
+          "build",
+          "infra",
+          "name",
+          "uncategorized"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "FailureTypeSyntax": {
+        "fields": [
+          "build",
+          "get:isKnown",
+          "infra",
+          "name",
+          "uncategorized",
+          "values"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "fromJson",
+          "toString",
+          "unknown"
+        ],
+        "types": [
+          "FailureTypeSyntax"
+        ]
+      },
+      "FileExtension": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/src/utils/file.dart"
+        ],
+        "methods": [
+          "writeAsStringCreateDirectory"
+        ],
+        "types": []
+      },
+      "FileSystemEntityExtension": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/src/utils/file.dart"
+        ],
+        "methods": [
+          "lastModified"
+        ],
+        "types": []
+      },
+      "FileSystemEntityIterable": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/src/utils/file.dart"
+        ],
+        "methods": [
+          "lastModified"
+        ],
+        "types": []
+      },
+      "HookConfig": {
+        "fields": [
+          "get:buildAssetTypes",
+          "get:json",
+          "get:path"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "computeChecksum"
+        ],
+        "types": [
+          "ConfigSyntax"
+        ]
+      },
+      "HookConfigBuilder": {
+        "fields": [
+          "builder",
+          "get:json"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "addBuildAssetTypes"
+        ],
+        "types": [
+          "HookInputBuilder"
+        ]
+      },
+      "HookError": {
+        "fields": [
+          "get:exitCode",
+          "get:failureType",
+          "message",
+          "wrappedException",
+          "wrappedTrace"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "HookError"
+        ],
+        "types": [
+          "FailureType"
+        ]
+      },
+      "HookInput": {
+        "fields": [
+          "get:config",
+          "get:json",
+          "get:outputDirectory",
+          "get:outputDirectoryShared",
+          "get:outputFile",
+          "get:packageName",
+          "get:packageRoot",
+          "get:userDefines"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "HookInput",
+          "toString"
+        ],
+        "types": [
+          "HookConfig",
+          "HookInputSyntax",
+          "HookInputUserDefines"
+        ]
+      },
+      "HookInputBuilder": {
+        "fields": [
+          "get:config",
+          "get:json"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "addExtension",
+          "computeChecksum",
+          "setupShared"
+        ],
+        "types": [
+          "HookConfigBuilder",
+          "PackageUserDefines",
+          "ProtocolExtension"
+        ]
+      },
+      "HookInputSyntax": {
+        "fields": [
+          "get:config",
+          "get:outDirShared",
+          "get:outFile",
+          "get:packageName",
+          "get:packageRoot",
+          "get:userDefines",
+          "set:config",
+          "set:outDirShared",
+          "set:outFile",
+          "set:packageName",
+          "set:packageRoot",
+          "set:userDefines"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "HookInputSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "ConfigSyntax",
+          "JsonObjectSyntax",
+          "UserDefinesSyntax"
+        ]
+      },
+      "HookInputUserDefines": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "[]",
+          "path"
+        ],
+        "types": [
+          "HookInput"
+        ]
+      },
+      "HookOutput": {
+        "fields": [
+          "get:dependencies",
+          "get:json",
+          "get:timestamp"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "HookOutputBuilder": {
+        "fields": [
+          "get:json"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "HookOutputBuilder",
+          "addDependencies",
+          "addDependency",
+          "setFailure"
+        ],
+        "types": [
+          "FailureType"
+        ]
+      },
+      "HookOutputFailure": {
+        "fields": [
+          "get:json",
+          "get:type"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "FailureType",
+          "HookOutputSyntax"
+        ]
+      },
+      "HookOutputSyntax": {
+        "fields": [
+          "get:assets",
+          "get:dependencies",
+          "get:failureDetails",
+          "get:status",
+          "get:timestamp",
+          "set:assets",
+          "set:dependencies",
+          "set:failureDetails",
+          "set:status",
+          "set:timestamp"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "HookOutputSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "AssetSyntax",
+          "FailureSyntax",
+          "JsonObjectSyntax",
+          "OutputStatusSyntax"
+        ]
+      },
+      "HooksMetadataAssetSyntax": {
+        "fields": [
+          "get:encoding",
+          "typeValue"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "HooksMetadataAssetSyntax",
+          "fromJson",
+          "setup",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "AssetSyntax",
+          "MetadataAssetEncodingSyntax"
+        ]
+      },
+      "HooksMetadataAssetSyntaxExtension": {
+        "fields": [
+          "get:asHooksMetadataAsset",
+          "get:isHooksMetadataAsset"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [],
+        "types": [
+          "AssetSyntax",
+          "HooksMetadataAssetSyntax"
+        ]
+      },
+      "InfraError": {
+        "fields": [
+          "get:exitCode",
+          "get:failureType"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "InfraError"
+        ],
+        "types": [
+          "FailureType",
+          "HookError"
+        ]
+      },
+      "JsonObjectSyntax": {
+        "fields": [
+          "json",
+          "path"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "JsonObjectSyntax",
+          "fromJson",
+          "validate"
+        ],
+        "types": []
+      },
+      "JsonReader": {
+        "fields": [
+          "json",
+          "path"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "JsonReader",
+          "errorString",
+          "get",
+          "list",
+          "map$",
+          "optionalList",
+          "optionalMap",
+          "optionalPath",
+          "optionalPathList",
+          "optionalStringList",
+          "path$",
+          "stringList",
+          "throwFormatException",
+          "tryTraverse",
+          "validate",
+          "validateList",
+          "validateMap",
+          "validateOptionalList",
+          "validateOptionalMap",
+          "validateOptionalPath",
+          "validateOptionalPathList",
+          "validateOptionalStringList",
+          "validatePath",
+          "validateStringList"
+        ],
+        "types": []
+      },
+      "LinkConfig": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "HookConfig"
+        ]
+      },
+      "LinkConfigBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "BuildConfigSyntax",
+          "HookConfigBuilder"
+        ]
+      },
+      "LinkInput": {
+        "fields": [
+          "get:assets",
+          "get:config",
+          "get:outputFile",
+          "get:recordedUsagesFile"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "LinkInput"
+        ],
+        "types": [
+          "HookInput",
+          "LinkConfig",
+          "LinkInputAssets",
+          "LinkInputSyntax"
+        ]
+      },
+      "LinkInputAssets": {
+        "fields": [
+          "get:encodedAssets"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "EncodedAsset",
+          "LinkInput"
+        ]
+      },
+      "LinkInputBuilder": {
+        "fields": [
+          "get:config"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "addExtension",
+          "build",
+          "setupLink"
+        ],
+        "types": [
+          "EncodedAsset",
+          "HookInputBuilder",
+          "LinkConfigBuilder",
+          "LinkInput",
+          "ProtocolExtension"
+        ]
+      },
+      "LinkInputSyntax": {
+        "fields": [
+          "get:assets",
+          "get:resourceIdentifiers"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "LinkInputSyntax",
+          "fromJson",
+          "setup",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "AssetSyntax",
+          "HookInputSyntax"
+        ]
+      },
+      "LinkOutput": {
+        "fields": [
+          "get:assets"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "LinkOutput"
+        ],
+        "types": [
+          "HookOutput",
+          "LinkOutputAssets",
+          "LinkOutputMaybeFailure",
+          "LinkOutputSyntax"
+        ]
+      },
+      "LinkOutputAssets": {
+        "fields": [
+          "get:encodedAssets"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "EncodedAsset",
+          "LinkOutput"
+        ]
+      },
+      "LinkOutputAssetsBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "addEncodedAsset",
+          "addEncodedAssets"
+        ],
+        "types": [
+          "EncodedAsset",
+          "LinkOutputBuilder"
+        ]
+      },
+      "LinkOutputBuilder": {
+        "fields": [
+          "get:assets"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "build"
+        ],
+        "types": [
+          "HookOutputBuilder",
+          "LinkOutput",
+          "LinkOutputAssetsBuilder"
+        ]
+      },
+      "LinkOutputFailure": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "HookOutputFailure",
+          "LinkOutputMaybeFailure"
+        ]
+      },
+      "LinkOutputMaybeFailure": {
+        "fields": [
+          "get:json"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "LinkOutputMaybeFailure"
+        ],
+        "types": []
+      },
+      "LinkOutputSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "LinkOutputSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "HookOutputSyntax"
+        ]
+      },
+      "Linker": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/api/linker.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": [
+          "LinkInput",
+          "LinkOutputBuilder"
+        ]
+      },
+      "MapSorting": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/src/utils/json.dart"
+        ],
+        "methods": [
+          "sortOnKey"
+        ],
+        "types": []
+      },
+      "MetadataAsset": {
+        "fields": [
+          "get:hashCode",
+          "key",
+          "value"
+        ],
+        "libraries": [
+          "package:hooks/src/metadata.dart"
+        ],
+        "methods": [
+          "==",
+          "MetadataAsset",
+          "encode",
+          "fromEncoded",
+          "toString"
+        ],
+        "types": [
+          "EncodedAsset"
+        ]
+      },
+      "MetadataAssetEncodingSyntax": {
+        "fields": [
+          "get:key",
+          "get:value"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "MetadataAssetEncodingSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "JsonObjectSyntax"
+        ]
+      },
+      "OutputStatusSyntax": {
+        "fields": [
+          "failure",
+          "get:isKnown",
+          "name",
+          "success",
+          "values"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "fromJson",
+          "toString",
+          "unknown"
+        ],
+        "types": [
+          "OutputStatusSyntax"
+        ]
+      },
+      "PackageMetadata": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "PackageMetadata",
+          "[]"
+        ],
+        "types": [
+          "MetadataAsset"
+        ]
+      },
+      "PackageUserDefines": {
+        "fields": [
+          "workspacePubspec"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/user_defines.dart"
+        ],
+        "methods": [
+          "PackageUserDefines",
+          "toString"
+        ],
+        "types": [
+          "PackageUserDefinesSource"
+        ]
+      },
+      "PackageUserDefinesSource": {
+        "fields": [
+          "basePath",
+          "defines"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/user_defines.dart"
+        ],
+        "methods": [
+          "PackageUserDefinesSource",
+          "toString"
+        ],
+        "types": []
+      },
+      "PackageUserDefinesSourceSyntaxExtension": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/src/user_defines.dart"
+        ],
+        "methods": [
+          "fromSyntax",
+          "toSyntax"
+        ],
+        "types": [
+          "PackageUserDefinesSource",
+          "UserDefinesSourceSyntax"
+        ]
+      },
+      "PackageUserDefinesSyntaxExtension": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/src/user_defines.dart"
+        ],
+        "methods": [
+          "fromSyntax",
+          "toSyntax"
+        ],
+        "types": [
+          "PackageUserDefines",
+          "UserDefinesSyntax"
+        ]
+      },
+      "ProtocolBase": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/validation.dart"
+        ],
+        "methods": [
+          "validateBuildInput",
+          "validateBuildOutput",
+          "validateLinkInput",
+          "validateLinkOutput"
+        ],
+        "types": [
+          "BuildInput",
+          "BuildOutput",
+          "LinkInput",
+          "LinkOutput"
+        ]
+      },
+      "ProtocolExtension": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/extension.dart"
+        ],
+        "methods": [
+          "setupBuildInput",
+          "setupLinkInput",
+          "validateApplicationAssets",
+          "validateBuildInput",
+          "validateBuildOutput",
+          "validateLinkInput",
+          "validateLinkOutput"
+        ],
+        "types": [
+          "BuildInput",
+          "BuildInputBuilder",
+          "BuildOutput",
+          "EncodedAsset",
+          "LinkInput",
+          "LinkInputBuilder",
+          "LinkOutput"
+        ]
+      },
+      "ToAppBundle": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "ToAppBundle"
+        ],
+        "types": [
+          "AssetRouting"
+        ]
+      },
+      "ToBuildHooks": {
+        "fields": [],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "ToBuildHooks"
+        ],
+        "types": [
+          "AssetRouting"
+        ]
+      },
+      "ToLinkHook": {
+        "fields": [
+          "packageName"
+        ],
+        "libraries": [
+          "package:hooks/hooks.dart",
+          "package:hooks/src/config.dart"
+        ],
+        "methods": [
+          "ToLinkHook"
+        ],
+        "types": [
+          "AssetRouting"
+        ]
+      },
+      "UriExtension": {
+        "fields": [
+          "get:fileSystemEntity"
+        ],
+        "libraries": [
+          "package:hooks/src/utils/uri.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "UserDefinesSourceSyntax": {
+        "fields": [
+          "get:basePath",
+          "get:defines"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "UserDefinesSourceSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "JsonObjectSyntax"
+        ]
+      },
+      "UserDefinesSyntax": {
+        "fields": [
+          "get:workspacePubspec"
+        ],
+        "libraries": [
+          "package:hooks/src/hooks/syntax.g.dart"
+        ],
+        "methods": [
+          "UserDefinesSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "JsonObjectSyntax",
+          "UserDefinesSourceSyntax"
+        ]
+      },
+      "ValidationFailure": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:hooks/src/validation.dart"
+        ],
+        "methods": [
+          "ValidationFailure",
+          "toString"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:35:01Z",
+  "package": "hooks",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AssetRouting",
+      "FailureType",
+      "FailureTypeSyntax",
+      "OutputStatusSyntax",
+      "ToAppBundle",
+      "ToBuildHooks",
+      "ToLinkHook"
+    ],
+    "digest": "633083f84f1ed02c89c0898e10b00e501cdfe6db792a2354c98a44d8c2e3ca3c",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "66125e4df11577e6cffb76a3c7bf630096714fb64476e67047231a015b32988e",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "  ",
+      "--config",
+      "--config=",
+      ".",
+      "../args_parser.dart",
+      "../config.dart",
+      "../hooks.dart",
+      "../validation.dart",
+      "/",
+      "BuildInput",
+      "BuildOutput.assets_for_linking is not empty while BuildInput.config.linkingEnabled is false",
+      "KEEP_TEMPORARY_DIRECTORIES",
+      "LinkInput",
+      "No --config argument given.",
+      "Syntax errors. Semantic validation skipped.",
+      "The output contained unsupported output:",
+      "Wrapped exception:",
+      "api/build_and_link.dart",
+      "assets",
+      "assets_for_build",
+      "assets_for_linking",
+      "base_path",
+      "build",
+      "build_and_link.dart",
+      "build_asset_types",
+      "builder.dart",
+      "config",
+      "config.dart",
+      "dart:async",
+      "dart:convert",
+      "dart:io",
+      "defines",
+      "dependencies",
+      "encoded_asset.dart",
+      "encoding",
+      "extension.dart",
+      "extensions",
+      "failure",
+      "failure_details",
+      "hooks/metadata",
+      "hooks/syntax.g.dart",
+      "infra",
+      "input.json",
+      "key",
+      "linker.dart",
+      "linking_enabled",
+      "metadata.dart",
+      "name",
+      "out_dir_shared",
+      "out_file",
+      "output.json",
+      "output_shared/",
+      "package:collection/collection.dart",
+      "package:crypto/crypto.dart",
+      "package:logging/logging.dart",
+      "package:yaml/yaml.dart",
+      "package_name",
+      "package_root",
+      "pubspec.yaml",
+      "resource_identifiers",
+      "src/api/build_and_link.dart",
+      "src/api/builder.dart",
+      "src/api/linker.dart",
+      "src/config.dart",
+      "src/encoded_asset.dart",
+      "src/extension.dart",
+      "src/test.dart",
+      "src/user_defines.dart",
+      "src/validation.dart",
+      "status",
+      "success",
+      "timestamp",
+      "type",
+      "uncategorized",
+      "user_defines",
+      "user_defines.dart",
+      "utils/datetime.dart",
+      "utils/json.dart",
+      "validation.dart",
+      "value",
+      "workspace_pubspec"
+    ]
+  },
+  "version": "0.19.4"
+}
