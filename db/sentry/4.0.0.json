@@ -1,0 +1,1505 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "defaultEnvironment",
+          "eventOrigin",
+          "get:eventOrigin",
+          "get:sdkName",
+          "get:sdkPlatform",
+          "isWeb",
+          "sdkVersion"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/hub.dart",
+          "package:sentry/src/isolate_error_integration.dart",
+          "package:sentry/src/noop_isolate_error_integration.dart",
+          "package:sentry/src/noop_origin.dart",
+          "package:sentry/src/origin.dart",
+          "package:sentry/src/sentry.dart",
+          "package:sentry/src/sentry_client_stub.dart",
+          "package:sentry/src/sentry_options.dart",
+          "package:sentry/src/transport/encode.dart",
+          "package:sentry/src/transport/noop_encode.dart",
+          "package:sentry/src/utils.dart",
+          "package:sentry/src/version.dart"
+        ],
+        "methods": [
+          "compressBody",
+          "createSentryClient",
+          "dartLogger",
+          "formatDateAsIso8601WithMillisPrecision",
+          "getUtcDateTime",
+          "handleIsolateError",
+          "noOpLogger"
+        ],
+        "types": [
+          "Breadcrumb",
+          "Hub",
+          "Scope",
+          "SentryClient",
+          "SentryEvent",
+          "SentryLevel",
+          "SentryOptions"
+        ]
+      },
+      "App": {
+        "fields": [
+          "build",
+          "buildType",
+          "deviceAppHash",
+          "identifier",
+          "name",
+          "startTime",
+          "type",
+          "version"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/app.dart"
+        ],
+        "methods": [
+          "App",
+          "clone",
+          "copyWith",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "App"
+        ]
+      },
+      "Breadcrumb": {
+        "fields": [
+          "category",
+          "data",
+          "level",
+          "message",
+          "timestamp",
+          "type"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/breadcrumb.dart"
+        ],
+        "methods": [
+          "Breadcrumb",
+          "copyWith",
+          "toJson"
+        ],
+        "types": [
+          "Breadcrumb",
+          "SentryLevel"
+        ]
+      },
+      "Browser": {
+        "fields": [
+          "name",
+          "type",
+          "version"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/browser.dart"
+        ],
+        "methods": [
+          "Browser",
+          "clone",
+          "copyWith",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "Browser"
+        ]
+      },
+      "Contexts": {
+        "fields": [
+          "get:app",
+          "get:browser",
+          "get:device",
+          "get:gpu",
+          "get:operatingSystem",
+          "get:runtimes",
+          "set:app",
+          "set:browser",
+          "set:device",
+          "set:gpu",
+          "set:operatingSystem"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/contexts.dart"
+        ],
+        "methods": [
+          "Contexts",
+          "addRuntime",
+          "clone",
+          "copyWith",
+          "fromJson",
+          "removeRuntime",
+          "toJson"
+        ],
+        "types": [
+          "App",
+          "Browser",
+          "Contexts",
+          "Device",
+          "Gpu",
+          "OperatingSystem",
+          "SentryRuntime"
+        ]
+      },
+      "DebugImage": {
+        "fields": [
+          "arch",
+          "codeFile",
+          "codeId",
+          "debugFile",
+          "debugId",
+          "imageAddr",
+          "imageSize",
+          "type",
+          "uuid"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/debug_image.dart"
+        ],
+        "methods": [
+          "DebugImage",
+          "copyWith",
+          "toJson"
+        ],
+        "types": [
+          "DebugImage"
+        ]
+      },
+      "DebugMeta": {
+        "fields": [
+          "get:images",
+          "sdk"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/debug_meta.dart"
+        ],
+        "methods": [
+          "DebugMeta",
+          "copyWith",
+          "toJson"
+        ],
+        "types": [
+          "DebugImage",
+          "DebugMeta",
+          "SdkInfo"
+        ]
+      },
+      "Device": {
+        "fields": [
+          "arch",
+          "batteryLevel",
+          "bootTime",
+          "brand",
+          "charging",
+          "externalFreeStorage",
+          "externalStorageSize",
+          "family",
+          "freeMemory",
+          "freeStorage",
+          "lowMemory",
+          "manufacturer",
+          "memorySize",
+          "model",
+          "modelId",
+          "name",
+          "online",
+          "orientation",
+          "screenDensity",
+          "screenDpi",
+          "screenResolution",
+          "simulator",
+          "storageSize",
+          "timezone",
+          "type",
+          "usableMemory"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/device.dart"
+        ],
+        "methods": [
+          "Device",
+          "clone",
+          "copyWith",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "Device",
+          "Orientation"
+        ]
+      },
+      "DiagnosticLogger": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/src/diagnostic_logger.dart"
+        ],
+        "methods": [
+          "DiagnosticLogger",
+          "log"
+        ],
+        "types": [
+          "SentryLevel",
+          "SentryOptions"
+        ]
+      },
+      "Dsn": {
+        "fields": [
+          "get:postUri",
+          "projectId",
+          "publicKey",
+          "secretKey",
+          "uri"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/dsn.dart"
+        ],
+        "methods": [
+          "Dsn",
+          "parse"
+        ],
+        "types": []
+      },
+      "Gpu": {
+        "fields": [
+          "apiType",
+          "id",
+          "memorySize",
+          "multiThreadedRendering",
+          "name",
+          "npotSupport",
+          "type",
+          "vendorId",
+          "vendorName",
+          "version"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/gpu.dart"
+        ],
+        "methods": [
+          "Gpu",
+          "clone",
+          "copyWith",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "Gpu"
+        ]
+      },
+      "HttpTransport": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/src/transport/http_transport.dart"
+        ],
+        "methods": [
+          "HttpTransport",
+          "send"
+        ],
+        "types": [
+          "Dsn",
+          "SentryEvent",
+          "SentryId",
+          "SentryOptions",
+          "Transport"
+        ]
+      },
+      "Hub": {
+        "fields": [
+          "get:isEnabled",
+          "get:lastEventId"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/hub.dart"
+        ],
+        "methods": [
+          "Hub",
+          "addBreadcrumb",
+          "bindClient",
+          "captureEvent",
+          "captureException",
+          "captureMessage",
+          "clone",
+          "close",
+          "configureScope"
+        ],
+        "types": [
+          "Breadcrumb",
+          "Hub",
+          "SentryClient",
+          "SentryEvent",
+          "SentryId",
+          "SentryLevel",
+          "SentryOptions"
+        ]
+      },
+      "HubAdapter": {
+        "fields": [
+          "get:isEnabled",
+          "get:lastEventId"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/hub_adapter.dart"
+        ],
+        "methods": [
+          "HubAdapter",
+          "addBreadcrumb",
+          "bindClient",
+          "captureEvent",
+          "captureException",
+          "captureMessage",
+          "clone",
+          "close",
+          "configureScope"
+        ],
+        "types": [
+          "Breadcrumb",
+          "Hub",
+          "HubAdapter",
+          "SentryClient",
+          "SentryEvent",
+          "SentryId",
+          "SentryLevel"
+        ]
+      },
+      "Integration": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/integration.dart"
+        ],
+        "methods": [
+          "call",
+          "close"
+        ],
+        "types": [
+          "Hub",
+          "SentryOptions"
+        ]
+      },
+      "IsolateErrorIntegration": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/isolate_error_integration.dart",
+          "package:sentry/src/noop_isolate_error_integration.dart"
+        ],
+        "methods": [
+          "call",
+          "close"
+        ],
+        "types": [
+          "Hub",
+          "Integration",
+          "SentryOptions"
+        ]
+      },
+      "Mechanism": {
+        "fields": [
+          "description",
+          "get:data",
+          "get:meta",
+          "handled",
+          "helpLink",
+          "synthetic",
+          "type"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/mechanism.dart"
+        ],
+        "methods": [
+          "Mechanism",
+          "copyWith",
+          "toJson"
+        ],
+        "types": [
+          "Mechanism"
+        ]
+      },
+      "Message": {
+        "fields": [
+          "formatted",
+          "params",
+          "template"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/message.dart"
+        ],
+        "methods": [
+          "Message",
+          "copyWith",
+          "toJson"
+        ],
+        "types": [
+          "Message"
+        ]
+      },
+      "NoOpClient": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/src/noop_client.dart"
+        ],
+        "methods": [
+          "NoOpClient",
+          "close",
+          "delete",
+          "get",
+          "head",
+          "patch",
+          "post",
+          "put",
+          "read",
+          "readBytes",
+          "send"
+        ],
+        "types": [
+          "NoOpClient"
+        ]
+      },
+      "NoOpHub": {
+        "fields": [
+          "get:isEnabled",
+          "get:lastEventId"
+        ],
+        "libraries": [
+          "package:sentry/src/noop_hub.dart"
+        ],
+        "methods": [
+          "NoOpHub",
+          "addBreadcrumb",
+          "bindClient",
+          "captureEvent",
+          "captureException",
+          "captureMessage",
+          "clone",
+          "close",
+          "configureScope"
+        ],
+        "types": [
+          "Breadcrumb",
+          "Hub",
+          "NoOpHub",
+          "SentryClient",
+          "SentryEvent",
+          "SentryId",
+          "SentryLevel"
+        ]
+      },
+      "NoOpSentryClient": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/src/noop_sentry_client.dart"
+        ],
+        "methods": [
+          "NoOpSentryClient",
+          "captureEvent",
+          "captureException",
+          "captureMessage",
+          "close"
+        ],
+        "types": [
+          "NoOpSentryClient",
+          "Scope",
+          "SentryClient",
+          "SentryEvent",
+          "SentryId",
+          "SentryLevel"
+        ]
+      },
+      "NoOpTransport": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/src/transport/noop_transport.dart"
+        ],
+        "methods": [
+          "send"
+        ],
+        "types": [
+          "SentryEvent",
+          "SentryId",
+          "Transport"
+        ]
+      },
+      "OperatingSystem": {
+        "fields": [
+          "build",
+          "kernelVersion",
+          "name",
+          "rawDescription",
+          "rooted",
+          "type",
+          "version"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/operating_system.dart"
+        ],
+        "methods": [
+          "OperatingSystem",
+          "clone",
+          "copyWith",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "OperatingSystem"
+        ]
+      },
+      "Orientation": {
+        "fields": [
+          "landscape",
+          "portrait"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/device.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PlatformChecker": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/src/platform_checker.dart"
+        ],
+        "methods": [
+          "PlatformChecker",
+          "isDebugMode",
+          "isProfileMode",
+          "isReleaseMode"
+        ],
+        "types": []
+      },
+      "Request": {
+        "fields": [
+          "cookies",
+          "get:data",
+          "get:env",
+          "get:headers",
+          "get:other",
+          "method",
+          "queryString",
+          "url"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/request.dart"
+        ],
+        "methods": [
+          "Request",
+          "copyWith",
+          "toJson"
+        ],
+        "types": [
+          "Request"
+        ]
+      },
+      "RunZonedGuardedIntegration": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/default_integrations.dart"
+        ],
+        "methods": [
+          "RunZonedGuardedIntegration",
+          "call"
+        ],
+        "types": [
+          "Hub",
+          "Integration",
+          "SentryOptions"
+        ]
+      },
+      "Scope": {
+        "fields": [
+          "get:breadcrumbs",
+          "get:contexts",
+          "get:eventProcessors",
+          "get:extra",
+          "get:fingerprint",
+          "get:tags",
+          "level",
+          "set:fingerprint",
+          "transaction",
+          "user"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/scope.dart"
+        ],
+        "methods": [
+          "Scope",
+          "addBreadcrumb",
+          "addEventProcessor",
+          "applyToEvent",
+          "clear",
+          "clearBreadcrumbs",
+          "clone",
+          "removeContexts",
+          "removeExtra",
+          "removeTag",
+          "setContexts",
+          "setExtra",
+          "setTag"
+        ],
+        "types": [
+          "Breadcrumb",
+          "Contexts",
+          "Scope",
+          "SentryEvent",
+          "SentryLevel",
+          "SentryOptions",
+          "User"
+        ]
+      },
+      "SdkInfo": {
+        "fields": [
+          "sdkName",
+          "versionMajor",
+          "versionMinor",
+          "versionPatchlevel"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/sdk_info.dart"
+        ],
+        "methods": [
+          "SdkInfo",
+          "copyWith",
+          "toJson"
+        ],
+        "types": [
+          "SdkInfo"
+        ]
+      },
+      "SdkVersion": {
+        "fields": [
+          "get:identifier",
+          "get:integrations",
+          "get:packages",
+          "name",
+          "version"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/sdk_version.dart"
+        ],
+        "methods": [
+          "SdkVersion",
+          "addIntegration",
+          "addPackage",
+          "copyWith",
+          "toJson"
+        ],
+        "types": [
+          "SdkVersion",
+          "SentryPackage"
+        ]
+      },
+      "Sentry": {
+        "fields": [
+          "get:currentHub",
+          "get:isEnabled",
+          "get:lastEventId"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/sentry.dart"
+        ],
+        "methods": [
+          "addBreadcrumb",
+          "bindClient",
+          "captureEvent",
+          "captureException",
+          "captureMessage",
+          "clone",
+          "close",
+          "configureScope",
+          "init"
+        ],
+        "types": [
+          "Breadcrumb",
+          "Hub",
+          "SentryClient",
+          "SentryEvent",
+          "SentryId",
+          "SentryLevel",
+          "SentryOptions"
+        ]
+      },
+      "SentryClient": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/sentry_client.dart"
+        ],
+        "methods": [
+          "SentryClient",
+          "captureEvent",
+          "captureException",
+          "captureMessage",
+          "close"
+        ],
+        "types": [
+          "Scope",
+          "SentryEvent",
+          "SentryExceptionFactory",
+          "SentryId",
+          "SentryLevel",
+          "SentryOptions",
+          "SentryStackTraceFactory"
+        ]
+      },
+      "SentryEvent": {
+        "fields": [
+          "breadcrumbs",
+          "contexts",
+          "culprit",
+          "debugMeta",
+          "defaultFingerprint",
+          "dist",
+          "environment",
+          "eventId",
+          "exception",
+          "extra",
+          "fingerprint",
+          "level",
+          "logger",
+          "message",
+          "modules",
+          "platform",
+          "release",
+          "request",
+          "sdk",
+          "serverName",
+          "stackTrace",
+          "tags",
+          "throwable",
+          "timestamp",
+          "transaction",
+          "user"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/sentry_event.dart"
+        ],
+        "methods": [
+          "SentryEvent",
+          "copyWith",
+          "toJson"
+        ],
+        "types": [
+          "Breadcrumb",
+          "Contexts",
+          "DebugMeta",
+          "Message",
+          "Request",
+          "SdkVersion",
+          "SentryEvent",
+          "SentryException",
+          "SentryId",
+          "SentryLevel",
+          "SentryStackTrace",
+          "User"
+        ]
+      },
+      "SentryException": {
+        "fields": [
+          "mechanism",
+          "module",
+          "stackTrace",
+          "threadId",
+          "type",
+          "value"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/sentry_exception.dart"
+        ],
+        "methods": [
+          "SentryException",
+          "copyWith",
+          "toJson"
+        ],
+        "types": [
+          "Mechanism",
+          "SentryException",
+          "SentryStackTrace"
+        ]
+      },
+      "SentryExceptionFactory": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/src/sentry_exception_factory.dart"
+        ],
+        "methods": [
+          "SentryExceptionFactory",
+          "getSentryException"
+        ],
+        "types": [
+          "SentryException",
+          "SentryOptions",
+          "SentryStackTraceFactory"
+        ]
+      },
+      "SentryHttpClient": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/http_client/sentry_http_client.dart"
+        ],
+        "methods": [
+          "SentryHttpClient",
+          "close",
+          "send"
+        ],
+        "types": [
+          "Hub"
+        ]
+      },
+      "SentryId": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/sentry_id.dart"
+        ],
+        "methods": [
+          "empty",
+          "fromId",
+          "newId",
+          "toString"
+        ],
+        "types": [
+          "SentryId"
+        ]
+      },
+      "SentryLevel": {
+        "fields": [
+          "debug",
+          "error",
+          "fatal",
+          "info",
+          "name",
+          "ordinal",
+          "warning"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/sentry_level.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SentryOptions": {
+        "fields": [
+          "beforeBreadcrumb",
+          "beforeSend",
+          "dist",
+          "dsn",
+          "environment",
+          "get:attachStacktrace",
+          "get:attachThreads",
+          "get:clock",
+          "get:compressPayload",
+          "get:debug",
+          "get:diagnosticLevel",
+          "get:eventProcessors",
+          "get:httpClient",
+          "get:inAppExcludes",
+          "get:inAppIncludes",
+          "get:integrations",
+          "get:logger",
+          "get:maxBreadcrumbs",
+          "get:platformChecker",
+          "get:sdk",
+          "get:transport",
+          "release",
+          "sampleRate",
+          "sentryClientName",
+          "serverName",
+          "set:attachStacktrace",
+          "set:attachThreads",
+          "set:clock",
+          "set:compressPayload",
+          "set:debug",
+          "set:diagnosticLevel",
+          "set:httpClient",
+          "set:logger",
+          "set:maxBreadcrumbs",
+          "set:platformChecker",
+          "set:sdk",
+          "set:transport"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/sentry_options.dart"
+        ],
+        "methods": [
+          "SentryOptions",
+          "addEventProcessor",
+          "addInAppExclude",
+          "addInAppInclude",
+          "addIntegration",
+          "addIntegrationByIndex",
+          "removeEventProcessor",
+          "removeIntegration"
+        ],
+        "types": [
+          "Integration",
+          "PlatformChecker",
+          "SdkVersion",
+          "SentryLevel",
+          "Transport"
+        ]
+      },
+      "SentryPackage": {
+        "fields": [
+          "name",
+          "version"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/sentry_package.dart"
+        ],
+        "methods": [
+          "SentryPackage",
+          "copyWith",
+          "toJson"
+        ],
+        "types": [
+          "SentryPackage"
+        ]
+      },
+      "SentryRuntime": {
+        "fields": [
+          "key",
+          "listType",
+          "name",
+          "rawDescription",
+          "type",
+          "version"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/sentry_runtime.dart"
+        ],
+        "methods": [
+          "SentryRuntime",
+          "clone",
+          "copyWith",
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "SentryRuntime"
+        ]
+      },
+      "SentryStackFrame": {
+        "fields": [
+          "absPath",
+          "asynchronousGapFrameJson",
+          "colNo",
+          "contextLine",
+          "fileName",
+          "function",
+          "get:framesOmitted",
+          "get:postContext",
+          "get:preContext",
+          "get:vars",
+          "imageAddr",
+          "inApp",
+          "instructionAddr",
+          "lineNo",
+          "module",
+          "native",
+          "package",
+          "platform",
+          "rawFunction",
+          "symbolAddr"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/sentry_stack_frame.dart"
+        ],
+        "methods": [
+          "SentryStackFrame",
+          "copyWith",
+          "toJson"
+        ],
+        "types": [
+          "SentryStackFrame"
+        ]
+      },
+      "SentryStackTrace": {
+        "fields": [
+          "get:frames",
+          "get:registers"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/sentry_stack_trace.dart"
+        ],
+        "methods": [
+          "SentryStackTrace",
+          "copyWith",
+          "toJson"
+        ],
+        "types": [
+          "SentryStackFrame",
+          "SentryStackTrace"
+        ]
+      },
+      "SentryStackTraceFactory": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/src/sentry_stack_trace_factory.dart"
+        ],
+        "methods": [
+          "SentryStackTraceFactory",
+          "encodeStackTraceFrame",
+          "getStackFrames",
+          "isInApp"
+        ],
+        "types": [
+          "SentryOptions",
+          "SentryStackFrame"
+        ]
+      },
+      "ThrowableMechanism": {
+        "fields": [
+          "get:mechanism",
+          "get:throwable"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/throwable_mechanism.dart"
+        ],
+        "methods": [
+          "ThrowableMechanism"
+        ],
+        "types": [
+          "Mechanism"
+        ]
+      },
+      "Transport": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/transport/transport.dart"
+        ],
+        "methods": [
+          "send"
+        ],
+        "types": [
+          "SentryEvent",
+          "SentryId"
+        ]
+      },
+      "User": {
+        "fields": [
+          "email",
+          "extras",
+          "id",
+          "ipAddress",
+          "username"
+        ],
+        "libraries": [
+          "package:sentry/sentry.dart",
+          "package:sentry/src/protocol.dart",
+          "package:sentry/src/protocol/user.dart"
+        ],
+        "methods": [
+          "User",
+          "copyWith",
+          "toJson"
+        ],
+        "types": [
+          "User"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:02:07Z",
+  "package": "sentry",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "App",
+      "Browser",
+      "DebugImage",
+      "Device",
+      "Dsn",
+      "Gpu",
+      "Message",
+      "OperatingSystem",
+      "PlatformChecker",
+      "SdkInfo",
+      "SentryException",
+      "SentryLevel",
+      "SentryPackage",
+      "SentryRuntime",
+      "SentryStackTrace"
+    ],
+    "digest": "8cab5ef80a7f17cdc8d985a939f5f51b673434529811c0c01e0f30d153d122bd",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "aa8b49cdde72b725021138406f421c6d12b31e1793d52846c78ac6f57e201db4",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "-",
+      ".",
+      "../../sentry.dart",
+      "../noop_client.dart",
+      "../protocol.dart",
+      "../sentry_options.dart",
+      "../utils.dart",
+      "/",
+      "00000000-0000-0000-0000-000000000000",
+      "4.0.0",
+      ":",
+      "<asynchronous suspension>",
+      "Breadcrumb can't be null",
+      "Breadcrumb was dropped by beforeBreadcrumb",
+      "Cannot create a client without dart:html or dart:io.",
+      "Content-Encoding",
+      "Content-Type",
+      "Current Isolate",
+      "DSN is required.",
+      "DSN is required. Use empty string to disable SDK.",
+      "Disabled Hub cloned.",
+      "Error in the 'configureScope' callback.",
+      "Error while closing the Hub.",
+      "Event was dropped by BeforeSend callback",
+      "Event was dropped by a processor",
+      "EventProcessor can't be null",
+      "Instance is disabled and this 'addBreadcrumb' call is a no-op.",
+      "Instance is disabled and this 'bindClient' call is a no-op.",
+      "Instance is disabled and this 'captureEvent' call is a no-op.",
+      "Instance is disabled and this 'captureException' call is a no-op.",
+      "Instance is disabled and this 'captureMessage' call is a no-op.",
+      "Instance is disabled and this 'close' call is a no-op.",
+      "Instance is disabled and this 'configureScope' call is a no-op.",
+      "Key can't be null",
+      "New client bound to scope.",
+      "No scope is defined",
+      "NoOp client bound to scope.",
+      "OptionsConfiguration is required.",
+      "SENTRY_DSN",
+      "SENTRY_ENVIRONMENT",
+      "Sentry has been already initialized. Previous configuration will be overwritten.",
+      "SentryOptions is required",
+      "SentryOptions is required.",
+      "SentryStackTraceFactory is required.",
+      "Stack peek was NULL when closing Hub",
+      "Stack peek was NULL when configureScope",
+      "Stack peek was null when addBreadcrumb",
+      "Stack peek was null when bindClient",
+      "Stack peek was null when captureEvent",
+      "Stack peek was null when captureException",
+      "Stack peek was null when captureMessage",
+      "The BeforeSend callback threw an exception",
+      "This VM has been configured to produce stack traces that violate the Dart standard.",
+      "User-Agent",
+      "Value can't be null",
+      "X-Sentry-Auth",
+      "abs +([A-Fa-f0-9]+)",
+      "abs_path",
+      "addBreadcrumb called with null parameter.",
+      "api",
+      "api_type",
+      "app",
+      "app_build",
+      "app_identifier",
+      "app_name",
+      "app_start_time",
+      "app_version",
+      "application/json",
+      "arch",
+      "battery_level",
+      "boot_time",
+      "brand",
+      "breadcrumbs",
+      "browser",
+      "build",
+      "build_type",
+      "captureEvent called with null parameter.",
+      "captureException called with null parameter.",
+      "captureMessage called with null parameter.",
+      "category",
+      "charging",
+      "code_file",
+      "code_id",
+      "colno",
+      "context_line",
+      "contexts",
+      "cookies",
+      "crashed",
+      "culprit",
+      "dart",
+      "dart.vm.product",
+      "dart.vm.profile",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:html",
+      "dart:io",
+      "dart:isolate",
+      "dart:math",
+      "dart:typed_data",
+      "data",
+      "debug",
+      "debug_file",
+      "debug_id",
+      "debug_meta",
+      "default_integrations.dart",
+      "description",
+      "device",
+      "device_app_hash",
+      "diagnostic_logger.dart",
+      "dist",
+      "email",
+      "encode.dart",
+      "env",
+      "environment",
+      "error",
+      "event_id",
+      "exception",
+      "external_free_storage",
+      "external_storage_size",
+      "extra",
+      "extras",
+      "family",
+      "fatal",
+      "filename",
+      "fingerprint",
+      "flutter",
+      "formatted",
+      "frames",
+      "frames_omitted",
+      "free_memory",
+      "free_storage",
+      "function",
+      "gpu",
+      "gzip",
+      "handled",
+      "headers",
+      "help_link",
+      "http",
+      "https",
+      "hub.dart",
+      "hub_adapter.dart",
+      "id",
+      "image_addr",
+      "image_size",
+      "images",
+      "in_app",
+      "info",
+      "instruction_addr",
+      "integration.dart",
+      "integrations",
+      "ip_address",
+      "isolateError",
+      "isolateErrorIntegration",
+      "isolate_error_integration.dart",
+      "javascript",
+      "kernel_version",
+      "landscape",
+      "level",
+      "lineno",
+      "logger",
+      "low_memory",
+      "manufacturer",
+      "mechanism",
+      "memory_size",
+      "message",
+      "meta",
+      "method",
+      "model",
+      "model_id",
+      "module",
+      "modules",
+      "multi_threaded_rendering",
+      "name",
+      "native",
+      "noop_client.dart",
+      "noop_encode.dart",
+      "noop_hub.dart",
+      "noop_isolate_error_integration.dart",
+      "noop_origin.dart",
+      "noop_sentry_client.dart",
+      "npot_support",
+      "online",
+      "orientation",
+      "origin.dart",
+      "os",
+      "other",
+      "package",
+      "package:http/http.dart",
+      "package:meta/meta.dart",
+      "package:stack_trace/stack_trace.dart",
+      "package:uuid/uuid.dart",
+      "packages",
+      "params",
+      "platform",
+      "platform_checker.dart",
+      "portait",
+      "post_context",
+      "pre_context",
+      "production",
+      "profile",
+      "protocol.dart",
+      "protocol/app.dart",
+      "protocol/breadcrumb.dart",
+      "protocol/browser.dart",
+      "protocol/contexts.dart",
+      "protocol/debug_image.dart",
+      "protocol/debug_meta.dart",
+      "protocol/device.dart",
+      "protocol/dsn.dart",
+      "protocol/gpu.dart",
+      "protocol/mechanism.dart",
+      "protocol/message.dart",
+      "protocol/operating_system.dart",
+      "protocol/request.dart",
+      "protocol/sdk_info.dart",
+      "protocol/sdk_version.dart",
+      "protocol/sentry_event.dart",
+      "protocol/sentry_exception.dart",
+      "protocol/sentry_id.dart",
+      "protocol/sentry_level.dart",
+      "protocol/sentry_package.dart",
+      "protocol/sentry_runtime.dart",
+      "protocol/sentry_stack_frame.dart",
+      "protocol/sentry_stack_trace.dart",
+      "protocol/user.dart",
+      "pub:sentry",
+      "query_string",
+      "raw_description",
+      "raw_function",
+      "reason",
+      "registers",
+      "release",
+      "request",
+      "rooted",
+      "runZonedGuarded",
+      "runZonedGuardedIntegration",
+      "runtime",
+      "runtimes",
+      "scope.dart",
+      "screen_density",
+      "screen_dpi",
+      "screen_resolution",
+      "sdk",
+      "sdk_info",
+      "sdk_name",
+      "sentry",
+      "sentry.dart",
+      "sentry.dart.browser",
+      "sentry_client.dart",
+      "sentry_exception_factory.dart",
+      "sentry_level.dart",
+      "sentry_options.dart",
+      "sentry_package.dart",
+      "sentry_stack_frame.dart",
+      "sentry_stack_trace_factory.dart",
+      "server_name",
+      "simulator",
+      "src/default_integrations.dart",
+      "src/http_client/sentry_http_client.dart",
+      "src/hub.dart",
+      "src/hub_adapter.dart",
+      "src/integration.dart",
+      "src/isolate_error_integration.dart",
+      "src/noop_isolate_error_integration.dart",
+      "src/protocol.dart",
+      "src/scope.dart",
+      "src/sentry.dart",
+      "src/sentry_client.dart",
+      "src/sentry_options.dart",
+      "src/throwable_mechanism.dart",
+      "src/transport/transport.dart",
+      "stacktrace",
+      "status_code",
+      "storage_size",
+      "symbol_addr",
+      "synthetic",
+      "tags",
+      "thread_id",
+      "threads",
+      "throwable_mechanism.dart",
+      "timestamp",
+      "timezone",
+      "transaction",
+      "transport.dart",
+      "transport/http_transport.dart",
+      "transport/noop_transport.dart",
+      "transport/transport.dart",
+      "type",
+      "url",
+      "usable_memory",
+      "user",
+      "username",
+      "utils.dart",
+      "uuid",
+      "value",
+      "values",
+      "vars",
+      "vendor_id",
+      "vendor_name",
+      "version",
+      "version.dart",
+      "version_major",
+      "version_minor",
+      "version_patchlevel",
+      "warning",
+      "{{ default }}"
+    ]
+  },
+  "version": "4.0.0"
+}

@@ -1,0 +1,568 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "asynchronousGapFrameJson",
+          "browserPlatform",
+          "sdkName",
+          "sdkPlatform",
+          "sdkVersion"
+        ],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/io_client.dart",
+          "package:sentry/sentry.dart",
+          "package:sentry/src/base.dart",
+          "package:sentry/src/browser.dart",
+          "package:sentry/src/client_stub.dart",
+          "package:sentry/src/io.dart",
+          "package:sentry/src/stack_trace.dart",
+          "package:sentry/src/utils.dart",
+          "package:sentry/src/version.dart"
+        ],
+        "methods": [
+          "createSentryClient",
+          "encodeStackTrace",
+          "encodeStackTraceFrame",
+          "formatDateAsIso8601WithSecondPrecision",
+          "generateUuidV4WithoutDashes",
+          "getUtcDateTime",
+          "mergeAttributes"
+        ],
+        "types": [
+          "Event",
+          "SentryClient"
+        ]
+      },
+      "App": {
+        "fields": [
+          "build",
+          "buildType",
+          "deviceAppHash",
+          "identifier",
+          "name",
+          "startTime",
+          "version"
+        ],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/io_client.dart",
+          "package:sentry/sentry.dart",
+          "package:sentry/src/base.dart"
+        ],
+        "methods": [
+          "App",
+          "toJson"
+        ],
+        "types": []
+      },
+      "Breadcrumb": {
+        "fields": [
+          "category",
+          "data",
+          "level",
+          "message",
+          "timestamp",
+          "type"
+        ],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/io_client.dart",
+          "package:sentry/sentry.dart",
+          "package:sentry/src/base.dart"
+        ],
+        "methods": [
+          "Breadcrumb",
+          "toJson"
+        ],
+        "types": [
+          "SeverityLevel"
+        ]
+      },
+      "Browser": {
+        "fields": [
+          "name",
+          "version"
+        ],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/io_client.dart",
+          "package:sentry/sentry.dart",
+          "package:sentry/src/base.dart"
+        ],
+        "methods": [
+          "Browser",
+          "toJson"
+        ],
+        "types": []
+      },
+      "Contexts": {
+        "fields": [
+          "app",
+          "browser",
+          "device",
+          "operatingSystem",
+          "runtimes"
+        ],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/io_client.dart",
+          "package:sentry/sentry.dart",
+          "package:sentry/src/base.dart"
+        ],
+        "methods": [
+          "Contexts",
+          "toJson"
+        ],
+        "types": [
+          "App",
+          "Browser",
+          "Device",
+          "OperatingSystem",
+          "Runtime"
+        ]
+      },
+      "Device": {
+        "fields": [
+          "arch",
+          "batteryLevel",
+          "bootTime",
+          "brand",
+          "charging",
+          "externalFreeStorage",
+          "externalStorageSize",
+          "family",
+          "freeMemory",
+          "freeStorage",
+          "lowMemory",
+          "manufacturer",
+          "memorySize",
+          "model",
+          "modelId",
+          "name",
+          "online",
+          "orientation",
+          "screenDensity",
+          "screenDpi",
+          "screenResolution",
+          "simulator",
+          "storageSize",
+          "timezone",
+          "usableMemory"
+        ],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/io_client.dart",
+          "package:sentry/sentry.dart",
+          "package:sentry/src/base.dart"
+        ],
+        "methods": [
+          "Device",
+          "toJson"
+        ],
+        "types": [
+          "Orientation"
+        ]
+      },
+      "Dsn": {
+        "fields": [
+          "projectId",
+          "publicKey",
+          "secretKey",
+          "uri"
+        ],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/io_client.dart",
+          "package:sentry/sentry.dart",
+          "package:sentry/src/base.dart"
+        ],
+        "methods": [
+          "Dsn",
+          "parse"
+        ],
+        "types": [
+          "Dsn"
+        ]
+      },
+      "Event": {
+        "fields": [
+          "breadcrumbs",
+          "contexts",
+          "culprit",
+          "defaultFingerprint",
+          "environment",
+          "exception",
+          "extra",
+          "fingerprint",
+          "level",
+          "loggerName",
+          "message",
+          "release",
+          "serverName",
+          "stackTrace",
+          "tags",
+          "transaction",
+          "userContext"
+        ],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/io_client.dart",
+          "package:sentry/sentry.dart",
+          "package:sentry/src/base.dart"
+        ],
+        "methods": [
+          "Event",
+          "copyWith",
+          "toJson"
+        ],
+        "types": [
+          "Breadcrumb",
+          "Contexts",
+          "Event",
+          "SeverityLevel",
+          "User"
+        ]
+      },
+      "OperatingSystem": {
+        "fields": [
+          "build",
+          "kernelVersion",
+          "name",
+          "rawDescription",
+          "rooted",
+          "version"
+        ],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/io_client.dart",
+          "package:sentry/sentry.dart",
+          "package:sentry/src/base.dart"
+        ],
+        "methods": [
+          "OperatingSystem",
+          "toJson"
+        ],
+        "types": []
+      },
+      "Orientation": {
+        "fields": [
+          "landscape",
+          "portrait"
+        ],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/io_client.dart",
+          "package:sentry/sentry.dart",
+          "package:sentry/src/base.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Runtime": {
+        "fields": [
+          "key",
+          "name",
+          "rawDescription",
+          "version"
+        ],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/io_client.dart",
+          "package:sentry/sentry.dart",
+          "package:sentry/src/base.dart"
+        ],
+        "methods": [
+          "Runtime",
+          "toJson"
+        ],
+        "types": []
+      },
+      "SentryBrowserClient": {
+        "fields": [],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/src/browser.dart"
+        ],
+        "methods": [
+          "SentryBrowserClient",
+          "bodyEncoder"
+        ],
+        "types": [
+          "Event",
+          "SentryClient"
+        ]
+      },
+      "SentryClient": {
+        "fields": [
+          "defaultLoggerName",
+          "environmentAttributes",
+          "get:dsnUri",
+          "get:postUri",
+          "get:projectId",
+          "get:publicKey",
+          "get:secretKey",
+          "httpClient",
+          "origin",
+          "sentryClient",
+          "userContext"
+        ],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/io_client.dart",
+          "package:sentry/sentry.dart",
+          "package:sentry/src/base.dart"
+        ],
+        "methods": [
+          "SentryClient",
+          "base",
+          "bodyEncoder",
+          "buildHeaders",
+          "capture",
+          "captureException",
+          "close",
+          "toString"
+        ],
+        "types": [
+          "Dsn",
+          "Event",
+          "SentryResponse",
+          "User"
+        ]
+      },
+      "SentryIOClient": {
+        "fields": [
+          "compressPayload"
+        ],
+        "libraries": [
+          "package:sentry/io_client.dart",
+          "package:sentry/src/io.dart"
+        ],
+        "methods": [
+          "SentryIOClient",
+          "bodyEncoder",
+          "buildHeaders"
+        ],
+        "types": [
+          "Event",
+          "SentryClient"
+        ]
+      },
+      "SentryResponse": {
+        "fields": [
+          "error",
+          "eventId",
+          "isSuccessful"
+        ],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/io_client.dart",
+          "package:sentry/sentry.dart",
+          "package:sentry/src/base.dart"
+        ],
+        "methods": [
+          "failure",
+          "success"
+        ],
+        "types": []
+      },
+      "SeverityLevel": {
+        "fields": [
+          "debug",
+          "error",
+          "fatal",
+          "info",
+          "name",
+          "warning"
+        ],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/io_client.dart",
+          "package:sentry/sentry.dart",
+          "package:sentry/src/base.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "User": {
+        "fields": [
+          "email",
+          "extras",
+          "id",
+          "ipAddress",
+          "username"
+        ],
+        "libraries": [
+          "package:sentry/browser_client.dart",
+          "package:sentry/io_client.dart",
+          "package:sentry/sentry.dart",
+          "package:sentry/src/base.dart"
+        ],
+        "methods": [
+          "User",
+          "toJson"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:02:07Z",
+  "package": "sentry",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "App",
+      "Breadcrumb",
+      "Browser",
+      "Contexts",
+      "Device",
+      "Event",
+      "OperatingSystem",
+      "Runtime",
+      "SentryResponse",
+      "SeverityLevel",
+      "User"
+    ],
+    "digest": "a8ff72110ece9c071d006e8b78f06df180c031f3fe43ed5c2c31c31937891850",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "56747c71914d172c444dd73364fd1b4f8b4fc626bffe8e83239e6f4499205b50",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "-",
+      ".",
+      "/",
+      "3.0.1",
+      ":",
+      "<asynchronous suspension>",
+      "Cannot create a client without dart:html or dart:io.",
+      "Content-Encoding",
+      "Content-Type",
+      "SentryClient",
+      "User-Agent",
+      "X-Sentry-Auth",
+      "abs_path",
+      "api",
+      "app",
+      "app_build",
+      "app_identifier",
+      "app_name",
+      "app_start_time",
+      "app_version",
+      "application/json",
+      "arch",
+      "base.dart",
+      "battery_level",
+      "boot_time",
+      "brand",
+      "breadcrumbs",
+      "browser",
+      "browser.dart",
+      "build",
+      "build_type",
+      "category",
+      "charging",
+      "client_stub.dart",
+      "colno",
+      "contexts",
+      "culprit",
+      "dart",
+      "dart:async",
+      "dart:convert",
+      "dart:html",
+      "dart:io",
+      "data",
+      "debug",
+      "device",
+      "device_app_hash",
+      "email",
+      "environment",
+      "error",
+      "event_id",
+      "exception",
+      "external_free_storage",
+      "external_storage_size",
+      "extra",
+      "extras",
+      "family",
+      "fatal",
+      "filename",
+      "fingerprint",
+      "frames",
+      "free_memory",
+      "free_storage",
+      "function",
+      "gzip",
+      "http",
+      "https",
+      "id",
+      "in_app",
+      "info",
+      "io.dart",
+      "ip_address",
+      "javascript",
+      "kernel_version",
+      "landscape",
+      "level",
+      "lineno",
+      "logger",
+      "low_memory",
+      "manufacturer",
+      "memory_size",
+      "message",
+      "model",
+      "model_id",
+      "name",
+      "online",
+      "orientation",
+      "os",
+      "package",
+      "package:http/browser_client.dart",
+      "package:http/http.dart",
+      "package:meta/meta.dart",
+      "package:stack_trace/stack_trace.dart",
+      "package:usage/uuid/uuid.dart",
+      "platform",
+      "portait",
+      "project",
+      "raw_description",
+      "release",
+      "rooted",
+      "runtime",
+      "screen_density",
+      "screen_dpi",
+      "screen_resolution",
+      "sdk",
+      "server_name",
+      "simulator",
+      "src/base.dart",
+      "src/browser.dart",
+      "src/io.dart",
+      "src/version.dart",
+      "stack_trace.dart",
+      "stacktrace",
+      "storage_size",
+      "tags",
+      "timestamp",
+      "timezone",
+      "transaction",
+      "type",
+      "usable_memory",
+      "user",
+      "username",
+      "utils.dart",
+      "value",
+      "values",
+      "version",
+      "version.dart",
+      "warning",
+      "x-sentry-error",
+      "{{ default }}"
+    ]
+  },
+  "version": "3.0.1"
+}
