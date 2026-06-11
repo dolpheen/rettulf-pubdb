@@ -1,0 +1,793 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "log"
+        ],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/logging.dart",
+          "package:go_router/src/matching.dart",
+          "package:go_router/src/pages/cupertino.dart",
+          "package:go_router/src/pages/material.dart",
+          "package:go_router/src/path_utils.dart",
+          "package:go_router/src/redirection.dart",
+          "package:go_router/src/typedefs.dart"
+        ],
+        "methods": [
+          "canonicalUri",
+          "concatenatePaths",
+          "createCupertinoHeroController",
+          "createMaterialHeroController",
+          "errorScreen",
+          "extractPathParameters",
+          "isCupertinoApp",
+          "isMaterialApp",
+          "pageBuilderForCupertinoApp",
+          "pageBuilderForMaterialApp",
+          "patternToPath",
+          "patternToRegExp",
+          "redirect",
+          "setLogging"
+        ],
+        "types": [
+          "GoRouterState",
+          "RouteConfiguration",
+          "RouteMatchList",
+          "RouteMatcher"
+        ]
+      },
+      "CupertinoErrorScreen": {
+        "fields": [
+          "error"
+        ],
+        "libraries": [
+          "package:go_router/src/pages/cupertino.dart"
+        ],
+        "methods": [
+          "CupertinoErrorScreen",
+          "build"
+        ],
+        "types": []
+      },
+      "CustomTransitionPage": {
+        "fields": [
+          "barrierColor",
+          "barrierDismissible",
+          "barrierLabel",
+          "child",
+          "fullscreenDialog",
+          "maintainState",
+          "opaque",
+          "reverseTransitionDuration",
+          "transitionDuration",
+          "transitionsBuilder"
+        ],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/pages/custom_transition_page.dart"
+        ],
+        "methods": [
+          "CustomTransitionPage",
+          "createRoute"
+        ],
+        "types": []
+      },
+      "ErrorScreen": {
+        "fields": [
+          "error"
+        ],
+        "libraries": [
+          "package:go_router/src/misc/error_screen.dart"
+        ],
+        "methods": [
+          "ErrorScreen",
+          "build"
+        ],
+        "types": []
+      },
+      "GoError": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:go_router/src/misc/errors.dart"
+        ],
+        "methods": [
+          "GoError",
+          "toString"
+        ],
+        "types": []
+      },
+      "GoRoute": {
+        "fields": [
+          "builder",
+          "name",
+          "pageBuilder",
+          "parentNavigatorKey",
+          "path",
+          "pathParams",
+          "redirect"
+        ],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/configuration.dart",
+          "package:go_router/src/route.dart"
+        ],
+        "methods": [
+          "GoRoute",
+          "extractPathParams",
+          "matchPatternAsPrefix",
+          "toString"
+        ],
+        "types": [
+          "RouteBase"
+        ]
+      },
+      "GoRouteData": {
+        "fields": [
+          "get:navigatorKey"
+        ],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/route_data.dart"
+        ],
+        "methods": [
+          "$location",
+          "$route",
+          "GoRouteData",
+          "build",
+          "buildPage",
+          "redirect"
+        ],
+        "types": [
+          "GoRoute",
+          "GoRouteData",
+          "GoRouterState",
+          "RouteBase",
+          "RouteData"
+        ]
+      },
+      "GoRouteInformationParser": {
+        "fields": [
+          "configuration",
+          "debugParserFuture",
+          "debugRequireGoRouteInformationProvider",
+          "matcher",
+          "redirector"
+        ],
+        "libraries": [
+          "package:go_router/src/parser.dart"
+        ],
+        "methods": [
+          "GoRouteInformationParser",
+          "parseRouteInformation",
+          "parseRouteInformationWithDependencies",
+          "restoreRouteInformation"
+        ],
+        "types": [
+          "RouteConfiguration",
+          "RouteMatchList",
+          "RouteMatcher"
+        ]
+      },
+      "GoRouteInformationProvider": {
+        "fields": [
+          "get:value",
+          "set:value"
+        ],
+        "libraries": [
+          "package:go_router/src/information_provider.dart"
+        ],
+        "methods": [
+          "GoRouteInformationProvider",
+          "addListener",
+          "didPushRoute",
+          "didPushRouteInformation",
+          "dispose",
+          "removeListener",
+          "routerReportsNewRouteInformation"
+        ],
+        "types": []
+      },
+      "GoRouter": {
+        "fields": [
+          "backButtonDispatcher",
+          "get:location",
+          "get:routeConfiguration",
+          "get:routeInformationParser",
+          "get:routeInformationProvider",
+          "get:routerDelegate"
+        ],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/router.dart"
+        ],
+        "methods": [
+          "GoRouter",
+          "canPop",
+          "dispose",
+          "go",
+          "goNamed",
+          "maybeOf",
+          "namedLocation",
+          "of",
+          "pop",
+          "push",
+          "pushNamed",
+          "pushReplacement",
+          "pushReplacementNamed",
+          "refresh"
+        ],
+        "types": [
+          "GoRouteInformationParser",
+          "GoRouteInformationProvider",
+          "GoRouter",
+          "GoRouterDelegate",
+          "RouteBase",
+          "RouteConfiguration",
+          "RouteMatchList"
+        ]
+      },
+      "GoRouterDelegate": {
+        "fields": [
+          "builder",
+          "get:currentConfiguration",
+          "get:matches",
+          "get:navigatorKey",
+          "routerNeglect"
+        ],
+        "libraries": [
+          "package:go_router/src/delegate.dart"
+        ],
+        "methods": [
+          "GoRouterDelegate",
+          "build",
+          "canPop",
+          "pop",
+          "popRoute",
+          "push",
+          "pushReplacement",
+          "setNewRoutePath"
+        ],
+        "types": [
+          "RouteBuilder",
+          "RouteConfiguration",
+          "RouteMatchList"
+        ]
+      },
+      "GoRouterHelper": {
+        "fields": [],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/misc/extensions.dart"
+        ],
+        "methods": [
+          "canPop",
+          "go",
+          "goNamed",
+          "namedLocation",
+          "pop",
+          "push",
+          "pushNamed",
+          "pushReplacement",
+          "pushReplacementNamed"
+        ],
+        "types": []
+      },
+      "GoRouterState": {
+        "fields": [
+          "error",
+          "extra",
+          "fullpath",
+          "get:hashCode",
+          "location",
+          "name",
+          "pageKey",
+          "params",
+          "path",
+          "queryParametersAll",
+          "queryParams",
+          "subloc"
+        ],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/configuration.dart",
+          "package:go_router/src/state.dart"
+        ],
+        "methods": [
+          "==",
+          "GoRouterState",
+          "namedLocation",
+          "of"
+        ],
+        "types": [
+          "GoRouterState",
+          "RouteConfiguration"
+        ]
+      },
+      "GoRouterStateRegistry": {
+        "fields": [
+          "registry"
+        ],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/configuration.dart",
+          "package:go_router/src/state.dart"
+        ],
+        "methods": [
+          "GoRouterStateRegistry",
+          "updateRegistry"
+        ],
+        "types": [
+          "GoRouterState"
+        ]
+      },
+      "GoRouterStateRegistryScope": {
+        "fields": [],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/configuration.dart",
+          "package:go_router/src/state.dart"
+        ],
+        "methods": [
+          "GoRouterStateRegistryScope"
+        ],
+        "types": [
+          "GoRouterStateRegistry"
+        ]
+      },
+      "ImperativeRouteMatch": {
+        "fields": [
+          "matches"
+        ],
+        "libraries": [
+          "package:go_router/src/delegate.dart"
+        ],
+        "methods": [
+          "ImperativeRouteMatch"
+        ],
+        "types": [
+          "RouteMatch",
+          "RouteMatchList"
+        ]
+      },
+      "InheritedGoRouter": {
+        "fields": [
+          "goRouter"
+        ],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/misc/inherited_router.dart"
+        ],
+        "methods": [
+          "InheritedGoRouter",
+          "debugFillProperties"
+        ],
+        "types": [
+          "GoRouter"
+        ]
+      },
+      "MatcherError": {
+        "fields": [
+          "location",
+          "message"
+        ],
+        "libraries": [
+          "package:go_router/src/matching.dart"
+        ],
+        "methods": [
+          "MatcherError",
+          "toString"
+        ],
+        "types": []
+      },
+      "MaterialErrorScreen": {
+        "fields": [
+          "error"
+        ],
+        "libraries": [
+          "package:go_router/src/pages/material.dart"
+        ],
+        "methods": [
+          "MaterialErrorScreen",
+          "build"
+        ],
+        "types": []
+      },
+      "NoOpPage": {
+        "fields": [],
+        "libraries": [
+          "package:go_router/src/route_data.dart"
+        ],
+        "methods": [
+          "NoOpPage",
+          "createRoute"
+        ],
+        "types": []
+      },
+      "NoTransitionPage": {
+        "fields": [],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/pages/custom_transition_page.dart"
+        ],
+        "methods": [
+          "NoTransitionPage"
+        ],
+        "types": [
+          "CustomTransitionPage"
+        ]
+      },
+      "RedirectionError": {
+        "fields": [
+          "location",
+          "matches",
+          "message"
+        ],
+        "libraries": [
+          "package:go_router/src/redirection.dart"
+        ],
+        "methods": [
+          "RedirectionError",
+          "toString"
+        ],
+        "types": [
+          "RouteMatchList"
+        ]
+      },
+      "RouteBase": {
+        "fields": [
+          "routes"
+        ],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/configuration.dart",
+          "package:go_router/src/route.dart"
+        ],
+        "methods": [],
+        "types": [
+          "RouteBase"
+        ]
+      },
+      "RouteBuilder": {
+        "fields": [
+          "builderWithNav",
+          "configuration",
+          "errorBuilder",
+          "errorPageBuilder",
+          "observers",
+          "restorationScopeId"
+        ],
+        "libraries": [
+          "package:go_router/src/builder.dart"
+        ],
+        "methods": [
+          "RouteBuilder",
+          "build",
+          "buildPage",
+          "buildPages",
+          "buildState",
+          "getRouteMatchForPage",
+          "pageBuilderForWidgetApp",
+          "tryBuild"
+        ],
+        "types": [
+          "GoRouterState",
+          "GoRouterStateRegistry",
+          "RouteConfiguration",
+          "RouteMatch",
+          "RouteMatchList"
+        ]
+      },
+      "RouteConfiguration": {
+        "fields": [
+          "navigatorKey",
+          "redirectLimit",
+          "routes",
+          "topRedirect"
+        ],
+        "libraries": [
+          "package:go_router/src/configuration.dart"
+        ],
+        "methods": [
+          "RouteConfiguration",
+          "namedLocation",
+          "toString"
+        ],
+        "types": [
+          "RouteBase"
+        ]
+      },
+      "RouteData": {
+        "fields": [],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/route_data.dart"
+        ],
+        "methods": [
+          "RouteData"
+        ],
+        "types": []
+      },
+      "RouteMatch": {
+        "fields": [
+          "error",
+          "extra",
+          "pageKey",
+          "route",
+          "subloc"
+        ],
+        "libraries": [
+          "package:go_router/src/match.dart"
+        ],
+        "methods": [
+          "RouteMatch",
+          "match"
+        ],
+        "types": [
+          "RouteBase",
+          "RouteMatch"
+        ]
+      },
+      "RouteMatchList": {
+        "fields": [
+          "empty",
+          "fullpath",
+          "get:error",
+          "get:extra",
+          "get:isEmpty",
+          "get:isError",
+          "get:isNotEmpty",
+          "get:last",
+          "get:matches",
+          "get:uri",
+          "pathParameters"
+        ],
+        "libraries": [
+          "package:go_router/src/matching.dart"
+        ],
+        "methods": [
+          "RouteMatchList",
+          "push",
+          "remove",
+          "toString"
+        ],
+        "types": [
+          "RouteMatch",
+          "RouteMatchList"
+        ]
+      },
+      "RouteMatcher": {
+        "fields": [
+          "configuration"
+        ],
+        "libraries": [
+          "package:go_router/src/matching.dart"
+        ],
+        "methods": [
+          "RouteMatcher",
+          "findMatch"
+        ],
+        "types": [
+          "RouteConfiguration",
+          "RouteMatchList"
+        ]
+      },
+      "ShellRoute": {
+        "fields": [
+          "builder",
+          "navigatorKey",
+          "observers",
+          "pageBuilder"
+        ],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/configuration.dart",
+          "package:go_router/src/route.dart"
+        ],
+        "methods": [
+          "ShellRoute"
+        ],
+        "types": [
+          "RouteBase"
+        ]
+      },
+      "ShellRouteData": {
+        "fields": [
+          "get:navigatorKey"
+        ],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/route_data.dart"
+        ],
+        "methods": [
+          "$route",
+          "ShellRouteData",
+          "builder",
+          "pageBuilder"
+        ],
+        "types": [
+          "GoRouterState",
+          "RouteBase",
+          "RouteData",
+          "ShellRoute",
+          "ShellRouteData"
+        ]
+      },
+      "TypedGoRoute": {
+        "fields": [
+          "parentNavigatorKey",
+          "path",
+          "routes"
+        ],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/route_data.dart"
+        ],
+        "methods": [
+          "TypedGoRoute"
+        ],
+        "types": [
+          "GoRouteData",
+          "RouteData",
+          "TypedRoute"
+        ]
+      },
+      "TypedRoute": {
+        "fields": [],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/route_data.dart"
+        ],
+        "methods": [
+          "TypedRoute"
+        ],
+        "types": [
+          "RouteData"
+        ]
+      },
+      "TypedShellRoute": {
+        "fields": [
+          "navigatorKey",
+          "routes"
+        ],
+        "libraries": [
+          "package:go_router/go_router.dart",
+          "package:go_router/src/route_data.dart"
+        ],
+        "methods": [
+          "TypedShellRoute"
+        ],
+        "types": [
+          "RouteData",
+          "ShellRouteData",
+          "TypedRoute"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:32:05Z",
+  "package": "go_router",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "CupertinoErrorScreen",
+      "CustomTransitionPage",
+      "ErrorScreen",
+      "GoRouteData",
+      "GoRouterState",
+      "GoRouterStateRegistryScope",
+      "InheritedGoRouter",
+      "MaterialErrorScreen",
+      "NoOpPage",
+      "NoTransitionPage",
+      "RouteBase",
+      "RouteData",
+      "ShellRouteData",
+      "TypedGoRoute",
+      "TypedRoute",
+      "TypedShellRoute",
+      "_Button"
+    ],
+    "digest": "11599a320363b4ca7f942176e77ea285cc879796698051b34c5e2173d9cd5f15",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "f48140da49a655275bfb3b2cdeaae4875725e76f217ae5ccde8e9650920ae0ee",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      " => ",
+      "(?=/|$)",
+      "../go_router.dart",
+      "../misc/extensions.dart",
+      "../router.dart",
+      "/",
+      "//",
+      "/?",
+      ":(\\w+)(\\((?:\\\\.|[^\\\\()])+\\))?",
+      "?",
+      "Attempt to build ShellRoute without a child widget",
+      "Full paths for routes:",
+      "Go to home page",
+      "GoRoute name cannot be empty",
+      "GoRoute path cannot be empty",
+      "GoRouteState to GoRouteData expando",
+      "GoRouteState to ShellRouteData expando",
+      "GoRouter",
+      "Home",
+      "Match error found during build phase",
+      "No GoRouter found in context",
+      "One of `build` or `buildPage` must be implemented.",
+      "One of `builder` or `pageBuilder` must be implemented.",
+      "Page Not Found",
+      "RouteMatchList",
+      "ShellRoute must contain a child route",
+      "Should never be called",
+      "The parent route must be a page route to have a GoRouterState",
+      "There is no GoRouterStateRegistryScope above the current context.",
+      "There is no modal route above the current context.",
+      "There is nothing to pop",
+      "Use GoRouter.of(context).namedLocation instead",
+      "Using CupertinoApp configuration",
+      "Using MaterialApp configuration",
+      "Using WidgetsApp configuration",
+      "You have popped the last page off of the stack, there are no pages left to show",
+      "[:=!]",
+      "^",
+      "builder, pageBuilder, or redirect must be provided",
+      "builder.dart",
+      "configuration.dart",
+      "dart:async",
+      "dart:developer",
+      "delegate.dart",
+      "error",
+      "extensions.dart",
+      "goRouter",
+      "information_provider.dart",
+      "known full paths for route names:",
+      "logging.dart",
+      "match.dart",
+      "matching.dart",
+      "misc/error_screen.dart",
+      "misc/errors.dart",
+      "misc/inherited_router.dart",
+      "no routes for location",
+      "package:collection/collection.dart",
+      "package:flutter/cupertino.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/material.dart",
+      "package:flutter/services.dart",
+      "package:flutter/widgets.dart",
+      "package:logging/logging.dart",
+      "package:meta/meta.dart",
+      "package:meta/meta_meta.dart",
+      "page not found",
+      "pages/cupertino.dart",
+      "pages/custom_transition_page.dart",
+      "pages/material.dart",
+      "parser.dart",
+      "path_utils.dart",
+      "redirect loop detected",
+      "redirection.dart",
+      "route.dart",
+      "route_data.dart",
+      "src/configuration.dart",
+      "src/misc/extensions.dart",
+      "src/misc/inherited_router.dart",
+      "src/pages/custom_transition_page.dart",
+      "src/route_data.dart",
+      "src/router.dart",
+      "src/typedefs.dart",
+      "state.dart",
+      "too many redirects",
+      "topLevel",
+      "typedefs.dart",
+      "use parseRouteInformationWithDependencies instead"
+    ]
+  },
+  "version": "6.3.0"
+}
