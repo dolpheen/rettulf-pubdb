@@ -1,0 +1,2616 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "kDefaultEmissionFactors"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/carbon_estimator.dart",
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "wrapResponse"
+        ],
+        "types": []
+      },
+      "AccuracyAuthorization": {
+        "fields": [
+          "full",
+          "reduced"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ActivityConfidence": {
+        "fields": [
+          "high",
+          "low",
+          "medium"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ActivityType": {
+        "fields": [
+          "inVehicle",
+          "onBicycle",
+          "onFoot",
+          "running",
+          "still",
+          "unknown",
+          "walking"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "AdaptiveContext": {
+        "fields": [
+          "activityConfidence",
+          "activityType",
+          "batteryLevel",
+          "isCharging",
+          "speed"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/adaptive_sampling_engine.dart",
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "AdaptiveContext",
+          "toString"
+        ],
+        "types": [
+          "ActivityConfidence",
+          "ActivityType"
+        ]
+      },
+      "AdaptiveSamplingEngine": {
+        "fields": [
+          "baseDistanceFilter",
+          "batteryCriticalFactor",
+          "batteryHighThreshold",
+          "batteryLowFactor",
+          "batteryLowThreshold",
+          "batteryMediumFactor",
+          "batteryMediumThreshold",
+          "distanceBicycle",
+          "distanceRunning",
+          "distanceStill",
+          "distanceVehicle",
+          "distanceWalking",
+          "elasticityMultiplier"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/adaptive_sampling_engine.dart",
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "AdaptiveSamplingEngine",
+          "compute"
+        ],
+        "types": [
+          "AdaptiveContext",
+          "AdaptiveSamplingResult"
+        ]
+      },
+      "AdaptiveSamplingResult": {
+        "fields": [
+          "activityFactor",
+          "baseDistanceFilter",
+          "batteryFactor",
+          "effectiveDistanceFilter",
+          "source",
+          "speedFactor"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/adaptive_sampling_engine.dart",
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "AdaptiveSamplingResult",
+          "toString"
+        ],
+        "types": [
+          "AdaptiveSource"
+        ]
+      },
+      "AdaptiveSource": {
+        "fields": [
+          "activity",
+          "speed",
+          "static_"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/adaptive_sampling_engine.dart",
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "AuthorizationStatus": {
+        "fields": [
+          "always",
+          "denied",
+          "deniedForever",
+          "notDetermined",
+          "whenInUse"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "BatteryBudgetEngine": {
+        "fields": [
+          "get:accuracyIndex",
+          "get:distanceFilter",
+          "get:periodicInterval",
+          "targetBudgetPerHour"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/battery_budget_engine.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "BatteryBudgetEngine",
+          "processSample",
+          "reset"
+        ],
+        "types": [
+          "BudgetAdjustmentEvent"
+        ]
+      },
+      "BudgetAdjustmentEvent": {
+        "fields": [
+          "currentBatteryDrain",
+          "newDesiredAccuracy",
+          "newDistanceFilter",
+          "newPeriodicInterval",
+          "targetBudget"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/battery_budget_engine.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "BudgetAdjustmentEvent",
+          "toString"
+        ],
+        "types": []
+      },
+      "CarbonEstimator": {
+        "fields": [
+          "get:cumulativeCarbonGrams",
+          "get:cumulativeTrips",
+          "get:isActive"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/carbon_estimator.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "CarbonEstimator",
+          "endTrip",
+          "getCumulativeReport",
+          "onLocationReceived",
+          "reset",
+          "resetCumulative",
+          "setActivity",
+          "startTrip"
+        ],
+        "types": [
+          "TripCarbonSummary"
+        ]
+      },
+      "DeltaEncoder": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/delta_encoder.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "decode",
+          "encode"
+        ],
+        "types": []
+      },
+      "DesiredAccuracy": {
+        "fields": [
+          "high",
+          "low",
+          "medium",
+          "passive",
+          "veryLow"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "GeoUtils": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/geo_utils.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "haversine",
+          "isPointInPolygon"
+        ],
+        "types": []
+      },
+      "GeofenceAction": {
+        "fields": [
+          "dwell",
+          "enter",
+          "exit"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "GeofenceEvaluator": {
+        "fields": [
+          "get:insideGeofenceIds",
+          "get:isIndexed"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/geofence_evaluator.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "clear",
+          "clearIndex",
+          "evaluateProximity",
+          "indexGeofences",
+          "removeGeofence"
+        ],
+        "types": [
+          "GeofenceTransition",
+          "RTree"
+        ]
+      },
+      "GeofenceTransition": {
+        "fields": [
+          "action",
+          "distance",
+          "geofence",
+          "identifier"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/geofence_evaluator.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "GeofenceTransition",
+          "toString"
+        ],
+        "types": []
+      },
+      "HashAlgorithm": {
+        "fields": [
+          "sha256",
+          "sha384",
+          "sha512"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "HttpMethod": {
+        "fields": [
+          "post",
+          "put"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "KalmanLocationFilter": {
+        "fields": [
+          "get:estimatedSpeed",
+          "get:isInitialized"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/kalman_filter.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "process",
+          "reset"
+        ],
+        "types": []
+      },
+      "LocationActivityType": {
+        "fields": [
+          "airborne",
+          "automotiveNavigation",
+          "fitness",
+          "other",
+          "otherNavigation"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LocationAuthorizationRequest": {
+        "fields": [
+          "always",
+          "whenInUse"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LocationFilterPolicy": {
+        "fields": [
+          "adjust",
+          "discard",
+          "ignore"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LocationOrderDirection": {
+        "fields": [
+          "ascending",
+          "descending"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LocationProcessor": {
+        "fields": [
+          "disableElasticity",
+          "distanceFilter",
+          "elasticityMultiplier",
+          "enableAdaptiveMode",
+          "enableSparseUpdates",
+          "filterPolicy",
+          "get:hasLastLocation",
+          "lastEffectiveSpeed",
+          "maxImpliedSpeed",
+          "mockDetectionLevel",
+          "odometerAccuracyThreshold",
+          "rejectMockLocations",
+          "sparseDistanceThreshold",
+          "sparseMaxIdleSeconds",
+          "trackingAccuracyThreshold"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/location_processor.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "LocationProcessor",
+          "copyWith",
+          "process",
+          "reset",
+          "transferStateTo"
+        ],
+        "types": [
+          "AdaptiveContext",
+          "AdaptiveSamplingEngine",
+          "LocationProcessor",
+          "LocationProcessorResult"
+        ]
+      },
+      "LocationProcessorResult": {
+        "fields": [
+          "accepted",
+          "distance",
+          "effectiveSpeed",
+          "errorMessage",
+          "isError",
+          "odometerDelta",
+          "reason"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/location_processor.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "accept",
+          "error",
+          "filtered",
+          "toString"
+        ],
+        "types": []
+      },
+      "LogLevel": {
+        "fields": [
+          "debug",
+          "error",
+          "info",
+          "off",
+          "verbose",
+          "warning"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MethodChannelTracelet": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/method_channel_tracelet.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "addGeofence",
+          "addGeofences",
+          "addPrivacyZone",
+          "addPrivacyZones",
+          "canScheduleExactAlarms",
+          "changePace",
+          "clearRouteContext",
+          "destroyLocation",
+          "destroyLocations",
+          "destroyLog",
+          "destroySyncedLocations",
+          "emailLog",
+          "encryptDatabase",
+          "geofenceExists",
+          "getAttestationToken",
+          "getAuditProof",
+          "getCarbonReport",
+          "getCount",
+          "getCurrentPosition",
+          "getDeadReckoningState",
+          "getDeviceInfo",
+          "getGeofence",
+          "getGeofences",
+          "getLastKnownLocation",
+          "getLocations",
+          "getLog",
+          "getMotionPermissionStatus",
+          "getNotificationPermissionStatus",
+          "getOdometer",
+          "getPermissionStatus",
+          "getPrivacyZones",
+          "getProviderState",
+          "getSensors",
+          "getSettingsHealth",
+          "getState",
+          "insertLocation",
+          "isDatabaseEncrypted",
+          "isIgnoringBatteryOptimizations",
+          "isPowerSaveMode",
+          "log",
+          "openExactAlarmSettings",
+          "openOemSettings",
+          "playSound",
+          "ready",
+          "registerHeadlessHeadersCallback",
+          "registerHeadlessSyncBodyBuilder",
+          "registerHeadlessTask",
+          "removeGeofence",
+          "removeGeofences",
+          "removePrivacyZone",
+          "removePrivacyZones",
+          "requestMotionPermission",
+          "requestNotificationPermission",
+          "requestPermission",
+          "requestSettings",
+          "requestTemporaryFullAccuracy",
+          "reset",
+          "setConfig",
+          "setDynamicHeaders",
+          "setOdometer",
+          "setRouteContext",
+          "showSettings",
+          "start",
+          "startBackgroundTask",
+          "startGeofences",
+          "startPeriodic",
+          "startSchedule",
+          "stop",
+          "stopBackgroundTask",
+          "stopSchedule",
+          "stopWatchPosition",
+          "sync",
+          "verifyAuditTrail",
+          "watchPosition"
+        ],
+        "types": [
+          "TlConfig",
+          "TraceletPlatform"
+        ]
+      },
+      "MockDetectionLevel": {
+        "fields": [
+          "basic",
+          "disabled",
+          "heuristic"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "NotificationPriority": {
+        "fields": [
+          "defaultPriority",
+          "high",
+          "low",
+          "max",
+          "min"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PersistDecider": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/persist_decider.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "shouldPersistGeofence",
+          "shouldPersistLocation"
+        ],
+        "types": []
+      },
+      "PersistMode": {
+        "fields": [
+          "all",
+          "geofence",
+          "location",
+          "none"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PigeonEventReceiver": {
+        "fields": [
+          "get:activityChangeEvents",
+          "get:authorizationEvents",
+          "get:connectivityChangeEvents",
+          "get:enabledChangeEvents",
+          "get:geofenceEvents",
+          "get:geofencesChangeEvents",
+          "get:heartbeatEvents",
+          "get:httpEvents",
+          "get:locationEvents",
+          "get:motionChangeEvents",
+          "get:notificationActionEvents",
+          "get:powerSaveChangeEvents",
+          "get:providerChangeEvents",
+          "get:scheduleEvents",
+          "get:watchPositionEvents"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/pigeon_event_receiver.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "dispose",
+          "onActivityChange",
+          "onAuthorization",
+          "onConnectivityChange",
+          "onEnabledChange",
+          "onGeofence",
+          "onGeofencesChange",
+          "onHeartbeat",
+          "onHttp",
+          "onLocation",
+          "onMotionChange",
+          "onNotificationAction",
+          "onPowerSaveChange",
+          "onProviderChange",
+          "onSchedule",
+          "onWatchPosition"
+        ],
+        "types": [
+          "TlActivityChangeEvent",
+          "TlAuthorizationEvent",
+          "TlConnectivityChangeEvent",
+          "TlGeofenceEvent",
+          "TlGeofencesChangeEvent",
+          "TlHeartbeatEvent",
+          "TlHttpEvent",
+          "TlLocation",
+          "TlProviderChangeEvent",
+          "TlState",
+          "TraceletEventApi"
+        ]
+      },
+      "PigeonTracelet": {
+        "fields": [
+          "get:activityChangeEvents",
+          "get:authorizationEvents",
+          "get:connectivityChangeEvents",
+          "get:enabledChangeEvents",
+          "get:geofenceEvents",
+          "get:geofencesChangeEvents",
+          "get:heartbeatEvents",
+          "get:httpEvents",
+          "get:locationEvents",
+          "get:motionChangeEvents",
+          "get:notificationActionEvents",
+          "get:powerSaveChangeEvents",
+          "get:providerChangeEvents",
+          "get:scheduleEvents",
+          "get:watchPositionEvents"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/pigeon_tracelet.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "PigeonTracelet",
+          "addGeofence",
+          "addGeofences",
+          "addPrivacyZone",
+          "addPrivacyZones",
+          "canScheduleExactAlarms",
+          "changePace",
+          "clearRouteContext",
+          "destroyLocation",
+          "destroyLocations",
+          "destroyLog",
+          "destroySyncedLocations",
+          "emailLog",
+          "encryptDatabase",
+          "geofenceExists",
+          "getAttestationToken",
+          "getAuditProof",
+          "getCarbonReport",
+          "getCount",
+          "getCurrentPosition",
+          "getDeadReckoningState",
+          "getDeviceInfo",
+          "getGeofence",
+          "getGeofences",
+          "getLastKnownLocation",
+          "getLocations",
+          "getLog",
+          "getMotionPermissionStatus",
+          "getNotificationPermissionStatus",
+          "getOdometer",
+          "getPermissionStatus",
+          "getPrivacyZones",
+          "getProviderState",
+          "getSensors",
+          "getSettingsHealth",
+          "getState",
+          "insertLocation",
+          "isDatabaseEncrypted",
+          "isIgnoringBatteryOptimizations",
+          "isPowerSaveMode",
+          "log",
+          "openExactAlarmSettings",
+          "openOemSettings",
+          "playSound",
+          "ready",
+          "registerHeadlessHeadersCallback",
+          "registerHeadlessSyncBodyBuilder",
+          "registerHeadlessTask",
+          "removeGeofence",
+          "removeGeofences",
+          "removePrivacyZone",
+          "removePrivacyZones",
+          "requestMotionPermission",
+          "requestNotificationPermission",
+          "requestPermission",
+          "requestSettings",
+          "requestTemporaryFullAccuracy",
+          "reset",
+          "setConfig",
+          "setDynamicHeaders",
+          "setOdometer",
+          "setRouteContext",
+          "showSettings",
+          "start",
+          "startBackgroundTask",
+          "startGeofences",
+          "startPeriodic",
+          "startSchedule",
+          "stop",
+          "stopBackgroundTask",
+          "stopSchedule",
+          "stopWatchPosition",
+          "sync",
+          "verifyAuditTrail",
+          "watchPosition"
+        ],
+        "types": [
+          "PigeonEventReceiver",
+          "TlActivityChangeEvent",
+          "TlAuthorizationEvent",
+          "TlConfig",
+          "TlConnectivityChangeEvent",
+          "TlGeofenceEvent",
+          "TlGeofencesChangeEvent",
+          "TlHeartbeatEvent",
+          "TlHttpEvent",
+          "TlLocation",
+          "TlProviderChangeEvent",
+          "TlState",
+          "TraceletHostApi",
+          "TraceletPlatform"
+        ]
+      },
+      "RTree": {
+        "fields": [
+          "get:isEmpty",
+          "get:size",
+          "maxEntries"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/rtree.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "RTree",
+          "clear",
+          "insert",
+          "queryBBox",
+          "queryCircle",
+          "remove"
+        ],
+        "types": []
+      },
+      "RTreeBBox": {
+        "fields": [
+          "get:area",
+          "maxLat",
+          "maxLng",
+          "minLat",
+          "minLng"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/rtree.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "RTreeBBox",
+          "enlargement",
+          "expand",
+          "fromPoint",
+          "intersects",
+          "toString"
+        ],
+        "types": [
+          "RTreeBBox"
+        ]
+      },
+      "ScheduleParser": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/schedule_parser.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "calculateNextAlarms",
+          "isWithinSchedule",
+          "matchesSchedule",
+          "parse"
+        ],
+        "types": [
+          "ScheduleWindow"
+        ]
+      },
+      "ScheduleWindow": {
+        "fields": [
+          "dayEnd",
+          "dayStart",
+          "endMinutes",
+          "get:endTime",
+          "get:startTime",
+          "startMinutes"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/schedule_parser.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "ScheduleWindow",
+          "toString"
+        ],
+        "types": []
+      },
+      "TlActivity": {
+        "fields": [
+          "confidence",
+          "get:hashCode",
+          "type"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlActivity",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlActivity"
+        ]
+      },
+      "TlActivityChangeEvent": {
+        "fields": [
+          "activity",
+          "confidence",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlActivityChangeEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlActivityChangeEvent"
+        ]
+      },
+      "TlAndroidConfig": {
+        "fields": [
+          "allowIdenticalLocations",
+          "deferTime",
+          "fastestLocationUpdateInterval",
+          "foregroundService",
+          "geofenceModeHighAccuracy",
+          "get:hashCode",
+          "locationUpdateInterval",
+          "periodicUseExactAlarms",
+          "periodicUseForegroundService",
+          "scheduleUseAlarmManager"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlAndroidConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlAndroidConfig",
+          "TlForegroundServiceConfig"
+        ]
+      },
+      "TlAppConfig": {
+        "fields": [
+          "get:hashCode",
+          "heartbeatInterval",
+          "remoteConfigHeaders",
+          "remoteConfigRefreshInterval",
+          "remoteConfigTimeout",
+          "remoteConfigUrl",
+          "schedule",
+          "startOnBoot",
+          "stopOnTerminate"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlAppConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlAppConfig"
+        ]
+      },
+      "TlAttestationConfig": {
+        "fields": [
+          "enabled",
+          "get:hashCode",
+          "refreshInterval"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlAttestationConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlAttestationConfig"
+        ]
+      },
+      "TlAuditConfig": {
+        "fields": [
+          "enabled",
+          "get:hashCode",
+          "hashAlgorithm"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlAuditConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlAuditConfig",
+          "TlHashAlgorithm"
+        ]
+      },
+      "TlAuthorizationEvent": {
+        "fields": [
+          "get:hashCode",
+          "response",
+          "status",
+          "success"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlAuthorizationEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlAuthorizationEvent"
+        ]
+      },
+      "TlAuthorizationRequest": {
+        "fields": [
+          "always",
+          "whenInUse"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlAuthorizationStatus": {
+        "fields": [
+          "always",
+          "denied",
+          "deniedForever",
+          "notDetermined",
+          "whenInUse"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlBattery": {
+        "fields": [
+          "get:hashCode",
+          "isCharging",
+          "level"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlBattery",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlBattery"
+        ]
+      },
+      "TlConfig": {
+        "fields": [
+          "android",
+          "app",
+          "attestation",
+          "audit",
+          "geo",
+          "geofence",
+          "get:hashCode",
+          "http",
+          "ios",
+          "logger",
+          "motion",
+          "persistence",
+          "privacyZone",
+          "security"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlAndroidConfig",
+          "TlAppConfig",
+          "TlAttestationConfig",
+          "TlAuditConfig",
+          "TlConfig",
+          "TlGeoConfig",
+          "TlGeofenceConfig",
+          "TlHttpConfig",
+          "TlIosConfig",
+          "TlLoggerConfig",
+          "TlMotionConfig",
+          "TlPersistenceConfig",
+          "TlPrivacyZoneConfig",
+          "TlSecurityConfig"
+        ]
+      },
+      "TlConnectivityChangeEvent": {
+        "fields": [
+          "connected",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlConnectivityChangeEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlConnectivityChangeEvent"
+        ]
+      },
+      "TlCoords": {
+        "fields": [
+          "accuracy",
+          "altitude",
+          "altitudeAccuracy",
+          "ellipsoidalAltitude",
+          "floor",
+          "get:hashCode",
+          "heading",
+          "headingAccuracy",
+          "latitude",
+          "longitude",
+          "speed",
+          "speedAccuracy"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlCoords",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlCoords"
+        ]
+      },
+      "TlCurrentPositionOptions": {
+        "fields": [
+          "desiredAccuracy",
+          "extras",
+          "get:hashCode",
+          "maximumAge",
+          "persist",
+          "samples",
+          "timeout"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlCurrentPositionOptions",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlCurrentPositionOptions",
+          "TlDesiredAccuracy"
+        ]
+      },
+      "TlDesiredAccuracy": {
+        "fields": [
+          "high",
+          "low",
+          "medium",
+          "passive",
+          "veryLow"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlForegroundServiceConfig": {
+        "fields": [
+          "actions",
+          "channelId",
+          "channelName",
+          "enabled",
+          "get:hashCode",
+          "notificationColor",
+          "notificationLargeIcon",
+          "notificationOngoing",
+          "notificationPriority",
+          "notificationSmallIcon",
+          "notificationText",
+          "notificationTitle"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlForegroundServiceConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlForegroundServiceConfig",
+          "TlNotificationPriority"
+        ]
+      },
+      "TlGeoConfig": {
+        "fields": [
+          "batteryBudgetPerHour",
+          "deadReckoningActivationDelay",
+          "deadReckoningMaxDuration",
+          "desiredAccuracy",
+          "disableElasticity",
+          "distanceFilter",
+          "elasticityMultiplier",
+          "enableAdaptiveMode",
+          "enableDeadReckoning",
+          "enableSparseUpdates",
+          "enableTimestampMeta",
+          "get:hashCode",
+          "locationTimeout",
+          "maxMonitoredGeofences",
+          "periodicDesiredAccuracy",
+          "periodicLocationInterval",
+          "sparseDistanceThreshold",
+          "sparseMaxIdleSeconds",
+          "stationaryRadius",
+          "stopAfterElapsedMinutes"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlGeoConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlDesiredAccuracy",
+          "TlGeoConfig"
+        ]
+      },
+      "TlGeofence": {
+        "fields": [
+          "extras",
+          "get:hashCode",
+          "identifier",
+          "latitude",
+          "loiteringDelay",
+          "longitude",
+          "notifyOnDwell",
+          "notifyOnEntry",
+          "notifyOnExit",
+          "radius",
+          "vertices"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlGeofence",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlGeofence"
+        ]
+      },
+      "TlGeofenceAction": {
+        "fields": [
+          "dwell",
+          "enter",
+          "exit"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlGeofenceConfig": {
+        "fields": [
+          "geofenceInitialTrigger",
+          "geofenceInitialTriggerEntry",
+          "geofenceModeHighAccuracy",
+          "geofenceProximityRadius",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlGeofenceConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlGeofenceConfig"
+        ]
+      },
+      "TlGeofenceEvent": {
+        "fields": [
+          "action",
+          "extras",
+          "get:hashCode",
+          "identifier",
+          "location"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlGeofenceEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlGeofenceAction",
+          "TlGeofenceEvent",
+          "TlLocation"
+        ]
+      },
+      "TlGeofencesChangeEvent": {
+        "fields": [
+          "get:hashCode",
+          "off",
+          "on"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlGeofencesChangeEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlGeofence",
+          "TlGeofencesChangeEvent"
+        ]
+      },
+      "TlHashAlgorithm": {
+        "fields": [
+          "sha256"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlHeartbeatEvent": {
+        "fields": [
+          "get:hashCode",
+          "location"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlHeartbeatEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlHeartbeatEvent",
+          "TlLocation"
+        ]
+      },
+      "TlHttpConfig": {
+        "fields": [
+          "autoSync",
+          "autoSyncThreshold",
+          "batchSync",
+          "deltaCoordinatePrecision",
+          "disableAutoSyncOnCellular",
+          "enableDeltaCompression",
+          "extras",
+          "get:hashCode",
+          "headers",
+          "httpRootProperty",
+          "httpTimeout",
+          "locationsOrderDirection",
+          "maxBatchSize",
+          "maxRetries",
+          "method",
+          "params",
+          "retryBackoffBase",
+          "retryBackoffCap",
+          "sslPinningCertificates",
+          "sslPinningFingerprints",
+          "url"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlHttpConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlHttpConfig",
+          "TlHttpMethod",
+          "TlLocationOrderDirection"
+        ]
+      },
+      "TlHttpEvent": {
+        "fields": [
+          "get:hashCode",
+          "isSuccess",
+          "responseText",
+          "status"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlHttpEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlHttpEvent"
+        ]
+      },
+      "TlHttpMethod": {
+        "fields": [
+          "post",
+          "put"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlIosActivityType": {
+        "fields": [
+          "airborne",
+          "automotive",
+          "fitness",
+          "other",
+          "otherNavigation"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlIosConfig": {
+        "fields": [
+          "activityType",
+          "disableLocationAuthorizationAlert",
+          "get:hashCode",
+          "locationAuthorizationRequest",
+          "pausesLocationUpdatesAutomatically",
+          "preventSuspend",
+          "showsBackgroundLocationIndicator",
+          "useSignificantChangesOnly"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlIosConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlAuthorizationRequest",
+          "TlIosActivityType",
+          "TlIosConfig"
+        ]
+      },
+      "TlLocation": {
+        "fields": [
+          "activity",
+          "battery",
+          "coords",
+          "event",
+          "extras",
+          "get:hashCode",
+          "isMoving",
+          "odometer",
+          "timestamp",
+          "uuid"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlLocation",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlActivity",
+          "TlBattery",
+          "TlCoords",
+          "TlLocation"
+        ]
+      },
+      "TlLocationActivityType": {
+        "fields": [
+          "inVehicle",
+          "onBicycle",
+          "onFoot",
+          "running",
+          "still",
+          "unknown",
+          "walking"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlLocationOrderDirection": {
+        "fields": [
+          "ascending",
+          "descending"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlLogLevel": {
+        "fields": [
+          "debug",
+          "error",
+          "info",
+          "off",
+          "verbose",
+          "warn"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlLoggerConfig": {
+        "fields": [
+          "debug",
+          "get:hashCode",
+          "logLevel",
+          "logMaxDays"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlLoggerConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlLogLevel",
+          "TlLoggerConfig"
+        ]
+      },
+      "TlMotionConfig": {
+        "fields": [
+          "activityRecognitionInterval",
+          "activityTypes",
+          "disableMotionActivityUpdates",
+          "disableStopDetection",
+          "get:hashCode",
+          "isMoving",
+          "minimumActivityRecognitionConfidence",
+          "motionTriggerDelay",
+          "shakeThreshold",
+          "stationaryRadius",
+          "stillSampleCount",
+          "stillThreshold",
+          "stopDetectionDelay",
+          "stopOnStationary",
+          "stopTimeout",
+          "useSignificantChangesOnly"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlMotionConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlLocationActivityType",
+          "TlMotionConfig"
+        ]
+      },
+      "TlNotificationPriority": {
+        "fields": [
+          "defaultPriority",
+          "high",
+          "low",
+          "max",
+          "min"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlPersistMode": {
+        "fields": [
+          "all",
+          "geofence",
+          "location",
+          "none"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlPersistenceConfig": {
+        "fields": [
+          "disableProviderChangeRecord",
+          "get:hashCode",
+          "maxDaysToPersist",
+          "maxRecordsToPersist",
+          "persistMode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlPersistenceConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlPersistMode",
+          "TlPersistenceConfig"
+        ]
+      },
+      "TlPrivacyZoneConfig": {
+        "fields": [
+          "enabled",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlPrivacyZoneConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlPrivacyZoneConfig"
+        ]
+      },
+      "TlProviderChangeEvent": {
+        "fields": [
+          "accuracyAuthorization",
+          "enabled",
+          "get:hashCode",
+          "gps",
+          "network",
+          "status"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlProviderChangeEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlProviderChangeEvent"
+        ]
+      },
+      "TlSecurityConfig": {
+        "fields": [
+          "encryptDatabase",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlSecurityConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlSecurityConfig"
+        ]
+      },
+      "TlState": {
+        "fields": [
+          "enabled",
+          "get:hashCode",
+          "isMoving",
+          "lastLocationTimestamp",
+          "odometer",
+          "schedulerEnabled",
+          "trackingMode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlState",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlState",
+          "TlTrackingMode"
+        ]
+      },
+      "TlTrackingMode": {
+        "fields": [
+          "geofences",
+          "location",
+          "periodic"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TraceletEventApi": {
+        "fields": [
+          "pigeonChannelCodec"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "onActivityChange",
+          "onAuthorization",
+          "onConnectivityChange",
+          "onEnabledChange",
+          "onGeofence",
+          "onGeofencesChange",
+          "onHeartbeat",
+          "onHttp",
+          "onLocation",
+          "onMotionChange",
+          "onNotificationAction",
+          "onPowerSaveChange",
+          "onProviderChange",
+          "onSchedule",
+          "onWatchPosition",
+          "setUp"
+        ],
+        "types": [
+          "TlActivityChangeEvent",
+          "TlAuthorizationEvent",
+          "TlConnectivityChangeEvent",
+          "TlGeofenceEvent",
+          "TlGeofencesChangeEvent",
+          "TlHeartbeatEvent",
+          "TlHttpEvent",
+          "TlLocation",
+          "TlProviderChangeEvent",
+          "TlState",
+          "TraceletEventApi"
+        ]
+      },
+      "TraceletEvents": {
+        "fields": [
+          "activityChange",
+          "authorization",
+          "basePath",
+          "connectivityChange",
+          "enabledChange",
+          "geofence",
+          "geofencesChange",
+          "heartbeat",
+          "http",
+          "location",
+          "motionChange",
+          "notificationAction",
+          "powerSaveChange",
+          "providerChange",
+          "schedule",
+          "watchPosition"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/event_channel_names.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TraceletFlutterApi": {
+        "fields": [
+          "pigeonChannelCodec"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "onHeadlessEvent",
+          "onHeadlessHeaders",
+          "setUp"
+        ],
+        "types": [
+          "TraceletFlutterApi"
+        ]
+      },
+      "TraceletHostApi": {
+        "fields": [
+          "pigeonChannelCodec",
+          "pigeonVar_binaryMessenger",
+          "pigeonVar_messageChannelSuffix"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "TraceletHostApi",
+          "addGeofence",
+          "addGeofences",
+          "addPrivacyZone",
+          "addPrivacyZones",
+          "canScheduleExactAlarms",
+          "changePace",
+          "clearRouteContext",
+          "destroyLocation",
+          "destroyLocations",
+          "destroyLog",
+          "destroySyncedLocations",
+          "emailLog",
+          "encryptDatabase",
+          "geofenceExists",
+          "getAttestationToken",
+          "getAuditProof",
+          "getCarbonReport",
+          "getCount",
+          "getCurrentPosition",
+          "getDeadReckoningState",
+          "getDeviceInfo",
+          "getGeofence",
+          "getGeofences",
+          "getLastKnownLocation",
+          "getLocations",
+          "getLog",
+          "getMotionPermissionStatus",
+          "getNotificationPermissionStatus",
+          "getOdometer",
+          "getPermissionStatus",
+          "getPrivacyZones",
+          "getProviderState",
+          "getSensors",
+          "getSettingsHealth",
+          "getState",
+          "insertLocation",
+          "isDatabaseEncrypted",
+          "isIgnoringBatteryOptimizations",
+          "isPowerSaveMode",
+          "log",
+          "openExactAlarmSettings",
+          "openOemSettings",
+          "playSound",
+          "ready",
+          "registerHeadlessHeadersCallback",
+          "registerHeadlessSyncBodyBuilder",
+          "registerHeadlessTask",
+          "removeGeofence",
+          "removeGeofences",
+          "removePrivacyZone",
+          "removePrivacyZones",
+          "requestMotionPermission",
+          "requestNotificationPermission",
+          "requestPermission",
+          "requestSettings",
+          "requestTemporaryFullAccuracy",
+          "reset",
+          "setConfig",
+          "setDynamicHeaders",
+          "setOdometer",
+          "setRouteContext",
+          "showSettings",
+          "start",
+          "startBackgroundTask",
+          "startGeofences",
+          "startPeriodic",
+          "startSchedule",
+          "stop",
+          "stopBackgroundTask",
+          "stopSchedule",
+          "stopWatchPosition",
+          "sync",
+          "verifyAuditTrail",
+          "watchPosition"
+        ],
+        "types": [
+          "TlAuthorizationStatus",
+          "TlConfig",
+          "TlCurrentPositionOptions",
+          "TlGeofence",
+          "TlLocation",
+          "TlProviderChangeEvent",
+          "TlState"
+        ]
+      },
+      "TraceletPlatform": {
+        "fields": [
+          "get:activityChangeEvents",
+          "get:authorizationEvents",
+          "get:connectivityChangeEvents",
+          "get:enabledChangeEvents",
+          "get:geofenceEvents",
+          "get:geofencesChangeEvents",
+          "get:heartbeatEvents",
+          "get:httpEvents",
+          "get:instance",
+          "get:locationEvents",
+          "get:motionChangeEvents",
+          "get:notificationActionEvents",
+          "get:powerSaveChangeEvents",
+          "get:providerChangeEvents",
+          "get:scheduleEvents",
+          "get:watchPositionEvents",
+          "methodChannelName",
+          "set:instance"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/tracelet_platform.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "TraceletPlatform",
+          "addGeofence",
+          "addGeofences",
+          "addPrivacyZone",
+          "addPrivacyZones",
+          "canScheduleExactAlarms",
+          "changePace",
+          "clearRouteContext",
+          "destroyLocation",
+          "destroyLocations",
+          "destroyLog",
+          "destroySyncedLocations",
+          "emailLog",
+          "encryptDatabase",
+          "geofenceExists",
+          "getAttestationToken",
+          "getAuditProof",
+          "getCarbonReport",
+          "getCount",
+          "getCurrentPosition",
+          "getDeadReckoningState",
+          "getDeviceInfo",
+          "getGeofence",
+          "getGeofences",
+          "getLastKnownLocation",
+          "getLocations",
+          "getLog",
+          "getMotionPermissionStatus",
+          "getNotificationPermissionStatus",
+          "getOdometer",
+          "getPermissionStatus",
+          "getPrivacyZones",
+          "getProviderState",
+          "getSensors",
+          "getSettingsHealth",
+          "getState",
+          "insertLocation",
+          "isDatabaseEncrypted",
+          "isIgnoringBatteryOptimizations",
+          "isPowerSaveMode",
+          "log",
+          "openExactAlarmSettings",
+          "openOemSettings",
+          "playSound",
+          "ready",
+          "registerHeadlessHeadersCallback",
+          "registerHeadlessSyncBodyBuilder",
+          "registerHeadlessTask",
+          "removeGeofence",
+          "removeGeofences",
+          "removePrivacyZone",
+          "removePrivacyZones",
+          "requestMotionPermission",
+          "requestNotificationPermission",
+          "requestPermission",
+          "requestSettings",
+          "requestTemporaryFullAccuracy",
+          "reset",
+          "setConfig",
+          "setDynamicHeaders",
+          "setOdometer",
+          "setRouteContext",
+          "showSettings",
+          "start",
+          "startBackgroundTask",
+          "startGeofences",
+          "startPeriodic",
+          "startSchedule",
+          "stop",
+          "stopBackgroundTask",
+          "stopSchedule",
+          "stopWatchPosition",
+          "sync",
+          "verifyAuditTrail",
+          "watchPosition"
+        ],
+        "types": [
+          "TlActivityChangeEvent",
+          "TlAuthorizationEvent",
+          "TlConfig",
+          "TlConnectivityChangeEvent",
+          "TlGeofenceEvent",
+          "TlGeofencesChangeEvent",
+          "TlHeartbeatEvent",
+          "TlHttpEvent",
+          "TlLocation",
+          "TlProviderChangeEvent",
+          "TlState",
+          "TraceletPlatform"
+        ]
+      },
+      "TrackingMode": {
+        "fields": [
+          "geofences",
+          "location",
+          "periodic"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TripCarbonSummary": {
+        "fields": [
+          "carbonByMode",
+          "distanceByMode",
+          "dominantMode",
+          "totalCarbonGrams",
+          "totalDistanceMeters"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/carbon_estimator.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "TripCarbonSummary",
+          "toMap"
+        ],
+        "types": []
+      },
+      "TripManager": {
+        "fields": [
+          "get:isTripActive",
+          "onTripEnd"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/trip_manager.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "onLocationReceived",
+          "onMotionStateChanged",
+          "reset"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:16:24Z",
+  "package": "tracelet_platform_interface",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AdaptiveContext",
+      "AdaptiveSamplingEngine",
+      "AdaptiveSamplingResult",
+      "BudgetAdjustmentEvent",
+      "GeofenceTransition",
+      "LocationProcessorResult",
+      "ScheduleWindow",
+      "TripCarbonSummary",
+      "_PigeonCodec"
+    ],
+    "digest": "6e723d656334265a12334e01eb356c6c8ec64e5a32b1f661641882c2f95b900b",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "0155fcd6624389d80266f371ac4cefd904fb88151a46a2ff0abae3e3209fdabf",
+    "method_channels": [
+      "com.tracelet/methods"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      " ",
+      "-",
+      "../types/enums.dart",
+      ":",
+      "ACCURACY_FILTER",
+      "Always",
+      "DISTANCE_FILTER",
+      "ENTER",
+      "EXIT",
+      "Host platform returned null value for non-null return value.",
+      "Location rejected: flagged as mock/spoofed by the platform",
+      "MOCK_LOCATION",
+      "MOCK_LOCATION_TIMESTAMP",
+      "SPARSE_FILTER",
+      "SPEED_FILTER",
+      "WhenInUse",
+      "a",
+      "accuracy",
+      "accuracyAuthorization",
+      "actions",
+      "activity",
+      "activityChangeEvents has not been implemented.",
+      "activityRecognitionInterval",
+      "activityType",
+      "activityTypes",
+      "adaptive_sampling_engine.dart",
+      "addGeofence",
+      "addGeofence() has not been implemented.",
+      "addGeofences",
+      "addGeofences() has not been implemented.",
+      "addPrivacyZone",
+      "addPrivacyZone() has not been implemented.",
+      "addPrivacyZones",
+      "addPrivacyZones() has not been implemented.",
+      "al",
+      "allowIdenticalLocations",
+      "altitude",
+      "altitudeAccuracy",
+      "altitude_accuracy",
+      "android",
+      "app",
+      "attestation",
+      "audit",
+      "authorizationEvents has not been implemented.",
+      "autoSync",
+      "autoSyncThreshold",
+      "b",
+      "batchSync",
+      "battery",
+      "batteryBudgetPerHour",
+      "battery_budget_engine.dart",
+      "bus",
+      "canScheduleExactAlarms",
+      "canScheduleExactAlarms() has not been implemented.",
+      "carbonByMode",
+      "carbon_estimator.dart",
+      "changePace",
+      "changePace() has not been implemented.",
+      "channel-error",
+      "channelId",
+      "channelName",
+      "clearRouteContext",
+      "clearRouteContext() has not been implemented.",
+      "com.tracelet/events",
+      "com.tracelet/methods",
+      "confidence",
+      "connectivityChangeEvents has not been implemented.",
+      "coords",
+      "d",
+      "dart:async",
+      "dart:collection",
+      "dart:math",
+      "dart:typed_data",
+      "deadReckoningActivationDelay",
+      "deadReckoningMaxDuration",
+      "debug",
+      "deferTime",
+      "deltaCoordinatePrecision",
+      "delta_encoder.dart",
+      "desiredAccuracy",
+      "destroyLocation",
+      "destroyLocation() has not been implemented.",
+      "destroyLocations",
+      "destroyLocations() has not been implemented.",
+      "destroyLog",
+      "destroyLog() has not been implemented.",
+      "destroySyncedLocations",
+      "destroySyncedLocations() has not been implemented.",
+      "disableAutoSyncOnCellular",
+      "disableElasticity",
+      "disableLocationAuthorizationAlert",
+      "disableMotionActivityUpdates",
+      "disableStopDetection",
+      "distance",
+      "distanceByMode",
+      "distanceFilter",
+      "dominantMode",
+      "duration",
+      "elasticityMultiplier",
+      "ellipsoidalAltitude",
+      "emailLog",
+      "emailLog() has not been implemented.",
+      "enableAdaptiveMode",
+      "enableDeadReckoning",
+      "enableDeltaCompression",
+      "enableSparseUpdates",
+      "enableTimestampMeta",
+      "enabled",
+      "enabledChangeEvents has not been implemented.",
+      "encryptDatabase",
+      "encryptDatabase() has not been implemented.",
+      "enums.dart",
+      "error",
+      "event",
+      "extras",
+      "fastestLocationUpdateInterval",
+      "floor",
+      "foregroundService",
+      "generated/tracelet_api.g.dart",
+      "geo",
+      "geo_utils.dart",
+      "geofence",
+      "geofenceEvents has not been implemented.",
+      "geofenceExists",
+      "geofenceExists() has not been implemented.",
+      "geofenceInitialTriggerEntry",
+      "geofenceModeHighAccuracy",
+      "geofenceProximityRadius",
+      "geofence_evaluator.dart",
+      "geofencesChangeEvents has not been implemented.",
+      "getAttestationToken",
+      "getAttestationToken() has not been implemented.",
+      "getAuditProof",
+      "getAuditProof() has not been implemented.",
+      "getCarbonReport",
+      "getCarbonReport() has not been implemented.",
+      "getCount",
+      "getCount() has not been implemented.",
+      "getCurrentPosition",
+      "getCurrentPosition() has not been implemented.",
+      "getDeadReckoningState",
+      "getDeadReckoningState() has not been implemented.",
+      "getDeviceInfo",
+      "getDeviceInfo() has not been implemented.",
+      "getGeofence",
+      "getGeofence() has not been implemented.",
+      "getGeofences",
+      "getGeofences() has not been implemented.",
+      "getLastKnownLocation",
+      "getLastKnownLocation() has not been implemented.",
+      "getLocations",
+      "getLocations() has not been implemented.",
+      "getLog",
+      "getLog() has not been implemented.",
+      "getMotionPermissionStatus",
+      "getMotionPermissionStatus() has not been implemented.",
+      "getNotificationPermissionStatus",
+      "getNotificationPermissionStatus() has not been implemented.",
+      "getOdometer",
+      "getOdometer() has not been implemented.",
+      "getPermissionStatus",
+      "getPermissionStatus() has not been implemented.",
+      "getPrivacyZones",
+      "getPrivacyZones() has not been implemented.",
+      "getProviderState",
+      "getProviderState() has not been implemented.",
+      "getSensors",
+      "getSensors() has not been implemented.",
+      "getSettingsHealth",
+      "getSettingsHealth() has not been implemented.",
+      "getState",
+      "getState() has not been implemented.",
+      "gps",
+      "h",
+      "hashAlgorithm",
+      "headers",
+      "heading",
+      "headingAccuracy",
+      "heartbeatEvents has not been implemented.",
+      "heartbeatInterval",
+      "http",
+      "httpEvents has not been implemented.",
+      "httpRootProperty",
+      "httpTimeout",
+      "identifier",
+      "in_vehicle",
+      "insertLocation",
+      "insertLocation() has not been implemented.",
+      "ios",
+      "isCharging",
+      "isDatabaseEncrypted",
+      "isDatabaseEncrypted() has not been implemented.",
+      "isIgnoringBatteryOptimizations",
+      "isIgnoringBatteryOptimizations() has not been implemented.",
+      "isMoving",
+      "isPowerSaveMode",
+      "isPowerSaveMode() has not been implemented.",
+      "is_charging",
+      "kalman_filter.dart",
+      "la",
+      "lastLocationTimestamp",
+      "latitude",
+      "level",
+      "lo",
+      "locationAuthorizationRequest",
+      "locationEvents has not been implemented.",
+      "locationTimeout",
+      "locationUpdateInterval",
+      "location_processor.dart",
+      "locationsOrderDirection",
+      "log",
+      "log() has not been implemented.",
+      "logLevel",
+      "logMaxDays",
+      "logger",
+      "loiteringDelay",
+      "longitude",
+      "maxBatchSize",
+      "maxDaysToPersist",
+      "maxMonitoredGeofences",
+      "maxRecordsToPersist",
+      "maxRetries",
+      "maximumAge",
+      "method",
+      "minimumActivityRecognitionConfidence",
+      "motion",
+      "motionChangeEvents has not been implemented.",
+      "motionTriggerDelay",
+      "network",
+      "notificationActionEvents has not been implemented.",
+      "notificationColor",
+      "notificationLargeIcon",
+      "notificationOngoing",
+      "notificationPriority",
+      "notificationSmallIcon",
+      "notificationText",
+      "notificationTitle",
+      "notifyOnDwell",
+      "notifyOnEntry",
+      "notifyOnExit",
+      "null-error",
+      "odometer",
+      "on_bicycle",
+      "on_foot",
+      "openExactAlarmSettings",
+      "openExactAlarmSettings() has not been implemented.",
+      "openOemSettings",
+      "openOemSettings() has not been implemented.",
+      "package:flutter/services.dart",
+      "package:meta/meta.dart",
+      "package:plugin_platform_interface/plugin_platform_interface.dart",
+      "params",
+      "pausesLocationUpdatesAutomatically",
+      "periodicDesiredAccuracy",
+      "periodicLocationInterval",
+      "periodicUseExactAlarms",
+      "periodicUseForegroundService",
+      "persist",
+      "persistMode",
+      "persist_decider.dart",
+      "persistence",
+      "pigeon_event_receiver.dart",
+      "pigeon_tracelet.dart",
+      "playSound",
+      "playSound() has not been implemented.",
+      "powerSaveChangeEvents has not been implemented.",
+      "preventSuspend",
+      "privacyZone",
+      "providerChangeEvents has not been implemented.",
+      "providerchange",
+      "radius",
+      "ready",
+      "ready() has not been implemented.",
+      "ref",
+      "refreshInterval",
+      "registerHeadlessHeadersCallback",
+      "registerHeadlessHeadersCallback() has not been implemented.",
+      "registerHeadlessSyncBodyBuilder",
+      "registerHeadlessSyncBodyBuilder() has not been implemented.",
+      "registerHeadlessTask",
+      "registerHeadlessTask() has not been implemented.",
+      "remoteConfigHeaders",
+      "remoteConfigRefreshInterval",
+      "remoteConfigTimeout",
+      "remoteConfigUrl",
+      "removeGeofence",
+      "removeGeofence() has not been implemented.",
+      "removeGeofences",
+      "removeGeofences() has not been implemented.",
+      "removePrivacyZone",
+      "removePrivacyZone() has not been implemented.",
+      "removePrivacyZones",
+      "removePrivacyZones() has not been implemented.",
+      "requestMotionPermission",
+      "requestMotionPermission() has not been implemented.",
+      "requestNotificationPermission",
+      "requestNotificationPermission() has not been implemented.",
+      "requestPermission",
+      "requestPermission() has not been implemented.",
+      "requestSettings",
+      "requestSettings() has not been implemented.",
+      "requestTemporaryFullAccuracy",
+      "requestTemporaryFullAccuracy() has not been implemented.",
+      "reset",
+      "reset() has not been implemented.",
+      "retryBackoffBase",
+      "retryBackoffCap",
+      "rtree.dart",
+      "running",
+      "s",
+      "samples",
+      "schedule",
+      "scheduleEvents has not been implemented.",
+      "scheduleUseAlarmManager",
+      "schedule_parser.dart",
+      "schedulerEnabled",
+      "security",
+      "setConfig",
+      "setConfig() has not been implemented.",
+      "setDynamicHeaders",
+      "setDynamicHeaders() has not been implemented.",
+      "setOdometer",
+      "setOdometer() has not been implemented.",
+      "setRouteContext",
+      "setRouteContext() has not been implemented.",
+      "showSettings",
+      "showSettings() has not been implemented.",
+      "showsBackgroundLocationIndicator",
+      "sparseDistanceThreshold",
+      "sparseMaxIdleSeconds",
+      "speed",
+      "speedAccuracy",
+      "src/algorithms/algorithms.dart",
+      "src/event_channel_names.dart",
+      "src/generated/tracelet_api.g.dart",
+      "src/method_channel_tracelet.dart",
+      "src/pigeon_event_receiver.dart",
+      "src/pigeon_tracelet.dart",
+      "src/tracelet_platform.dart",
+      "src/types/types.dart",
+      "sslPinningCertificates",
+      "sslPinningFingerprints",
+      "start",
+      "start() has not been implemented.",
+      "startBackgroundTask",
+      "startBackgroundTask() has not been implemented.",
+      "startGeofences",
+      "startGeofences() has not been implemented.",
+      "startLocation",
+      "startOnBoot",
+      "startPeriodic",
+      "startPeriodic() has not been implemented.",
+      "startSchedule",
+      "startSchedule() has not been implemented.",
+      "stationaryRadius",
+      "status",
+      "stop",
+      "stop() has not been implemented.",
+      "stopAfterElapsedMinutes",
+      "stopBackgroundTask",
+      "stopBackgroundTask() has not been implemented.",
+      "stopDetectionDelay",
+      "stopLocation",
+      "stopOnStationary",
+      "stopOnTerminate",
+      "stopSchedule",
+      "stopSchedule() has not been implemented.",
+      "stopTimeout",
+      "stopWatchPosition",
+      "stopWatchPosition() has not been implemented.",
+      "sync",
+      "sync() has not been implemented.",
+      "t",
+      "timeout",
+      "timestamp",
+      "totalCarbonGrams",
+      "totalDistanceMeters",
+      "totalTrips",
+      "tracelet_platform.dart",
+      "trackingMode",
+      "train",
+      "trip_manager.dart",
+      "type",
+      "u",
+      "unknown",
+      "url",
+      "useSignificantChangesOnly",
+      "uuid",
+      "verifyAuditTrail",
+      "verifyAuditTrail() has not been implemented.",
+      "vertices",
+      "walking",
+      "watchPosition",
+      "watchPosition() has not been implemented.",
+      "watchPositionEvents has not been implemented.",
+      "waypoints"
+    ]
+  },
+  "version": "2.0.4"
+}
