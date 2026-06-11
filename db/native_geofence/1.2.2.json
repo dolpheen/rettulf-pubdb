@@ -1,0 +1,664 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "get:isIos"
+        ],
+        "libraries": [
+          "package:native_geofence/native_geofence.dart",
+          "package:native_geofence/src/callback_dispatcher.dart",
+          "package:native_geofence/src/generated/platform_bindings.g.dart",
+          "package:native_geofence/src/native_geofence_background_manager.dart",
+          "package:native_geofence/src/platform/mobile.dart",
+          "package:native_geofence/src/platform/module.dart",
+          "package:native_geofence/src/platform/web.dart",
+          "package:native_geofence/src/typedefs.dart"
+        ],
+        "methods": [
+          "callbackDispatcher",
+          "createNativeGeofenceBackgroundManagerInstance",
+          "wrapResponse"
+        ],
+        "types": [
+          "GeofenceCallbackParams"
+        ]
+      },
+      "ActiveGeofence": {
+        "fields": [
+          "androidSettings",
+          "id",
+          "location",
+          "radiusMeters",
+          "triggers"
+        ],
+        "libraries": [
+          "package:native_geofence/native_geofence.dart",
+          "package:native_geofence/src/model/model.dart"
+        ],
+        "methods": [
+          "ActiveGeofence",
+          "toString"
+        ],
+        "types": [
+          "AndroidGeofenceSettings",
+          "GeofenceEvent",
+          "Location"
+        ]
+      },
+      "ActiveGeofenceMapper": {
+        "fields": [],
+        "libraries": [
+          "package:native_geofence/src/model/model_mapper.dart"
+        ],
+        "methods": [
+          "toWire"
+        ],
+        "types": [
+          "ActiveGeofence",
+          "ActiveGeofenceWire"
+        ]
+      },
+      "ActiveGeofenceWire": {
+        "fields": [
+          "androidSettings",
+          "get:hashCode",
+          "id",
+          "location",
+          "radiusMeters",
+          "triggers"
+        ],
+        "libraries": [
+          "package:native_geofence/src/generated/platform_bindings.g.dart"
+        ],
+        "methods": [
+          "==",
+          "ActiveGeofenceWire",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "ActiveGeofenceWire",
+          "AndroidGeofenceSettingsWire",
+          "GeofenceEvent",
+          "LocationWire"
+        ]
+      },
+      "ActiveGeofenceWireMapper": {
+        "fields": [],
+        "libraries": [
+          "package:native_geofence/src/model/model_mapper.dart"
+        ],
+        "methods": [
+          "fromWire"
+        ],
+        "types": [
+          "ActiveGeofence",
+          "ActiveGeofenceWire"
+        ]
+      },
+      "AndroidGeofenceSettings": {
+        "fields": [
+          "expiration",
+          "initialTriggers",
+          "loiteringDelay",
+          "notificationResponsiveness"
+        ],
+        "libraries": [
+          "package:native_geofence/native_geofence.dart",
+          "package:native_geofence/src/model/model.dart"
+        ],
+        "methods": [
+          "AndroidGeofenceSettings",
+          "toString"
+        ],
+        "types": [
+          "GeofenceEvent"
+        ]
+      },
+      "AndroidGeofenceSettingsMapper": {
+        "fields": [],
+        "libraries": [
+          "package:native_geofence/src/model/model_mapper.dart"
+        ],
+        "methods": [
+          "toWire"
+        ],
+        "types": [
+          "AndroidGeofenceSettings",
+          "AndroidGeofenceSettingsWire"
+        ]
+      },
+      "AndroidGeofenceSettingsWire": {
+        "fields": [
+          "expirationDurationMillis",
+          "get:hashCode",
+          "initialTriggers",
+          "loiteringDelayMillis",
+          "notificationResponsivenessMillis"
+        ],
+        "libraries": [
+          "package:native_geofence/src/generated/platform_bindings.g.dart"
+        ],
+        "methods": [
+          "==",
+          "AndroidGeofenceSettingsWire",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "AndroidGeofenceSettingsWire",
+          "GeofenceEvent"
+        ]
+      },
+      "AndroidGeofenceSettingsWireMapper": {
+        "fields": [],
+        "libraries": [
+          "package:native_geofence/src/model/model_mapper.dart"
+        ],
+        "methods": [
+          "fromWire"
+        ],
+        "types": [
+          "AndroidGeofenceSettings",
+          "AndroidGeofenceSettingsWire"
+        ]
+      },
+      "Geofence": {
+        "fields": [
+          "androidSettings",
+          "id",
+          "iosSettings",
+          "location",
+          "radiusMeters",
+          "triggers"
+        ],
+        "libraries": [
+          "package:native_geofence/native_geofence.dart",
+          "package:native_geofence/src/model/model.dart"
+        ],
+        "methods": [
+          "Geofence",
+          "toString"
+        ],
+        "types": [
+          "AndroidGeofenceSettings",
+          "GeofenceEvent",
+          "IosGeofenceSettings",
+          "Location"
+        ]
+      },
+      "GeofenceCallbackParams": {
+        "fields": [
+          "event",
+          "geofences",
+          "location"
+        ],
+        "libraries": [
+          "package:native_geofence/native_geofence.dart",
+          "package:native_geofence/src/model/model.dart"
+        ],
+        "methods": [
+          "GeofenceCallbackParams",
+          "toString"
+        ],
+        "types": [
+          "ActiveGeofence",
+          "GeofenceEvent",
+          "Location"
+        ]
+      },
+      "GeofenceCallbackParamsWire": {
+        "fields": [
+          "callbackHandle",
+          "event",
+          "geofences",
+          "get:hashCode",
+          "location"
+        ],
+        "libraries": [
+          "package:native_geofence/src/generated/platform_bindings.g.dart"
+        ],
+        "methods": [
+          "==",
+          "GeofenceCallbackParamsWire",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "ActiveGeofenceWire",
+          "GeofenceCallbackParamsWire",
+          "GeofenceEvent",
+          "LocationWire"
+        ]
+      },
+      "GeofenceCallbackParamsWireMapper": {
+        "fields": [],
+        "libraries": [
+          "package:native_geofence/src/model/model_mapper.dart"
+        ],
+        "methods": [
+          "fromWire"
+        ],
+        "types": [
+          "GeofenceCallbackParams",
+          "GeofenceCallbackParamsWire"
+        ]
+      },
+      "GeofenceEvent": {
+        "fields": [
+          "dwell",
+          "enter",
+          "exit"
+        ],
+        "libraries": [
+          "package:native_geofence/native_geofence.dart",
+          "package:native_geofence/src/generated/platform_bindings.g.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "GeofenceMapper": {
+        "fields": [],
+        "libraries": [
+          "package:native_geofence/src/model/model_mapper.dart"
+        ],
+        "methods": [
+          "toWire"
+        ],
+        "types": [
+          "Geofence",
+          "GeofenceWire"
+        ]
+      },
+      "GeofenceWire": {
+        "fields": [
+          "androidSettings",
+          "callbackHandle",
+          "get:hashCode",
+          "id",
+          "iosSettings",
+          "location",
+          "radiusMeters",
+          "triggers"
+        ],
+        "libraries": [
+          "package:native_geofence/src/generated/platform_bindings.g.dart"
+        ],
+        "methods": [
+          "==",
+          "GeofenceWire",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "AndroidGeofenceSettingsWire",
+          "GeofenceEvent",
+          "GeofenceWire",
+          "IosGeofenceSettingsWire",
+          "LocationWire"
+        ]
+      },
+      "GeofenceWireMapper": {
+        "fields": [],
+        "libraries": [
+          "package:native_geofence/src/model/model_mapper.dart"
+        ],
+        "methods": [
+          "fromWire"
+        ],
+        "types": [
+          "Geofence",
+          "GeofenceWire"
+        ]
+      },
+      "IosGeofenceSettings": {
+        "fields": [
+          "initialTrigger"
+        ],
+        "libraries": [
+          "package:native_geofence/native_geofence.dart",
+          "package:native_geofence/src/model/model.dart"
+        ],
+        "methods": [
+          "IosGeofenceSettings",
+          "toString"
+        ],
+        "types": []
+      },
+      "IosGeofenceSettingsMapper": {
+        "fields": [],
+        "libraries": [
+          "package:native_geofence/src/model/model_mapper.dart"
+        ],
+        "methods": [
+          "toWire"
+        ],
+        "types": [
+          "IosGeofenceSettings",
+          "IosGeofenceSettingsWire"
+        ]
+      },
+      "IosGeofenceSettingsWire": {
+        "fields": [
+          "get:hashCode",
+          "initialTrigger"
+        ],
+        "libraries": [
+          "package:native_geofence/src/generated/platform_bindings.g.dart"
+        ],
+        "methods": [
+          "==",
+          "IosGeofenceSettingsWire",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "IosGeofenceSettingsWire"
+        ]
+      },
+      "IosGeofenceSettingsWireMapper": {
+        "fields": [],
+        "libraries": [
+          "package:native_geofence/src/model/model_mapper.dart"
+        ],
+        "methods": [
+          "fromWire"
+        ],
+        "types": [
+          "IosGeofenceSettings",
+          "IosGeofenceSettingsWire"
+        ]
+      },
+      "Location": {
+        "fields": [
+          "get:isValid",
+          "latitude",
+          "longitude"
+        ],
+        "libraries": [
+          "package:native_geofence/native_geofence.dart",
+          "package:native_geofence/src/model/model.dart"
+        ],
+        "methods": [
+          "Location",
+          "toString"
+        ],
+        "types": []
+      },
+      "LocationMapper": {
+        "fields": [],
+        "libraries": [
+          "package:native_geofence/src/model/model_mapper.dart"
+        ],
+        "methods": [
+          "toWire"
+        ],
+        "types": [
+          "Location",
+          "LocationWire"
+        ]
+      },
+      "LocationWire": {
+        "fields": [
+          "get:hashCode",
+          "latitude",
+          "longitude"
+        ],
+        "libraries": [
+          "package:native_geofence/src/generated/platform_bindings.g.dart"
+        ],
+        "methods": [
+          "==",
+          "LocationWire",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "LocationWire"
+        ]
+      },
+      "LocationWireMapper": {
+        "fields": [],
+        "libraries": [
+          "package:native_geofence/src/model/model_mapper.dart"
+        ],
+        "methods": [
+          "fromWire"
+        ],
+        "types": [
+          "Location",
+          "LocationWire"
+        ]
+      },
+      "NativeGeofenceApi": {
+        "fields": [
+          "pigeonChannelCodec",
+          "pigeonVar_binaryMessenger",
+          "pigeonVar_messageChannelSuffix"
+        ],
+        "libraries": [
+          "package:native_geofence/src/generated/platform_bindings.g.dart"
+        ],
+        "methods": [
+          "NativeGeofenceApi",
+          "createGeofence",
+          "getGeofenceIds",
+          "getGeofences",
+          "initialize",
+          "reCreateAfterReboot",
+          "removeAllGeofences",
+          "removeGeofenceById"
+        ],
+        "types": [
+          "ActiveGeofenceWire",
+          "GeofenceWire"
+        ]
+      },
+      "NativeGeofenceBackgroundApi": {
+        "fields": [
+          "pigeonChannelCodec",
+          "pigeonVar_binaryMessenger",
+          "pigeonVar_messageChannelSuffix"
+        ],
+        "libraries": [
+          "package:native_geofence/src/generated/platform_bindings.g.dart"
+        ],
+        "methods": [
+          "NativeGeofenceBackgroundApi",
+          "demoteToBackground",
+          "promoteToForeground",
+          "triggerApiInitialized"
+        ],
+        "types": []
+      },
+      "NativeGeofenceBackgroundManager": {
+        "fields": [
+          "get:instance"
+        ],
+        "libraries": [
+          "package:native_geofence/native_geofence.dart",
+          "package:native_geofence/src/native_geofence_background_manager.dart"
+        ],
+        "methods": [
+          "demoteToBackground",
+          "promoteToForeground"
+        ],
+        "types": [
+          "NativeGeofenceBackgroundApi",
+          "NativeGeofenceBackgroundManager"
+        ]
+      },
+      "NativeGeofenceErrorCode": {
+        "fields": [
+          "callbackInvalid",
+          "callbackNotFound",
+          "channelError",
+          "geofenceNotFound",
+          "invalidArguments",
+          "missingBackgroundLocationPermission",
+          "missingLocationPermission",
+          "pluginInternal",
+          "unknown"
+        ],
+        "libraries": [
+          "package:native_geofence/native_geofence.dart",
+          "package:native_geofence/src/generated/platform_bindings.g.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "NativeGeofenceException": {
+        "fields": [
+          "code",
+          "details",
+          "message",
+          "stacktrace"
+        ],
+        "libraries": [
+          "package:native_geofence/native_geofence.dart",
+          "package:native_geofence/src/model/native_geofence_exception.dart"
+        ],
+        "methods": [
+          "NativeGeofenceException",
+          "internal",
+          "invalidArgument",
+          "toString"
+        ],
+        "types": [
+          "NativeGeofenceErrorCode"
+        ]
+      },
+      "NativeGeofenceExceptionMapper": {
+        "fields": [],
+        "libraries": [
+          "package:native_geofence/src/model/model_mapper.dart"
+        ],
+        "methods": [
+          "catchError",
+          "fromError",
+          "fromException",
+          "fromPlatformException"
+        ],
+        "types": [
+          "NativeGeofenceException"
+        ]
+      },
+      "NativeGeofenceManager": {
+        "fields": [
+          "get:instance"
+        ],
+        "libraries": [
+          "package:native_geofence/native_geofence.dart",
+          "package:native_geofence/src/native_geofence_manager.dart"
+        ],
+        "methods": [
+          "createGeofence",
+          "getRegisteredGeofenceIds",
+          "getRegisteredGeofences",
+          "initialize",
+          "reCreateAfterReboot",
+          "removeAllGeofences",
+          "removeGeofence",
+          "removeGeofenceById"
+        ],
+        "types": [
+          "ActiveGeofence",
+          "Geofence",
+          "NativeGeofenceApi",
+          "NativeGeofenceManager"
+        ]
+      },
+      "NativeGeofenceTriggerApi": {
+        "fields": [
+          "pigeonChannelCodec"
+        ],
+        "libraries": [
+          "package:native_geofence/src/generated/platform_bindings.g.dart"
+        ],
+        "methods": [
+          "geofenceTriggered",
+          "setUp"
+        ],
+        "types": [
+          "GeofenceCallbackParamsWire",
+          "NativeGeofenceTriggerApi"
+        ]
+      },
+      "NativeGeofenceTriggerImpl": {
+        "fields": [],
+        "libraries": [
+          "package:native_geofence/src/api/native_geofence_trigger_impl.dart"
+        ],
+        "methods": [
+          "ensureInitialized",
+          "geofenceTriggered"
+        ],
+        "types": [
+          "GeofenceCallbackParamsWire",
+          "NativeGeofenceTriggerApi",
+          "NativeGeofenceTriggerImpl"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:51:22Z",
+  "package": "native_geofence",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AndroidGeofenceSettings",
+      "Geofence",
+      "GeofenceCallbackParams",
+      "IosGeofenceSettings",
+      "Location",
+      "_PigeonCodec"
+    ],
+    "digest": "a53e11a8d20239718abea5888afd92a42138e64f5cb12f4ce3869a9ce625378e",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "ba4f4d5ec627e8eb5a1141915b5d43f82fb883e9190081e4e6403c5b3250e1f0",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "Callback dispatcher called.",
+      "Callback dispatcher is invalid.",
+      "Callback is invalid.",
+      "Expected: GeofenceCallback",
+      "Geofence ID cannot be empty.",
+      "Geofence location is invalid.",
+      "Geofence radius must be strictly positive.",
+      "Geofence trigger callback completed.",
+      "Geofence triggers cannot be empty.",
+      "Host platform returned null value for non-null return value.",
+      "NativeGeofenceBackgroundManager has not been initialized yet; Are you running within a Geofence callback?",
+      "channel-error",
+      "dart:async",
+      "dart:io",
+      "dart:typed_data",
+      "dart:ui",
+      "error",
+      "iOS does not support \"GeofenceEvent.dwell\".",
+      "mobile.dart",
+      "null-error",
+      "package:flutter/material.dart",
+      "package:flutter/services.dart",
+      "package:meta/meta.dart",
+      "package:native_geofence/src/api/native_geofence_trigger_impl.dart",
+      "package:native_geofence/src/callback_dispatcher.dart",
+      "package:native_geofence/src/generated/platform_bindings.g.dart",
+      "package:native_geofence/src/model/model.dart",
+      "package:native_geofence/src/model/model_mapper.dart",
+      "package:native_geofence/src/model/native_geofence_exception.dart",
+      "package:native_geofence/src/native_geofence_background_manager.dart",
+      "package:native_geofence/src/native_geofence_manager.dart",
+      "package:native_geofence/src/platform/module.dart",
+      "package:native_geofence/src/typedefs.dart",
+      "vm:entry-point",
+      "web.dart"
+    ]
+  },
+  "version": "1.2.2"
+}

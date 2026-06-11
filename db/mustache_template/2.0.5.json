@@ -1,0 +1,449 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "noSuchProperty"
+        ],
+        "libraries": [
+          "package:mustache_template/mustache.dart",
+          "package:mustache_template/mustache_template.dart",
+          "package:mustache_template/src/parser.dart",
+          "package:mustache_template/src/renderer.dart",
+          "package:mustache_template/src/template.dart"
+        ],
+        "methods": [
+          "getTemplateNodes",
+          "parse"
+        ],
+        "types": [
+          "LambdaContext",
+          "Node",
+          "Template"
+        ]
+      },
+      "LambdaContext": {
+        "fields": [
+          "get:source"
+        ],
+        "libraries": [
+          "package:mustache_template/mustache.dart",
+          "package:mustache_template/mustache_template.dart",
+          "package:mustache_template/src/lambda_context.dart"
+        ],
+        "methods": [
+          "LambdaContext",
+          "close",
+          "lookup",
+          "render",
+          "renderSource",
+          "renderString",
+          "write"
+        ],
+        "types": [
+          "LambdaContext",
+          "Node",
+          "Renderer"
+        ]
+      },
+      "Node": {
+        "fields": [
+          "end",
+          "start"
+        ],
+        "libraries": [
+          "package:mustache_template/src/node.dart"
+        ],
+        "methods": [
+          "Node",
+          "accept",
+          "visitChildren"
+        ],
+        "types": [
+          "Visitor"
+        ]
+      },
+      "Parser": {
+        "fields": [],
+        "libraries": [
+          "package:mustache_template/src/parser.dart"
+        ],
+        "methods": [
+          "Parser",
+          "parse"
+        ],
+        "types": [
+          "Node",
+          "Scanner",
+          "SectionNode",
+          "TagType",
+          "Token"
+        ]
+      },
+      "PartialNode": {
+        "fields": [
+          "indent",
+          "name"
+        ],
+        "libraries": [
+          "package:mustache_template/src/node.dart"
+        ],
+        "methods": [
+          "PartialNode",
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Node",
+          "Visitor"
+        ]
+      },
+      "Renderer": {
+        "fields": [
+          "htmlEscapeValues",
+          "indent",
+          "lenient",
+          "partialResolver",
+          "sink",
+          "source",
+          "templateName"
+        ],
+        "libraries": [
+          "package:mustache_template/src/renderer.dart"
+        ],
+        "methods": [
+          "Renderer",
+          "error",
+          "lambda",
+          "partial",
+          "pop",
+          "push",
+          "render",
+          "resolveValue",
+          "subtree",
+          "visitPartial",
+          "visitSection",
+          "visitText",
+          "visitVariable",
+          "write"
+        ],
+        "types": [
+          "Node",
+          "PartialNode",
+          "Renderer",
+          "SectionNode",
+          "Template",
+          "TemplateException",
+          "TextNode",
+          "VariableNode",
+          "Visitor"
+        ]
+      },
+      "Scanner": {
+        "fields": [],
+        "libraries": [
+          "package:mustache_template/src/scanner.dart"
+        ],
+        "methods": [
+          "Scanner",
+          "scan"
+        ],
+        "types": [
+          "Token"
+        ]
+      },
+      "SectionNode": {
+        "fields": [
+          "children",
+          "contentEnd",
+          "contentStart",
+          "delimiters",
+          "inverse",
+          "name"
+        ],
+        "libraries": [
+          "package:mustache_template/src/node.dart"
+        ],
+        "methods": [
+          "SectionNode",
+          "accept",
+          "toString",
+          "visitChildren"
+        ],
+        "types": [
+          "Node",
+          "Visitor"
+        ]
+      },
+      "Tag": {
+        "fields": [
+          "end",
+          "name",
+          "start",
+          "type"
+        ],
+        "libraries": [
+          "package:mustache_template/src/parser.dart"
+        ],
+        "methods": [
+          "Tag"
+        ],
+        "types": [
+          "TagType"
+        ]
+      },
+      "TagType": {
+        "fields": [
+          "changeDelimiter",
+          "closeSection",
+          "comment",
+          "name",
+          "openInverseSection",
+          "openSection",
+          "partial",
+          "tripleMustache",
+          "unescapedVariable",
+          "variable"
+        ],
+        "libraries": [
+          "package:mustache_template/src/parser.dart"
+        ],
+        "methods": [
+          "TagType"
+        ],
+        "types": [
+          "TagType"
+        ]
+      },
+      "Template": {
+        "fields": [
+          "get:name",
+          "get:source",
+          "source"
+        ],
+        "libraries": [
+          "package:mustache_template/mustache.dart",
+          "package:mustache_template/mustache_template.dart",
+          "package:mustache_template/src/template.dart"
+        ],
+        "methods": [
+          "Template",
+          "fromSource",
+          "render",
+          "renderString"
+        ],
+        "types": [
+          "Node",
+          "Template"
+        ]
+      },
+      "TemplateException": {
+        "fields": [
+          "get:column",
+          "get:context",
+          "get:line",
+          "get:message",
+          "get:offset",
+          "get:source",
+          "get:templateName",
+          "message",
+          "offset",
+          "source",
+          "templateName"
+        ],
+        "libraries": [
+          "package:mustache_template/mustache.dart",
+          "package:mustache_template/mustache_template.dart",
+          "package:mustache_template/src/template_exception.dart"
+        ],
+        "methods": [
+          "TemplateException",
+          "toString"
+        ],
+        "types": [
+          "TemplateException"
+        ]
+      },
+      "TextNode": {
+        "fields": [
+          "text"
+        ],
+        "libraries": [
+          "package:mustache_template/src/node.dart"
+        ],
+        "methods": [
+          "TextNode",
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Node",
+          "Visitor"
+        ]
+      },
+      "Token": {
+        "fields": [
+          "end",
+          "start",
+          "type",
+          "value"
+        ],
+        "libraries": [
+          "package:mustache_template/src/token.dart"
+        ],
+        "methods": [
+          "Token",
+          "toString"
+        ],
+        "types": [
+          "TokenType"
+        ]
+      },
+      "TokenType": {
+        "fields": [
+          "changeDelimiter",
+          "closeDelimiter",
+          "dot",
+          "identifier",
+          "lineEnd",
+          "name",
+          "openDelimiter",
+          "sigil",
+          "text",
+          "whitespace"
+        ],
+        "libraries": [
+          "package:mustache_template/src/token.dart"
+        ],
+        "methods": [
+          "TokenType",
+          "toString"
+        ],
+        "types": [
+          "TokenType"
+        ]
+      },
+      "VariableNode": {
+        "fields": [
+          "escape",
+          "name"
+        ],
+        "libraries": [
+          "package:mustache_template/src/node.dart"
+        ],
+        "methods": [
+          "VariableNode",
+          "accept",
+          "toString"
+        ],
+        "types": [
+          "Node",
+          "Visitor"
+        ]
+      },
+      "Visitor": {
+        "fields": [],
+        "libraries": [
+          "package:mustache_template/src/node.dart"
+        ],
+        "methods": [
+          "visitPartial",
+          "visitSection",
+          "visitText",
+          "visitVariable"
+        ],
+        "types": [
+          "PartialNode",
+          "SectionNode",
+          "TextNode",
+          "VariableNode"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:51:16Z",
+  "package": "mustache_template",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "TagType",
+      "TokenType"
+    ],
+    "digest": "d127de24916ce5a025388b819b4109861878d2041d0167006e0b5092c720d9bc",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "f310db955ffb75e3e2ad3fa9e9e3d3291fa311b9fd92f893b9d2889e4b37437e",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\t",
+      "\n",
+      "\r",
+      "\r\n",
+      " ",
+      "!",
+      "#",
+      "&",
+      "&#x27;",
+      "&#x2F;",
+      "&amp;",
+      "&gt;",
+      "&lt;",
+      "&quot;",
+      ".",
+      "...",
+      "../mustache.dart",
+      "/",
+      ":",
+      ">",
+      "Empty tag name.",
+      "Incorrect change delimiter tag.",
+      "LambdaContext accessed outside of callback.",
+      "LambdaContext.render() can only be called on section tags.",
+      "LambdaContext.renderString() can only be called on section tags.",
+      "Tags may not contain newlines or tabs.",
+      "Unexpected end of input",
+      "Unexpected end of input.",
+      "Unless in lenient mode, tags may only contain the characters a-z, A-Z, minus, underscore and period.",
+      "Unreachable code.",
+      "\\n",
+      "^",
+      "^[0-9]+$",
+      "^[0-9a-zA-Z\\_\\-\\.]+$",
+      "changeDelimiter",
+      "closeDelimiter",
+      "closeSection",
+      "comment",
+      "dot",
+      "identifier",
+      "lambda_context.dart",
+      "lineEnd",
+      "mustache.dart",
+      "node.dart",
+      "openDelimiter",
+      "openInverseSection",
+      "openSection",
+      "parser.dart",
+      "partial",
+      "renderer.dart",
+      "root",
+      "scanner.dart",
+      "sigil",
+      "src/template.dart",
+      "template.dart",
+      "template_exception.dart",
+      "text",
+      "token.dart",
+      "tripleMustache",
+      "unescapedVariable",
+      "variable",
+      "whitespace",
+      "{{ }}",
+      "{{{",
+      "}}}"
+    ]
+  },
+  "version": "2.0.5"
+}

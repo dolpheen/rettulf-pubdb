@@ -1,0 +1,914 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "get:globalRootState",
+          "kMethodBlur",
+          "kMethodCheckExist",
+          "kMethodCloseWindow",
+          "kMethodConfirmClose",
+          "kMethodCreateWindow",
+          "kMethodFocus",
+          "kMethodGetBounds",
+          "kMethodGetOpacity",
+          "kMethodGetTitle",
+          "kMethodGetTitleBarStyle",
+          "kMethodHasShadow",
+          "kMethodHide",
+          "kMethodHideAppFromTaskbar",
+          "kMethodHideFromCollection",
+          "kMethodIsAlwaysOnTop",
+          "kMethodIsClosable",
+          "kMethodIsFocused",
+          "kMethodIsFullScreen",
+          "kMethodIsHideAppFromTaskbar",
+          "kMethodIsHideAppTabFromTaskbar",
+          "kMethodIsHideFromCollection",
+          "kMethodIsIgnoreMouseEvents",
+          "kMethodIsMaximizable",
+          "kMethodIsMaximized",
+          "kMethodIsMinimizable",
+          "kMethodIsMinimized",
+          "kMethodIsMovable",
+          "kMethodIsPreventClose",
+          "kMethodIsResizable",
+          "kMethodIsVisible",
+          "kMethodIsVisibleOnAllWorkspaces",
+          "kMethodMaximize",
+          "kMethodMinimize",
+          "kMethodPopUpWindowMenu",
+          "kMethodPreConfirmClose",
+          "kMethodRestore",
+          "kMethodSetAlwaysOnTop",
+          "kMethodSetAnchorViewId",
+          "kMethodSetAsFrameless",
+          "kMethodSetAspectRatio",
+          "kMethodSetBackgroundColor",
+          "kMethodSetBadgeLabel",
+          "kMethodSetBrightness",
+          "kMethodSetClosable",
+          "kMethodSetFullScreen",
+          "kMethodSetHasShadow",
+          "kMethodSetIgnoreMouseEvents",
+          "kMethodSetMaximizable",
+          "kMethodSetMaximumSize",
+          "kMethodSetMinimizable",
+          "kMethodSetMinimumSize",
+          "kMethodSetMovable",
+          "kMethodSetOpacity",
+          "kMethodSetPosition",
+          "kMethodSetPreventClose",
+          "kMethodSetProgressBar",
+          "kMethodSetResizable",
+          "kMethodSetSize",
+          "kMethodSetTerminateAfterLastWindowClosed",
+          "kMethodSetTitle",
+          "kMethodSetTitleBarStyle",
+          "kMethodSetVisibleOnAllWorkspaces",
+          "kMethodShow",
+          "kMethodStartDragging",
+          "kMethodStartResizing",
+          "kMethodUnmaximize",
+          "kWindowCaptionHeight"
+        ],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/native_channel.dart",
+          "package:multiview_desktop/src/run_multi_app.dart",
+          "package:multiview_desktop/src/utils/calc_window_position.dart",
+          "package:multiview_desktop/src/view_root.dart",
+          "package:multiview_desktop/src/widgets/window_caption.dart"
+        ],
+        "methods": [
+          "calcWindowPosition",
+          "createMultiViewRoot",
+          "openWindow",
+          "runMultiApp"
+        ],
+        "types": [
+          "MultiAppConfig",
+          "NativeChannel",
+          "WindowOptions"
+        ]
+      },
+      "CloseMode": {
+        "fields": [
+          "cascade",
+          "destroy",
+          "forceSecondary",
+          "none"
+        ],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/run_multi_app.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Display": {
+        "fields": [
+          "id",
+          "name",
+          "scaleFactor",
+          "size",
+          "visiblePosition",
+          "visibleSize"
+        ],
+        "libraries": [
+          "package:multiview_desktop/src/screen_retriever/display.dart",
+          "package:multiview_desktop/src/screen_retriever/screen_retriever.dart"
+        ],
+        "methods": [
+          "Display",
+          "fromJson"
+        ],
+        "types": []
+      },
+      "DragToMoveArea": {
+        "fields": [
+          "child"
+        ],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/widgets/drag_to_move_area.dart"
+        ],
+        "methods": [
+          "DragToMoveArea",
+          "build"
+        ],
+        "types": []
+      },
+      "DragToResizeArea": {
+        "fields": [
+          "child",
+          "enableResizeEdge",
+          "resizeEdge"
+        ],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/widgets/drag_to_resize_area.dart"
+        ],
+        "methods": [
+          "DragToResizeArea",
+          "build"
+        ],
+        "types": [
+          "ResizeEdge"
+        ]
+      },
+      "MacosPlatformParams": {
+        "fields": [
+          "closeAppAfterLastWindowClosed",
+          "onTaskbarTap",
+          "saveLastWindowToReopen"
+        ],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/run_multi_app.dart"
+        ],
+        "methods": [
+          "MacosPlatformParams",
+          "defaultParams"
+        ],
+        "types": []
+      },
+      "MultiAppConfig": {
+        "fields": [
+          "generalParams",
+          "globalOptions",
+          "macosParams"
+        ],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/run_multi_app.dart"
+        ],
+        "methods": [
+          "MultiAppConfig"
+        ],
+        "types": [
+          "MacosPlatformParams",
+          "MultiPlatformParams",
+          "WindowOptions"
+        ]
+      },
+      "MultiPlatformParams": {
+        "fields": [
+          "closeMode",
+          "enableDynamicAnchor"
+        ],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/run_multi_app.dart"
+        ],
+        "methods": [
+          "MultiPlatformParams",
+          "defaultParams"
+        ],
+        "types": [
+          "CloseMode"
+        ]
+      },
+      "MultiViewDesktop": {
+        "fields": [
+          "get:allViewsIds",
+          "get:allViewsIdsNotifier",
+          "get:communicator",
+          "get:id"
+        ],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/multi_view_desktop.dart"
+        ],
+        "methods": [
+          "addListenerForView",
+          "addWindow",
+          "blur",
+          "cancelCascadeClose",
+          "center",
+          "closeApp",
+          "closeWindow",
+          "focus",
+          "fromId",
+          "getAnchorId",
+          "getBounds",
+          "getCloseMode",
+          "getIdByContext",
+          "getOpacity",
+          "getPosition",
+          "getSize",
+          "getTitle",
+          "getTitleBarStyle",
+          "hasShadow",
+          "hide",
+          "hideAppFromTaskbar",
+          "hideCurrentAppTabFromTaskbar",
+          "hideFromCollection",
+          "isAlwaysOnTop",
+          "isClosable",
+          "isFocused",
+          "isFullScreen",
+          "isHideAppFromTaskbar",
+          "isHideAppTabFromTaskbar",
+          "isHideFromCollection",
+          "isIgnoreMouseEvents",
+          "isMaximizable",
+          "isMaximized",
+          "isMinimizable",
+          "isMinimized",
+          "isMovable",
+          "isPreventClose",
+          "isResizable",
+          "isVisible",
+          "isVisibleOnAllWorkspaces",
+          "maximize",
+          "minimize",
+          "of",
+          "popUpWindowMenu",
+          "removeListenerForView",
+          "restore",
+          "setAlignment",
+          "setAlwaysOnTop",
+          "setAnchorId",
+          "setAsFrameless",
+          "setAspectRatio",
+          "setBackgroundColor",
+          "setBadgeLabel",
+          "setBrightness",
+          "setClosable",
+          "setCloseMode",
+          "setFullScreen",
+          "setHasShadow",
+          "setIgnoreMouseEvents",
+          "setMaximizable",
+          "setMaximumSize",
+          "setMinimizable",
+          "setMinimumSize",
+          "setMovable",
+          "setOpacity",
+          "setPosition",
+          "setPreventClose",
+          "setProgressBar",
+          "setResizable",
+          "setSize",
+          "setTitle",
+          "setTitleBarStyle",
+          "setVisibleOnAllWorkspaces",
+          "show",
+          "startDragging",
+          "startResizing",
+          "unmaximize"
+        ],
+        "types": [
+          "CloseMode",
+          "ResizeEdge",
+          "TitleBarStyle",
+          "WindowCommunicator",
+          "WindowListenerCallbacks",
+          "WindowOptions"
+        ]
+      },
+      "NativeChannel": {
+        "fields": [],
+        "libraries": [
+          "package:multiview_desktop/src/native_channel.dart"
+        ],
+        "methods": [
+          "blur",
+          "checkWindowExist",
+          "createWindowRequest",
+          "focus",
+          "forceCloseWindow",
+          "getBounds",
+          "getOpacity",
+          "getPosition",
+          "getSize",
+          "getTitle",
+          "getTitleBarStyle",
+          "hasShadow",
+          "hide",
+          "hideAppFromTaskbar",
+          "hideFromCollection",
+          "isAlwaysOnTop",
+          "isClosable",
+          "isFocused",
+          "isFullScreen",
+          "isHideAppFromTaskbar",
+          "isHideAppTabFromTaskbar",
+          "isHideFromCollection",
+          "isIgnoreMouseEvents",
+          "isMaximizable",
+          "isMaximized",
+          "isMinimizable",
+          "isMinimized",
+          "isMovable",
+          "isPreventClose",
+          "isResizable",
+          "isVisible",
+          "isVisibleOnAllWorkspaces",
+          "maximize",
+          "minimize",
+          "popUpWindowMenu",
+          "resetWindowToDefaults",
+          "restore",
+          "setAlignment",
+          "setAlwaysOnTop",
+          "setAnchorViewId",
+          "setAsFrameless",
+          "setAspectRatio",
+          "setBackgroundColor",
+          "setBadgeLabel",
+          "setBrightness",
+          "setClosable",
+          "setConfirmClose",
+          "setFullScreen",
+          "setHasShadow",
+          "setIgnoreMouseEvents",
+          "setMaxSize",
+          "setMaximizable",
+          "setMethodCallHandler",
+          "setMinSize",
+          "setMinimizable",
+          "setMovable",
+          "setOpacity",
+          "setPosition",
+          "setPreConfirmClose",
+          "setPreventClose",
+          "setProgressBar",
+          "setResizable",
+          "setSize",
+          "setTerminateAfterLastWindowClosed",
+          "setTitle",
+          "setTitleBarStyle",
+          "setVisibleOnAllWorkspaces",
+          "show",
+          "softCloseWindow",
+          "startDragging",
+          "startResizing",
+          "unmaximize"
+        ],
+        "types": [
+          "ResizeEdge",
+          "TitleBarStyle"
+        ]
+      },
+      "ParentWindowScope": {
+        "fields": [
+          "parentContext"
+        ],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/parent_window_scope.dart"
+        ],
+        "methods": [
+          "ParentWindowScope",
+          "maybeOf",
+          "of",
+          "updateShouldNotify"
+        ],
+        "types": [
+          "ParentWindowScope"
+        ]
+      },
+      "ResizeEdge": {
+        "fields": [
+          "bottom",
+          "bottomLeft",
+          "bottomRight",
+          "left",
+          "right",
+          "top",
+          "topLeft",
+          "topRight"
+        ],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/resize_edge.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ScreenListener": {
+        "fields": [],
+        "libraries": [
+          "package:multiview_desktop/src/screen_retriever/screen_listener.dart",
+          "package:multiview_desktop/src/screen_retriever/screen_retriever.dart"
+        ],
+        "methods": [
+          "onScreenEvent"
+        ],
+        "types": []
+      },
+      "ScreenRetriever": {
+        "fields": [
+          "get:hasListeners",
+          "instance"
+        ],
+        "libraries": [
+          "package:multiview_desktop/src/screen_retriever/screen_retriever.dart"
+        ],
+        "methods": [
+          "addListener",
+          "getAllDisplays",
+          "getCursorScreenPoint",
+          "getPrimaryDisplay",
+          "removeListener"
+        ],
+        "types": [
+          "Display",
+          "ScreenListener",
+          "ScreenRetriever"
+        ]
+      },
+      "TaskbarMenuItem": {
+        "fields": [],
+        "libraries": [
+          "package:multiview_desktop/src/views_manager.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TitleBarStyle": {
+        "fields": [
+          "hidden",
+          "normal"
+        ],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/title_bar_style.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ViewScope": {
+        "fields": [
+          "viewId"
+        ],
+        "libraries": [
+          "package:multiview_desktop/src/view_scope.dart"
+        ],
+        "methods": [
+          "ViewScope",
+          "maybeOf",
+          "of",
+          "updateShouldNotify"
+        ],
+        "types": [
+          "ViewScope"
+        ]
+      },
+      "ViewsManager": {
+        "fields": [],
+        "libraries": [
+          "package:multiview_desktop/src/views_manager.dart"
+        ],
+        "methods": [
+          "addListener",
+          "blur",
+          "cancelCascadeClose",
+          "center",
+          "closeApp",
+          "closeWindow",
+          "createWindow",
+          "focus",
+          "getAnchorId",
+          "getAppCloseMode",
+          "getBounds",
+          "getOpacity",
+          "getPosition",
+          "getSize",
+          "getTitle",
+          "getTitleBarStyle",
+          "hasShadow",
+          "hide",
+          "hideAppFromTaskbar",
+          "hideFromCollection",
+          "isAlwaysOnTop",
+          "isClosable",
+          "isFocused",
+          "isFullScreen",
+          "isHideAppFromTaskbar",
+          "isHideAppTabFromTaskbar",
+          "isHideFromCollection",
+          "isIgnoreMouseEvents",
+          "isMaximizable",
+          "isMaximized",
+          "isMinimizable",
+          "isMinimized",
+          "isMovable",
+          "isPreventClose",
+          "isResizable",
+          "isVisible",
+          "isVisibleOnAllWorkspaces",
+          "maximize",
+          "minimize",
+          "popUpWindowMenu",
+          "realToShiftedId",
+          "removeListener",
+          "restore",
+          "setAlignment",
+          "setAlwaysOnTop",
+          "setAnchorId",
+          "setAppCloseMode",
+          "setAsFrameless",
+          "setAspectRatio",
+          "setBackgroundColor",
+          "setBadgeLabel",
+          "setBrightness",
+          "setClosable",
+          "setFullScreen",
+          "setHasShadow",
+          "setIgnoreMouseEvents",
+          "setMaximizable",
+          "setMaximumSize",
+          "setMinimizable",
+          "setMinimumSize",
+          "setMovable",
+          "setOpacity",
+          "setPosition",
+          "setPreventClose",
+          "setProgressBar",
+          "setResizable",
+          "setSize",
+          "setTaskbarMenu",
+          "setTitle",
+          "setTitleBarStyle",
+          "setVisibleOnAllWorkspaces",
+          "shiftedToRealId",
+          "show",
+          "startDragging",
+          "startResizing",
+          "unmaximize"
+        ],
+        "types": [
+          "CloseMode",
+          "ResizeEdge",
+          "TaskbarMenuItem",
+          "TitleBarStyle",
+          "WindowListenerCallbacks",
+          "WindowOptions"
+        ]
+      },
+      "WindowCaption": {
+        "fields": [
+          "backgroundColor",
+          "brightness",
+          "title"
+        ],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/widgets/window_caption.dart"
+        ],
+        "methods": [
+          "WindowCaption",
+          "createState"
+        ],
+        "types": [
+          "WindowCaption"
+        ]
+      },
+      "WindowCommunicator": {
+        "fields": [
+          "get:onBroadcast"
+        ],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/window_communicator.dart"
+        ],
+        "methods": [
+          "broadcast",
+          "dispose",
+          "onDirect",
+          "send"
+        ],
+        "types": []
+      },
+      "WindowListener": {
+        "fields": [
+          "get:currentId"
+        ],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/window_listener.dart"
+        ],
+        "methods": [
+          "didChangeDependencies",
+          "dispose",
+          "onWindowBlur",
+          "onWindowClose",
+          "onWindowEnterFullScreen",
+          "onWindowEvent",
+          "onWindowFocus",
+          "onWindowLeaveFullScreen",
+          "onWindowMaximize",
+          "onWindowMinimize",
+          "onWindowMove",
+          "onWindowMoved",
+          "onWindowResize",
+          "onWindowResized",
+          "onWindowRestore",
+          "onWindowUnmaximize"
+        ],
+        "types": [
+          "WindowListenerCallbacks"
+        ]
+      },
+      "WindowListenerCallbacks": {
+        "fields": [],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/window_listener.dart"
+        ],
+        "methods": [
+          "onWindowBlur",
+          "onWindowClose",
+          "onWindowEnterFullScreen",
+          "onWindowEvent",
+          "onWindowFocus",
+          "onWindowLeaveFullScreen",
+          "onWindowMaximize",
+          "onWindowMinimize",
+          "onWindowMove",
+          "onWindowMoved",
+          "onWindowResize",
+          "onWindowResized",
+          "onWindowRestore",
+          "onWindowUnmaximize"
+        ],
+        "types": []
+      },
+      "WindowOptions": {
+        "fields": [
+          "alignment",
+          "alwaysOnTop",
+          "backgroundColor",
+          "fullScreen",
+          "hideAppFromTaskbar",
+          "maximumSize",
+          "minimumSize",
+          "size",
+          "title",
+          "titleBarStyle",
+          "windowButtonVisibility"
+        ],
+        "libraries": [
+          "package:multiview_desktop/multiview_desktop.dart",
+          "package:multiview_desktop/src/window_options.dart"
+        ],
+        "methods": [
+          "WindowOptions"
+        ],
+        "types": [
+          "TitleBarStyle"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:51:15Z",
+  "package": "multiview_desktop",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "Display",
+      "DragToMoveArea",
+      "DragToResizeArea",
+      "MacosPlatformParams",
+      "MultiPlatformParams",
+      "ParentWindowScope",
+      "ViewScope",
+      "WindowCaption",
+      "WindowOptions",
+      "_CaptionButton",
+      "_MultiViewRoot",
+      "_WindowButtons",
+      "_WindowEntry"
+    ],
+    "digest": "6301b120b4d5f67f2659373f320669fbe0af18d57ac5025977d9f3b9eaa84dd6",
+    "event_channels": [
+      "multiview_desktop/screen_retriever_event"
+    ],
+    "ffi_symbols": [],
+    "hierarchy_hash": "9b58ebd98f5be1ecb86d3a6a36633fee8f928c1a37ee4ef976db40cb105e0036",
+    "method_channels": [
+      "multiview_desktop",
+      "multiview_desktop/screen_retriever"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "../multi_view_desktop.dart",
+      "../resize_edge.dart",
+      "../screen_retriever/screen_retriever.dart",
+      "NO_WINDOW",
+      "No ViewScope found in context. Make sure runMultiApp() is used as the app entry point.",
+      "Parent window is not registered",
+      "Unable to get all displays.",
+      "Unable to get cursor screen point.",
+      "Unable to get primary display.",
+      "aspectRatio",
+      "backgroundColorA",
+      "backgroundColorB",
+      "backgroundColorG",
+      "backgroundColorR",
+      "blur",
+      "bottom",
+      "brightness",
+      "checkExistViewId",
+      "close",
+      "closeWindow",
+      "confirm-close",
+      "confirmClose",
+      "createWindow",
+      "dart:async",
+      "dart:io",
+      "dart:ui",
+      "devicePixelRatio",
+      "display.dart",
+      "displays",
+      "drag_to_move_area.dart",
+      "dx",
+      "dy",
+      "enter-full-screen",
+      "eventName",
+      "focus",
+      "forward",
+      "getAllDisplays",
+      "getBounds",
+      "getCursorScreenPoint",
+      "getOpacity",
+      "getPrimaryDisplay",
+      "getTitle",
+      "getTitleBarStyle",
+      "globalRootState not initialized. Use runMultiApp instead of runApp or runWidget",
+      "hasShadow",
+      "height",
+      "hidden",
+      "hide",
+      "hideAppFromTaskbar",
+      "hideFromCollection",
+      "id",
+      "ignore",
+      "isAlwaysOnTop",
+      "isClosable",
+      "isFocused",
+      "isFullScreen",
+      "isHideAppFromTaskbar",
+      "isHideAppTabFromTaskbar",
+      "isHideFromCollection",
+      "isIgnoreMouseEvents",
+      "isMaximizable",
+      "isMaximized",
+      "isMinimizable",
+      "isMinimized",
+      "isMovable",
+      "isPreventClose",
+      "isResizable",
+      "isVisible",
+      "isVisibleOnAllWorkspaces",
+      "label",
+      "leave-full-screen",
+      "left",
+      "maximize",
+      "minimize",
+      "move",
+      "moved",
+      "multi_view_desktop.dart",
+      "multiview_desktop",
+      "multiview_desktop/screen_retriever",
+      "multiview_desktop/screen_retriever_event",
+      "name",
+      "normal",
+      "onEvent",
+      "opacity",
+      "package:flutter/cupertino.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/material.dart",
+      "package:flutter/services.dart",
+      "package:flutter/widgets.dart",
+      "package:multiview_desktop/multiview_desktop.dart",
+      "package:multiview_desktop/src/native_channel.dart",
+      "package:multiview_desktop/src/view_scope.dart",
+      "package:multiview_desktop/src/views_manager.dart",
+      "parent",
+      "parentId",
+      "popUpWindowMenu",
+      "position",
+      "preConfirmClose",
+      "preconfirm-close",
+      "progress",
+      "resize",
+      "resizeEdge",
+      "resized",
+      "restore",
+      "right",
+      "scaleFactor",
+      "screen_listener.dart",
+      "setAlwaysOnTop",
+      "setAnchorViewId",
+      "setAsFrameless",
+      "setAspectRatio",
+      "setBackgroundColor",
+      "setBadgeLabel",
+      "setBrightness",
+      "setClosable",
+      "setFullScreen",
+      "setHasShadow",
+      "setIgnoreMouseEvents",
+      "setMaximizable",
+      "setMaximumSize",
+      "setMinimizable",
+      "setMinimumSize",
+      "setMovable",
+      "setOpacity",
+      "setPosition",
+      "setPreventClose",
+      "setProgressBar",
+      "setResizable",
+      "setSize",
+      "setTerminateAfterLastWindowClosed",
+      "setTitle",
+      "setTitleBarStyle",
+      "setVisibleOnAllWorkspaces",
+      "show",
+      "size",
+      "src/multi_view_desktop.dart",
+      "src/parent_window_scope.dart",
+      "src/resize_edge.dart",
+      "src/run_multi_app.dart",
+      "src/title_bar_style.dart",
+      "src/widgets/drag_to_move_area.dart",
+      "src/widgets/drag_to_resize_area.dart",
+      "src/widgets/window_caption.dart",
+      "src/window_communicator.dart",
+      "src/window_listener.dart",
+      "src/window_options.dart",
+      "startDragging",
+      "startResizing",
+      "style",
+      "terminateAfterLastWindowClosed",
+      "title",
+      "titleBarStyle",
+      "title_bar_style.dart",
+      "token",
+      "top",
+      "type",
+      "unmaximize",
+      "utils/calc_window_position.dart",
+      "vertically",
+      "viewCreated",
+      "viewId",
+      "view_root.dart",
+      "visible",
+      "visibleOnFullScreen",
+      "visiblePosition",
+      "visibleSize",
+      "width",
+      "windowButtonVisibility",
+      "window_options.dart",
+      "x",
+      "y"
+    ]
+  },
+  "version": "1.0.0"
+}

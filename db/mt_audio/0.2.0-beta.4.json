@@ -1,0 +1,1050 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/carplay/mt_carplay_handler.dart",
+          "package:mt_audio/src/player/mt_audio_player_config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "MtAndroidAutoDelegate",
+          "MtAudioItem",
+          "MtAudioPlayer",
+          "MtCarPlayDelegate",
+          "MtPlaybackState",
+          "MtPositionState"
+        ]
+      },
+      "LateBindingAndroidAutoDelegate": {
+        "fields": [
+          "get:isBound"
+        ],
+        "libraries": [
+          "package:mt_audio/src/android_auto/late_binding_android_auto_delegate.dart"
+        ],
+        "methods": [
+          "bind",
+          "getChildren",
+          "onConnect",
+          "onDisconnect",
+          "onPlayFromMediaId",
+          "search"
+        ],
+        "types": [
+          "MtAndroidAutoDelegate",
+          "MtAudioItem",
+          "MtMediaLibraryItem"
+        ]
+      },
+      "MtAndroidAutoDelegate": {
+        "fields": [],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/android_auto/mt_android_auto_delegate.dart"
+        ],
+        "methods": [
+          "getChildren",
+          "onConnect",
+          "onDisconnect",
+          "onPlayFromMediaId",
+          "search"
+        ],
+        "types": [
+          "MtAudioItem",
+          "MtMediaLibraryItem"
+        ]
+      },
+      "MtAndroidAutoHandler": {
+        "fields": [
+          "get:androidAutoDelegate"
+        ],
+        "libraries": [
+          "package:mt_audio/src/android_auto/mt_android_auto_handler.dart"
+        ],
+        "methods": [
+          "getChildren",
+          "playFromMediaId",
+          "search"
+        ],
+        "types": [
+          "MtAndroidAutoDelegate"
+        ]
+      },
+      "MtArtwork": {
+        "fields": [
+          "artworkUri",
+          "borderRadius",
+          "errorWidget",
+          "placeholder",
+          "size"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/widgets/player_info/mt_artwork.dart"
+        ],
+        "methods": [
+          "MtArtwork",
+          "build"
+        ],
+        "types": []
+      },
+      "MtAssetResolver": {
+        "fields": [],
+        "libraries": [
+          "package:mt_audio/src/utils/mt_asset_resolver.dart"
+        ],
+        "methods": [
+          "assetKey",
+          "init",
+          "isAssetUri",
+          "resolve",
+          "resolveForExternalAccess",
+          "resolveItem",
+          "resolveMediaItem",
+          "resolveMediaItemForExternalAccess",
+          "toContentUri"
+        ],
+        "types": [
+          "MtAssetResolver",
+          "MtAudioItem"
+        ]
+      },
+      "MtAudioError": {
+        "fields": [
+          "code",
+          "details",
+          "get:props",
+          "message"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/models/mt_audio_error.dart"
+        ],
+        "methods": [
+          "MtAudioError",
+          "toString"
+        ],
+        "types": [
+          "MtAudioErrorCode"
+        ]
+      },
+      "MtAudioErrorCode": {
+        "fields": [
+          "aborted",
+          "decodingError",
+          "invalidFormat",
+          "networkError",
+          "sourceLoadFailed",
+          "unknown"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/models/mt_audio_error.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MtAudioException": {
+        "fields": [
+          "error",
+          "get:props"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/models/mt_audio_error.dart"
+        ],
+        "methods": [
+          "MtAudioException",
+          "toString"
+        ],
+        "types": [
+          "MtAudioError"
+        ]
+      },
+      "MtAudioHandler": {
+        "fields": [
+          "get:androidAutoDelegate",
+          "get:durationStream",
+          "get:errorStream",
+          "get:icyMetadataStream",
+          "get:isDelegateBound",
+          "get:positionStream",
+          "get:shuffleIndicesStream",
+          "get:volumeStream"
+        ],
+        "libraries": [
+          "package:mt_audio/src/handler/mt_audio_handler.dart"
+        ],
+        "methods": [
+          "MtAudioHandler",
+          "addAudioItem",
+          "bindDelegate",
+          "clearQueue",
+          "dispose",
+          "fastForward",
+          "getChildren",
+          "getQueueIndex",
+          "insertAudioItem",
+          "onTaskRemoved",
+          "pause",
+          "play",
+          "removeAudioItemAt",
+          "reorderQueue",
+          "rewind",
+          "search",
+          "seek",
+          "setItem",
+          "setPlayerVolume",
+          "setPlaylist",
+          "setRepeatMode",
+          "setShuffleMode",
+          "setSpeed",
+          "skipToNext",
+          "skipToPrevious",
+          "skipToQueueItem",
+          "stop"
+        ],
+        "types": [
+          "LateBindingAndroidAutoDelegate",
+          "MtAndroidAutoDelegate",
+          "MtAndroidAutoHandler",
+          "MtAssetResolver",
+          "MtAudioError",
+          "MtAudioItem"
+        ]
+      },
+      "MtAudioItem": {
+        "fields": [
+          "album",
+          "artist",
+          "artworkUri",
+          "duration",
+          "extras",
+          "get:props",
+          "headers",
+          "id",
+          "isLive",
+          "title",
+          "uri"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/models/mt_audio_item.dart"
+        ],
+        "methods": [
+          "MtAudioItem",
+          "copyWith",
+          "fromMediaItem",
+          "toMediaItem",
+          "toString"
+        ],
+        "types": [
+          "MtAudioItem"
+        ]
+      },
+      "MtAudioPlayer": {
+        "fields": [
+          "get:carPlay",
+          "get:currentItem",
+          "get:currentItemStream",
+          "get:currentPlaybackState",
+          "get:currentPositionState",
+          "get:currentQueueState",
+          "get:errorStream",
+          "get:icyMetadataStream",
+          "get:playbackStateStream",
+          "get:positionStateStream",
+          "get:queueStateStream"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/player/mt_audio_player.dart"
+        ],
+        "methods": [
+          "addToQueue",
+          "clearQueue",
+          "dispose",
+          "init",
+          "insertInQueue",
+          "pause",
+          "play",
+          "removeFromQueue",
+          "reorderQueue",
+          "seekBackward",
+          "seekForward",
+          "seekTo",
+          "setAudioItem",
+          "setPlaylist",
+          "setRepeatMode",
+          "setShuffleMode",
+          "setSpeed",
+          "setVolume",
+          "skipToIndex",
+          "skipToNext",
+          "skipToPrevious",
+          "stop"
+        ],
+        "types": [
+          "MtAudioError",
+          "MtAudioHandler",
+          "MtAudioItem",
+          "MtAudioPlayer",
+          "MtAudioPlayerConfig",
+          "MtAudioSessionManager",
+          "MtCarPlayHandler",
+          "MtPlaybackState",
+          "MtPositionState",
+          "MtQueueState",
+          "MtRepeatMode"
+        ]
+      },
+      "MtAudioPlayerConfig": {
+        "fields": [
+          "androidAutoDelegateFactory",
+          "androidNotificationOngoing",
+          "carPlayDelegateFactory",
+          "ffRewindInterval",
+          "handleInterruptions",
+          "notificationChannelId",
+          "notificationChannelName",
+          "notificationIcon"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/player/mt_audio_player_config.dart"
+        ],
+        "methods": [
+          "MtAudioPlayerConfig"
+        ],
+        "types": []
+      },
+      "MtAudioSessionManager": {
+        "fields": [],
+        "libraries": [
+          "package:mt_audio/src/session/mt_audio_session_manager.dart"
+        ],
+        "methods": [
+          "MtAudioSessionManager",
+          "dispose",
+          "init"
+        ],
+        "types": []
+      },
+      "MtBrowsableItem": {
+        "fields": [
+          "artworkUri",
+          "extras",
+          "get:props",
+          "id",
+          "subtitle",
+          "title"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/models/mt_media_library_item.dart"
+        ],
+        "methods": [
+          "MtBrowsableItem",
+          "toMediaItem",
+          "toString"
+        ],
+        "types": [
+          "MtMediaLibraryItem"
+        ]
+      },
+      "MtCarPlayBrowsableItem": {
+        "fields": [
+          "get:props",
+          "id",
+          "imageUri",
+          "subtitle",
+          "templateType",
+          "title"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/carplay/mt_carplay_item.dart"
+        ],
+        "methods": [
+          "MtCarPlayBrowsableItem",
+          "toCPButton",
+          "toCPItem",
+          "toString"
+        ],
+        "types": [
+          "MtCarPlayItem",
+          "MtCarPlayTemplateType"
+        ]
+      },
+      "MtCarPlayDelegate": {
+        "fields": [
+          "get:rootConfig"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/carplay/mt_carplay_delegate.dart"
+        ],
+        "methods": [
+          "getChildren",
+          "getSections",
+          "onConnect",
+          "onDisconnect",
+          "onPlayFromMediaId"
+        ],
+        "types": [
+          "MtCarPlayItem",
+          "MtCarPlayRootConfig",
+          "MtCarPlaySection"
+        ]
+      },
+      "MtCarPlayHandler": {
+        "fields": [
+          "get:connectionStream",
+          "get:isConnected"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/carplay/mt_carplay_handler.dart"
+        ],
+        "methods": [
+          "MtCarPlayHandler",
+          "dispose",
+          "init",
+          "pop",
+          "popToRoot",
+          "refresh",
+          "showNowPlaying"
+        ],
+        "types": [
+          "MtCarPlayDelegate"
+        ]
+      },
+      "MtCarPlayItem": {
+        "fields": [],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/carplay/mt_carplay_item.dart"
+        ],
+        "methods": [
+          "MtCarPlayItem",
+          "toCPButton",
+          "toCPItem"
+        ],
+        "types": []
+      },
+      "MtCarPlayPlayableItem": {
+        "fields": [
+          "get:props",
+          "item"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/carplay/mt_carplay_item.dart"
+        ],
+        "methods": [
+          "MtCarPlayPlayableItem",
+          "toCPButton",
+          "toCPItem",
+          "toString"
+        ],
+        "types": [
+          "MtAudioItem",
+          "MtCarPlayItem"
+        ]
+      },
+      "MtCarPlayRootConfig": {
+        "fields": [
+          "emptyViewSubtitle",
+          "emptyViewTitle",
+          "systemIcon",
+          "tabBarConfig",
+          "templateType",
+          "title"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/carplay/mt_carplay_delegate.dart"
+        ],
+        "methods": [
+          "list",
+          "tabBar"
+        ],
+        "types": [
+          "MtCarPlayRootTemplateType",
+          "MtCarPlayTabBarConfig"
+        ]
+      },
+      "MtCarPlayRootTemplateType": {
+        "fields": [
+          "list",
+          "tabBar"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/carplay/mt_carplay_delegate.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MtCarPlaySection": {
+        "fields": [
+          "header",
+          "items"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/carplay/mt_carplay_delegate.dart"
+        ],
+        "methods": [
+          "MtCarPlaySection"
+        ],
+        "types": [
+          "MtCarPlayItem"
+        ]
+      },
+      "MtCarPlayTab": {
+        "fields": [
+          "rootId",
+          "systemIcon",
+          "title"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/carplay/mt_carplay_delegate.dart"
+        ],
+        "methods": [
+          "MtCarPlayTab"
+        ],
+        "types": []
+      },
+      "MtCarPlayTabBarConfig": {
+        "fields": [
+          "tabs"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/carplay/mt_carplay_delegate.dart"
+        ],
+        "methods": [
+          "MtCarPlayTabBarConfig"
+        ],
+        "types": [
+          "MtCarPlayTab"
+        ]
+      },
+      "MtCarPlayTemplateType": {
+        "fields": [
+          "grid",
+          "list"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/carplay/mt_carplay_item.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MtMediaLibraryItem": {
+        "fields": [],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/models/mt_media_library_item.dart"
+        ],
+        "methods": [
+          "MtMediaLibraryItem",
+          "toMediaItem"
+        ],
+        "types": []
+      },
+      "MtNowPlayingInfo": {
+        "fields": [
+          "albumStyle",
+          "alignment",
+          "artistStyle",
+          "player",
+          "showAlbum",
+          "titleStyle"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/widgets/player_info/mt_now_playing_info.dart"
+        ],
+        "methods": [
+          "MtNowPlayingInfo",
+          "build"
+        ],
+        "types": [
+          "MtAudioPlayer"
+        ]
+      },
+      "MtPlayPauseButton": {
+        "fields": [
+          "color",
+          "iconSize",
+          "pauseIcon",
+          "playIcon",
+          "player",
+          "size"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/widgets/controls/mt_play_pause_button.dart"
+        ],
+        "methods": [
+          "MtPlayPauseButton",
+          "build"
+        ],
+        "types": [
+          "MtAudioPlayer"
+        ]
+      },
+      "MtPlayableItem": {
+        "fields": [
+          "get:props",
+          "item"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/models/mt_media_library_item.dart"
+        ],
+        "methods": [
+          "MtPlayableItem",
+          "toMediaItem",
+          "toString"
+        ],
+        "types": [
+          "MtAudioItem",
+          "MtMediaLibraryItem"
+        ]
+      },
+      "MtPlaybackState": {
+        "fields": [
+          "get:hasError",
+          "get:isLoading",
+          "get:isPaused",
+          "get:isPlaying",
+          "get:props",
+          "repeatMode",
+          "shuffleEnabled",
+          "speed",
+          "status",
+          "volume"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/models/mt_playback_state.dart"
+        ],
+        "methods": [
+          "MtPlaybackState",
+          "copyWith",
+          "toString"
+        ],
+        "types": [
+          "MtPlaybackState",
+          "MtPlaybackStatus",
+          "MtRepeatMode"
+        ]
+      },
+      "MtPlaybackStatus": {
+        "fields": [
+          "buffering",
+          "completed",
+          "error",
+          "idle",
+          "loading",
+          "paused",
+          "playing"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/models/mt_playback_state.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MtPlayerBuilder": {
+        "fields": [
+          "builder",
+          "player"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/widgets/controls/mt_player_builder.dart"
+        ],
+        "methods": [
+          "MtPlayerBuilder",
+          "createState"
+        ],
+        "types": [
+          "MtAudioPlayer",
+          "MtPlayerBuilder",
+          "MtPlayerState"
+        ]
+      },
+      "MtPlayerState": {
+        "fields": [
+          "currentItem",
+          "get:duration",
+          "get:isLoading",
+          "get:isPaused",
+          "get:isPlaying",
+          "get:position",
+          "get:progress",
+          "playbackState",
+          "positionState",
+          "queueState",
+          "speed"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/widgets/controls/mt_player_builder.dart"
+        ],
+        "methods": [
+          "MtPlayerState"
+        ],
+        "types": [
+          "MtAudioItem",
+          "MtPlaybackState",
+          "MtPositionState",
+          "MtQueueState"
+        ]
+      },
+      "MtPositionState": {
+        "fields": [
+          "bufferedPosition",
+          "duration",
+          "get:bufferedProgress",
+          "get:progress",
+          "get:props",
+          "position"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/models/mt_position_state.dart"
+        ],
+        "methods": [
+          "MtPositionState",
+          "copyWith",
+          "empty",
+          "toString"
+        ],
+        "types": [
+          "MtPositionState"
+        ]
+      },
+      "MtQueueItemTile": {
+        "fields": [
+          "isCurrentItem",
+          "item",
+          "onTap",
+          "reorderIndex",
+          "showDragHandle"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/widgets/queue/mt_queue_item_tile.dart"
+        ],
+        "methods": [
+          "MtQueueItemTile",
+          "build"
+        ],
+        "types": [
+          "MtAudioItem"
+        ]
+      },
+      "MtQueueListView": {
+        "fields": [
+          "emptyBuilder",
+          "enableDismiss",
+          "enableReorder",
+          "itemBuilder",
+          "player"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/widgets/queue/mt_queue_list_view.dart"
+        ],
+        "methods": [
+          "MtQueueListView",
+          "build"
+        ],
+        "types": [
+          "MtAudioItem",
+          "MtAudioPlayer"
+        ]
+      },
+      "MtQueueState": {
+        "fields": [
+          "get:hasNext",
+          "get:hasPrevious",
+          "get:isEmpty",
+          "get:isNotEmpty",
+          "get:length",
+          "get:props",
+          "queue",
+          "queueIndex",
+          "repeatMode",
+          "shuffleIndices"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/models/mt_queue_state.dart"
+        ],
+        "methods": [
+          "MtQueueState",
+          "copyWith",
+          "empty",
+          "toString"
+        ],
+        "types": [
+          "MtAudioItem",
+          "MtQueueState",
+          "MtRepeatMode"
+        ]
+      },
+      "MtRepeatMode": {
+        "fields": [
+          "all",
+          "off",
+          "one"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/models/mt_playback_state.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MtSeekBar": {
+        "fields": [
+          "player",
+          "showLabels"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/widgets/seek_bar/mt_seek_bar.dart"
+        ],
+        "methods": [
+          "MtSeekBar",
+          "createState"
+        ],
+        "types": [
+          "MtAudioPlayer",
+          "MtSeekBar"
+        ]
+      },
+      "MtSkipButton": {
+        "fields": [
+          "color",
+          "direction",
+          "icon",
+          "iconSize",
+          "player",
+          "size"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/widgets/controls/mt_skip_button.dart"
+        ],
+        "methods": [
+          "MtSkipButton",
+          "build"
+        ],
+        "types": [
+          "MtAudioPlayer",
+          "MtSkipDirection"
+        ]
+      },
+      "MtSkipDirection": {
+        "fields": [
+          "backward",
+          "forward"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/widgets/controls/mt_skip_button.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MtSpeedSelector": {
+        "fields": [
+          "player",
+          "speeds"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/widgets/speed/mt_speed_selector.dart"
+        ],
+        "methods": [
+          "MtSpeedSelector",
+          "build"
+        ],
+        "types": [
+          "MtAudioPlayer"
+        ]
+      },
+      "MtTrackSkipButton": {
+        "fields": [
+          "color",
+          "direction",
+          "disabledColor",
+          "iconSize",
+          "player",
+          "size"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/widgets/controls/mt_track_skip_button.dart"
+        ],
+        "methods": [
+          "MtTrackSkipButton",
+          "build"
+        ],
+        "types": [
+          "MtAudioPlayer",
+          "MtTrackSkipDirection"
+        ]
+      },
+      "MtTrackSkipDirection": {
+        "fields": [
+          "next",
+          "previous"
+        ],
+        "libraries": [
+          "package:mt_audio/mt_audio.dart",
+          "package:mt_audio/src/widgets/controls/mt_track_skip_button.dart"
+        ],
+        "methods": [],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:51:14Z",
+  "package": "mt_audio",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "MtArtwork",
+      "MtAudioError",
+      "MtAudioException",
+      "MtAudioItem",
+      "MtAudioPlayerConfig",
+      "MtBrowsableItem",
+      "MtCarPlayBrowsableItem",
+      "MtCarPlayItem",
+      "MtCarPlayPlayableItem",
+      "MtCarPlayRootConfig",
+      "MtCarPlaySection",
+      "MtCarPlayTab",
+      "MtCarPlayTabBarConfig",
+      "MtMediaLibraryItem",
+      "MtNowPlayingInfo",
+      "MtPlayPauseButton",
+      "MtPlayableItem",
+      "MtPlaybackState",
+      "MtPlayerBuilder",
+      "MtPlayerState",
+      "MtPositionState",
+      "MtQueueItemTile",
+      "MtQueueListView",
+      "MtQueueState",
+      "MtSeekBar",
+      "MtSkipButton",
+      "MtSpeedSelector",
+      "MtTrackSkipButton",
+      "_CombinedState"
+    ],
+    "digest": "8c0af4c2240a0dadee2a14fd57dfb4730636d10f0068c305562210f139ea9471",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "246a507d6538b687c363215b66abcf6d052f82e493ac9132414de1d8412d76a4",
+    "method_channels": [
+      "com.mobitouchos.mt_audio/artwork"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "/",
+      "0",
+      "Add content to see it here",
+      "Failed to load audio source",
+      "No Content",
+      "No track playing",
+      "Playback error",
+      "Queue is empty",
+      "_artworkUri",
+      "asset",
+      "com.mobitouchos.mt_audio/artwork",
+      "connected",
+      "content",
+      "dart:async",
+      "dart:io",
+      "file",
+      "getContentProviderAuthority",
+      "headers",
+      "isLive",
+      "mipmap/ic_launcher",
+      "mt_audio: MtAudioPlugin not registered; asset:// artwork will fall back to file:// URIs that Android Auto cannot read across processes. Artwork won't appear on Android Auto. Ensure the plugin is registered (rerun `flutter pub get` and a full rebuild after upgrading mt_audio).",
+      "music.note.list",
+      "package:audio_service/audio_service.dart",
+      "package:audio_session/audio_session.dart",
+      "package:equatable/equatable.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/material.dart",
+      "package:flutter/services.dart",
+      "package:just_audio/just_audio.dart",
+      "package:mt_audio/mt_audio.dart",
+      "package:mt_audio/src/android_auto/late_binding_android_auto_delegate.dart",
+      "package:mt_audio/src/android_auto/mt_android_auto_delegate.dart",
+      "package:mt_audio/src/android_auto/mt_android_auto_handler.dart",
+      "package:mt_audio/src/carplay/mt_carplay_delegate.dart",
+      "package:mt_audio/src/carplay/mt_carplay_handler.dart",
+      "package:mt_audio/src/carplay/mt_carplay_item.dart",
+      "package:mt_audio/src/handler/mt_audio_handler.dart",
+      "package:mt_audio/src/models/mt_audio_error.dart",
+      "package:mt_audio/src/models/mt_audio_item.dart",
+      "package:mt_audio/src/models/mt_media_library_item.dart",
+      "package:mt_audio/src/models/mt_playback_state.dart",
+      "package:mt_audio/src/models/mt_position_state.dart",
+      "package:mt_audio/src/models/mt_queue_state.dart",
+      "package:mt_audio/src/player/mt_audio_player.dart",
+      "package:mt_audio/src/player/mt_audio_player_config.dart",
+      "package:mt_audio/src/session/mt_audio_session_manager.dart",
+      "package:mt_audio/src/utils/mt_asset_resolver.dart",
+      "package:mt_audio/src/widgets/queue/mt_queue_item_tile.dart",
+      "package:mt_carplay/mt_carplay.dart",
+      "package:path_provider/path_provider.dart",
+      "package:rxdart/rxdart.dart",
+      "speeds must not be empty",
+      "src/android_auto/mt_android_auto_delegate.dart",
+      "src/carplay/mt_carplay_delegate.dart",
+      "src/carplay/mt_carplay_handler.dart",
+      "src/carplay/mt_carplay_item.dart",
+      "src/models/mt_audio_error.dart",
+      "src/models/mt_audio_item.dart",
+      "src/models/mt_media_library_item.dart",
+      "src/models/mt_playback_state.dart",
+      "src/models/mt_position_state.dart",
+      "src/models/mt_queue_state.dart",
+      "src/player/mt_audio_player.dart",
+      "src/player/mt_audio_player_config.dart",
+      "src/widgets/controls/mt_play_pause_button.dart",
+      "src/widgets/controls/mt_player_builder.dart",
+      "src/widgets/controls/mt_skip_button.dart",
+      "src/widgets/controls/mt_track_skip_button.dart",
+      "src/widgets/player_info/mt_artwork.dart",
+      "src/widgets/player_info/mt_now_playing_info.dart",
+      "src/widgets/queue/mt_queue_item_tile.dart",
+      "src/widgets/queue/mt_queue_list_view.dart",
+      "src/widgets/seek_bar/mt_seek_bar.dart",
+      "src/widgets/speed/mt_speed_selector.dart",
+      "uri"
+    ]
+  },
+  "version": "0.2.0-beta.4"
+}
