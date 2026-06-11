@@ -1,0 +1,238 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:stack_trace/src/chain.dart",
+          "package:stack_trace/src/lazy_trace.dart",
+          "package:stack_trace/src/utils.dart",
+          "package:stack_trace/stack_trace.dart"
+        ],
+        "methods": [
+          "flatten",
+          "padRight"
+        ],
+        "types": [
+          "Chain",
+          "Trace"
+        ]
+      },
+      "Chain": {
+        "fields": [
+          "get:terse",
+          "traces"
+        ],
+        "libraries": [
+          "package:stack_trace/src/chain.dart",
+          "package:stack_trace/stack_trace.dart"
+        ],
+        "methods": [
+          "Chain",
+          "capture",
+          "current",
+          "foldFrames",
+          "forTrace",
+          "parse",
+          "toString",
+          "toTrace",
+          "track"
+        ],
+        "types": [
+          "Chain",
+          "Trace"
+        ]
+      },
+      "Frame": {
+        "fields": [
+          "column",
+          "get:isCore",
+          "get:library",
+          "get:location",
+          "get:package",
+          "line",
+          "member",
+          "uri"
+        ],
+        "libraries": [
+          "package:stack_trace/src/frame.dart",
+          "package:stack_trace/stack_trace.dart"
+        ],
+        "methods": [
+          "Frame",
+          "caller",
+          "parseFirefox",
+          "parseFriendly",
+          "parseIE",
+          "parseSafari",
+          "parseSafari6_0",
+          "parseSafari6_1",
+          "parseV8",
+          "parseVM",
+          "toString"
+        ],
+        "types": []
+      },
+      "LazyTrace": {
+        "fields": [
+          "get:frames",
+          "get:terse",
+          "get:vmTrace",
+          "set:frames"
+        ],
+        "libraries": [
+          "package:stack_trace/src/lazy_trace.dart"
+        ],
+        "methods": [
+          "LazyTrace",
+          "foldFrames",
+          "toString"
+        ],
+        "types": [
+          "Frame",
+          "Trace"
+        ]
+      },
+      "StackZoneSpecification": {
+        "fields": [],
+        "libraries": [
+          "package:stack_trace/src/stack_zone_specification.dart"
+        ],
+        "methods": [
+          "StackZoneSpecification",
+          "chainFor",
+          "currentChain",
+          "errorCallback",
+          "handleUncaughtError",
+          "registerBinaryCallback",
+          "registerCallback",
+          "registerUnaryCallback",
+          "toSpec",
+          "trackFuture",
+          "trackStream"
+        ],
+        "types": [
+          "Chain"
+        ]
+      },
+      "Trace": {
+        "fields": [
+          "frames",
+          "get:terse",
+          "get:vmTrace"
+        ],
+        "libraries": [
+          "package:stack_trace/src/trace.dart",
+          "package:stack_trace/stack_trace.dart"
+        ],
+        "methods": [
+          "Trace",
+          "current",
+          "foldFrames",
+          "format",
+          "from",
+          "parse",
+          "parseFirefox",
+          "parseFriendly",
+          "parseIE",
+          "parseSafari",
+          "parseSafari6_0",
+          "parseSafari6_1",
+          "parseV8",
+          "parseVM",
+          "toString"
+        ],
+        "types": [
+          "Frame",
+          "Trace"
+        ]
+      },
+      "VMTrace": {
+        "fields": [
+          "frames"
+        ],
+        "libraries": [
+          "package:stack_trace/src/vm_trace.dart"
+        ],
+        "methods": [
+          "VMTrace",
+          "toString"
+        ],
+        "types": [
+          "Frame"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:06:46Z",
+  "package": "stack_trace",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "cdd753c8125d794f2ed41e06bba4ff7b7229e5146e69fa8dac4930aab6fcaf38",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "233a07a2e27944de563ccd55f78fdeb20200760fe95aca87e13312985a498c99",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      " ",
+      "    ?at ",
+      "(-patch)?(/.*)?$",
+      "...",
+      ".<fn>",
+      "/",
+      ":",
+      "<(<anonymous closure>|[^>]+)_async_body>",
+      "<anonymous closure>",
+      "<anonymous>",
+      "<async>",
+      "<fn>",
+      "=====",
+      "===== asynchronous gap ===========================\n",
+      "Anonymous function",
+      "Argument [level] must be greater than or equal to 0.",
+      "Cannot create a Trace from null.",
+      "Chain.track is not necessary in Dart 1.7+.",
+      "Use Frame.parseSafari instead.",
+      "Use Trace.parseSafari instead.",
+      "[^.]+\\.<async>",
+      "[native code]",
+      "\\",
+      "\\n    ?at ",
+      "^#\\d+\\s+(\\S.*) \\((.+?)((?::\\d+){0,2})\\)$",
+      "^(([.0-9A-Za-z_$/<]|\\(.*\\))*@)?[^\\s]*:\\d*$",
+      "^(.*):(\\d+):(\\d+)$",
+      "^(?:([^@(/]*)(?:\\(.*\\))?((?:/[^/]*)*)(?:\\(.*\\))?@)?(.*?):(\\d*)(?::(\\d*))?$",
+      "^([a-zA-Z]:[\\\\/]|\\\\\\\\)",
+      "^(\\S+)(?: (\\d+)(?::(\\d+))?)?\\s+([^\\d]\\S*)$",
+      "^[^\\s]+( \\d+(:\\d+)?)?[ \\t]+[^\\s]+$",
+      "^[a-zA-Z][-+.a-zA-Z\\d]*://",
+      "^\\.",
+      "^\\s*at (?:(\\S.*?)(?: \\[as [^\\]]+\\])? \\((.*)\\)|(.*))$",
+      "^eval at (?:\\S.*?) \\((.*)\\)(?:, .*?:\\d+:\\d+)?$",
+      "chain.dart",
+      "dart",
+      "dart:async",
+      "dart:collection",
+      "dart:math",
+      "frame.dart",
+      "lazy_trace.dart",
+      "package",
+      "package:path/path.dart",
+      "src/chain.dart",
+      "src/frame.dart",
+      "src/trace.dart",
+      "stack chains",
+      "stack_trace",
+      "stack_zone_specification.dart",
+      "trace.dart",
+      "utils.dart",
+      "vm_trace.dart"
+    ]
+  },
+  "version": "1.2.2"
+}
