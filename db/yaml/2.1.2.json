@@ -1,0 +1,880 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "yamlWarningCallback"
+        ],
+        "libraries": [
+          "package:yaml/src/equality.dart",
+          "package:yaml/src/utils.dart",
+          "package:yaml/src/yaml_node.dart",
+          "package:yaml/yaml.dart"
+        ],
+        "methods": [
+          "deepEquals",
+          "deepEqualsMap",
+          "deepHashCode",
+          "loadYaml",
+          "loadYamlDocument",
+          "loadYamlDocuments",
+          "loadYamlNode",
+          "loadYamlStream",
+          "setSpan",
+          "warn"
+        ],
+        "types": [
+          "YamlDocument",
+          "YamlList",
+          "YamlNode"
+        ]
+      },
+      "AliasEvent": {
+        "fields": [
+          "get:type",
+          "name",
+          "span"
+        ],
+        "libraries": [
+          "package:yaml/src/event.dart"
+        ],
+        "methods": [
+          "AliasEvent",
+          "toString"
+        ],
+        "types": [
+          "Event"
+        ]
+      },
+      "AliasToken": {
+        "fields": [
+          "get:type",
+          "name",
+          "span"
+        ],
+        "libraries": [
+          "package:yaml/src/token.dart"
+        ],
+        "methods": [
+          "AliasToken",
+          "toString"
+        ],
+        "types": [
+          "Token"
+        ]
+      },
+      "AnchorToken": {
+        "fields": [
+          "get:type",
+          "name",
+          "span"
+        ],
+        "libraries": [
+          "package:yaml/src/token.dart"
+        ],
+        "methods": [
+          "AnchorToken",
+          "toString"
+        ],
+        "types": [
+          "Token"
+        ]
+      },
+      "CollectionStyle": {
+        "fields": [
+          "ANY",
+          "BLOCK",
+          "FLOW",
+          "name"
+        ],
+        "libraries": [
+          "package:yaml/src/style.dart",
+          "package:yaml/yaml.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "DocumentEndEvent": {
+        "fields": [
+          "get:type",
+          "isImplicit",
+          "span"
+        ],
+        "libraries": [
+          "package:yaml/src/event.dart"
+        ],
+        "methods": [
+          "DocumentEndEvent",
+          "toString"
+        ],
+        "types": [
+          "Event"
+        ]
+      },
+      "DocumentStartEvent": {
+        "fields": [
+          "get:type",
+          "isImplicit",
+          "span",
+          "tagDirectives",
+          "versionDirective"
+        ],
+        "libraries": [
+          "package:yaml/src/event.dart"
+        ],
+        "methods": [
+          "DocumentStartEvent",
+          "toString"
+        ],
+        "types": [
+          "Event",
+          "TagDirective",
+          "VersionDirective"
+        ]
+      },
+      "Event": {
+        "fields": [
+          "span",
+          "type"
+        ],
+        "libraries": [
+          "package:yaml/src/event.dart"
+        ],
+        "methods": [
+          "Event",
+          "toString"
+        ],
+        "types": [
+          "EventType"
+        ]
+      },
+      "EventType": {
+        "fields": [
+          "ALIAS",
+          "DOCUMENT_END",
+          "DOCUMENT_START",
+          "MAPPING_END",
+          "MAPPING_START",
+          "SCALAR",
+          "SEQUENCE_END",
+          "SEQUENCE_START",
+          "STREAM_END",
+          "STREAM_START",
+          "name"
+        ],
+        "libraries": [
+          "package:yaml/src/event.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "Loader": {
+        "fields": [
+          "get:span"
+        ],
+        "libraries": [
+          "package:yaml/src/loader.dart"
+        ],
+        "methods": [
+          "Loader",
+          "load"
+        ],
+        "types": [
+          "Parser",
+          "YamlDocument"
+        ]
+      },
+      "MappingStartEvent": {
+        "fields": [
+          "anchor",
+          "get:type",
+          "span",
+          "style",
+          "tag"
+        ],
+        "libraries": [
+          "package:yaml/src/event.dart"
+        ],
+        "methods": [
+          "MappingStartEvent"
+        ],
+        "types": [
+          "CollectionStyle"
+        ]
+      },
+      "NullSpan": {
+        "fields": [
+          "get:end",
+          "start",
+          "text"
+        ],
+        "libraries": [
+          "package:yaml/src/null_span.dart"
+        ],
+        "methods": [
+          "NullSpan"
+        ],
+        "types": []
+      },
+      "Pair": {
+        "fields": [
+          "first",
+          "last"
+        ],
+        "libraries": [
+          "package:yaml/src/utils.dart"
+        ],
+        "methods": [
+          "Pair",
+          "toString"
+        ],
+        "types": []
+      },
+      "Parser": {
+        "fields": [
+          "get:isDone"
+        ],
+        "libraries": [
+          "package:yaml/src/parser.dart"
+        ],
+        "methods": [
+          "Parser",
+          "parse"
+        ],
+        "types": [
+          "Event",
+          "Scanner"
+        ]
+      },
+      "ScalarEvent": {
+        "fields": [
+          "anchor",
+          "get:type",
+          "span",
+          "style",
+          "tag",
+          "value"
+        ],
+        "libraries": [
+          "package:yaml/src/event.dart"
+        ],
+        "methods": [
+          "ScalarEvent",
+          "toString"
+        ],
+        "types": [
+          "ScalarStyle"
+        ]
+      },
+      "ScalarStyle": {
+        "fields": [
+          "ANY",
+          "DOUBLE_QUOTED",
+          "FOLDED",
+          "LITERAL",
+          "PLAIN",
+          "SINGLE_QUOTED",
+          "get:isQuoted",
+          "name"
+        ],
+        "libraries": [
+          "package:yaml/src/style.dart",
+          "package:yaml/yaml.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "ScalarToken": {
+        "fields": [
+          "get:type",
+          "span",
+          "style",
+          "value"
+        ],
+        "libraries": [
+          "package:yaml/src/token.dart"
+        ],
+        "methods": [
+          "ScalarToken",
+          "toString"
+        ],
+        "types": [
+          "ScalarStyle",
+          "Token"
+        ]
+      },
+      "Scanner": {
+        "fields": [
+          "AMPERSAND",
+          "ASTERISK",
+          "AT",
+          "BACKSLASH",
+          "BACKSPACE",
+          "BELL",
+          "BOM",
+          "COLON",
+          "COMMA",
+          "CR",
+          "DOLLAR",
+          "DOUBLE_QUOTE",
+          "EQUALS",
+          "ESCAPE",
+          "EXCLAMATION",
+          "FORM_FEED",
+          "GRAVE_ACCENT",
+          "HASH",
+          "HYPHEN",
+          "LEFT_ANGLE",
+          "LEFT_CURLY",
+          "LEFT_PAREN",
+          "LEFT_SQUARE",
+          "LETTER_A",
+          "LETTER_B",
+          "LETTER_CAP_A",
+          "LETTER_CAP_F",
+          "LETTER_CAP_L",
+          "LETTER_CAP_N",
+          "LETTER_CAP_P",
+          "LETTER_CAP_U",
+          "LETTER_CAP_X",
+          "LETTER_CAP_Z",
+          "LETTER_E",
+          "LETTER_F",
+          "LETTER_N",
+          "LETTER_R",
+          "LETTER_T",
+          "LETTER_U",
+          "LETTER_V",
+          "LETTER_X",
+          "LETTER_Z",
+          "LF",
+          "LINE_SEPARATOR",
+          "NBSP",
+          "NEL",
+          "NULL",
+          "NUMBER_0",
+          "NUMBER_9",
+          "PARAGRAPH_SEPARATOR",
+          "PERCENT",
+          "PERIOD",
+          "PLUS",
+          "QUESTION",
+          "RIGHT_ANGLE",
+          "RIGHT_CURLY",
+          "RIGHT_PAREN",
+          "RIGHT_SQUARE",
+          "SEMICOLON",
+          "SINGLE_QUOTE",
+          "SLASH",
+          "SP",
+          "TAB",
+          "TILDE",
+          "UNDERSCORE",
+          "VERTICAL_BAR",
+          "VERTICAL_TAB"
+        ],
+        "libraries": [
+          "package:yaml/src/scanner.dart"
+        ],
+        "methods": [
+          "Scanner",
+          "advance",
+          "peek",
+          "scan"
+        ],
+        "types": [
+          "Token"
+        ]
+      },
+      "SequenceStartEvent": {
+        "fields": [
+          "anchor",
+          "get:type",
+          "span",
+          "style",
+          "tag"
+        ],
+        "libraries": [
+          "package:yaml/src/event.dart"
+        ],
+        "methods": [
+          "SequenceStartEvent"
+        ],
+        "types": [
+          "CollectionStyle"
+        ]
+      },
+      "TagDirective": {
+        "fields": [
+          "handle",
+          "prefix"
+        ],
+        "libraries": [
+          "package:yaml/src/yaml_document.dart",
+          "package:yaml/yaml.dart"
+        ],
+        "methods": [
+          "TagDirective",
+          "toString"
+        ],
+        "types": []
+      },
+      "TagDirectiveToken": {
+        "fields": [
+          "get:type",
+          "handle",
+          "prefix",
+          "span"
+        ],
+        "libraries": [
+          "package:yaml/src/token.dart"
+        ],
+        "methods": [
+          "TagDirectiveToken",
+          "toString"
+        ],
+        "types": [
+          "Token"
+        ]
+      },
+      "TagToken": {
+        "fields": [
+          "get:type",
+          "handle",
+          "span",
+          "suffix"
+        ],
+        "libraries": [
+          "package:yaml/src/token.dart"
+        ],
+        "methods": [
+          "TagToken",
+          "toString"
+        ],
+        "types": [
+          "Token"
+        ]
+      },
+      "Token": {
+        "fields": [
+          "span",
+          "type"
+        ],
+        "libraries": [
+          "package:yaml/src/token.dart"
+        ],
+        "methods": [
+          "Token",
+          "toString"
+        ],
+        "types": [
+          "TokenType"
+        ]
+      },
+      "TokenType": {
+        "fields": [
+          "ALIAS",
+          "ANCHOR",
+          "BLOCK_END",
+          "BLOCK_ENTRY",
+          "BLOCK_MAPPING_START",
+          "BLOCK_SEQUENCE_START",
+          "DOCUMENT_END",
+          "DOCUMENT_START",
+          "FLOW_ENTRY",
+          "FLOW_MAPPING_END",
+          "FLOW_MAPPING_START",
+          "FLOW_SEQUENCE_END",
+          "FLOW_SEQUENCE_START",
+          "KEY",
+          "SCALAR",
+          "STREAM_END",
+          "STREAM_START",
+          "TAG",
+          "TAG_DIRECTIVE",
+          "VALUE",
+          "VERSION_DIRECTIVE",
+          "name"
+        ],
+        "libraries": [
+          "package:yaml/src/token.dart"
+        ],
+        "methods": [
+          "toString"
+        ],
+        "types": []
+      },
+      "VersionDirective": {
+        "fields": [
+          "major",
+          "minor"
+        ],
+        "libraries": [
+          "package:yaml/src/yaml_document.dart",
+          "package:yaml/yaml.dart"
+        ],
+        "methods": [
+          "VersionDirective",
+          "toString"
+        ],
+        "types": []
+      },
+      "VersionDirectiveToken": {
+        "fields": [
+          "get:type",
+          "major",
+          "minor",
+          "span"
+        ],
+        "libraries": [
+          "package:yaml/src/token.dart"
+        ],
+        "methods": [
+          "VersionDirectiveToken",
+          "toString"
+        ],
+        "types": [
+          "Token"
+        ]
+      },
+      "YamlDocument": {
+        "fields": [
+          "contents",
+          "endImplicit",
+          "span",
+          "startImplicit",
+          "tagDirectives",
+          "versionDirective"
+        ],
+        "libraries": [
+          "package:yaml/src/yaml_document.dart",
+          "package:yaml/yaml.dart"
+        ],
+        "methods": [
+          "internal",
+          "toString"
+        ],
+        "types": [
+          "TagDirective",
+          "VersionDirective",
+          "YamlNode"
+        ]
+      },
+      "YamlException": {
+        "fields": [],
+        "libraries": [
+          "package:yaml/src/yaml_exception.dart",
+          "package:yaml/yaml.dart"
+        ],
+        "methods": [
+          "YamlException"
+        ],
+        "types": []
+      },
+      "YamlList": {
+        "fields": [
+          "get:length",
+          "get:value",
+          "nodes",
+          "set:length",
+          "style"
+        ],
+        "libraries": [
+          "package:yaml/src/yaml_node.dart",
+          "package:yaml/yaml.dart"
+        ],
+        "methods": [
+          "YamlList",
+          "[]",
+          "[]=",
+          "internal",
+          "wrap"
+        ],
+        "types": [
+          "CollectionStyle",
+          "YamlNode"
+        ]
+      },
+      "YamlListWrapper": {
+        "fields": [
+          "get:hashCode",
+          "get:length",
+          "get:value",
+          "nodes",
+          "set:length",
+          "span",
+          "style"
+        ],
+        "libraries": [
+          "package:yaml/src/yaml_node_wrapper.dart"
+        ],
+        "methods": [
+          "==",
+          "YamlListWrapper",
+          "[]",
+          "[]="
+        ],
+        "types": [
+          "CollectionStyle",
+          "YamlList",
+          "YamlNode"
+        ]
+      },
+      "YamlMap": {
+        "fields": [
+          "get:keys",
+          "get:value",
+          "nodes",
+          "style"
+        ],
+        "libraries": [
+          "package:yaml/src/yaml_node.dart",
+          "package:yaml/yaml.dart"
+        ],
+        "methods": [
+          "YamlMap",
+          "[]",
+          "internal",
+          "wrap"
+        ],
+        "types": [
+          "CollectionStyle",
+          "YamlNode"
+        ]
+      },
+      "YamlMapWrapper": {
+        "fields": [
+          "get:hashCode",
+          "get:keys",
+          "get:value",
+          "nodes",
+          "span",
+          "style"
+        ],
+        "libraries": [
+          "package:yaml/src/yaml_node_wrapper.dart"
+        ],
+        "methods": [
+          "==",
+          "YamlMapWrapper",
+          "[]"
+        ],
+        "types": [
+          "CollectionStyle",
+          "YamlMap",
+          "YamlNode"
+        ]
+      },
+      "YamlNode": {
+        "fields": [
+          "get:span",
+          "get:value"
+        ],
+        "libraries": [
+          "package:yaml/src/yaml_node.dart",
+          "package:yaml/yaml.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "YamlScalar": {
+        "fields": [
+          "style",
+          "value"
+        ],
+        "libraries": [
+          "package:yaml/src/yaml_node.dart",
+          "package:yaml/yaml.dart"
+        ],
+        "methods": [
+          "internal",
+          "toString",
+          "wrap"
+        ],
+        "types": [
+          "ScalarStyle",
+          "YamlNode"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:26:40Z",
+  "package": "yaml",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "CollectionStyle",
+      "EventType",
+      "ScalarStyle",
+      "TokenType",
+      "_Chomping",
+      "_State"
+    ],
+    "digest": "aa5667728997dfbceeb12f68e4ff20d7a64327cea4991aea3dd7517f8199c5fa",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "e53adfdc2d73a5cee1177ee8a03454cad1452a50f221145933822bc13a3ccf37",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "!",
+      "!!",
+      "-",
+      "---",
+      ".",
+      "...",
+      "0 may not be used as an indentation indicator.",
+      ">",
+      "ALIAS",
+      "ANCHOR",
+      "ANY",
+      "BLOCK",
+      "BLOCK_END",
+      "BLOCK_ENTRY",
+      "BLOCK_MAPPING_FIRST_KEY",
+      "BLOCK_MAPPING_KEY",
+      "BLOCK_MAPPING_START",
+      "BLOCK_MAPPING_VALUE",
+      "BLOCK_NODE",
+      "BLOCK_NODE_OR_INDENTLESS_SEQUENCE",
+      "BLOCK_SEQUENCE_ENTRY",
+      "BLOCK_SEQUENCE_FIRST_ENTRY",
+      "BLOCK_SEQUENCE_START",
+      "Block sequence entries are not allowed in this context.",
+      "CLIP",
+      "Cannot modify an unmodifiable List",
+      "Cannot modify an unmodifiable List.",
+      "Could not find expected ':' for simple key.",
+      "DOCUMENT_CONTENT",
+      "DOCUMENT_END",
+      "DOCUMENT_START",
+      "DOUBLE_QUOTED",
+      "Duplicate %TAG directive.",
+      "Duplicate %YAML directive.",
+      "END",
+      "Expected ':'.",
+      "Expected a key while parsing a block mapping.",
+      "Expected a space but found a tab.",
+      "Expected alphanumeric character.",
+      "Expected comment or line break after directive.",
+      "Expected comment or line break.",
+      "Expected directive name.",
+      "Expected document start.",
+      "Expected newline.",
+      "Expected node content.",
+      "Expected version number.",
+      "Expected whitespace.",
+      "FLOW",
+      "FLOW_ENTRY",
+      "FLOW_MAPPING_EMPTY_VALUE",
+      "FLOW_MAPPING_END",
+      "FLOW_MAPPING_FIRST_KEY",
+      "FLOW_MAPPING_KEY",
+      "FLOW_MAPPING_START",
+      "FLOW_MAPPING_VALUE",
+      "FLOW_NODE",
+      "FLOW_SEQUENCE_END",
+      "FLOW_SEQUENCE_ENTRY",
+      "FLOW_SEQUENCE_ENTRY_MAPPING_END",
+      "FLOW_SEQUENCE_ENTRY_MAPPING_KEY",
+      "FLOW_SEQUENCE_ENTRY_MAPPING_VALUE",
+      "FLOW_SEQUENCE_FIRST_ENTRY",
+      "FLOW_SEQUENCE_START",
+      "FOLDED",
+      "IMPLICIT_DOCUMENT_START",
+      "INDENTLESS_SEQUENCE_ENTRY",
+      "Inaccessible",
+      "Incompatible YAML document. This parser only supports YAML 1.1 and 1.2.",
+      "Invalid Unicode character escape code.",
+      "Invalid tag for mapping.",
+      "Invalid tag for sequence.",
+      "KEEP",
+      "KEY",
+      "LITERAL",
+      "MAPPING_END",
+      "MAPPING_START",
+      "Mapping keys are not allowed in this context.",
+      "Mapping values are not allowed in this context.",
+      "No more events.",
+      "Only expected one document.",
+      "Out of tokens.",
+      "PLAIN",
+      "SCALAR",
+      "SEQUENCE_END",
+      "SEQUENCE_START",
+      "SINGLE_QUOTED",
+      "STREAM_END",
+      "STREAM_START",
+      "STRIP",
+      "TAG",
+      "TAG_DIRECTIVE",
+      "Tab characters are not allowed as indentation.",
+      "Undefined alias.",
+      "Undefined tag handle.",
+      "Unexpected character in directive name.",
+      "Unexpected character.",
+      "Unexpected document indicator.",
+      "Unexpected end of file.",
+      "Unknown escape character.",
+      "Unreachable",
+      "VALUE",
+      "VERSION_DIRECTIVE",
+      "Warning: this parser only supports YAML 1.1 and 1.2.",
+      "Warning: unknown directive.",
+      "While parsing a block collection, expected '-'.",
+      "While parsing a flow mapping, expected ',' or '}'.",
+      "While parsing a flow sequence, expected ',' or ']'.",
+      "YAML",
+      "\\.$",
+      "^(?:(true|True|TRUE)|(false|False|FALSE))$",
+      "^([+-]?)\\.(inf|Inf|INF)$",
+      "^(null|Null|NULL|~|)$",
+      "^0o([0-7]+)$",
+      "^0x[0-9a-fA-F]+$",
+      "^[-+]?(\\.[0-9]+|[0-9]+(\\.[0-9]*)?)([eE][-+]?[0-9]+)?$",
+      "^[-+]?[0-9]+$",
+      "^\\.(nan|NaN|NAN)$",
+      "dart:collection",
+      "equality.dart",
+      "event.dart",
+      "null_span.dart",
+      "package:collection/collection.dart",
+      "package:source_span/source_span.dart",
+      "package:string_scanner/string_scanner.dart",
+      "parser.dart",
+      "scanner.dart",
+      "src/loader.dart",
+      "src/style.dart",
+      "src/utils.dart",
+      "src/yaml_document.dart",
+      "src/yaml_exception.dart",
+      "src/yaml_node.dart",
+      "style.dart",
+      "tag:yaml.org,2002:",
+      "tag:yaml.org,2002:bool",
+      "tag:yaml.org,2002:float",
+      "tag:yaml.org,2002:int",
+      "tag:yaml.org,2002:map",
+      "tag:yaml.org,2002:null",
+      "tag:yaml.org,2002:seq",
+      "tag:yaml.org,2002:str",
+      "token.dart",
+      "utils.dart",
+      "yaml_document.dart",
+      "yaml_exception.dart",
+      "yaml_node.dart",
+      "yaml_node_wrapper.dart",
+      "﻿"
+    ]
+  },
+  "version": "2.1.2"
+}

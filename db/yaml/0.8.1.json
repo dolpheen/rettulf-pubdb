@@ -1,0 +1,658 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:yaml/src/deep_equals.dart",
+          "package:yaml/src/utils.dart",
+          "package:yaml/yaml.dart"
+        ],
+        "methods": [
+          "deepEquals",
+          "hashCodeFor",
+          "loadYaml",
+          "loadYamlStream"
+        ],
+        "types": []
+      },
+      "AliasNode": {
+        "fields": [],
+        "libraries": [
+          "package:yaml/src/model.dart"
+        ],
+        "methods": [
+          "AliasNode",
+          "visit"
+        ],
+        "types": [
+          "Node",
+          "Visitor"
+        ]
+      },
+      "Composer": {
+        "fields": [],
+        "libraries": [
+          "package:yaml/src/composer.dart"
+        ],
+        "methods": [
+          "Composer",
+          "compose",
+          "parseBool",
+          "parseFloat",
+          "parseInt",
+          "parseNull",
+          "parseString",
+          "setAnchor",
+          "visitAlias",
+          "visitMapping",
+          "visitScalar",
+          "visitSequence"
+        ],
+        "types": [
+          "AliasNode",
+          "MappingNode",
+          "Node",
+          "ScalarNode",
+          "SequenceNode",
+          "Visitor"
+        ]
+      },
+      "Constructor": {
+        "fields": [],
+        "libraries": [
+          "package:yaml/src/constructor.dart"
+        ],
+        "methods": [
+          "Constructor",
+          "construct",
+          "getAnchor",
+          "setAnchor",
+          "visitMapping",
+          "visitScalar",
+          "visitSequence"
+        ],
+        "types": [
+          "MappingNode",
+          "Node",
+          "ScalarNode",
+          "SequenceNode",
+          "Visitor"
+        ]
+      },
+      "MappingNode": {
+        "fields": [
+          "content",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:yaml/src/model.dart"
+        ],
+        "methods": [
+          "==",
+          "MappingNode",
+          "toString",
+          "visit"
+        ],
+        "types": [
+          "Node",
+          "Visitor"
+        ]
+      },
+      "Node": {
+        "fields": [
+          "anchor",
+          "get:hashCode",
+          "tag"
+        ],
+        "libraries": [
+          "package:yaml/src/model.dart"
+        ],
+        "methods": [
+          "==",
+          "Node",
+          "visit"
+        ],
+        "types": [
+          "Tag",
+          "Visitor"
+        ]
+      },
+      "Parser": {
+        "fields": [
+          "AMPERSAND",
+          "ASTERISK",
+          "AT",
+          "BACKSLASH",
+          "BACKSPACE",
+          "BELL",
+          "BLOCK_IN",
+          "BLOCK_KEY",
+          "BLOCK_OUT",
+          "CHOMPING_CLIP",
+          "CHOMPING_KEEP",
+          "CHOMPING_STRIP",
+          "COLON",
+          "COMMA",
+          "CR",
+          "C_ALIAS",
+          "C_ANCHOR",
+          "C_COLLECT_ENTRY",
+          "C_COMMENT",
+          "C_DIRECTIVE",
+          "C_DOUBLE_QUOTE",
+          "C_FOLDED",
+          "C_LITERAL",
+          "C_MAPPING_END",
+          "C_MAPPING_KEY",
+          "C_MAPPING_START",
+          "C_MAPPING_VALUE",
+          "C_RESERVED",
+          "C_SEQUENCE_END",
+          "C_SEQUENCE_ENTRY",
+          "C_SEQUENCE_START",
+          "C_SINGLE_QUOTE",
+          "C_TAG",
+          "DOUBLE_QUOTE",
+          "ESCAPE",
+          "EXCLAMATION",
+          "FLOW_IN",
+          "FLOW_KEY",
+          "FLOW_OUT",
+          "FORM_FEED",
+          "GRAVE_ACCENT",
+          "GREATER_THAN",
+          "HASH",
+          "HYPHEN",
+          "LEFT_BRACE",
+          "LEFT_BRACKET",
+          "LETTER_A",
+          "LETTER_B",
+          "LETTER_CAP_A",
+          "LETTER_CAP_F",
+          "LETTER_CAP_L",
+          "LETTER_CAP_N",
+          "LETTER_CAP_P",
+          "LETTER_CAP_U",
+          "LETTER_CAP_X",
+          "LETTER_E",
+          "LETTER_F",
+          "LETTER_N",
+          "LETTER_R",
+          "LETTER_T",
+          "LETTER_U",
+          "LETTER_V",
+          "LETTER_X",
+          "LF",
+          "LINE_SEPARATOR",
+          "NBSP",
+          "NEL",
+          "NULL",
+          "NUMBER_0",
+          "NUMBER_9",
+          "PARAGRAPH_SEPARATOR",
+          "PERCENT",
+          "PLUS",
+          "QUESTION_MARK",
+          "RIGHT_BRACE",
+          "RIGHT_BRACKET",
+          "SINGLE_QUOTE",
+          "SLASH",
+          "SP",
+          "TAB",
+          "TILDE",
+          "UNDERSCORE",
+          "VERTICAL_BAR",
+          "VERTICAL_TAB",
+          "get:atEndOfFile",
+          "get:atStartOfLine"
+        ],
+        "libraries": [
+          "package:yaml/src/parser.dart"
+        ],
+        "methods": [
+          "Parser",
+          "addProps",
+          "annotateError",
+          "b_asLineFeed",
+          "b_asSpace",
+          "b_break",
+          "b_chompedLast",
+          "b_comment",
+          "b_l_folded",
+          "b_l_spaced",
+          "b_l_trimmed",
+          "b_nb_literalNext",
+          "b_nonContent",
+          "blockScalarAdditionalIndentation",
+          "c_b_blockHeader",
+          "c_chompingIndicator",
+          "c_directivesEnd",
+          "c_documentEnd",
+          "c_doubleQuoted",
+          "c_escape",
+          "c_flowJsonContent",
+          "c_flowJsonNode",
+          "c_flowMapping",
+          "c_flowSequence",
+          "c_forbidden",
+          "c_indentationIndicator",
+          "c_indicator",
+          "c_l_blockMapExplicitEntry",
+          "c_l_blockMapExplicitKey",
+          "c_l_blockMapImplicitValue",
+          "c_l_blockSeqEntry",
+          "c_l_folded",
+          "c_l_literal",
+          "c_nb_commentText",
+          "c_ns_aliasNode",
+          "c_ns_anchorProperty",
+          "c_ns_escChar",
+          "c_ns_flowMapAdjacentValue",
+          "c_ns_flowMapEmptyKeyEntry",
+          "c_ns_flowMapJsonKeyEntry",
+          "c_ns_flowMapSeparateValue",
+          "c_ns_flowPairJsonKeyEntry",
+          "c_ns_properties",
+          "c_ns_tagProperty",
+          "c_quotedQuote",
+          "c_s_implicitJsonKey",
+          "c_singleQuoted",
+          "captureAndTransform",
+          "captureAs",
+          "captureString",
+          "consume",
+          "consumeChar",
+          "context",
+          "countIndentation",
+          "e_node",
+          "e_scalar",
+          "error",
+          "expect",
+          "flushCapture",
+          "inFlow",
+          "indicatorType",
+          "isAnchorChar",
+          "isBreak",
+          "isDecDigit",
+          "isFlowIndicator",
+          "isHexDigit",
+          "isJson",
+          "isNonBreak",
+          "isNonSpace",
+          "isPlainSafe",
+          "isPrintable",
+          "isSpace",
+          "l_anyDocument",
+          "l_bareDocument",
+          "l_blockMapExplicitValue",
+          "l_blockMapping",
+          "l_blockSequence",
+          "l_chompedEmpty",
+          "l_comment",
+          "l_directive",
+          "l_directiveDocument",
+          "l_documentPrefix",
+          "l_documentSuffix",
+          "l_empty",
+          "l_explicitDocument",
+          "l_foldedContent",
+          "l_keepEmpty",
+          "l_literalContent",
+          "l_nb_diffLines",
+          "l_nb_foldedLines",
+          "l_nb_literalText",
+          "l_nb_sameLines",
+          "l_nb_spacedLines",
+          "l_stripEmpty",
+          "l_trailComments",
+          "l_yamlStream",
+          "map",
+          "nAtOnce",
+          "nb_doubleChar",
+          "nb_doubleMultiLine",
+          "nb_doubleOneLine",
+          "nb_doubleText",
+          "nb_ns_doubleInLine",
+          "nb_ns_plainInLine",
+          "nb_ns_singleInLine",
+          "nb_singleChar",
+          "nb_singleMultiLine",
+          "nb_singleOneLine",
+          "nb_singleText",
+          "next",
+          "ns_anchorName",
+          "ns_doubleChar",
+          "ns_esc16Bit",
+          "ns_esc32Bit",
+          "ns_esc8Bit",
+          "ns_escBackslash",
+          "ns_escBackspace",
+          "ns_escBell",
+          "ns_escCarriageReturn",
+          "ns_escDoubleQuote",
+          "ns_escEscape",
+          "ns_escFormFeed",
+          "ns_escHorizontalTab",
+          "ns_escLineFeed",
+          "ns_escLineSeparator",
+          "ns_escNBit",
+          "ns_escNextLine",
+          "ns_escNonBreakingSpace",
+          "ns_escNull",
+          "ns_escParagraphSeparator",
+          "ns_escSlash",
+          "ns_escSpace",
+          "ns_escVerticalTab",
+          "ns_flowContent",
+          "ns_flowMapEntry",
+          "ns_flowMapExplicitEntry",
+          "ns_flowMapImplicitEntry",
+          "ns_flowMapYamlKeyEntry",
+          "ns_flowNode",
+          "ns_flowPair",
+          "ns_flowPairEntry",
+          "ns_flowPairYamlKeyEntry",
+          "ns_flowSeqEntry",
+          "ns_flowYamlContent",
+          "ns_flowYamlNode",
+          "ns_l_blockMapEntry",
+          "ns_l_blockMapImplicitEntry",
+          "ns_l_compactMapping",
+          "ns_l_compactSequence",
+          "ns_plain",
+          "ns_plainChar",
+          "ns_plainFirst",
+          "ns_plainMultiLine",
+          "ns_plainOneLine",
+          "ns_s_blockMapImplicitKey",
+          "ns_s_flowMapEntries",
+          "ns_s_flowSeqEntries",
+          "ns_s_implicitYamlKey",
+          "ns_singleChar",
+          "oneOrMore",
+          "or",
+          "parseFailed",
+          "peek",
+          "rawString",
+          "s_b_comment",
+          "s_blockLinePrefix",
+          "s_doubleBreak",
+          "s_doubleEscaped",
+          "s_doubleNextLine",
+          "s_flowFolded",
+          "s_flowLinePrefix",
+          "s_indent",
+          "s_indentLessThan",
+          "s_indentLessThanOrEqualTo",
+          "s_l_blockCollection",
+          "s_l_blockInBlock",
+          "s_l_blockIndented",
+          "s_l_blockNode",
+          "s_l_blockScalar",
+          "s_l_comments",
+          "s_l_flowInBlock",
+          "s_linePrefix",
+          "s_nb_foldedText",
+          "s_nb_spacedText",
+          "s_ns_plainNextLine",
+          "s_separate",
+          "s_separateInLine",
+          "s_separateLines",
+          "s_singleNextLine",
+          "seqSpaces",
+          "stringOf",
+          "transaction",
+          "truth",
+          "zeroOrMore",
+          "zeroOrOne"
+        ],
+        "types": [
+          "MappingNode",
+          "Node",
+          "ScalarNode",
+          "SequenceNode",
+          "Tag",
+          "YamlMap"
+        ]
+      },
+      "ScalarNode": {
+        "fields": [
+          "get:canonicalContent",
+          "get:content",
+          "get:hashCode",
+          "value"
+        ],
+        "libraries": [
+          "package:yaml/src/model.dart"
+        ],
+        "methods": [
+          "==",
+          "ScalarNode",
+          "toString",
+          "visit",
+          "zeroPad"
+        ],
+        "types": [
+          "Node",
+          "Visitor"
+        ]
+      },
+      "SequenceNode": {
+        "fields": [
+          "content",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:yaml/src/model.dart"
+        ],
+        "methods": [
+          "==",
+          "SequenceNode",
+          "toString",
+          "visit"
+        ],
+        "types": [
+          "Node",
+          "Visitor"
+        ]
+      },
+      "SyntaxError": {
+        "fields": [],
+        "libraries": [
+          "package:yaml/src/parser.dart"
+        ],
+        "methods": [
+          "SyntaxError",
+          "toString"
+        ],
+        "types": [
+          "YamlException"
+        ]
+      },
+      "Tag": {
+        "fields": [
+          "MAPPING_KIND",
+          "SCALAR_KIND",
+          "SEQUENCE_KIND",
+          "YAML_URI_PREFIX",
+          "get:hashCode",
+          "kind",
+          "name"
+        ],
+        "libraries": [
+          "package:yaml/src/model.dart"
+        ],
+        "methods": [
+          "==",
+          "Tag",
+          "mapping",
+          "scalar",
+          "sequence",
+          "toString",
+          "yaml"
+        ],
+        "types": []
+      },
+      "Visitor": {
+        "fields": [],
+        "libraries": [
+          "package:yaml/src/visitor.dart"
+        ],
+        "methods": [
+          "visitAlias",
+          "visitMapping",
+          "visitScalar",
+          "visitSequence"
+        ],
+        "types": [
+          "AliasNode",
+          "MappingNode",
+          "ScalarNode",
+          "SequenceNode"
+        ]
+      },
+      "YamlException": {
+        "fields": [],
+        "libraries": [
+          "package:yaml/src/yaml_exception.dart",
+          "package:yaml/yaml.dart"
+        ],
+        "methods": [
+          "YamlException",
+          "toString"
+        ],
+        "types": []
+      },
+      "YamlMap": {
+        "fields": [
+          "get:hashCode",
+          "get:isEmpty",
+          "get:isNotEmpty",
+          "get:keys",
+          "get:length",
+          "get:values"
+        ],
+        "libraries": [
+          "package:yaml/src/yaml_map.dart",
+          "package:yaml/yaml.dart"
+        ],
+        "methods": [
+          "==",
+          "YamlMap",
+          "[]",
+          "[]=",
+          "addAll",
+          "clear",
+          "containsKey",
+          "containsValue",
+          "forEach",
+          "from",
+          "putIfAbsent",
+          "remove",
+          "toString"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:26:36Z",
+  "package": "yaml",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "af65c24f29e20febd6908fc9af43cf36676d37f58126e4d8dc62723d27169ea3",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "01e61728036fe1a32ee10d34cef1ac6932ae92f99b2b06115469a9ac5618f92d",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\u0000",
+      "\u0007",
+      "\b",
+      "\t",
+      "\n",
+      "\u000b",
+      "\f",
+      "\r",
+      "\u001b",
+      " ",
+      "!",
+      "'",
+      "''",
+      ", ",
+      "-",
+      "---",
+      "...",
+      "0",
+      "0+e",
+      "?",
+      "Leading empty lines may not be indented more than the first non-empty line.",
+      "\\\"",
+      "\\.$",
+      "\\0",
+      "\\L",
+      "\\N",
+      "\\P",
+      "\\\\",
+      "\\_",
+      "\\a",
+      "\\b",
+      "\\e",
+      "\\f",
+      "\\n",
+      "\\r",
+      "\\t",
+      "\\v",
+      "^(?:(true|True|TRUE)|(false|False|FALSE))$",
+      "^([+-]?)\\.(inf|Inf|INF)$",
+      "^(null|Null|NULL|~|)$",
+      "^0o([0-7]+)$",
+      "^0x[0-9a-fA-F]+$",
+      "^[-+]?(\\.[0-9]+|[0-9]+(\\.[0-9]*)?)([eE][-+]?[0-9]+)?$",
+      "^[-+]?[0-9]+$",
+      "^\\.(nan|NaN|NAN)$",
+      "anchor name",
+      "bool",
+      "dart:collection",
+      "deep_equals.dart",
+      "document",
+      "e",
+      "escape sequence",
+      "float",
+      "int",
+      "map",
+      "mapping",
+      "mapping key",
+      "mapping value",
+      "model.dart",
+      "null",
+      "parser.dart",
+      "plain scalar",
+      "reserved indicators can't start a plain scalar",
+      "seq",
+      "sequence",
+      "src/composer.dart",
+      "src/constructor.dart",
+      "src/parser.dart",
+      "src/yaml_exception.dart",
+      "src/yaml_map.dart",
+      "str",
+      "string",
+      "tab characters are not allowed as indentation in YAML",
+      "tag:yaml.org,2002:",
+      "utils.dart",
+      "visitor.dart",
+      "yaml_exception.dart",
+      "yaml_map.dart",
+      "",
+      " ",
+      " ",
+      " "
+    ]
+  },
+  "version": "0.8.1"
+}
