@@ -1,0 +1,801 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "channel",
+          "channelName",
+          "escapeNames",
+          "get:databaseFactory",
+          "get:sqlfliteDatabaseFactory",
+          "inMemoryDatabasePath",
+          "lockWarningCallback",
+          "lockWarningDuration",
+          "methodBatch",
+          "methodCloseDatabase",
+          "methodExecute",
+          "methodGetDatabasesPath",
+          "methodGetPlatformVersion",
+          "methodInsert",
+          "methodOpenDatabase",
+          "methodOptions",
+          "methodQuery",
+          "methodSetDebugModeOn",
+          "methodUpdate",
+          "onDatabaseDowngradeDelete",
+          "paramId",
+          "paramMethod",
+          "paramNoResult",
+          "paramOperations",
+          "paramPath",
+          "paramReadOnly",
+          "paramSql",
+          "paramSqlArguments",
+          "paramTable",
+          "paramValues",
+          "paramVersion",
+          "sqliteErrorCode",
+          "supportsConcurrency"
+        ],
+        "libraries": [
+          "package:sqflite/sqflite.dart",
+          "package:sqflite/sql.dart",
+          "package:sqflite/src/constant.dart",
+          "package:sqflite/src/database_factory.dart",
+          "package:sqflite/src/exception.dart",
+          "package:sqflite/src/sqflite_impl.dart",
+          "package:sqflite/src/sql_builder.dart",
+          "package:sqflite/src/utils.dart"
+        ],
+        "methods": [
+          "deleteDatabase",
+          "devPrint",
+          "escapeName",
+          "getDatabasesPath",
+          "hex",
+          "invokeMethod",
+          "isEscapedName",
+          "newQueryResultSetMap",
+          "onDatabaseVersionChangeError",
+          "openDatabase",
+          "openReadOnlyDatabase",
+          "parseInt",
+          "queryResultSetFromMap",
+          "queryResultToList",
+          "setLockWarningInfo",
+          "unescapeName",
+          "wrapDatabaseException"
+        ],
+        "types": [
+          "Database",
+          "DatabaseFactory",
+          "QueryResultSet",
+          "SqfliteDatabaseFactory"
+        ]
+      },
+      "Batch": {
+        "fields": [],
+        "libraries": [
+          "package:sqflite/sqflite.dart"
+        ],
+        "methods": [
+          "apply",
+          "commit",
+          "delete",
+          "execute",
+          "insert",
+          "query",
+          "rawDelete",
+          "rawInsert",
+          "rawQuery",
+          "rawUpdate",
+          "update"
+        ],
+        "types": [
+          "ConflictAlgorithm"
+        ]
+      },
+      "BatchResult": {
+        "fields": [
+          "result"
+        ],
+        "libraries": [
+          "package:sqflite/src/sqflite_impl.dart"
+        ],
+        "methods": [
+          "BatchResult"
+        ],
+        "types": []
+      },
+      "BatchResults": {
+        "fields": [],
+        "libraries": [
+          "package:sqflite/src/sqflite_impl.dart"
+        ],
+        "methods": [
+          "[]",
+          "from"
+        ],
+        "types": [
+          "PluginList"
+        ]
+      },
+      "ConflictAlgorithm": {
+        "fields": [
+          "abort",
+          "fail",
+          "ignore",
+          "replace",
+          "rollback"
+        ],
+        "libraries": [
+          "package:sqflite/sqflite.dart",
+          "package:sqflite/sql.dart",
+          "package:sqflite/src/sql_builder.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Database": {
+        "fields": [
+          "get:isOpen",
+          "get:path"
+        ],
+        "libraries": [
+          "package:sqflite/sqflite.dart"
+        ],
+        "methods": [
+          "close",
+          "devInvokeMethod",
+          "devInvokeSqlMethod",
+          "getVersion",
+          "setVersion",
+          "transaction"
+        ],
+        "types": [
+          "DatabaseExecutor"
+        ]
+      },
+      "DatabaseException": {
+        "fields": [],
+        "libraries": [
+          "package:sqflite/sqflite.dart",
+          "package:sqflite/src/exception.dart"
+        ],
+        "methods": [
+          "DatabaseException",
+          "isDatabaseClosedError",
+          "isNoSuchTableError",
+          "isOpenFailedError",
+          "isReadOnlyError",
+          "isSyntaxError",
+          "isUniqueConstraintError",
+          "toString"
+        ],
+        "types": []
+      },
+      "DatabaseExecutor": {
+        "fields": [],
+        "libraries": [
+          "package:sqflite/sqflite.dart"
+        ],
+        "methods": [
+          "applyBatch",
+          "batch",
+          "delete",
+          "execute",
+          "insert",
+          "query",
+          "rawDelete",
+          "rawInsert",
+          "rawQuery",
+          "rawUpdate",
+          "update"
+        ],
+        "types": [
+          "Batch",
+          "ConflictAlgorithm"
+        ]
+      },
+      "DatabaseFactory": {
+        "fields": [],
+        "libraries": [
+          "package:sqflite/sqflite.dart",
+          "package:sqflite/src/database_factory.dart"
+        ],
+        "methods": [
+          "deleteDatabase",
+          "getDatabasesPath",
+          "openDatabase"
+        ],
+        "types": [
+          "Database",
+          "OpenDatabaseOptions"
+        ]
+      },
+      "OpenDatabaseOptions": {
+        "fields": [
+          "onConfigure",
+          "onCreate",
+          "onDowngrade",
+          "onOpen",
+          "onUpgrade",
+          "readOnly",
+          "singleInstance",
+          "version"
+        ],
+        "libraries": [
+          "package:sqflite/sqflite.dart"
+        ],
+        "methods": [
+          "OpenDatabaseOptions"
+        ],
+        "types": []
+      },
+      "PluginList": {
+        "fields": [
+          "get:length",
+          "get:rawList",
+          "set:length"
+        ],
+        "libraries": [
+          "package:sqflite/src/sqflite_impl.dart"
+        ],
+        "methods": [
+          "[]=",
+          "from",
+          "rawElementAt"
+        ],
+        "types": []
+      },
+      "QueryResultSet": {
+        "fields": [
+          "get:length",
+          "set:length"
+        ],
+        "libraries": [
+          "package:sqflite/src/sqflite_impl.dart"
+        ],
+        "methods": [
+          "QueryResultSet",
+          "[]",
+          "[]=",
+          "columnIndex"
+        ],
+        "types": []
+      },
+      "QueryRow": {
+        "fields": [
+          "get:keys",
+          "queryResultSet",
+          "row"
+        ],
+        "libraries": [
+          "package:sqflite/src/sqflite_impl.dart"
+        ],
+        "methods": [
+          "QueryRow",
+          "[]",
+          "[]=",
+          "clear",
+          "remove"
+        ],
+        "types": [
+          "QueryResultSet"
+        ]
+      },
+      "Rows": {
+        "fields": [],
+        "libraries": [
+          "package:sqflite/src/sqflite_impl.dart"
+        ],
+        "methods": [
+          "[]",
+          "from"
+        ],
+        "types": [
+          "PluginList"
+        ]
+      },
+      "Sqflite": {
+        "fields": [
+          "get:platformVersion"
+        ],
+        "libraries": [
+          "package:sqflite/sqflite.dart"
+        ],
+        "methods": [
+          "devInvokeMethod",
+          "devSetDebugModeOn",
+          "devSetOptions",
+          "firstIntValue",
+          "getDebugModeOn",
+          "hex",
+          "setDebugModeOn",
+          "setLockWarningInfo"
+        ],
+        "types": [
+          "SqfliteOptions"
+        ]
+      },
+      "SqfliteBatch": {
+        "fields": [
+          "operations"
+        ],
+        "libraries": [
+          "package:sqflite/src/batch.dart"
+        ],
+        "methods": [
+          "apply",
+          "commit",
+          "delete",
+          "execute",
+          "insert",
+          "query",
+          "rawDelete",
+          "rawInsert",
+          "rawQuery",
+          "rawUpdate",
+          "update"
+        ],
+        "types": [
+          "Batch",
+          "ConflictAlgorithm"
+        ]
+      },
+      "SqfliteDatabase": {
+        "fields": [
+          "get:baseDatabaseMethodArguments",
+          "get:db",
+          "get:factory",
+          "get:isOpen",
+          "get:path",
+          "get:readOnly",
+          "get:txn",
+          "id",
+          "openHelper",
+          "openTransaction",
+          "options",
+          "rawLock",
+          "transactionRefCount"
+        ],
+        "libraries": [
+          "package:sqflite/src/database.dart"
+        ],
+        "methods": [
+          "SqfliteDatabase",
+          "applyBatch",
+          "batch",
+          "beginTransaction",
+          "close",
+          "devInvokeMethod",
+          "devInvokeSqlMethod",
+          "doClose",
+          "doOpen",
+          "endTransaction",
+          "getVersion",
+          "invokeExecute",
+          "invokeMethod",
+          "setVersion",
+          "toString",
+          "transaction",
+          "txnApplyBatch",
+          "txnExecute",
+          "txnRawInsert",
+          "txnRawQuery",
+          "txnRawUpdate",
+          "txnSynchronized",
+          "txnWriteSynchronized"
+        ],
+        "types": [
+          "Batch",
+          "Database",
+          "OpenDatabaseOptions",
+          "SqfliteBatch",
+          "SqfliteDatabase",
+          "SqfliteDatabaseExecutor",
+          "SqfliteDatabaseFactory",
+          "SqfliteDatabaseOpenHelper",
+          "SqfliteTransaction",
+          "Transaction"
+        ]
+      },
+      "SqfliteDatabaseBatch": {
+        "fields": [
+          "database"
+        ],
+        "libraries": [
+          "package:sqflite/src/batch.dart"
+        ],
+        "methods": [
+          "SqfliteDatabaseBatch",
+          "commit"
+        ],
+        "types": [
+          "SqfliteBatch",
+          "SqfliteDatabase"
+        ]
+      },
+      "SqfliteDatabaseException": {
+        "fields": [
+          "result"
+        ],
+        "libraries": [
+          "package:sqflite/src/exception.dart"
+        ],
+        "methods": [
+          "SqfliteDatabaseException",
+          "getResultCode",
+          "toString"
+        ],
+        "types": [
+          "DatabaseException"
+        ]
+      },
+      "SqfliteDatabaseExecutor": {
+        "fields": [
+          "get:db",
+          "get:txn"
+        ],
+        "libraries": [
+          "package:sqflite/src/database.dart"
+        ],
+        "methods": [
+          "delete",
+          "execute",
+          "insert",
+          "query",
+          "rawDelete",
+          "rawInsert",
+          "rawQuery",
+          "rawUpdate",
+          "update"
+        ],
+        "types": [
+          "ConflictAlgorithm",
+          "DatabaseExecutor",
+          "SqfliteDatabase",
+          "SqfliteTransaction"
+        ]
+      },
+      "SqfliteDatabaseFactory": {
+        "fields": [
+          "databaseOpenHelpers",
+          "lock",
+          "nullDatabaseOpenHelper"
+        ],
+        "libraries": [
+          "package:sqflite/src/database_factory.dart"
+        ],
+        "methods": [
+          "deleteDatabase",
+          "doCloseDatabase",
+          "getDatabasesPath",
+          "invokeMethod",
+          "newDatabase",
+          "openDatabase"
+        ],
+        "types": [
+          "Database",
+          "DatabaseFactory",
+          "OpenDatabaseOptions",
+          "SqfliteDatabase",
+          "SqfliteDatabaseOpenHelper"
+        ]
+      },
+      "SqfliteDatabaseOpenHelper": {
+        "fields": [
+          "factory",
+          "get:isOpen",
+          "lock",
+          "options",
+          "path",
+          "sqfliteDatabase"
+        ],
+        "libraries": [
+          "package:sqflite/src/database.dart"
+        ],
+        "methods": [
+          "SqfliteDatabaseOpenHelper",
+          "closeDatabase",
+          "newDatabase",
+          "openDatabase"
+        ],
+        "types": [
+          "OpenDatabaseOptions",
+          "SqfliteDatabase",
+          "SqfliteDatabaseFactory"
+        ]
+      },
+      "SqfliteOpenDatabaseOptions": {
+        "fields": [
+          "onConfigure",
+          "onCreate",
+          "onDowngrade",
+          "onOpen",
+          "onUpgrade",
+          "readOnly",
+          "singleInstance",
+          "version"
+        ],
+        "libraries": [
+          "package:sqflite/src/database_factory.dart"
+        ],
+        "methods": [
+          "SqfliteOpenDatabaseOptions"
+        ],
+        "types": [
+          "OpenDatabaseOptions"
+        ]
+      },
+      "SqfliteOptions": {
+        "fields": [
+          "queryAsMapList"
+        ],
+        "libraries": [
+          "package:sqflite/sqflite.dart"
+        ],
+        "methods": [
+          "fromMap",
+          "toMap"
+        ],
+        "types": []
+      },
+      "SqfliteTransaction": {
+        "fields": [
+          "database",
+          "get:db",
+          "get:txn",
+          "successfull"
+        ],
+        "libraries": [
+          "package:sqflite/src/transaction.dart"
+        ],
+        "methods": [
+          "SqfliteTransaction",
+          "applyBatch",
+          "batch"
+        ],
+        "types": [
+          "Batch",
+          "SqfliteDatabase",
+          "SqfliteDatabaseExecutor",
+          "SqfliteTransaction",
+          "Transaction"
+        ]
+      },
+      "SqfliteTransactionBatch": {
+        "fields": [
+          "transaction"
+        ],
+        "libraries": [
+          "package:sqflite/src/batch.dart"
+        ],
+        "methods": [
+          "SqfliteTransactionBatch",
+          "commit"
+        ],
+        "types": [
+          "SqfliteBatch",
+          "SqfliteTransaction"
+        ]
+      },
+      "SqlBuilder": {
+        "fields": [
+          "arguments",
+          "hasEscape",
+          "sql"
+        ],
+        "libraries": [
+          "package:sqflite/src/sql_builder.dart"
+        ],
+        "methods": [
+          "delete",
+          "insert",
+          "query",
+          "update"
+        ],
+        "types": [
+          "ConflictAlgorithm"
+        ]
+      },
+      "Transaction": {
+        "fields": [],
+        "libraries": [
+          "package:sqflite/sqflite.dart"
+        ],
+        "methods": [],
+        "types": [
+          "DatabaseExecutor"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:05:42Z",
+  "package": "sqflite",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "c1eaef29bf2837a1a340714201cce8142bfc1f7f9d2089a6d2d7b05781c3c349",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "66c73ce33db5e83aca7710a57307e57cad6585142df3554dd7c9a475456411c3",
+    "method_channels": [
+      "com.tekartik.sqflite"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      " ",
+      " (",
+      " = ?",
+      " = NULL",
+      " GROUP BY ",
+      " HAVING ",
+      " INTO ",
+      " LIMIT ",
+      " OFFSET ",
+      " OR ABORT ",
+      " OR FAIL ",
+      " OR IGNORE ",
+      " OR REPLACE ",
+      " OR ROLLBACK ",
+      " ORDER BY ",
+      " SET ",
+      " WHERE ",
+      "\"",
+      "(code ",
+      "(sqlite code ",
+      ")",
+      ") VALUES (",
+      ") VALUES (NULL",
+      "* ",
+      ", ",
+      "0",
+      ":memory:",
+      "?",
+      "BEGIN EXCLUSIVE",
+      "BEGIN IMMEDIATE",
+      "COMMIT",
+      "DELETE FROM ",
+      "DISTINCT ",
+      "Empty values",
+      "FROM ",
+      "HAVING clauses are only permitted when using a groupBy clause",
+      "INSERT",
+      "NULL",
+      "PRAGMA user_version;",
+      "ROLLBACK",
+      "ROLLBACK;",
+      "SELECT ",
+      "UNIQUE constraint failed: ",
+      "UPDATE ",
+      "Use Batch.commit instead",
+      "User batch.commit() instead",
+      "`",
+      "add",
+      "all",
+      "alter",
+      "and",
+      "arguments",
+      "as",
+      "autoincrement",
+      "batch",
+      "between",
+      "case",
+      "check",
+      "closeDatabase",
+      "collate",
+      "columns",
+      "com.tekartik.sqflite",
+      "commit",
+      "constant.dart",
+      "constraint",
+      "create",
+      "dart:async",
+      "dart:collection",
+      "dart:core",
+      "dart:io",
+      "database different in batch and transaction",
+      "database_closed",
+      "debugMode",
+      "default",
+      "deferrable",
+      "delete",
+      "distinct",
+      "drop",
+      "else",
+      "escape",
+      "except",
+      "exclusive",
+      "execute",
+      "exists",
+      "foreign",
+      "from",
+      "getDatabasesPath",
+      "getDatabasesPath is null",
+      "getPlatformVersion",
+      "group",
+      "having",
+      "id",
+      "if",
+      "in",
+      "index",
+      "insert",
+      "intersect",
+      "into",
+      "is",
+      "isnull",
+      "join",
+      "limit",
+      "method",
+      "must not be set when commiting a batch in a transaction",
+      "no such table: ",
+      "noResult",
+      "not",
+      "notnull",
+      "null",
+      "nullColumnHack required when inserting no data",
+      "on",
+      "onCreate must be null if no version is specified",
+      "onDowngrade must be null if no version is specified",
+      "onUpgrade must be null if no version is specified",
+      "openDatabase",
+      "open_failed",
+      "operations",
+      "options",
+      "or",
+      "order",
+      "package:flutter/services.dart",
+      "package:flutter/src/services/platform_channel.dart",
+      "package:path/path.dart",
+      "package:sqflite/sqflite.dart",
+      "package:sqflite/src/batch.dart",
+      "package:sqflite/src/constant.dart",
+      "package:sqflite/src/database.dart",
+      "package:sqflite/src/database_factory.dart",
+      "package:sqflite/src/exception.dart",
+      "package:sqflite/src/sqflite_impl.dart",
+      "package:sqflite/src/sql_builder.dart",
+      "package:sqflite/src/transaction.dart",
+      "package:sqflite/src/utils.dart",
+      "package:synchronized/synchronized.dart",
+      "path",
+      "primary",
+      "query",
+      "queryAsMapList",
+      "read-only",
+      "readOnly",
+      "readonly",
+      "references",
+      "rows",
+      "select",
+      "set",
+      "sqflite_impl.dart",
+      "sql",
+      "sql.dart",
+      "sqlite_error",
+      "src/constant.dart",
+      "src/database_factory.dart",
+      "src/exception.dart",
+      "src/sql_builder.dart",
+      "src/utils.dart",
+      "syntax error",
+      "table",
+      "then",
+      "to",
+      "transaction",
+      "union",
+      "unique",
+      "update",
+      "using",
+      "values",
+      "version",
+      "version cannot be set to 0 in openDatabase",
+      "when",
+      "where"
+    ]
+  },
+  "version": "0.11.2+4"
+}
