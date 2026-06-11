@@ -1,0 +1,1072 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "get:messagesMap"
+        ],
+        "libraries": [
+          "package:password_engine/l10n/messages.i18n.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "BlocklistPasswordValidator": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/validator/blocklist_password_validator.dart",
+          "package:password_engine/src/validator/validator.dart"
+        ],
+        "methods": [
+          "BlocklistPasswordValidator",
+          "containsLowerCase",
+          "containsNumber",
+          "containsSpecialChar",
+          "containsUpperCase",
+          "isStrongPassword",
+          "isStrongPasswordWithConfig"
+        ],
+        "types": [
+          "IConfigAwarePasswordValidator",
+          "IPasswordNormalizer",
+          "IPasswordValidator",
+          "PasswordGeneratorConfig"
+        ]
+      },
+      "CharacterSetProfile": {
+        "fields": [
+          "defaultProfile",
+          "defaultWithSpaces",
+          "get:hashCode",
+          "lowerCaseLetters",
+          "lowerCaseLettersNonAmbiguous",
+          "numbers",
+          "numbersNonAmbiguous",
+          "specialCharacters",
+          "specialCharactersNonAmbiguous",
+          "upperCaseLetters",
+          "upperCaseLettersNonAmbiguous"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/model/character_set_profile.dart",
+          "package:password_engine/src/model/model.dart"
+        ],
+        "methods": [
+          "==",
+          "CharacterSetProfile",
+          "copyWith",
+          "fromMap",
+          "toMap",
+          "toString"
+        ],
+        "types": [
+          "CharacterSetProfile"
+        ]
+      },
+      "CharacterSetResolver": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/utils/character_set_resolver.dart",
+          "package:password_engine/src/utils/utils.dart"
+        ],
+        "methods": [
+          "resolve"
+        ],
+        "types": [
+          "CharacterSetType",
+          "PasswordGeneratorConfig"
+        ]
+      },
+      "CharacterSetType": {
+        "fields": [
+          "lower",
+          "number",
+          "special",
+          "upper"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/utils/character_set_resolver.dart",
+          "package:password_engine/src/utils/utils.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ConfigAwarePasswordValidator": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/validator/config_aware_password_validator.dart",
+          "package:password_engine/src/validator/validator.dart"
+        ],
+        "methods": [
+          "ConfigAwarePasswordValidator",
+          "isStrongPasswordWithConfig"
+        ],
+        "types": [
+          "IConfigAwarePasswordValidator",
+          "IPasswordStrengthEstimator",
+          "PasswordGeneratorConfig",
+          "PasswordValidator",
+          "PolicyValidationMixin"
+        ]
+      },
+      "DefaultPasswordNormalizer": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/normalizer/normalizer.dart",
+          "package:password_engine/src/normalizer/password_normalizer.dart"
+        ],
+        "methods": [
+          "normalize"
+        ],
+        "types": [
+          "IPasswordNormalizer"
+        ]
+      },
+      "EntropyThresholds": {
+        "fields": [
+          "medium",
+          "strong",
+          "veryStrong",
+          "weak"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/model/model.dart",
+          "package:password_engine/src/model/password_strength.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ErrorMessages": {
+        "fields": [
+          "get:atLeastOneCharType",
+          "get:characterPoolEmpty",
+          "get:invalidFormat",
+          "get:invalidLength",
+          "get:lengthNonNegative",
+          "get:maxGenerationAttemptsPositive",
+          "get:policyMinExceedsMax",
+          "get:selectedCharSetsNotEmpty",
+          "get:wordCountExceedsWordlist",
+          "get:wordCountPositive",
+          "get:wordlistEmpty",
+          "get:wordlistHasEmptyWords"
+        ],
+        "libraries": [
+          "package:password_engine/l10n/messages.i18n.dart"
+        ],
+        "methods": [
+          "ErrorMessages",
+          "maxAttemptsExceeded",
+          "passwordLengthMin"
+        ],
+        "types": [
+          "Messages"
+        ]
+      },
+      "FeedbackMessages": {
+        "fields": [
+          "get:suggestion",
+          "get:warning"
+        ],
+        "libraries": [
+          "package:password_engine/l10n/messages.i18n.dart"
+        ],
+        "methods": [
+          "FeedbackMessages"
+        ],
+        "types": [
+          "Messages",
+          "SuggestionFeedbackMessages",
+          "WarningFeedbackMessages"
+        ]
+      },
+      "IConfigAwarePasswordValidator": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/validator/iconfig_aware_password_validator.dart",
+          "package:password_engine/src/validator/validator.dart"
+        ],
+        "methods": [
+          "isStrongPasswordWithConfig"
+        ],
+        "types": [
+          "IPasswordValidator",
+          "PasswordGeneratorConfig"
+        ]
+      },
+      "IContextualPasswordFeedbackProvider": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/feedback/feedback.dart",
+          "package:password_engine/src/feedback/icontextual_password_feedback_provider.dart"
+        ],
+        "methods": [
+          "buildWithContext"
+        ],
+        "types": [
+          "IPasswordFeedbackProvider",
+          "PasswordFeedback",
+          "PasswordFeedbackContext"
+        ]
+      },
+      "IPasswordFeedbackProvider": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/feedback/feedback.dart",
+          "package:password_engine/src/feedback/ipassword_feedback_provider.dart"
+        ],
+        "methods": [
+          "build"
+        ],
+        "types": [
+          "PasswordFeedback",
+          "PasswordStrength"
+        ]
+      },
+      "IPasswordGenerationStrategy": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/strategy/ipassword_generation_strategy.dart",
+          "package:password_engine/src/strategy/strategy.dart"
+        ],
+        "methods": [
+          "generate",
+          "validate"
+        ],
+        "types": [
+          "PasswordGeneratorConfig"
+        ]
+      },
+      "IPasswordGenerator": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/generator/generator.dart",
+          "package:password_engine/src/generator/ipassword_generator.dart"
+        ],
+        "methods": [
+          "estimateFeedback",
+          "estimateStrength",
+          "generatePassword",
+          "refreshPassword"
+        ],
+        "types": [
+          "PasswordFeedback",
+          "PasswordStrength"
+        ]
+      },
+      "IPasswordNormalizer": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/normalizer/ipassword_normalizer.dart",
+          "package:password_engine/src/normalizer/normalizer.dart"
+        ],
+        "methods": [
+          "normalize"
+        ],
+        "types": []
+      },
+      "IPasswordStrengthEstimator": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/strength_estimator/ipassword_strength_estimator.dart",
+          "package:password_engine/src/strength_estimator/strength_estimator.dart"
+        ],
+        "methods": [
+          "estimateDetailedStrength",
+          "estimateEntropy",
+          "estimatePasswordStrength"
+        ],
+        "types": [
+          "PasswordStrength"
+        ]
+      },
+      "IPasswordValidator": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/validator/ipassword_validator.dart",
+          "package:password_engine/src/validator/validator.dart"
+        ],
+        "methods": [
+          "containsLowerCase",
+          "containsNumber",
+          "containsSpecialChar",
+          "containsUpperCase",
+          "isStrongPassword"
+        ],
+        "types": []
+      },
+      "MaxAttemptsExceededException": {
+        "fields": [
+          "maxAttempts"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/model/model.dart",
+          "package:password_engine/src/model/password_generation_exception.dart"
+        ],
+        "methods": [
+          "MaxAttemptsExceededException"
+        ],
+        "types": [
+          "PasswordGenerationException"
+        ]
+      },
+      "Messages": {
+        "fields": [
+          "get:error",
+          "get:feedback",
+          "get:languageCode",
+          "get:locale"
+        ],
+        "libraries": [
+          "package:password_engine/l10n/messages.i18n.dart"
+        ],
+        "methods": [
+          "Messages"
+        ],
+        "types": [
+          "ErrorMessages",
+          "FeedbackMessages"
+        ]
+      },
+      "NormalizedPasswordValidator": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/validator/normalized_password_validator.dart",
+          "package:password_engine/src/validator/validator.dart"
+        ],
+        "methods": [
+          "NormalizedPasswordValidator",
+          "containsLowerCase",
+          "containsNumber",
+          "containsSpecialChar",
+          "containsUpperCase",
+          "isStrongPassword",
+          "isStrongPasswordWithConfig"
+        ],
+        "types": [
+          "IConfigAwarePasswordValidator",
+          "IPasswordNormalizer",
+          "IPasswordValidator",
+          "PasswordGeneratorConfig"
+        ]
+      },
+      "PassphrasePasswordStrategy": {
+        "fields": [
+          "allowDuplicates",
+          "capitalize",
+          "separator"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/strategy/passphrase_password_strategy.dart",
+          "package:password_engine/src/strategy/strategy.dart"
+        ],
+        "methods": [
+          "PassphrasePasswordStrategy",
+          "generate",
+          "validate"
+        ],
+        "types": [
+          "IPasswordGenerationStrategy",
+          "PasswordGeneratorConfig"
+        ]
+      },
+      "PasswordFeedback": {
+        "fields": [
+          "estimatedEntropy",
+          "get:hashCode",
+          "score",
+          "strength",
+          "suggestions",
+          "warning"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/model/model.dart",
+          "package:password_engine/src/model/password_feedback.dart"
+        ],
+        "methods": [
+          "==",
+          "PasswordFeedback",
+          "fromMap",
+          "toMap",
+          "toString"
+        ],
+        "types": [
+          "PasswordStrength"
+        ]
+      },
+      "PasswordFeedbackBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/feedback/feedback.dart",
+          "package:password_engine/src/feedback/password_feedback_builder.dart"
+        ],
+        "methods": [
+          "PasswordFeedbackBuilder",
+          "build",
+          "buildWithContext"
+        ],
+        "types": [
+          "IContextualPasswordFeedbackProvider",
+          "Messages",
+          "PasswordFeedback",
+          "PasswordFeedbackContext",
+          "PasswordStrength"
+        ]
+      },
+      "PasswordFeedbackContext": {
+        "fields": [
+          "config",
+          "entropy",
+          "get:score",
+          "normalizedPassword",
+          "password",
+          "strength"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/model/model.dart",
+          "package:password_engine/src/model/password_feedback_context.dart"
+        ],
+        "methods": [
+          "PasswordFeedbackContext"
+        ],
+        "types": [
+          "PasswordGeneratorConfig",
+          "PasswordStrength"
+        ]
+      },
+      "PasswordGenerationErrorCode": {
+        "fields": [
+          "maxAttemptsExceeded"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/model/model.dart",
+          "package:password_engine/src/model/password_generation_exception.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PasswordGenerationException": {
+        "fields": [
+          "code",
+          "message"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/model/model.dart",
+          "package:password_engine/src/model/password_generation_exception.dart"
+        ],
+        "methods": [
+          "PasswordGenerationException",
+          "maxAttemptsExceeded",
+          "toString"
+        ],
+        "types": [
+          "PasswordGenerationErrorCode",
+          "PasswordGenerationException"
+        ]
+      },
+      "PasswordGenerator": {
+        "fields": [
+          "get:lastPassword"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/generator/generator.dart",
+          "package:password_engine/src/generator/password_generator.dart"
+        ],
+        "methods": [
+          "PasswordGenerator",
+          "estimateFeedback",
+          "estimateStrength",
+          "generatePassword",
+          "refreshPassword",
+          "updateConfig"
+        ],
+        "types": [
+          "IPasswordFeedbackProvider",
+          "IPasswordGenerationStrategy",
+          "IPasswordGenerator",
+          "IPasswordNormalizer",
+          "IPasswordStrengthEstimator",
+          "IPasswordValidator",
+          "PasswordFeedback",
+          "PasswordGeneratorConfig",
+          "PasswordStrength"
+        ]
+      },
+      "PasswordGeneratorConfig": {
+        "fields": [
+          "characterSetProfile",
+          "defaultMaxGenerationAttempts",
+          "excludeAmbiguousChars",
+          "extra",
+          "get:hashCode",
+          "length",
+          "maxGenerationAttempts",
+          "policy",
+          "useLowerCase",
+          "useNumbers",
+          "useSpecialChars",
+          "useUpperCase"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/config/config.dart",
+          "package:password_engine/src/config/password_generator_config.dart"
+        ],
+        "methods": [
+          "==",
+          "PasswordGeneratorConfig",
+          "builder",
+          "copyWith",
+          "fromMap",
+          "toMap",
+          "toString"
+        ],
+        "types": [
+          "CharacterSetProfile",
+          "PasswordGeneratorConfig",
+          "PasswordGeneratorConfigBuilder",
+          "PasswordPolicy"
+        ]
+      },
+      "PasswordGeneratorConfigBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/config/config.dart",
+          "package:password_engine/src/config/password_generator_config_builder.dart"
+        ],
+        "methods": [
+          "build",
+          "characterSetProfile",
+          "excludeAmbiguousChars",
+          "extra",
+          "extraAll",
+          "length",
+          "maxGenerationAttempts",
+          "policy",
+          "useLowerCase",
+          "useNumbers",
+          "useSpecialChars",
+          "useUpperCase"
+        ],
+        "types": [
+          "CharacterSetProfile",
+          "PasswordGeneratorConfig",
+          "PasswordGeneratorConfigBuilder",
+          "PasswordPolicy"
+        ]
+      },
+      "PasswordGeneratorConfigX": {
+        "fields": [
+          "get:combinedPool"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/config/config.dart",
+          "package:password_engine/src/config/config_extensions.dart"
+        ],
+        "methods": [
+          "resolveCharacterSets"
+        ],
+        "types": [
+          "CharacterSetType",
+          "PasswordGeneratorConfig"
+        ]
+      },
+      "PasswordPolicy": {
+        "fields": [
+          "allowSpaces",
+          "allowUnicode",
+          "defaultMinLength",
+          "get:hashCode",
+          "maxLength",
+          "minLength",
+          "requireLowercase",
+          "requireNumber",
+          "requireSpecial",
+          "requireUppercase",
+          "scoreThreshold",
+          "strengthThreshold"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/model/model.dart",
+          "package:password_engine/src/model/password_policy.dart"
+        ],
+        "methods": [
+          "==",
+          "PasswordPolicy",
+          "builder",
+          "copyWith",
+          "fromMap",
+          "toBuilder",
+          "toMap",
+          "toString"
+        ],
+        "types": [
+          "PasswordPolicy",
+          "PasswordPolicyBuilder",
+          "PasswordStrength"
+        ]
+      },
+      "PasswordPolicyBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/model/model.dart",
+          "package:password_engine/src/model/password_policy.dart"
+        ],
+        "methods": [
+          "PasswordPolicyBuilder",
+          "allowSpaces",
+          "allowUnicode",
+          "build",
+          "maxLength",
+          "minLength",
+          "requireLowercase",
+          "requireNumber",
+          "requireSpecial",
+          "requireUppercase",
+          "scoreThreshold",
+          "strengthThreshold"
+        ],
+        "types": [
+          "PasswordPolicy",
+          "PasswordPolicyBuilder",
+          "PasswordStrength"
+        ]
+      },
+      "PasswordPolicyX": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/model/model.dart",
+          "package:password_engine/src/model/password_policy.dart"
+        ],
+        "methods": [
+          "clampLength"
+        ],
+        "types": [
+          "PasswordPolicy"
+        ]
+      },
+      "PasswordStrength": {
+        "fields": [
+          "medium",
+          "strong",
+          "veryStrong",
+          "veryWeak",
+          "weak"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/model/model.dart",
+          "package:password_engine/src/model/password_strength.dart"
+        ],
+        "methods": [
+          "fromEntropy",
+          "isAtLeast"
+        ],
+        "types": [
+          "PasswordStrength"
+        ]
+      },
+      "PasswordStrengthEstimator": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/strength_estimator/password_strength_estimator.dart",
+          "package:password_engine/src/strength_estimator/strength_estimator.dart"
+        ],
+        "methods": [
+          "PasswordStrengthEstimator",
+          "estimateDetailedStrength",
+          "estimateEntropy",
+          "estimatePasswordStrength"
+        ],
+        "types": [
+          "CharacterSetProfile",
+          "IPasswordStrengthEstimator",
+          "PasswordStrength"
+        ]
+      },
+      "PasswordStringX": {
+        "fields": [
+          "get:hasLowerCase",
+          "get:hasNumber",
+          "get:hasSpace",
+          "get:hasSpecialChar",
+          "get:hasUnicode",
+          "get:hasUpperCase"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/utils/password_string_extensions.dart",
+          "package:password_engine/src/utils/utils.dart"
+        ],
+        "methods": [
+          "containsAnyOf"
+        ],
+        "types": []
+      },
+      "PasswordValidator": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/validator/password_validator.dart",
+          "package:password_engine/src/validator/validator.dart"
+        ],
+        "methods": [
+          "containsLowerCase",
+          "containsNumber",
+          "containsSpecialChar",
+          "containsUpperCase",
+          "isStrongPassword"
+        ],
+        "types": [
+          "IPasswordValidator"
+        ]
+      },
+      "PolicyAwarePasswordStrategy": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/strategy/policy_aware_password_strategy.dart",
+          "package:password_engine/src/strategy/strategy.dart"
+        ],
+        "methods": [
+          "PolicyAwarePasswordStrategy",
+          "generate",
+          "validate"
+        ],
+        "types": [
+          "IPasswordGenerationStrategy",
+          "PasswordGeneratorConfig"
+        ]
+      },
+      "PolicyValidationMixin": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/src/validator/policy_validation_mixin.dart"
+        ],
+        "methods": [
+          "satisfiesPolicy"
+        ],
+        "types": [
+          "PasswordGeneratorConfig"
+        ]
+      },
+      "RandomPasswordStrategy": {
+        "fields": [
+          "maxAllowedLength"
+        ],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/strategy/random_password_strategy.dart",
+          "package:password_engine/src/strategy/strategy.dart"
+        ],
+        "methods": [
+          "generate",
+          "validate"
+        ],
+        "types": [
+          "IPasswordGenerationStrategy",
+          "PasswordGeneratorConfig"
+        ]
+      },
+      "RandomPasswordX": {
+        "fields": [],
+        "libraries": [
+          "package:password_engine/password_engine.dart",
+          "package:password_engine/src/utils/random_extensions.dart",
+          "package:password_engine/src/utils/utils.dart"
+        ],
+        "methods": [
+          "choice",
+          "nextString"
+        ],
+        "types": []
+      },
+      "SuggestionFeedbackMessages": {
+        "fields": [
+          "get:addLengthOrWord",
+          "get:addLowercase",
+          "get:addNumber",
+          "get:addSpecial",
+          "get:addUppercase",
+          "get:addWordOrSymbol",
+          "get:addWordPhrase",
+          "get:avoidCommonPatterns",
+          "get:increaseLengthSlightly",
+          "get:mixCharacterTypes",
+          "get:useLonger",
+          "get:useMoreVariety"
+        ],
+        "libraries": [
+          "package:password_engine/l10n/messages.i18n.dart"
+        ],
+        "methods": [
+          "SuggestionFeedbackMessages",
+          "increaseLengthMin"
+        ],
+        "types": [
+          "FeedbackMessages"
+        ]
+      },
+      "WarningFeedbackMessages": {
+        "fields": [
+          "get:almostThere",
+          "get:medium",
+          "get:policyNotMet",
+          "get:policyPartiallyMet",
+          "get:tooWeak",
+          "get:weak"
+        ],
+        "libraries": [
+          "package:password_engine/l10n/messages.i18n.dart"
+        ],
+        "methods": [
+          "WarningFeedbackMessages"
+        ],
+        "types": [
+          "FeedbackMessages"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:53:28Z",
+  "package": "password_engine",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "CharacterSetProfile",
+      "ErrorMessages",
+      "FeedbackMessages",
+      "Messages",
+      "PasswordFeedback",
+      "PasswordFeedbackContext",
+      "PasswordGenerationException",
+      "PasswordGeneratorConfig",
+      "PasswordPolicy",
+      "SuggestionFeedbackMessages",
+      "WarningFeedbackMessages"
+    ],
+    "digest": "cd3373f2b7db0f9b1b58aa9c516340f9cbbdc8049880c46d33a9fe88aa0d046c",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "0f444ed054c9b68d3a4b98d9207cd27f64e5e3b606d0503ab90c719f42097271",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      " ",
+      "!@#$%^&*()_+-=[]:|;,.<>?",
+      "!@#$%^&*()_+-=[]:|;,.<>? ",
+      "!@#$%^&*()_+-=[]{}|;:,.<>?",
+      "!@#$%^&*()_+-=[]{}|;:,.<>? ",
+      "********",
+      "-",
+      "../../l10n/messages.i18n.dart",
+      "../config/config_extensions.dart",
+      "../config/password_generator_config.dart",
+      "../feedback/icontextual_password_feedback_provider.dart",
+      "../feedback/ipassword_feedback_provider.dart",
+      "../feedback/password_feedback_builder.dart",
+      "../model/character_set_profile.dart",
+      "../model/password_feedback.dart",
+      "../model/password_feedback_context.dart",
+      "../model/password_generation_exception.dart",
+      "../model/password_policy.dart",
+      "../model/password_strength.dart",
+      "../normalizer/ipassword_normalizer.dart",
+      "../normalizer/password_normalizer.dart",
+      "../strategy/ipassword_generation_strategy.dart",
+      "../strategy/policy_aware_password_strategy.dart",
+      "../strategy/random_password_strategy.dart",
+      "../strength_estimator/ipassword_strength_estimator.dart",
+      "../strength_estimator/password_strength_estimator.dart",
+      "../utils/character_set_resolver.dart",
+      "../utils/password_string_extensions.dart",
+      "../utils/random_extensions.dart",
+      "../validator/config_aware_password_validator.dart",
+      "../validator/iconfig_aware_password_validator.dart",
+      "../validator/ipassword_validator.dart",
+      "0123456789",
+      "23456789",
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+      "ABCDEFGHJKLMNPQRSTUVWXYZ",
+      "Add a lowercase letter",
+      "Add a number",
+      "Add a special character",
+      "Add an uppercase letter",
+      "Add another word or phrase",
+      "Add another word or symbol",
+      "Add length or another word",
+      "Almost there",
+      "At least one character type must be selected",
+      "Avoid common patterns",
+      "Character pool cannot be empty",
+      "Could be stronger",
+      "Does not meet policy requirements",
+      "Increase length slightly",
+      "Length must be non-negative",
+      "Mix more character types",
+      "PasswordPolicy minLength cannot exceed maxLength",
+      "Policy requirements partially met",
+      "Selected character sets must not be empty",
+      "Too weak",
+      "Use a longer password",
+      "Use more variety for higher security",
+      "Weak password",
+      "Word count exceeds wordlist size when duplicates are disabled",
+      "Word count must be greater than 0",
+      "Wordlist must not be empty",
+      "Wordlist must not contain empty words",
+      "[!@#\\$%^\\&*()_+\\-=\\[\\]{}|;:,.<>?]",
+      "[0-9]",
+      "[A-Z]",
+      "[a-z]",
+      "abcdefghijklmnopqrstuvwxyz",
+      "abcdefghijkmnpqrstuvwxyz",
+      "allowSpaces",
+      "allowUnicode",
+      "blocklist_password_validator.dart",
+      "characterSetProfile",
+      "character_set_profile.dart",
+      "character_set_resolver.dart",
+      "config_aware_password_validator.dart",
+      "config_extensions.dart",
+      "dart:math",
+      "en",
+      "error.atLeastOneCharType",
+      "error.characterPoolEmpty",
+      "error.invalidFormat",
+      "error.invalidLength",
+      "error.lengthNonNegative",
+      "error.maxGenerationAttemptsPositive",
+      "error.policyMinExceedsMax",
+      "error.selectedCharSetsNotEmpty",
+      "error.wordCountExceedsWordlist",
+      "error.wordCountPositive",
+      "error.wordlistEmpty",
+      "error.wordlistHasEmptyWords",
+      "estimatedEntropy",
+      "excludeAmbiguousChars",
+      "extra",
+      "feedback.suggestion.addLengthOrWord",
+      "feedback.suggestion.addLowercase",
+      "feedback.suggestion.addNumber",
+      "feedback.suggestion.addSpecial",
+      "feedback.suggestion.addUppercase",
+      "feedback.suggestion.addWordOrSymbol",
+      "feedback.suggestion.addWordPhrase",
+      "feedback.suggestion.avoidCommonPatterns",
+      "feedback.suggestion.increaseLengthSlightly",
+      "feedback.suggestion.mixCharacterTypes",
+      "feedback.suggestion.useLonger",
+      "feedback.suggestion.useMoreVariety",
+      "feedback.warning.almostThere",
+      "feedback.warning.medium",
+      "feedback.warning.policyNotMet",
+      "feedback.warning.policyPartiallyMet",
+      "feedback.warning.tooWeak",
+      "feedback.warning.weak",
+      "iconfig_aware_password_validator.dart",
+      "icontextual_password_feedback_provider.dart",
+      "invalid format",
+      "invalid length",
+      "ipassword_feedback_provider.dart",
+      "ipassword_generation_strategy.dart",
+      "ipassword_generator.dart",
+      "ipassword_normalizer.dart",
+      "ipassword_strength_estimator.dart",
+      "ipassword_validator.dart",
+      "length",
+      "lowerCaseLetters",
+      "lowerCaseLettersNonAmbiguous",
+      "maxGenerationAttempts",
+      "maxGenerationAttempts must be greater than 0",
+      "maxLength",
+      "minLength",
+      "normalized_password_validator.dart",
+      "numbers",
+      "numbersNonAmbiguous",
+      "package:collection/collection.dart",
+      "package:i18n/i18n.dart",
+      "passphrase_password_strategy.dart",
+      "password_feedback.dart",
+      "password_feedback_builder.dart",
+      "password_feedback_context.dart",
+      "password_generation_exception.dart",
+      "password_generator.dart",
+      "password_generator_config.dart",
+      "password_generator_config_builder.dart",
+      "password_normalizer.dart",
+      "password_policy.dart",
+      "password_strength.dart",
+      "password_strength_estimator.dart",
+      "password_string_extensions.dart",
+      "password_validator.dart",
+      "policy",
+      "policy_aware_password_strategy.dart",
+      "policy_validation_mixin.dart",
+      "random_extensions.dart",
+      "random_password_strategy.dart",
+      "requireLowercase",
+      "requireNumber",
+      "requireSpecial",
+      "requireUppercase",
+      "score",
+      "scoreThreshold",
+      "sensitive_string.dart",
+      "specialCharacters",
+      "specialCharactersNonAmbiguous",
+      "src/config/config.dart",
+      "src/feedback/feedback.dart",
+      "src/generator/generator.dart",
+      "src/model/model.dart",
+      "src/normalizer/normalizer.dart",
+      "src/strategy/strategy.dart",
+      "src/strength_estimator/strength_estimator.dart",
+      "src/utils/utils.dart",
+      "src/validator/validator.dart",
+      "strength",
+      "strengthThreshold",
+      "suggestions",
+      "upperCaseLetters",
+      "upperCaseLettersNonAmbiguous",
+      "useLowerCase",
+      "useNumbers",
+      "useSpecialChars",
+      "useUpperCase",
+      "warning",
+      "wordCount"
+    ]
+  },
+  "version": "1.0.1"
+}
