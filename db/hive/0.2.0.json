@@ -1,0 +1,740 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "Hive"
+        ],
+        "libraries": [
+          "package:hive/hive.dart",
+          "package:hive/src/box/box_impl.dart",
+          "package:hive/src/box/box_impl_js.dart",
+          "package:hive/src/box/box_impl_stub.dart",
+          "package:hive/src/box/box_impl_vm.dart",
+          "package:hive/src/crypto_helper.dart",
+          "package:hive/src/frame.dart",
+          "package:hive/src/io/frame_io_helper.dart"
+        ],
+        "methods": [
+          "bytesToUint32",
+          "findHiveFileAndCleanUp",
+          "openBox",
+          "readFrameKeysFromFile",
+          "readFramesFromFile"
+        ],
+        "types": [
+          "BoxImpl",
+          "BoxOptions",
+          "Frame",
+          "HiveImpl",
+          "HiveInterface",
+          "TypeRegistry"
+        ]
+      },
+      "BinaryReader": {
+        "fields": [
+          "get:availableBytes",
+          "get:usedBytes",
+          "utf8Decoder"
+        ],
+        "libraries": [
+          "package:hive/hive.dart"
+        ],
+        "methods": [
+          "read",
+          "readAsciiString",
+          "readBool",
+          "readBoolList",
+          "readByte",
+          "readBytes",
+          "readDouble",
+          "readDoubleList",
+          "readInt",
+          "readInt32",
+          "readIntList",
+          "readList",
+          "readMap",
+          "readString",
+          "readStringList",
+          "readUint32",
+          "readWord",
+          "skip",
+          "viewBytes"
+        ],
+        "types": []
+      },
+      "BinaryReaderImpl": {
+        "fields": [
+          "get:availableBytes",
+          "get:buffer",
+          "get:usedBytes",
+          "typeRegistry"
+        ],
+        "libraries": [
+          "package:hive/src/binary/binary_reader_impl.dart"
+        ],
+        "methods": [
+          "BinaryReaderImpl",
+          "read",
+          "readAsciiString",
+          "readBool",
+          "readBoolList",
+          "readByte",
+          "readBytes",
+          "readDouble",
+          "readDoubleList",
+          "readInt",
+          "readInt32",
+          "readIntList",
+          "readList",
+          "readMap",
+          "readString",
+          "readStringList",
+          "readUint32",
+          "readWord",
+          "skip",
+          "viewBytes"
+        ],
+        "types": [
+          "BinaryReader",
+          "TypeRegistry"
+        ]
+      },
+      "BinaryWriter": {
+        "fields": [
+          "get:writtenBytes",
+          "utf8Encoder"
+        ],
+        "libraries": [
+          "package:hive/hive.dart"
+        ],
+        "methods": [
+          "write",
+          "writeAsciiString",
+          "writeBool",
+          "writeBoolList",
+          "writeByte",
+          "writeBytes",
+          "writeDouble",
+          "writeDoubleList",
+          "writeInt",
+          "writeInt32",
+          "writeIntList",
+          "writeList",
+          "writeMap",
+          "writeString",
+          "writeStringList",
+          "writeUint32",
+          "writeWord"
+        ],
+        "types": []
+      },
+      "BinaryWriterBuffer": {
+        "fields": [
+          "get:byteData",
+          "get:writtenBytes"
+        ],
+        "libraries": [
+          "package:hive/src/binary/binary_writer_buffer.dart"
+        ],
+        "methods": [
+          "addBytes",
+          "useBytes",
+          "writeTo"
+        ],
+        "types": []
+      },
+      "BinaryWriterImpl": {
+        "fields": [
+          "get:writtenBytes",
+          "typeRegistry"
+        ],
+        "libraries": [
+          "package:hive/src/binary/binary_writer_impl.dart"
+        ],
+        "methods": [
+          "BinaryWriterImpl",
+          "output",
+          "outputAndClear",
+          "withBuffer",
+          "write",
+          "writeAsciiString",
+          "writeBool",
+          "writeBoolList",
+          "writeByte",
+          "writeBytes",
+          "writeDouble",
+          "writeDoubleList",
+          "writeInt",
+          "writeInt32",
+          "writeIntList",
+          "writeList",
+          "writeMap",
+          "writeString",
+          "writeStringList",
+          "writeUint32",
+          "writeWord"
+        ],
+        "types": [
+          "BinaryWriter",
+          "BinaryWriterBuffer",
+          "TypeRegistry"
+        ]
+      },
+      "Box": {
+        "fields": [
+          "get:isOpen",
+          "get:path"
+        ],
+        "libraries": [
+          "package:hive/hive.dart"
+        ],
+        "methods": [
+          "[]",
+          "allKeys",
+          "clear",
+          "close",
+          "compact",
+          "delete",
+          "deleteAll",
+          "deleteFromDisk",
+          "get",
+          "has",
+          "put",
+          "putAll",
+          "toMap",
+          "watch"
+        ],
+        "types": [
+          "BoxEvent",
+          "TypeRegistry"
+        ]
+      },
+      "BoxEvent": {
+        "fields": [
+          "deleted",
+          "key",
+          "value"
+        ],
+        "libraries": [
+          "package:hive/hive.dart"
+        ],
+        "methods": [
+          "BoxEvent"
+        ],
+        "types": []
+      },
+      "BoxImpl": {
+        "fields": [
+          "get:decryptor",
+          "get:encryptor",
+          "get:isOpen",
+          "get:keyHash",
+          "hive",
+          "name",
+          "options"
+        ],
+        "libraries": [
+          "package:hive/src/box/box_impl.dart"
+        ],
+        "methods": [
+          "BoxImpl",
+          "[]",
+          "checkKey",
+          "checkOpen",
+          "close",
+          "deleteFromDisk",
+          "notifyChange",
+          "watch"
+        ],
+        "types": [
+          "Box",
+          "BoxEvent",
+          "BoxOptions",
+          "CryptoHelper",
+          "HiveImpl",
+          "TypeRegistryImpl"
+        ]
+      },
+      "BoxImplJs": {
+        "fields": [
+          "get:path"
+        ],
+        "libraries": [
+          "package:hive/src/box/box_impl_js.dart"
+        ],
+        "methods": [
+          "BoxImplJs",
+          "allKeys",
+          "clear",
+          "compact",
+          "decodeValue",
+          "delete",
+          "deleteAll",
+          "encodeValue",
+          "get",
+          "getKeys",
+          "getStore",
+          "getValues",
+          "has",
+          "initialize",
+          "put",
+          "putAll",
+          "toMap"
+        ],
+        "types": [
+          "BoxImpl",
+          "BoxOptions",
+          "HiveImpl"
+        ]
+      },
+      "BoxImplVm": {
+        "fields": [
+          "deletedBytesRatio",
+          "deletedBytesThreshold",
+          "get:debugDeletedBytes",
+          "get:debugKeys",
+          "get:debugTotalBytes",
+          "get:path",
+          "hiveFileVersion"
+        ],
+        "libraries": [
+          "package:hive/src/box/box_impl_vm.dart"
+        ],
+        "methods": [
+          "BoxImplVm",
+          "[]",
+          "allKeys",
+          "clear",
+          "close",
+          "compact",
+          "debugEntries",
+          "delete",
+          "deleteAll",
+          "deleteFromDisk",
+          "get",
+          "has",
+          "initialize",
+          "performCompactationIfNeeded",
+          "put",
+          "putAll",
+          "toMap",
+          "writeFrame",
+          "writeFrames"
+        ],
+        "types": [
+          "BoxImpl",
+          "BoxOptions",
+          "Frame",
+          "HiveImpl",
+          "SyncedFile",
+          "ValueEntry"
+        ]
+      },
+      "BoxOptions": {
+        "fields": [
+          "encryptionKey",
+          "get:encrypted",
+          "inMemory"
+        ],
+        "libraries": [
+          "package:hive/src/box/box_options.dart"
+        ],
+        "methods": [
+          "BoxOptions"
+        ],
+        "types": []
+      },
+      "BufferedFileReader": {
+        "fields": [
+          "chunkSize",
+          "defaultChunkSize",
+          "file",
+          "get:offset"
+        ],
+        "libraries": [
+          "package:hive/src/io/buffered_file_reader.dart"
+        ],
+        "methods": [
+          "close",
+          "fromFile",
+          "read",
+          "skip"
+        ],
+        "types": [
+          "BufferedFileReader"
+        ]
+      },
+      "Crc32": {
+        "fields": [],
+        "libraries": [
+          "package:hive/src/util/crc32.dart"
+        ],
+        "methods": [
+          "compute"
+        ],
+        "types": []
+      },
+      "CryptoHelper": {
+        "fields": [
+          "cipher",
+          "get:decryptor",
+          "get:encryptor",
+          "keyBytes",
+          "keyHash",
+          "random"
+        ],
+        "libraries": [
+          "package:hive/src/crypto_helper.dart"
+        ],
+        "methods": [
+          "CryptoHelper",
+          "createSecureRandom"
+        ],
+        "types": []
+      },
+      "DateTimeAdapter": {
+        "fields": [],
+        "libraries": [
+          "package:hive/src/adapters/date_time_adapter.dart"
+        ],
+        "methods": [
+          "read",
+          "write"
+        ],
+        "types": [
+          "BinaryReader",
+          "BinaryWriter",
+          "TypeAdapter"
+        ]
+      },
+      "Frame": {
+        "fields": [
+          "deleted",
+          "key",
+          "length",
+          "maxFrameLength",
+          "value"
+        ],
+        "libraries": [
+          "package:hive/src/frame.dart"
+        ],
+        "methods": [
+          "Frame",
+          "checkCrc",
+          "decodeBody",
+          "encodeBody",
+          "fromBytes",
+          "keyOnly",
+          "toBytes",
+          "tombstone"
+        ],
+        "types": [
+          "BinaryReaderImpl",
+          "BinaryWriterImpl",
+          "Frame",
+          "TypeRegistry"
+        ]
+      },
+      "FrameValueType": {
+        "fields": [
+          "bool_",
+          "bool_list_",
+          "double_",
+          "double_list_",
+          "int_",
+          "int_list_",
+          "list_",
+          "map_",
+          "null_",
+          "string_",
+          "string_list_"
+        ],
+        "libraries": [
+          "package:hive/src/frame.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "HiveError": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:hive/hive.dart"
+        ],
+        "methods": [
+          "HiveError",
+          "corrupted",
+          "toString"
+        ],
+        "types": []
+      },
+      "HiveImpl": {
+        "fields": [
+          "get:path"
+        ],
+        "libraries": [
+          "package:hive/src/hive_impl.dart"
+        ],
+        "methods": [
+          "HiveImpl",
+          "box",
+          "close",
+          "deleteFromDisk",
+          "generateSecureKey",
+          "init",
+          "isBoxOpen",
+          "unregisterBox"
+        ],
+        "types": [
+          "Box",
+          "HiveInterface",
+          "TypeRegistryImpl"
+        ]
+      },
+      "HiveInterface": {
+        "fields": [
+          "get:path"
+        ],
+        "libraries": [
+          "package:hive/hive.dart"
+        ],
+        "methods": [
+          "box",
+          "close",
+          "deleteFromDisk",
+          "generateSecureKey",
+          "init",
+          "isBoxOpen"
+        ],
+        "types": [
+          "Box",
+          "TypeRegistry"
+        ]
+      },
+      "Lock": {
+        "fields": [
+          "noLock"
+        ],
+        "libraries": [
+          "package:hive/src/util/lock.dart"
+        ],
+        "methods": [
+          "Lock",
+          "newLock",
+          "synchronized"
+        ],
+        "types": [
+          "Lock"
+        ]
+      },
+      "ResolvedAdapter": {
+        "fields": [
+          "adapter",
+          "typeId"
+        ],
+        "libraries": [
+          "package:hive/hive.dart"
+        ],
+        "methods": [
+          "ResolvedAdapter"
+        ],
+        "types": [
+          "TypeAdapter"
+        ]
+      },
+      "SyncedFile": {
+        "fields": [
+          "get:writeOffset",
+          "path"
+        ],
+        "libraries": [
+          "package:hive/src/io/synced_file.dart"
+        ],
+        "methods": [
+          "SyncedFile",
+          "close",
+          "delete",
+          "internal",
+          "open",
+          "read",
+          "setReadPosition",
+          "setWritePosition",
+          "syncRead",
+          "syncReadWrite",
+          "syncWrite",
+          "truncate",
+          "write"
+        ],
+        "types": [
+          "Lock"
+        ]
+      },
+      "TypeAdapter": {
+        "fields": [],
+        "libraries": [
+          "package:hive/hive.dart"
+        ],
+        "methods": [
+          "read",
+          "write"
+        ],
+        "types": [
+          "BinaryReader",
+          "BinaryWriter"
+        ]
+      },
+      "TypeRegistry": {
+        "fields": [
+          "minCustomTypeId"
+        ],
+        "libraries": [
+          "package:hive/hive.dart"
+        ],
+        "methods": [
+          "findAdapterForType",
+          "findAdapterForTypeId",
+          "registerAdapter"
+        ],
+        "types": [
+          "ResolvedAdapter",
+          "TypeAdapter"
+        ]
+      },
+      "TypeRegistryImpl": {
+        "fields": [
+          "parent"
+        ],
+        "libraries": [
+          "package:hive/src/registry/type_registry_impl.dart"
+        ],
+        "methods": [
+          "TypeRegistryImpl",
+          "findAdapterForType",
+          "findAdapterForTypeId",
+          "registerAdapter",
+          "registerInternal",
+          "resetAdapters"
+        ],
+        "types": [
+          "ResolvedAdapter",
+          "TypeAdapter",
+          "TypeRegistry"
+        ]
+      },
+      "Uint8ListAdapter": {
+        "fields": [],
+        "libraries": [
+          "package:hive/src/adapters/uint8_list_adapter.dart"
+        ],
+        "methods": [
+          "read",
+          "write"
+        ],
+        "types": [
+          "BinaryReader",
+          "BinaryWriter",
+          "TypeAdapter"
+        ]
+      },
+      "ValueEntry": {
+        "fields": [
+          "length",
+          "offset",
+          "value"
+        ],
+        "libraries": [
+          "package:hive/src/box/box_impl_vm.dart"
+        ],
+        "methods": [
+          "ValueEntry",
+          "withOffset"
+        ],
+        "types": [
+          "ValueEntry"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:34:28Z",
+  "package": "hive",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "Frame",
+      "Lock",
+      "ResolvedAdapter",
+      "_NoLock"
+    ],
+    "digest": "832e5d6dc3c1decef027fbf71979e26fda82935db524707f31c48eac52e1d300",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "59806fafe6c899aa550fd9236130f0d24d8c6e5d0392026885885a048d0d1d4a",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      ".hive",
+      "AES/CBC/PKCS7",
+      "Box has already been closed.",
+      "Cannot create a box without dart:html or dart:io.",
+      "Could not compact box: Unexpected EOF.",
+      "Hive not initialized. Call Hive.init() first.",
+      "Key must not be longer than 255 characters",
+      "Key must not be null",
+      "Not all bytes have been used.",
+      "Not enough bytes available.",
+      "Restoring compacted file.",
+      "SHA-256",
+      "String contains non-ASCII characters.",
+      "The encryption key has to be a 32 byte (256 bit) array.",
+      "Wrong checksum in hive file. Box may be corrupted.",
+      "box",
+      "box/box_impl.dart",
+      "box_impl.dart",
+      "box_impl_js.dart",
+      "box_impl_stub.dart",
+      "box_impl_vm.dart",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:html",
+      "dart:indexed_db",
+      "dart:io",
+      "dart:math",
+      "dart:typed_data",
+      "package:hive/hive.dart",
+      "package:hive/src/adapters/date_time_adapter.dart",
+      "package:hive/src/adapters/uint8_list_adapter.dart",
+      "package:hive/src/binary/binary_reader_impl.dart",
+      "package:hive/src/binary/binary_writer_buffer.dart",
+      "package:hive/src/binary/binary_writer_impl.dart",
+      "package:hive/src/box/box_impl.dart",
+      "package:hive/src/box/box_options.dart",
+      "package:hive/src/crypto_helper.dart",
+      "package:hive/src/frame.dart",
+      "package:hive/src/hive_impl.dart",
+      "package:hive/src/io/buffered_file_reader.dart",
+      "package:hive/src/io/frame_io_helper.dart",
+      "package:hive/src/io/synced_file.dart",
+      "package:hive/src/registry/type_registry_impl.dart",
+      "package:hive/src/util/crc32.dart",
+      "package:hive/src/util/lock.dart",
+      "package:meta/meta.dart",
+      "package:path/path.dart",
+      "package:pointycastle/api.dart",
+      "package:pointycastle/random/fortuna_random.dart",
+      "readonly",
+      "readwrite",
+      "src/binary/binary_reader.dart",
+      "src/binary/binary_writer.dart",
+      "src/box/box.dart",
+      "src/hive.dart",
+      "src/hive_error.dart",
+      "src/registry/type_adapter.dart",
+      "src/registry/type_registry.dart"
+    ]
+  },
+  "version": "0.2.0"
+}
