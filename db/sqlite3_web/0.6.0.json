@@ -1,0 +1,1031 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "abstract",
+          "get:pathInVfs",
+          "get:topLevelRequests",
+          "isType",
+          "transfer",
+          "transferIfArrayBuffer"
+        ],
+        "libraries": [
+          "package:sqlite3_web/protocol_utils.dart",
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/channel.dart",
+          "package:sqlite3_web/src/client.dart",
+          "package:sqlite3_web/src/database.dart",
+          "package:sqlite3_web/src/protocol.dart",
+          "package:sqlite3_web/src/protocol/dsl.dart",
+          "package:sqlite3_web/src/protocol/extensions.dart",
+          "package:sqlite3_web/src/protocol/helper.g.dart",
+          "package:sqlite3_web/src/shared.dart",
+          "package:sqlite3_web/src/types.dart",
+          "package:sqlite3_web/src/worker.dart"
+        ],
+        "methods": [
+          "checkIndexedDbExists",
+          "checkIndexedDbSupport",
+          "checkOpfsSupport",
+          "createChannel",
+          "deleteDatabaseInIndexedDb",
+          "deleteDatabaseInOpfs",
+          "deserializeParameters",
+          "deserializeResultSet",
+          "dispatchMessage",
+          "extractTransferrable",
+          "isCompatibilityCheck",
+          "lockTokenFromId",
+          "lockTokenToId",
+          "newAbortRequest",
+          "newCloseDatabase",
+          "newCommitNotification",
+          "newCommitsStreamRequest",
+          "newConnectRequest",
+          "newCustomRequest",
+          "newDedicatedCompatibilityCheck",
+          "newDedicatedInSharedCompatibilityCheck",
+          "newEndpointResponse",
+          "newErrorResponse",
+          "newFileSystemAccess",
+          "newFileSystemExistsQuery",
+          "newFileSystemFlushRequest",
+          "newOpenAdditionalConnection",
+          "newOpenRequest",
+          "newReleaseLock",
+          "newRequestExclusiveLock",
+          "newRollbackNotification",
+          "newRollbackStreamRequest",
+          "newRowsResponse",
+          "newRunQuery",
+          "newSharedCompatibilityCheck",
+          "newSimpleSuccessResponse",
+          "newStartFileSystemServer",
+          "newUpdateNotification",
+          "newUpdateStreamRequest",
+          "opfsDatabases",
+          "pathForOpfs",
+          "resolveToVfs",
+          "serializeParameters",
+          "serializeResultSet"
+        ],
+        "types": [
+          "DatabaseImplementation",
+          "FileSystemImplementation",
+          "FileType",
+          "StorageMode",
+          "WorkerEnvironment"
+        ]
+      },
+      "AbortException": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/types.dart"
+        ],
+        "methods": [
+          "AbortException"
+        ],
+        "types": [
+          "RemoteException"
+        ]
+      },
+      "AccessMode": {
+        "fields": [
+          "inCurrentContext",
+          "throughDedicatedWorker",
+          "throughSharedWorker"
+        ],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/types.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ClientConnection": {
+        "fields": [
+          "get:closed",
+          "get:id"
+        ],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/database.dart"
+        ],
+        "methods": [
+          "customRequest"
+        ],
+        "types": []
+      },
+      "CompatibilityCheckUtils": {
+        "fields": [
+          "get:shouldCheckIndexedDbCompatbility",
+          "get:shouldCheckOpfsCompatibility"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/protocol.dart",
+          "package:sqlite3_web/src/protocol/extensions.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CompatibilityResult": {
+        "fields": [
+          "canUseIndexedDb",
+          "canUseOpfs",
+          "dedicatedWorkersCanNest",
+          "existingDatabases",
+          "get:toJS",
+          "opfsSupportsReadWriteUnsafe",
+          "sharedCanSpawnDedicated",
+          "supportsSharedArrayBuffers"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/protocol.dart",
+          "package:sqlite3_web/src/protocol/compatibility_result.dart"
+        ],
+        "methods": [
+          "CompatibilityResult",
+          "fromJS"
+        ],
+        "types": []
+      },
+      "CompleteIdbRequest": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite3_web/src/shared.dart"
+        ],
+        "methods": [
+          "complete"
+        ],
+        "types": []
+      },
+      "CompleteOpenIdbRequest": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite3_web/src/shared.dart"
+        ],
+        "methods": [
+          "completeOpen"
+        ],
+        "types": []
+      },
+      "ConnectToRecommendedResult": {
+        "fields": [
+          "database",
+          "features",
+          "get:access",
+          "get:storage",
+          "implementation"
+        ],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/database.dart"
+        ],
+        "methods": [
+          "ConnectToRecommendedResult"
+        ],
+        "types": [
+          "AccessMode",
+          "Database",
+          "DatabaseImplementation",
+          "FeatureDetectionResult",
+          "StorageMode"
+        ]
+      },
+      "Database": {
+        "fields": [
+          "get:closed",
+          "get:commits",
+          "get:fileSystem",
+          "get:rollbacks",
+          "get:updates"
+        ],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/database.dart"
+        ],
+        "methods": [
+          "additionalConnection",
+          "customRequest",
+          "dispose",
+          "execute",
+          "requestLock",
+          "select"
+        ],
+        "types": [
+          "FileSystem"
+        ]
+      },
+      "DatabaseClient": {
+        "fields": [
+          "wasmUri",
+          "workers"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/client.dart"
+        ],
+        "methods": [
+          "DatabaseClient",
+          "connect",
+          "connectToExisting",
+          "connectToRecommended",
+          "deleteDatabase",
+          "preferrableMode",
+          "runFeatureDetection",
+          "startWorkers"
+        ],
+        "types": [
+          "ConnectToRecommendedResult",
+          "Database",
+          "DatabaseController",
+          "DatabaseImplementation",
+          "FeatureDetectionResult",
+          "MissingBrowserFeature",
+          "Mutex",
+          "StorageMode",
+          "WebSqlite",
+          "WorkerConnection",
+          "WorkerConnector"
+        ]
+      },
+      "DatabaseController": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/database.dart"
+        ],
+        "methods": [
+          "DatabaseController",
+          "handleCustomRequest",
+          "loadWasmModule",
+          "openDatabase"
+        ],
+        "types": [
+          "ClientConnection",
+          "WorkerDatabase"
+        ]
+      },
+      "DatabaseImplementation": {
+        "fields": [
+          "access",
+          "inMemoryLocal",
+          "inMemoryShared",
+          "indexedDbShared",
+          "indexedDbUnsafeLocal",
+          "indexedDbUnsafeWorker",
+          "opfsAtomics",
+          "opfsShared",
+          "opfsWithExternalLocks",
+          "storage"
+        ],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/types.dart"
+        ],
+        "methods": [
+          "DatabaseImplementation"
+        ],
+        "types": [
+          "AccessMode",
+          "StorageMode"
+        ]
+      },
+      "DatabaseLocks": {
+        "fields": [
+          "get:canRunSynchronousBlockDirectly",
+          "lockName",
+          "needsInterContextLocks"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/locks.dart"
+        ],
+        "methods": [
+          "DatabaseLocks",
+          "lock"
+        ],
+        "types": [
+          "Mutex"
+        ]
+      },
+      "DatabaseState": {
+        "fields": [
+          "additionalOptions",
+          "closeHandler",
+          "get:opened",
+          "get:vfs",
+          "get:vfsName",
+          "id",
+          "locks",
+          "mode",
+          "name",
+          "refCount",
+          "runner"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/worker.dart"
+        ],
+        "methods": [
+          "DatabaseState",
+          "close",
+          "decrementRefCount"
+        ],
+        "types": [
+          "DatabaseLocks",
+          "FileSystemImplementation",
+          "WorkerDatabase",
+          "WorkerRunner"
+        ]
+      },
+      "ErrorResponseUtils": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite3_web/src/protocol.dart",
+          "package:sqlite3_web/src/protocol/extensions.dart"
+        ],
+        "methods": [
+          "deserializeException",
+          "deserializeSqliteException",
+          "serializeSqliteException",
+          "wrapException"
+        ],
+        "types": []
+      },
+      "FakeWorkerEnvironment": {
+        "fields": [
+          "connector",
+          "get:incomingMessages",
+          "targetForErrorEvents"
+        ],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/worker_connector.dart"
+        ],
+        "methods": [
+          "FakeWorkerEnvironment",
+          "close",
+          "postMessage"
+        ],
+        "types": [
+          "WorkerConnector",
+          "WorkerEnvironment",
+          "WorkerHandle"
+        ]
+      },
+      "FeatureDetectionResult": {
+        "fields": [
+          "availableImplementations",
+          "existingDatabases",
+          "missingFeatures"
+        ],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/types.dart"
+        ],
+        "methods": [
+          "FeatureDetectionResult",
+          "toString"
+        ],
+        "types": [
+          "DatabaseImplementation",
+          "MissingBrowserFeature"
+        ]
+      },
+      "FileSystem": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/types.dart"
+        ],
+        "methods": [
+          "exists",
+          "flush",
+          "readFile",
+          "writeFile"
+        ],
+        "types": [
+          "FileType"
+        ]
+      },
+      "FileSystemImplementation": {
+        "fields": [
+          "get:needsExternalLocks",
+          "get:toJS",
+          "inMemory",
+          "indexedDb",
+          "jsRepresentation",
+          "opfsAtomics",
+          "opfsExternalLocks",
+          "opfsShared"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/protocol.dart",
+          "package:sqlite3_web/src/protocol/messages.dart"
+        ],
+        "methods": [
+          "FileSystemImplementation",
+          "fromJS"
+        ],
+        "types": [
+          "FileSystemImplementation"
+        ]
+      },
+      "FileType": {
+        "fields": [
+          "database",
+          "journal"
+        ],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/types.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "HeldLock": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite3_web/src/locks.dart"
+        ],
+        "methods": [
+          "release"
+        ],
+        "types": []
+      },
+      "InjectErrors": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite3_web/src/channel.dart"
+        ],
+        "methods": [
+          "injectErrorsFrom"
+        ],
+        "types": []
+      },
+      "MessageType": {
+        "fields": [
+          "abort",
+          "closeDatabase",
+          "commitRequest",
+          "connect",
+          "custom",
+          "dedicatedCompatibilityCheck",
+          "dedicatedInSharedCompatibilityCheck",
+          "endpointResponse",
+          "errorResponse",
+          "exclusiveLock",
+          "fileSystemAccess",
+          "fileSystemExists",
+          "fileSystemFlush",
+          "notifyCommit",
+          "notifyRollback",
+          "notifyUpdate",
+          "open",
+          "openAdditionalConnection",
+          "releaseLock",
+          "rollbackRequest",
+          "rowsResponse",
+          "runQuery",
+          "sharedCompatibilityCheck",
+          "simpleSuccessResponse",
+          "startFileSystemServer",
+          "updateRequest"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/protocol.dart",
+          "package:sqlite3_web/src/protocol/helper.g.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MessageTypeName": {
+        "fields": [
+          "name"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/protocol/dsl.dart"
+        ],
+        "methods": [
+          "MessageTypeName"
+        ],
+        "types": []
+      },
+      "MessageUtils": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite3_web/src/protocol.dart",
+          "package:sqlite3_web/src/protocol/extensions.dart"
+        ],
+        "methods": [
+          "sendToPort",
+          "sendToWorker"
+        ],
+        "types": [
+          "WorkerHandle"
+        ]
+      },
+      "MissingBrowserFeature": {
+        "fields": [
+          "createSyncAccessHandleReadWriteUnsafe",
+          "dedicatedWorkers",
+          "dedicatedWorkersCanNest",
+          "dedicatedWorkersInSharedWorkers",
+          "fileSystemAccess",
+          "indexedDb",
+          "sharedArrayBuffers",
+          "sharedWorkers"
+        ],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/types.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Mutex": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite3_web/src/locks.dart"
+        ],
+        "methods": [
+          "withCriticalSection"
+        ],
+        "types": []
+      },
+      "ProtocolChannel": {
+        "fields": [
+          "get:closed"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/channel.dart"
+        ],
+        "methods": [
+          "ProtocolChannel",
+          "close",
+          "handleNotification",
+          "sendNotification",
+          "sendRequest"
+        ],
+        "types": [
+          "MessageType",
+          "RequestHandler"
+        ]
+      },
+      "RemoteDatabase": {
+        "fields": [
+          "connection",
+          "databaseId",
+          "fileSystem",
+          "get:closed",
+          "get:commits",
+          "get:rollbacks",
+          "get:updates"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/client.dart"
+        ],
+        "methods": [
+          "RemoteDatabase",
+          "additionalConnection",
+          "customRequest",
+          "dispose",
+          "execute",
+          "requestLock",
+          "select"
+        ],
+        "types": [
+          "Database",
+          "FileSystem",
+          "WorkerConnection"
+        ]
+      },
+      "RemoteException": {
+        "fields": [
+          "exception",
+          "message"
+        ],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/types.dart"
+        ],
+        "methods": [
+          "RemoteException",
+          "toString"
+        ],
+        "types": []
+      },
+      "RemoteFileSystem": {
+        "fields": [
+          "database"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/client.dart"
+        ],
+        "methods": [
+          "RemoteFileSystem",
+          "exists",
+          "flush",
+          "readFile",
+          "writeFile"
+        ],
+        "types": [
+          "FileSystem",
+          "FileType",
+          "RemoteDatabase"
+        ]
+      },
+      "RequestHandler": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite3_web/src/protocol.dart",
+          "package:sqlite3_web/src/protocol/helper.g.dart"
+        ],
+        "methods": [
+          "dispatchRequest",
+          "handleCloseDatabase",
+          "handleCommitRequest",
+          "handleConnect",
+          "handleCustom",
+          "handleDedicatedCompatibilityCheck",
+          "handleDedicatedInSharedCompatibilityCheck",
+          "handleExclusiveLock",
+          "handleFileSystemAccess",
+          "handleFileSystemExists",
+          "handleFileSystemFlush",
+          "handleOpen",
+          "handleOpenAdditionalConnection",
+          "handleReleaseLock",
+          "handleRollbackRequest",
+          "handleRunQuery",
+          "handleSharedCompatibilityCheck",
+          "handleUpdateRequest"
+        ],
+        "types": []
+      },
+      "ResponseUtils": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite3_web/src/protocol.dart",
+          "package:sqlite3_web/src/protocol/extensions.dart"
+        ],
+        "methods": [
+          "interpretAsError"
+        ],
+        "types": [
+          "RemoteException"
+        ]
+      },
+      "RowsResponseUtils": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite3_web/src/protocol.dart",
+          "package:sqlite3_web/src/protocol/extensions.dart"
+        ],
+        "methods": [
+          "readResultSet",
+          "wrapResultSet"
+        ],
+        "types": []
+      },
+      "StorageMode": {
+        "fields": [
+          "inMemory",
+          "indexedDb",
+          "opfs"
+        ],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/types.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TypeCode": {
+        "fields": [
+          "$null",
+          "bigInt",
+          "blob",
+          "boolean",
+          "float",
+          "integer",
+          "text",
+          "unknown"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/protocol.dart",
+          "package:sqlite3_web/src/protocol/messages.dart"
+        ],
+        "methods": [
+          "decodeColumn",
+          "decodeValues",
+          "encodeValue",
+          "encodeValues",
+          "of"
+        ],
+        "types": [
+          "TypeCode"
+        ]
+      },
+      "UpdateNotificationUtils": {
+        "fields": [
+          "get:sqliteUpdate"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/protocol.dart",
+          "package:sqlite3_web/src/protocol/extensions.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "WebLocks": {
+        "fields": [
+          "instance"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/locks.dart"
+        ],
+        "methods": [
+          "request"
+        ],
+        "types": [
+          "HeldLock",
+          "WebLocks"
+        ]
+      },
+      "WebSqlite": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/database.dart"
+        ],
+        "methods": [
+          "connect",
+          "connectToPort",
+          "connectToRecommended",
+          "deleteDatabase",
+          "open",
+          "runFeatureDetection",
+          "workerEntrypoint"
+        ],
+        "types": [
+          "ConnectToRecommendedResult",
+          "Database",
+          "DatabaseController",
+          "DatabaseImplementation",
+          "FeatureDetectionResult",
+          "StorageMode",
+          "WebSqlite",
+          "WorkerConnector",
+          "WorkerEnvironment"
+        ]
+      },
+      "WorkerConnection": {
+        "fields": [
+          "handleCustomRequest",
+          "notifications"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/client.dart"
+        ],
+        "methods": [
+          "WorkerConnection",
+          "handleCustom",
+          "handleNotification",
+          "requestDatabase"
+        ],
+        "types": [
+          "DatabaseImplementation",
+          "ProtocolChannel",
+          "RemoteDatabase"
+        ]
+      },
+      "WorkerConnector": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/worker_connector.dart"
+        ],
+        "methods": [
+          "defaultWorkers",
+          "spawnDedicatedWorker",
+          "spawnSharedWorker",
+          "unsupported"
+        ],
+        "types": [
+          "WorkerHandle"
+        ]
+      },
+      "WorkerDatabase": {
+        "fields": [
+          "get:database"
+        ],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/database.dart"
+        ],
+        "methods": [
+          "handleCustomRequest"
+        ],
+        "types": [
+          "ClientConnection"
+        ]
+      },
+      "WorkerEnvironment": {
+        "fields": [
+          "get:connector",
+          "get:incomingMessages"
+        ],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/worker_connector.dart"
+        ],
+        "methods": [
+          "WorkerEnvironment"
+        ],
+        "types": [
+          "WorkerConnector"
+        ]
+      },
+      "WorkerHandle": {
+        "fields": [
+          "get:targetForErrorEvents"
+        ],
+        "libraries": [
+          "package:sqlite3_web/sqlite3_web.dart",
+          "package:sqlite3_web/src/worker_connector.dart"
+        ],
+        "methods": [
+          "postMessage"
+        ],
+        "types": []
+      },
+      "WorkerRunner": {
+        "fields": [
+          "openedDatabases"
+        ],
+        "libraries": [
+          "package:sqlite3_web/src/worker.dart"
+        ],
+        "methods": [
+          "WorkerRunner",
+          "checkCompatibility",
+          "findDatabase",
+          "handleRequests",
+          "loadWasmModule"
+        ],
+        "types": [
+          "CompatibilityResult",
+          "DatabaseController",
+          "DatabaseState",
+          "FileSystemImplementation",
+          "Mutex",
+          "WorkerEnvironment",
+          "WorkerHandle"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T09:06:20Z",
+  "package": "sqlite3_web",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AbortException",
+      "DatabaseController",
+      "MessageTypeName",
+      "RemoteException",
+      "WorkerConnector",
+      "_DefaultDatabaseController",
+      "_WithoutWorkers"
+    ],
+    "digest": "3d1aa6af10ed8441a743acda46d25a487c18c060caf467bbd1cc291c094d3de4",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "ee086c7d0a02e53553a5867323b895af406334b720618b03d092a98680d9bf00",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "../channel.dart",
+      "../types.dart",
+      "../worker_connector.dart",
+      "/database",
+      "/database-journal",
+      "AbortError",
+      "ArrayBuffer",
+      "Database is not in a transaction",
+      "DedicatedWorkerGlobalScope",
+      "FileReader",
+      "Lock to be released is not active.",
+      "No custom request handler installed",
+      "Operation was cancelled",
+      "Request requires database id",
+      "Requested operation on inactive lock state.",
+      "SharedArrayBuffer",
+      "SharedWorker",
+      "Should only be a top-level message",
+      "Unknown OPFS implementation",
+      "Worker",
+      "_disconnect",
+      "_drift_feature_detection",
+      "a",
+      "abort",
+      "abstract",
+      "b",
+      "c",
+      "channel-close-",
+      "channel.dart",
+      "client.dart",
+      "closeDatabase",
+      "commitRequest",
+      "connect",
+      "custom",
+      "d",
+      "dart:async",
+      "dart:collection",
+      "dart:js_interop",
+      "dart:js_interop_unsafe",
+      "dart:math",
+      "dart:typed_data",
+      "database.dart",
+      "dedicatedCompatibilityCheck",
+      "dedicatedInSharedCompatibilityCheck",
+      "drift_db",
+      "drift_mock_db",
+      "dsl.dart",
+      "e",
+      "endpointResponse",
+      "errorResponse",
+      "exclusiveLock",
+      "f",
+      "fileSystemAccess",
+      "fileSystemExists",
+      "fileSystemFlush",
+      "g",
+      "getSize",
+      "helper.g.dart",
+      "i",
+      "indexedDB",
+      "is:type",
+      "k",
+      "l",
+      "locks",
+      "locks.dart",
+      "m",
+      "message",
+      "messages.dart",
+      "n",
+      "navigator",
+      "notifyCommit",
+      "notifyRollback",
+      "notifyUpdate",
+      "o",
+      "object",
+      "open",
+      "openAdditionalConnection",
+      "p",
+      "package:meta/meta.dart",
+      "package:meta/meta_meta.dart",
+      "package:sqlite3/common.dart",
+      "package:sqlite3/src/wasm/js_interop/core.dart",
+      "package:sqlite3/src/wasm/js_interop/new_file_system_access.dart",
+      "package:sqlite3/wasm.dart",
+      "package:stream_channel/stream_channel.dart",
+      "package:web/web.dart",
+      "protocol.dart",
+      "protocol/compatibility_result.dart",
+      "protocol/extensions.dart",
+      "protocol/helper.g.dart",
+      "protocol/messages.dart",
+      "r",
+      "releaseLock",
+      "rollbackRequest",
+      "rowsResponse",
+      "runQuery",
+      "s",
+      "shared.dart",
+      "sharedCompatibilityCheck",
+      "simpleSuccessResponse",
+      "sqlite3_worker",
+      "src/database.dart",
+      "src/protocol.dart",
+      "src/types.dart",
+      "src/worker_connector.dart",
+      "startFileSystemServer",
+      "t",
+      "transfer",
+      "transferIfArrayBuffer",
+      "types.dart",
+      "u",
+      "updateRequest",
+      "v",
+      "worker.dart",
+      "worker_connector.dart",
+      "x",
+      "y",
+      "z"
+    ]
+  },
+  "version": "0.6.0"
+}
