@@ -1,0 +1,1007 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "appLeakTrackerProtocolVersion",
+          "defaultAllowedRssDeviation",
+          "defaultNumberOfGcCycles",
+          "envelopes",
+          "leakTrackerStackTraceFragment",
+          "leakTrackerYamlHeader",
+          "memoryLeakTrackingExtensionName"
+        ],
+        "libraries": [
+          "package:leak_tracker/devtools_integration.dart",
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/devtools_integration/_protocol.dart",
+          "package:leak_tracker/src/devtools_integration/_registration.dart",
+          "package:leak_tracker/src/devtools_integration/primitives.dart",
+          "package:leak_tracker/src/leak_tracking/helpers.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/_dispatcher.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/_finalizer.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/_gc_counter.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/_print_bytes.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/_retaining_path/_connection.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/_retaining_path/_retaining_path.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/_retaining_path/_retaining_path_isolate.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/_retaining_path/_retaining_path_web.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/model.dart",
+          "package:leak_tracker/src/shared/_formatting.dart",
+          "package:leak_tracker/src/shared/_primitives.dart",
+          "package:leak_tracker/src/shared/_util.dart"
+        ],
+        "methods": [
+          "buildStandardFinalizer",
+          "cast",
+          "connect",
+          "contextToString",
+          "dispatchObjectEvent",
+          "envelopeByType",
+          "forceGC",
+          "formattedRetainingPath",
+          "fullClassName",
+          "initializeDevToolsIntegration",
+          "openEnvelope",
+          "prettyPrintBytes",
+          "printGB",
+          "printKB",
+          "printMB",
+          "printToConsole",
+          "property",
+          "registerLeakTrackingServiceExtension",
+          "removeLeakTrackingLines",
+          "retainingPath",
+          "retainingPathImpl",
+          "retainingPathToString",
+          "sealEnvelope",
+          "shouldObjectBeGced",
+          "standardIdentityHashCoder"
+        ],
+        "types": [
+          "Channel",
+          "FinalizerWrapper",
+          "LeakProvider",
+          "LeakSummary",
+          "Leaks",
+          "ObjectRef",
+          "RetainingObjectProperty"
+        ]
+      },
+      "Baseliner": {
+        "fields": [
+          "baselining",
+          "rss"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/leak_tracking/_baseliner.dart"
+        ],
+        "methods": [
+          "asDartCode",
+          "finishOldAndStartNew",
+          "takeSample"
+        ],
+        "types": [
+          "Baseliner",
+          "MemoryBaselining",
+          "ValueSampler"
+        ]
+      },
+      "BaseliningMode": {
+        "fields": [
+          "measure",
+          "none",
+          "regression"
+        ],
+        "libraries": [
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/model.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Channel": {
+        "fields": [
+          "eventFromApp",
+          "requestToApp",
+          "responseFromApp"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/devtools_integration/_protocol.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Codes": {
+        "fields": [
+          "detailsRequest",
+          "leakDetails",
+          "leakTrackingTurnedOffError",
+          "started",
+          "summary",
+          "unexpectedError",
+          "unexpectedRequestTypeError"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/devtools_integration/_protocol.dart"
+        ],
+        "methods": [
+          "byName"
+        ],
+        "types": [
+          "Codes"
+        ]
+      },
+      "ContextKeys": {
+        "fields": [
+          "disposalCallstack",
+          "retainingPath",
+          "startCallstack"
+        ],
+        "libraries": [
+          "package:leak_tracker/devtools_integration.dart",
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/shared/shared_model.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DevToolsSummarySink": {
+        "fields": [],
+        "libraries": [
+          "package:leak_tracker/src/leak_tracking/_leak_reporter.dart"
+        ],
+        "methods": [
+          "send"
+        ],
+        "types": [
+          "LeakSummary"
+        ]
+      },
+      "EventFromApp": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:leak_tracker/devtools_integration.dart",
+          "package:leak_tracker/src/devtools_integration/delivery.dart"
+        ],
+        "methods": [
+          "EventFromApp",
+          "fromJson",
+          "fromVmServiceEvent",
+          "messageAsJson",
+          "post"
+        ],
+        "types": [
+          "EventFromApp"
+        ]
+      },
+      "FinalizerWrapper": {
+        "fields": [],
+        "libraries": [
+          "package:leak_tracker/src/leak_tracking/primitives/_finalizer.dart"
+        ],
+        "methods": [
+          "attach"
+        ],
+        "types": []
+      },
+      "GcCounter": {
+        "fields": [
+          "get:gcCount"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/leak_tracking/primitives/_gc_counter.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "IgnoredLeaks": {
+        "fields": [
+          "get:hashCode",
+          "notDisposed",
+          "notGCed"
+        ],
+        "libraries": [
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/model.dart"
+        ],
+        "methods": [
+          "==",
+          "IgnoredLeaks",
+          "isIgnored"
+        ],
+        "types": [
+          "IgnoredLeaksSet",
+          "LeakType"
+        ]
+      },
+      "IgnoredLeaksSet": {
+        "fields": [
+          "byClass",
+          "get:hashCode",
+          "ignoreAll"
+        ],
+        "libraries": [
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/model.dart"
+        ],
+        "methods": [
+          "==",
+          "IgnoredLeaksSet",
+          "byClass",
+          "copyWith",
+          "ignore",
+          "isIgnored",
+          "merge",
+          "track"
+        ],
+        "types": [
+          "IgnoredLeaksSet"
+        ]
+      },
+      "IterableExtensions": {
+        "fields": [
+          "get:onlyOrNull"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/shared/_util.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LeakDiagnosticConfig": {
+        "fields": [
+          "collectRetainingPathForNotGCed",
+          "collectStackTraceOnDisposal",
+          "collectStackTraceOnStart",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/model.dart"
+        ],
+        "methods": [
+          "==",
+          "LeakDiagnosticConfig",
+          "copyWith"
+        ],
+        "types": [
+          "LeakDiagnosticConfig"
+        ]
+      },
+      "LeakFilter": {
+        "fields": [],
+        "libraries": [
+          "package:leak_tracker/src/leak_tracking/_leak_filter.dart"
+        ],
+        "methods": [
+          "shouldReport"
+        ],
+        "types": [
+          "LeakType",
+          "ObjectRecord",
+          "PhaseSettings"
+        ]
+      },
+      "LeakProvider": {
+        "fields": [],
+        "libraries": [
+          "package:leak_tracker/devtools_integration.dart",
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/shared/shared_model.dart"
+        ],
+        "methods": [
+          "checkNotGCed",
+          "collectLeaks",
+          "leaksSummary"
+        ],
+        "types": [
+          "LeakSummary",
+          "Leaks"
+        ]
+      },
+      "LeakReport": {
+        "fields": [
+          "code",
+          "context",
+          "detailedPath",
+          "phase",
+          "retainingPath",
+          "trackedClass",
+          "type"
+        ],
+        "libraries": [
+          "package:leak_tracker/devtools_integration.dart",
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/shared/shared_model.dart"
+        ],
+        "methods": [
+          "LeakReport",
+          "fromJson",
+          "iterableToYaml",
+          "toJson",
+          "toYaml"
+        ],
+        "types": [
+          "LeakReport"
+        ]
+      },
+      "LeakReporter": {
+        "fields": [
+          "checkPeriod",
+          "devToolsSink",
+          "leakProvider",
+          "onLeaks",
+          "stdoutSink"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/leak_tracking/_leak_reporter.dart"
+        ],
+        "methods": [
+          "LeakReporter",
+          "checkLeaks",
+          "dispose"
+        ],
+        "types": [
+          "DevToolsSummarySink",
+          "LeakProvider",
+          "LeakSummary",
+          "StdoutSummarySink"
+        ]
+      },
+      "LeakSummary": {
+        "fields": [
+          "get:isEmpty",
+          "get:total",
+          "time",
+          "totals"
+        ],
+        "libraries": [
+          "package:leak_tracker/devtools_integration.dart",
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/shared/shared_model.dart"
+        ],
+        "methods": [
+          "LeakSummary",
+          "fromJson",
+          "matches",
+          "toJson",
+          "toMessage"
+        ],
+        "types": [
+          "LeakSummary",
+          "LeakType"
+        ]
+      },
+      "LeakTracker": {
+        "fields": [
+          "leakReporter",
+          "objectTracker"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/leak_tracking/_leak_tracker.dart"
+        ],
+        "methods": [
+          "LeakTracker",
+          "dispose"
+        ],
+        "types": [
+          "LeakReporter",
+          "LeakTrackingConfig",
+          "ObjectRef",
+          "ObjectTracker",
+          "PhaseSettings"
+        ]
+      },
+      "LeakTracking": {
+        "fields": [
+          "get:isStarted",
+          "get:phase",
+          "set:phase",
+          "warnForUnsupportedPlatforms"
+        ],
+        "libraries": [
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/leak_tracking/leak_tracking.dart"
+        ],
+        "methods": [
+          "checkLeaks",
+          "checkNotGCed",
+          "collectLeaks",
+          "declareNotDisposedObjectsAsLeaks",
+          "dispatchObjectCreated",
+          "dispatchObjectDisposed",
+          "dispatchObjectEvent",
+          "dispatchObjectTrace",
+          "start",
+          "stop"
+        ],
+        "types": [
+          "Baseliner",
+          "LeakSummary",
+          "LeakTracker",
+          "LeakTrackingConfig",
+          "Leaks",
+          "PhaseSettings"
+        ]
+      },
+      "LeakTrackingConfig": {
+        "fields": [
+          "checkPeriod",
+          "disposalTime",
+          "maxRequestsForRetainingPath",
+          "notifyDevTools",
+          "numberOfGcCycles",
+          "onLeaks",
+          "stdoutLeaks"
+        ],
+        "libraries": [
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/model.dart"
+        ],
+        "methods": [
+          "LeakTrackingConfig",
+          "passive"
+        ],
+        "types": []
+      },
+      "LeakTrackingStarted": {
+        "fields": [
+          "protocolVersion"
+        ],
+        "libraries": [
+          "package:leak_tracker/devtools_integration.dart",
+          "package:leak_tracker/src/devtools_integration/messages.dart"
+        ],
+        "methods": [
+          "LeakTrackingStarted",
+          "fromJson",
+          "toJson"
+        ],
+        "types": []
+      },
+      "LeakTrackingTurnedOffError": {
+        "fields": [],
+        "libraries": [
+          "package:leak_tracker/devtools_integration.dart",
+          "package:leak_tracker/src/devtools_integration/messages.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LeakType": {
+        "fields": [
+          "gcedLate",
+          "notDisposed",
+          "notGCed"
+        ],
+        "libraries": [
+          "package:leak_tracker/devtools_integration.dart",
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/shared/shared_model.dart"
+        ],
+        "methods": [
+          "byName"
+        ],
+        "types": [
+          "LeakType"
+        ]
+      },
+      "Leaks": {
+        "fields": [
+          "byType",
+          "get:all",
+          "get:gcedLate",
+          "get:notDisposed",
+          "get:notGCed",
+          "get:total"
+        ],
+        "libraries": [
+          "package:leak_tracker/devtools_integration.dart",
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/shared/shared_model.dart"
+        ],
+        "methods": [
+          "Leaks",
+          "fromJson",
+          "toJson",
+          "toYaml"
+        ],
+        "types": [
+          "LeakReport",
+          "LeakType"
+        ]
+      },
+      "Links": {
+        "fields": [
+          "get:value",
+          "gitHubTroubleshooting",
+          "hash",
+          "url"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/shared/_primitives.dart"
+        ],
+        "methods": [
+          "Links"
+        ],
+        "types": []
+      },
+      "MemoryBaseline": {
+        "fields": [
+          "allowedRssIncrease",
+          "get:hashCode",
+          "rss"
+        ],
+        "libraries": [
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/model.dart"
+        ],
+        "methods": [
+          "==",
+          "MemoryBaseline"
+        ],
+        "types": [
+          "ValueSampler"
+        ]
+      },
+      "MemoryBaselining": {
+        "fields": [
+          "baseline",
+          "get:hashCode",
+          "mode"
+        ],
+        "libraries": [
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/model.dart"
+        ],
+        "methods": [
+          "==",
+          "MemoryBaselining",
+          "none"
+        ],
+        "types": [
+          "BaseliningMode",
+          "MemoryBaseline"
+        ]
+      },
+      "ObjectRecord": {
+        "fields": [
+          "code",
+          "context",
+          "get:isDisposed",
+          "get:isGCed",
+          "get:isNotDisposedLeak",
+          "phase",
+          "ref",
+          "trackedClass",
+          "type"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/leak_tracking/_object_record.dart"
+        ],
+        "methods": [
+          "ObjectRecord",
+          "isGCedLateLeak",
+          "isNotGCedLeak",
+          "mergeContext",
+          "setContext",
+          "setDisposed",
+          "setGCed",
+          "toLeakReport"
+        ],
+        "types": [
+          "LeakReport",
+          "PhaseSettings"
+        ]
+      },
+      "ObjectRecordSet": {
+        "fields": [
+          "coder",
+          "get:length"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/leak_tracking/_object_record_set.dart"
+        ],
+        "methods": [
+          "ObjectRecordSet",
+          "contains",
+          "forEach",
+          "putIfAbsent",
+          "record",
+          "remove"
+        ],
+        "types": [
+          "ObjectRecord",
+          "PhaseSettings"
+        ]
+      },
+      "ObjectRecords": {
+        "fields": [
+          "gcedLateLeaks",
+          "gcedNotDisposedLeaks",
+          "notGCed",
+          "notGCedDisposedLate",
+          "notGCedDisposedLateCollected",
+          "notGCedDisposedOk"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/leak_tracking/_object_records.dart"
+        ],
+        "methods": [
+          "assertIntegrity",
+          "assertRecordIntegrity"
+        ],
+        "types": [
+          "ObjectRecord"
+        ]
+      },
+      "ObjectRef": {
+        "fields": [
+          "value"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/shared/_primitives.dart"
+        ],
+        "methods": [
+          "ObjectRef"
+        ],
+        "types": []
+      },
+      "ObjectTracker": {
+        "fields": [
+          "disposalTime",
+          "disposed",
+          "get:notGCed",
+          "maxRequestsForRetainingPath",
+          "numberOfGcCycles"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/leak_tracking/_object_tracker.dart"
+        ],
+        "methods": [
+          "ObjectTracker",
+          "addContext",
+          "checkNotGCed",
+          "collectLeaks",
+          "declareAllNotDisposedAsLeaks",
+          "dispatchDisposal",
+          "dispose",
+          "leaksSummary",
+          "processIfNeeded",
+          "startTracking",
+          "throwIfDisposed"
+        ],
+        "types": [
+          "FinalizerWrapper",
+          "GcCounter",
+          "LeakProvider",
+          "LeakSummary",
+          "Leaks",
+          "PhaseSettings"
+        ]
+      },
+      "PhaseSettings": {
+        "fields": [
+          "baselining",
+          "get:hashCode",
+          "ignoreLeaks",
+          "ignoredLeaks",
+          "leakDiagnosticConfig",
+          "name"
+        ],
+        "libraries": [
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/model.dart"
+        ],
+        "methods": [
+          "==",
+          "PhaseSettings",
+          "ignored"
+        ],
+        "types": [
+          "IgnoredLeaks",
+          "LeakDiagnosticConfig",
+          "MemoryBaselining"
+        ]
+      },
+      "RequestForLeakDetails": {
+        "fields": [],
+        "libraries": [
+          "package:leak_tracker/devtools_integration.dart",
+          "package:leak_tracker/src/devtools_integration/messages.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "RequestToApp": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:leak_tracker/devtools_integration.dart",
+          "package:leak_tracker/src/devtools_integration/delivery.dart"
+        ],
+        "methods": [
+          "RequestToApp",
+          "fromRequestParameters",
+          "toRequestParameters"
+        ],
+        "types": []
+      },
+      "ResponseFromApp": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:leak_tracker/devtools_integration.dart",
+          "package:leak_tracker/src/devtools_integration/delivery.dart"
+        ],
+        "methods": [
+          "ResponseFromApp",
+          "fromJson",
+          "fromServiceResponse",
+          "toJson",
+          "toServiceResponse"
+        ],
+        "types": []
+      },
+      "RetainingObjectProperty": {
+        "fields": [
+          "closureOwner",
+          "globalVarName",
+          "globalVarUri",
+          "lib",
+          "paths",
+          "type"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/shared/_formatting.dart"
+        ],
+        "methods": [
+          "RetainingObjectProperty"
+        ],
+        "types": []
+      },
+      "SizeConversion": {
+        "fields": [
+          "get:mbToBytes"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/shared/_util.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "StandardFinalizerWrapper": {
+        "fields": [],
+        "libraries": [
+          "package:leak_tracker/src/leak_tracking/primitives/_finalizer.dart"
+        ],
+        "methods": [
+          "StandardFinalizerWrapper",
+          "attach"
+        ],
+        "types": [
+          "FinalizerWrapper"
+        ]
+      },
+      "StdoutSummarySink": {
+        "fields": [],
+        "libraries": [
+          "package:leak_tracker/src/leak_tracking/_leak_reporter.dart"
+        ],
+        "methods": [
+          "send"
+        ],
+        "types": [
+          "LeakSummary"
+        ]
+      },
+      "StringChecks": {
+        "fields": [
+          "get:isNullOrEmpty"
+        ],
+        "libraries": [
+          "package:leak_tracker/src/shared/_util.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "UnexpectedError": {
+        "fields": [
+          "error",
+          "stackTrace"
+        ],
+        "libraries": [
+          "package:leak_tracker/devtools_integration.dart",
+          "package:leak_tracker/src/devtools_integration/messages.dart"
+        ],
+        "methods": [
+          "UnexpectedError",
+          "fromJson",
+          "fromStrings",
+          "toJson"
+        ],
+        "types": []
+      },
+      "UnexpectedRequestTypeError": {
+        "fields": [
+          "type"
+        ],
+        "libraries": [
+          "package:leak_tracker/devtools_integration.dart",
+          "package:leak_tracker/src/devtools_integration/messages.dart"
+        ],
+        "methods": [
+          "UnexpectedRequestTypeError",
+          "fromJson",
+          "fromString",
+          "toJson"
+        ],
+        "types": []
+      },
+      "ValueSampler": {
+        "fields": [
+          "absMax",
+          "deltaMax",
+          "get:absAvg",
+          "get:deltaAvg",
+          "get:hashCode",
+          "initialValue",
+          "samples"
+        ],
+        "libraries": [
+          "package:leak_tracker/leak_tracker.dart",
+          "package:leak_tracker/src/leak_tracking/primitives/model.dart"
+        ],
+        "methods": [
+          "==",
+          "ValueSampler",
+          "add",
+          "asDartCode",
+          "seal",
+          "start"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:45:28Z",
+  "package": "leak_tracker",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "IgnoredLeaks",
+      "IgnoredLeaksSet",
+      "LeakDiagnosticConfig",
+      "LeakTrackingConfig",
+      "MemoryBaseline",
+      "MemoryBaselining",
+      "PhaseSettings",
+      "_Envelope"
+    ],
+    "digest": "30c01f60c864142169503fdcfcfd3b50cf06833dc83d96f98a9e215bf4e607b9",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "54e1e5ce2eb8996ce1bdd68a0df9a68add04c51edc9a74cef1239620d61656f8",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\n\n",
+      " ",
+      " B",
+      " GB",
+      " KB",
+      " MB",
+      "(package:leak_tracker/",
+      "../../shared/shared_model.dart",
+      "../devtools_integration/_registration.dart",
+      "../devtools_integration/delivery.dart",
+      "../shared/_formatting.dart",
+      "../shared/_primitives.dart",
+      "../shared/_util.dart",
+      "../shared/shared_model.dart",
+      "1",
+      "Baseline is not set.",
+      "Cannot add value to sealed sampler.",
+      "Could not start VM service. If you are running `flutter test`, pass the flag `--enable-vmservice`",
+      "Error handling leak tracking request from DevTools to application.",
+      "Leak tracking is already enabled.",
+      "Length should not be more than one.",
+      "References that retain the object from garbage collection.",
+      "Regression testing for memory consumption is not implemented yet. Upvote the following issue if interested: https://github.com/dart-lang/leak_tracker/issues/120",
+      "The disposed instance should not be used.",
+      "_",
+      "_Closure",
+      "_baseliner.dart",
+      "_formatting.dart",
+      "_leak_filter.dart",
+      "_leak_reporter.dart",
+      "_leak_tracker.dart",
+      "_object_record.dart",
+      "_object_record_set.dart",
+      "_object_records.dart",
+      "_object_tracker.dart",
+      "_primitives.dart",
+      "_protocol.dart",
+      "_retaining_path_isolate.dart",
+      "_retaining_path_web.dart",
+      "_util.dart",
+      "absAvg",
+      "absMax",
+      "class",
+      "className",
+      "closureFunction",
+      "code",
+      "content",
+      "context",
+      "created",
+      "dart.core/_Type",
+      "dart:async",
+      "dart:convert",
+      "dart:developer",
+      "dart:io",
+      "dart:isolate",
+      "dart:math",
+      "declaredType",
+      "delivery.dart",
+      "deltaAvg",
+      "deltaMax",
+      "disposal",
+      "disposed",
+      "error",
+      "eventType",
+      "ext.dart.memoryLeakTracking",
+      "extensionData",
+      "forceGC timed out",
+      "https://github.com/dart-lang/leak_tracker/blob/main/doc/TROUBLESHOOT.md",
+      "initialValue",
+      "library",
+      "libraryName",
+      "location",
+      "messages.dart",
+      "name",
+      "owner",
+      "package:clock/clock.dart",
+      "package:collection/collection.dart",
+      "package:meta/meta.dart",
+      "package:vm_service/vm_service.dart",
+      "package:vm_service/vm_service_io.dart",
+      "path",
+      "phase",
+      "primitives.dart",
+      "primitives/_dispatcher.dart",
+      "primitives/_finalizer.dart",
+      "primitives/_gc_counter.dart",
+      "primitives/_print_bytes.dart",
+      "primitives/_retaining_path/_connection.dart",
+      "primitives/_retaining_path/_retaining_path.dart",
+      "primitives/model.dart",
+      "registered",
+      "script",
+      "src/devtools_integration/delivery.dart",
+      "src/devtools_integration/messages.dart",
+      "src/devtools_integration/primitives.dart",
+      "src/leak_tracking/helpers.dart",
+      "src/leak_tracking/leak_tracking.dart",
+      "src/leak_tracking/primitives/model.dart",
+      "src/shared/shared_model.dart",
+      "start",
+      "test",
+      "time",
+      "totals",
+      "trace",
+      "tracked",
+      "type",
+      "uri",
+      "value"
+    ]
+  },
+  "version": "9.0.18"
+}

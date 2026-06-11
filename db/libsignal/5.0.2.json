@@ -1,0 +1,3336 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "get:wasmModule",
+          "kIsWeb"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/platform/platform.dart",
+          "package:libsignal/src/platform/platform_io.dart",
+          "package:libsignal/src/platform/platform_web.dart",
+          "package:libsignal/src/rust/api/crypto.dart",
+          "package:libsignal/src/rust/api/group_session.dart",
+          "package:libsignal/src/rust/api/init.dart",
+          "package:libsignal/src/rust/api/keys.dart",
+          "package:libsignal/src/rust/api/sealed_sender.dart",
+          "package:libsignal/src/rust/api/session_builder.dart",
+          "package:libsignal/src/rust/api/session_cipher.dart",
+          "package:libsignal/src/rust/frb_generated.io.dart",
+          "package:libsignal/src/rust/frb_generated.web.dart"
+        ],
+        "methods": [
+          "createSenderCertificate",
+          "createSenderKeyDistributionMessageWithCallbacks",
+          "createServerCertificate",
+          "extractPrekeyMessageIds",
+          "findLibraryPath",
+          "findPackageRoot",
+          "fingerprintCompare",
+          "getIsolateId",
+          "getLibraryName",
+          "groupDecryptWithCallbacks",
+          "groupEncryptWithCallbacks",
+          "hkdfDerive",
+          "identityKeypairSerializeRaw",
+          "identityKeypairSignAlternateIdentityRaw",
+          "initLibsignal",
+          "isLibsignalInitialized",
+          "messageDecryptPrekeyWithCallbacks",
+          "messageDecryptSignalWithCallbacks",
+          "messageEncryptWithCallbacks",
+          "openLibraryFromPath",
+          "processPrekeyBundleWithCallbacks",
+          "processSenderKeyDistributionMessageWithCallbacks",
+          "sealedSenderDecryptWithCallbacks",
+          "sealedSenderEncryptWithCallbacks",
+          "senderCertificateGetExpiration",
+          "senderCertificateGetKey",
+          "senderCertificateGetSenderDeviceId",
+          "senderCertificateGetSenderName",
+          "tryLoadNativeAsset",
+          "validateSenderCertificate"
+        ],
+        "types": [
+          "CreateSenderKeyDistributionResult",
+          "EncryptResult",
+          "GroupDecryptResult",
+          "GroupEncryptResult",
+          "PreKeyBundle",
+          "PreKeyMessageIds",
+          "PrivateKey",
+          "PublicKey",
+          "SealedSenderDecryptResult",
+          "SealedSenderEncryptResult"
+        ]
+      },
+      "Aes256GcmSiv": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/crypto.dart"
+        ],
+        "methods": [
+          "Aes256GcmSiv",
+          "decrypt",
+          "encrypt"
+        ],
+        "types": []
+      },
+      "Aes256GcmSivImpl": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "decrypt",
+          "encrypt",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode"
+        ],
+        "types": [
+          "Aes256GcmSiv"
+        ]
+      },
+      "CiphertextMessage": {
+        "fields": [
+          "ciphertext",
+          "get:isPreKeyMessage",
+          "get:isSignalMessage",
+          "type"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/protocol/ciphertext_message.dart",
+          "package:libsignal/src/protocol/protocol.dart"
+        ],
+        "methods": [
+          "CiphertextMessage",
+          "fromRaw"
+        ],
+        "types": [
+          "CiphertextMessageType"
+        ]
+      },
+      "CiphertextMessageType": {
+        "fields": [
+          "plaintextContent",
+          "preKey",
+          "senderKey",
+          "signal",
+          "value"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/protocol/ciphertext_message.dart",
+          "package:libsignal/src/protocol/protocol.dart"
+        ],
+        "methods": [
+          "CiphertextMessageType",
+          "fromValue"
+        ],
+        "types": [
+          "CiphertextMessageType"
+        ]
+      },
+      "CreateSenderKeyDistributionResult": {
+        "fields": [
+          "distributionMessage",
+          "get:hashCode",
+          "senderKeyRecord"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/group_session.dart"
+        ],
+        "methods": [
+          "==",
+          "CreateSenderKeyDistributionResult"
+        ],
+        "types": []
+      },
+      "DecryptionErrorMessage": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/message.dart"
+        ],
+        "methods": [
+          "cloneMessage",
+          "deserialize",
+          "deviceId",
+          "extractFromSerializedContent",
+          "forOriginalMessage",
+          "ratchetKey",
+          "serialize",
+          "timestamp"
+        ],
+        "types": [
+          "DecryptionErrorMessage"
+        ]
+      },
+      "DecryptionErrorMessageImpl": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "cloneMessage",
+          "deviceId",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "ratchetKey",
+          "serialize",
+          "timestamp"
+        ],
+        "types": [
+          "DecryptionErrorMessage"
+        ]
+      },
+      "Direction": {
+        "fields": [
+          "receiving",
+          "sending"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/stores/identity_key_store.dart",
+          "package:libsignal/src/stores/stores.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "EncryptResult": {
+        "fields": [
+          "ciphertext",
+          "get:hashCode",
+          "messageType"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/session_cipher.dart"
+        ],
+        "methods": [
+          "==",
+          "EncryptResult"
+        ],
+        "types": []
+      },
+      "Fingerprint": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/crypto.dart"
+        ],
+        "methods": [
+          "Fingerprint",
+          "cloneFingerprint",
+          "displayString",
+          "scannableEncoding"
+        ],
+        "types": [
+          "Fingerprint"
+        ]
+      },
+      "FingerprintImpl": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "cloneFingerprint",
+          "displayString",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "scannableEncoding"
+        ],
+        "types": [
+          "Fingerprint"
+        ]
+      },
+      "GroupCipher": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/groups/group_cipher.dart"
+        ],
+        "methods": [
+          "GroupCipher",
+          "createDistributionMessage",
+          "decrypt",
+          "encrypt",
+          "processDistributionMessage"
+        ],
+        "types": [
+          "IdentityKeyStore",
+          "ProtocolAddress",
+          "SenderKeyStore"
+        ]
+      },
+      "GroupDecryptResult": {
+        "fields": [
+          "get:hashCode",
+          "plaintext",
+          "senderKeyRecord"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/group_session.dart"
+        ],
+        "methods": [
+          "==",
+          "GroupDecryptResult"
+        ],
+        "types": []
+      },
+      "GroupEncryptResult": {
+        "fields": [
+          "ciphertext",
+          "get:hashCode",
+          "senderKeyRecord"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/group_session.dart"
+        ],
+        "methods": [
+          "==",
+          "GroupEncryptResult"
+        ],
+        "types": []
+      },
+      "IdentityKeyPair": {
+        "fields": [
+          "get:privateKey",
+          "get:publicKey"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/keys.dart"
+        ],
+        "methods": [
+          "deserialize",
+          "fromKeys",
+          "generate",
+          "serialize",
+          "signAlternateIdentity"
+        ],
+        "types": [
+          "IdentityKeyPair",
+          "PrivateKey",
+          "PublicKey"
+        ]
+      },
+      "IdentityKeyPairImpl": {
+        "fields": [
+          "get:privateKey",
+          "get:publicKey"
+        ],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "serialize",
+          "signAlternateIdentity"
+        ],
+        "types": [
+          "IdentityKeyPair",
+          "PublicKey"
+        ]
+      },
+      "IdentityKeyStore": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/stores/identity_key_store.dart",
+          "package:libsignal/src/stores/stores.dart"
+        ],
+        "methods": [
+          "getIdentity",
+          "getIdentityKeyPair",
+          "getLocalRegistrationId",
+          "isTrustedIdentity",
+          "saveIdentity"
+        ],
+        "types": [
+          "Direction",
+          "IdentityKeyPair",
+          "ProtocolAddress",
+          "PublicKey"
+        ]
+      },
+      "IdentityTrustDecision": {
+        "fields": [
+          "changed",
+          "trusted",
+          "untrusted"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/stores/identity_key_store.dart",
+          "package:libsignal/src/stores/stores.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "InMemoryIdentityKeyStore": {
+        "fields": [
+          "get:length"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/stores/in_memory/in_memory_identity_key_store.dart",
+          "package:libsignal/src/stores/in_memory/in_memory_stores.dart",
+          "package:libsignal/src/stores/stores.dart"
+        ],
+        "methods": [
+          "InMemoryIdentityKeyStore",
+          "clear",
+          "getIdentity",
+          "getIdentityKeyPair",
+          "getLocalRegistrationId",
+          "isTrustedIdentity",
+          "saveIdentity"
+        ],
+        "types": [
+          "Direction",
+          "IdentityKeyPair",
+          "IdentityKeyStore",
+          "ProtocolAddress",
+          "PublicKey"
+        ]
+      },
+      "InMemoryKyberPreKeyStore": {
+        "fields": [
+          "get:length"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/stores/in_memory/in_memory_kyber_pre_key_store.dart",
+          "package:libsignal/src/stores/in_memory/in_memory_stores.dart",
+          "package:libsignal/src/stores/stores.dart"
+        ],
+        "methods": [
+          "clear",
+          "containsKyberPreKey",
+          "getAllKyberPreKeyIds",
+          "isKyberPreKeyUsed",
+          "loadKyberPreKey",
+          "markKyberPreKeyUsed",
+          "removeKyberPreKey",
+          "storeKyberPreKey"
+        ],
+        "types": [
+          "KyberPreKeyRecord",
+          "KyberPreKeyStore"
+        ]
+      },
+      "InMemoryPreKeyStore": {
+        "fields": [
+          "get:length"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/stores/in_memory/in_memory_pre_key_store.dart",
+          "package:libsignal/src/stores/in_memory/in_memory_stores.dart",
+          "package:libsignal/src/stores/stores.dart"
+        ],
+        "methods": [
+          "clear",
+          "containsPreKey",
+          "getAllPreKeyIds",
+          "loadPreKey",
+          "removePreKey",
+          "storePreKey"
+        ],
+        "types": [
+          "PreKeyRecord",
+          "PreKeyStore"
+        ]
+      },
+      "InMemorySenderKeyStore": {
+        "fields": [
+          "get:length"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/stores/in_memory/in_memory_sender_key_store.dart",
+          "package:libsignal/src/stores/in_memory/in_memory_stores.dart",
+          "package:libsignal/src/stores/stores.dart"
+        ],
+        "methods": [
+          "clear",
+          "loadSenderKey",
+          "storeSenderKey"
+        ],
+        "types": [
+          "SenderKeyName",
+          "SenderKeyStore"
+        ]
+      },
+      "InMemorySessionStore": {
+        "fields": [
+          "get:length"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/stores/in_memory/in_memory_session_store.dart",
+          "package:libsignal/src/stores/in_memory/in_memory_stores.dart",
+          "package:libsignal/src/stores/stores.dart"
+        ],
+        "methods": [
+          "clear",
+          "containsSession",
+          "deleteAllSessions",
+          "deleteSession",
+          "getSubDeviceSessions",
+          "loadSession",
+          "storeSession"
+        ],
+        "types": [
+          "ProtocolAddress",
+          "SessionRecord",
+          "SessionStore"
+        ]
+      },
+      "InMemorySignedPreKeyStore": {
+        "fields": [
+          "get:length"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/stores/in_memory/in_memory_signed_pre_key_store.dart",
+          "package:libsignal/src/stores/in_memory/in_memory_stores.dart",
+          "package:libsignal/src/stores/stores.dart"
+        ],
+        "methods": [
+          "clear",
+          "containsSignedPreKey",
+          "getAllSignedPreKeyIds",
+          "loadSignedPreKey",
+          "removeSignedPreKey",
+          "storeSignedPreKey"
+        ],
+        "types": [
+          "SignedPreKeyRecord",
+          "SignedPreKeyStore"
+        ]
+      },
+      "KyberKeyPair": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/kyber.dart"
+        ],
+        "methods": [
+          "cloneKey",
+          "generate",
+          "getPublicKey",
+          "getSecretKey"
+        ],
+        "types": [
+          "KyberKeyPair",
+          "KyberPublicKey",
+          "KyberSecretKey"
+        ]
+      },
+      "KyberKeyPairImpl": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "cloneKey",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "getPublicKey",
+          "getSecretKey"
+        ],
+        "types": [
+          "KyberKeyPair",
+          "KyberPublicKey",
+          "KyberSecretKey"
+        ]
+      },
+      "KyberPreKeyRecord": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/kyber.dart"
+        ],
+        "methods": [
+          "cloneRecord",
+          "create",
+          "deserialize",
+          "getKeyPair",
+          "getPublicKey",
+          "getSecretKey",
+          "id",
+          "serialize",
+          "signature",
+          "timestamp"
+        ],
+        "types": [
+          "KyberKeyPair",
+          "KyberPreKeyRecord",
+          "KyberPublicKey",
+          "KyberSecretKey"
+        ]
+      },
+      "KyberPreKeyRecordImpl": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "cloneRecord",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "getKeyPair",
+          "getPublicKey",
+          "getSecretKey",
+          "id",
+          "serialize",
+          "signature",
+          "timestamp"
+        ],
+        "types": [
+          "KyberKeyPair",
+          "KyberPreKeyRecord",
+          "KyberPublicKey",
+          "KyberSecretKey"
+        ]
+      },
+      "KyberPreKeyStore": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/stores/kyber_pre_key_store.dart",
+          "package:libsignal/src/stores/stores.dart"
+        ],
+        "methods": [
+          "containsKyberPreKey",
+          "getAllKyberPreKeyIds",
+          "loadKyberPreKey",
+          "markKyberPreKeyUsed",
+          "removeKyberPreKey",
+          "storeKyberPreKey"
+        ],
+        "types": [
+          "KyberPreKeyRecord"
+        ]
+      },
+      "KyberPublicKey": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/kyber.dart"
+        ],
+        "methods": [
+          "cloneKey",
+          "deserialize",
+          "equals",
+          "serialize"
+        ],
+        "types": [
+          "KyberPublicKey"
+        ]
+      },
+      "KyberPublicKeyImpl": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "cloneKey",
+          "equals",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "serialize"
+        ],
+        "types": [
+          "KyberPublicKey"
+        ]
+      },
+      "KyberSecretKey": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/kyber.dart"
+        ],
+        "methods": [
+          "cloneKey",
+          "deserialize",
+          "serialize"
+        ],
+        "types": [
+          "KyberSecretKey"
+        ]
+      },
+      "KyberSecretKeyImpl": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "cloneKey",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "serialize"
+        ],
+        "types": [
+          "KyberSecretKey"
+        ]
+      },
+      "LibSignal": {
+        "fields": [
+          "get:isInitialized"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/libsignal.dart"
+        ],
+        "methods": [
+          "cleanup",
+          "ensureInitialized",
+          "init"
+        ],
+        "types": []
+      },
+      "LibSignalBase": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/libsignal.dart"
+        ],
+        "methods": [
+          "ensureInit"
+        ],
+        "types": []
+      },
+      "PreKeyBundle": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/bundle.dart"
+        ],
+        "methods": [
+          "PreKeyBundle",
+          "deviceId",
+          "identityKey",
+          "kyberPreKeyId",
+          "kyberPreKeyPublic",
+          "kyberPreKeySignature",
+          "preKeyId",
+          "preKeyPublic",
+          "registrationId",
+          "signedPreKeyId",
+          "signedPreKeyPublic",
+          "signedPreKeySignature"
+        ],
+        "types": []
+      },
+      "PreKeyBundleImpl": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "deviceId",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "identityKey",
+          "kyberPreKeyId",
+          "kyberPreKeyPublic",
+          "kyberPreKeySignature",
+          "preKeyId",
+          "preKeyPublic",
+          "registrationId",
+          "signedPreKeyId",
+          "signedPreKeyPublic",
+          "signedPreKeySignature"
+        ],
+        "types": [
+          "PreKeyBundle"
+        ]
+      },
+      "PreKeyMessageIds": {
+        "fields": [
+          "get:hashCode",
+          "kyberPreKeyId",
+          "preKeyId",
+          "signedPreKeyId"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/session_cipher.dart"
+        ],
+        "methods": [
+          "==",
+          "PreKeyMessageIds"
+        ],
+        "types": []
+      },
+      "PreKeyRecord": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/prekey.dart"
+        ],
+        "methods": [
+          "PreKeyRecord",
+          "deserialize",
+          "id",
+          "privateKey",
+          "publicKey",
+          "serialize"
+        ],
+        "types": [
+          "PreKeyRecord",
+          "PrivateKey",
+          "PublicKey"
+        ]
+      },
+      "PreKeyRecordImpl": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "id",
+          "privateKey",
+          "publicKey",
+          "serialize"
+        ],
+        "types": [
+          "PreKeyRecord"
+        ]
+      },
+      "PreKeyStore": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/stores/pre_key_store.dart",
+          "package:libsignal/src/stores/stores.dart"
+        ],
+        "methods": [
+          "containsPreKey",
+          "getAllPreKeyIds",
+          "loadPreKey",
+          "removePreKey",
+          "storePreKey"
+        ],
+        "types": [
+          "PreKeyRecord"
+        ]
+      },
+      "PrivateKey": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/keys.dart"
+        ],
+        "methods": [
+          "agree",
+          "cloneKey",
+          "deserialize",
+          "generate",
+          "getPublicKey",
+          "serialize",
+          "sign"
+        ],
+        "types": [
+          "PrivateKey",
+          "PublicKey"
+        ]
+      },
+      "PrivateKeyImpl": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "agree",
+          "cloneKey",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "getPublicKey",
+          "serialize",
+          "sign"
+        ],
+        "types": [
+          "PrivateKey",
+          "PublicKey"
+        ]
+      },
+      "ProtocolAddress": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/address.dart"
+        ],
+        "methods": [
+          "ProtocolAddress",
+          "deviceId",
+          "name"
+        ],
+        "types": []
+      },
+      "ProtocolAddressImpl": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "deviceId",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "name"
+        ],
+        "types": [
+          "ProtocolAddress"
+        ]
+      },
+      "PublicKey": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/keys.dart"
+        ],
+        "methods": [
+          "cloneKey",
+          "compare",
+          "deserialize",
+          "equals",
+          "getPublicKeyBytes",
+          "serialize",
+          "verify"
+        ],
+        "types": [
+          "PublicKey"
+        ]
+      },
+      "PublicKeyImpl": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "cloneKey",
+          "compare",
+          "equals",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "getPublicKeyBytes",
+          "serialize",
+          "verify"
+        ],
+        "types": [
+          "PublicKey"
+        ]
+      },
+      "RustLib": {
+        "fields": [
+          "get:apiImplConstructor",
+          "get:codegenVersion",
+          "get:defaultExternalLibraryLoaderConfig",
+          "get:rustContentHash",
+          "get:wireConstructor",
+          "instance",
+          "kDefaultExternalLibraryLoaderConfig"
+        ],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "dispose",
+          "executeRustInitializers",
+          "init",
+          "initMock"
+        ],
+        "types": [
+          "RustLibApi",
+          "RustLibApiImpl",
+          "RustLibWire"
+        ]
+      },
+      "RustLibApi": {
+        "fields": [
+          "get:rust_arc_decrement_strong_count_Aes256GcmSiv",
+          "get:rust_arc_decrement_strong_count_Aes256GcmSivPtr",
+          "get:rust_arc_decrement_strong_count_DecryptionErrorMessage",
+          "get:rust_arc_decrement_strong_count_DecryptionErrorMessagePtr",
+          "get:rust_arc_decrement_strong_count_Fingerprint",
+          "get:rust_arc_decrement_strong_count_FingerprintPtr",
+          "get:rust_arc_decrement_strong_count_IdentityKeyPair",
+          "get:rust_arc_decrement_strong_count_IdentityKeyPairPtr",
+          "get:rust_arc_decrement_strong_count_KyberKeyPair",
+          "get:rust_arc_decrement_strong_count_KyberKeyPairPtr",
+          "get:rust_arc_decrement_strong_count_KyberPreKeyRecord",
+          "get:rust_arc_decrement_strong_count_KyberPreKeyRecordPtr",
+          "get:rust_arc_decrement_strong_count_KyberPublicKey",
+          "get:rust_arc_decrement_strong_count_KyberPublicKeyPtr",
+          "get:rust_arc_decrement_strong_count_KyberSecretKey",
+          "get:rust_arc_decrement_strong_count_KyberSecretKeyPtr",
+          "get:rust_arc_decrement_strong_count_PreKeyBundle",
+          "get:rust_arc_decrement_strong_count_PreKeyBundlePtr",
+          "get:rust_arc_decrement_strong_count_PreKeyRecord",
+          "get:rust_arc_decrement_strong_count_PreKeyRecordPtr",
+          "get:rust_arc_decrement_strong_count_PrivateKey",
+          "get:rust_arc_decrement_strong_count_PrivateKeyPtr",
+          "get:rust_arc_decrement_strong_count_ProtocolAddress",
+          "get:rust_arc_decrement_strong_count_ProtocolAddressPtr",
+          "get:rust_arc_decrement_strong_count_PublicKey",
+          "get:rust_arc_decrement_strong_count_PublicKeyPtr",
+          "get:rust_arc_decrement_strong_count_SessionRecord",
+          "get:rust_arc_decrement_strong_count_SessionRecordPtr",
+          "get:rust_arc_decrement_strong_count_SignalMessage",
+          "get:rust_arc_decrement_strong_count_SignalMessagePtr",
+          "get:rust_arc_decrement_strong_count_SignedPreKeyRecord",
+          "get:rust_arc_decrement_strong_count_SignedPreKeyRecordPtr",
+          "get:rust_arc_increment_strong_count_Aes256GcmSiv",
+          "get:rust_arc_increment_strong_count_DecryptionErrorMessage",
+          "get:rust_arc_increment_strong_count_Fingerprint",
+          "get:rust_arc_increment_strong_count_IdentityKeyPair",
+          "get:rust_arc_increment_strong_count_KyberKeyPair",
+          "get:rust_arc_increment_strong_count_KyberPreKeyRecord",
+          "get:rust_arc_increment_strong_count_KyberPublicKey",
+          "get:rust_arc_increment_strong_count_KyberSecretKey",
+          "get:rust_arc_increment_strong_count_PreKeyBundle",
+          "get:rust_arc_increment_strong_count_PreKeyRecord",
+          "get:rust_arc_increment_strong_count_PrivateKey",
+          "get:rust_arc_increment_strong_count_ProtocolAddress",
+          "get:rust_arc_increment_strong_count_PublicKey",
+          "get:rust_arc_increment_strong_count_SessionRecord",
+          "get:rust_arc_increment_strong_count_SignalMessage",
+          "get:rust_arc_increment_strong_count_SignedPreKeyRecord"
+        ],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "crateApiAddressProtocolAddressDeviceId",
+          "crateApiAddressProtocolAddressName",
+          "crateApiAddressProtocolAddressNew",
+          "crateApiBundlePreKeyBundleDeviceId",
+          "crateApiBundlePreKeyBundleIdentityKey",
+          "crateApiBundlePreKeyBundleKyberPreKeyId",
+          "crateApiBundlePreKeyBundleKyberPreKeyPublic",
+          "crateApiBundlePreKeyBundleKyberPreKeySignature",
+          "crateApiBundlePreKeyBundleNew",
+          "crateApiBundlePreKeyBundlePreKeyId",
+          "crateApiBundlePreKeyBundlePreKeyPublic",
+          "crateApiBundlePreKeyBundleRegistrationId",
+          "crateApiBundlePreKeyBundleSignedPreKeyId",
+          "crateApiBundlePreKeyBundleSignedPreKeyPublic",
+          "crateApiBundlePreKeyBundleSignedPreKeySignature",
+          "crateApiCryptoAes256GcmSivDecrypt",
+          "crateApiCryptoAes256GcmSivEncrypt",
+          "crateApiCryptoAes256GcmSivNew",
+          "crateApiCryptoFingerprintCloneFingerprint",
+          "crateApiCryptoFingerprintCompare",
+          "crateApiCryptoFingerprintDisplayString",
+          "crateApiCryptoFingerprintNew",
+          "crateApiCryptoFingerprintScannableEncoding",
+          "crateApiCryptoHkdfDerive",
+          "crateApiGroupSessionCreateSenderKeyDistributionMessageWithCallbacks",
+          "crateApiGroupSessionGroupDecryptWithCallbacks",
+          "crateApiGroupSessionGroupEncryptWithCallbacks",
+          "crateApiGroupSessionProcessSenderKeyDistributionMessageWithCallbacks",
+          "crateApiInitInitLibsignal",
+          "crateApiInitIsLibsignalInitialized",
+          "crateApiKeysIdentityKeyPairDeserialize",
+          "crateApiKeysIdentityKeyPairFromKeys",
+          "crateApiKeysIdentityKeyPairGenerate",
+          "crateApiKeysIdentityKeyPairPrivateKey",
+          "crateApiKeysIdentityKeyPairPublicKey",
+          "crateApiKeysIdentityKeyPairSerialize",
+          "crateApiKeysIdentityKeyPairSignAlternateIdentity",
+          "crateApiKeysIdentityKeypairSerializeRaw",
+          "crateApiKeysIdentityKeypairSignAlternateIdentityRaw",
+          "crateApiKeysPrivateKeyAgree",
+          "crateApiKeysPrivateKeyCloneKey",
+          "crateApiKeysPrivateKeyDeserialize",
+          "crateApiKeysPrivateKeyGenerate",
+          "crateApiKeysPrivateKeyGetPublicKey",
+          "crateApiKeysPrivateKeySerialize",
+          "crateApiKeysPrivateKeySign",
+          "crateApiKeysPublicKeyCloneKey",
+          "crateApiKeysPublicKeyCompare",
+          "crateApiKeysPublicKeyDeserialize",
+          "crateApiKeysPublicKeyEquals",
+          "crateApiKeysPublicKeyGetPublicKeyBytes",
+          "crateApiKeysPublicKeySerialize",
+          "crateApiKeysPublicKeyVerify",
+          "crateApiKyberKyberKeyPairCloneKey",
+          "crateApiKyberKyberKeyPairGenerate",
+          "crateApiKyberKyberKeyPairGetPublicKey",
+          "crateApiKyberKyberKeyPairGetSecretKey",
+          "crateApiKyberKyberPreKeyRecordCloneRecord",
+          "crateApiKyberKyberPreKeyRecordCreate",
+          "crateApiKyberKyberPreKeyRecordDeserialize",
+          "crateApiKyberKyberPreKeyRecordGetKeyPair",
+          "crateApiKyberKyberPreKeyRecordGetPublicKey",
+          "crateApiKyberKyberPreKeyRecordGetSecretKey",
+          "crateApiKyberKyberPreKeyRecordId",
+          "crateApiKyberKyberPreKeyRecordSerialize",
+          "crateApiKyberKyberPreKeyRecordSignature",
+          "crateApiKyberKyberPreKeyRecordTimestamp",
+          "crateApiKyberKyberPublicKeyCloneKey",
+          "crateApiKyberKyberPublicKeyDeserialize",
+          "crateApiKyberKyberPublicKeyEquals",
+          "crateApiKyberKyberPublicKeySerialize",
+          "crateApiKyberKyberSecretKeyCloneKey",
+          "crateApiKyberKyberSecretKeyDeserialize",
+          "crateApiKyberKyberSecretKeySerialize",
+          "crateApiMessageDecryptionErrorMessageCloneMessage",
+          "crateApiMessageDecryptionErrorMessageDeserialize",
+          "crateApiMessageDecryptionErrorMessageDeviceId",
+          "crateApiMessageDecryptionErrorMessageExtractFromSerializedContent",
+          "crateApiMessageDecryptionErrorMessageForOriginalMessage",
+          "crateApiMessageDecryptionErrorMessageRatchetKey",
+          "crateApiMessageDecryptionErrorMessageSerialize",
+          "crateApiMessageDecryptionErrorMessageTimestamp",
+          "crateApiMessageSignalMessageBody",
+          "crateApiMessageSignalMessageCloneMessage",
+          "crateApiMessageSignalMessageCounter",
+          "crateApiMessageSignalMessageDeserialize",
+          "crateApiMessageSignalMessageMessageVersion",
+          "crateApiMessageSignalMessagePqRatchet",
+          "crateApiMessageSignalMessageSenderRatchetKey",
+          "crateApiMessageSignalMessageSerialize",
+          "crateApiMessageSignalMessageVerifyMac",
+          "crateApiPrekeyPreKeyRecordDeserialize",
+          "crateApiPrekeyPreKeyRecordId",
+          "crateApiPrekeyPreKeyRecordNew",
+          "crateApiPrekeyPreKeyRecordPrivateKey",
+          "crateApiPrekeyPreKeyRecordPublicKey",
+          "crateApiPrekeyPreKeyRecordSerialize",
+          "crateApiSealedSenderCreateSenderCertificate",
+          "crateApiSealedSenderCreateServerCertificate",
+          "crateApiSealedSenderSealedSenderDecryptWithCallbacks",
+          "crateApiSealedSenderSealedSenderEncryptWithCallbacks",
+          "crateApiSealedSenderSenderCertificateGetExpiration",
+          "crateApiSealedSenderSenderCertificateGetKey",
+          "crateApiSealedSenderSenderCertificateGetSenderDeviceId",
+          "crateApiSealedSenderSenderCertificateGetSenderName",
+          "crateApiSealedSenderValidateSenderCertificate",
+          "crateApiSessionBuilderProcessPrekeyBundleWithCallbacks",
+          "crateApiSessionCipherExtractPrekeyMessageIds",
+          "crateApiSessionCipherMessageDecryptPrekeyWithCallbacks",
+          "crateApiSessionCipherMessageDecryptSignalWithCallbacks",
+          "crateApiSessionCipherMessageEncryptWithCallbacks",
+          "crateApiSessionSessionRecordArchiveCurrentState",
+          "crateApiSessionSessionRecordCloneRecord",
+          "crateApiSessionSessionRecordCurrentRatchetKeyMatches",
+          "crateApiSessionSessionRecordDeserialize",
+          "crateApiSessionSessionRecordHasUsableSenderChain",
+          "crateApiSessionSessionRecordLocalRegistrationId",
+          "crateApiSessionSessionRecordRemoteRegistrationId",
+          "crateApiSessionSessionRecordSerialize",
+          "crateApiSignedPrekeySignedPreKeyRecordDeserialize",
+          "crateApiSignedPrekeySignedPreKeyRecordId",
+          "crateApiSignedPrekeySignedPreKeyRecordNew",
+          "crateApiSignedPrekeySignedPreKeyRecordPrivateKey",
+          "crateApiSignedPrekeySignedPreKeyRecordPublicKey",
+          "crateApiSignedPrekeySignedPreKeyRecordSerialize",
+          "crateApiSignedPrekeySignedPreKeyRecordSignature",
+          "crateApiSignedPrekeySignedPreKeyRecordTimestamp"
+        ],
+        "types": [
+          "Aes256GcmSiv",
+          "CreateSenderKeyDistributionResult",
+          "DecryptionErrorMessage",
+          "EncryptResult",
+          "Fingerprint",
+          "GroupDecryptResult",
+          "GroupEncryptResult",
+          "IdentityKeyPair",
+          "KyberKeyPair",
+          "KyberPreKeyRecord",
+          "KyberPublicKey",
+          "KyberSecretKey",
+          "PreKeyBundle",
+          "PreKeyMessageIds",
+          "PreKeyRecord",
+          "PrivateKey",
+          "ProtocolAddress",
+          "PublicKey",
+          "SealedSenderDecryptResult",
+          "SealedSenderEncryptResult",
+          "SessionRecord",
+          "SignalMessage",
+          "SignedPreKeyRecord"
+        ]
+      },
+      "RustLibApiImpl": {
+        "fields": [
+          "get:kCrateApiAddressProtocolAddressDeviceIdConstMeta",
+          "get:kCrateApiAddressProtocolAddressNameConstMeta",
+          "get:kCrateApiAddressProtocolAddressNewConstMeta",
+          "get:kCrateApiBundlePreKeyBundleDeviceIdConstMeta",
+          "get:kCrateApiBundlePreKeyBundleIdentityKeyConstMeta",
+          "get:kCrateApiBundlePreKeyBundleKyberPreKeyIdConstMeta",
+          "get:kCrateApiBundlePreKeyBundleKyberPreKeyPublicConstMeta",
+          "get:kCrateApiBundlePreKeyBundleKyberPreKeySignatureConstMeta",
+          "get:kCrateApiBundlePreKeyBundleNewConstMeta",
+          "get:kCrateApiBundlePreKeyBundlePreKeyIdConstMeta",
+          "get:kCrateApiBundlePreKeyBundlePreKeyPublicConstMeta",
+          "get:kCrateApiBundlePreKeyBundleRegistrationIdConstMeta",
+          "get:kCrateApiBundlePreKeyBundleSignedPreKeyIdConstMeta",
+          "get:kCrateApiBundlePreKeyBundleSignedPreKeyPublicConstMeta",
+          "get:kCrateApiBundlePreKeyBundleSignedPreKeySignatureConstMeta",
+          "get:kCrateApiCryptoAes256GcmSivDecryptConstMeta",
+          "get:kCrateApiCryptoAes256GcmSivEncryptConstMeta",
+          "get:kCrateApiCryptoAes256GcmSivNewConstMeta",
+          "get:kCrateApiCryptoFingerprintCloneFingerprintConstMeta",
+          "get:kCrateApiCryptoFingerprintCompareConstMeta",
+          "get:kCrateApiCryptoFingerprintDisplayStringConstMeta",
+          "get:kCrateApiCryptoFingerprintNewConstMeta",
+          "get:kCrateApiCryptoFingerprintScannableEncodingConstMeta",
+          "get:kCrateApiCryptoHkdfDeriveConstMeta",
+          "get:kCrateApiGroupSessionCreateSenderKeyDistributionMessageWithCallbacksConstMeta",
+          "get:kCrateApiGroupSessionGroupDecryptWithCallbacksConstMeta",
+          "get:kCrateApiGroupSessionGroupEncryptWithCallbacksConstMeta",
+          "get:kCrateApiGroupSessionProcessSenderKeyDistributionMessageWithCallbacksConstMeta",
+          "get:kCrateApiInitInitLibsignalConstMeta",
+          "get:kCrateApiInitIsLibsignalInitializedConstMeta",
+          "get:kCrateApiKeysIdentityKeyPairDeserializeConstMeta",
+          "get:kCrateApiKeysIdentityKeyPairFromKeysConstMeta",
+          "get:kCrateApiKeysIdentityKeyPairGenerateConstMeta",
+          "get:kCrateApiKeysIdentityKeyPairPrivateKeyConstMeta",
+          "get:kCrateApiKeysIdentityKeyPairPublicKeyConstMeta",
+          "get:kCrateApiKeysIdentityKeyPairSerializeConstMeta",
+          "get:kCrateApiKeysIdentityKeyPairSignAlternateIdentityConstMeta",
+          "get:kCrateApiKeysIdentityKeypairSerializeRawConstMeta",
+          "get:kCrateApiKeysIdentityKeypairSignAlternateIdentityRawConstMeta",
+          "get:kCrateApiKeysPrivateKeyAgreeConstMeta",
+          "get:kCrateApiKeysPrivateKeyCloneKeyConstMeta",
+          "get:kCrateApiKeysPrivateKeyDeserializeConstMeta",
+          "get:kCrateApiKeysPrivateKeyGenerateConstMeta",
+          "get:kCrateApiKeysPrivateKeyGetPublicKeyConstMeta",
+          "get:kCrateApiKeysPrivateKeySerializeConstMeta",
+          "get:kCrateApiKeysPrivateKeySignConstMeta",
+          "get:kCrateApiKeysPublicKeyCloneKeyConstMeta",
+          "get:kCrateApiKeysPublicKeyCompareConstMeta",
+          "get:kCrateApiKeysPublicKeyDeserializeConstMeta",
+          "get:kCrateApiKeysPublicKeyEqualsConstMeta",
+          "get:kCrateApiKeysPublicKeyGetPublicKeyBytesConstMeta",
+          "get:kCrateApiKeysPublicKeySerializeConstMeta",
+          "get:kCrateApiKeysPublicKeyVerifyConstMeta",
+          "get:kCrateApiKyberKyberKeyPairCloneKeyConstMeta",
+          "get:kCrateApiKyberKyberKeyPairGenerateConstMeta",
+          "get:kCrateApiKyberKyberKeyPairGetPublicKeyConstMeta",
+          "get:kCrateApiKyberKyberKeyPairGetSecretKeyConstMeta",
+          "get:kCrateApiKyberKyberPreKeyRecordCloneRecordConstMeta",
+          "get:kCrateApiKyberKyberPreKeyRecordCreateConstMeta",
+          "get:kCrateApiKyberKyberPreKeyRecordDeserializeConstMeta",
+          "get:kCrateApiKyberKyberPreKeyRecordGetKeyPairConstMeta",
+          "get:kCrateApiKyberKyberPreKeyRecordGetPublicKeyConstMeta",
+          "get:kCrateApiKyberKyberPreKeyRecordGetSecretKeyConstMeta",
+          "get:kCrateApiKyberKyberPreKeyRecordIdConstMeta",
+          "get:kCrateApiKyberKyberPreKeyRecordSerializeConstMeta",
+          "get:kCrateApiKyberKyberPreKeyRecordSignatureConstMeta",
+          "get:kCrateApiKyberKyberPreKeyRecordTimestampConstMeta",
+          "get:kCrateApiKyberKyberPublicKeyCloneKeyConstMeta",
+          "get:kCrateApiKyberKyberPublicKeyDeserializeConstMeta",
+          "get:kCrateApiKyberKyberPublicKeyEqualsConstMeta",
+          "get:kCrateApiKyberKyberPublicKeySerializeConstMeta",
+          "get:kCrateApiKyberKyberSecretKeyCloneKeyConstMeta",
+          "get:kCrateApiKyberKyberSecretKeyDeserializeConstMeta",
+          "get:kCrateApiKyberKyberSecretKeySerializeConstMeta",
+          "get:kCrateApiMessageDecryptionErrorMessageCloneMessageConstMeta",
+          "get:kCrateApiMessageDecryptionErrorMessageDeserializeConstMeta",
+          "get:kCrateApiMessageDecryptionErrorMessageDeviceIdConstMeta",
+          "get:kCrateApiMessageDecryptionErrorMessageExtractFromSerializedContentConstMeta",
+          "get:kCrateApiMessageDecryptionErrorMessageForOriginalMessageConstMeta",
+          "get:kCrateApiMessageDecryptionErrorMessageRatchetKeyConstMeta",
+          "get:kCrateApiMessageDecryptionErrorMessageSerializeConstMeta",
+          "get:kCrateApiMessageDecryptionErrorMessageTimestampConstMeta",
+          "get:kCrateApiMessageSignalMessageBodyConstMeta",
+          "get:kCrateApiMessageSignalMessageCloneMessageConstMeta",
+          "get:kCrateApiMessageSignalMessageCounterConstMeta",
+          "get:kCrateApiMessageSignalMessageDeserializeConstMeta",
+          "get:kCrateApiMessageSignalMessageMessageVersionConstMeta",
+          "get:kCrateApiMessageSignalMessagePqRatchetConstMeta",
+          "get:kCrateApiMessageSignalMessageSenderRatchetKeyConstMeta",
+          "get:kCrateApiMessageSignalMessageSerializeConstMeta",
+          "get:kCrateApiMessageSignalMessageVerifyMacConstMeta",
+          "get:kCrateApiPrekeyPreKeyRecordDeserializeConstMeta",
+          "get:kCrateApiPrekeyPreKeyRecordIdConstMeta",
+          "get:kCrateApiPrekeyPreKeyRecordNewConstMeta",
+          "get:kCrateApiPrekeyPreKeyRecordPrivateKeyConstMeta",
+          "get:kCrateApiPrekeyPreKeyRecordPublicKeyConstMeta",
+          "get:kCrateApiPrekeyPreKeyRecordSerializeConstMeta",
+          "get:kCrateApiSealedSenderCreateSenderCertificateConstMeta",
+          "get:kCrateApiSealedSenderCreateServerCertificateConstMeta",
+          "get:kCrateApiSealedSenderSealedSenderDecryptWithCallbacksConstMeta",
+          "get:kCrateApiSealedSenderSealedSenderEncryptWithCallbacksConstMeta",
+          "get:kCrateApiSealedSenderSenderCertificateGetExpirationConstMeta",
+          "get:kCrateApiSealedSenderSenderCertificateGetKeyConstMeta",
+          "get:kCrateApiSealedSenderSenderCertificateGetSenderDeviceIdConstMeta",
+          "get:kCrateApiSealedSenderSenderCertificateGetSenderNameConstMeta",
+          "get:kCrateApiSealedSenderValidateSenderCertificateConstMeta",
+          "get:kCrateApiSessionBuilderProcessPrekeyBundleWithCallbacksConstMeta",
+          "get:kCrateApiSessionCipherExtractPrekeyMessageIdsConstMeta",
+          "get:kCrateApiSessionCipherMessageDecryptPrekeyWithCallbacksConstMeta",
+          "get:kCrateApiSessionCipherMessageDecryptSignalWithCallbacksConstMeta",
+          "get:kCrateApiSessionCipherMessageEncryptWithCallbacksConstMeta",
+          "get:kCrateApiSessionSessionRecordArchiveCurrentStateConstMeta",
+          "get:kCrateApiSessionSessionRecordCloneRecordConstMeta",
+          "get:kCrateApiSessionSessionRecordCurrentRatchetKeyMatchesConstMeta",
+          "get:kCrateApiSessionSessionRecordDeserializeConstMeta",
+          "get:kCrateApiSessionSessionRecordHasUsableSenderChainConstMeta",
+          "get:kCrateApiSessionSessionRecordLocalRegistrationIdConstMeta",
+          "get:kCrateApiSessionSessionRecordRemoteRegistrationIdConstMeta",
+          "get:kCrateApiSessionSessionRecordSerializeConstMeta",
+          "get:kCrateApiSignedPrekeySignedPreKeyRecordDeserializeConstMeta",
+          "get:kCrateApiSignedPrekeySignedPreKeyRecordIdConstMeta",
+          "get:kCrateApiSignedPrekeySignedPreKeyRecordNewConstMeta",
+          "get:kCrateApiSignedPrekeySignedPreKeyRecordPrivateKeyConstMeta",
+          "get:kCrateApiSignedPrekeySignedPreKeyRecordPublicKeyConstMeta",
+          "get:kCrateApiSignedPrekeySignedPreKeyRecordSerializeConstMeta",
+          "get:kCrateApiSignedPrekeySignedPreKeyRecordSignatureConstMeta",
+          "get:kCrateApiSignedPrekeySignedPreKeyRecordTimestampConstMeta",
+          "get:rust_arc_decrement_strong_count_Aes256GcmSiv",
+          "get:rust_arc_decrement_strong_count_DecryptionErrorMessage",
+          "get:rust_arc_decrement_strong_count_Fingerprint",
+          "get:rust_arc_decrement_strong_count_IdentityKeyPair",
+          "get:rust_arc_decrement_strong_count_KyberKeyPair",
+          "get:rust_arc_decrement_strong_count_KyberPreKeyRecord",
+          "get:rust_arc_decrement_strong_count_KyberPublicKey",
+          "get:rust_arc_decrement_strong_count_KyberSecretKey",
+          "get:rust_arc_decrement_strong_count_PreKeyBundle",
+          "get:rust_arc_decrement_strong_count_PreKeyRecord",
+          "get:rust_arc_decrement_strong_count_PrivateKey",
+          "get:rust_arc_decrement_strong_count_ProtocolAddress",
+          "get:rust_arc_decrement_strong_count_PublicKey",
+          "get:rust_arc_decrement_strong_count_SessionRecord",
+          "get:rust_arc_decrement_strong_count_SignalMessage",
+          "get:rust_arc_decrement_strong_count_SignedPreKeyRecord",
+          "get:rust_arc_increment_strong_count_Aes256GcmSiv",
+          "get:rust_arc_increment_strong_count_DecryptionErrorMessage",
+          "get:rust_arc_increment_strong_count_Fingerprint",
+          "get:rust_arc_increment_strong_count_IdentityKeyPair",
+          "get:rust_arc_increment_strong_count_KyberKeyPair",
+          "get:rust_arc_increment_strong_count_KyberPreKeyRecord",
+          "get:rust_arc_increment_strong_count_KyberPublicKey",
+          "get:rust_arc_increment_strong_count_KyberSecretKey",
+          "get:rust_arc_increment_strong_count_PreKeyBundle",
+          "get:rust_arc_increment_strong_count_PreKeyRecord",
+          "get:rust_arc_increment_strong_count_PrivateKey",
+          "get:rust_arc_increment_strong_count_ProtocolAddress",
+          "get:rust_arc_increment_strong_count_PublicKey",
+          "get:rust_arc_increment_strong_count_SessionRecord",
+          "get:rust_arc_increment_strong_count_SignalMessage",
+          "get:rust_arc_increment_strong_count_SignedPreKeyRecord"
+        ],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "RustLibApiImpl",
+          "crateApiAddressProtocolAddressDeviceId",
+          "crateApiAddressProtocolAddressName",
+          "crateApiAddressProtocolAddressNew",
+          "crateApiBundlePreKeyBundleDeviceId",
+          "crateApiBundlePreKeyBundleIdentityKey",
+          "crateApiBundlePreKeyBundleKyberPreKeyId",
+          "crateApiBundlePreKeyBundleKyberPreKeyPublic",
+          "crateApiBundlePreKeyBundleKyberPreKeySignature",
+          "crateApiBundlePreKeyBundleNew",
+          "crateApiBundlePreKeyBundlePreKeyId",
+          "crateApiBundlePreKeyBundlePreKeyPublic",
+          "crateApiBundlePreKeyBundleRegistrationId",
+          "crateApiBundlePreKeyBundleSignedPreKeyId",
+          "crateApiBundlePreKeyBundleSignedPreKeyPublic",
+          "crateApiBundlePreKeyBundleSignedPreKeySignature",
+          "crateApiCryptoAes256GcmSivDecrypt",
+          "crateApiCryptoAes256GcmSivEncrypt",
+          "crateApiCryptoAes256GcmSivNew",
+          "crateApiCryptoFingerprintCloneFingerprint",
+          "crateApiCryptoFingerprintCompare",
+          "crateApiCryptoFingerprintDisplayString",
+          "crateApiCryptoFingerprintNew",
+          "crateApiCryptoFingerprintScannableEncoding",
+          "crateApiCryptoHkdfDerive",
+          "crateApiGroupSessionCreateSenderKeyDistributionMessageWithCallbacks",
+          "crateApiGroupSessionGroupDecryptWithCallbacks",
+          "crateApiGroupSessionGroupEncryptWithCallbacks",
+          "crateApiGroupSessionProcessSenderKeyDistributionMessageWithCallbacks",
+          "crateApiInitInitLibsignal",
+          "crateApiInitIsLibsignalInitialized",
+          "crateApiKeysIdentityKeyPairDeserialize",
+          "crateApiKeysIdentityKeyPairFromKeys",
+          "crateApiKeysIdentityKeyPairGenerate",
+          "crateApiKeysIdentityKeyPairPrivateKey",
+          "crateApiKeysIdentityKeyPairPublicKey",
+          "crateApiKeysIdentityKeyPairSerialize",
+          "crateApiKeysIdentityKeyPairSignAlternateIdentity",
+          "crateApiKeysIdentityKeypairSerializeRaw",
+          "crateApiKeysIdentityKeypairSignAlternateIdentityRaw",
+          "crateApiKeysPrivateKeyAgree",
+          "crateApiKeysPrivateKeyCloneKey",
+          "crateApiKeysPrivateKeyDeserialize",
+          "crateApiKeysPrivateKeyGenerate",
+          "crateApiKeysPrivateKeyGetPublicKey",
+          "crateApiKeysPrivateKeySerialize",
+          "crateApiKeysPrivateKeySign",
+          "crateApiKeysPublicKeyCloneKey",
+          "crateApiKeysPublicKeyCompare",
+          "crateApiKeysPublicKeyDeserialize",
+          "crateApiKeysPublicKeyEquals",
+          "crateApiKeysPublicKeyGetPublicKeyBytes",
+          "crateApiKeysPublicKeySerialize",
+          "crateApiKeysPublicKeyVerify",
+          "crateApiKyberKyberKeyPairCloneKey",
+          "crateApiKyberKyberKeyPairGenerate",
+          "crateApiKyberKyberKeyPairGetPublicKey",
+          "crateApiKyberKyberKeyPairGetSecretKey",
+          "crateApiKyberKyberPreKeyRecordCloneRecord",
+          "crateApiKyberKyberPreKeyRecordCreate",
+          "crateApiKyberKyberPreKeyRecordDeserialize",
+          "crateApiKyberKyberPreKeyRecordGetKeyPair",
+          "crateApiKyberKyberPreKeyRecordGetPublicKey",
+          "crateApiKyberKyberPreKeyRecordGetSecretKey",
+          "crateApiKyberKyberPreKeyRecordId",
+          "crateApiKyberKyberPreKeyRecordSerialize",
+          "crateApiKyberKyberPreKeyRecordSignature",
+          "crateApiKyberKyberPreKeyRecordTimestamp",
+          "crateApiKyberKyberPublicKeyCloneKey",
+          "crateApiKyberKyberPublicKeyDeserialize",
+          "crateApiKyberKyberPublicKeyEquals",
+          "crateApiKyberKyberPublicKeySerialize",
+          "crateApiKyberKyberSecretKeyCloneKey",
+          "crateApiKyberKyberSecretKeyDeserialize",
+          "crateApiKyberKyberSecretKeySerialize",
+          "crateApiMessageDecryptionErrorMessageCloneMessage",
+          "crateApiMessageDecryptionErrorMessageDeserialize",
+          "crateApiMessageDecryptionErrorMessageDeviceId",
+          "crateApiMessageDecryptionErrorMessageExtractFromSerializedContent",
+          "crateApiMessageDecryptionErrorMessageForOriginalMessage",
+          "crateApiMessageDecryptionErrorMessageRatchetKey",
+          "crateApiMessageDecryptionErrorMessageSerialize",
+          "crateApiMessageDecryptionErrorMessageTimestamp",
+          "crateApiMessageSignalMessageBody",
+          "crateApiMessageSignalMessageCloneMessage",
+          "crateApiMessageSignalMessageCounter",
+          "crateApiMessageSignalMessageDeserialize",
+          "crateApiMessageSignalMessageMessageVersion",
+          "crateApiMessageSignalMessagePqRatchet",
+          "crateApiMessageSignalMessageSenderRatchetKey",
+          "crateApiMessageSignalMessageSerialize",
+          "crateApiMessageSignalMessageVerifyMac",
+          "crateApiPrekeyPreKeyRecordDeserialize",
+          "crateApiPrekeyPreKeyRecordId",
+          "crateApiPrekeyPreKeyRecordNew",
+          "crateApiPrekeyPreKeyRecordPrivateKey",
+          "crateApiPrekeyPreKeyRecordPublicKey",
+          "crateApiPrekeyPreKeyRecordSerialize",
+          "crateApiSealedSenderCreateSenderCertificate",
+          "crateApiSealedSenderCreateServerCertificate",
+          "crateApiSealedSenderSealedSenderDecryptWithCallbacks",
+          "crateApiSealedSenderSealedSenderEncryptWithCallbacks",
+          "crateApiSealedSenderSenderCertificateGetExpiration",
+          "crateApiSealedSenderSenderCertificateGetKey",
+          "crateApiSealedSenderSenderCertificateGetSenderDeviceId",
+          "crateApiSealedSenderSenderCertificateGetSenderName",
+          "crateApiSealedSenderValidateSenderCertificate",
+          "crateApiSessionBuilderProcessPrekeyBundleWithCallbacks",
+          "crateApiSessionCipherExtractPrekeyMessageIds",
+          "crateApiSessionCipherMessageDecryptPrekeyWithCallbacks",
+          "crateApiSessionCipherMessageDecryptSignalWithCallbacks",
+          "crateApiSessionCipherMessageEncryptWithCallbacks",
+          "crateApiSessionSessionRecordArchiveCurrentState",
+          "crateApiSessionSessionRecordCloneRecord",
+          "crateApiSessionSessionRecordCurrentRatchetKeyMatches",
+          "crateApiSessionSessionRecordDeserialize",
+          "crateApiSessionSessionRecordHasUsableSenderChain",
+          "crateApiSessionSessionRecordLocalRegistrationId",
+          "crateApiSessionSessionRecordRemoteRegistrationId",
+          "crateApiSessionSessionRecordSerialize",
+          "crateApiSignedPrekeySignedPreKeyRecordDeserialize",
+          "crateApiSignedPrekeySignedPreKeyRecordId",
+          "crateApiSignedPrekeySignedPreKeyRecordNew",
+          "crateApiSignedPrekeySignedPreKeyRecordPrivateKey",
+          "crateApiSignedPrekeySignedPreKeyRecordPublicKey",
+          "crateApiSignedPrekeySignedPreKeyRecordSerialize",
+          "crateApiSignedPrekeySignedPreKeyRecordSignature",
+          "crateApiSignedPrekeySignedPreKeyRecordTimestamp",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "cst_encode_DartFn_Inputs_String_u_32_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "cst_encode_DartFn_Inputs_String_u_32_String_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "cst_encode_DartFn_Inputs_String_u_32_String_list_prim_u_8_strict_Output_unit_AnyhowException",
+          "cst_encode_DartFn_Inputs_String_u_32_list_prim_u_8_strict_Output_unit_AnyhowException",
+          "cst_encode_DartFn_Inputs__Output_list_prim_u_8_strict_AnyhowException",
+          "cst_encode_DartFn_Inputs__Output_u_32_AnyhowException",
+          "cst_encode_DartFn_Inputs_u_32_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "cst_encode_DartFn_Inputs_u_32_Output_unit_AnyhowException",
+          "cst_encode_DartOpaque",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "cst_encode_bool",
+          "cst_encode_i_32",
+          "cst_encode_u_32",
+          "cst_encode_u_8",
+          "cst_encode_unit",
+          "dco_decode_AnyhowException",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "dco_decode_DartFn_Inputs_String_u_32_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "dco_decode_DartFn_Inputs_String_u_32_String_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "dco_decode_DartFn_Inputs_String_u_32_String_list_prim_u_8_strict_Output_unit_AnyhowException",
+          "dco_decode_DartFn_Inputs_String_u_32_list_prim_u_8_strict_Output_unit_AnyhowException",
+          "dco_decode_DartFn_Inputs__Output_list_prim_u_8_strict_AnyhowException",
+          "dco_decode_DartFn_Inputs__Output_u_32_AnyhowException",
+          "dco_decode_DartFn_Inputs_u_32_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "dco_decode_DartFn_Inputs_u_32_Output_unit_AnyhowException",
+          "dco_decode_DartOpaque",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "dco_decode_String",
+          "dco_decode_bool",
+          "dco_decode_box_autoadd_u_32",
+          "dco_decode_create_sender_key_distribution_result",
+          "dco_decode_encrypt_result",
+          "dco_decode_group_decrypt_result",
+          "dco_decode_group_encrypt_result",
+          "dco_decode_i_32",
+          "dco_decode_isize",
+          "dco_decode_list_prim_u_8_loose",
+          "dco_decode_list_prim_u_8_strict",
+          "dco_decode_opt_box_autoadd_u_32",
+          "dco_decode_opt_list_prim_u_8_strict",
+          "dco_decode_pre_key_message_ids",
+          "dco_decode_sealed_sender_decrypt_result",
+          "dco_decode_sealed_sender_encrypt_result",
+          "dco_decode_u_32",
+          "dco_decode_u_64",
+          "dco_decode_u_8",
+          "dco_decode_unit",
+          "dco_decode_usize",
+          "encode_DartFn_Inputs_String_u_32_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "encode_DartFn_Inputs_String_u_32_String_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "encode_DartFn_Inputs_String_u_32_String_list_prim_u_8_strict_Output_unit_AnyhowException",
+          "encode_DartFn_Inputs_String_u_32_list_prim_u_8_strict_Output_unit_AnyhowException",
+          "encode_DartFn_Inputs__Output_list_prim_u_8_strict_AnyhowException",
+          "encode_DartFn_Inputs__Output_u_32_AnyhowException",
+          "encode_DartFn_Inputs_u_32_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "encode_DartFn_Inputs_u_32_Output_unit_AnyhowException",
+          "sse_decode_AnyhowException",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "sse_decode_DartOpaque",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "sse_decode_String",
+          "sse_decode_bool",
+          "sse_decode_box_autoadd_u_32",
+          "sse_decode_create_sender_key_distribution_result",
+          "sse_decode_encrypt_result",
+          "sse_decode_group_decrypt_result",
+          "sse_decode_group_encrypt_result",
+          "sse_decode_i_32",
+          "sse_decode_isize",
+          "sse_decode_list_prim_u_8_loose",
+          "sse_decode_list_prim_u_8_strict",
+          "sse_decode_opt_box_autoadd_u_32",
+          "sse_decode_opt_list_prim_u_8_strict",
+          "sse_decode_pre_key_message_ids",
+          "sse_decode_sealed_sender_decrypt_result",
+          "sse_decode_sealed_sender_encrypt_result",
+          "sse_decode_u_32",
+          "sse_decode_u_64",
+          "sse_decode_u_8",
+          "sse_decode_unit",
+          "sse_decode_usize",
+          "sse_encode_AnyhowException",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "sse_encode_DartFn_Inputs_String_u_32_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "sse_encode_DartFn_Inputs_String_u_32_String_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "sse_encode_DartFn_Inputs_String_u_32_String_list_prim_u_8_strict_Output_unit_AnyhowException",
+          "sse_encode_DartFn_Inputs_String_u_32_list_prim_u_8_strict_Output_unit_AnyhowException",
+          "sse_encode_DartFn_Inputs__Output_list_prim_u_8_strict_AnyhowException",
+          "sse_encode_DartFn_Inputs__Output_u_32_AnyhowException",
+          "sse_encode_DartFn_Inputs_u_32_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "sse_encode_DartFn_Inputs_u_32_Output_unit_AnyhowException",
+          "sse_encode_DartOpaque",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "sse_encode_String",
+          "sse_encode_bool",
+          "sse_encode_box_autoadd_u_32",
+          "sse_encode_create_sender_key_distribution_result",
+          "sse_encode_encrypt_result",
+          "sse_encode_group_decrypt_result",
+          "sse_encode_group_encrypt_result",
+          "sse_encode_i_32",
+          "sse_encode_isize",
+          "sse_encode_list_prim_u_8_loose",
+          "sse_encode_list_prim_u_8_strict",
+          "sse_encode_opt_box_autoadd_u_32",
+          "sse_encode_opt_list_prim_u_8_strict",
+          "sse_encode_pre_key_message_ids",
+          "sse_encode_sealed_sender_decrypt_result",
+          "sse_encode_sealed_sender_encrypt_result",
+          "sse_encode_u_32",
+          "sse_encode_u_64",
+          "sse_encode_u_8",
+          "sse_encode_unit",
+          "sse_encode_usize"
+        ],
+        "types": [
+          "Aes256GcmSiv",
+          "CreateSenderKeyDistributionResult",
+          "DecryptionErrorMessage",
+          "EncryptResult",
+          "Fingerprint",
+          "GroupDecryptResult",
+          "GroupEncryptResult",
+          "IdentityKeyPair",
+          "KyberKeyPair",
+          "KyberPreKeyRecord",
+          "KyberPublicKey",
+          "KyberSecretKey",
+          "PreKeyBundle",
+          "PreKeyMessageIds",
+          "PreKeyRecord",
+          "PrivateKey",
+          "ProtocolAddress",
+          "PublicKey",
+          "RustLibApi",
+          "RustLibApiImplPlatform",
+          "SealedSenderDecryptResult",
+          "SealedSenderEncryptResult",
+          "SessionRecord",
+          "SignalMessage",
+          "SignedPreKeyRecord"
+        ]
+      },
+      "RustLibApiImplPlatform": {
+        "fields": [
+          "get:rust_arc_decrement_strong_count_Aes256GcmSivPtr",
+          "get:rust_arc_decrement_strong_count_DecryptionErrorMessagePtr",
+          "get:rust_arc_decrement_strong_count_FingerprintPtr",
+          "get:rust_arc_decrement_strong_count_IdentityKeyPairPtr",
+          "get:rust_arc_decrement_strong_count_KyberKeyPairPtr",
+          "get:rust_arc_decrement_strong_count_KyberPreKeyRecordPtr",
+          "get:rust_arc_decrement_strong_count_KyberPublicKeyPtr",
+          "get:rust_arc_decrement_strong_count_KyberSecretKeyPtr",
+          "get:rust_arc_decrement_strong_count_PreKeyBundlePtr",
+          "get:rust_arc_decrement_strong_count_PreKeyRecordPtr",
+          "get:rust_arc_decrement_strong_count_PrivateKeyPtr",
+          "get:rust_arc_decrement_strong_count_ProtocolAddressPtr",
+          "get:rust_arc_decrement_strong_count_PublicKeyPtr",
+          "get:rust_arc_decrement_strong_count_SessionRecordPtr",
+          "get:rust_arc_decrement_strong_count_SignalMessagePtr",
+          "get:rust_arc_decrement_strong_count_SignedPreKeyRecordPtr"
+        ],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.io.dart",
+          "package:libsignal/src/rust/frb_generated.web.dart"
+        ],
+        "methods": [
+          "RustLibApiImplPlatform",
+          "cst_api_fill_to_wire_create_sender_key_distribution_result",
+          "cst_api_fill_to_wire_encrypt_result",
+          "cst_api_fill_to_wire_group_decrypt_result",
+          "cst_api_fill_to_wire_group_encrypt_result",
+          "cst_api_fill_to_wire_pre_key_message_ids",
+          "cst_api_fill_to_wire_sealed_sender_decrypt_result",
+          "cst_api_fill_to_wire_sealed_sender_encrypt_result",
+          "cst_encode_AnyhowException",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "cst_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "cst_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "cst_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "cst_encode_DartFn_Inputs_String_u_32_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "cst_encode_DartFn_Inputs_String_u_32_String_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "cst_encode_DartFn_Inputs_String_u_32_String_list_prim_u_8_strict_Output_unit_AnyhowException",
+          "cst_encode_DartFn_Inputs_String_u_32_list_prim_u_8_strict_Output_unit_AnyhowException",
+          "cst_encode_DartFn_Inputs__Output_list_prim_u_8_strict_AnyhowException",
+          "cst_encode_DartFn_Inputs__Output_u_32_AnyhowException",
+          "cst_encode_DartFn_Inputs_u_32_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "cst_encode_DartFn_Inputs_u_32_Output_unit_AnyhowException",
+          "cst_encode_DartOpaque",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "cst_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "cst_encode_String",
+          "cst_encode_bool",
+          "cst_encode_box_autoadd_u_32",
+          "cst_encode_create_sender_key_distribution_result",
+          "cst_encode_encrypt_result",
+          "cst_encode_group_decrypt_result",
+          "cst_encode_group_encrypt_result",
+          "cst_encode_i_32",
+          "cst_encode_isize",
+          "cst_encode_list_prim_u_8_loose",
+          "cst_encode_list_prim_u_8_strict",
+          "cst_encode_opt_box_autoadd_u_32",
+          "cst_encode_opt_list_prim_u_8_strict",
+          "cst_encode_pre_key_message_ids",
+          "cst_encode_sealed_sender_decrypt_result",
+          "cst_encode_sealed_sender_encrypt_result",
+          "cst_encode_u_32",
+          "cst_encode_u_64",
+          "cst_encode_u_8",
+          "cst_encode_unit",
+          "cst_encode_usize",
+          "dco_decode_AnyhowException",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "dco_decode_DartFn_Inputs_String_u_32_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "dco_decode_DartFn_Inputs_String_u_32_String_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "dco_decode_DartFn_Inputs_String_u_32_String_list_prim_u_8_strict_Output_unit_AnyhowException",
+          "dco_decode_DartFn_Inputs_String_u_32_list_prim_u_8_strict_Output_unit_AnyhowException",
+          "dco_decode_DartFn_Inputs__Output_list_prim_u_8_strict_AnyhowException",
+          "dco_decode_DartFn_Inputs__Output_u_32_AnyhowException",
+          "dco_decode_DartFn_Inputs_u_32_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "dco_decode_DartFn_Inputs_u_32_Output_unit_AnyhowException",
+          "dco_decode_DartOpaque",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "dco_decode_String",
+          "dco_decode_bool",
+          "dco_decode_box_autoadd_u_32",
+          "dco_decode_create_sender_key_distribution_result",
+          "dco_decode_encrypt_result",
+          "dco_decode_group_decrypt_result",
+          "dco_decode_group_encrypt_result",
+          "dco_decode_i_32",
+          "dco_decode_isize",
+          "dco_decode_list_prim_u_8_loose",
+          "dco_decode_list_prim_u_8_strict",
+          "dco_decode_opt_box_autoadd_u_32",
+          "dco_decode_opt_list_prim_u_8_strict",
+          "dco_decode_pre_key_message_ids",
+          "dco_decode_sealed_sender_decrypt_result",
+          "dco_decode_sealed_sender_encrypt_result",
+          "dco_decode_u_32",
+          "dco_decode_u_64",
+          "dco_decode_u_8",
+          "dco_decode_unit",
+          "dco_decode_usize",
+          "sse_decode_AnyhowException",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "sse_decode_DartOpaque",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "sse_decode_String",
+          "sse_decode_bool",
+          "sse_decode_box_autoadd_u_32",
+          "sse_decode_create_sender_key_distribution_result",
+          "sse_decode_encrypt_result",
+          "sse_decode_group_decrypt_result",
+          "sse_decode_group_encrypt_result",
+          "sse_decode_i_32",
+          "sse_decode_isize",
+          "sse_decode_list_prim_u_8_loose",
+          "sse_decode_list_prim_u_8_strict",
+          "sse_decode_opt_box_autoadd_u_32",
+          "sse_decode_opt_list_prim_u_8_strict",
+          "sse_decode_pre_key_message_ids",
+          "sse_decode_sealed_sender_decrypt_result",
+          "sse_decode_sealed_sender_encrypt_result",
+          "sse_decode_u_32",
+          "sse_decode_u_64",
+          "sse_decode_u_8",
+          "sse_decode_unit",
+          "sse_decode_usize",
+          "sse_encode_AnyhowException",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "sse_encode_DartFn_Inputs_String_u_32_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "sse_encode_DartFn_Inputs_String_u_32_String_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "sse_encode_DartFn_Inputs_String_u_32_String_list_prim_u_8_strict_Output_unit_AnyhowException",
+          "sse_encode_DartFn_Inputs_String_u_32_list_prim_u_8_strict_Output_unit_AnyhowException",
+          "sse_encode_DartFn_Inputs__Output_list_prim_u_8_strict_AnyhowException",
+          "sse_encode_DartFn_Inputs__Output_u_32_AnyhowException",
+          "sse_encode_DartFn_Inputs_u_32_Output_opt_list_prim_u_8_strict_AnyhowException",
+          "sse_encode_DartFn_Inputs_u_32_Output_unit_AnyhowException",
+          "sse_encode_DartOpaque",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "sse_encode_String",
+          "sse_encode_bool",
+          "sse_encode_box_autoadd_u_32",
+          "sse_encode_create_sender_key_distribution_result",
+          "sse_encode_encrypt_result",
+          "sse_encode_group_decrypt_result",
+          "sse_encode_group_encrypt_result",
+          "sse_encode_i_32",
+          "sse_encode_isize",
+          "sse_encode_list_prim_u_8_loose",
+          "sse_encode_list_prim_u_8_strict",
+          "sse_encode_opt_box_autoadd_u_32",
+          "sse_encode_opt_list_prim_u_8_strict",
+          "sse_encode_pre_key_message_ids",
+          "sse_encode_sealed_sender_decrypt_result",
+          "sse_encode_sealed_sender_encrypt_result",
+          "sse_encode_u_32",
+          "sse_encode_u_64",
+          "sse_encode_u_8",
+          "sse_encode_unit",
+          "sse_encode_usize"
+        ],
+        "types": [
+          "Aes256GcmSiv",
+          "CreateSenderKeyDistributionResult",
+          "DecryptionErrorMessage",
+          "EncryptResult",
+          "Fingerprint",
+          "GroupDecryptResult",
+          "GroupEncryptResult",
+          "IdentityKeyPair",
+          "KyberKeyPair",
+          "KyberPreKeyRecord",
+          "KyberPublicKey",
+          "KyberSecretKey",
+          "PreKeyBundle",
+          "PreKeyMessageIds",
+          "PreKeyRecord",
+          "PrivateKey",
+          "ProtocolAddress",
+          "PublicKey",
+          "RustLibWire",
+          "SealedSenderDecryptResult",
+          "SealedSenderEncryptResult",
+          "SessionRecord",
+          "SignalMessage",
+          "SignedPreKeyRecord",
+          "wire_cst_create_sender_key_distribution_result",
+          "wire_cst_encrypt_result",
+          "wire_cst_group_decrypt_result",
+          "wire_cst_group_encrypt_result",
+          "wire_cst_list_prim_u_8_loose",
+          "wire_cst_list_prim_u_8_strict",
+          "wire_cst_pre_key_message_ids",
+          "wire_cst_sealed_sender_decrypt_result",
+          "wire_cst_sealed_sender_encrypt_result"
+        ]
+      },
+      "RustLibWire": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.io.dart",
+          "package:libsignal/src/rust/frb_generated.web.dart"
+        ],
+        "methods": [
+          "RustLibWire",
+          "cst_new_box_autoadd_u_32",
+          "cst_new_list_prim_u_8_loose",
+          "cst_new_list_prim_u_8_strict",
+          "dummy_method_to_enforce_bundling",
+          "fromExternalLibrary",
+          "fromLookup",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+          "store_dart_post_cobject",
+          "wire__crate__api__address__ProtocolAddress_device_id",
+          "wire__crate__api__address__ProtocolAddress_name",
+          "wire__crate__api__address__ProtocolAddress_new",
+          "wire__crate__api__bundle__PreKeyBundle_device_id",
+          "wire__crate__api__bundle__PreKeyBundle_identity_key",
+          "wire__crate__api__bundle__PreKeyBundle_kyber_pre_key_id",
+          "wire__crate__api__bundle__PreKeyBundle_kyber_pre_key_public",
+          "wire__crate__api__bundle__PreKeyBundle_kyber_pre_key_signature",
+          "wire__crate__api__bundle__PreKeyBundle_new",
+          "wire__crate__api__bundle__PreKeyBundle_pre_key_id",
+          "wire__crate__api__bundle__PreKeyBundle_pre_key_public",
+          "wire__crate__api__bundle__PreKeyBundle_registration_id",
+          "wire__crate__api__bundle__PreKeyBundle_signed_pre_key_id",
+          "wire__crate__api__bundle__PreKeyBundle_signed_pre_key_public",
+          "wire__crate__api__bundle__PreKeyBundle_signed_pre_key_signature",
+          "wire__crate__api__crypto__Aes256GcmSiv_decrypt",
+          "wire__crate__api__crypto__Aes256GcmSiv_encrypt",
+          "wire__crate__api__crypto__Aes256GcmSiv_new",
+          "wire__crate__api__crypto__Fingerprint_clone_fingerprint",
+          "wire__crate__api__crypto__Fingerprint_display_string",
+          "wire__crate__api__crypto__Fingerprint_new",
+          "wire__crate__api__crypto__Fingerprint_scannable_encoding",
+          "wire__crate__api__crypto__fingerprint_compare",
+          "wire__crate__api__crypto__hkdf_derive",
+          "wire__crate__api__group_session__create_sender_key_distribution_message_with_callbacks",
+          "wire__crate__api__group_session__group_decrypt_with_callbacks",
+          "wire__crate__api__group_session__group_encrypt_with_callbacks",
+          "wire__crate__api__group_session__process_sender_key_distribution_message_with_callbacks",
+          "wire__crate__api__init__init_libsignal",
+          "wire__crate__api__init__is_libsignal_initialized",
+          "wire__crate__api__keys__IdentityKeyPair_deserialize",
+          "wire__crate__api__keys__IdentityKeyPair_from_keys",
+          "wire__crate__api__keys__IdentityKeyPair_generate",
+          "wire__crate__api__keys__IdentityKeyPair_private_key",
+          "wire__crate__api__keys__IdentityKeyPair_public_key",
+          "wire__crate__api__keys__IdentityKeyPair_serialize",
+          "wire__crate__api__keys__IdentityKeyPair_sign_alternate_identity",
+          "wire__crate__api__keys__PrivateKey_agree",
+          "wire__crate__api__keys__PrivateKey_clone_key",
+          "wire__crate__api__keys__PrivateKey_deserialize",
+          "wire__crate__api__keys__PrivateKey_generate",
+          "wire__crate__api__keys__PrivateKey_get_public_key",
+          "wire__crate__api__keys__PrivateKey_serialize",
+          "wire__crate__api__keys__PrivateKey_sign",
+          "wire__crate__api__keys__PublicKey_clone_key",
+          "wire__crate__api__keys__PublicKey_compare",
+          "wire__crate__api__keys__PublicKey_deserialize",
+          "wire__crate__api__keys__PublicKey_equals",
+          "wire__crate__api__keys__PublicKey_get_public_key_bytes",
+          "wire__crate__api__keys__PublicKey_serialize",
+          "wire__crate__api__keys__PublicKey_verify",
+          "wire__crate__api__keys__identity_keypair_serialize_raw",
+          "wire__crate__api__keys__identity_keypair_sign_alternate_identity_raw",
+          "wire__crate__api__kyber__KyberKeyPair_clone_key",
+          "wire__crate__api__kyber__KyberKeyPair_generate",
+          "wire__crate__api__kyber__KyberKeyPair_get_public_key",
+          "wire__crate__api__kyber__KyberKeyPair_get_secret_key",
+          "wire__crate__api__kyber__KyberPreKeyRecord_clone_record",
+          "wire__crate__api__kyber__KyberPreKeyRecord_create",
+          "wire__crate__api__kyber__KyberPreKeyRecord_deserialize",
+          "wire__crate__api__kyber__KyberPreKeyRecord_get_key_pair",
+          "wire__crate__api__kyber__KyberPreKeyRecord_get_public_key",
+          "wire__crate__api__kyber__KyberPreKeyRecord_get_secret_key",
+          "wire__crate__api__kyber__KyberPreKeyRecord_id",
+          "wire__crate__api__kyber__KyberPreKeyRecord_serialize",
+          "wire__crate__api__kyber__KyberPreKeyRecord_signature",
+          "wire__crate__api__kyber__KyberPreKeyRecord_timestamp",
+          "wire__crate__api__kyber__KyberPublicKey_clone_key",
+          "wire__crate__api__kyber__KyberPublicKey_deserialize",
+          "wire__crate__api__kyber__KyberPublicKey_equals",
+          "wire__crate__api__kyber__KyberPublicKey_serialize",
+          "wire__crate__api__kyber__KyberSecretKey_clone_key",
+          "wire__crate__api__kyber__KyberSecretKey_deserialize",
+          "wire__crate__api__kyber__KyberSecretKey_serialize",
+          "wire__crate__api__message__DecryptionErrorMessage_clone_message",
+          "wire__crate__api__message__DecryptionErrorMessage_deserialize",
+          "wire__crate__api__message__DecryptionErrorMessage_device_id",
+          "wire__crate__api__message__DecryptionErrorMessage_extract_from_serialized_content",
+          "wire__crate__api__message__DecryptionErrorMessage_for_original_message",
+          "wire__crate__api__message__DecryptionErrorMessage_ratchet_key",
+          "wire__crate__api__message__DecryptionErrorMessage_serialize",
+          "wire__crate__api__message__DecryptionErrorMessage_timestamp",
+          "wire__crate__api__message__SignalMessage_body",
+          "wire__crate__api__message__SignalMessage_clone_message",
+          "wire__crate__api__message__SignalMessage_counter",
+          "wire__crate__api__message__SignalMessage_deserialize",
+          "wire__crate__api__message__SignalMessage_message_version",
+          "wire__crate__api__message__SignalMessage_pq_ratchet",
+          "wire__crate__api__message__SignalMessage_sender_ratchet_key",
+          "wire__crate__api__message__SignalMessage_serialize",
+          "wire__crate__api__message__SignalMessage_verify_mac",
+          "wire__crate__api__prekey__PreKeyRecord_deserialize",
+          "wire__crate__api__prekey__PreKeyRecord_id",
+          "wire__crate__api__prekey__PreKeyRecord_new",
+          "wire__crate__api__prekey__PreKeyRecord_private_key",
+          "wire__crate__api__prekey__PreKeyRecord_public_key",
+          "wire__crate__api__prekey__PreKeyRecord_serialize",
+          "wire__crate__api__sealed_sender__create_sender_certificate",
+          "wire__crate__api__sealed_sender__create_server_certificate",
+          "wire__crate__api__sealed_sender__sealed_sender_decrypt_with_callbacks",
+          "wire__crate__api__sealed_sender__sealed_sender_encrypt_with_callbacks",
+          "wire__crate__api__sealed_sender__sender_certificate_get_expiration",
+          "wire__crate__api__sealed_sender__sender_certificate_get_key",
+          "wire__crate__api__sealed_sender__sender_certificate_get_sender_device_id",
+          "wire__crate__api__sealed_sender__sender_certificate_get_sender_name",
+          "wire__crate__api__sealed_sender__validate_sender_certificate",
+          "wire__crate__api__session__SessionRecord_archive_current_state",
+          "wire__crate__api__session__SessionRecord_clone_record",
+          "wire__crate__api__session__SessionRecord_current_ratchet_key_matches",
+          "wire__crate__api__session__SessionRecord_deserialize",
+          "wire__crate__api__session__SessionRecord_has_usable_sender_chain",
+          "wire__crate__api__session__SessionRecord_local_registration_id",
+          "wire__crate__api__session__SessionRecord_remote_registration_id",
+          "wire__crate__api__session__SessionRecord_serialize",
+          "wire__crate__api__session_builder__process_prekey_bundle_with_callbacks",
+          "wire__crate__api__session_cipher__extract_prekey_message_ids",
+          "wire__crate__api__session_cipher__message_decrypt_prekey_with_callbacks",
+          "wire__crate__api__session_cipher__message_decrypt_signal_with_callbacks",
+          "wire__crate__api__session_cipher__message_encrypt_with_callbacks",
+          "wire__crate__api__signed_prekey__SignedPreKeyRecord_deserialize",
+          "wire__crate__api__signed_prekey__SignedPreKeyRecord_id",
+          "wire__crate__api__signed_prekey__SignedPreKeyRecord_new",
+          "wire__crate__api__signed_prekey__SignedPreKeyRecord_private_key",
+          "wire__crate__api__signed_prekey__SignedPreKeyRecord_public_key",
+          "wire__crate__api__signed_prekey__SignedPreKeyRecord_serialize",
+          "wire__crate__api__signed_prekey__SignedPreKeyRecord_signature",
+          "wire__crate__api__signed_prekey__SignedPreKeyRecord_timestamp"
+        ],
+        "types": [
+          "wire_cst_list_prim_u_8_loose",
+          "wire_cst_list_prim_u_8_strict"
+        ]
+      },
+      "SealedSenderCipher": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/sealed_sender/sealed_sender_cipher.dart"
+        ],
+        "methods": [
+          "SealedSenderCipher",
+          "decrypt",
+          "encrypt"
+        ],
+        "types": [
+          "IdentityKeyStore",
+          "KyberPreKeyStore",
+          "PreKeyStore",
+          "ProtocolAddress",
+          "SealedSenderDecryptionResult",
+          "SessionStore",
+          "SignedPreKeyStore"
+        ]
+      },
+      "SealedSenderDecryptResult": {
+        "fields": [
+          "get:hashCode",
+          "plaintext",
+          "preKeyToRemove",
+          "senderDeviceId",
+          "senderIdentityKey",
+          "senderName",
+          "sessionRecord"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/sealed_sender.dart"
+        ],
+        "methods": [
+          "==",
+          "SealedSenderDecryptResult"
+        ],
+        "types": []
+      },
+      "SealedSenderDecryptionResult": {
+        "fields": [
+          "plaintext",
+          "senderAddress",
+          "senderIdentityKey"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/sealed_sender/sealed_sender_cipher.dart"
+        ],
+        "methods": [
+          "SealedSenderDecryptionResult"
+        ],
+        "types": [
+          "ProtocolAddress",
+          "PublicKey"
+        ]
+      },
+      "SealedSenderEncryptResult": {
+        "fields": [
+          "ciphertext",
+          "get:hashCode",
+          "sessionRecord"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/sealed_sender.dart"
+        ],
+        "methods": [
+          "==",
+          "SealedSenderEncryptResult"
+        ],
+        "types": []
+      },
+      "SecureBytes": {
+        "fields": [
+          "get:bytes",
+          "get:isDisposed",
+          "get:length"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/security/secure_bytes.dart"
+        ],
+        "methods": [
+          "SecureBytes",
+          "dispose",
+          "fromList",
+          "wrap"
+        ],
+        "types": []
+      },
+      "SecureUint8List": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/security/secure_uint8list.dart"
+        ],
+        "methods": [
+          "zeroize"
+        ],
+        "types": []
+      },
+      "SenderKeyName": {
+        "fields": [
+          "distributionId",
+          "get:hashCode",
+          "sender"
+        ],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/stores/sender_key_store.dart",
+          "package:libsignal/src/stores/stores.dart"
+        ],
+        "methods": [
+          "==",
+          "SenderKeyName",
+          "toString"
+        ],
+        "types": [
+          "ProtocolAddress"
+        ]
+      },
+      "SenderKeyStore": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/stores/sender_key_store.dart",
+          "package:libsignal/src/stores/stores.dart"
+        ],
+        "methods": [
+          "loadSenderKey",
+          "storeSenderKey"
+        ],
+        "types": [
+          "SenderKeyName"
+        ]
+      },
+      "SessionBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/protocol/protocol.dart",
+          "package:libsignal/src/protocol/session_builder.dart"
+        ],
+        "methods": [
+          "SessionBuilder",
+          "processPreKeyBundle"
+        ],
+        "types": [
+          "IdentityKeyStore",
+          "PreKeyBundle",
+          "ProtocolAddress",
+          "SessionStore"
+        ]
+      },
+      "SessionCipher": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/protocol/protocol.dart",
+          "package:libsignal/src/protocol/session_cipher.dart"
+        ],
+        "methods": [
+          "SessionCipher",
+          "decrypt",
+          "decryptPreKeyMessage",
+          "decryptSignalMessage",
+          "encrypt"
+        ],
+        "types": [
+          "CiphertextMessage",
+          "IdentityKeyStore",
+          "KyberPreKeyStore",
+          "PreKeyStore",
+          "ProtocolAddress",
+          "SessionStore",
+          "SignedPreKeyStore"
+        ]
+      },
+      "SessionRecord": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/session.dart"
+        ],
+        "methods": [
+          "archiveCurrentState",
+          "cloneRecord",
+          "currentRatchetKeyMatches",
+          "deserialize",
+          "hasUsableSenderChain",
+          "localRegistrationId",
+          "remoteRegistrationId",
+          "serialize"
+        ],
+        "types": [
+          "PublicKey",
+          "SessionRecord"
+        ]
+      },
+      "SessionRecordImpl": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "archiveCurrentState",
+          "cloneRecord",
+          "currentRatchetKeyMatches",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "hasUsableSenderChain",
+          "localRegistrationId",
+          "remoteRegistrationId",
+          "serialize"
+        ],
+        "types": [
+          "PublicKey",
+          "SessionRecord"
+        ]
+      },
+      "SessionStore": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/stores/session_store.dart",
+          "package:libsignal/src/stores/stores.dart"
+        ],
+        "methods": [
+          "containsSession",
+          "deleteAllSessions",
+          "deleteSession",
+          "getSubDeviceSessions",
+          "loadSession",
+          "storeSession"
+        ],
+        "types": [
+          "ProtocolAddress",
+          "SessionRecord"
+        ]
+      },
+      "SignalMessage": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/message.dart"
+        ],
+        "methods": [
+          "body",
+          "cloneMessage",
+          "counter",
+          "deserialize",
+          "messageVersion",
+          "pqRatchet",
+          "senderRatchetKey",
+          "serialize",
+          "verifyMac"
+        ],
+        "types": [
+          "SignalMessage"
+        ]
+      },
+      "SignalMessageImpl": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "body",
+          "cloneMessage",
+          "counter",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "messageVersion",
+          "pqRatchet",
+          "senderRatchetKey",
+          "serialize",
+          "verifyMac"
+        ],
+        "types": [
+          "SignalMessage"
+        ]
+      },
+      "SignedPreKeyRecord": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/rust/api/signed_prekey.dart"
+        ],
+        "methods": [
+          "SignedPreKeyRecord",
+          "deserialize",
+          "id",
+          "privateKey",
+          "publicKey",
+          "serialize",
+          "signature",
+          "timestamp"
+        ],
+        "types": [
+          "PrivateKey",
+          "PublicKey",
+          "SignedPreKeyRecord"
+        ]
+      },
+      "SignedPreKeyRecordImpl": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "id",
+          "privateKey",
+          "publicKey",
+          "serialize",
+          "signature",
+          "timestamp"
+        ],
+        "types": [
+          "SignedPreKeyRecord"
+        ]
+      },
+      "SignedPreKeyStore": {
+        "fields": [],
+        "libraries": [
+          "package:libsignal/libsignal.dart",
+          "package:libsignal/src/stores/signed_pre_key_store.dart",
+          "package:libsignal/src/stores/stores.dart"
+        ],
+        "methods": [
+          "containsSignedPreKey",
+          "getAllSignedPreKeyIds",
+          "loadSignedPreKey",
+          "removeSignedPreKey",
+          "storeSignedPreKey"
+        ],
+        "types": [
+          "SignedPreKeyRecord"
+        ]
+      },
+      "wire_cst_create_sender_key_distribution_result": {
+        "fields": [
+          "distribution_message",
+          "sender_key_record"
+        ],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.io.dart"
+        ],
+        "methods": [],
+        "types": [
+          "wire_cst_list_prim_u_8_strict"
+        ]
+      },
+      "wire_cst_encrypt_result": {
+        "fields": [
+          "ciphertext",
+          "message_type"
+        ],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.io.dart"
+        ],
+        "methods": [],
+        "types": [
+          "wire_cst_list_prim_u_8_strict"
+        ]
+      },
+      "wire_cst_group_decrypt_result": {
+        "fields": [
+          "plaintext",
+          "sender_key_record"
+        ],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.io.dart"
+        ],
+        "methods": [],
+        "types": [
+          "wire_cst_list_prim_u_8_strict"
+        ]
+      },
+      "wire_cst_group_encrypt_result": {
+        "fields": [
+          "ciphertext",
+          "sender_key_record"
+        ],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.io.dart"
+        ],
+        "methods": [],
+        "types": [
+          "wire_cst_list_prim_u_8_strict"
+        ]
+      },
+      "wire_cst_list_prim_u_8_loose": {
+        "fields": [
+          "len",
+          "ptr"
+        ],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.io.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "wire_cst_list_prim_u_8_strict": {
+        "fields": [
+          "len",
+          "ptr"
+        ],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.io.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "wire_cst_pre_key_message_ids": {
+        "fields": [
+          "kyber_pre_key_id",
+          "pre_key_id",
+          "signed_pre_key_id"
+        ],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.io.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "wire_cst_sealed_sender_decrypt_result": {
+        "fields": [
+          "plaintext",
+          "pre_key_to_remove",
+          "sender_device_id",
+          "sender_identity_key",
+          "sender_name",
+          "session_record"
+        ],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.io.dart"
+        ],
+        "methods": [],
+        "types": [
+          "wire_cst_list_prim_u_8_strict"
+        ]
+      },
+      "wire_cst_sealed_sender_encrypt_result": {
+        "fields": [
+          "ciphertext",
+          "session_record"
+        ],
+        "libraries": [
+          "package:libsignal/src/rust/frb_generated.io.dart"
+        ],
+        "methods": [],
+        "types": [
+          "wire_cst_list_prim_u_8_strict"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:45:42Z",
+  "package": "libsignal",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "CiphertextMessage",
+      "CreateSenderKeyDistributionResult",
+      "EncryptResult",
+      "GroupDecryptResult",
+      "GroupEncryptResult",
+      "PreKeyMessageIds",
+      "SealedSenderDecryptResult",
+      "SealedSenderEncryptResult",
+      "SenderKeyName"
+    ],
+    "digest": "b95a088baee8569f1174bead6c2843a01b7e483e406a21e6898cf4f3eb70d53d",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "3d81524aa70822b4a4d5cff058f91d68031473264a39e4a943046b80ca5ee818",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "../../rust/api/address.dart",
+      "../../rust/api/keys.dart",
+      "../../rust/api/kyber.dart",
+      "../../rust/api/prekey.dart",
+      "../../rust/api/session.dart",
+      "../../rust/api/signed_prekey.dart",
+      "../frb_generated.dart",
+      "../identity_key_store.dart",
+      "../kyber_pre_key_store.dart",
+      "../pre_key_store.dart",
+      "../rust/api/address.dart",
+      "../rust/api/bundle.dart",
+      "../rust/api/group_session.dart",
+      "../rust/api/keys.dart",
+      "../rust/api/kyber.dart",
+      "../rust/api/prekey.dart",
+      "../rust/api/sealed_sender.dart",
+      "../rust/api/session.dart",
+      "../rust/api/session_builder.dart",
+      "../rust/api/session_cipher.dart",
+      "../rust/api/signed_prekey.dart",
+      "../sender_key_store.dart",
+      "../session_store.dart",
+      "../signed_pre_key_store.dart",
+      "../stores/identity_key_store.dart",
+      "../stores/kyber_pre_key_store.dart",
+      "../stores/pre_key_store.dart",
+      "../stores/sender_key_store.dart",
+      "../stores/session_store.dart",
+      "../stores/signed_pre_key_store.dart",
+      "2.12.0",
+      "Aes256GcmSiv_decrypt",
+      "Aes256GcmSiv_encrypt",
+      "Aes256GcmSiv_new",
+      "Custom library paths are not supported on web. The WASM module is loaded from the default location.",
+      "DecryptionErrorMessage_clone_message",
+      "DecryptionErrorMessage_deserialize",
+      "DecryptionErrorMessage_device_id",
+      "DecryptionErrorMessage_extract_from_serialized_content",
+      "DecryptionErrorMessage_for_original_message",
+      "DecryptionErrorMessage_ratchet_key",
+      "DecryptionErrorMessage_serialize",
+      "DecryptionErrorMessage_timestamp",
+      "Fingerprint_clone_fingerprint",
+      "Fingerprint_display_string",
+      "Fingerprint_new",
+      "Fingerprint_scannable_encoding",
+      "IdentityKeyPair_deserialize",
+      "IdentityKeyPair_from_keys",
+      "IdentityKeyPair_generate",
+      "IdentityKeyPair_private_key",
+      "IdentityKeyPair_public_key",
+      "IdentityKeyPair_serialize",
+      "IdentityKeyPair_sign_alternate_identity",
+      "KyberKeyPair_clone_key",
+      "KyberKeyPair_generate",
+      "KyberKeyPair_get_public_key",
+      "KyberKeyPair_get_secret_key",
+      "KyberPreKeyRecord_clone_record",
+      "KyberPreKeyRecord_create",
+      "KyberPreKeyRecord_deserialize",
+      "KyberPreKeyRecord_get_key_pair",
+      "KyberPreKeyRecord_get_public_key",
+      "KyberPreKeyRecord_get_secret_key",
+      "KyberPreKeyRecord_id",
+      "KyberPreKeyRecord_serialize",
+      "KyberPreKeyRecord_signature",
+      "KyberPreKeyRecord_timestamp",
+      "KyberPublicKey_clone_key",
+      "KyberPublicKey_deserialize",
+      "KyberPublicKey_equals",
+      "KyberPublicKey_serialize",
+      "KyberSecretKey_clone_key",
+      "KyberSecretKey_deserialize",
+      "KyberSecretKey_serialize",
+      "LibSignal not initialized. Call await LibSignal.init() first.",
+      "PreKeyBundle_device_id",
+      "PreKeyBundle_identity_key",
+      "PreKeyBundle_kyber_pre_key_id",
+      "PreKeyBundle_kyber_pre_key_public",
+      "PreKeyBundle_kyber_pre_key_signature",
+      "PreKeyBundle_new",
+      "PreKeyBundle_pre_key_id",
+      "PreKeyBundle_pre_key_public",
+      "PreKeyBundle_registration_id",
+      "PreKeyBundle_signed_pre_key_id",
+      "PreKeyBundle_signed_pre_key_public",
+      "PreKeyBundle_signed_pre_key_signature",
+      "PreKeyRecord_deserialize",
+      "PreKeyRecord_id",
+      "PreKeyRecord_new",
+      "PreKeyRecord_private_key",
+      "PreKeyRecord_public_key",
+      "PreKeyRecord_serialize",
+      "PrivateKey_agree",
+      "PrivateKey_clone_key",
+      "PrivateKey_deserialize",
+      "PrivateKey_generate",
+      "PrivateKey_get_public_key",
+      "PrivateKey_serialize",
+      "PrivateKey_sign",
+      "ProtocolAddress_device_id",
+      "ProtocolAddress_name",
+      "ProtocolAddress_new",
+      "PublicKey_clone_key",
+      "PublicKey_compare",
+      "PublicKey_deserialize",
+      "PublicKey_equals",
+      "PublicKey_get_public_key_bytes",
+      "PublicKey_serialize",
+      "PublicKey_verify",
+      "SecureBytes has been disposed",
+      "SessionRecord_archive_current_state",
+      "SessionRecord_clone_record",
+      "SessionRecord_current_ratchet_key_matches",
+      "SessionRecord_deserialize",
+      "SessionRecord_has_usable_sender_chain",
+      "SessionRecord_local_registration_id",
+      "SessionRecord_remote_registration_id",
+      "SessionRecord_serialize",
+      "SignalMessage_body",
+      "SignalMessage_clone_message",
+      "SignalMessage_counter",
+      "SignalMessage_deserialize",
+      "SignalMessage_message_version",
+      "SignalMessage_pq_ratchet",
+      "SignalMessage_sender_ratchet_key",
+      "SignalMessage_serialize",
+      "SignalMessage_verify_mac",
+      "SignedPreKeyRecord_deserialize",
+      "SignedPreKeyRecord_id",
+      "SignedPreKeyRecord_new",
+      "SignedPreKeyRecord_private_key",
+      "SignedPreKeyRecord_public_key",
+      "SignedPreKeyRecord_serialize",
+      "SignedPreKeyRecord_signature",
+      "SignedPreKeyRecord_timestamp",
+      "api/address.dart",
+      "api/bundle.dart",
+      "api/crypto.dart",
+      "api/group_session.dart",
+      "api/init.dart",
+      "api/keys.dart",
+      "api/kyber.dart",
+      "api/message.dart",
+      "api/prekey.dart",
+      "api/sealed_sender.dart",
+      "api/session.dart",
+      "api/session_builder.dart",
+      "api/session_cipher.dart",
+      "api/signed_prekey.dart",
+      "associatedData",
+      "bundle",
+      "bundle.dart",
+      "bytes",
+      "certificate",
+      "ciphertext",
+      "ciphertext_message.dart",
+      "create_sender_certificate",
+      "create_sender_key_distribution_message_with_callbacks",
+      "create_server_certificate",
+      "dart:async",
+      "dart:convert",
+      "dart:ffi",
+      "dart:io",
+      "dart:isolate",
+      "dart:typed_data",
+      "data",
+      "deviceId",
+      "distributionId",
+      "distributionMessage",
+      "dummy_method_to_enforce_bundling",
+      "expiration",
+      "extract_prekey_message_ids",
+      "fingerprint1",
+      "fingerprint2",
+      "fingerprint_compare",
+      "frb_generated.dart",
+      "frb_generated.io.dart",
+      "frb_generated.web.dart",
+      "frbgen_libsignal_cst_new_box_autoadd_u_32",
+      "frbgen_libsignal_cst_new_list_prim_u_8_loose",
+      "frbgen_libsignal_cst_new_list_prim_u_8_strict",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+      "frbgen_libsignal_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerAes256GcmSiv",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerDecryptionErrorMessage",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerFingerprint",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerIdentityKeyPair",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberKeyPair",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPreKeyRecord",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberPublicKey",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerKyberSecretKey",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyBundle",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPreKeyRecord",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPrivateKey",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerProtocolAddress",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerPublicKey",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSessionRecord",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignalMessage",
+      "frbgen_libsignal_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSignedPreKeyRecord",
+      "frbgen_libsignal_wire__crate__api__address__ProtocolAddress_device_id",
+      "frbgen_libsignal_wire__crate__api__address__ProtocolAddress_name",
+      "frbgen_libsignal_wire__crate__api__address__ProtocolAddress_new",
+      "frbgen_libsignal_wire__crate__api__bundle__PreKeyBundle_device_id",
+      "frbgen_libsignal_wire__crate__api__bundle__PreKeyBundle_identity_key",
+      "frbgen_libsignal_wire__crate__api__bundle__PreKeyBundle_kyber_pre_key_id",
+      "frbgen_libsignal_wire__crate__api__bundle__PreKeyBundle_kyber_pre_key_public",
+      "frbgen_libsignal_wire__crate__api__bundle__PreKeyBundle_kyber_pre_key_signature",
+      "frbgen_libsignal_wire__crate__api__bundle__PreKeyBundle_new",
+      "frbgen_libsignal_wire__crate__api__bundle__PreKeyBundle_pre_key_id",
+      "frbgen_libsignal_wire__crate__api__bundle__PreKeyBundle_pre_key_public",
+      "frbgen_libsignal_wire__crate__api__bundle__PreKeyBundle_registration_id",
+      "frbgen_libsignal_wire__crate__api__bundle__PreKeyBundle_signed_pre_key_id",
+      "frbgen_libsignal_wire__crate__api__bundle__PreKeyBundle_signed_pre_key_public",
+      "frbgen_libsignal_wire__crate__api__bundle__PreKeyBundle_signed_pre_key_signature",
+      "frbgen_libsignal_wire__crate__api__crypto__Aes256GcmSiv_decrypt",
+      "frbgen_libsignal_wire__crate__api__crypto__Aes256GcmSiv_encrypt",
+      "frbgen_libsignal_wire__crate__api__crypto__Aes256GcmSiv_new",
+      "frbgen_libsignal_wire__crate__api__crypto__Fingerprint_clone_fingerprint",
+      "frbgen_libsignal_wire__crate__api__crypto__Fingerprint_display_string",
+      "frbgen_libsignal_wire__crate__api__crypto__Fingerprint_new",
+      "frbgen_libsignal_wire__crate__api__crypto__Fingerprint_scannable_encoding",
+      "frbgen_libsignal_wire__crate__api__crypto__fingerprint_compare",
+      "frbgen_libsignal_wire__crate__api__crypto__hkdf_derive",
+      "frbgen_libsignal_wire__crate__api__group_session__create_sender_key_distribution_message_with_callbacks",
+      "frbgen_libsignal_wire__crate__api__group_session__group_decrypt_with_callbacks",
+      "frbgen_libsignal_wire__crate__api__group_session__group_encrypt_with_callbacks",
+      "frbgen_libsignal_wire__crate__api__group_session__process_sender_key_distribution_message_with_callbacks",
+      "frbgen_libsignal_wire__crate__api__init__init_libsignal",
+      "frbgen_libsignal_wire__crate__api__init__is_libsignal_initialized",
+      "frbgen_libsignal_wire__crate__api__keys__IdentityKeyPair_deserialize",
+      "frbgen_libsignal_wire__crate__api__keys__IdentityKeyPair_from_keys",
+      "frbgen_libsignal_wire__crate__api__keys__IdentityKeyPair_generate",
+      "frbgen_libsignal_wire__crate__api__keys__IdentityKeyPair_private_key",
+      "frbgen_libsignal_wire__crate__api__keys__IdentityKeyPair_public_key",
+      "frbgen_libsignal_wire__crate__api__keys__IdentityKeyPair_serialize",
+      "frbgen_libsignal_wire__crate__api__keys__IdentityKeyPair_sign_alternate_identity",
+      "frbgen_libsignal_wire__crate__api__keys__PrivateKey_agree",
+      "frbgen_libsignal_wire__crate__api__keys__PrivateKey_clone_key",
+      "frbgen_libsignal_wire__crate__api__keys__PrivateKey_deserialize",
+      "frbgen_libsignal_wire__crate__api__keys__PrivateKey_generate",
+      "frbgen_libsignal_wire__crate__api__keys__PrivateKey_get_public_key",
+      "frbgen_libsignal_wire__crate__api__keys__PrivateKey_serialize",
+      "frbgen_libsignal_wire__crate__api__keys__PrivateKey_sign",
+      "frbgen_libsignal_wire__crate__api__keys__PublicKey_clone_key",
+      "frbgen_libsignal_wire__crate__api__keys__PublicKey_compare",
+      "frbgen_libsignal_wire__crate__api__keys__PublicKey_deserialize",
+      "frbgen_libsignal_wire__crate__api__keys__PublicKey_equals",
+      "frbgen_libsignal_wire__crate__api__keys__PublicKey_get_public_key_bytes",
+      "frbgen_libsignal_wire__crate__api__keys__PublicKey_serialize",
+      "frbgen_libsignal_wire__crate__api__keys__PublicKey_verify",
+      "frbgen_libsignal_wire__crate__api__keys__identity_keypair_serialize_raw",
+      "frbgen_libsignal_wire__crate__api__keys__identity_keypair_sign_alternate_identity_raw",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberKeyPair_clone_key",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberKeyPair_generate",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberKeyPair_get_public_key",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberKeyPair_get_secret_key",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberPreKeyRecord_clone_record",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberPreKeyRecord_create",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberPreKeyRecord_deserialize",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberPreKeyRecord_get_key_pair",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberPreKeyRecord_get_public_key",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberPreKeyRecord_get_secret_key",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberPreKeyRecord_id",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberPreKeyRecord_serialize",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberPreKeyRecord_signature",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberPreKeyRecord_timestamp",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberPublicKey_clone_key",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberPublicKey_deserialize",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberPublicKey_equals",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberPublicKey_serialize",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberSecretKey_clone_key",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberSecretKey_deserialize",
+      "frbgen_libsignal_wire__crate__api__kyber__KyberSecretKey_serialize",
+      "frbgen_libsignal_wire__crate__api__message__DecryptionErrorMessage_clone_message",
+      "frbgen_libsignal_wire__crate__api__message__DecryptionErrorMessage_deserialize",
+      "frbgen_libsignal_wire__crate__api__message__DecryptionErrorMessage_device_id",
+      "frbgen_libsignal_wire__crate__api__message__DecryptionErrorMessage_extract_from_serialized_content",
+      "frbgen_libsignal_wire__crate__api__message__DecryptionErrorMessage_for_original_message",
+      "frbgen_libsignal_wire__crate__api__message__DecryptionErrorMessage_ratchet_key",
+      "frbgen_libsignal_wire__crate__api__message__DecryptionErrorMessage_serialize",
+      "frbgen_libsignal_wire__crate__api__message__DecryptionErrorMessage_timestamp",
+      "frbgen_libsignal_wire__crate__api__message__SignalMessage_body",
+      "frbgen_libsignal_wire__crate__api__message__SignalMessage_clone_message",
+      "frbgen_libsignal_wire__crate__api__message__SignalMessage_counter",
+      "frbgen_libsignal_wire__crate__api__message__SignalMessage_deserialize",
+      "frbgen_libsignal_wire__crate__api__message__SignalMessage_message_version",
+      "frbgen_libsignal_wire__crate__api__message__SignalMessage_pq_ratchet",
+      "frbgen_libsignal_wire__crate__api__message__SignalMessage_sender_ratchet_key",
+      "frbgen_libsignal_wire__crate__api__message__SignalMessage_serialize",
+      "frbgen_libsignal_wire__crate__api__message__SignalMessage_verify_mac",
+      "frbgen_libsignal_wire__crate__api__prekey__PreKeyRecord_deserialize",
+      "frbgen_libsignal_wire__crate__api__prekey__PreKeyRecord_id",
+      "frbgen_libsignal_wire__crate__api__prekey__PreKeyRecord_new",
+      "frbgen_libsignal_wire__crate__api__prekey__PreKeyRecord_private_key",
+      "frbgen_libsignal_wire__crate__api__prekey__PreKeyRecord_public_key",
+      "frbgen_libsignal_wire__crate__api__prekey__PreKeyRecord_serialize",
+      "frbgen_libsignal_wire__crate__api__sealed_sender__create_sender_certificate",
+      "frbgen_libsignal_wire__crate__api__sealed_sender__create_server_certificate",
+      "frbgen_libsignal_wire__crate__api__sealed_sender__sealed_sender_decrypt_with_callbacks",
+      "frbgen_libsignal_wire__crate__api__sealed_sender__sealed_sender_encrypt_with_callbacks",
+      "frbgen_libsignal_wire__crate__api__sealed_sender__sender_certificate_get_expiration",
+      "frbgen_libsignal_wire__crate__api__sealed_sender__sender_certificate_get_key",
+      "frbgen_libsignal_wire__crate__api__sealed_sender__sender_certificate_get_sender_device_id",
+      "frbgen_libsignal_wire__crate__api__sealed_sender__sender_certificate_get_sender_name",
+      "frbgen_libsignal_wire__crate__api__sealed_sender__validate_sender_certificate",
+      "frbgen_libsignal_wire__crate__api__session__SessionRecord_archive_current_state",
+      "frbgen_libsignal_wire__crate__api__session__SessionRecord_clone_record",
+      "frbgen_libsignal_wire__crate__api__session__SessionRecord_current_ratchet_key_matches",
+      "frbgen_libsignal_wire__crate__api__session__SessionRecord_deserialize",
+      "frbgen_libsignal_wire__crate__api__session__SessionRecord_has_usable_sender_chain",
+      "frbgen_libsignal_wire__crate__api__session__SessionRecord_local_registration_id",
+      "frbgen_libsignal_wire__crate__api__session__SessionRecord_remote_registration_id",
+      "frbgen_libsignal_wire__crate__api__session__SessionRecord_serialize",
+      "frbgen_libsignal_wire__crate__api__session_builder__process_prekey_bundle_with_callbacks",
+      "frbgen_libsignal_wire__crate__api__session_cipher__extract_prekey_message_ids",
+      "frbgen_libsignal_wire__crate__api__session_cipher__message_decrypt_prekey_with_callbacks",
+      "frbgen_libsignal_wire__crate__api__session_cipher__message_decrypt_signal_with_callbacks",
+      "frbgen_libsignal_wire__crate__api__session_cipher__message_encrypt_with_callbacks",
+      "frbgen_libsignal_wire__crate__api__signed_prekey__SignedPreKeyRecord_deserialize",
+      "frbgen_libsignal_wire__crate__api__signed_prekey__SignedPreKeyRecord_id",
+      "frbgen_libsignal_wire__crate__api__signed_prekey__SignedPreKeyRecord_new",
+      "frbgen_libsignal_wire__crate__api__signed_prekey__SignedPreKeyRecord_private_key",
+      "frbgen_libsignal_wire__crate__api__signed_prekey__SignedPreKeyRecord_public_key",
+      "frbgen_libsignal_wire__crate__api__signed_prekey__SignedPreKeyRecord_serialize",
+      "frbgen_libsignal_wire__crate__api__signed_prekey__SignedPreKeyRecord_signature",
+      "frbgen_libsignal_wire__crate__api__signed_prekey__SignedPreKeyRecord_timestamp",
+      "getIdentityKeyPair",
+      "getLocalRegistrationId",
+      "group_decrypt_with_callbacks",
+      "group_encrypt_with_callbacks",
+      "hkdf_derive",
+      "id",
+      "identityKey",
+      "identity_key_store.dart",
+      "identity_keypair_serialize_raw",
+      "identity_keypair_sign_alternate_identity_raw",
+      "in_memory/in_memory_stores.dart",
+      "in_memory_identity_key_store.dart",
+      "in_memory_kyber_pre_key_store.dart",
+      "in_memory_pre_key_store.dart",
+      "in_memory_sender_key_store.dart",
+      "in_memory_session_store.dart",
+      "in_memory_signed_pre_key_store.dart",
+      "info",
+      "init_libsignal",
+      "inputKeyMaterial",
+      "is_libsignal_initialized",
+      "iterations",
+      "key",
+      "keyId",
+      "keyPair",
+      "keys.dart",
+      "kyberPreKeyId",
+      "kyberPreKeyPublic",
+      "kyberPreKeySignature",
+      "kyber_pre_key_store.dart",
+      "liblibsignal_frb.dylib",
+      "liblibsignal_frb.so",
+      "libraryPath",
+      "libsignal_frb",
+      "libsignal_frb.dll",
+      "libsignal_frb.wasm",
+      "loadKyberPreKey",
+      "loadPreKey",
+      "loadSenderKey",
+      "loadSession",
+      "loadSignedPreKey",
+      "localDeviceId",
+      "localIdentifier",
+      "localName",
+      "localPublicKey",
+      "macKey",
+      "markKyberPreKeyUsed",
+      "message",
+      "messageType",
+      "message_decrypt_prekey_with_callbacks",
+      "message_decrypt_signal_with_callbacks",
+      "message_encrypt_with_callbacks",
+      "name",
+      "nonce",
+      "nowMillis",
+      "originalBytes",
+      "originalSenderDeviceId",
+      "other",
+      "otherIdentity",
+      "outputLength",
+      "package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart",
+      "package:flutter_rust_bridge/flutter_rust_bridge_for_generated_io.dart",
+      "package:flutter_rust_bridge/flutter_rust_bridge_for_generated_web.dart",
+      "package:libsignal/libsignal",
+      "pkg/",
+      "plaintext",
+      "platform/platform.dart",
+      "platform_io.dart",
+      "platform_web.dart",
+      "preKeyId",
+      "preKeyPublic",
+      "pre_key_store.dart",
+      "privateKey",
+      "process_prekey_bundle_with_callbacks",
+      "process_sender_key_distribution_message_with_callbacks",
+      "publicKey",
+      "receiverIdentityKey",
+      "recipientAddressDeviceId",
+      "recipientAddressName",
+      "recipientDeviceId",
+      "recipientName",
+      "registrationId",
+      "remoteDeviceId",
+      "remoteIdentifier",
+      "remoteName",
+      "remotePublicKey",
+      "removePreKey",
+      "rust/frb_generated.dart",
+      "rust/target/release/",
+      "salt",
+      "saveIdentity",
+      "sealed_sender_decrypt_with_callbacks",
+      "sealed_sender_encrypt_with_callbacks",
+      "senderAddressDeviceId",
+      "senderAddressName",
+      "senderCertificate",
+      "senderDeviceId",
+      "senderIdentityKey",
+      "senderName",
+      "senderUuid",
+      "sender_certificate_get_expiration",
+      "sender_certificate_get_key",
+      "sender_certificate_get_sender_device_id",
+      "sender_certificate_get_sender_name",
+      "sender_key_store.dart",
+      "serverCertificate",
+      "serverPrivateKey",
+      "serverPublicKey",
+      "session_builder.dart",
+      "session_cipher.dart",
+      "session_store.dart",
+      "signature",
+      "signedPreKeyId",
+      "signedPreKeyPublic",
+      "signedPreKeySignature",
+      "signed_pre_key_store.dart",
+      "src/groups/group_cipher.dart",
+      "src/libsignal.dart",
+      "src/protocol/protocol.dart",
+      "src/rust/api/address.dart",
+      "src/rust/api/bundle.dart",
+      "src/rust/api/crypto.dart",
+      "src/rust/api/group_session.dart",
+      "src/rust/api/keys.dart",
+      "src/rust/api/kyber.dart",
+      "src/rust/api/message.dart",
+      "src/rust/api/prekey.dart",
+      "src/rust/api/sealed_sender.dart",
+      "src/rust/api/session.dart",
+      "src/rust/api/session_builder.dart",
+      "src/rust/api/session_cipher.dart",
+      "src/rust/api/signed_prekey.dart",
+      "src/sealed_sender/sealed_sender_cipher.dart",
+      "src/security/secure_bytes.dart",
+      "src/security/secure_uint8list.dart",
+      "src/stores/stores.dart",
+      "storeSenderKey",
+      "storeSession",
+      "store_dart_post_cobject",
+      "that",
+      "timestamp",
+      "trustRoot",
+      "trustRootPrivateKey",
+      "validate_sender_certificate",
+      "version",
+      "wasm_bindgen"
+    ]
+  },
+  "version": "5.0.2"
+}

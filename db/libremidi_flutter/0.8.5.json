@@ -1,0 +1,497 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "LRM_ERR_INIT_FAILED",
+          "LRM_ERR_INVALID",
+          "LRM_ERR_NOT_FOUND",
+          "LRM_ERR_OPEN_FAILED",
+          "LRM_ERR_SEND_FAILED",
+          "LRM_OK",
+          "LRM_TRANSPORT_BLUETOOTH",
+          "LRM_TRANSPORT_HARDWARE",
+          "LRM_TRANSPORT_LOOPBACK",
+          "LRM_TRANSPORT_NETWORK",
+          "LRM_TRANSPORT_PCI",
+          "LRM_TRANSPORT_SOFTWARE",
+          "LRM_TRANSPORT_UNKNOWN",
+          "LRM_TRANSPORT_USB"
+        ],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter.dart",
+          "package:libremidi_flutter/libremidi_flutter_bindings_generated.dart"
+        ],
+        "methods": [],
+        "types": [
+          "LibremidiFlutterBindings"
+        ]
+      },
+      "HotplugEventType": {
+        "fields": [
+          "inputAdded",
+          "inputRemoved",
+          "outputAdded",
+          "outputRemoved",
+          "setupChanged",
+          "unknown"
+        ],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter.dart"
+        ],
+        "methods": [
+          "fromValue"
+        ],
+        "types": [
+          "HotplugEventType"
+        ]
+      },
+      "LibremidiFlutter": {
+        "fields": [
+          "get:isInitialized",
+          "get:onHotplug",
+          "get:openInputCount",
+          "get:openOutputCount",
+          "get:version"
+        ],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter.dart"
+        ],
+        "methods": [
+          "disconnectAll",
+          "disconnectInput",
+          "disconnectOutput",
+          "dispose",
+          "findClosestInputPort",
+          "findClosestOutputPort",
+          "getInputPorts",
+          "getOutputPorts",
+          "openInput",
+          "openOutput"
+        ],
+        "types": [
+          "HotplugEventType",
+          "MidiInput",
+          "MidiObserver",
+          "MidiOutput",
+          "MidiPort"
+        ]
+      },
+      "LibremidiFlutterBindings": {
+        "fields": [],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter_bindings_generated.dart"
+        ],
+        "methods": [
+          "LibremidiFlutterBindings",
+          "fromLookup",
+          "lrm_find_closest_port",
+          "lrm_free",
+          "lrm_get_version",
+          "lrm_midi_in_close",
+          "lrm_midi_in_is_connected",
+          "lrm_midi_in_open",
+          "lrm_midi_in_open_by_id",
+          "lrm_midi_out_close",
+          "lrm_midi_out_is_connected",
+          "lrm_midi_out_open",
+          "lrm_midi_out_open_by_id",
+          "lrm_midi_out_send",
+          "lrm_observer_free",
+          "lrm_observer_get_input",
+          "lrm_observer_get_input_count",
+          "lrm_observer_get_output",
+          "lrm_observer_get_output_count",
+          "lrm_observer_new",
+          "lrm_observer_new_with_callbacks",
+          "lrm_observer_refresh"
+        ],
+        "types": [
+          "LrmMidiIn",
+          "LrmMidiOut",
+          "LrmObserver",
+          "LrmPortInfo"
+        ]
+      },
+      "LrmMidiIn": {
+        "fields": [],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter_bindings_generated.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LrmMidiOut": {
+        "fields": [],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter_bindings_generated.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LrmObserver": {
+        "fields": [],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter_bindings_generated.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LrmPortInfo": {
+        "fields": [
+          "client_handle",
+          "device_name",
+          "display_name",
+          "index",
+          "is_input",
+          "is_virtual",
+          "manufacturer",
+          "port_id",
+          "port_name",
+          "product",
+          "serial",
+          "stable_id",
+          "transport_type"
+        ],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter_bindings_generated.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MidiException": {
+        "fields": [
+          "errorCode",
+          "message",
+          "nativeFunction"
+        ],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter.dart"
+        ],
+        "methods": [
+          "MidiException",
+          "toString"
+        ],
+        "types": []
+      },
+      "MidiInput": {
+        "fields": [
+          "get:isConnected",
+          "get:messages",
+          "get:rpnNrpnMessages"
+        ],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter.dart"
+        ],
+        "methods": [
+          "dispose",
+          "messagesFiltered"
+        ],
+        "types": [
+          "LrmMidiIn",
+          "MidiMessage",
+          "RpnNrpnMessage"
+        ]
+      },
+      "MidiMessage": {
+        "fields": [
+          "data",
+          "get:channel",
+          "get:controller",
+          "get:isAftertouch",
+          "get:isControlChange",
+          "get:isNoteOff",
+          "get:isNoteOn",
+          "get:isPitchBend",
+          "get:isPolyAftertouch",
+          "get:isProgramChange",
+          "get:isSysEx",
+          "get:note",
+          "get:status",
+          "get:type",
+          "get:value",
+          "get:velocity",
+          "timestamp"
+        ],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter.dart"
+        ],
+        "methods": [
+          "MidiMessage",
+          "toString"
+        ],
+        "types": []
+      },
+      "MidiObserver": {
+        "fields": [
+          "get:onHotplug"
+        ],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter.dart"
+        ],
+        "methods": [
+          "MidiObserver",
+          "dispose",
+          "findClosestPort",
+          "getInputPorts",
+          "getOutputPorts",
+          "openInput",
+          "openOutput",
+          "refresh",
+          "withHotplug"
+        ],
+        "types": [
+          "HotplugEventType",
+          "LrmObserver",
+          "MidiInput",
+          "MidiOutput",
+          "MidiPort"
+        ]
+      },
+      "MidiOutput": {
+        "fields": [
+          "get:handleAddress",
+          "get:isConnected"
+        ],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter.dart"
+        ],
+        "methods": [
+          "decrementNrpn",
+          "decrementRpn",
+          "dispose",
+          "incrementNrpn",
+          "incrementRpn",
+          "send",
+          "sendAftertouch",
+          "sendBankSelect",
+          "sendControlChange",
+          "sendNoteOff",
+          "sendNoteOn",
+          "sendNrpn",
+          "sendPitchBend",
+          "sendPolyAftertouch",
+          "sendProgramChange",
+          "sendRpn",
+          "sendSysEx"
+        ],
+        "types": [
+          "LrmMidiOut"
+        ]
+      },
+      "MidiPort": {
+        "fields": [
+          "clientHandle",
+          "deviceName",
+          "displayName",
+          "get:effectiveStableId",
+          "get:hashCode",
+          "get:isHardware",
+          "get:isOutput",
+          "get:name",
+          "index",
+          "isInput",
+          "isVirtual",
+          "manufacturer",
+          "portId",
+          "portName",
+          "product",
+          "rawTransportType",
+          "serial",
+          "stableId",
+          "transportType"
+        ],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter.dart"
+        ],
+        "methods": [
+          "==",
+          "fromMatchJson",
+          "toMap",
+          "toMatchJson",
+          "toString"
+        ],
+        "types": [
+          "MidiPort",
+          "MidiTransportType"
+        ]
+      },
+      "MidiTransportType": {
+        "fields": [
+          "bluetooth",
+          "get:displayName",
+          "hardware",
+          "loopback",
+          "network",
+          "pci",
+          "software",
+          "unknown",
+          "usb"
+        ],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter.dart"
+        ],
+        "methods": [
+          "fromValue"
+        ],
+        "types": [
+          "MidiTransportType"
+        ]
+      },
+      "RpnNrpnChangeType": {
+        "fields": [
+          "decrement",
+          "increment",
+          "value"
+        ],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "RpnNrpnMessage": {
+        "fields": [
+          "changeType",
+          "channel",
+          "fourteenBit",
+          "parameter",
+          "source",
+          "type",
+          "value"
+        ],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter.dart"
+        ],
+        "methods": [
+          "RpnNrpnMessage",
+          "toString"
+        ],
+        "types": [
+          "MidiMessage",
+          "RpnNrpnChangeType",
+          "RpnNrpnType"
+        ]
+      },
+      "RpnNrpnParser": {
+        "fields": [],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter.dart"
+        ],
+        "methods": [
+          "process"
+        ],
+        "types": [
+          "MidiMessage",
+          "RpnNrpnMessage"
+        ]
+      },
+      "RpnNrpnType": {
+        "fields": [
+          "nrpn",
+          "rpn"
+        ],
+        "libraries": [
+          "package:libremidi_flutter/libremidi_flutter.dart"
+        ],
+        "methods": [],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-11T08:45:32Z",
+  "package": "libremidi_flutter",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "MidiException",
+      "MidiMessage",
+      "MidiPort",
+      "RpnNrpnMessage"
+    ],
+    "digest": "974baba14f879753fdd19deb76b1a3effe457c99be3b1dc9531beaf75b376740",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "e76c75aaef52a353bfe3b2dd9bd732057c0ca928608442fd9ff0818f508e71c1",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      " ",
+      "0",
+      "Bluetooth",
+      "Failed to create MIDI observer",
+      "Failed to open MIDI input",
+      "Failed to open MIDI output",
+      "Failed to send MIDI message",
+      "Hardware",
+      "Loopback",
+      "MidiObserver has been disposed",
+      "MidiOutput has been disposed",
+      "Network",
+      "PCI",
+      "Port must be an input port",
+      "Port must be an output port",
+      "Software",
+      "USB",
+      "Unknown",
+      "amount",
+      "bank",
+      "channel",
+      "client",
+      "controller",
+      "dart:async",
+      "dart:convert",
+      "dart:ffi",
+      "dart:io",
+      "dart:typed_data",
+      "device_name",
+      "display_name",
+      "effective_stable_id",
+      "index",
+      "input",
+      "is_input",
+      "is_virtual",
+      "libremidi_flutter",
+      "libremidi_flutter_bindings_generated.dart",
+      "lrm_find_closest_port",
+      "lrm_free",
+      "lrm_get_version",
+      "lrm_midi_in_close",
+      "lrm_midi_in_is_connected",
+      "lrm_midi_in_open",
+      "lrm_midi_in_open_by_id",
+      "lrm_midi_out_close",
+      "lrm_midi_out_is_connected",
+      "lrm_midi_out_open",
+      "lrm_midi_out_open_by_id",
+      "lrm_midi_out_send",
+      "lrm_observer_free",
+      "lrm_observer_get_input",
+      "lrm_observer_get_input_count",
+      "lrm_observer_get_output",
+      "lrm_observer_get_output_count",
+      "lrm_observer_new",
+      "lrm_observer_new_with_callbacks",
+      "lrm_observer_refresh",
+      "manufacturer",
+      "note",
+      "output",
+      "package:ffi/ffi.dart",
+      "parameter",
+      "port",
+      "port_name",
+      "pressure",
+      "product",
+      "program",
+      "raw_transport_type",
+      "serial",
+      "stable_id",
+      "type",
+      "value",
+      "velocity"
+    ]
+  },
+  "version": "0.8.5"
+}
