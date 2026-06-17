@@ -1,0 +1,681 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "get:timeDilation"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/default_cache_manager.dart",
+          "package:cached_network_image_ce/src/cache/interceptors/interceptor_runner.dart",
+          "package:cached_network_image_ce/src/cached_image_widget.dart",
+          "package:cached_network_image_ce/src/gif_frame_duration.dart",
+          "package:cached_network_image_ce/src/image_provider/multi_image_stream_completer.dart"
+        ],
+        "methods": [
+          "clampGifFrameDuration",
+          "runOnErrorChain",
+          "runOnHitChain",
+          "runOnMissChain",
+          "runOnRequestChain",
+          "runOnResponseChain",
+          "runOnStoreChain"
+        ],
+        "types": [
+          "CacheHitData",
+          "CacheHitOutcome",
+          "CacheInterceptor",
+          "CacheMissData",
+          "CacheStoreData",
+          "HttpErrorOutcome",
+          "HttpInterceptor",
+          "HttpRequestData",
+          "HttpRequestOutcome",
+          "HttpResponseData"
+        ]
+      },
+      "CacheEntryMetadata": {
+        "fields": [
+          "eTag",
+          "get:effectiveTouchedAt",
+          "length",
+          "relativePath",
+          "touchedAt",
+          "url",
+          "validTill"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/cache_entry_metadata.dart",
+          "package:cached_network_image_ce/src/cache/default_cache_manager.dart",
+          "package:cached_network_image_ce/src/cache/default_cache_manager_factory.dart",
+          "package:cached_network_image_ce/src/cache/default_cache_manager_stub.dart",
+          "package:cached_network_image_ce/src/cache/default_cache_manager_web.dart"
+        ],
+        "methods": [
+          "CacheEntryMetadata",
+          "fromMap",
+          "toMap"
+        ],
+        "types": []
+      },
+      "CacheHitData": {
+        "fields": [
+          "fileInfo",
+          "isExpired",
+          "key"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/interceptors/cache_interceptor.dart"
+        ],
+        "methods": [
+          "CacheHitData"
+        ],
+        "types": []
+      },
+      "CacheHitHandler": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/interceptors/cache_interceptor.dart"
+        ],
+        "methods": [
+          "create",
+          "next",
+          "reject",
+          "resolve"
+        ],
+        "types": [
+          "CacheHitData"
+        ]
+      },
+      "CacheHitOutcome": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/src/cache/interceptors/interceptor_runner.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CacheHitRejected": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/src/cache/interceptors/interceptor_runner.dart"
+        ],
+        "methods": [],
+        "types": [
+          "CacheHitOutcome"
+        ]
+      },
+      "CacheHitReturn": {
+        "fields": [
+          "fileInfo"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/src/cache/interceptors/interceptor_runner.dart"
+        ],
+        "methods": [
+          "CacheHitReturn"
+        ],
+        "types": [
+          "CacheHitOutcome"
+        ]
+      },
+      "CacheInterceptor": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/interceptors/cache_interceptor.dart"
+        ],
+        "methods": [
+          "CacheInterceptor",
+          "onHit",
+          "onMiss",
+          "onStore"
+        ],
+        "types": [
+          "CacheHitData",
+          "CacheHitHandler",
+          "CacheMissData",
+          "CacheMissHandler",
+          "CacheStoreData",
+          "CacheStoreHandler"
+        ]
+      },
+      "CacheMissData": {
+        "fields": [
+          "key",
+          "url"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/interceptors/cache_interceptor.dart"
+        ],
+        "methods": [
+          "CacheMissData"
+        ],
+        "types": []
+      },
+      "CacheMissHandler": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/interceptors/cache_interceptor.dart"
+        ],
+        "methods": [
+          "create",
+          "next",
+          "resolve"
+        ],
+        "types": [
+          "CacheMissData"
+        ]
+      },
+      "CacheStoreData": {
+        "fields": [
+          "file",
+          "key",
+          "metadata",
+          "url"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/interceptors/cache_interceptor.dart"
+        ],
+        "methods": [
+          "CacheStoreData"
+        ],
+        "types": [
+          "CacheEntryMetadata"
+        ]
+      },
+      "CacheStoreHandler": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/interceptors/cache_interceptor.dart"
+        ],
+        "methods": [
+          "create",
+          "next",
+          "reject"
+        ],
+        "types": [
+          "CacheStoreData"
+        ]
+      },
+      "CachedNetworkImage": {
+        "fields": [
+          "alignment",
+          "cacheKey",
+          "cacheManager",
+          "color",
+          "colorBlendMode",
+          "disablePlaceholderOnCacheHit",
+          "errorBuilder",
+          "errorListener",
+          "errorWidget",
+          "fadeInCurve",
+          "fadeInDuration",
+          "fadeOutCurve",
+          "fadeOutDuration",
+          "filterQuality",
+          "fit",
+          "get:logLevel",
+          "height",
+          "httpHeaders",
+          "imageBuilder",
+          "imageRenderMethodForWeb",
+          "imageUrl",
+          "matchTextDirection",
+          "maxHeightDiskCache",
+          "maxWidthDiskCache",
+          "memCacheHeight",
+          "memCacheWidth",
+          "minimumGifFrameDuration",
+          "placeholder",
+          "placeholderFadeInDuration",
+          "progressIndicatorBuilder",
+          "repeat",
+          "scale",
+          "set:logLevel",
+          "unsupportedImageBuilder",
+          "useOldImageOnUrlChange",
+          "width"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cached_image_widget.dart"
+        ],
+        "methods": [
+          "CachedNetworkImage",
+          "createState",
+          "evictFromCache"
+        ],
+        "types": [
+          "CachedNetworkImage"
+        ]
+      },
+      "CachedNetworkImageProvider": {
+        "fields": [
+          "cacheKey",
+          "cacheManager",
+          "defaultCacheManager",
+          "errorListener",
+          "get:hashCode",
+          "headers",
+          "imageRenderMethodForWeb",
+          "maxHeight",
+          "maxWidth",
+          "minimumGifFrameDuration",
+          "scale",
+          "url"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/image_provider/cached_network_image_provider.dart"
+        ],
+        "methods": [
+          "==",
+          "CachedNetworkImageProvider",
+          "loadBuffer",
+          "loadImage",
+          "obtainKey",
+          "toString"
+        ],
+        "types": [
+          "CachedNetworkImageProvider"
+        ]
+      },
+      "CleanupStrategy": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/cleanup_strategy.dart"
+        ],
+        "methods": [
+          "CleanupStrategy",
+          "sortForEviction"
+        ],
+        "types": [
+          "CacheEntryMetadata"
+        ]
+      },
+      "DefaultCacheManager": {
+        "fields": [
+          "connectionParameters",
+          "maxNrOfCacheObjects",
+          "stalePeriod"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/default_cache_manager.dart",
+          "package:cached_network_image_ce/src/cache/default_cache_manager_factory.dart",
+          "package:cached_network_image_ce/src/cache/default_cache_manager_stub.dart",
+          "package:cached_network_image_ce/src/cache/default_cache_manager_web.dart"
+        ],
+        "methods": [
+          "DefaultCacheManager",
+          "dispose",
+          "emptyCache",
+          "getFileFromCache",
+          "getFileStream",
+          "getImageFile",
+          "putFile",
+          "removeFile"
+        ],
+        "types": [
+          "CacheInterceptor",
+          "CleanupStrategy",
+          "HttpInterceptor"
+        ]
+      },
+      "HttpErrorHandler": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/interceptors/http_interceptor.dart"
+        ],
+        "methods": [
+          "create",
+          "next",
+          "reject",
+          "resolve"
+        ],
+        "types": [
+          "HttpResponseData"
+        ]
+      },
+      "HttpErrorOutcome": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/src/cache/interceptors/interceptor_runner.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "HttpErrorResolved": {
+        "fields": [
+          "response"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/src/cache/interceptors/interceptor_runner.dart"
+        ],
+        "methods": [
+          "HttpErrorResolved"
+        ],
+        "types": [
+          "HttpErrorOutcome",
+          "HttpResponseData"
+        ]
+      },
+      "HttpErrorRethrow": {
+        "fields": [
+          "error",
+          "stackTrace"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/src/cache/interceptors/interceptor_runner.dart"
+        ],
+        "methods": [
+          "HttpErrorRethrow"
+        ],
+        "types": [
+          "HttpErrorOutcome"
+        ]
+      },
+      "HttpInterceptor": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/interceptors/http_interceptor.dart"
+        ],
+        "methods": [
+          "HttpInterceptor",
+          "onError",
+          "onRequest",
+          "onResponse"
+        ],
+        "types": [
+          "HttpErrorHandler",
+          "HttpRequestData",
+          "HttpRequestHandler",
+          "HttpResponseData",
+          "HttpResponseHandler"
+        ]
+      },
+      "HttpRequestData": {
+        "fields": [
+          "headers",
+          "url"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/interceptors/http_interceptor.dart"
+        ],
+        "methods": [
+          "HttpRequestData"
+        ],
+        "types": []
+      },
+      "HttpRequestHandler": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/interceptors/http_interceptor.dart"
+        ],
+        "methods": [
+          "create",
+          "next",
+          "reject",
+          "resolve"
+        ],
+        "types": [
+          "HttpRequestData",
+          "HttpResponseData"
+        ]
+      },
+      "HttpRequestOutcome": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/src/cache/interceptors/interceptor_runner.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "HttpRequestProceed": {
+        "fields": [
+          "data"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/src/cache/interceptors/interceptor_runner.dart"
+        ],
+        "methods": [
+          "HttpRequestProceed"
+        ],
+        "types": [
+          "HttpRequestData",
+          "HttpRequestOutcome"
+        ]
+      },
+      "HttpRequestResolved": {
+        "fields": [
+          "response"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/src/cache/interceptors/interceptor_runner.dart"
+        ],
+        "methods": [
+          "HttpRequestResolved"
+        ],
+        "types": [
+          "HttpRequestOutcome",
+          "HttpResponseData"
+        ]
+      },
+      "HttpResponseData": {
+        "fields": [
+          "originalUrl",
+          "response"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/interceptors/http_interceptor.dart"
+        ],
+        "methods": [
+          "HttpResponseData"
+        ],
+        "types": []
+      },
+      "HttpResponseHandler": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/interceptors/http_interceptor.dart"
+        ],
+        "methods": [
+          "create",
+          "next",
+          "reject",
+          "resolve"
+        ],
+        "types": [
+          "HttpResponseData"
+        ]
+      },
+      "ImageLoader": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/src/image_provider/_image_loader.dart"
+        ],
+        "methods": [
+          "loadBufferAsync",
+          "loadImageAsync"
+        ],
+        "types": [
+          "ImageLoader"
+        ]
+      },
+      "LruCleanupStrategy": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/cleanup_strategy.dart"
+        ],
+        "methods": [
+          "LruCleanupStrategy",
+          "sortForEviction"
+        ],
+        "types": [
+          "CacheEntryMetadata",
+          "CleanupStrategy"
+        ]
+      },
+      "MultiImageStreamCompleter": {
+        "fields": [
+          "minimumGifFrameDuration"
+        ],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/image_provider/multi_image_stream_completer.dart"
+        ],
+        "methods": [
+          "MultiImageStreamCompleter",
+          "addListener",
+          "keepAlive",
+          "removeListener"
+        ],
+        "types": []
+      },
+      "TtlCleanupStrategy": {
+        "fields": [],
+        "libraries": [
+          "package:cached_network_image_ce/cached_network_image.dart",
+          "package:cached_network_image_ce/src/cache/cleanup_strategy.dart"
+        ],
+        "methods": [
+          "TtlCleanupStrategy",
+          "sortForEviction"
+        ],
+        "types": [
+          "CacheEntryMetadata",
+          "CleanupStrategy"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-06-17T09:59:12Z",
+  "package": "cached_network_image_ce",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "CacheHitData",
+      "CacheInterceptor",
+      "CacheMissData",
+      "CacheStoreData",
+      "CachedNetworkImage",
+      "CachedNetworkImageProvider",
+      "CleanupStrategy",
+      "HttpInterceptor",
+      "HttpResponseData",
+      "LruCleanupStrategy",
+      "TtlCleanupStrategy"
+    ],
+    "digest": "cd725117e16ac3d95bab24d5dd2678f78944998a954baacf9154c78b97515a81",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "e463e48a59f751e5bcd1a943c8ce7e1ca226b0d51e44a7b5c97f65441ab3488a",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      ".",
+      "../cache_entry_metadata.dart",
+      "CachedNetworkImageProvider.loadBuffer fallback to addListener",
+      "CachedNetworkImageProvider.loadImage fallback to addListener",
+      "DefaultCacheManager is not supported on this platform.",
+      "GET",
+      "Image key",
+      "Image provider",
+      "To resize the image with a CacheManager the CacheManager needs to be an ImageCacheManager. maxWidth and maxHeight will be ignored when a normal CacheManager is used.",
+      "Unsupported platform",
+      "Use errorBuilder instead.",
+      "Use loadImageAsync instead",
+      "Warning: Using errorListener with Flutter < 3.16 causes memory leaks. Please upgrade Flutter or avoid using errorListener.",
+      "_image_loader.dart",
+      "_loadBufferAsync is deprecated, use _loadImageAsync instead",
+      "cache_entry_metadata.dart",
+      "cache_interceptor.dart",
+      "cached_network_image",
+      "cached_network_image_cache",
+      "cached_network_image_ce",
+      "cached_network_image_data",
+      "cleanup_strategy.dart",
+      "cur",
+      "dart:async",
+      "dart:convert",
+      "dart:io",
+      "dart:math",
+      "dart:typed_data",
+      "dart:ui",
+      "default_cache_manager.dart",
+      "default_cache_manager_stub.dart",
+      "default_cache_manager_web.dart",
+      "eTag",
+      "etag",
+      "file",
+      "hive",
+      "http_interceptor.dart",
+      "ico",
+      "interceptors/cache_interceptor.dart",
+      "interceptors/http_interceptor.dart",
+      "interceptors/interceptor_runner.dart",
+      "jpeg",
+      "jpg",
+      "length",
+      "loadBuffer is deprecated, use loadImage instead",
+      "loading an image",
+      "package:cached_network_image_ce/cached_network_image.dart",
+      "package:cached_network_image_ce/src/gif_frame_duration.dart",
+      "package:cached_network_image_platform_interface_ce/cached_network_image_platform_interface_ce.dart",
+      "package:cached_network_image_web_ce/cached_network_image_web_ce.dart",
+      "package:crypto/crypto.dart",
+      "package:file/file.dart",
+      "package:file/local.dart",
+      "package:file/memory.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/material.dart",
+      "package:flutter/painting.dart",
+      "package:flutter/scheduler.dart",
+      "package:flutter/widgets.dart",
+      "package:hive_ce/hive.dart",
+      "package:hive_ce/src/hive_impl.dart",
+      "package:http/http.dart",
+      "package:meta/meta.dart",
+      "package:octo_image/octo_image.dart",
+      "package:path/path.dart",
+      "package:path_provider/path_provider.dart",
+      "png",
+      "relativePath",
+      "resized",
+      "resolving an image codec",
+      "resolving an image frame",
+      "src/cache/cleanup_strategy.dart",
+      "src/cache/default_cache_manager_factory.dart",
+      "src/cache/interceptors/cache_interceptor.dart",
+      "src/cache/interceptors/cache_interceptor_stub.dart",
+      "src/cache/interceptors/http_interceptor.dart",
+      "src/cached_image_widget.dart",
+      "src/image_provider/cached_network_image_provider.dart",
+      "src/image_provider/multi_image_stream_completer.dart",
+      "tga",
+      "touchedAt",
+      "url",
+      "validTill"
+    ]
+  },
+  "version": "4.8.0"
+}
