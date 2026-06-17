@@ -1,0 +1,753 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "bifEditBox",
+          "bifNewDialogStyle",
+          "bifReturnOnlyFsDirs",
+          "maximumPathLength",
+          "ofnAllowMultiSelect",
+          "ofnExplorer",
+          "ofnFileMustExist",
+          "ofnHideReadOnly",
+          "ofnNoChangeDir",
+          "ofnOverwritePrompt"
+        ],
+        "libraries": [
+          "package:file_picker/src/platform/linux/filters.dart",
+          "package:file_picker/src/platform/web/platform_file_web_fetch.dart",
+          "package:file_picker/src/platform/web/platform_file_web_fetch_stub.dart",
+          "package:file_picker/src/platform/windows/file_picker_windows_ffi_types.dart",
+          "package:file_picker/src/utils/_file_utils_io.dart",
+          "package:file_picker/src/utils/_file_utils_web.dart"
+        ],
+        "methods": [
+          "createPlatformFile",
+          "fetchBytesFromWebPath",
+          "fetchStreamFromWebPath",
+          "filePathsToPlatformFiles",
+          "isExecutableOnPath",
+          "runExecutableWithArguments",
+          "saveBytesToFile"
+        ],
+        "types": [
+          "PlatformFile"
+        ]
+      },
+      "AndroidPlatformFile": {
+        "fields": [
+          "get:hashCode",
+          "safHandle"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/api/platform_file.dart"
+        ],
+        "methods": [
+          "==",
+          "AndroidPlatformFile",
+          "toString"
+        ],
+        "types": [
+          "AndroidSAFHandle",
+          "PlatformFile"
+        ]
+      },
+      "AndroidSAFAccessMode": {
+        "fields": [
+          "readOnly",
+          "readWrite"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/api/android_saf_options.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "AndroidSAFGrant": {
+        "fields": [
+          "lifetime",
+          "transient"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/api/android_saf_options.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "AndroidSAFHandle": {
+        "fields": [
+          "accessMode",
+          "uri"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/api/android_saf_handle.dart"
+        ],
+        "methods": [
+          "AndroidSAFHandle",
+          "fromMap",
+          "releaseGrant"
+        ],
+        "types": [
+          "AndroidSAFAccessMode"
+        ]
+      },
+      "AndroidSAFOptions": {
+        "fields": [
+          "accessMode",
+          "grant",
+          "persistGrant"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/api/android_saf_options.dart"
+        ],
+        "methods": [
+          "AndroidSAFOptions",
+          "toMap"
+        ],
+        "types": [
+          "AndroidSAFAccessMode",
+          "AndroidSAFGrant"
+        ]
+      },
+      "BROWSEINFOA": {
+        "fields": [
+          "hwndOwner",
+          "iImage",
+          "lParam",
+          "lpfn",
+          "lpszTitle",
+          "pidlRoot",
+          "pszDisplayName",
+          "ulFlags"
+        ],
+        "libraries": [
+          "package:file_picker/src/platform/windows/file_picker_windows_ffi_types.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "FilePicker": {
+        "fields": [],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/file_picker.dart"
+        ],
+        "methods": [
+          "clearTemporaryFiles",
+          "getDirectoryPath",
+          "pickFile",
+          "pickFileAndDirectoryPaths",
+          "pickFiles",
+          "saveFile",
+          "skipEntitlementsChecks"
+        ],
+        "types": [
+          "AndroidSAFOptions",
+          "FilePickerResult",
+          "FilePickerStatus",
+          "FileType",
+          "PlatformFile"
+        ]
+      },
+      "FilePickerLinux": {
+        "fields": [
+          "destination"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/platform/linux/file_picker_linux.dart"
+        ],
+        "methods": [
+          "FilePickerLinux",
+          "getDirectoryPath",
+          "pickFiles",
+          "registerWith",
+          "saveFile"
+        ],
+        "types": [
+          "AndroidSAFOptions",
+          "FilePickerPlatform",
+          "FilePickerResult",
+          "FilePickerStatus",
+          "FileType",
+          "OrgFreedesktopPortalFileChooser"
+        ]
+      },
+      "FilePickerMacOS": {
+        "fields": [
+          "methodChannel"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/platform/macos/file_picker_macos.dart"
+        ],
+        "methods": [
+          "escapeDialogTitle",
+          "escapeInitialDirectory",
+          "fileTypeToFileFilter",
+          "getDirectoryPath",
+          "pickFileAndDirectoryPaths",
+          "pickFiles",
+          "registerWith",
+          "saveFile",
+          "skipEntitlementsChecks"
+        ],
+        "types": [
+          "AndroidSAFOptions",
+          "FilePickerPlatform",
+          "FilePickerResult",
+          "FilePickerStatus",
+          "FileType"
+        ]
+      },
+      "FilePickerPlatform": {
+        "fields": [
+          "get:instance",
+          "set:instance"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/platform/file_picker_platform_interface.dart"
+        ],
+        "methods": [
+          "FilePickerPlatform",
+          "clearTemporaryFiles",
+          "getDirectoryPath",
+          "pickFileAndDirectoryPaths",
+          "pickFiles",
+          "releaseSAFGrant",
+          "saveFile",
+          "skipEntitlementsChecks"
+        ],
+        "types": [
+          "AndroidSAFOptions",
+          "FilePickerPlatform",
+          "FilePickerResult",
+          "FilePickerStatus",
+          "FileType"
+        ]
+      },
+      "FilePickerResult": {
+        "fields": [
+          "files",
+          "get:count",
+          "get:hashCode",
+          "get:isSinglePick",
+          "get:names",
+          "get:paths",
+          "get:xFiles"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/api/file_picker_result.dart"
+        ],
+        "methods": [
+          "==",
+          "FilePickerResult",
+          "toString"
+        ],
+        "types": [
+          "PlatformFile"
+        ]
+      },
+      "FilePickerStatus": {
+        "fields": [
+          "done",
+          "picking"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/api/file_picker_types.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "FilePickerUtils": {
+        "fields": [
+          "defaultDialogTitle"
+        ],
+        "libraries": [
+          "package:file_picker/src/utils/file_picker_utils.dart"
+        ],
+        "methods": [
+          "createPlatformFile",
+          "filePathsToPlatformFiles",
+          "isAlpha",
+          "isExecutableOnPath",
+          "runExecutableWithArguments",
+          "saveBytesToFile",
+          "validateAllowedExtensions"
+        ],
+        "types": [
+          "FileType",
+          "PlatformFile"
+        ]
+      },
+      "FilePickerWeb": {
+        "fields": [],
+        "libraries": [
+          "package:file_picker/src/platform/web/file_picker_web.dart"
+        ],
+        "methods": [
+          "getDirectoryPath",
+          "pickFiles",
+          "registerWith",
+          "saveFile"
+        ],
+        "types": [
+          "AndroidSAFOptions",
+          "FilePickerPlatform",
+          "FilePickerResult",
+          "FilePickerStatus",
+          "FileType"
+        ]
+      },
+      "FilePickerWindows": {
+        "fields": [],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/platform/windows/file_picker_windows.dart"
+        ],
+        "methods": [
+          "extractSelectedFilesFromOpenFileNameW",
+          "fileTypeToFileFilter",
+          "getDirectoryPath",
+          "pickFiles",
+          "registerWith",
+          "saveFile",
+          "validateFileName"
+        ],
+        "types": [
+          "AndroidSAFOptions",
+          "FilePickerPlatform",
+          "FilePickerResult",
+          "FilePickerStatus",
+          "FileType",
+          "OPENFILENAMEW"
+        ]
+      },
+      "FileType": {
+        "fields": [
+          "any",
+          "audio",
+          "custom",
+          "image",
+          "media",
+          "video"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/api/file_picker_types.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Filter": {
+        "fields": [
+          "info"
+        ],
+        "libraries": [
+          "package:file_picker/src/platform/linux/filters.dart"
+        ],
+        "methods": [
+          "Filter",
+          "toDBusArray"
+        ],
+        "types": [
+          "FileType"
+        ]
+      },
+      "IllegalCharacterInFileNameException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:file_picker/src/api/exceptions.dart"
+        ],
+        "methods": [
+          "IllegalCharacterInFileNameException",
+          "toString"
+        ],
+        "types": []
+      },
+      "MethodChannelFilePicker": {
+        "fields": [
+          "eventChannel",
+          "methodChannel"
+        ],
+        "libraries": [
+          "package:file_picker/src/platform/file_picker_method_channel.dart"
+        ],
+        "methods": [
+          "clearTemporaryFiles",
+          "getDirectoryPath",
+          "pickFiles",
+          "registerWith",
+          "releaseSAFGrant",
+          "saveFile"
+        ],
+        "types": [
+          "AndroidSAFOptions",
+          "FilePickerPlatform",
+          "FilePickerResult",
+          "FilePickerStatus",
+          "FileType"
+        ]
+      },
+      "OPENFILENAMEW": {
+        "fields": [
+          "dwReserved",
+          "flags",
+          "flagsEx",
+          "hInstance",
+          "hwndOwner",
+          "lCustData",
+          "lStructSize",
+          "lpTemplateName",
+          "lpfnHook",
+          "lpstrCustomFilter",
+          "lpstrDefExt",
+          "lpstrFile",
+          "lpstrFileTitle",
+          "lpstrFilter",
+          "lpstrInitialDir",
+          "lpstrTitle",
+          "nFileExtension",
+          "nFileOffset",
+          "nFilterIndex",
+          "nMaxCustFilter",
+          "nMaxFile",
+          "nMaxFileTitle",
+          "pvReserved"
+        ],
+        "libraries": [
+          "package:file_picker/src/platform/windows/file_picker_windows_ffi_types.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "OrgFreedesktopPortalFileChooser": {
+        "fields": [],
+        "libraries": [
+          "package:file_picker/src/platform/linux/xdp_filechooser.dart"
+        ],
+        "methods": [
+          "OrgFreedesktopPortalFileChooser",
+          "callOpenFile",
+          "callSaveFile",
+          "callSaveFiles",
+          "getversion"
+        ],
+        "types": []
+      },
+      "OrgFreedesktopPortalRequest": {
+        "fields": [
+          "response"
+        ],
+        "libraries": [
+          "package:file_picker/src/platform/linux/xdp_request.dart"
+        ],
+        "methods": [
+          "OrgFreedesktopPortalRequest",
+          "callClose"
+        ],
+        "types": [
+          "OrgFreedesktopPortalRequestResponse"
+        ]
+      },
+      "OrgFreedesktopPortalRequestResponse": {
+        "fields": [
+          "get:response",
+          "get:results"
+        ],
+        "libraries": [
+          "package:file_picker/src/platform/linux/xdp_request.dart"
+        ],
+        "methods": [
+          "OrgFreedesktopPortalRequestResponse"
+        ],
+        "types": []
+      },
+      "PlatformFile": {
+        "fields": [
+          "bytes",
+          "get:extension",
+          "get:hashCode",
+          "get:xFile",
+          "identifier",
+          "name",
+          "path",
+          "readStream",
+          "size"
+        ],
+        "libraries": [
+          "package:file_picker/file_picker.dart",
+          "package:file_picker/src/api/platform_file.dart"
+        ],
+        "methods": [
+          "==",
+          "PlatformFile",
+          "fromMap",
+          "length",
+          "readAsByteStream",
+          "readAsBytes",
+          "toString"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-17T11:59:32Z",
+  "package": "file_picker",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AndroidSAFHandle",
+      "AndroidSAFOptions",
+      "FilePickerResult"
+    ],
+    "digest": "74cbe1518555573bb73befdb630b0bd09b99105eb61ce47d5169de1463329c37",
+    "event_channels": [
+      "miguelruivo.flutter.plugins.filepickerevent"
+    ],
+    "ffi_symbols": [
+      "FindWindowA",
+      "GetOpenFileNameW",
+      "GetSaveFileNameW"
+    ],
+    "hierarchy_hash": "5f4e00929534f6df1cf203c08becc5f9af6d98799790ae53c6d5d98d4e55d361",
+    "method_channels": [
+      "miguelruivo.flutter.plugins.filepicker"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\"",
+      "*.aac",
+      "*.avi",
+      "*.bmp",
+      "*.flv",
+      "*.gif",
+      "*.jpeg",
+      "*.jpg",
+      "*.m4v",
+      "*.midi",
+      "*.mkv",
+      "*.mov",
+      "*.mp3",
+      "*.mp4",
+      "*.mpeg",
+      "*.ogg",
+      "*.png",
+      "*.wav",
+      "*.webm",
+      "*.webp",
+      "*.wmv",
+      ",*.",
+      ".",
+      "../platform/web/platform_file_web_fetch.dart",
+      "../platform/web/platform_file_web_fetch_stub.dart",
+      "/",
+      "/org/freedesktop/portal/desktop",
+      ";*.",
+      "A file name is required when saving a file on the web.",
+      "All Files (*.*)\u0000*.*\u0000\u0000",
+      "Audio",
+      "Audios (*.aac,*.midi,*.mp3,*.ogg,*.wav,*.m4a)\u0000*.aac;*.midi;*.mp3;*.ogg;*.wav;*.m4a\u0000\u0000",
+      "Close",
+      "Custom",
+      "Custom extension filters are only allowed with FileType.custom. Remove the extension filter or change the FileType to FileType.custom.",
+      "Expected file to be a File.",
+      "FLUTTER_RUNNER_WIN32_WINDOW",
+      "File Picker",
+      "FindWindowA",
+      "GetOpenFileNameW",
+      "GetSaveFileNameW",
+      "Image",
+      "Images (*.bmp,*.gif,*.jpeg,*.jpg,*.png,*.webp)\u0000*.bmp;*.gif;*.jpeg;*.jpg;*.png;*.webp\u0000\u0000",
+      "Invalid isolate arguments",
+      "Media",
+      "MethodChannelFilePicker",
+      "OpenFile",
+      "Picking paths is unsupported on Web. Please, use bytes property instead.",
+      "PlatformFile.readAsBytes(): file data is not available. Consume the file via PlatformFile.readAsByteStream(), or on Web ensure the file path is a fetchable blob/data URL that can be retrieved.",
+      "Reserved characters may not be used in file names. See: https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file#naming-conventions",
+      "Response",
+      "SaveFile",
+      "SaveFiles",
+      "The bytes are required when saving a file on the web.",
+      "The file name should include a valid file extension.",
+      "Use PlatformFile.readAsByteStream(); this parameter will be removed in a future release",
+      "Use PlatformFile.readAsBytes(); this parameter will be removed in a future release",
+      "Use readAsByteStream() instead",
+      "Use readAsBytes() instead to avoid out-of-memory issues with large files.",
+      "Video",
+      "Videos (*.avi,*.flv,*.mkv,*.mov,*.mp4,*.mpeg,*.webm,*.wmv)\u0000*.avi;*.flv;*.mkv;*.mov;*.mp4;*.mpeg;*.webm;*.wmv\u0000\u0000",
+      "Videos (*.avi,*.flv,*.mkv,*.mov,*.mp4,*.mpeg,*.webm,*.wmv)\u0000*.avi;*.flv;*.mkv;*.mov;*.mp4;*.mpeg;*.webm;*.wmv\u0000Images (*.bmp,*.gif,*.jpeg,*.jpg,*.png)\u0000*.bmp;*.gif;*.jpeg;*.jpg;*.png\u0000\u0000",
+      "When using FileType.custom you must provide a non-empty list of allowedExtensions.",
+      "[<>:/\\\\|?*\"]",
+      "\\",
+      "\\\n",
+      "\\\"",
+      "\\\\",
+      "__file_picker_web-file-input",
+      "_file_utils_io.dart",
+      "_file_utils_web.dart",
+      "aac",
+      "access",
+      "allowMultiple",
+      "allowMultipleSelection",
+      "allowedExtensions",
+      "androidSafOptions",
+      "android_saf_handle.dart",
+      "audio/*",
+      "autoPersist",
+      "avi",
+      "blank",
+      "blob:",
+      "bmp",
+      "body",
+      "bytes",
+      "cancel",
+      "change",
+      "clear",
+      "clearTemporaryFiles() has not been implemented.",
+      "comdlg32.dll",
+      "compressionQuality",
+      "createPlatformFile is only supported on native platforms",
+      "current_folder",
+      "current_name",
+      "dart:async",
+      "dart:convert",
+      "dart:ffi",
+      "dart:io",
+      "dart:isolate",
+      "dart:js_interop",
+      "dart:math",
+      "dart:typed_data",
+      "data:",
+      "dialogTitle",
+      "dir",
+      "directory",
+      "fetch",
+      "file",
+      "fileName",
+      "filePathsToPlatformFiles is only supported on native platforms",
+      "fileType",
+      "filters",
+      "flt-file-picker-inputs",
+      "flutter picker",
+      "flutter_picker",
+      "flv",
+      "focus",
+      "getDirectoryPath",
+      "getDirectoryPath() has not been implemented.",
+      "gif",
+      "grant",
+      "handle_token",
+      "identifier",
+      "image/*",
+      "initialDirectory",
+      "isExecutableOnPath is only supported on native platforms",
+      "jpeg",
+      "jpg",
+      "lockParentWindow",
+      "m4v",
+      "midi",
+      "miguelruivo.flutter.plugins.filepicker",
+      "miguelruivo.flutter.plugins.filepickerevent",
+      "mkv",
+      "modal",
+      "mov",
+      "mp3",
+      "mp4",
+      "mpeg",
+      "multiple",
+      "name",
+      "none",
+      "o",
+      "ogg",
+      "org.freedesktop.portal.Desktop",
+      "org.freedesktop.portal.FileChooser",
+      "org.freedesktop.portal.Request",
+      "package:cross_file/cross_file.dart",
+      "package:dbus/dbus.dart",
+      "package:ffi/ffi.dart",
+      "package:file_picker/file_picker.dart",
+      "package:file_picker/src/api/android_saf_options.dart",
+      "package:file_picker/src/api/exceptions.dart",
+      "package:file_picker/src/api/file_picker_result.dart",
+      "package:file_picker/src/api/file_picker_types.dart",
+      "package:file_picker/src/api/platform_file.dart",
+      "package:file_picker/src/platform/file_picker_method_channel.dart",
+      "package:file_picker/src/platform/file_picker_platform_interface.dart",
+      "package:file_picker/src/platform/linux/filters.dart",
+      "package:file_picker/src/platform/linux/xdp_filechooser.dart",
+      "package:file_picker/src/platform/linux/xdp_request.dart",
+      "package:file_picker/src/platform/windows/file_picker_windows_ffi_types.dart",
+      "package:file_picker/src/utils/file_picker_utils.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/services.dart",
+      "package:flutter_web_plugins/flutter_web_plugins.dart",
+      "package:path/path.dart",
+      "package:plugin_platform_interface/plugin_platform_interface.dart",
+      "package:web/web.dart",
+      "package:win32/win32.dart",
+      "path",
+      "pickFileAndDirectoryPaths",
+      "pickFileAndDirectoryPaths() has not been implemented.",
+      "pickFiles",
+      "pickFiles() has not been implemented.",
+      "png",
+      "readWrite",
+      "releaseSAFGrant() has not been implemented.",
+      "releaseSafGrant",
+      "runExecutableWithArguments is only supported on native platforms",
+      "safHandle",
+      "save",
+      "saveBytesToFile is only supported on native platforms",
+      "saveFile",
+      "saveFile() has not been implemented.",
+      "size",
+      "skipEntitlementsChecks",
+      "src/api/android_saf_handle.dart",
+      "src/api/android_saf_options.dart",
+      "src/api/file_picker_result.dart",
+      "src/api/file_picker_types.dart",
+      "src/api/platform_file.dart",
+      "src/file_picker.dart",
+      "src/platform/file_picker_platform_interface.dart",
+      "src/platform/linux/file_picker_linux.dart",
+      "src/platform/macos/file_picker_macos.dart",
+      "src/platform/web/file_picker_web.dart",
+      "src/platform/windows/file_picker_windows.dart",
+      "u",
+      "ua{sv}",
+      "unknown_path",
+      "uri",
+      "uris",
+      "use pickFile for single-file selection; this parameter will be removed in a future release",
+      "user32.dll",
+      "version",
+      "video/*",
+      "video/*|image/*",
+      "wav",
+      "webm",
+      "webp",
+      "which",
+      "withData",
+      "wmv",
+      "~",
+      "~/"
+    ]
+  },
+  "version": "12.0.0-beta.6"
+}
