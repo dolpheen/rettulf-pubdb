@@ -1,0 +1,4519 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "get:wasmModule",
+          "kDefaultEmissionFactors"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/carbon_estimator.dart",
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/src/rust/frb_generated.web.dart",
+          "package:tracelet_platform_interface/src/rust_loader/rust_loader.dart",
+          "package:tracelet_platform_interface/src/rust_loader/rust_loader_io.dart",
+          "package:tracelet_platform_interface/src/rust_loader/rust_loader_unsupported.dart",
+          "package:tracelet_platform_interface/src/rust_loader/rust_loader_web.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "initializeRustLib",
+          "tryLoadRustCore",
+          "wrapResponse"
+        ],
+        "types": []
+      },
+      "AccuracyAuthorization": {
+        "fields": [
+          "full",
+          "reduced"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ActivityConfidence": {
+        "fields": [
+          "high",
+          "low",
+          "medium"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ActivityType": {
+        "fields": [
+          "inVehicle",
+          "onBicycle",
+          "onFoot",
+          "running",
+          "still",
+          "unknown",
+          "walking"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "AdaptiveContext": {
+        "fields": [
+          "activityConfidence",
+          "activityType",
+          "batteryLevel",
+          "isCharging",
+          "speed"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/adaptive_sampling_engine.dart",
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "AdaptiveContext",
+          "toString"
+        ],
+        "types": [
+          "ActivityConfidence",
+          "ActivityType"
+        ]
+      },
+      "AdaptiveSamplingEngine": {
+        "fields": [
+          "baseDistanceFilter",
+          "batteryCriticalFactor",
+          "batteryHighThreshold",
+          "batteryLowFactor",
+          "batteryLowThreshold",
+          "batteryMediumFactor",
+          "batteryMediumThreshold",
+          "distanceBicycle",
+          "distanceRunning",
+          "distanceStill",
+          "distanceVehicle",
+          "distanceWalking",
+          "elasticityMultiplier"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/adaptive_sampling_engine.dart",
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "AdaptiveSamplingEngine",
+          "compute"
+        ],
+        "types": [
+          "AdaptiveContext",
+          "AdaptiveSamplingResult"
+        ]
+      },
+      "AdaptiveSamplingResult": {
+        "fields": [
+          "activityFactor",
+          "baseDistanceFilter",
+          "batteryFactor",
+          "effectiveDistanceFilter",
+          "source",
+          "speedFactor"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/adaptive_sampling_engine.dart",
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "AdaptiveSamplingResult",
+          "toString"
+        ],
+        "types": [
+          "AdaptiveSource"
+        ]
+      },
+      "AdaptiveSource": {
+        "fields": [
+          "activity",
+          "speed",
+          "static_"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/adaptive_sampling_engine.dart",
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "AuthorizationStatus": {
+        "fields": [
+          "always",
+          "denied",
+          "deniedForever",
+          "notDetermined",
+          "whenInUse"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "BatteryBudgetEngine": {
+        "fields": [
+          "get:accuracyIndex",
+          "get:distanceFilter",
+          "get:periodicInterval",
+          "get:targetBudgetPerHour"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/battery_budget_engine.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "BatteryBudgetEngine",
+          "getRecommendedIntervalMs",
+          "isCharging",
+          "processSample",
+          "reset",
+          "shouldThrottleLocation"
+        ],
+        "types": [
+          "BatteryBudgetEngineDart",
+          "BudgetAdjustmentEvent"
+        ]
+      },
+      "BatteryBudgetEngineDart": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/api_dart/battery_budget.dart"
+        ],
+        "methods": [
+          "BatteryBudgetEngineDart",
+          "getAccuracyIndex",
+          "getDistanceFilter",
+          "getPeriodicInterval",
+          "getRecommendedIntervalMs",
+          "isCharging",
+          "processSample",
+          "reset",
+          "shouldThrottleLocation"
+        ],
+        "types": [
+          "BudgetAdjustmentEvent"
+        ]
+      },
+      "BatteryBudgetEngineDartImpl": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "getAccuracyIndex",
+          "getDistanceFilter",
+          "getPeriodicInterval",
+          "getRecommendedIntervalMs",
+          "isCharging",
+          "processSample",
+          "reset",
+          "shouldThrottleLocation"
+        ],
+        "types": [
+          "BatteryBudgetEngineDart",
+          "BudgetAdjustmentEvent"
+        ]
+      },
+      "BudgetAdjustmentEvent": {
+        "fields": [
+          "currentBatteryDrain",
+          "get:hashCode",
+          "newDesiredAccuracy",
+          "newDistanceFilter",
+          "newPeriodicInterval",
+          "targetBudget"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/rust/state/battery_budget.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "BudgetAdjustmentEvent"
+        ],
+        "types": []
+      },
+      "CarbonEstimator": {
+        "fields": [
+          "get:cumulativeCarbonGrams",
+          "get:cumulativeTrips",
+          "get:isActive"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/carbon_estimator.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "CarbonEstimator",
+          "endTrip",
+          "getCumulativeReport",
+          "onLocationReceived",
+          "reset",
+          "resetCumulative",
+          "setActivity",
+          "startTrip"
+        ],
+        "types": [
+          "TripCarbonSummary"
+        ]
+      },
+      "ClassifierConfig": {
+        "fields": [
+          "get:hashCode",
+          "minConfidence",
+          "modeSwitchDwellMs"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/algorithms/transport_mode.dart"
+        ],
+        "methods": [
+          "==",
+          "ClassifierConfig"
+        ],
+        "types": []
+      },
+      "DeltaEncoder": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/delta_encoder.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "decode",
+          "encode"
+        ],
+        "types": []
+      },
+      "DesiredAccuracy": {
+        "fields": [
+          "high",
+          "low",
+          "medium",
+          "passive",
+          "veryLow"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DrivingEvent": {
+        "fields": [
+          "get:hashCode",
+          "kind",
+          "latitude",
+          "longitude",
+          "severity",
+          "speed",
+          "timestampMs",
+          "value"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/algorithms/telematics.dart"
+        ],
+        "methods": [
+          "==",
+          "DrivingEvent"
+        ],
+        "types": []
+      },
+      "FullAccuracyStatus": {
+        "fields": [
+          "full",
+          "reduced"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "GeoUtils": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/geo_utils.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "haversine",
+          "isPointInPolygon"
+        ],
+        "types": []
+      },
+      "GeofenceAction": {
+        "fields": [
+          "dwell",
+          "enter",
+          "exit"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "GeofenceEvaluator": {
+        "fields": [
+          "get:insideGeofenceIds",
+          "get:isIndexed"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/geofence_evaluator.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "clear",
+          "clearIndex",
+          "evaluateProximity",
+          "indexGeofences",
+          "removeGeofence"
+        ],
+        "types": [
+          "GeofenceTransition",
+          "RTree"
+        ]
+      },
+      "GeofenceTransition": {
+        "fields": [
+          "action",
+          "distance",
+          "geofence",
+          "identifier"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/geofence_evaluator.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "GeofenceTransition",
+          "toString"
+        ],
+        "types": []
+      },
+      "HashAlgorithm": {
+        "fields": [
+          "sha256",
+          "sha384",
+          "sha512"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "HttpMethod": {
+        "fields": [
+          "post",
+          "put"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ImpactConfig": {
+        "fields": [
+          "confirmWindowMs",
+          "crashGThreshold",
+          "crashMinSpeedKmh",
+          "enableCrash",
+          "enableFall",
+          "fallGThreshold",
+          "get:hashCode",
+          "minConfidence"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/algorithms/impact.dart"
+        ],
+        "methods": [
+          "==",
+          "ImpactConfig"
+        ],
+        "types": []
+      },
+      "ImpactDetectorDart": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/api_dart/impact.dart"
+        ],
+        "methods": [
+          "ImpactDetectorDart",
+          "cancel",
+          "checkConfirmations",
+          "confirm",
+          "corroborateBarometric",
+          "corroborateDv",
+          "onImpactWindow",
+          "reset"
+        ],
+        "types": [
+          "ImpactConfig",
+          "ImpactEvent"
+        ]
+      },
+      "ImpactDetectorDartImpl": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "cancel",
+          "checkConfirmations",
+          "confirm",
+          "corroborateBarometric",
+          "corroborateDv",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "onImpactWindow",
+          "reset"
+        ],
+        "types": [
+          "ImpactDetectorDart",
+          "ImpactEvent"
+        ]
+      },
+      "ImpactEvent": {
+        "fields": [
+          "confidence",
+          "confirmDeadlineMs",
+          "get:hashCode",
+          "id",
+          "kind",
+          "latitude",
+          "longitude",
+          "peakG",
+          "speedBefore",
+          "timestampMs"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/algorithms/impact.dart"
+        ],
+        "methods": [
+          "==",
+          "ImpactEvent"
+        ],
+        "types": []
+      },
+      "LocationActivityType": {
+        "fields": [
+          "airborne",
+          "automotiveNavigation",
+          "fitness",
+          "other",
+          "otherNavigation"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LocationAuthorizationRequest": {
+        "fields": [
+          "always",
+          "whenInUse"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LocationFilterPolicy": {
+        "fields": [
+          "adjust",
+          "discard",
+          "ignore"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LocationOrderDirection": {
+        "fields": [
+          "ascending",
+          "descending"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "LogLevel": {
+        "fields": [
+          "debug",
+          "error",
+          "info",
+          "off",
+          "verbose",
+          "warning"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "MethodChannelTracelet": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/method_channel_tracelet.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "addGeofence",
+          "addGeofences",
+          "addPrivacyZone",
+          "addPrivacyZones",
+          "canScheduleExactAlarms",
+          "changePace",
+          "clearRouteContext",
+          "destroyLocation",
+          "destroyLocations",
+          "destroyLog",
+          "destroySyncedLocations",
+          "emailLog",
+          "encryptDatabase",
+          "geofenceExists",
+          "getAttestationToken",
+          "getAuditProof",
+          "getCarbonReport",
+          "getCount",
+          "getCurrentPosition",
+          "getDeadReckoningState",
+          "getDeviceInfo",
+          "getGeofence",
+          "getGeofences",
+          "getLastKnownLocation",
+          "getLocations",
+          "getLog",
+          "getOdometer",
+          "getPrivacyZones",
+          "getProviderState",
+          "getSensors",
+          "getSettingsHealth",
+          "getState",
+          "insertLocation",
+          "isDatabaseEncrypted",
+          "isIgnoringBatteryOptimizations",
+          "isPowerSaveMode",
+          "log",
+          "openExactAlarmSettings",
+          "openOemSettings",
+          "playSound",
+          "ready",
+          "registerHeadlessHeadersCallback",
+          "registerHeadlessSyncBodyBuilder",
+          "registerHeadlessTask",
+          "removeGeofence",
+          "removeGeofences",
+          "removePrivacyZone",
+          "removePrivacyZones",
+          "requestSettings",
+          "requestTemporaryFullAccuracy",
+          "reset",
+          "setConfig",
+          "setDynamicHeaders",
+          "setOdometer",
+          "setRouteContext",
+          "showSettings",
+          "start",
+          "startBackgroundTask",
+          "startGeofences",
+          "startPeriodic",
+          "startSchedule",
+          "stop",
+          "stopBackgroundTask",
+          "stopSchedule",
+          "stopWatchPosition",
+          "sync",
+          "verifyAuditTrail",
+          "watchPosition"
+        ],
+        "types": [
+          "TlConfig",
+          "TlCurrentPositionOptions",
+          "TlGeofence",
+          "TraceletPlatform"
+        ]
+      },
+      "MockDetectionLevel": {
+        "fields": [
+          "basic",
+          "disabled",
+          "heuristic"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ModeResult": {
+        "fields": [
+          "changed",
+          "confidence",
+          "get:hashCode",
+          "mode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/algorithms/transport_mode.dart"
+        ],
+        "methods": [
+          "==",
+          "ModeResult"
+        ],
+        "types": [
+          "TransportMode"
+        ]
+      },
+      "MotionAuthorizationStatus": {
+        "fields": [
+          "deniedForever",
+          "granted",
+          "notDetermined"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "NotificationAuthorizationStatus": {
+        "fields": [
+          "denied",
+          "deniedForever",
+          "granted",
+          "notDetermined"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "NotificationPriority": {
+        "fields": [
+          "defaultPriority",
+          "high",
+          "low",
+          "max",
+          "min"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PersistDecider": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/persist_decider.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "shouldPersistGeofence",
+          "shouldPersistLocation"
+        ],
+        "types": []
+      },
+      "PersistMode": {
+        "fields": [
+          "all",
+          "geofence",
+          "location",
+          "none"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PigeonEventReceiver": {
+        "fields": [
+          "get:activityChangeEvents",
+          "get:authorizationEvents",
+          "get:connectivityChangeEvents",
+          "get:crashModelStatusEvents",
+          "get:drivingEvents",
+          "get:enabledChangeEvents",
+          "get:geofenceEvents",
+          "get:geofencesChangeEvents",
+          "get:heartbeatEvents",
+          "get:httpEvents",
+          "get:impactEvents",
+          "get:locationEvents",
+          "get:modeChangeEvents",
+          "get:motionChangeEvents",
+          "get:motionModeChangeEvents",
+          "get:notificationActionEvents",
+          "get:powerSaveChangeEvents",
+          "get:providerChangeEvents",
+          "get:scheduleEvents",
+          "get:watchPositionEvents"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/pigeon_event_receiver.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "dispose",
+          "onActivityChange",
+          "onAuthorization",
+          "onConnectivityChange",
+          "onCrashModelStatus",
+          "onDrivingEvent",
+          "onEnabledChange",
+          "onGeofence",
+          "onGeofencesChange",
+          "onHeartbeat",
+          "onHttp",
+          "onImpact",
+          "onLocation",
+          "onModeChange",
+          "onMotionChange",
+          "onMotionModeChange",
+          "onNotificationAction",
+          "onPowerSaveChange",
+          "onProviderChange",
+          "onSchedule",
+          "onWatchPosition"
+        ],
+        "types": [
+          "TlActivityChangeEvent",
+          "TlAuthorizationEvent",
+          "TlConnectivityChangeEvent",
+          "TlCrashModelStatusEvent",
+          "TlDrivingEvent",
+          "TlGeofenceEvent",
+          "TlGeofencesChangeEvent",
+          "TlHeartbeatEvent",
+          "TlHttpEvent",
+          "TlImpactEvent",
+          "TlLocation",
+          "TlModeChangeEvent",
+          "TlProviderChangeEvent",
+          "TlSpeedMotionEvent",
+          "TlState",
+          "TraceletEventApi"
+        ]
+      },
+      "PigeonTracelet": {
+        "fields": [
+          "get:activityChangeEvents",
+          "get:authorizationEvents",
+          "get:connectivityChangeEvents",
+          "get:crashModelStatusEvents",
+          "get:drivingEvents",
+          "get:enabledChangeEvents",
+          "get:geofenceEvents",
+          "get:geofencesChangeEvents",
+          "get:heartbeatEvents",
+          "get:httpEvents",
+          "get:impactEvents",
+          "get:locationEvents",
+          "get:modeChangeEvents",
+          "get:motionChangeEvents",
+          "get:motionModeChangeEvents",
+          "get:notificationActionEvents",
+          "get:powerSaveChangeEvents",
+          "get:providerChangeEvents",
+          "get:scheduleEvents",
+          "get:watchPositionEvents"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/pigeon_tracelet.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "PigeonTracelet",
+          "addGeofence",
+          "addGeofences",
+          "addPrivacyZone",
+          "addPrivacyZones",
+          "canScheduleExactAlarms",
+          "cancelImpact",
+          "changePace",
+          "clearLogs",
+          "clearRouteContext",
+          "confirmImpact",
+          "debugRunCrashModelInference",
+          "destroyLocation",
+          "destroyLocations",
+          "destroyLog",
+          "destroySyncedLocations",
+          "destroyTelematicsEvents",
+          "emailLog",
+          "encryptDatabase",
+          "geofenceExists",
+          "getAttestationToken",
+          "getAuditProof",
+          "getCarbonReport",
+          "getCount",
+          "getCurrentPosition",
+          "getDeadReckoningState",
+          "getDeviceInfo",
+          "getGeofence",
+          "getGeofences",
+          "getLastKnownLocation",
+          "getLocationAuthorization",
+          "getLocations",
+          "getLog",
+          "getLogs",
+          "getMotionAuthorization",
+          "getNotificationAuthorization",
+          "getOdometer",
+          "getPrivacyZones",
+          "getProviderState",
+          "getSensors",
+          "getSettingsHealth",
+          "getState",
+          "getTelematicsEvents",
+          "insertLocation",
+          "isDatabaseEncrypted",
+          "isIgnoringBatteryOptimizations",
+          "isPowerSaveMode",
+          "log",
+          "openExactAlarmSettings",
+          "openOemSettings",
+          "playSound",
+          "ready",
+          "registerHeadlessHeadersCallback",
+          "registerHeadlessSyncBodyBuilder",
+          "registerHeadlessTask",
+          "removeGeofence",
+          "removeGeofences",
+          "removePrivacyZone",
+          "removePrivacyZones",
+          "requestLocationAuthorization",
+          "requestMotionAuthorization",
+          "requestNotificationAuthorization",
+          "requestSettings",
+          "requestTemporaryFullAccuracy",
+          "reset",
+          "setConfig",
+          "setDynamicHeaders",
+          "setOdometer",
+          "setRouteContext",
+          "showPowerManager",
+          "showSettings",
+          "simulateTelematicsEvent",
+          "start",
+          "startBackgroundTask",
+          "startGeofences",
+          "startPeriodic",
+          "startSchedule",
+          "stop",
+          "stopBackgroundTask",
+          "stopSchedule",
+          "stopWatchPosition",
+          "sync",
+          "verifyAuditTrail",
+          "watchPosition"
+        ],
+        "types": [
+          "AuthorizationStatus",
+          "MotionAuthorizationStatus",
+          "NotificationAuthorizationStatus",
+          "PigeonEventReceiver",
+          "TlActivityChangeEvent",
+          "TlAuthorizationEvent",
+          "TlConfig",
+          "TlConnectivityChangeEvent",
+          "TlCrashModelStatusEvent",
+          "TlCurrentPositionOptions",
+          "TlDrivingEvent",
+          "TlGeofence",
+          "TlGeofenceEvent",
+          "TlGeofencesChangeEvent",
+          "TlHeartbeatEvent",
+          "TlHttpEvent",
+          "TlImpactEvent",
+          "TlLocation",
+          "TlLogEntry",
+          "TlModeChangeEvent",
+          "TlProviderChangeEvent",
+          "TlSpeedMotionEvent",
+          "TlState",
+          "TlTelematicsRecord",
+          "TraceletHostApi",
+          "TraceletPlatform"
+        ]
+      },
+      "RTree": {
+        "fields": [
+          "get:isEmpty",
+          "get:size",
+          "maxEntries"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/rtree.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "RTree",
+          "clear",
+          "insert",
+          "queryBBox",
+          "queryCircle",
+          "remove"
+        ],
+        "types": []
+      },
+      "RTreeBBox": {
+        "fields": [
+          "get:area",
+          "maxLat",
+          "maxLng",
+          "minLat",
+          "minLng"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/rtree.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "RTreeBBox",
+          "enlargement",
+          "expand",
+          "fromPoint",
+          "intersects",
+          "toString"
+        ],
+        "types": [
+          "RTreeBBox"
+        ]
+      },
+      "RTreeDart": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/api_dart/rtree.dart"
+        ],
+        "methods": [
+          "RTreeDart",
+          "clear",
+          "insert",
+          "queryCircle",
+          "search"
+        ],
+        "types": []
+      },
+      "RTreeDartImpl": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "clear",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "insert",
+          "queryCircle",
+          "search"
+        ],
+        "types": [
+          "RTreeDart"
+        ]
+      },
+      "RustLib": {
+        "fields": [
+          "get:apiImplConstructor",
+          "get:codegenVersion",
+          "get:defaultExternalLibraryLoaderConfig",
+          "get:rustContentHash",
+          "get:wireConstructor",
+          "instance",
+          "kDefaultExternalLibraryLoaderConfig"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/frb_generated.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "dispose",
+          "executeRustInitializers",
+          "init",
+          "initMock"
+        ],
+        "types": [
+          "RustLibApi",
+          "RustLibApiImpl",
+          "RustLibWire"
+        ]
+      },
+      "RustLibApi": {
+        "fields": [
+          "get:rust_arc_decrement_strong_count_BatteryBudgetEngineDart",
+          "get:rust_arc_decrement_strong_count_BatteryBudgetEngineDartPtr",
+          "get:rust_arc_decrement_strong_count_ImpactDetectorDart",
+          "get:rust_arc_decrement_strong_count_ImpactDetectorDartPtr",
+          "get:rust_arc_decrement_strong_count_RTreeDart",
+          "get:rust_arc_decrement_strong_count_RTreeDartPtr",
+          "get:rust_arc_decrement_strong_count_ScheduleParserDart",
+          "get:rust_arc_decrement_strong_count_ScheduleParserDartPtr",
+          "get:rust_arc_decrement_strong_count_SmartMotionCoordinatorDart",
+          "get:rust_arc_decrement_strong_count_SmartMotionCoordinatorDartPtr",
+          "get:rust_arc_decrement_strong_count_TelematicsEngineDart",
+          "get:rust_arc_decrement_strong_count_TelematicsEngineDartPtr",
+          "get:rust_arc_decrement_strong_count_TransportModeClassifierDart",
+          "get:rust_arc_decrement_strong_count_TransportModeClassifierDartPtr",
+          "get:rust_arc_decrement_strong_count_TripManagerDart",
+          "get:rust_arc_decrement_strong_count_TripManagerDartPtr",
+          "get:rust_arc_increment_strong_count_BatteryBudgetEngineDart",
+          "get:rust_arc_increment_strong_count_ImpactDetectorDart",
+          "get:rust_arc_increment_strong_count_RTreeDart",
+          "get:rust_arc_increment_strong_count_ScheduleParserDart",
+          "get:rust_arc_increment_strong_count_SmartMotionCoordinatorDart",
+          "get:rust_arc_increment_strong_count_TelematicsEngineDart",
+          "get:rust_arc_increment_strong_count_TransportModeClassifierDart",
+          "get:rust_arc_increment_strong_count_TripManagerDart"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartGetAccuracyIndex",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartGetDistanceFilter",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartGetPeriodicInterval",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartGetRecommendedIntervalMs",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartIsCharging",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartNew",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartProcessSample",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartReset",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartShouldThrottleLocation",
+          "crateApiDartImpactImpactDetectorDartCancel",
+          "crateApiDartImpactImpactDetectorDartCheckConfirmations",
+          "crateApiDartImpactImpactDetectorDartConfirm",
+          "crateApiDartImpactImpactDetectorDartCorroborateBarometric",
+          "crateApiDartImpactImpactDetectorDartCorroborateDv",
+          "crateApiDartImpactImpactDetectorDartNew",
+          "crateApiDartImpactImpactDetectorDartOnImpactWindow",
+          "crateApiDartImpactImpactDetectorDartReset",
+          "crateApiDartRtreeRTreeDartClear",
+          "crateApiDartRtreeRTreeDartInsert",
+          "crateApiDartRtreeRTreeDartNew",
+          "crateApiDartRtreeRTreeDartQueryCircle",
+          "crateApiDartRtreeRTreeDartSearch",
+          "crateApiDartScheduleScheduleParserDartCalculateNextAlarms",
+          "crateApiDartScheduleScheduleParserDartIsWithinSchedule",
+          "crateApiDartScheduleScheduleParserDartNew",
+          "crateApiDartSmartMotionSmartMotionCoordinatorDartIsMoving",
+          "crateApiDartSmartMotionSmartMotionCoordinatorDartNew",
+          "crateApiDartSmartMotionSmartMotionCoordinatorDartOnAccelEvent",
+          "crateApiDartSmartMotionSmartMotionCoordinatorDartOnSpeedChanged",
+          "crateApiDartSmartMotionSmartMotionCoordinatorDartSetTrackingMode",
+          "crateApiDartTelematicsTelematicsEngineDartCurrentScore",
+          "crateApiDartTelematicsTelematicsEngineDartNew",
+          "crateApiDartTelematicsTelematicsEngineDartProcessFix",
+          "crateApiDartTelematicsTelematicsEngineDartReset",
+          "crateApiDartTransportModeTransportModeClassifierDartClassifySamples",
+          "crateApiDartTransportModeTransportModeClassifierDartNew",
+          "crateApiDartTransportModeTransportModeClassifierDartReset",
+          "crateApiDartTripTripManagerDartIsTripActive",
+          "crateApiDartTripTripManagerDartNew",
+          "crateApiDartTripTripManagerDartOnLocationReceived",
+          "crateApiDartTripTripManagerDartOnMotionStateChanged",
+          "crateApiDartTripTripManagerDartReset"
+        ],
+        "types": [
+          "BatteryBudgetEngineDart",
+          "BudgetAdjustmentEvent",
+          "ClassifierConfig",
+          "DrivingEvent",
+          "ImpactConfig",
+          "ImpactDetectorDart",
+          "ImpactEvent",
+          "ModeResult",
+          "RTreeDart",
+          "ScheduleAlarmsDart",
+          "ScheduleParserDart",
+          "SmartMotionCoordinatorDart",
+          "TelematicsConfig",
+          "TelematicsEngineDart",
+          "TrackingModeDart",
+          "TransportModeClassifierDart",
+          "TripDataDart",
+          "TripManagerDart"
+        ]
+      },
+      "RustLibApiImpl": {
+        "fields": [
+          "get:kCrateApiDartBatteryBudgetBatteryBudgetEngineDartGetAccuracyIndexConstMeta",
+          "get:kCrateApiDartBatteryBudgetBatteryBudgetEngineDartGetDistanceFilterConstMeta",
+          "get:kCrateApiDartBatteryBudgetBatteryBudgetEngineDartGetPeriodicIntervalConstMeta",
+          "get:kCrateApiDartBatteryBudgetBatteryBudgetEngineDartGetRecommendedIntervalMsConstMeta",
+          "get:kCrateApiDartBatteryBudgetBatteryBudgetEngineDartIsChargingConstMeta",
+          "get:kCrateApiDartBatteryBudgetBatteryBudgetEngineDartNewConstMeta",
+          "get:kCrateApiDartBatteryBudgetBatteryBudgetEngineDartProcessSampleConstMeta",
+          "get:kCrateApiDartBatteryBudgetBatteryBudgetEngineDartResetConstMeta",
+          "get:kCrateApiDartBatteryBudgetBatteryBudgetEngineDartShouldThrottleLocationConstMeta",
+          "get:kCrateApiDartImpactImpactDetectorDartCancelConstMeta",
+          "get:kCrateApiDartImpactImpactDetectorDartCheckConfirmationsConstMeta",
+          "get:kCrateApiDartImpactImpactDetectorDartConfirmConstMeta",
+          "get:kCrateApiDartImpactImpactDetectorDartCorroborateBarometricConstMeta",
+          "get:kCrateApiDartImpactImpactDetectorDartCorroborateDvConstMeta",
+          "get:kCrateApiDartImpactImpactDetectorDartNewConstMeta",
+          "get:kCrateApiDartImpactImpactDetectorDartOnImpactWindowConstMeta",
+          "get:kCrateApiDartImpactImpactDetectorDartResetConstMeta",
+          "get:kCrateApiDartRtreeRTreeDartClearConstMeta",
+          "get:kCrateApiDartRtreeRTreeDartInsertConstMeta",
+          "get:kCrateApiDartRtreeRTreeDartNewConstMeta",
+          "get:kCrateApiDartRtreeRTreeDartQueryCircleConstMeta",
+          "get:kCrateApiDartRtreeRTreeDartSearchConstMeta",
+          "get:kCrateApiDartScheduleScheduleParserDartCalculateNextAlarmsConstMeta",
+          "get:kCrateApiDartScheduleScheduleParserDartIsWithinScheduleConstMeta",
+          "get:kCrateApiDartScheduleScheduleParserDartNewConstMeta",
+          "get:kCrateApiDartSmartMotionSmartMotionCoordinatorDartIsMovingConstMeta",
+          "get:kCrateApiDartSmartMotionSmartMotionCoordinatorDartNewConstMeta",
+          "get:kCrateApiDartSmartMotionSmartMotionCoordinatorDartOnAccelEventConstMeta",
+          "get:kCrateApiDartSmartMotionSmartMotionCoordinatorDartOnSpeedChangedConstMeta",
+          "get:kCrateApiDartSmartMotionSmartMotionCoordinatorDartSetTrackingModeConstMeta",
+          "get:kCrateApiDartTelematicsTelematicsEngineDartCurrentScoreConstMeta",
+          "get:kCrateApiDartTelematicsTelematicsEngineDartNewConstMeta",
+          "get:kCrateApiDartTelematicsTelematicsEngineDartProcessFixConstMeta",
+          "get:kCrateApiDartTelematicsTelematicsEngineDartResetConstMeta",
+          "get:kCrateApiDartTransportModeTransportModeClassifierDartClassifySamplesConstMeta",
+          "get:kCrateApiDartTransportModeTransportModeClassifierDartNewConstMeta",
+          "get:kCrateApiDartTransportModeTransportModeClassifierDartResetConstMeta",
+          "get:kCrateApiDartTripTripManagerDartIsTripActiveConstMeta",
+          "get:kCrateApiDartTripTripManagerDartNewConstMeta",
+          "get:kCrateApiDartTripTripManagerDartOnLocationReceivedConstMeta",
+          "get:kCrateApiDartTripTripManagerDartOnMotionStateChangedConstMeta",
+          "get:kCrateApiDartTripTripManagerDartResetConstMeta",
+          "get:rust_arc_decrement_strong_count_BatteryBudgetEngineDart",
+          "get:rust_arc_decrement_strong_count_ImpactDetectorDart",
+          "get:rust_arc_decrement_strong_count_RTreeDart",
+          "get:rust_arc_decrement_strong_count_ScheduleParserDart",
+          "get:rust_arc_decrement_strong_count_SmartMotionCoordinatorDart",
+          "get:rust_arc_decrement_strong_count_TelematicsEngineDart",
+          "get:rust_arc_decrement_strong_count_TransportModeClassifierDart",
+          "get:rust_arc_decrement_strong_count_TripManagerDart",
+          "get:rust_arc_increment_strong_count_BatteryBudgetEngineDart",
+          "get:rust_arc_increment_strong_count_ImpactDetectorDart",
+          "get:rust_arc_increment_strong_count_RTreeDart",
+          "get:rust_arc_increment_strong_count_ScheduleParserDart",
+          "get:rust_arc_increment_strong_count_SmartMotionCoordinatorDart",
+          "get:rust_arc_increment_strong_count_TelematicsEngineDart",
+          "get:rust_arc_increment_strong_count_TransportModeClassifierDart",
+          "get:rust_arc_increment_strong_count_TripManagerDart"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "RustLibApiImpl",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartGetAccuracyIndex",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartGetDistanceFilter",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartGetPeriodicInterval",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartGetRecommendedIntervalMs",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartIsCharging",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartNew",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartProcessSample",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartReset",
+          "crateApiDartBatteryBudgetBatteryBudgetEngineDartShouldThrottleLocation",
+          "crateApiDartImpactImpactDetectorDartCancel",
+          "crateApiDartImpactImpactDetectorDartCheckConfirmations",
+          "crateApiDartImpactImpactDetectorDartConfirm",
+          "crateApiDartImpactImpactDetectorDartCorroborateBarometric",
+          "crateApiDartImpactImpactDetectorDartCorroborateDv",
+          "crateApiDartImpactImpactDetectorDartNew",
+          "crateApiDartImpactImpactDetectorDartOnImpactWindow",
+          "crateApiDartImpactImpactDetectorDartReset",
+          "crateApiDartRtreeRTreeDartClear",
+          "crateApiDartRtreeRTreeDartInsert",
+          "crateApiDartRtreeRTreeDartNew",
+          "crateApiDartRtreeRTreeDartQueryCircle",
+          "crateApiDartRtreeRTreeDartSearch",
+          "crateApiDartScheduleScheduleParserDartCalculateNextAlarms",
+          "crateApiDartScheduleScheduleParserDartIsWithinSchedule",
+          "crateApiDartScheduleScheduleParserDartNew",
+          "crateApiDartSmartMotionSmartMotionCoordinatorDartIsMoving",
+          "crateApiDartSmartMotionSmartMotionCoordinatorDartNew",
+          "crateApiDartSmartMotionSmartMotionCoordinatorDartOnAccelEvent",
+          "crateApiDartSmartMotionSmartMotionCoordinatorDartOnSpeedChanged",
+          "crateApiDartSmartMotionSmartMotionCoordinatorDartSetTrackingMode",
+          "crateApiDartTelematicsTelematicsEngineDartCurrentScore",
+          "crateApiDartTelematicsTelematicsEngineDartNew",
+          "crateApiDartTelematicsTelematicsEngineDartProcessFix",
+          "crateApiDartTelematicsTelematicsEngineDartReset",
+          "crateApiDartTransportModeTransportModeClassifierDartClassifySamples",
+          "crateApiDartTransportModeTransportModeClassifierDartNew",
+          "crateApiDartTransportModeTransportModeClassifierDartReset",
+          "crateApiDartTripTripManagerDartIsTripActive",
+          "crateApiDartTripTripManagerDartNew",
+          "crateApiDartTripTripManagerDartOnLocationReceived",
+          "crateApiDartTripTripManagerDartOnMotionStateChanged",
+          "crateApiDartTripTripManagerDartReset",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "dco_decode_String",
+          "dco_decode_bool",
+          "dco_decode_box_autoadd_budget_adjustment_event",
+          "dco_decode_box_autoadd_classifier_config",
+          "dco_decode_box_autoadd_f_64",
+          "dco_decode_box_autoadd_i_32",
+          "dco_decode_box_autoadd_impact_config",
+          "dco_decode_box_autoadd_impact_event",
+          "dco_decode_box_autoadd_telematics_config",
+          "dco_decode_box_autoadd_trip_data_dart",
+          "dco_decode_box_autoadd_trip_location_dart",
+          "dco_decode_budget_adjustment_event",
+          "dco_decode_classifier_config",
+          "dco_decode_driving_event",
+          "dco_decode_f_32",
+          "dco_decode_f_64",
+          "dco_decode_i_32",
+          "dco_decode_i_64",
+          "dco_decode_impact_config",
+          "dco_decode_impact_event",
+          "dco_decode_list_String",
+          "dco_decode_list_driving_event",
+          "dco_decode_list_impact_event",
+          "dco_decode_list_prim_f_64_loose",
+          "dco_decode_list_prim_f_64_strict",
+          "dco_decode_list_prim_u_8_strict",
+          "dco_decode_list_trip_waypoint_dart",
+          "dco_decode_mode_result",
+          "dco_decode_opt_box_autoadd_budget_adjustment_event",
+          "dco_decode_opt_box_autoadd_classifier_config",
+          "dco_decode_opt_box_autoadd_f_64",
+          "dco_decode_opt_box_autoadd_i_32",
+          "dco_decode_opt_box_autoadd_impact_config",
+          "dco_decode_opt_box_autoadd_impact_event",
+          "dco_decode_opt_box_autoadd_telematics_config",
+          "dco_decode_opt_box_autoadd_trip_data_dart",
+          "dco_decode_opt_box_autoadd_trip_location_dart",
+          "dco_decode_schedule_alarms_dart",
+          "dco_decode_telematics_config",
+          "dco_decode_tracking_mode_dart",
+          "dco_decode_transport_mode",
+          "dco_decode_trip_data_dart",
+          "dco_decode_trip_location_dart",
+          "dco_decode_trip_waypoint_dart",
+          "dco_decode_u_8",
+          "dco_decode_unit",
+          "dco_decode_usize",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "sse_decode_String",
+          "sse_decode_bool",
+          "sse_decode_box_autoadd_budget_adjustment_event",
+          "sse_decode_box_autoadd_classifier_config",
+          "sse_decode_box_autoadd_f_64",
+          "sse_decode_box_autoadd_i_32",
+          "sse_decode_box_autoadd_impact_config",
+          "sse_decode_box_autoadd_impact_event",
+          "sse_decode_box_autoadd_telematics_config",
+          "sse_decode_box_autoadd_trip_data_dart",
+          "sse_decode_box_autoadd_trip_location_dart",
+          "sse_decode_budget_adjustment_event",
+          "sse_decode_classifier_config",
+          "sse_decode_driving_event",
+          "sse_decode_f_32",
+          "sse_decode_f_64",
+          "sse_decode_i_32",
+          "sse_decode_i_64",
+          "sse_decode_impact_config",
+          "sse_decode_impact_event",
+          "sse_decode_list_String",
+          "sse_decode_list_driving_event",
+          "sse_decode_list_impact_event",
+          "sse_decode_list_prim_f_64_loose",
+          "sse_decode_list_prim_f_64_strict",
+          "sse_decode_list_prim_u_8_strict",
+          "sse_decode_list_trip_waypoint_dart",
+          "sse_decode_mode_result",
+          "sse_decode_opt_box_autoadd_budget_adjustment_event",
+          "sse_decode_opt_box_autoadd_classifier_config",
+          "sse_decode_opt_box_autoadd_f_64",
+          "sse_decode_opt_box_autoadd_i_32",
+          "sse_decode_opt_box_autoadd_impact_config",
+          "sse_decode_opt_box_autoadd_impact_event",
+          "sse_decode_opt_box_autoadd_telematics_config",
+          "sse_decode_opt_box_autoadd_trip_data_dart",
+          "sse_decode_opt_box_autoadd_trip_location_dart",
+          "sse_decode_schedule_alarms_dart",
+          "sse_decode_telematics_config",
+          "sse_decode_tracking_mode_dart",
+          "sse_decode_transport_mode",
+          "sse_decode_trip_data_dart",
+          "sse_decode_trip_location_dart",
+          "sse_decode_trip_waypoint_dart",
+          "sse_decode_u_8",
+          "sse_decode_unit",
+          "sse_decode_usize",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "sse_encode_String",
+          "sse_encode_bool",
+          "sse_encode_box_autoadd_budget_adjustment_event",
+          "sse_encode_box_autoadd_classifier_config",
+          "sse_encode_box_autoadd_f_64",
+          "sse_encode_box_autoadd_i_32",
+          "sse_encode_box_autoadd_impact_config",
+          "sse_encode_box_autoadd_impact_event",
+          "sse_encode_box_autoadd_telematics_config",
+          "sse_encode_box_autoadd_trip_data_dart",
+          "sse_encode_box_autoadd_trip_location_dart",
+          "sse_encode_budget_adjustment_event",
+          "sse_encode_classifier_config",
+          "sse_encode_driving_event",
+          "sse_encode_f_32",
+          "sse_encode_f_64",
+          "sse_encode_i_32",
+          "sse_encode_i_64",
+          "sse_encode_impact_config",
+          "sse_encode_impact_event",
+          "sse_encode_list_String",
+          "sse_encode_list_driving_event",
+          "sse_encode_list_impact_event",
+          "sse_encode_list_prim_f_64_loose",
+          "sse_encode_list_prim_f_64_strict",
+          "sse_encode_list_prim_u_8_strict",
+          "sse_encode_list_trip_waypoint_dart",
+          "sse_encode_mode_result",
+          "sse_encode_opt_box_autoadd_budget_adjustment_event",
+          "sse_encode_opt_box_autoadd_classifier_config",
+          "sse_encode_opt_box_autoadd_f_64",
+          "sse_encode_opt_box_autoadd_i_32",
+          "sse_encode_opt_box_autoadd_impact_config",
+          "sse_encode_opt_box_autoadd_impact_event",
+          "sse_encode_opt_box_autoadd_telematics_config",
+          "sse_encode_opt_box_autoadd_trip_data_dart",
+          "sse_encode_opt_box_autoadd_trip_location_dart",
+          "sse_encode_schedule_alarms_dart",
+          "sse_encode_telematics_config",
+          "sse_encode_tracking_mode_dart",
+          "sse_encode_transport_mode",
+          "sse_encode_trip_data_dart",
+          "sse_encode_trip_location_dart",
+          "sse_encode_trip_waypoint_dart",
+          "sse_encode_u_8",
+          "sse_encode_unit",
+          "sse_encode_usize"
+        ],
+        "types": [
+          "BatteryBudgetEngineDart",
+          "BudgetAdjustmentEvent",
+          "ClassifierConfig",
+          "DrivingEvent",
+          "ImpactConfig",
+          "ImpactDetectorDart",
+          "ImpactEvent",
+          "ModeResult",
+          "RTreeDart",
+          "RustLibApi",
+          "RustLibApiImplPlatform",
+          "ScheduleAlarmsDart",
+          "ScheduleParserDart",
+          "SmartMotionCoordinatorDart",
+          "TelematicsConfig",
+          "TelematicsEngineDart",
+          "TrackingModeDart",
+          "TransportMode",
+          "TransportModeClassifierDart",
+          "TripDataDart",
+          "TripLocationDart",
+          "TripManagerDart",
+          "TripWaypointDart"
+        ]
+      },
+      "RustLibApiImplPlatform": {
+        "fields": [
+          "get:rust_arc_decrement_strong_count_BatteryBudgetEngineDartPtr",
+          "get:rust_arc_decrement_strong_count_ImpactDetectorDartPtr",
+          "get:rust_arc_decrement_strong_count_RTreeDartPtr",
+          "get:rust_arc_decrement_strong_count_ScheduleParserDartPtr",
+          "get:rust_arc_decrement_strong_count_SmartMotionCoordinatorDartPtr",
+          "get:rust_arc_decrement_strong_count_TelematicsEngineDartPtr",
+          "get:rust_arc_decrement_strong_count_TransportModeClassifierDartPtr",
+          "get:rust_arc_decrement_strong_count_TripManagerDartPtr"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/frb_generated.io.dart",
+          "package:tracelet_platform_interface/src/rust/frb_generated.web.dart"
+        ],
+        "methods": [
+          "RustLibApiImplPlatform",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "dco_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "dco_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "dco_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "dco_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "dco_decode_String",
+          "dco_decode_bool",
+          "dco_decode_box_autoadd_budget_adjustment_event",
+          "dco_decode_box_autoadd_classifier_config",
+          "dco_decode_box_autoadd_f_64",
+          "dco_decode_box_autoadd_i_32",
+          "dco_decode_box_autoadd_impact_config",
+          "dco_decode_box_autoadd_impact_event",
+          "dco_decode_box_autoadd_telematics_config",
+          "dco_decode_box_autoadd_trip_data_dart",
+          "dco_decode_box_autoadd_trip_location_dart",
+          "dco_decode_budget_adjustment_event",
+          "dco_decode_classifier_config",
+          "dco_decode_driving_event",
+          "dco_decode_f_32",
+          "dco_decode_f_64",
+          "dco_decode_i_32",
+          "dco_decode_i_64",
+          "dco_decode_impact_config",
+          "dco_decode_impact_event",
+          "dco_decode_list_String",
+          "dco_decode_list_driving_event",
+          "dco_decode_list_impact_event",
+          "dco_decode_list_prim_f_64_loose",
+          "dco_decode_list_prim_f_64_strict",
+          "dco_decode_list_prim_u_8_strict",
+          "dco_decode_list_trip_waypoint_dart",
+          "dco_decode_mode_result",
+          "dco_decode_opt_box_autoadd_budget_adjustment_event",
+          "dco_decode_opt_box_autoadd_classifier_config",
+          "dco_decode_opt_box_autoadd_f_64",
+          "dco_decode_opt_box_autoadd_i_32",
+          "dco_decode_opt_box_autoadd_impact_config",
+          "dco_decode_opt_box_autoadd_impact_event",
+          "dco_decode_opt_box_autoadd_telematics_config",
+          "dco_decode_opt_box_autoadd_trip_data_dart",
+          "dco_decode_opt_box_autoadd_trip_location_dart",
+          "dco_decode_schedule_alarms_dart",
+          "dco_decode_telematics_config",
+          "dco_decode_tracking_mode_dart",
+          "dco_decode_transport_mode",
+          "dco_decode_trip_data_dart",
+          "dco_decode_trip_location_dart",
+          "dco_decode_trip_waypoint_dart",
+          "dco_decode_u_8",
+          "dco_decode_unit",
+          "dco_decode_usize",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "sse_decode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "sse_decode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "sse_decode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "sse_decode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "sse_decode_String",
+          "sse_decode_bool",
+          "sse_decode_box_autoadd_budget_adjustment_event",
+          "sse_decode_box_autoadd_classifier_config",
+          "sse_decode_box_autoadd_f_64",
+          "sse_decode_box_autoadd_i_32",
+          "sse_decode_box_autoadd_impact_config",
+          "sse_decode_box_autoadd_impact_event",
+          "sse_decode_box_autoadd_telematics_config",
+          "sse_decode_box_autoadd_trip_data_dart",
+          "sse_decode_box_autoadd_trip_location_dart",
+          "sse_decode_budget_adjustment_event",
+          "sse_decode_classifier_config",
+          "sse_decode_driving_event",
+          "sse_decode_f_32",
+          "sse_decode_f_64",
+          "sse_decode_i_32",
+          "sse_decode_i_64",
+          "sse_decode_impact_config",
+          "sse_decode_impact_event",
+          "sse_decode_list_String",
+          "sse_decode_list_driving_event",
+          "sse_decode_list_impact_event",
+          "sse_decode_list_prim_f_64_loose",
+          "sse_decode_list_prim_f_64_strict",
+          "sse_decode_list_prim_u_8_strict",
+          "sse_decode_list_trip_waypoint_dart",
+          "sse_decode_mode_result",
+          "sse_decode_opt_box_autoadd_budget_adjustment_event",
+          "sse_decode_opt_box_autoadd_classifier_config",
+          "sse_decode_opt_box_autoadd_f_64",
+          "sse_decode_opt_box_autoadd_i_32",
+          "sse_decode_opt_box_autoadd_impact_config",
+          "sse_decode_opt_box_autoadd_impact_event",
+          "sse_decode_opt_box_autoadd_telematics_config",
+          "sse_decode_opt_box_autoadd_trip_data_dart",
+          "sse_decode_opt_box_autoadd_trip_location_dart",
+          "sse_decode_schedule_alarms_dart",
+          "sse_decode_telematics_config",
+          "sse_decode_tracking_mode_dart",
+          "sse_decode_transport_mode",
+          "sse_decode_trip_data_dart",
+          "sse_decode_trip_location_dart",
+          "sse_decode_trip_waypoint_dart",
+          "sse_decode_u_8",
+          "sse_decode_unit",
+          "sse_decode_usize",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "sse_encode_Auto_Owned_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "sse_encode_Auto_RefMut_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "sse_encode_Auto_Ref_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "sse_encode_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "sse_encode_String",
+          "sse_encode_bool",
+          "sse_encode_box_autoadd_budget_adjustment_event",
+          "sse_encode_box_autoadd_classifier_config",
+          "sse_encode_box_autoadd_f_64",
+          "sse_encode_box_autoadd_i_32",
+          "sse_encode_box_autoadd_impact_config",
+          "sse_encode_box_autoadd_impact_event",
+          "sse_encode_box_autoadd_telematics_config",
+          "sse_encode_box_autoadd_trip_data_dart",
+          "sse_encode_box_autoadd_trip_location_dart",
+          "sse_encode_budget_adjustment_event",
+          "sse_encode_classifier_config",
+          "sse_encode_driving_event",
+          "sse_encode_f_32",
+          "sse_encode_f_64",
+          "sse_encode_i_32",
+          "sse_encode_i_64",
+          "sse_encode_impact_config",
+          "sse_encode_impact_event",
+          "sse_encode_list_String",
+          "sse_encode_list_driving_event",
+          "sse_encode_list_impact_event",
+          "sse_encode_list_prim_f_64_loose",
+          "sse_encode_list_prim_f_64_strict",
+          "sse_encode_list_prim_u_8_strict",
+          "sse_encode_list_trip_waypoint_dart",
+          "sse_encode_mode_result",
+          "sse_encode_opt_box_autoadd_budget_adjustment_event",
+          "sse_encode_opt_box_autoadd_classifier_config",
+          "sse_encode_opt_box_autoadd_f_64",
+          "sse_encode_opt_box_autoadd_i_32",
+          "sse_encode_opt_box_autoadd_impact_config",
+          "sse_encode_opt_box_autoadd_impact_event",
+          "sse_encode_opt_box_autoadd_telematics_config",
+          "sse_encode_opt_box_autoadd_trip_data_dart",
+          "sse_encode_opt_box_autoadd_trip_location_dart",
+          "sse_encode_schedule_alarms_dart",
+          "sse_encode_telematics_config",
+          "sse_encode_tracking_mode_dart",
+          "sse_encode_transport_mode",
+          "sse_encode_trip_data_dart",
+          "sse_encode_trip_location_dart",
+          "sse_encode_trip_waypoint_dart",
+          "sse_encode_u_8",
+          "sse_encode_unit",
+          "sse_encode_usize"
+        ],
+        "types": [
+          "BatteryBudgetEngineDart",
+          "BudgetAdjustmentEvent",
+          "ClassifierConfig",
+          "DrivingEvent",
+          "ImpactConfig",
+          "ImpactDetectorDart",
+          "ImpactEvent",
+          "ModeResult",
+          "RTreeDart",
+          "RustLibWire",
+          "ScheduleAlarmsDart",
+          "ScheduleParserDart",
+          "SmartMotionCoordinatorDart",
+          "TelematicsConfig",
+          "TelematicsEngineDart",
+          "TrackingModeDart",
+          "TransportMode",
+          "TransportModeClassifierDart",
+          "TripDataDart",
+          "TripLocationDart",
+          "TripManagerDart",
+          "TripWaypointDart"
+        ]
+      },
+      "RustLibWire": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/frb_generated.io.dart",
+          "package:tracelet_platform_interface/src/rust/frb_generated.web.dart"
+        ],
+        "methods": [
+          "RustLibWire",
+          "fromExternalLibrary",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+          "rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart"
+        ],
+        "types": []
+      },
+      "ScheduleAlarmsDart": {
+        "fields": [
+          "get:hashCode",
+          "nextStartMs",
+          "nextStopMs"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/api_dart/schedule.dart"
+        ],
+        "methods": [
+          "==",
+          "ScheduleAlarmsDart"
+        ],
+        "types": []
+      },
+      "ScheduleParser": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/schedule_parser.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "calculateNextAlarms",
+          "isWithinSchedule",
+          "matchesSchedule",
+          "parse"
+        ],
+        "types": [
+          "ScheduleParserDart",
+          "ScheduleWindow"
+        ]
+      },
+      "ScheduleParserDart": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/api_dart/schedule.dart"
+        ],
+        "methods": [
+          "ScheduleParserDart",
+          "calculateNextAlarms",
+          "isWithinSchedule"
+        ],
+        "types": [
+          "ScheduleAlarmsDart"
+        ]
+      },
+      "ScheduleParserDartImpl": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "calculateNextAlarms",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "isWithinSchedule"
+        ],
+        "types": [
+          "ScheduleAlarmsDart",
+          "ScheduleParserDart"
+        ]
+      },
+      "ScheduleWindow": {
+        "fields": [
+          "dayEnd",
+          "dayStart",
+          "endMinutes",
+          "get:endTime",
+          "get:startTime",
+          "startMinutes"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/schedule_parser.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "ScheduleWindow",
+          "toString"
+        ],
+        "types": []
+      },
+      "SmartMotionCoordinatorDart": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/api_dart/smart_motion.dart"
+        ],
+        "methods": [
+          "SmartMotionCoordinatorDart",
+          "isMoving",
+          "onAccelEvent",
+          "onSpeedChanged",
+          "setTrackingMode"
+        ],
+        "types": [
+          "TrackingModeDart"
+        ]
+      },
+      "SmartMotionCoordinatorDartImpl": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "isMoving",
+          "onAccelEvent",
+          "onSpeedChanged",
+          "setTrackingMode"
+        ],
+        "types": [
+          "SmartMotionCoordinatorDart",
+          "TrackingModeDart"
+        ]
+      },
+      "TelematicsConfig": {
+        "fields": [
+          "eventDebounceMs",
+          "get:hashCode",
+          "harshAccelerationG",
+          "harshBrakingG",
+          "harshCorneringG",
+          "minSpeedForEventsKmh",
+          "speedLimitKmh",
+          "speedingMinDurationMs",
+          "speedingToleranceKmh"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/algorithms/telematics.dart"
+        ],
+        "methods": [
+          "==",
+          "TelematicsConfig"
+        ],
+        "types": []
+      },
+      "TelematicsEngineDart": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/api_dart/telematics.dart"
+        ],
+        "methods": [
+          "TelematicsEngineDart",
+          "currentScore",
+          "processFix",
+          "reset"
+        ],
+        "types": [
+          "DrivingEvent",
+          "TelematicsConfig"
+        ]
+      },
+      "TelematicsEngineDartImpl": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "currentScore",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "processFix",
+          "reset"
+        ],
+        "types": [
+          "DrivingEvent",
+          "TelematicsEngineDart"
+        ]
+      },
+      "TlActivity": {
+        "fields": [
+          "confidence",
+          "get:hashCode",
+          "type"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlActivity",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlActivity"
+        ]
+      },
+      "TlActivityChangeEvent": {
+        "fields": [
+          "activity",
+          "confidence",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlActivityChangeEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlActivityChangeEvent"
+        ]
+      },
+      "TlAddress": {
+        "fields": [
+          "city",
+          "country",
+          "get:hashCode",
+          "postalCode",
+          "state",
+          "street"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlAddress",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlAddress"
+        ]
+      },
+      "TlAndroidConfig": {
+        "fields": [
+          "allowIdenticalLocations",
+          "deferTime",
+          "fastestLocationUpdateInterval",
+          "foregroundService",
+          "geofenceModeHighAccuracy",
+          "get:hashCode",
+          "locationUpdateInterval",
+          "periodicUseExactAlarms",
+          "periodicUseForegroundService",
+          "releaseWakelockWhenStationary",
+          "scheduleUseAlarmManager"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlAndroidConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlAndroidConfig",
+          "TlForegroundServiceConfig"
+        ]
+      },
+      "TlAppConfig": {
+        "fields": [
+          "get:hashCode",
+          "heartbeatInterval",
+          "remoteConfigHeaders",
+          "remoteConfigRefreshInterval",
+          "remoteConfigTimeout",
+          "remoteConfigUrl",
+          "schedule",
+          "startOnBoot",
+          "stopOnTerminate"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlAppConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlAppConfig"
+        ]
+      },
+      "TlAttestationConfig": {
+        "fields": [
+          "enabled",
+          "get:hashCode",
+          "refreshInterval"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlAttestationConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlAttestationConfig"
+        ]
+      },
+      "TlAuditConfig": {
+        "fields": [
+          "enabled",
+          "get:hashCode",
+          "hashAlgorithm"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlAuditConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlAuditConfig",
+          "TlHashAlgorithm"
+        ]
+      },
+      "TlAuthorizationEvent": {
+        "fields": [
+          "get:hashCode",
+          "response",
+          "status",
+          "success"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlAuthorizationEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlAuthorizationEvent"
+        ]
+      },
+      "TlAuthorizationRequest": {
+        "fields": [
+          "always",
+          "whenInUse"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlAuthorizationStatus": {
+        "fields": [
+          "always",
+          "denied",
+          "deniedForever",
+          "notDetermined",
+          "restricted",
+          "whenInUse"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlBattery": {
+        "fields": [
+          "get:hashCode",
+          "isCharging",
+          "level"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlBattery",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlBattery"
+        ]
+      },
+      "TlClassifierConfig": {
+        "fields": [
+          "enableFusedClassifier",
+          "fusedClassifierAuthoritative",
+          "get:hashCode",
+          "minModeConfidence",
+          "modeSwitchDwellMs"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlClassifierConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlClassifierConfig"
+        ]
+      },
+      "TlConfig": {
+        "fields": [
+          "android",
+          "app",
+          "attestation",
+          "audit",
+          "classifier",
+          "geo",
+          "geofence",
+          "get:hashCode",
+          "http",
+          "impact",
+          "ios",
+          "logger",
+          "motion",
+          "persistence",
+          "privacyZone",
+          "security",
+          "telematics"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlAndroidConfig",
+          "TlAppConfig",
+          "TlAttestationConfig",
+          "TlAuditConfig",
+          "TlClassifierConfig",
+          "TlConfig",
+          "TlGeoConfig",
+          "TlGeofenceConfig",
+          "TlHttpConfig",
+          "TlImpactConfig",
+          "TlIosConfig",
+          "TlLoggerConfig",
+          "TlMotionConfig",
+          "TlPersistenceConfig",
+          "TlPrivacyZoneConfig",
+          "TlSecurityConfig",
+          "TlTelematicsConfig"
+        ]
+      },
+      "TlConnectivityChangeEvent": {
+        "fields": [
+          "connected",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlConnectivityChangeEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlConnectivityChangeEvent"
+        ]
+      },
+      "TlCoords": {
+        "fields": [
+          "accuracy",
+          "altitude",
+          "altitudeAccuracy",
+          "ellipsoidalAltitude",
+          "floor",
+          "get:hashCode",
+          "heading",
+          "headingAccuracy",
+          "latitude",
+          "longitude",
+          "speed",
+          "speedAccuracy"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlCoords",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlCoords"
+        ]
+      },
+      "TlCrashModelStatusEvent": {
+        "fields": [
+          "detail",
+          "get:hashCode",
+          "status"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlCrashModelStatusEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlCrashModelStatusEvent"
+        ]
+      },
+      "TlCurrentPositionOptions": {
+        "fields": [
+          "desiredAccuracy",
+          "extras",
+          "get:hashCode",
+          "maximumAge",
+          "persist",
+          "samples",
+          "timeout"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlCurrentPositionOptions",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlCurrentPositionOptions",
+          "TlDesiredAccuracy"
+        ]
+      },
+      "TlDesiredAccuracy": {
+        "fields": [
+          "high",
+          "low",
+          "medium",
+          "passive",
+          "veryLow"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlDrivingEvent": {
+        "fields": [
+          "get:hashCode",
+          "kind",
+          "latitude",
+          "longitude",
+          "severity",
+          "speed",
+          "timestampMs",
+          "value"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlDrivingEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlDrivingEvent"
+        ]
+      },
+      "TlForegroundServiceConfig": {
+        "fields": [
+          "actions",
+          "channelId",
+          "channelName",
+          "enabled",
+          "get:hashCode",
+          "notificationColor",
+          "notificationLargeIcon",
+          "notificationOngoing",
+          "notificationPriority",
+          "notificationSmallIcon",
+          "notificationText",
+          "notificationTitle",
+          "showNotificationOnPauseOnly"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlForegroundServiceConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlForegroundServiceConfig",
+          "TlNotificationPriority"
+        ]
+      },
+      "TlGeoConfig": {
+        "fields": [
+          "batteryBudgetPerHour",
+          "deadReckoningActivationDelay",
+          "deadReckoningMaxDuration",
+          "desiredAccuracy",
+          "disableElasticity",
+          "distanceFilter",
+          "elasticityMultiplier",
+          "enableAdaptiveMode",
+          "enableDeadReckoning",
+          "enableSparseUpdates",
+          "enableTimestampMeta",
+          "filter",
+          "get:hashCode",
+          "locationTimeout",
+          "maxMonitoredGeofences",
+          "periodicDesiredAccuracy",
+          "periodicLocationInterval",
+          "resolveAddress",
+          "sparseDistanceThreshold",
+          "sparseMaxIdleSeconds",
+          "stationaryRadius",
+          "stopAfterElapsedMinutes"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlGeoConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlDesiredAccuracy",
+          "TlGeoConfig",
+          "TlLocationFilter"
+        ]
+      },
+      "TlGeofence": {
+        "fields": [
+          "extras",
+          "get:hashCode",
+          "identifier",
+          "latitude",
+          "loiteringDelay",
+          "longitude",
+          "notifyOnDwell",
+          "notifyOnEntry",
+          "notifyOnExit",
+          "radius",
+          "vertices"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlGeofence",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlGeofence"
+        ]
+      },
+      "TlGeofenceAction": {
+        "fields": [
+          "dwell",
+          "enter",
+          "exit"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlGeofenceConfig": {
+        "fields": [
+          "geofenceInitialTrigger",
+          "geofenceInitialTriggerEntry",
+          "geofenceModeHighAccuracy",
+          "geofenceProximityRadius",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlGeofenceConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlGeofenceConfig"
+        ]
+      },
+      "TlGeofenceEvent": {
+        "fields": [
+          "action",
+          "extras",
+          "get:hashCode",
+          "identifier",
+          "location"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlGeofenceEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlGeofenceAction",
+          "TlGeofenceEvent",
+          "TlLocation"
+        ]
+      },
+      "TlGeofencesChangeEvent": {
+        "fields": [
+          "get:hashCode",
+          "off",
+          "on"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlGeofencesChangeEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlGeofence",
+          "TlGeofencesChangeEvent"
+        ]
+      },
+      "TlHashAlgorithm": {
+        "fields": [
+          "sha256"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlHeartbeatEvent": {
+        "fields": [
+          "get:hashCode",
+          "location"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlHeartbeatEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlHeartbeatEvent",
+          "TlLocation"
+        ]
+      },
+      "TlHttpConfig": {
+        "fields": [
+          "autoSync",
+          "autoSyncDelay",
+          "autoSyncThreshold",
+          "batchSync",
+          "deltaCoordinatePrecision",
+          "disableAutoSyncOnCellular",
+          "enableDeltaCompression",
+          "extras",
+          "get:hashCode",
+          "headers",
+          "httpRootProperty",
+          "httpTimeout",
+          "locationsOrderDirection",
+          "maxBatchSize",
+          "maxRetries",
+          "method",
+          "params",
+          "retryBackoffBase",
+          "retryBackoffCap",
+          "sslPinningCertificates",
+          "sslPinningFingerprints",
+          "syncInterval",
+          "syncTelematics",
+          "telematicsUrl",
+          "url"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlHttpConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlHttpConfig",
+          "TlHttpMethod",
+          "TlLocationOrderDirection"
+        ]
+      },
+      "TlHttpEvent": {
+        "fields": [
+          "get:hashCode",
+          "isSuccess",
+          "responseText",
+          "status"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlHttpEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlHttpEvent"
+        ]
+      },
+      "TlHttpMethod": {
+        "fields": [
+          "post",
+          "put"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlImpactConfig": {
+        "fields": [
+          "confirmWindowMs",
+          "crashGThreshold",
+          "crashMinSpeedKmh",
+          "crashModelLicenseKey",
+          "crashModelSha256",
+          "crashModelThreshold",
+          "crashModelUnlockUrl",
+          "crashModelUrl",
+          "enableCrashDetection",
+          "enableFallDetection",
+          "fallGThreshold",
+          "get:hashCode",
+          "minImpactConfidence"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlImpactConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlImpactConfig"
+        ]
+      },
+      "TlImpactEvent": {
+        "fields": [
+          "confidence",
+          "confirmDeadlineMs",
+          "get:hashCode",
+          "id",
+          "kind",
+          "latitude",
+          "longitude",
+          "peakG",
+          "speedBefore",
+          "timestampMs"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlImpactEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlImpactEvent"
+        ]
+      },
+      "TlIosActivityType": {
+        "fields": [
+          "airborne",
+          "automotive",
+          "fitness",
+          "other",
+          "otherNavigation"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlIosConfig": {
+        "fields": [
+          "activityType",
+          "disableLocationAuthorizationAlert",
+          "get:hashCode",
+          "liveActivityConfig",
+          "locationAuthorizationRequest",
+          "pausesLocationUpdatesAutomatically",
+          "preventSuspend",
+          "showsBackgroundLocationIndicator",
+          "useBackgroundActivitySession",
+          "useSignificantChangesOnly"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlIosConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlAuthorizationRequest",
+          "TlIosActivityType",
+          "TlIosConfig",
+          "TlLiveActivityConfig"
+        ]
+      },
+      "TlLiveActivityConfig": {
+        "fields": [
+          "body",
+          "get:hashCode",
+          "title"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlLiveActivityConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlLiveActivityConfig"
+        ]
+      },
+      "TlLocation": {
+        "fields": [
+          "activity",
+          "address",
+          "battery",
+          "coords",
+          "event",
+          "extras",
+          "get:hashCode",
+          "isMoving",
+          "odometer",
+          "timestamp",
+          "uuid"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlLocation",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlActivity",
+          "TlAddress",
+          "TlBattery",
+          "TlCoords",
+          "TlLocation"
+        ]
+      },
+      "TlLocationActivityType": {
+        "fields": [
+          "inVehicle",
+          "onBicycle",
+          "onFoot",
+          "running",
+          "still",
+          "unknown",
+          "walking"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlLocationFilter": {
+        "fields": [
+          "get:hashCode",
+          "maxImpliedSpeed",
+          "mockDetectionLevel",
+          "odometerAccuracyThreshold",
+          "policy",
+          "rejectMockLocations",
+          "trackingAccuracyThreshold",
+          "useKalmanFilter"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlLocationFilter",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlLocationFilter",
+          "TlLocationFilterPolicy"
+        ]
+      },
+      "TlLocationFilterPolicy": {
+        "fields": [
+          "adjust",
+          "discard",
+          "ignore"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlLocationOrderDirection": {
+        "fields": [
+          "ascending",
+          "descending"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlLogEntry": {
+        "fields": [
+          "get:hashCode",
+          "id",
+          "level",
+          "message",
+          "timestamp"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlLogEntry",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlLogEntry"
+        ]
+      },
+      "TlLogLevel": {
+        "fields": [
+          "debug",
+          "error",
+          "info",
+          "off",
+          "verbose",
+          "warn"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlLoggerConfig": {
+        "fields": [
+          "debug",
+          "get:hashCode",
+          "logLevel",
+          "logMaxDays"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlLoggerConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlLogLevel",
+          "TlLoggerConfig"
+        ]
+      },
+      "TlModeChangeEvent": {
+        "fields": [
+          "confidence",
+          "get:hashCode",
+          "mode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlModeChangeEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlModeChangeEvent"
+        ]
+      },
+      "TlMotionAuthorizationStatus": {
+        "fields": [
+          "authorized",
+          "denied",
+          "deniedForever",
+          "notDetermined",
+          "restricted"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlMotionConfig": {
+        "fields": [
+          "activityRecognitionInterval",
+          "activityTypes",
+          "disableMotionActivityUpdates",
+          "disableStopDetection",
+          "get:hashCode",
+          "isMoving",
+          "minimumActivityRecognitionConfidence",
+          "motionDetectionMode",
+          "motionTriggerDelay",
+          "shakeThreshold",
+          "speedMovingThreshold",
+          "speedStationaryDelay",
+          "speedWakeConfirmCount",
+          "stationaryPeriodicAccuracy",
+          "stationaryPeriodicInterval",
+          "stationaryRadius",
+          "stationaryTrackingMode",
+          "stillSampleCount",
+          "stillThreshold",
+          "stopDetectionDelay",
+          "stopOnStationary",
+          "stopTimeout",
+          "useSignificantChangesOnly"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlMotionConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlDesiredAccuracy",
+          "TlLocationActivityType",
+          "TlMotionConfig",
+          "TlMotionDetectionMode",
+          "TlStationaryTrackingMode"
+        ]
+      },
+      "TlMotionDetectionMode": {
+        "fields": [
+          "accelerometer",
+          "smart",
+          "speed"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlNotificationAuthorizationStatus": {
+        "fields": [
+          "authorized",
+          "denied",
+          "deniedForever",
+          "ephemeral",
+          "notDetermined",
+          "provisional"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlNotificationPriority": {
+        "fields": [
+          "defaultPriority",
+          "high",
+          "low",
+          "max",
+          "min"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlPersistMode": {
+        "fields": [
+          "all",
+          "geofence",
+          "location",
+          "none"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlPersistenceConfig": {
+        "fields": [
+          "disableProviderChangeRecord",
+          "get:hashCode",
+          "maxDaysToPersist",
+          "maxRecordsToPersist",
+          "persistMode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlPersistenceConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlPersistMode",
+          "TlPersistenceConfig"
+        ]
+      },
+      "TlPrivacyZoneConfig": {
+        "fields": [
+          "enabled",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlPrivacyZoneConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlPrivacyZoneConfig"
+        ]
+      },
+      "TlProviderChangeEvent": {
+        "fields": [
+          "accuracyAuthorization",
+          "enabled",
+          "get:hashCode",
+          "gps",
+          "network",
+          "status"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlProviderChangeEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlProviderChangeEvent"
+        ]
+      },
+      "TlSecurityConfig": {
+        "fields": [
+          "encryptDatabase",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlSecurityConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlSecurityConfig"
+        ]
+      },
+      "TlSpeedMotionEvent": {
+        "fields": [
+          "get:hashCode",
+          "previousState",
+          "state",
+          "trackingMode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlSpeedMotionEvent",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlSpeedMotionEvent",
+          "TlSpeedMotionState",
+          "TlTrackingMode"
+        ]
+      },
+      "TlSpeedMotionState": {
+        "fields": [
+          "moving",
+          "slowing",
+          "stationary"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlState": {
+        "fields": [
+          "enabled",
+          "get:hashCode",
+          "isMoving",
+          "lastLocationTimestamp",
+          "odometer",
+          "schedulerEnabled",
+          "trackingMode"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlState",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlState",
+          "TlTrackingMode"
+        ]
+      },
+      "TlStationaryTrackingMode": {
+        "fields": [
+          "geofences",
+          "periodic"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TlTelematicsConfig": {
+        "fields": [
+          "enableDrivingEvents",
+          "eventDebounceMs",
+          "get:hashCode",
+          "harshAccelerationG",
+          "harshBrakingG",
+          "harshCorneringG",
+          "minSpeedForEventsKmh",
+          "speedLimitKmh",
+          "speedingMinDurationMs",
+          "speedingToleranceKmh"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlTelematicsConfig",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlTelematicsConfig"
+        ]
+      },
+      "TlTelematicsRecord": {
+        "fields": [
+          "eventType",
+          "get:hashCode",
+          "id",
+          "latitude",
+          "longitude",
+          "severity",
+          "synced",
+          "timestamp"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlTelematicsRecord",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlTelematicsRecord"
+        ]
+      },
+      "TlTrackingMode": {
+        "fields": [
+          "geofences",
+          "location",
+          "periodic"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TraceletEventApi": {
+        "fields": [
+          "pigeonChannelCodec"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "onActivityChange",
+          "onAuthorization",
+          "onConnectivityChange",
+          "onCrashModelStatus",
+          "onDrivingEvent",
+          "onEnabledChange",
+          "onGeofence",
+          "onGeofencesChange",
+          "onHeartbeat",
+          "onHttp",
+          "onImpact",
+          "onLocation",
+          "onModeChange",
+          "onMotionChange",
+          "onMotionModeChange",
+          "onNotificationAction",
+          "onPowerSaveChange",
+          "onProviderChange",
+          "onSchedule",
+          "onWatchPosition",
+          "setUp"
+        ],
+        "types": [
+          "TlActivityChangeEvent",
+          "TlAuthorizationEvent",
+          "TlConnectivityChangeEvent",
+          "TlCrashModelStatusEvent",
+          "TlDrivingEvent",
+          "TlGeofenceEvent",
+          "TlGeofencesChangeEvent",
+          "TlHeartbeatEvent",
+          "TlHttpEvent",
+          "TlImpactEvent",
+          "TlLocation",
+          "TlModeChangeEvent",
+          "TlProviderChangeEvent",
+          "TlSpeedMotionEvent",
+          "TlState",
+          "TraceletEventApi"
+        ]
+      },
+      "TraceletEvents": {
+        "fields": [
+          "activityChange",
+          "authorization",
+          "basePath",
+          "connectivityChange",
+          "enabledChange",
+          "geofence",
+          "geofencesChange",
+          "heartbeat",
+          "http",
+          "location",
+          "motionChange",
+          "notificationAction",
+          "powerSaveChange",
+          "providerChange",
+          "schedule",
+          "watchPosition"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/event_channel_names.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TraceletFlutterApi": {
+        "fields": [
+          "pigeonChannelCodec"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "onHeadlessEvent",
+          "onHeadlessHeaders",
+          "setUp"
+        ],
+        "types": [
+          "TraceletFlutterApi"
+        ]
+      },
+      "TraceletHostApi": {
+        "fields": [
+          "pigeonChannelCodec",
+          "pigeonVar_binaryMessenger",
+          "pigeonVar_messageChannelSuffix"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "TraceletHostApi",
+          "addGeofence",
+          "addGeofences",
+          "addPrivacyZone",
+          "addPrivacyZones",
+          "canScheduleExactAlarms",
+          "cancelImpact",
+          "changePace",
+          "clearLogs",
+          "clearRouteContext",
+          "confirmImpact",
+          "debugRunCrashModelInference",
+          "destroyLocation",
+          "destroyLocations",
+          "destroyLog",
+          "destroySyncedLocations",
+          "destroyTelematicsEvents",
+          "emailLog",
+          "encryptDatabase",
+          "geofenceExists",
+          "getAttestationToken",
+          "getAuditProof",
+          "getCarbonReport",
+          "getCount",
+          "getCurrentPosition",
+          "getDeadReckoningState",
+          "getDeviceInfo",
+          "getGeofence",
+          "getGeofences",
+          "getLastKnownLocation",
+          "getLocations",
+          "getLog",
+          "getLogs",
+          "getMotionPermissionStatus",
+          "getNotificationPermissionStatus",
+          "getOdometer",
+          "getPermissionStatus",
+          "getPrivacyZones",
+          "getProviderState",
+          "getSensors",
+          "getSettingsHealth",
+          "getState",
+          "getTelematicsEvents",
+          "insertLocation",
+          "isDatabaseEncrypted",
+          "isIgnoringBatteryOptimizations",
+          "isPowerSaveMode",
+          "log",
+          "openExactAlarmSettings",
+          "openOemSettings",
+          "playSound",
+          "ready",
+          "registerHeadlessHeadersCallback",
+          "registerHeadlessSyncBodyBuilder",
+          "registerHeadlessTask",
+          "removeGeofence",
+          "removeGeofences",
+          "removePrivacyZone",
+          "removePrivacyZones",
+          "requestMotionPermission",
+          "requestNotificationPermission",
+          "requestPermission",
+          "requestSettings",
+          "requestStateFlush",
+          "requestTemporaryFullAccuracy",
+          "reset",
+          "setConfig",
+          "setDynamicHeaders",
+          "setOdometer",
+          "setRouteContext",
+          "showPowerManager",
+          "showSettings",
+          "simulateTelematicsEvent",
+          "start",
+          "startBackgroundTask",
+          "startGeofences",
+          "startPeriodic",
+          "startSchedule",
+          "stop",
+          "stopBackgroundTask",
+          "stopSchedule",
+          "stopWatchPosition",
+          "sync",
+          "verifyAuditTrail",
+          "watchPosition"
+        ],
+        "types": [
+          "TlAuthorizationStatus",
+          "TlConfig",
+          "TlCurrentPositionOptions",
+          "TlGeofence",
+          "TlLocation",
+          "TlLogEntry",
+          "TlMotionAuthorizationStatus",
+          "TlNotificationAuthorizationStatus",
+          "TlProviderChangeEvent",
+          "TlState",
+          "TlTelematicsRecord"
+        ]
+      },
+      "TraceletPlatform": {
+        "fields": [
+          "get:activityChangeEvents",
+          "get:authorizationEvents",
+          "get:connectivityChangeEvents",
+          "get:crashModelStatusEvents",
+          "get:drivingEvents",
+          "get:enabledChangeEvents",
+          "get:geofenceEvents",
+          "get:geofencesChangeEvents",
+          "get:heartbeatEvents",
+          "get:httpEvents",
+          "get:impactEvents",
+          "get:instance",
+          "get:locationEvents",
+          "get:modeChangeEvents",
+          "get:motionChangeEvents",
+          "get:motionModeChangeEvents",
+          "get:notificationActionEvents",
+          "get:powerSaveChangeEvents",
+          "get:providerChangeEvents",
+          "get:scheduleEvents",
+          "get:watchPositionEvents",
+          "methodChannelName",
+          "set:instance"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/tracelet_platform.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "TraceletPlatform",
+          "addGeofence",
+          "addGeofences",
+          "addPrivacyZone",
+          "addPrivacyZones",
+          "canScheduleExactAlarms",
+          "cancelImpact",
+          "changePace",
+          "clearLogs",
+          "clearRouteContext",
+          "confirmImpact",
+          "connectCustomSync",
+          "debugRunCrashModelInference",
+          "destroyLocation",
+          "destroyLocations",
+          "destroyLog",
+          "destroySyncedLocations",
+          "destroyTelematicsEvents",
+          "emailLog",
+          "encryptDatabase",
+          "geofenceExists",
+          "getAttestationToken",
+          "getAuditProof",
+          "getCarbonReport",
+          "getCount",
+          "getCurrentPosition",
+          "getDeadReckoningState",
+          "getDeviceInfo",
+          "getGeofence",
+          "getGeofences",
+          "getLastKnownLocation",
+          "getLocationAuthorization",
+          "getLocations",
+          "getLog",
+          "getLogs",
+          "getMotionAuthorization",
+          "getNotificationAuthorization",
+          "getOdometer",
+          "getPrivacyZones",
+          "getProviderState",
+          "getSensors",
+          "getSettingsHealth",
+          "getState",
+          "getTelematicsEvents",
+          "insertLocation",
+          "isDatabaseEncrypted",
+          "isIgnoringBatteryOptimizations",
+          "isPowerSaveMode",
+          "log",
+          "openExactAlarmSettings",
+          "openOemSettings",
+          "playSound",
+          "ready",
+          "registerHeadlessHeadersCallback",
+          "registerHeadlessSyncBodyBuilder",
+          "registerHeadlessTask",
+          "removeGeofence",
+          "removeGeofences",
+          "removePrivacyZone",
+          "removePrivacyZones",
+          "requestLocationAuthorization",
+          "requestMotionAuthorization",
+          "requestNotificationAuthorization",
+          "requestSettings",
+          "requestTemporaryFullAccuracy",
+          "requestTemporaryFullAccuracyAuthorization",
+          "reset",
+          "setConfig",
+          "setDynamicHeaders",
+          "setOdometer",
+          "setRouteContext",
+          "showPowerManager",
+          "showSettings",
+          "simulateTelematicsEvent",
+          "start",
+          "startBackgroundTask",
+          "startGeofences",
+          "startPeriodic",
+          "startSchedule",
+          "stop",
+          "stopBackgroundTask",
+          "stopSchedule",
+          "stopWatchPosition",
+          "sync",
+          "verifyAuditTrail",
+          "watchPosition"
+        ],
+        "types": [
+          "AuthorizationStatus",
+          "FullAccuracyStatus",
+          "MotionAuthorizationStatus",
+          "NotificationAuthorizationStatus",
+          "TlActivityChangeEvent",
+          "TlAuthorizationEvent",
+          "TlConfig",
+          "TlConnectivityChangeEvent",
+          "TlCrashModelStatusEvent",
+          "TlCurrentPositionOptions",
+          "TlDrivingEvent",
+          "TlGeofence",
+          "TlGeofenceEvent",
+          "TlGeofencesChangeEvent",
+          "TlHeartbeatEvent",
+          "TlHttpEvent",
+          "TlImpactEvent",
+          "TlLocation",
+          "TlLogEntry",
+          "TlModeChangeEvent",
+          "TlProviderChangeEvent",
+          "TlSpeedMotionEvent",
+          "TlState",
+          "TlTelematicsRecord",
+          "TraceletPlatform"
+        ]
+      },
+      "TrackingMode": {
+        "fields": [
+          "geofences",
+          "location",
+          "periodic"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/types/enums.dart",
+          "package:tracelet_platform_interface/src/types/types.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TrackingModeDart": {
+        "fields": [
+          "active",
+          "manual",
+          "passive"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/api_dart/smart_motion.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TransportMode": {
+        "fields": [
+          "cycling",
+          "running",
+          "still",
+          "unknown",
+          "vehicle",
+          "walking"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/algorithms/transport_mode.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TransportModeClassifierDart": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/api_dart/transport_mode.dart"
+        ],
+        "methods": [
+          "TransportModeClassifierDart",
+          "classifySamples",
+          "reset"
+        ],
+        "types": [
+          "ClassifierConfig",
+          "ModeResult"
+        ]
+      },
+      "TransportModeClassifierDartImpl": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "classifySamples",
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "reset"
+        ],
+        "types": [
+          "ModeResult",
+          "TransportModeClassifierDart"
+        ]
+      },
+      "TripCarbonSummary": {
+        "fields": [
+          "carbonByMode",
+          "distanceByMode",
+          "dominantMode",
+          "totalCarbonGrams",
+          "totalDistanceMeters"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/carbon_estimator.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "TripCarbonSummary",
+          "toMap"
+        ],
+        "types": []
+      },
+      "TripDataDart": {
+        "fields": [
+          "distanceMeters",
+          "durationSeconds",
+          "get:hashCode",
+          "startLocation",
+          "stopLocation",
+          "waypoints"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/api_dart/trip.dart"
+        ],
+        "methods": [
+          "==",
+          "TripDataDart"
+        ],
+        "types": [
+          "TripLocationDart",
+          "TripWaypointDart"
+        ]
+      },
+      "TripLocationDart": {
+        "fields": [
+          "get:hashCode",
+          "latitude",
+          "longitude"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/api_dart/trip.dart"
+        ],
+        "methods": [
+          "==",
+          "TripLocationDart"
+        ],
+        "types": []
+      },
+      "TripManager": {
+        "fields": [
+          "get:isTripActive",
+          "onTripEnd"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/algorithms/algorithms.dart",
+          "package:tracelet_platform_interface/src/algorithms/trip_manager.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "TripManager",
+          "onLocationReceived",
+          "onMotionStateChanged",
+          "reset"
+        ],
+        "types": [
+          "TripManagerDart"
+        ]
+      },
+      "TripManagerDart": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/api_dart/trip.dart"
+        ],
+        "methods": [
+          "TripManagerDart",
+          "isTripActive",
+          "onLocationReceived",
+          "onMotionStateChanged",
+          "reset"
+        ],
+        "types": [
+          "TripDataDart"
+        ]
+      },
+      "TripManagerDartImpl": {
+        "fields": [],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/frb_generated.dart"
+        ],
+        "methods": [
+          "frbInternalDcoDecode",
+          "frbInternalSseDecode",
+          "isTripActive",
+          "onLocationReceived",
+          "onMotionStateChanged",
+          "reset"
+        ],
+        "types": [
+          "TripDataDart",
+          "TripManagerDart"
+        ]
+      },
+      "TripWaypointDart": {
+        "fields": [
+          "get:hashCode",
+          "latitude",
+          "longitude",
+          "timestampMs"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/rust/api_dart/trip.dart"
+        ],
+        "methods": [
+          "==",
+          "TripWaypointDart"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-06-23T09:13:32Z",
+  "package": "tracelet_platform_interface",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AdaptiveContext",
+      "AdaptiveSamplingEngine",
+      "AdaptiveSamplingResult",
+      "BudgetAdjustmentEvent",
+      "ClassifierConfig",
+      "DrivingEvent",
+      "GeofenceTransition",
+      "ImpactConfig",
+      "ImpactEvent",
+      "ModeResult",
+      "ScheduleAlarmsDart",
+      "ScheduleWindow",
+      "TelematicsConfig",
+      "TripCarbonSummary",
+      "TripDataDart",
+      "TripLocationDart",
+      "TripWaypointDart",
+      "_PigeonCodec"
+    ],
+    "digest": "124f7018846606b9fead1295b4c90e9ad59ca9946b2b83ae43492c1a2ea24a2a",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "973d0508034a56c270fd6a4e9cc2f726bdeb18c252bf39dbd90751a36fb9dc9f",
+    "method_channels": [
+      "com.tracelet/methods"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      " ",
+      "-",
+      "../../sdk/rust-core/core/target/release/",
+      "../algorithms/impact.dart",
+      "../algorithms/telematics.dart",
+      "../algorithms/transport_mode.dart",
+      "../frb_generated.dart",
+      "../rust/state/battery_budget.dart",
+      "../state/battery_budget.dart",
+      "/benchmark",
+      "/packages/",
+      "0",
+      "2.12.0",
+      ":",
+      "Always",
+      "BatteryBudgetEngineDart_get_accuracy_index",
+      "BatteryBudgetEngineDart_get_distance_filter",
+      "BatteryBudgetEngineDart_get_periodic_interval",
+      "BatteryBudgetEngineDart_get_recommended_interval_ms",
+      "BatteryBudgetEngineDart_is_charging",
+      "BatteryBudgetEngineDart_new",
+      "BatteryBudgetEngineDart_process_sample",
+      "BatteryBudgetEngineDart_reset",
+      "BatteryBudgetEngineDart_should_throttle_location",
+      "ENTER",
+      "EXIT",
+      "Host platform returned null value for non-null return value.",
+      "ImpactDetectorDart_cancel",
+      "ImpactDetectorDart_check_confirmations",
+      "ImpactDetectorDart_confirm",
+      "ImpactDetectorDart_corroborate_barometric",
+      "ImpactDetectorDart_corroborate_dv",
+      "ImpactDetectorDart_new",
+      "ImpactDetectorDart_on_impact_window",
+      "ImpactDetectorDart_reset",
+      "Platform not supported",
+      "RTreeDart_clear",
+      "RTreeDart_insert",
+      "RTreeDart_new",
+      "RTreeDart_query_circle",
+      "RTreeDart_search",
+      "ScheduleParserDart_calculate_next_alarms",
+      "ScheduleParserDart_is_within_schedule",
+      "ScheduleParserDart_new",
+      "SmartMotionCoordinatorDart_is_moving",
+      "SmartMotionCoordinatorDart_new",
+      "SmartMotionCoordinatorDart_on_accel_event",
+      "SmartMotionCoordinatorDart_on_speed_changed",
+      "SmartMotionCoordinatorDart_set_tracking_mode",
+      "TelematicsEngineDart_current_score",
+      "TelematicsEngineDart_new",
+      "TelematicsEngineDart_process_fix",
+      "TelematicsEngineDart_reset",
+      "TraceletCore Rust library could not be loaded on iOS.\nCould not open \"TraceletCore.framework/TraceletCore\", the FRB symbol \"frb_pde_ffi_dispatcher_primary\" was not found in the process symbol table, and \"tracelet_ios.framework/tracelet_ios\" could not be opened.\n\nPossible causes:\n  1. TraceletCore.framework was not embedded — ensure the binary target is set to \"Embed & Sign\" (SPM does this automatically for app targets).\n  2. The TraceletCore.xcframework is missing from the build — run \"pod install\" / resolve SPM packages and rebuild.\n  3. (Legacy static builds only) DEAD_CODE_STRIPPING / STRIP_INSTALLED_PRODUCT removed the Rust symbols from the app binary.\n",
+      "TraceletCore.framework/TraceletCore",
+      "TransportModeClassifierDart_classify_samples",
+      "TransportModeClassifierDart_new",
+      "TransportModeClassifierDart_reset",
+      "TripManagerDart_is_trip_active",
+      "TripManagerDart_new",
+      "TripManagerDart_on_location_received",
+      "TripManagerDart_on_motion_state_changed",
+      "TripManagerDart_reset",
+      "Use requestTemporaryFullAccuracyAuthorization() which returns FullAccuracyStatus.",
+      "WhenInUse",
+      "a",
+      "accuracy",
+      "accuracyAuthorization",
+      "actions",
+      "activity",
+      "activityChangeEvents has not been implemented.",
+      "activityRecognitionInterval",
+      "activityType",
+      "activityTypes",
+      "adaptive_sampling_engine.dart",
+      "addGeofence",
+      "addGeofence() has not been implemented.",
+      "addGeofences",
+      "addGeofences() has not been implemented.",
+      "addPrivacyZone",
+      "addPrivacyZone() has not been implemented.",
+      "addPrivacyZones",
+      "addPrivacyZones() has not been implemented.",
+      "address",
+      "al",
+      "algorithms/impact.dart",
+      "algorithms/telematics.dart",
+      "algorithms/transport_mode.dart",
+      "allowIdenticalLocations",
+      "altitude",
+      "altitudeAccuracy",
+      "altitude_accuracy",
+      "android",
+      "api_dart/battery_budget.dart",
+      "api_dart/impact.dart",
+      "api_dart/rtree.dart",
+      "api_dart/schedule.dart",
+      "api_dart/smart_motion.dart",
+      "api_dart/telematics.dart",
+      "api_dart/transport_mode.dart",
+      "api_dart/trip.dart",
+      "app",
+      "attestation",
+      "audit",
+      "authorizationEvents has not been implemented.",
+      "autoSync",
+      "autoSyncThreshold",
+      "b",
+      "batchSync",
+      "battery",
+      "batteryBudgetPerHour",
+      "battery_budget_engine.dart",
+      "bus",
+      "canScheduleExactAlarms",
+      "canScheduleExactAlarms() has not been implemented.",
+      "cancelImpact() has not been implemented.",
+      "carbonByMode",
+      "carbon_estimator.dart",
+      "changePace",
+      "changePace() has not been implemented.",
+      "channel-error",
+      "channelId",
+      "channelName",
+      "city",
+      "clearLogs() has not been implemented.",
+      "clearRouteContext",
+      "clearRouteContext() has not been implemented.",
+      "com.tracelet/events",
+      "com.tracelet/methods",
+      "confidence",
+      "config",
+      "confirmImpact() has not been implemented.",
+      "connectCustomSync() has not been implemented.",
+      "connectivityChangeEvents has not been implemented.",
+      "coords",
+      "country",
+      "crashModelStatusEvents has not been implemented.",
+      "d",
+      "dart:async",
+      "dart:convert",
+      "dart:ffi",
+      "dart:io",
+      "dart:math",
+      "dart:typed_data",
+      "deadReckoningActivationDelay",
+      "deadReckoningMaxDuration",
+      "debug",
+      "debugRunCrashModelInference() has not been implemented.",
+      "defaultIntervalMs",
+      "deferTime",
+      "deltaCoordinatePrecision",
+      "delta_encoder.dart",
+      "desiredAccuracy",
+      "destroyLocation",
+      "destroyLocation() has not been implemented.",
+      "destroyLocations",
+      "destroyLocations() has not been implemented.",
+      "destroyLog",
+      "destroyLog() has not been implemented.",
+      "destroySyncedLocations",
+      "destroySyncedLocations() has not been implemented.",
+      "destroyTelematicsEvents() has not been implemented.",
+      "disableAutoSyncOnCellular",
+      "disableElasticity",
+      "disableLocationAuthorizationAlert",
+      "disableMotionActivityUpdates",
+      "disableStopDetection",
+      "distance",
+      "distanceByMode",
+      "distanceFilter",
+      "dominantMode",
+      "drivingEvents has not been implemented.",
+      "duration",
+      "durationMs",
+      "elasticityMultiplier",
+      "ellipsoidalAltitude",
+      "emailLog",
+      "emailLog() has not been implemented.",
+      "enableAdaptiveMode",
+      "enableDeadReckoning",
+      "enableDeltaCompression",
+      "enableSparseUpdates",
+      "enableTimestampMeta",
+      "enabled",
+      "enabledChangeEvents has not been implemented.",
+      "encryptDatabase",
+      "encryptDatabase() has not been implemented.",
+      "enums.dart",
+      "error",
+      "event",
+      "extras",
+      "fastestLocationUpdateInterval",
+      "floor",
+      "foregroundService",
+      "frb_generated.dart",
+      "frb_generated.io.dart",
+      "frb_generated.web.dart",
+      "frb_pde_ffi_dispatcher_primary",
+      "frbgen_tracelet_platform_interface_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+      "frbgen_tracelet_platform_interface_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+      "frbgen_tracelet_platform_interface_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+      "frbgen_tracelet_platform_interface_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+      "frbgen_tracelet_platform_interface_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+      "frbgen_tracelet_platform_interface_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+      "frbgen_tracelet_platform_interface_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+      "frbgen_tracelet_platform_interface_rust_arc_decrement_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+      "frbgen_tracelet_platform_interface_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerBatteryBudgetEngineDart",
+      "frbgen_tracelet_platform_interface_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerImpactDetectorDart",
+      "frbgen_tracelet_platform_interface_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerRTreeDart",
+      "frbgen_tracelet_platform_interface_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerScheduleParserDart",
+      "frbgen_tracelet_platform_interface_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerSmartMotionCoordinatorDart",
+      "frbgen_tracelet_platform_interface_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTelematicsEngineDart",
+      "frbgen_tracelet_platform_interface_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTransportModeClassifierDart",
+      "frbgen_tracelet_platform_interface_rust_arc_increment_strong_count_RustOpaque_flutter_rust_bridgefor_generatedRustAutoOpaqueInnerTripManagerDart",
+      "geo",
+      "geo_utils.dart",
+      "geofence",
+      "geofenceEvents has not been implemented.",
+      "geofenceExists",
+      "geofenceExists() has not been implemented.",
+      "geofenceInitialTriggerEntry",
+      "geofenceModeHighAccuracy",
+      "geofenceProximityRadius",
+      "geofence_evaluator.dart",
+      "geofencesChangeEvents has not been implemented.",
+      "getAttestationToken",
+      "getAttestationToken() has not been implemented.",
+      "getAuditProof",
+      "getAuditProof() has not been implemented.",
+      "getCarbonReport",
+      "getCarbonReport() has not been implemented.",
+      "getCount",
+      "getCount() has not been implemented.",
+      "getCurrentPosition",
+      "getCurrentPosition() has not been implemented.",
+      "getDeadReckoningState",
+      "getDeadReckoningState() has not been implemented.",
+      "getDeviceInfo",
+      "getDeviceInfo() has not been implemented.",
+      "getGeofence",
+      "getGeofence() has not been implemented.",
+      "getGeofences",
+      "getGeofences() has not been implemented.",
+      "getLastKnownLocation",
+      "getLastKnownLocation() has not been implemented.",
+      "getLocationAuthorization() has not been implemented.",
+      "getLocations",
+      "getLocations() has not been implemented.",
+      "getLog",
+      "getLog() has not been implemented.",
+      "getLogs() has not been implemented.",
+      "getMotionAuthorization() has not been implemented.",
+      "getNotificationAuthorization() has not been implemented.",
+      "getOdometer",
+      "getOdometer() has not been implemented.",
+      "getPrivacyZones",
+      "getPrivacyZones() has not been implemented.",
+      "getProviderState",
+      "getProviderState() has not been implemented.",
+      "getSensors",
+      "getSensors() has not been implemented.",
+      "getSettingsHealth",
+      "getSettingsHealth() has not been implemented.",
+      "getState",
+      "getState() has not been implemented.",
+      "getTelematicsEvents() has not been implemented.",
+      "gps",
+      "gyroPeakDps",
+      "h",
+      "hashAlgorithm",
+      "headers",
+      "heading",
+      "headingAccuracy",
+      "heartbeatEvents has not been implemented.",
+      "heartbeatInterval",
+      "http",
+      "httpEvents has not been implemented.",
+      "httpRootProperty",
+      "httpTimeout",
+      "id",
+      "identifier",
+      "impactEvents has not been implemented.",
+      "in_vehicle",
+      "initialAccuracyIndex",
+      "initialDistanceFilter",
+      "initialPeriodicInterval",
+      "insertLocation",
+      "insertLocation() has not been implemented.",
+      "ios",
+      "isCharging",
+      "isDatabaseEncrypted",
+      "isDatabaseEncrypted() has not been implemented.",
+      "isIgnoringBatteryOptimizations",
+      "isIgnoringBatteryOptimizations() has not been implemented.",
+      "isMoving",
+      "isOnFoot",
+      "isPowerSaveMode",
+      "isPowerSaveMode() has not been implemented.",
+      "is_charging",
+      "la",
+      "lastLocationTimestamp",
+      "lat",
+      "latitude",
+      "level",
+      "libtracelet_core.so",
+      "lng",
+      "lo",
+      "locationAuthorizationRequest",
+      "locationEvents has not been implemented.",
+      "locationTimeout",
+      "locationUpdateInterval",
+      "locationsOrderDirection",
+      "log",
+      "log() has not been implemented.",
+      "logLevel",
+      "logMaxDays",
+      "logger",
+      "loiteringDelay",
+      "longitude",
+      "magnitudesG",
+      "maxBatchSize",
+      "maxDaysToPersist",
+      "maxMonitoredGeofences",
+      "maxRecordsToPersist",
+      "maxRetries",
+      "maximumAge",
+      "method",
+      "minimumActivityRecognitionConfidence",
+      "mode",
+      "modeChangeEvents has not been implemented.",
+      "motion",
+      "motionChangeEvents has not been implemented.",
+      "motionModeChangeEvents has not been implemented.",
+      "motionTriggerDelay",
+      "network",
+      "notificationActionEvents has not been implemented.",
+      "notificationColor",
+      "notificationLargeIcon",
+      "notificationOngoing",
+      "notificationPriority",
+      "notificationSmallIcon",
+      "notificationText",
+      "notificationTitle",
+      "notifyOnDwell",
+      "notifyOnEntry",
+      "notifyOnExit",
+      "nowMs",
+      "null-error",
+      "odometer",
+      "on_bicycle",
+      "on_foot",
+      "openExactAlarmSettings",
+      "openExactAlarmSettings() has not been implemented.",
+      "openOemSettings",
+      "openOemSettings() has not been implemented.",
+      "package:flutter/cupertino.dart",
+      "package:flutter/foundation.dart",
+      "package:flutter/material.dart",
+      "package:flutter/services.dart",
+      "package:flutter/widgets.dart",
+      "package:flutter_rust_bridge/flutter_rust_bridge_for_generated.dart",
+      "package:flutter_rust_bridge/flutter_rust_bridge_for_generated_io.dart",
+      "package:flutter_rust_bridge/flutter_rust_bridge_for_generated_web.dart",
+      "package:meta/meta.dart",
+      "package:plugin_platform_interface/plugin_platform_interface.dart",
+      "package:tracelet_platform_interface/src/algorithms/geo_utils.dart",
+      "package:tracelet_platform_interface/src/algorithms/rtree.dart",
+      "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+      "package:tracelet_platform_interface/src/pigeon_event_receiver.dart",
+      "package:tracelet_platform_interface/src/pigeon_tracelet.dart",
+      "package:tracelet_platform_interface/src/rust/api_dart/battery_budget.dart",
+      "package:tracelet_platform_interface/src/rust/api_dart/schedule.dart",
+      "package:tracelet_platform_interface/src/rust/api_dart/trip.dart",
+      "package:tracelet_platform_interface/src/rust/frb_generated.dart",
+      "package:tracelet_platform_interface/src/rust/state/battery_budget.dart",
+      "package:tracelet_platform_interface/src/tracelet_platform.dart",
+      "package:tracelet_platform_interface/src/types/enums.dart",
+      "package:tracelet_platform_interface/tracelet_platform_interface.dart",
+      "params",
+      "pausesLocationUpdatesAutomatically",
+      "peakG",
+      "periodicDesiredAccuracy",
+      "periodicLocationInterval",
+      "periodicUseExactAlarms",
+      "periodicUseForegroundService",
+      "persist",
+      "persistMode",
+      "persist_decider.dart",
+      "persistence",
+      "pkg/",
+      "playSound",
+      "playSound() has not been implemented.",
+      "postImpactStill",
+      "postalCode",
+      "powerSaveChangeEvents has not been implemented.",
+      "pressureDeltaHpa",
+      "preventSuspend",
+      "privacyZone",
+      "providerChangeEvents has not been implemented.",
+      "providerchange",
+      "radius",
+      "radiusMeters",
+      "ready",
+      "ready() has not been implemented.",
+      "ref",
+      "refreshInterval",
+      "registerHeadlessHeadersCallback",
+      "registerHeadlessHeadersCallback() has not been implemented.",
+      "registerHeadlessSyncBodyBuilder",
+      "registerHeadlessSyncBodyBuilder() has not been implemented.",
+      "registerHeadlessTask",
+      "registerHeadlessTask() has not been implemented.",
+      "remoteConfigHeaders",
+      "remoteConfigRefreshInterval",
+      "remoteConfigTimeout",
+      "remoteConfigUrl",
+      "removeGeofence",
+      "removeGeofence() has not been implemented.",
+      "removeGeofences",
+      "removeGeofences() has not been implemented.",
+      "removePrivacyZone",
+      "removePrivacyZone() has not been implemented.",
+      "removePrivacyZones",
+      "removePrivacyZones() has not been implemented.",
+      "requestLocationAuthorization() has not been implemented.",
+      "requestMotionAuthorization() has not been implemented.",
+      "requestNotificationAuthorization() has not been implemented.",
+      "requestSettings",
+      "requestSettings() has not been implemented.",
+      "requestTemporaryFullAccuracy",
+      "requestTemporaryFullAccuracy() has not been implemented.",
+      "reset",
+      "reset() has not been implemented.",
+      "retryBackoffBase",
+      "retryBackoffCap",
+      "rtree.dart",
+      "running",
+      "rust_loader_io.dart",
+      "rust_loader_unsupported.dart",
+      "rust_loader_web.dart",
+      "s",
+      "samples",
+      "schedule",
+      "scheduleEvents has not been implemented.",
+      "scheduleUseAlarmManager",
+      "schedule_parser.dart",
+      "schedulerEnabled",
+      "schedules",
+      "security",
+      "setConfig",
+      "setConfig() has not been implemented.",
+      "setDynamicHeaders",
+      "setDynamicHeaders() has not been implemented.",
+      "setOdometer",
+      "setOdometer() has not been implemented.",
+      "setRouteContext",
+      "setRouteContext() has not been implemented.",
+      "showPowerManager() has not been implemented.",
+      "showSettings",
+      "showSettings() has not been implemented.",
+      "showsBackgroundLocationIndicator",
+      "simulateTelematicsEvent() has not been implemented.",
+      "sparseDistanceThreshold",
+      "sparseMaxIdleSeconds",
+      "speed",
+      "speedAccuracy",
+      "speedAfterMps",
+      "speedBeforeMps",
+      "speedMps",
+      "src/algorithms/algorithms.dart",
+      "src/event_channel_names.dart",
+      "src/generated/tracelet_api.g.dart",
+      "src/method_channel_tracelet.dart",
+      "src/pigeon_event_receiver.dart",
+      "src/pigeon_tracelet.dart",
+      "src/rust/frb_generated.dart",
+      "src/rust_loader/rust_loader.dart",
+      "src/tracelet_platform.dart",
+      "src/types/types.dart",
+      "sslPinningCertificates",
+      "sslPinningFingerprints",
+      "start",
+      "start() has not been implemented.",
+      "startBackgroundTask",
+      "startBackgroundTask() has not been implemented.",
+      "startGeofences",
+      "startGeofences() has not been implemented.",
+      "startLocation",
+      "startOnBoot",
+      "startPeriodic",
+      "startPeriodic() has not been implemented.",
+      "startSchedule",
+      "startSchedule() has not been implemented.",
+      "state",
+      "state/battery_budget.dart",
+      "stationaryRadius",
+      "status",
+      "stop",
+      "stop() has not been implemented.",
+      "stopAfterElapsedMinutes",
+      "stopBackgroundTask",
+      "stopBackgroundTask() has not been implemented.",
+      "stopDetectionDelay",
+      "stopLocation",
+      "stopOnStationary",
+      "stopOnTerminate",
+      "stopSchedule",
+      "stopSchedule() has not been implemented.",
+      "stopTimeout",
+      "stopWatchPosition",
+      "stopWatchPosition() has not been implemented.",
+      "street",
+      "sync",
+      "sync() has not been implemented.",
+      "syncInterval",
+      "t",
+      "targetBudgetPerHour",
+      "that",
+      "timeout",
+      "timestamp",
+      "timestampMs",
+      "totalCarbonGrams",
+      "totalDistanceMeters",
+      "totalTrips",
+      "tracelet_core",
+      "tracelet_ios.framework/tracelet_ios",
+      "trackingMode",
+      "train",
+      "trip_manager.dart",
+      "type",
+      "tzOffsetSeconds",
+      "u",
+      "unknown",
+      "url",
+      "useSignificantChangesOnly",
+      "uuid",
+      "verifyAuditTrail",
+      "verifyAuditTrail() has not been implemented.",
+      "vertices",
+      "walking",
+      "wasInFreeFall",
+      "wasm_bindgen",
+      "watchPosition",
+      "watchPosition() has not been implemented.",
+      "watchPositionEvents has not been implemented.",
+      "waypoints",
+      "x",
+      "y",
+      "z"
+    ]
+  },
+  "version": "3.5.2"
+}
