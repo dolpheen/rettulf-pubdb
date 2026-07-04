@@ -1,0 +1,504 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "kWindowCaptionHeight",
+          "kWindowEventBlur",
+          "kWindowEventClose",
+          "kWindowEventDocked",
+          "kWindowEventEnterFullScreen",
+          "kWindowEventFocus",
+          "kWindowEventLeaveFullScreen",
+          "kWindowEventMaximize",
+          "kWindowEventMinimize",
+          "kWindowEventMove",
+          "kWindowEventMoved",
+          "kWindowEventResize",
+          "kWindowEventResized",
+          "kWindowEventRestore",
+          "kWindowEventUndocked",
+          "kWindowEventUnmaximize",
+          "windowManager"
+        ],
+        "libraries": [
+          "package:window_manager/src/utils/calc_window_position.dart",
+          "package:window_manager/src/widgets/virtual_window_frame.dart",
+          "package:window_manager/src/widgets/window_caption.dart",
+          "package:window_manager/src/window_manager.dart",
+          "package:window_manager/window_manager.dart"
+        ],
+        "methods": [
+          "VirtualWindowFrameInit",
+          "calcWindowPosition"
+        ],
+        "types": []
+      },
+      "DockSide": {
+        "fields": [
+          "left",
+          "right"
+        ],
+        "libraries": [
+          "package:window_manager/src/window_manager.dart",
+          "package:window_manager/window_manager.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DragToMoveArea": {
+        "fields": [
+          "child"
+        ],
+        "libraries": [
+          "package:window_manager/src/widgets/drag_to_move_area.dart",
+          "package:window_manager/window_manager.dart"
+        ],
+        "methods": [
+          "DragToMoveArea",
+          "build"
+        ],
+        "types": []
+      },
+      "DragToResizeArea": {
+        "fields": [
+          "child",
+          "enableResizeEdges",
+          "resizeEdgeColor",
+          "resizeEdgeMargin",
+          "resizeEdgeSize"
+        ],
+        "libraries": [
+          "package:window_manager/src/widgets/drag_to_resize_area.dart",
+          "package:window_manager/window_manager.dart"
+        ],
+        "methods": [
+          "DragToResizeArea",
+          "build"
+        ],
+        "types": [
+          "ResizeEdge"
+        ]
+      },
+      "ResizeEdge": {
+        "fields": [
+          "bottom",
+          "bottomLeft",
+          "bottomRight",
+          "left",
+          "right",
+          "top",
+          "topLeft",
+          "topRight"
+        ],
+        "libraries": [
+          "package:window_manager/src/resize_edge.dart",
+          "package:window_manager/window_manager.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TitleBarStyle": {
+        "fields": [
+          "hidden",
+          "normal"
+        ],
+        "libraries": [
+          "package:window_manager/src/title_bar_style.dart",
+          "package:window_manager/window_manager.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "VirtualWindowFrame": {
+        "fields": [
+          "child"
+        ],
+        "libraries": [
+          "package:window_manager/src/widgets/virtual_window_frame.dart",
+          "package:window_manager/window_manager.dart"
+        ],
+        "methods": [
+          "VirtualWindowFrame",
+          "createState"
+        ],
+        "types": []
+      },
+      "WindowCaption": {
+        "fields": [
+          "backgroundColor",
+          "brightness",
+          "title"
+        ],
+        "libraries": [
+          "package:window_manager/src/widgets/window_caption.dart",
+          "package:window_manager/window_manager.dart"
+        ],
+        "methods": [
+          "WindowCaption",
+          "createState"
+        ],
+        "types": [
+          "WindowCaption"
+        ]
+      },
+      "WindowCaptionButton": {
+        "fields": [
+          "brightness",
+          "get:buttonBgColorScheme",
+          "get:buttonIconColorScheme",
+          "icon",
+          "iconName",
+          "onPressed"
+        ],
+        "libraries": [
+          "package:window_manager/src/widgets/window_caption_button.dart",
+          "package:window_manager/window_manager.dart"
+        ],
+        "methods": [
+          "WindowCaptionButton",
+          "close",
+          "createState",
+          "maximize",
+          "minimize",
+          "unmaximize"
+        ],
+        "types": [
+          "WindowCaptionButton"
+        ]
+      },
+      "WindowCaptionButtonIcon": {
+        "fields": [
+          "color",
+          "createPainter"
+        ],
+        "libraries": [
+          "package:window_manager/src/widgets/window_caption_button.dart",
+          "package:window_manager/window_manager.dart"
+        ],
+        "methods": [
+          "WindowCaptionButtonIcon",
+          "build"
+        ],
+        "types": []
+      },
+      "WindowListener": {
+        "fields": [],
+        "libraries": [
+          "package:window_manager/src/window_listener.dart",
+          "package:window_manager/window_manager.dart"
+        ],
+        "methods": [
+          "onWindowBlur",
+          "onWindowClose",
+          "onWindowDocked",
+          "onWindowEnterFullScreen",
+          "onWindowEvent",
+          "onWindowFocus",
+          "onWindowLeaveFullScreen",
+          "onWindowMaximize",
+          "onWindowMinimize",
+          "onWindowMove",
+          "onWindowMoved",
+          "onWindowResize",
+          "onWindowResized",
+          "onWindowRestore",
+          "onWindowUndocked",
+          "onWindowUnmaximize"
+        ],
+        "types": []
+      },
+      "WindowManager": {
+        "fields": [
+          "get:hasListeners",
+          "get:listeners",
+          "instance"
+        ],
+        "libraries": [
+          "package:window_manager/src/window_manager.dart",
+          "package:window_manager/window_manager.dart"
+        ],
+        "methods": [
+          "addListener",
+          "blur",
+          "center",
+          "close",
+          "destroy",
+          "dock",
+          "ensureInitialized",
+          "focus",
+          "getBounds",
+          "getDevicePixelRatio",
+          "getId",
+          "getOpacity",
+          "getPosition",
+          "getSize",
+          "getTitle",
+          "getTitleBarHeight",
+          "grabKeyboard",
+          "hasShadow",
+          "hide",
+          "isAlwaysOnBottom",
+          "isAlwaysOnTop",
+          "isClosable",
+          "isDockable",
+          "isDocked",
+          "isFocused",
+          "isFullScreen",
+          "isMaximizable",
+          "isMaximized",
+          "isMinimizable",
+          "isMinimized",
+          "isMovable",
+          "isPreventClose",
+          "isResizable",
+          "isSkipTaskbar",
+          "isVisible",
+          "isVisibleOnAllWorkspaces",
+          "maximize",
+          "minimize",
+          "popUpWindowMenu",
+          "removeListener",
+          "restore",
+          "setAlignment",
+          "setAlwaysOnBottom",
+          "setAlwaysOnTop",
+          "setAsFrameless",
+          "setAspectRatio",
+          "setBackgroundColor",
+          "setBadgeLabel",
+          "setBounds",
+          "setBrightness",
+          "setClosable",
+          "setFullScreen",
+          "setHasShadow",
+          "setIcon",
+          "setIgnoreMouseEvents",
+          "setMaximizable",
+          "setMaximumSize",
+          "setMinimizable",
+          "setMinimumSize",
+          "setMovable",
+          "setOpacity",
+          "setPosition",
+          "setPreventClose",
+          "setProgressBar",
+          "setResizable",
+          "setSize",
+          "setSkipTaskbar",
+          "setTitle",
+          "setTitleBarStyle",
+          "setVisibleOnAllWorkspaces",
+          "show",
+          "startDragging",
+          "startResizing",
+          "undock",
+          "ungrabKeyboard",
+          "unmaximize",
+          "waitUntilReadyToShow"
+        ],
+        "types": [
+          "DockSide",
+          "ResizeEdge",
+          "TitleBarStyle",
+          "WindowListener",
+          "WindowManager",
+          "WindowOptions"
+        ]
+      },
+      "WindowOptions": {
+        "fields": [
+          "alwaysOnTop",
+          "backgroundColor",
+          "center",
+          "fullScreen",
+          "maximumSize",
+          "minimumSize",
+          "size",
+          "skipTaskbar",
+          "title",
+          "titleBarStyle",
+          "windowButtonVisibility"
+        ],
+        "libraries": [
+          "package:window_manager/src/window_options.dart",
+          "package:window_manager/window_manager.dart"
+        ],
+        "methods": [
+          "WindowOptions"
+        ],
+        "types": [
+          "TitleBarStyle"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-07-04T15:50:07Z",
+  "package": "window_manager",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "DragToMoveArea",
+      "DragToResizeArea",
+      "VirtualWindowFrame",
+      "WindowCaption",
+      "WindowCaptionButtonIcon",
+      "WindowOptions"
+    ],
+    "digest": "22437255b0169f9d0b379819760ca04898298cabe4d8988d258a756be4e3116f",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "91d563e501e008db0008219a2b81b2d61859e2bad1d00e8d70cb6349bbddebb1",
+    "method_channels": [
+      "window_manager"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "animate",
+      "aspectRatio",
+      "backgroundColorA",
+      "backgroundColorB",
+      "backgroundColorG",
+      "backgroundColorR",
+      "blur",
+      "bottom",
+      "brightness",
+      "close",
+      "dart:async",
+      "dart:io",
+      "dart:ui",
+      "data/flutter_assets",
+      "destroy",
+      "devicePixelRatio",
+      "dock",
+      "docked",
+      "ensureInitialized",
+      "enter-full-screen",
+      "eventName",
+      "focus",
+      "forward",
+      "getBounds",
+      "getId",
+      "getOpacity",
+      "getTitle",
+      "getTitleBarHeight",
+      "grabKeyboard",
+      "hasShadow",
+      "height",
+      "hide",
+      "iconPath",
+      "icon_chrome_close",
+      "icon_chrome_maximize",
+      "icon_chrome_minimize",
+      "icon_chrome_unmaximize",
+      "ignore",
+      "inactive",
+      "isAlwaysOnBottom",
+      "isAlwaysOnTop",
+      "isClosable",
+      "isDockable",
+      "isDocked",
+      "isFocused",
+      "isFullScreen",
+      "isMaximizable",
+      "isMaximized",
+      "isMinimizable",
+      "isMinimized",
+      "isMovable",
+      "isPreventClose",
+      "isResizable",
+      "isSkipTaskbar",
+      "isVisible",
+      "isVisibleOnAllWorkspaces",
+      "label",
+      "leave-full-screen",
+      "left",
+      "maximize",
+      "minimize",
+      "move",
+      "moved",
+      "onEvent",
+      "opacity",
+      "package:flutter/foundation.dart",
+      "package:flutter/material.dart",
+      "package:flutter/services.dart",
+      "package:path/path.dart",
+      "package:screen_retriever/screen_retriever.dart",
+      "package:window_manager/src/resize_edge.dart",
+      "package:window_manager/src/title_bar_style.dart",
+      "package:window_manager/src/utils/calc_window_position.dart",
+      "package:window_manager/src/widgets/drag_to_move_area.dart",
+      "package:window_manager/src/widgets/drag_to_resize_area.dart",
+      "package:window_manager/src/widgets/window_caption_button.dart",
+      "package:window_manager/src/window_listener.dart",
+      "package:window_manager/src/window_manager.dart",
+      "package:window_manager/src/window_options.dart",
+      "popUpWindowMenu",
+      "progress",
+      "resize",
+      "resizeEdge",
+      "resized",
+      "restore",
+      "right",
+      "setAlwaysOnBottom",
+      "setAlwaysOnTop",
+      "setAsFrameless",
+      "setAspectRatio",
+      "setBackgroundColor",
+      "setBadgeLabel",
+      "setBounds",
+      "setBrightness",
+      "setClosable",
+      "setFullScreen",
+      "setHasShadow",
+      "setIcon",
+      "setIgnoreMouseEvents",
+      "setMaximizable",
+      "setMaximumSize",
+      "setMinimizable",
+      "setMinimumSize",
+      "setMovable",
+      "setOpacity",
+      "setPreventClose",
+      "setProgressBar",
+      "setResizable",
+      "setSkipTaskbar",
+      "setTitle",
+      "setTitleBarStyle",
+      "setVisibleOnAllWorkspaces",
+      "show",
+      "src/resize_edge.dart",
+      "src/title_bar_style.dart",
+      "src/utils/calc_window_position.dart",
+      "src/widgets/drag_to_move_area.dart",
+      "src/widgets/drag_to_resize_area.dart",
+      "src/widgets/virtual_window_frame.dart",
+      "src/widgets/window_caption.dart",
+      "src/widgets/window_caption_button.dart",
+      "src/window_listener.dart",
+      "src/window_manager.dart",
+      "src/window_options.dart",
+      "startDragging",
+      "startResizing",
+      "title",
+      "titleBarStyle",
+      "top",
+      "undock",
+      "undocked",
+      "ungrabKeyboard",
+      "unmaximize",
+      "vertically",
+      "visible",
+      "visibleOnFullScreen",
+      "waitUntilReadyToShow",
+      "width",
+      "windowButtonVisibility",
+      "window_manager",
+      "x",
+      "y"
+    ]
+  },
+  "version": "0.5.2"
+}
