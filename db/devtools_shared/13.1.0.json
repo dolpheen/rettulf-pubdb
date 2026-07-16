@@ -1,0 +1,1532 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "apiGetFlutterGAClientId",
+          "apiNotifyForVmServiceConnection",
+          "apiParameterValueKey",
+          "apiParameterVmServiceConnected",
+          "apiPrefix",
+          "devtoolsOptionsFileName",
+          "extensionBuildDefault",
+          "extensionRequestPath",
+          "fileSystem",
+          "flutterEngineRasterCache",
+          "flutterListViews",
+          "flutterMemory",
+          "get:ide",
+          "get:suppressAnalytics",
+          "headlessModeIsSupported",
+          "staticExtensionsSearchDepth",
+          "useChromeHeadless"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_extensions.dart",
+          "package:devtools_shared/devtools_extensions_io.dart",
+          "package:devtools_shared/devtools_server.dart",
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/devtools_test_utils.dart",
+          "package:devtools_shared/service.dart",
+          "package:devtools_shared/src/devtools_api.dart",
+          "package:devtools_shared/src/extensions/constants.dart",
+          "package:devtools_shared/src/extensions/extension_manager.dart",
+          "package:devtools_shared/src/server/file_system.dart",
+          "package:devtools_shared/src/server/server_api.dart",
+          "package:devtools_shared/src/service/service.dart",
+          "package:devtools_shared/src/service_utils.dart",
+          "package:devtools_shared/src/test/chrome.dart",
+          "package:devtools_shared/src/test/integration_test_runner.dart",
+          "package:devtools_shared/src/test/io_utils.dart",
+          "package:devtools_shared/src/test/test_utils.dart",
+          "package:devtools_shared/src/utils/file_utils.dart",
+          "package:devtools_shared/src/utils/retry.dart",
+          "package:devtools_shared/src/utils/serialization.dart"
+        ],
+        "methods": [
+          "connect",
+          "delay",
+          "deserialize",
+          "deserializeNullable",
+          "getDartPrefsDirectory",
+          "getUserHomeDir",
+          "normalizeVmServiceUri",
+          "packageRootFromFileUriString",
+          "rootPackageDirectoryForMainIsolate",
+          "runOneOrManyTests",
+          "runWithRetry",
+          "shortDelay",
+          "transformToLines",
+          "waitFor"
+        ],
+        "types": []
+      },
+      "AdbMemoryInfo": {
+        "fields": [
+          "code",
+          "codeKey",
+          "get:bootDuration",
+          "get:realtimeDT",
+          "graphics",
+          "graphicsKey",
+          "javaHeap",
+          "javaHeapKey",
+          "nativeHeap",
+          "nativeHeapKey",
+          "other",
+          "otherKey",
+          "realTimeKey",
+          "realtime",
+          "stack",
+          "stackKey",
+          "system",
+          "systemKey",
+          "total",
+          "totalKey"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/adb_memory_info.dart"
+        ],
+        "methods": [
+          "AdbMemoryInfo",
+          "empty",
+          "fromJson",
+          "fromJsonInKB",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "AdbMemoryInfo",
+          "Serializable"
+        ]
+      },
+      "AllocationAccumulator": {
+        "fields": [
+          "continuesVisible",
+          "get:isContinues",
+          "get:isContinuesVisible",
+          "get:isEmpty",
+          "get:isReset",
+          "get:isStart"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/event_sample.dart"
+        ],
+        "methods": [
+          "AllocationAccumulator",
+          "continues",
+          "empty",
+          "fromJson",
+          "reset",
+          "start",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "AllocationAccumulator"
+        ]
+      },
+      "AllocationMemoryJson": {
+        "fields": [
+          "allocationFormatVersion",
+          "get:header",
+          "get:version"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/memory_json.dart"
+        ],
+        "methods": [
+          "AllocationMemoryJson",
+          "decode",
+          "encode",
+          "encodeAnother",
+          "encodeList",
+          "fromJson",
+          "upgradeToVersion"
+        ],
+        "types": [
+          "MemoryJson"
+        ]
+      },
+      "AndroidDeeplink": {
+        "fields": [
+          "host",
+          "intentFilterChecks",
+          "path",
+          "scheme"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_deeplink.dart",
+          "package:devtools_shared/src/deeplink/app_link_settings.dart"
+        ],
+        "methods": [],
+        "types": [
+          "IntentFilterChecks"
+        ]
+      },
+      "AppFixture": {
+        "fields": [
+          "get:mainIsolate",
+          "get:onAppStarted",
+          "isolates",
+          "lines",
+          "onTeardown",
+          "process",
+          "serviceConnection",
+          "serviceUri"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_test_utils.dart",
+          "package:devtools_shared/src/test/cli_test_driver.dart"
+        ],
+        "methods": [
+          "invoke",
+          "teardown"
+        ],
+        "types": []
+      },
+      "AppLinkSettings": {
+        "fields": [
+          "applicationId",
+          "deeplinkingFlagEnabled",
+          "deeplinks",
+          "error"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_deeplink.dart",
+          "package:devtools_shared/src/deeplink/app_link_settings.dart"
+        ],
+        "methods": [
+          "error",
+          "fromErrorJson",
+          "fromJson"
+        ],
+        "types": [
+          "AndroidDeeplink"
+        ]
+      },
+      "AppSizeApi": {
+        "fields": [
+          "baseAppSizeFilePropertyName",
+          "getBaseAppSizeFile",
+          "getTestAppSizeFile",
+          "testAppSizeFilePropertyName"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/devtools_api.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Chrome": {
+        "fields": [
+          "executable"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_test_utils.dart",
+          "package:devtools_shared/src/test/chrome.dart"
+        ],
+        "methods": [
+          "from",
+          "getCreateChromeDataDir",
+          "locate",
+          "start"
+        ],
+        "types": [
+          "Chrome",
+          "ChromeProcess"
+        ]
+      },
+      "ChromeDriver": {
+        "fields": [
+          "port"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_test_utils.dart",
+          "package:devtools_shared/src/test/chrome_driver.dart"
+        ],
+        "methods": [
+          "start",
+          "stop"
+        ],
+        "types": [
+          "IOMixin"
+        ]
+      },
+      "ChromeProcess": {
+        "fields": [
+          "debugPort",
+          "get:isAlive",
+          "get:onExit",
+          "process"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_test_utils.dart",
+          "package:devtools_shared/src/test/chrome.dart"
+        ],
+        "methods": [
+          "ChromeProcess",
+          "connectToTab",
+          "connectToTabId",
+          "getFirstTab",
+          "kill"
+        ],
+        "types": [
+          "ChromeTab"
+        ]
+      },
+      "ChromeTab": {
+        "fields": [
+          "get:isConnected",
+          "get:onConsoleAPICalled",
+          "get:onDisconnect",
+          "get:onExceptionThrown",
+          "get:onLogEntryAdded",
+          "get:wipConnection",
+          "wipTab"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_test_utils.dart",
+          "package:devtools_shared/src/test/chrome.dart"
+        ],
+        "methods": [
+          "ChromeTab",
+          "connect",
+          "createNewTarget",
+          "navigate",
+          "reload"
+        ],
+        "types": [
+          "ChromeTab"
+        ]
+      },
+      "ClassHeapDetailStats": {
+        "fields": [
+          "bytesCurrent",
+          "bytesDelta",
+          "classRef",
+          "instancesCurrent",
+          "instancesDelta",
+          "isStacktraced",
+          "version"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/class_heap_detail_stats.dart"
+        ],
+        "methods": [
+          "ClassHeapDetailStats",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "CliAppFixture": {
+        "fields": [
+          "appScriptPath",
+          "get:scriptSource"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_test_utils.dart",
+          "package:devtools_shared/src/test/cli_test_driver.dart"
+        ],
+        "methods": [
+          "create",
+          "parseBreakpointLines",
+          "parseExceptionLines",
+          "parseSteppingLines"
+        ],
+        "types": [
+          "AppFixture",
+          "CliAppFixture"
+        ]
+      },
+      "CompareMixin": {
+        "fields": [],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/utils/compare.dart"
+        ],
+        "methods": [
+          "<",
+          "<=",
+          ">",
+          ">="
+        ],
+        "types": []
+      },
+      "CompleterExtension": {
+        "fields": [],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/utils/utils.dart"
+        ],
+        "methods": [
+          "safeComplete",
+          "safeCompleteError"
+        ],
+        "types": []
+      },
+      "DecodeEncode": {
+        "fields": [
+          "get:version"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/memory_json.dart"
+        ],
+        "methods": [
+          "encode",
+          "encodeAnother",
+          "fromJson"
+        ],
+        "types": []
+      },
+      "DeeplinkApi": {
+        "fields": [
+          "androidAppLinkSettings",
+          "androidBuildVariantPropertyName",
+          "androidBuildVariants",
+          "deeplinkRootPathPropertyName",
+          "iosBuildOptions",
+          "iosUniversalLinkSettings",
+          "xcodeConfigurationPropertyName",
+          "xcodeTargetPropertyName"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/devtools_api.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DeeplinkManager": {
+        "fields": [
+          "kErrorField",
+          "kOutputJsonField"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_deeplink_io.dart",
+          "package:devtools_shared/src/deeplink/deeplink_manager.dart"
+        ],
+        "methods": [
+          "getAndroidAppLinkSettings",
+          "getAndroidBuildVariants",
+          "getFlutterBinary",
+          "getIosBuildOptions",
+          "getIosUniversalLinkSettings",
+          "runProcess"
+        ],
+        "types": []
+      },
+      "DevToolsExtensionConfig": {
+        "fields": [
+          "detectedFromStaticContext",
+          "detectedFromStaticContextKey",
+          "devtoolsOptionsUri",
+          "devtoolsOptionsUriKey",
+          "extensionAssetsPath",
+          "extensionAssetsPathKey",
+          "get:analyticsSafeName",
+          "get:displayName",
+          "get:hashCode",
+          "get:identifier",
+          "isPubliclyHosted",
+          "isPubliclyHostedKey",
+          "issueTrackerKey",
+          "issueTrackerLink",
+          "materialIconCodePoint",
+          "materialIconCodePointKey",
+          "name",
+          "nameKey",
+          "requiresConnection",
+          "requiresConnectionKey",
+          "version",
+          "versionKey"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_extensions.dart",
+          "package:devtools_shared/src/extensions/extension_model.dart"
+        ],
+        "methods": [
+          "==",
+          "compareTo",
+          "parse",
+          "toJson"
+        ],
+        "types": [
+          "DevToolsExtensionConfig"
+        ]
+      },
+      "DevToolsOptions": {
+        "fields": [],
+        "libraries": [
+          "package:devtools_shared/devtools_extensions_io.dart",
+          "package:devtools_shared/src/extensions/extension_enablement.dart"
+        ],
+        "methods": [
+          "lookupExtensionEnabledState",
+          "setExtensionEnabledState"
+        ],
+        "types": [
+          "ExtensionEnabledState"
+        ]
+      },
+      "DevToolsStoreKeys": {
+        "fields": [
+          "lastReleaseNotesVersion",
+          "surveyActionTaken",
+          "surveyShownCount"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_server.dart",
+          "package:devtools_shared/src/server/devtools_store.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DevToolsUsage": {
+        "fields": [
+          "get:activeSurvey",
+          "get:lastReleaseNotesVersion",
+          "get:surveyActionTaken",
+          "get:surveyShownCount",
+          "properties",
+          "set:activeSurvey",
+          "set:lastReleaseNotesVersion",
+          "set:surveyActionTaken",
+          "storeName"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_server.dart",
+          "package:devtools_shared/src/server/devtools_store.dart"
+        ],
+        "methods": [
+          "DevToolsUsage",
+          "incrementSurveyShownCount",
+          "rewriteActiveSurvey",
+          "surveyNameExists"
+        ],
+        "types": [
+          "IOPersistentProperties"
+        ]
+      },
+      "DtdApi": {
+        "fields": [
+          "apiGetDtdUri",
+          "uriPropertyName"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/devtools_api.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DtdInfo": {
+        "fields": [
+          "exposedUri",
+          "localUri",
+          "secret"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/common.dart"
+        ],
+        "methods": [
+          "DtdInfo"
+        ],
+        "types": []
+      },
+      "EventSample": {
+        "fields": [
+          "allocationAccumulator",
+          "extensionEvents",
+          "get:hasExtensionEvents",
+          "get:isEmpty",
+          "get:isEventAllocationAccumulator",
+          "isEventGC",
+          "isEventSnapshot",
+          "isEventSnapshotAuto",
+          "timestamp",
+          "version"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/event_sample.dart"
+        ],
+        "methods": [
+          "EventSample",
+          "accumulatorContinues",
+          "accumulatorReset",
+          "accumulatorStart",
+          "clone",
+          "empty",
+          "extensionEvent",
+          "fromJson",
+          "gcEvent",
+          "snapshotEvent",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "AllocationAccumulator",
+          "EventSample",
+          "ExtensionEvents",
+          "Serializable"
+        ]
+      },
+      "ExtensionEnabledState": {
+        "fields": [
+          "disabled",
+          "enabled",
+          "error",
+          "none"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_extensions.dart",
+          "package:devtools_shared/src/extensions/extension_model.dart"
+        ],
+        "methods": [
+          "from"
+        ],
+        "types": [
+          "ExtensionEnabledState"
+        ]
+      },
+      "ExtensionEvent": {
+        "fields": [
+          "customEventName",
+          "data",
+          "eventKind",
+          "get:isEmpty",
+          "timestamp"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/event_sample.dart"
+        ],
+        "methods": [
+          "ExtensionEvent",
+          "custom",
+          "empty",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ExtensionEvent"
+        ]
+      },
+      "ExtensionEvents": {
+        "fields": [
+          "events",
+          "get:isEmpty",
+          "get:isNotEmpty"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/event_sample.dart"
+        ],
+        "methods": [
+          "ExtensionEvents",
+          "clear",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "ExtensionEvent"
+        ]
+      },
+      "ExtensionParsingException": {
+        "fields": [],
+        "libraries": [
+          "package:devtools_shared/devtools_extensions_io.dart",
+          "package:devtools_shared/src/extensions/extension_manager.dart"
+        ],
+        "methods": [
+          "ExtensionParsingException"
+        ],
+        "types": []
+      },
+      "ExtensionsApi": {
+        "fields": [
+          "apiExtensionEnabledState",
+          "apiServeAvailableExtensions",
+          "devtoolsOptionsUriPropertyName",
+          "enabledStatePropertyName",
+          "extensionNamePropertyName",
+          "extensionsResultPropertyName",
+          "extensionsResultWarningPropertyName",
+          "packageRootUriPropertyName"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/devtools_api.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ExtensionsManager": {
+        "fields": [
+          "devtoolsExtensions"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_extensions_io.dart",
+          "package:devtools_shared/src/extensions/extension_manager.dart"
+        ],
+        "methods": [
+          "lookupLocationFor",
+          "serveAvailableExtensions"
+        ],
+        "types": [
+          "DtdInfo"
+        ]
+      },
+      "FileSystemExtension": {
+        "fields": [
+          "get:devToolsDir",
+          "get:devToolsStoreLocation",
+          "get:flutterStoreExists"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_server.dart",
+          "package:devtools_shared/src/server/file_system.dart"
+        ],
+        "methods": [
+          "devToolsFileAsJson",
+          "devToolsFileFromPath",
+          "maybeMoveLegacyDevToolsStore"
+        ],
+        "types": []
+      },
+      "FlutterStore": {
+        "fields": [
+          "firstRunKey",
+          "flutterClientIdKey",
+          "gaEnabledKey",
+          "get:flutterClientId",
+          "get:gaEnabled",
+          "get:isFirstRun",
+          "properties",
+          "storeName"
+        ],
+        "libraries": [
+          "package:devtools_shared/src/server/flutter_store.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "HeapSample": {
+        "fields": [
+          "adbMemoryInfo",
+          "capacity",
+          "external",
+          "isGC",
+          "memoryEventInfo",
+          "rasterCache",
+          "rss",
+          "timestamp",
+          "used",
+          "version"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/heap_sample.dart"
+        ],
+        "methods": [
+          "HeapSample",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "AdbMemoryInfo",
+          "EventSample",
+          "RasterCache",
+          "Serializable"
+        ]
+      },
+      "HeapSpace": {
+        "fields": [
+          "avgCollectionPeriodMillis",
+          "capacity",
+          "collections",
+          "external",
+          "json",
+          "name",
+          "time",
+          "used"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/heap_space.dart"
+        ],
+        "methods": [
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "HeapSpace"
+        ]
+      },
+      "IOMixin": {
+        "fields": [
+          "killTimeout",
+          "stderrController",
+          "stdoutController",
+          "streamSubscriptions"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_test_utils.dart",
+          "package:devtools_shared/src/test/io_utils.dart"
+        ],
+        "methods": [
+          "cancelAllStreamSubscriptions",
+          "killForcefully",
+          "killGracefully",
+          "listenToProcessOutput"
+        ],
+        "types": []
+      },
+      "IOPersistentProperties": {
+        "fields": [
+          "name"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_server.dart",
+          "package:devtools_shared/src/server/file_system.dart"
+        ],
+        "methods": [
+          "IOPersistentProperties",
+          "[]",
+          "[]=",
+          "fromFile",
+          "remove",
+          "syncSettings"
+        ],
+        "types": []
+      },
+      "IntegrationTestRunner": {
+        "fields": [],
+        "libraries": [
+          "package:devtools_shared/devtools_test_utils.dart",
+          "package:devtools_shared/src/test/integration_test_runner.dart"
+        ],
+        "methods": [
+          "run"
+        ],
+        "types": [
+          "IOMixin"
+        ]
+      },
+      "IntegrationTestRunnerArgs": {
+        "fields": [
+          "argResults",
+          "get:headless",
+          "get:help",
+          "get:shard",
+          "get:testTarget",
+          "get:useWasm",
+          "rawArgs",
+          "testTargetArg"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_test_utils.dart",
+          "package:devtools_shared/src/test/integration_test_runner.dart"
+        ],
+        "methods": [
+          "IntegrationTestRunnerArgs",
+          "buildArgParser",
+          "printHelp"
+        ],
+        "types": []
+      },
+      "IntentFilterChecks": {
+        "fields": [
+          "hasActionView",
+          "hasAutoVerify",
+          "hasBrowsableCategory",
+          "hasDefaultCategory"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_deeplink.dart",
+          "package:devtools_shared/src/deeplink/app_link_settings.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Json": {
+        "fields": [
+          "adbMemoryInfo",
+          "capacity",
+          "external",
+          "gc",
+          "get:key",
+          "memoryEventInfo",
+          "rasterCache",
+          "rss",
+          "timestamp",
+          "used"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/heap_sample.dart"
+        ],
+        "methods": [
+          "Json"
+        ],
+        "types": []
+      },
+      "LocalFileSystem": {
+        "fields": [],
+        "libraries": [
+          "package:devtools_shared/devtools_server.dart",
+          "package:devtools_shared/src/server/file_system.dart"
+        ],
+        "methods": [
+          "devToolsDir",
+          "devToolsFileAsJson",
+          "devToolsFileFromPath",
+          "devToolsStoreLocation",
+          "ensureDevToolsDirectory",
+          "flutterStoreExists",
+          "maybeMoveLegacyDevToolsStore"
+        ],
+        "types": []
+      },
+      "MemoryJson": {
+        "fields": [
+          "data",
+          "devToolsScreenValueMemory",
+          "get:isMatchedVersion",
+          "get:isMemoryPayload",
+          "get:payloadVersion",
+          "get:trailer",
+          "jsonDataField",
+          "jsonDevToolsScreenField",
+          "jsonVersionField"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/memory_json.dart"
+        ],
+        "methods": [
+          "MemoryJson",
+          "decode",
+          "upgradeToVersion"
+        ],
+        "types": [
+          "DecodeEncode"
+        ]
+      },
+      "PreferencesApi": {
+        "fields": [
+          "getPreferenceValue",
+          "preferenceKeyProperty",
+          "setPreferenceValue"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/devtools_api.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "RasterCache": {
+        "fields": [
+          "layerBytes",
+          "pictureBytes"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/event_sample.dart"
+        ],
+        "methods": [
+          "empty",
+          "fromJson",
+          "parse",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "RasterCache",
+          "Serializable"
+        ]
+      },
+      "RegisteredService": {
+        "fields": [
+          "service",
+          "title"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/service_utils.dart"
+        ],
+        "methods": [
+          "RegisteredService"
+        ],
+        "types": []
+      },
+      "ReleaseNotesApi": {
+        "fields": [
+          "getLastReleaseNotesVersion",
+          "setLastReleaseNotesVersion"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/devtools_api.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SamplesMemoryJson": {
+        "fields": [
+          "get:header",
+          "get:version"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/memory/memory_json.dart"
+        ],
+        "methods": [
+          "SamplesMemoryJson",
+          "decode",
+          "encode",
+          "encodeAnother",
+          "encodeList",
+          "fromJson",
+          "upgradeToVersion"
+        ],
+        "types": [
+          "HeapSample",
+          "MemoryJson"
+        ]
+      },
+      "SemanticVersion": {
+        "fields": [
+          "get:isPreRelease",
+          "major",
+          "minor",
+          "patch",
+          "preReleaseMajor",
+          "preReleaseMinor"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/utils/semantic_version.dart"
+        ],
+        "methods": [
+          "SemanticVersion",
+          "compareTo",
+          "downgrade",
+          "isSupported",
+          "parse",
+          "sanitizeVersionStr",
+          "toString"
+        ],
+        "types": [
+          "CompareMixin",
+          "SemanticVersion"
+        ]
+      },
+      "Serializable": {
+        "fields": [],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/utils/serialization.dart"
+        ],
+        "methods": [
+          "toJson"
+        ],
+        "types": []
+      },
+      "ServerApi": {
+        "fields": [
+          "errorKey",
+          "get:devToolsPreferences",
+          "logsKey"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_server.dart",
+          "package:devtools_shared/src/server/server_api.dart"
+        ],
+        "methods": [
+          "badRequest",
+          "canHandle",
+          "forbidden",
+          "handle",
+          "logScreenView",
+          "notImplemented",
+          "serverError",
+          "success"
+        ],
+        "types": [
+          "DeeplinkManager",
+          "DevToolsUsage",
+          "DtdInfo",
+          "ExtensionsManager",
+          "ServerApi"
+        ]
+      },
+      "SseClient": {
+        "fields": [
+          "get:sink",
+          "get:stream"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/sse/_fake_sse.dart",
+          "package:devtools_shared/src/sse/sse_shim.dart"
+        ],
+        "methods": [
+          "SseClient"
+        ],
+        "types": []
+      },
+      "SurveyApi": {
+        "fields": [
+          "getSurveyActionTaken",
+          "getSurveyShownCount",
+          "incrementSurveyShownCount",
+          "setActiveSurvey",
+          "setSurveyActionTaken"
+        ],
+        "libraries": [
+          "package:devtools_shared/devtools_shared.dart",
+          "package:devtools_shared/src/devtools_api.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "VmServiceHandler": {
+        "fields": [],
+        "libraries": [
+          "package:devtools_shared/devtools_server.dart",
+          "package:devtools_shared/src/server/server_api.dart"
+        ],
+        "methods": [
+          "detectRootPackageForVmService",
+          "handleNotifyForVmServiceConnection",
+          "updateDtdWorkspaceRoots"
+        ],
+        "types": [
+          "DtdInfo",
+          "ServerApi"
+        ]
+      },
+      "YamlExtension": {
+        "fields": [],
+        "libraries": [
+          "package:devtools_shared/devtools_extensions_io.dart",
+          "package:devtools_shared/src/extensions/yaml_utils.dart"
+        ],
+        "methods": [
+          "toDartMap"
+        ],
+        "types": []
+      },
+      "YamlListExtension": {
+        "fields": [],
+        "libraries": [
+          "package:devtools_shared/devtools_extensions_io.dart",
+          "package:devtools_shared/src/extensions/yaml_utils.dart"
+        ],
+        "methods": [
+          "toDartList"
+        ],
+        "types": []
+      },
+      "YamlNodeExtension": {
+        "fields": [],
+        "libraries": [
+          "package:devtools_shared/devtools_extensions_io.dart",
+          "package:devtools_shared/src/extensions/yaml_utils.dart"
+        ],
+        "methods": [
+          "convertToDartType"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-07-16T15:49:00Z",
+  "package": "devtools_shared",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "AppLinkSettings",
+      "ExtensionParsingException",
+      "RegisteredService"
+    ],
+    "digest": "e186bd6d896d379888ca16bb405c819b176c336ef6c35aa3b1d81fd9976dddf3",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "e84e2c909ccb6cf4c42eb24c28cc4dba84c3fb7419a93452fdffd2bd1e755a5f",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "\n]\n}}",
+      "\r",
+      " ",
+      "  ",
+      "%3A%2F%2F",
+      "(Observatory|The Dart VM service is) listening on ",
+      "(\\.pre)-(\\d+)$",
+      "(\\[.*\\])",
+      "({.*})",
+      "+",
+      "-",
+      "--android",
+      "--disable-gpu",
+      "--headless",
+      "--ios",
+      "--list-build-options",
+      "--list-build-variants",
+      "--no-default-browser-check",
+      "--no-first-run",
+      "--observe=0",
+      "--output-app-link-settings",
+      "--output-universal-link-settings",
+      "--pause-isolates-on-start",
+      "--wasm",
+      "--web-browser-flag=--disable-gpu",
+      "--web-browser-flag=--headless=new",
+      "--web-browser-flag=--no-sandbox",
+      "-d",
+      ".",
+      "..",
+      "../common.dart",
+      "../deeplink/deeplink_manager.dart",
+      "../devtools_api.dart",
+      "../extensions/extension_enablement.dart",
+      "../extensions/extension_manager.dart",
+      "../server_api.dart",
+      "../service/service.dart",
+      "../service_utils.dart",
+      "../sse/sse_shim.dart",
+      "../utils/file_utils.dart",
+      "../utils/serialization.dart",
+      "../utils/utils.dart",
+      ".dart",
+      ".dart_tool/",
+      ".devtools",
+      ".flutter",
+      ".flutter-devtools",
+      ".json",
+      "/",
+      "/Applications/Google Chrome.app",
+      "/usr/bin/google-chrome",
+      "0",
+      "1/3",
+      "127.0.0.1",
+      ": Error: ",
+      ":main(",
+      "?uri=",
+      "@Class",
+      "APPDATA",
+      "All tests passed!",
+      "CHROME_PATH",
+      "ChromeDriver",
+      "ClassHeapStats",
+      "Code",
+      "Contents/MacOS/Google Chrome",
+      "DASH__SUPPRESS_ANALYTICS",
+      "DASH__TOOL",
+      "DevToolsService",
+      "ERROR: setActiveSurvey not called.",
+      "EXCEPTION CAUGHT",
+      "ExtensionsManager.serveAvailableExtensions adding extensions for app root.",
+      "FLUTTER_ROOT",
+      "Flutter Memory Info",
+      "FlutterDriveProcess",
+      "Graphics",
+      "HOME",
+      "HeapSpace",
+      "Invalid URI format: should be a file URI.",
+      "Invalid URI format: should not have a trailing slash.",
+      "Invalid devtoolsOptionsUri: must be a file: URI named 'devtools_options.yaml'.",
+      "Java Heap",
+      "Native Heap",
+      "PROGRAMFILES(X86)",
+      "PauseStart",
+      "Prints help output.",
+      "Private Other",
+      "Realtime",
+      "Replaced by 'FileSystemExtension.devToolsDir'",
+      "Replaced by 'FileSystemExtension.devToolsFileAsJson'",
+      "Replaced by 'FileSystemExtension.devToolsFileFromPath'",
+      "Replaced by 'FileSystemExtension.devToolsStoreLocation'",
+      "Replaced by 'FileSystemExtension.flutterStoreExists'",
+      "Replaced by 'FileSystemExtension.maybeMoveLegacyDevToolsStore'",
+      "Run integration tests (one or many) for the Dart DevTools package.",
+      "Runs the integration test against dart2wasm-compiled DevTools.",
+      "Runs the integration test on the 'web-server' device instead of the 'chrome' device. For headless test runs, you will not be able to see the integration test run visually in a Chrome browser.",
+      "Stack",
+      "System",
+      "Test passed",
+      "The integration test target (e.g. path/to/test.dart). If left empty, all integration tests will be run.",
+      "The shard number for this run out of the total number of shards (e.g. 1/3)",
+      "To be removed",
+      "Total",
+      "Unhandled exception:",
+      "Use DtdInfo instead",
+      "[HeapSpace]",
+      "\\/(lib|bin|integration_test|test|benchmark|example)\\/.+\\.dart",
+      "\\d+",
+      "^[a-z0-9_]*$",
+      "_",
+      "_fake_sse.dart",
+      "_flutter.estimateRasterCacheMemory",
+      "_flutter.listViews",
+      "_new",
+      "_old",
+      "_test.dart",
+      "about:blank",
+      "accumulatedSize",
+      "adb_memoryInfo",
+      "adb_memory_info.dart",
+      "allocationAccumulatorEvent",
+      "allocations",
+      "analyticsEnabled",
+      "analyze",
+      "android-studio",
+      "android-studio-plugins",
+      "androidstudio",
+      "androidstudioplugins",
+      "api/",
+      "appSizeBase",
+      "appSizeTest",
+      "applicationId",
+      "associatedDomains",
+      "attempting to kill the flutter drive process",
+      "avgCollectionPeriodMillis",
+      "bin",
+      "breakpoint",
+      "build",
+      "buildLocation",
+      "buildVariant",
+      "bundleIdentifier",
+      "bytesCurrent",
+      "bytesDelta",
+      "capacity",
+      "chrome",
+      "chrome_driver.dart",
+      "chromedriver",
+      "class",
+      "clientId",
+      "collections",
+      "compare.dart",
+      "condition not satisfied",
+      "configuration",
+      "configurations",
+      "connected",
+      "constants.dart",
+      "continues",
+      "customEventName",
+      "dart:async",
+      "dart:convert",
+      "dart:io",
+      "dart:math",
+      "dartDevToolsScreen",
+      "data",
+      "deeplinkingFlagEnabled",
+      "deeplinks",
+      "description",
+      "details",
+      "detectedFromStaticContext",
+      "devtools",
+      "devtoolsOptionsUri",
+      "devtools_extensions",
+      "devtools_options.yaml",
+      "devtools_store.dart",
+      "documentation",
+      "drive",
+      "dtdUri",
+      "enable",
+      "enabled",
+      "error",
+      "eventKind",
+      "event_sample.dart",
+      "exception",
+      "ext.flutter",
+      "extension",
+      "extensionAssetsPath",
+      "extensionEvents",
+      "extension_model.dart",
+      "extensions",
+      "external",
+      "failureDetails",
+      "false",
+      "file",
+      "file://",
+      "file_system.dart",
+      "firstRun",
+      "flutter",
+      "flutter drive process has exited",
+      "flutter.bat",
+      "flutterMemoryInfo",
+      "flutter_store.dart",
+      "gcEvent",
+      "h",
+      "handlers/_app_size.dart",
+      "handlers/_deeplink.dart",
+      "handlers/_devtools_extensions.dart",
+      "handlers/_dtd.dart",
+      "handlers/_preferences.dart",
+      "handlers/_release_notes.dart",
+      "handlers/_storage.dart",
+      "handlers/_survey.dart",
+      "handlers/_vm_service.dart",
+      "hasActionView",
+      "hasAutoVerify",
+      "hasBrowsableCategory",
+      "hasDefaultCategory",
+      "headless",
+      "heap_sample.dart",
+      "help",
+      "host",
+      "http",
+      "https",
+      "id",
+      "ide",
+      "instancesAccumulated",
+      "instancesCurrent",
+      "instancesDelta",
+      "intellij",
+      "intellij-idea",
+      "intellij-plugins",
+      "intellijplugins",
+      "intentFilterCheck",
+      "io_utils.dart",
+      "isFirstRun",
+      "isPubliclyHosted",
+      "isStackedTraced",
+      "issueTracker",
+      "json",
+      "key",
+      "lastModifiedTime",
+      "layerBytes",
+      "localhost",
+      "logs",
+      "materialIconCodePoint",
+      "memory",
+      "memory_eventInfo",
+      "methodName",
+      "must be a file:// URI String",
+      "name",
+      "package:args/args.dart",
+      "package:collection/collection.dart",
+      "package:dtd/dtd.dart",
+      "package:extension_discovery/extension_discovery.dart",
+      "package:file/file.dart",
+      "package:file/local.dart",
+      "package:meta/meta.dart",
+      "package:path/path.dart",
+      "package:shelf/shelf.dart",
+      "package:sse/client/sse_client.dart",
+      "package:vm_service/utils.dart",
+      "package:vm_service/vm_service.dart",
+      "package:vm_service/vm_service_io.dart",
+      "package:web_socket_channel/web_socket_channel.dart",
+      "package:webkit_inspection_protocol/webkit_inspection_protocol.dart",
+      "package:yaml/yaml.dart",
+      "package:yaml_edit/yaml_edit.dart",
+      "packageRootUri",
+      "path",
+      "pictureBytes",
+      "private",
+      "pub.dev",
+      "pub.flutter-io.cn",
+      "requiresConnection",
+      "reset",
+      "result",
+      "result saved in (.*.json)",
+      "result {\"result\":",
+      "rootPath",
+      "running the test (attempt 1)",
+      "samples",
+      "scheme",
+      "shard",
+      "skip",
+      "snapshotAutoEvent",
+      "snapshotEvent",
+      "src/common.dart",
+      "src/deeplink/app_link_settings.dart",
+      "src/deeplink/deeplink_manager.dart",
+      "src/deeplink/universal_link_settings.dart",
+      "src/deeplink/xcode_build_options.dart",
+      "src/devtools_api.dart",
+      "src/extensions/constants.dart",
+      "src/extensions/extension_enablement.dart",
+      "src/extensions/extension_manager.dart",
+      "src/extensions/extension_model.dart",
+      "src/extensions/yaml_utils.dart",
+      "src/memory/adb_memory_info.dart",
+      "src/memory/class_heap_detail_stats.dart",
+      "src/memory/event_sample.dart",
+      "src/memory/heap_sample.dart",
+      "src/memory/heap_space.dart",
+      "src/memory/memory_json.dart",
+      "src/server/devtools_store.dart",
+      "src/server/file_system.dart",
+      "src/server/server_api.dart",
+      "src/service/service.dart",
+      "src/service_utils.dart",
+      "src/sse/sse_shim.dart",
+      "src/test/chrome.dart",
+      "src/test/chrome_driver.dart",
+      "src/test/cli_test_driver.dart",
+      "src/test/integration_test_runner.dart",
+      "src/test/io_utils.dart",
+      "src/test/test_utils.dart",
+      "src/utils/compare.dart",
+      "src/utils/file_utils.dart",
+      "src/utils/retry.dart",
+      "src/utils/semantic_version.dart",
+      "src/utils/serialization.dart",
+      "src/utils/utils.dart",
+      "sse",
+      "sses",
+      "start",
+      "starting the flutter drive process",
+      "step",
+      "suppress_analytics",
+      "t",
+      "target",
+      "targets",
+      "teamIdentifier",
+      "test_utils.dart",
+      "time",
+      "timestamp",
+      "true",
+      "type",
+      "used",
+      "value",
+      "version",
+      "vs-code",
+      "vscode",
+      "vscode-plugins",
+      "vscodeplugins",
+      "warning",
+      "wasm",
+      "web-server",
+      "windows",
+      "yaml_utils.dart",
+      "{",
+      "{}",
+      "═════════════════════════"
+    ]
+  },
+  "version": "13.1.0"
+}
