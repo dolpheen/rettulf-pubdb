@@ -1,0 +1,298 @@
+{
+  "api_surface": {
+    "classes": {
+      "Awesome": {
+        "fields": [
+          "get:isAwesome"
+        ],
+        "libraries": [
+          "package:quds_db_sqlite/src/quds_db_sqlite_base.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SqliteAggregateQueryBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:quds_db_sqlite/quds_db_sqlite.dart",
+          "package:quds_db_sqlite/src/builders/sqlite_query_builder.dart"
+        ],
+        "methods": [
+          "SqliteAggregateQueryBuilder",
+          "buildQuery",
+          "execute",
+          "getParameters"
+        ],
+        "types": [
+          "SqliteSelectQueryBuilder"
+        ]
+      },
+      "SqliteDatabaseAdapter": {
+        "fields": [],
+        "libraries": [
+          "package:quds_db_sqlite/quds_db_sqlite.dart",
+          "package:quds_db_sqlite/src/adapters/sqlite_database_adapter.dart"
+        ],
+        "methods": [
+          "SqliteDatabaseAdapter",
+          "close",
+          "getConnection",
+          "initialize",
+          "rawExecute",
+          "rawQuery",
+          "vacuumDb"
+        ],
+        "types": [
+          "SqliteDatabaseSettings"
+        ]
+      },
+      "SqliteDatabaseConnection": {
+        "fields": [
+          "get:isOpen",
+          "migration",
+          "schema"
+        ],
+        "libraries": [
+          "package:quds_db_sqlite/quds_db_sqlite.dart",
+          "package:quds_db_sqlite/src/adapters/sqlite_database_connection.dart"
+        ],
+        "methods": [
+          "SqliteDatabaseConnection",
+          "close",
+          "delete",
+          "execute",
+          "insert",
+          "query",
+          "transaction",
+          "update"
+        ],
+        "types": [
+          "SqliteSchemaInspector",
+          "SqliteSchemaMigrator"
+        ]
+      },
+      "SqliteDatabaseSettings": {
+        "fields": [
+          "dbName",
+          "onCreate",
+          "onDowngrade",
+          "onOpen",
+          "onUpgrade",
+          "version"
+        ],
+        "libraries": [
+          "package:quds_db_sqlite/quds_db_sqlite.dart",
+          "package:quds_db_sqlite/src/adapters/sqlite_database_settings.dart"
+        ],
+        "methods": [
+          "SqliteDatabaseSettings"
+        ],
+        "types": []
+      },
+      "SqliteSchemaInspector": {
+        "fields": [
+          "connection"
+        ],
+        "libraries": [
+          "package:quds_db_sqlite/quds_db_sqlite.dart",
+          "package:quds_db_sqlite/src/schema/sqlite_schema_inspector.dart"
+        ],
+        "methods": [
+          "SqliteSchemaInspector",
+          "columnExists",
+          "columnNativeType",
+          "listColumns",
+          "tableExists"
+        ],
+        "types": [
+          "SqliteDatabaseConnection"
+        ]
+      },
+      "SqliteSchemaMigrator": {
+        "fields": [
+          "connection",
+          "get:inspector"
+        ],
+        "libraries": [
+          "package:quds_db_sqlite/quds_db_sqlite.dart",
+          "package:quds_db_sqlite/src/schema/sqlite_schema_migrator.dart"
+        ],
+        "methods": [
+          "SqliteSchemaMigrator",
+          "ensureBooleanNotNull",
+          "ensureField"
+        ],
+        "types": [
+          "SqliteDatabaseConnection",
+          "SqliteSchemaInspector"
+        ]
+      },
+      "SqliteSchemaUtils": {
+        "fields": [],
+        "libraries": [
+          "package:quds_db_sqlite/src/schema/sqlite_schema_utils.dart"
+        ],
+        "methods": [
+          "boolLiteral",
+          "isBooleanType",
+          "mapBoolColumnDef"
+        ],
+        "types": []
+      },
+      "SqliteSelectQueryBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:quds_db_sqlite/quds_db_sqlite.dart",
+          "package:quds_db_sqlite/src/builders/sqlite_query_builder.dart"
+        ],
+        "methods": [
+          "SqliteSelectQueryBuilder",
+          "buildQuery",
+          "crossJoin",
+          "distinct",
+          "execute",
+          "executeRaw",
+          "from",
+          "fullJoin",
+          "getParameters",
+          "groupBy",
+          "having",
+          "innerJoin",
+          "leftJoin",
+          "limit",
+          "orderBy",
+          "rightJoin",
+          "select",
+          "toRawSql",
+          "where"
+        ],
+        "types": [
+          "SqliteDatabaseConnection"
+        ]
+      },
+      "SqliteStandardTableProvider": {
+        "fields": [
+          "get:idColumnName"
+        ],
+        "libraries": [
+          "package:quds_db_sqlite/quds_db_sqlite.dart",
+          "package:quds_db_sqlite/src/providers/sqlite_table_provider.dart"
+        ],
+        "methods": [
+          "SqliteStandardTableProvider",
+          "deleteById",
+          "exists",
+          "getById"
+        ],
+        "types": [
+          "SqliteTableProvider"
+        ]
+      },
+      "SqliteTableProvider": {
+        "fields": [
+          "connection",
+          "get:modelInstance",
+          "get:tableName",
+          "modelFactory"
+        ],
+        "libraries": [
+          "package:quds_db_sqlite/quds_db_sqlite.dart",
+          "package:quds_db_sqlite/src/providers/sqlite_table_provider.dart"
+        ],
+        "methods": [
+          "SqliteTableProvider",
+          "addEntryChangeListener",
+          "aggregateQuery",
+          "clear",
+          "closeDB",
+          "complexQuery",
+          "count",
+          "countWhere",
+          "deleteEntry",
+          "deleteWhere",
+          "drop",
+          "ensureBooleanNotNull",
+          "ensureField",
+          "initialize",
+          "insertCollection",
+          "insertEntry",
+          "loadAllEntriesByPaging",
+          "query",
+          "removeEntryChangeListener",
+          "select",
+          "updateEntry"
+        ],
+        "types": [
+          "SqliteDatabaseConnection"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-07-21T22:17:14Z",
+  "package": "quds_db_sqlite",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "ed8dd20837c79f5882dd6cb818a721055038fa1094256aa31e41e07647b49f75",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "aefa815cdb6642bb68a614e4b650de7e96bf4e56b795cfff3caa94134003dc8b",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      " ",
+      ")",
+      "*",
+      ", ",
+      "../adapters/sqlite_database_connection.dart",
+      "../builders/sqlite_query_builder.dart",
+      "../schema/sqlite_schema_inspector.dart",
+      "../schema/sqlite_schema_migrator.dart",
+      "0",
+      "1",
+      "1=1",
+      "=",
+      "?",
+      "Adapter not initialized",
+      "Adapter not initialized. Call initialize(settings) first.",
+      "BOOLEAN",
+      "DISTINCT ",
+      "Execute mapping requires TableProvider full context. Use executeRaw() for now.",
+      "INT",
+      "INTEGER",
+      "Must call from() before join()",
+      "NOT NULL",
+      "SELECT ",
+      "SELECT name FROM sqlite_master WHERE type='table' AND name = ?",
+      "Settings must be of type SqliteDatabaseSettings",
+      "TEXT",
+      "Transactions must be started on a base Database connection",
+      "VACUUM",
+      "dart:async",
+      "dflt_value",
+      "from() table is not set",
+      "id",
+      "id = ?",
+      "name",
+      "notnull",
+      "package:path/path.dart",
+      "package:quds_db_interface/quds_db_interface.dart",
+      "package:sqflite/sqflite.dart",
+      "sqlite_database_connection.dart",
+      "sqlite_database_settings.dart",
+      "sqlite_schema_inspector.dart",
+      "sqlite_schema_utils.dart",
+      "src/adapters/sqlite_database_adapter.dart",
+      "src/adapters/sqlite_database_connection.dart",
+      "src/adapters/sqlite_database_settings.dart",
+      "src/builders/sqlite_query_builder.dart",
+      "src/providers/sqlite_table_provider.dart",
+      "src/schema/sqlite_schema_inspector.dart",
+      "src/schema/sqlite_schema_migrator.dart",
+      "type"
+    ]
+  },
+  "version": "0.0.6"
+}
