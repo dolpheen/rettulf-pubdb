@@ -1,0 +1,1105 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "profilerPrefix"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/impl/platform.dart",
+          "package:sqlite_async/src/impl/platform_native.dart",
+          "package:sqlite_async/src/impl/platform_stub.dart",
+          "package:sqlite_async/src/impl/platform_web.dart",
+          "package:sqlite_async/src/native/database/native_sqlite_database.dart",
+          "package:sqlite_async/src/sqlite_migrations.dart",
+          "package:sqlite_async/src/utils.dart",
+          "package:sqlite_async/src/utils/profiler.dart",
+          "package:sqlite_async/src/utils/shared_utils.dart",
+          "package:sqlite_async/src/web/connection.dart",
+          "package:sqlite_async/src/web/database.dart",
+          "package:sqlite_async/src/web/web_sqlite_open_factory.dart",
+          "package:sqlite_async/src/web/worker/worker.dart",
+          "package:sqlite_async/utils.dart",
+          "package:sqlite_async/web.dart"
+        ],
+        "methods": [
+          "createDefaultOpenFactory",
+          "getSourceTables",
+          "getSourceTablesText",
+          "internalReadTransaction",
+          "main",
+          "mapParameter",
+          "mapParameters",
+          "openDatabaseWithFactory",
+          "profilerNameAndArgs",
+          "quoteIdentifier",
+          "quoteJsonIndex",
+          "quoteJsonPath",
+          "quoteString",
+          "selectJsonColumnMap",
+          "selectJsonColumns",
+          "translateAbortExceptions",
+          "wrapSqliteException"
+        ],
+        "types": [
+          "AsyncWebDatabaseImpl",
+          "NativeSqliteDatabaseImpl",
+          "NativeSqliteOpenFactory",
+          "PlaceholderQueryFragment",
+          "SqliteDatabase",
+          "SqliteOpenFactory",
+          "SqliteOptions",
+          "SqliteReadContext",
+          "SqliteWriteContext",
+          "UpdateNotificationStreams",
+          "WebSqliteOpenFactory"
+        ]
+      },
+      "AbortException": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/common/timeouts.dart"
+        ],
+        "methods": [
+          "AbortException",
+          "toString"
+        ],
+        "types": []
+      },
+      "AsyncSqliteController": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite_async/sqlite3_web_worker.dart",
+          "package:sqlite_async/src/web/worker/worker_utils.dart"
+        ],
+        "methods": [
+          "handleCustomRequest",
+          "openDatabase",
+          "openUnderlying"
+        ],
+        "types": []
+      },
+      "AsyncSqliteDatabase": {
+        "fields": [
+          "database"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite3_web_worker.dart",
+          "package:sqlite_async/src/web/worker/worker_utils.dart"
+        ],
+        "methods": [
+          "AsyncSqliteDatabase",
+          "handleCustomRequest",
+          "resultSetToMap"
+        ],
+        "types": []
+      },
+      "AsyncWebDatabaseImpl": {
+        "fields": [
+          "get:closed",
+          "get:closedFuture",
+          "get:maxReaders",
+          "isInitialized",
+          "openFactory",
+          "updates",
+          "updatesController"
+        ],
+        "libraries": [
+          "package:sqlite_async/src/web/database/async_web_database.dart"
+        ],
+        "methods": [
+          "AsyncWebDatabaseImpl",
+          "abortableReadLock",
+          "abortableWriteLock",
+          "close",
+          "exposeEndpoint",
+          "flush",
+          "getAutoCommit",
+          "withAllConnections",
+          "writeLock",
+          "writeTransaction"
+        ],
+        "types": [
+          "SqliteDatabaseImpl",
+          "SqliteReadContext",
+          "SqliteWriteContext",
+          "UpdateNotification",
+          "WebDatabase",
+          "WebSqliteConnection",
+          "WebSqliteOpenFactory"
+        ]
+      },
+      "BroadcastUpdates": {
+        "fields": [
+          "get:updates"
+        ],
+        "libraries": [
+          "package:sqlite_async/src/web/database/broadcast_updates.dart"
+        ],
+        "methods": [
+          "BroadcastUpdates",
+          "send"
+        ],
+        "types": [
+          "UpdateNotification"
+        ]
+      },
+      "CustomDatabaseMessageKind": {
+        "fields": [
+          "executeBatch",
+          "getAutoCommit",
+          "notifyUpdates",
+          "ok",
+          "updateSubscriptionManagement"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite3_web_worker.dart",
+          "package:sqlite_async/src/web/protocol.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "HeldLock": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite_async/src/web/web_mutex.dart"
+        ],
+        "methods": [
+          "release"
+        ],
+        "types": []
+      },
+      "InitDb": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite_async/src/utils/shared_utils.dart"
+        ],
+        "methods": [
+          "InitDb"
+        ],
+        "types": []
+      },
+      "InternalOpenFactory": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite_async/src/common/abstract_open_factory.dart"
+        ],
+        "methods": [
+          "InternalOpenFactory"
+        ],
+        "types": [
+          "SqliteOpenFactory"
+        ]
+      },
+      "IsolateWorker": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite_async/src/native/database/worker.dart"
+        ],
+        "methods": [
+          "close",
+          "run",
+          "spawn"
+        ],
+        "types": [
+          "IsolateWorker"
+        ]
+      },
+      "LockError": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/common/mutex.dart"
+        ],
+        "methods": [
+          "LockError",
+          "toString"
+        ],
+        "types": []
+      },
+      "MigrationError": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/sqlite_migrations.dart"
+        ],
+        "methods": [
+          "MigrationError",
+          "toString"
+        ],
+        "types": []
+      },
+      "Mutex": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/common/mutex.dart"
+        ],
+        "methods": [
+          "lock",
+          "simple"
+        ],
+        "types": []
+      },
+      "NativeSqliteDatabaseImpl": {
+        "fields": [
+          "get:closed",
+          "get:isInitialized",
+          "get:maxReaders",
+          "get:updates",
+          "openFactory"
+        ],
+        "libraries": [
+          "package:sqlite_async/src/native/database/native_sqlite_database.dart"
+        ],
+        "methods": [
+          "NativeSqliteDatabaseImpl",
+          "abortableReadLock",
+          "abortableWriteLock",
+          "close",
+          "execute",
+          "getAutoCommit",
+          "refreshSchema",
+          "withAllConnections"
+        ],
+        "types": [
+          "IsolateWorker",
+          "NativeSqliteOpenFactory",
+          "SqliteDatabaseImpl",
+          "SqliteReadContext",
+          "SqliteWriteContext",
+          "UpdateNotification"
+        ]
+      },
+      "NativeSqliteOpenFactory": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite_async/native.dart",
+          "package:sqlite_async/src/native/native_sqlite_open_factory.dart"
+        ],
+        "methods": [
+          "NativeSqliteOpenFactory",
+          "beforeOpen",
+          "configureConnection",
+          "openNativeConnection",
+          "pragmaStatements"
+        ],
+        "types": [
+          "InternalOpenFactory",
+          "SqliteOpenOptions"
+        ]
+      },
+      "PlaceholderQueryFragment": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/utils.dart",
+          "package:sqlite_async/utils.dart"
+        ],
+        "methods": [
+          "call",
+          "toString"
+        ],
+        "types": []
+      },
+      "ScopedReadContext": {
+        "fields": [
+          "get:closed"
+        ],
+        "libraries": [
+          "package:sqlite_async/src/impl/context.dart"
+        ],
+        "methods": [
+          "ScopedReadContext",
+          "assumeReadLock",
+          "computeWithDatabase",
+          "get",
+          "getAll",
+          "getAutoCommit",
+          "getOptional",
+          "invalidate"
+        ],
+        "types": [
+          "SqliteReadContext",
+          "UnscopedContext"
+        ]
+      },
+      "ScopedWriteContext": {
+        "fields": [
+          "transactionDepth"
+        ],
+        "libraries": [
+          "package:sqlite_async/src/impl/context.dart"
+        ],
+        "methods": [
+          "ScopedWriteContext",
+          "assumeWriteLock",
+          "execute",
+          "executeBatch",
+          "executeMultiple",
+          "writeTransaction"
+        ],
+        "types": [
+          "ScopedReadContext",
+          "SqliteWriteContext",
+          "UnscopedContext"
+        ]
+      },
+      "SingleConnectionDatabase": {
+        "fields": [
+          "connection",
+          "get:closed",
+          "get:isInitialized",
+          "get:maxReaders",
+          "get:openFactory",
+          "get:updates"
+        ],
+        "libraries": [
+          "package:sqlite_async/src/impl/single_connection_database.dart"
+        ],
+        "methods": [
+          "SingleConnectionDatabase",
+          "abortableReadLock",
+          "abortableWriteLock",
+          "close",
+          "getAutoCommit",
+          "withAllConnections"
+        ],
+        "types": [
+          "SqliteConnection",
+          "SqliteDatabaseImpl",
+          "SqliteOpenFactory",
+          "SqliteReadContext",
+          "SqliteWriteContext",
+          "UpdateNotification"
+        ]
+      },
+      "SqliteConnection": {
+        "fields": [
+          "get:closed",
+          "get:updates"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/sqlite_connection.dart"
+        ],
+        "methods": [
+          "SqliteConnection",
+          "abortableReadLock",
+          "abortableWriteLock",
+          "close",
+          "computeWithDatabase",
+          "execute",
+          "executeBatch",
+          "executeMultiple",
+          "get",
+          "getAll",
+          "getOptional",
+          "onChange",
+          "onChangeUnthrottled",
+          "readLock",
+          "readTransaction",
+          "refreshSchema",
+          "synchronousWrapper",
+          "watch",
+          "watchUnthrottled",
+          "writeLock",
+          "writeTransaction"
+        ],
+        "types": [
+          "Mutex",
+          "SqliteReadContext",
+          "SqliteWriteContext",
+          "UpdateNotification"
+        ]
+      },
+      "SqliteDatabase": {
+        "fields": [
+          "get:isInitialized",
+          "get:maxReaders",
+          "get:openFactory"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/common/sqlite_database.dart"
+        ],
+        "methods": [
+          "SqliteDatabase",
+          "initialize",
+          "singleConnection",
+          "withAllConnections",
+          "withFactory"
+        ],
+        "types": [
+          "SqliteConnection",
+          "SqliteOpenFactory",
+          "SqliteOptions",
+          "SqliteReadContext",
+          "SqliteWriteContext"
+        ]
+      },
+      "SqliteDatabaseImpl": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite_async/src/common/sqlite_database.dart"
+        ],
+        "methods": [
+          "SqliteDatabaseImpl",
+          "readTransaction"
+        ],
+        "types": [
+          "SqliteDatabase",
+          "SqliteReadContext"
+        ]
+      },
+      "SqliteDownMigration": {
+        "fields": [
+          "toVersion"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/sqlite_migrations.dart"
+        ],
+        "methods": [
+          "SqliteDownMigration",
+          "add"
+        ],
+        "types": []
+      },
+      "SqliteJournalMode": {
+        "fields": [
+          "delete",
+          "memory",
+          "name",
+          "off",
+          "persist",
+          "truncate",
+          "wal"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/sqlite_options.dart"
+        ],
+        "methods": [
+          "SqliteJournalMode"
+        ],
+        "types": []
+      },
+      "SqliteMigration": {
+        "fields": [
+          "downMigration",
+          "fn",
+          "toVersion"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/sqlite_migrations.dart"
+        ],
+        "methods": [
+          "SqliteMigration"
+        ],
+        "types": [
+          "SqliteDownMigration"
+        ]
+      },
+      "SqliteMigrations": {
+        "fields": [
+          "createDatabase",
+          "get:version",
+          "migrationTable",
+          "migrations"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/sqlite_migrations.dart"
+        ],
+        "methods": [
+          "SqliteMigrations",
+          "add",
+          "getCurrentVersion",
+          "migrate"
+        ],
+        "types": [
+          "SqliteConnection",
+          "SqliteMigration",
+          "SqliteWriteContext"
+        ]
+      },
+      "SqliteOpenFactory": {
+        "fields": [
+          "path",
+          "sqliteOptions"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/common/abstract_open_factory.dart"
+        ],
+        "methods": [
+          "SqliteOpenFactory",
+          "pragmaStatements"
+        ],
+        "types": [
+          "SqliteOpenOptions",
+          "SqliteOptions"
+        ]
+      },
+      "SqliteOpenOptions": {
+        "fields": [
+          "debugName",
+          "get:openMode",
+          "primaryConnection",
+          "readOnly"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/common/abstract_open_factory.dart"
+        ],
+        "methods": [
+          "SqliteOpenOptions"
+        ],
+        "types": []
+      },
+      "SqliteOptions": {
+        "fields": [
+          "defaultMaxReaders",
+          "journalMode",
+          "journalSizeLimit",
+          "lockTimeout",
+          "maxReaders",
+          "preparedStatementCacheSize",
+          "profileQueries",
+          "synchronous",
+          "webSqliteOptions"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/sqlite_options.dart"
+        ],
+        "methods": [
+          "SqliteOptions",
+          "copyWith",
+          "defaults"
+        ],
+        "types": [
+          "SqliteJournalMode",
+          "SqliteOptions",
+          "SqliteSynchronous",
+          "WebSqliteOptions"
+        ]
+      },
+      "SqliteReadContext": {
+        "fields": [
+          "get:closed"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/sqlite_connection.dart"
+        ],
+        "methods": [
+          "computeWithDatabase",
+          "get",
+          "getAll",
+          "getAutoCommit",
+          "getOptional"
+        ],
+        "types": []
+      },
+      "SqliteSynchronous": {
+        "fields": [
+          "full",
+          "name",
+          "normal",
+          "off"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/sqlite_options.dart"
+        ],
+        "methods": [
+          "SqliteSynchronous"
+        ],
+        "types": []
+      },
+      "SqliteWriteContext": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/sqlite_connection.dart"
+        ],
+        "methods": [
+          "execute",
+          "executeBatch",
+          "executeMultiple",
+          "writeTransaction"
+        ],
+        "types": [
+          "SqliteReadContext",
+          "SqliteWriteContext"
+        ]
+      },
+      "SyncSqliteConnection": {
+        "fields": [
+          "db",
+          "get:closed",
+          "mutex",
+          "profileQueries",
+          "updates"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/common/connection/sync_sqlite_connection.dart"
+        ],
+        "methods": [
+          "SyncSqliteConnection",
+          "abortableReadLock",
+          "abortableWriteLock",
+          "close",
+          "getAutoCommit",
+          "readTransaction"
+        ],
+        "types": [
+          "Mutex",
+          "SqliteConnection",
+          "SqliteReadContext",
+          "SqliteWriteContext",
+          "UpdateNotification"
+        ]
+      },
+      "ThrottledUpdates": {
+        "fields": [
+          "get:updatedTables"
+        ],
+        "libraries": [
+          "package:sqlite_async/src/utils/shared_utils.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "TimeSync": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite_async/src/utils/profiler.dart"
+        ],
+        "methods": [
+          "timeAsync",
+          "timeSync"
+        ],
+        "types": []
+      },
+      "TimeoutDurationToFuture": {
+        "fields": [
+          "get:asTimeout"
+        ],
+        "libraries": [
+          "package:sqlite_async/src/common/timeouts.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "UnscopedContext": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite_async/src/impl/context.dart"
+        ],
+        "methods": [
+          "checkNotInTransaction",
+          "execute",
+          "executeBatch",
+          "executeMultiple",
+          "get",
+          "getOptional",
+          "interceptOutermostTransaction"
+        ],
+        "types": [
+          "SqliteReadContext",
+          "UnscopedContext"
+        ]
+      },
+      "UpdateNotification": {
+        "fields": [
+          "get:hashCode",
+          "tables"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/update_notification.dart"
+        ],
+        "methods": [
+          "==",
+          "UpdateNotification",
+          "containsAny",
+          "empty",
+          "filterTablesTransformer",
+          "single",
+          "throttleStream",
+          "toString",
+          "union"
+        ],
+        "types": [
+          "UpdateNotification"
+        ]
+      },
+      "UpdateNotificationStreams": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite_async/src/web/update_notifications.dart"
+        ],
+        "methods": [
+          "handleRequest",
+          "updatesFor"
+        ],
+        "types": [
+          "UpdateNotification"
+        ]
+      },
+      "WebDatabase": {
+        "fields": [
+          "broadcastUpdates",
+          "closed",
+          "get:closedFuture",
+          "get:isInitialized",
+          "get:maxReaders",
+          "get:openFactory",
+          "profileQueries",
+          "updates"
+        ],
+        "libraries": [
+          "package:sqlite_async/src/web/database.dart"
+        ],
+        "methods": [
+          "WebDatabase",
+          "abortableReadLock",
+          "abortableWriteLock",
+          "close",
+          "exposeEndpoint",
+          "flush",
+          "getAutoCommit",
+          "initialize",
+          "withAllConnections",
+          "writeLock",
+          "writeTransaction"
+        ],
+        "types": [
+          "BroadcastUpdates",
+          "Mutex",
+          "SqliteDatabaseImpl",
+          "SqliteReadContext",
+          "SqliteWriteContext",
+          "UpdateNotification",
+          "WebSqliteConnection"
+        ]
+      },
+      "WebMutexImpl": {
+        "fields": [
+          "fallback",
+          "resolvedIdentifier"
+        ],
+        "libraries": [
+          "package:sqlite_async/src/web/web_mutex.dart"
+        ],
+        "methods": [
+          "WebMutexImpl",
+          "lock"
+        ],
+        "types": [
+          "Mutex"
+        ]
+      },
+      "WebSqliteConnection": {
+        "fields": [
+          "get:closedFuture"
+        ],
+        "libraries": [
+          "package:sqlite_async/src/web/connection.dart",
+          "package:sqlite_async/web.dart"
+        ],
+        "methods": [
+          "abortableWriteLock",
+          "connectToEndpoint",
+          "exposeEndpoint",
+          "flush",
+          "writeLock",
+          "writeTransaction"
+        ],
+        "types": [
+          "SqliteConnection",
+          "SqliteWriteContext",
+          "WebSqliteConnection"
+        ]
+      },
+      "WebSqliteOpenFactory": {
+        "fields": [],
+        "libraries": [
+          "package:sqlite_async/src/web/web_sqlite_open_factory.dart",
+          "package:sqlite_async/web.dart"
+        ],
+        "methods": [
+          "WebSqliteOpenFactory",
+          "connectToWorker",
+          "handleCustomRequest",
+          "openConnection",
+          "openWebSqlite",
+          "pragmaStatements",
+          "updatesFor"
+        ],
+        "types": [
+          "InternalOpenFactory",
+          "SqliteOpenOptions",
+          "UpdateNotification",
+          "WebDatabase",
+          "WebSqliteOptions"
+        ]
+      },
+      "WebSqliteOptions": {
+        "fields": [
+          "wasmUri",
+          "workerUri"
+        ],
+        "libraries": [
+          "package:sqlite_async/sqlite_async.dart",
+          "package:sqlite_async/src/sqlite_options.dart"
+        ],
+        "methods": [
+          "WebSqliteOptions",
+          "defaults"
+        ],
+        "types": []
+      },
+      "WorkItem": {
+        "fields": [
+          "completePort",
+          "id",
+          "task"
+        ],
+        "libraries": [
+          "package:sqlite_async/src/native/database/worker.dart"
+        ],
+        "methods": [
+          "WorkItem",
+          "handle"
+        ],
+        "types": []
+      },
+      "WorkResult": {
+        "fields": [
+          "id",
+          "result"
+        ],
+        "libraries": [
+          "package:sqlite_async/src/native/database/worker.dart"
+        ],
+        "methods": [
+          "WorkResult"
+        ],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-07-22T10:19:50Z",
+  "package": "sqlite_async",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "InitDb",
+      "PlaceholderQueryFragment",
+      "SqliteOpenOptions",
+      "SqliteOptions",
+      "UpdateNotification",
+      "WebSqliteOptions"
+    ],
+    "digest": "c8d7ff46b4e5eadb4ed24ab5fa55844a493c488211797413326fbf920d5442ac",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "c43aec807031a2df8942c73d0197d55d9a4f81917f12c480dffd84bb9c0344be",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\"",
+      "\"\"",
+      "'",
+      "''",
+      ")",
+      ", ",
+      "../../common/mutex.dart",
+      "../../common/timeouts.dart",
+      "../../impl/context.dart",
+      "../../utils/profiler.dart",
+      "../../utils/shared_utils.dart",
+      "../common/abstract_open_factory.dart",
+      "../common/sqlite_database.dart",
+      "../common/timeouts.dart",
+      "../connection.dart",
+      "../database.dart",
+      "../impl/context.dart",
+      "../impl/platform.dart",
+      "../native/database/native_sqlite_database.dart",
+      "../native/native_sqlite_open_factory.dart",
+      "../protocol.dart",
+      "../sqlite_connection.dart",
+      "../sqlite_options.dart",
+      "../update_notification.dart",
+      "../utils/shared_utils.dart",
+      "../web/database/async_web_database.dart",
+      "../web/web_sqlite_open_factory.dart",
+      "./src/web/protocol.dart",
+      "./src/web/worker/worker_utils.dart",
+      "0",
+      "<blob>",
+      "?",
+      "BEGIN",
+      "BEGIN IMMEDIATE",
+      "Blocked attempt to use connection object in a read/write lock callback.",
+      "COMMIT",
+      "DELETE",
+      "Dangling transaction detected. If you want to use BEGIN statements manually, COMMIT or ROLLBACK them before returning from writeLock.",
+      "Database is not in a transaction",
+      "Down migration for first migration must have toVersion = 0",
+      "END TRANSACTION",
+      "FULL",
+      "Key must be an int or String",
+      "MEMORY",
+      "NORMAL",
+      "OFF",
+      "OpenRead",
+      "PERSIST",
+      "PRAGMA table_info('sqlite_master')",
+      "ROLLBACK",
+      "Recursive lock is not allowed",
+      "SELECT tbl_name FROM sqlite_master WHERE rootpage IN (SELECT json_each.value FROM json_each(?))",
+      "SqliteException",
+      "SqliteException\\((\\d+)\\)",
+      "TRUNCATE",
+      "The context from the callback was locked, e.g. due to a nested transaction.",
+      "The flush parameter no longer does anything, IndexedDB databases are persisted after each write lock.",
+      "This context to a callback is no longer open. Make sure to await all statements on a database to avoid a context still being used after its callback has finished.",
+      "This is a response, not a request",
+      "Transaction rolled back by earlier statement",
+      "Transaction rolled back by earlier statement. Cannot execute",
+      "Transaction rolled back by earlier statement. Cannot execute.",
+      "Unsupported platform for sqlite_async package.",
+      "Use default SqliteOptions constructor instead",
+      "Use default WebSqliteOptions constructor instead",
+      "WAL",
+      "Worker closed",
+      "^(SCAN|SEARCH)( TABLE)? (.+?)( USING .+)?$",
+      "_migrations",
+      "aborted in Dart",
+      "columnNames",
+      "common/connection/sync_sqlite_connection.dart",
+      "common/mutex.dart",
+      "common/timeouts.dart",
+      "connection.dart",
+      "createDatabase may not contain down migrations",
+      "dart.library.js_interop",
+      "dart.vm.product",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:developer",
+      "dart:ffi",
+      "dart:isolate",
+      "dart:js_interop",
+      "dart:js_interop_unsafe",
+      "dart:math",
+      "database.dart",
+      "db_worker.js",
+      "detail",
+      "down_migrations",
+      "execute",
+      "execute()",
+      "executeBatch",
+      "executeMultiple",
+      "get",
+      "get()",
+      "getAll",
+      "getAll()",
+      "getAutoCommit",
+      "getOptional()",
+      "isolate worker",
+      "iteration",
+      "json_each.value as value",
+      "lock",
+      "locks",
+      "navigator",
+      "no such table",
+      "opcode",
+      "p2",
+      "p3",
+      "package:async/async.dart",
+      "package:collection/collection.dart",
+      "package:meta/meta.dart",
+      "package:sqlite3/common.dart",
+      "package:sqlite3/sqlite3.dart",
+      "package:sqlite3/wasm.dart",
+      "package:sqlite3_connection_pool/sqlite3_connection_pool.dart",
+      "package:sqlite3_web/protocol_utils.dart",
+      "package:sqlite3_web/sqlite3_web.dart",
+      "package:sqlite_async/sqlite_async.dart",
+      "package:sqlite_async/src/common/abstract_open_factory.dart",
+      "package:sqlite_async/src/common/mutex.dart",
+      "package:sqlite_async/src/common/sqlite_database.dart",
+      "package:sqlite_async/src/impl/single_connection_database.dart",
+      "package:sqlite_async/src/native/native_sqlite_open_factory.dart",
+      "package:sqlite_async/src/sqlite_connection.dart",
+      "package:sqlite_async/src/sqlite_options.dart",
+      "package:sqlite_async/src/update_notification.dart",
+      "package:sqlite_async/src/utils/profiler.dart",
+      "package:sqlite_async/src/utils/shared_utils.dart",
+      "package:sqlite_async/src/web/database/broadcast_updates.dart",
+      "package:sqlite_async/src/web/web_mutex.dart",
+      "package:sqlite_async/web.dart",
+      "package:web/web.dart",
+      "parameters",
+      "params",
+      "platform_native.dart",
+      "platform_stub.dart",
+      "platform_web.dart",
+      "protocol.dart",
+      "readLock",
+      "readTransaction()",
+      "receive tasks",
+      "refreshSchema",
+      "rows",
+      "signal",
+      "sql",
+      "sqlite3.wasm",
+      "sqlite_async:",
+      "sqlite_connection.dart",
+      "src/common/abstract_open_factory.dart",
+      "src/common/connection/sync_sqlite_connection.dart",
+      "src/common/mutex.dart",
+      "src/common/sqlite_database.dart",
+      "src/common/timeouts.dart",
+      "src/native/native_sqlite_open_factory.dart",
+      "src/sqlite_connection.dart",
+      "src/sqlite_migrations.dart",
+      "src/sqlite_options.dart",
+      "src/update_notification.dart",
+      "src/utils.dart",
+      "src/web/connection.dart",
+      "src/web/web_sqlite_open_factory.dart",
+      "tableNames",
+      "tbl_name",
+      "timeouts.dart",
+      "update_notifications.dart",
+      "utils/shared_utils.dart",
+      "version",
+      "web_mutex.dart",
+      "withAllConnections",
+      "worker.dart",
+      "worker/worker_utils.dart",
+      "worker_utils.dart",
+      "writeLock",
+      "writeTransaction()"
+    ]
+  },
+  "version": "0.14.4"
+}
