@@ -1,0 +1,2686 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "abortedResponse",
+          "assetNameToSha256Hash",
+          "attachedLogger",
+          "autoLogger",
+          "debugLogger",
+          "enable",
+          "invalidSqliteCharacters",
+          "isolateLogger",
+          "kDebugMode",
+          "kIsWeb",
+          "kProfileMode",
+          "kReleaseMode",
+          "libraryVersion",
+          "maxOpId",
+          "powerSyncDefaultSqliteOptions",
+          "releaseVersion",
+          "uuid"
+        ],
+        "libraries": [
+          "package:powersync/attachments/attachments.dart",
+          "package:powersync/powersync.dart",
+          "package:powersync/src/attachments/sync_error_handler.dart",
+          "package:powersync/src/database/native/sync_isolate_protocol.dart",
+          "package:powersync/src/database/powersync_database.dart",
+          "package:powersync/src/devtools/devtools.dart",
+          "package:powersync/src/devtools/protocol.dart",
+          "package:powersync/src/isolate_completer.dart",
+          "package:powersync/src/log.dart",
+          "package:powersync/src/log_internal.dart",
+          "package:powersync/src/open_factory/native/sqlite3_powersync_init.dart",
+          "package:powersync/src/platform_specific/native.dart",
+          "package:powersync/src/platform_specific/platform_specific.dart",
+          "package:powersync/src/platform_specific/unsupported.dart",
+          "package:powersync/src/platform_specific/web.dart",
+          "package:powersync/src/schema_logic.dart",
+          "package:powersync/src/setup/native.dart",
+          "package:powersync/src/setup/web.dart",
+          "package:powersync/src/sync/options.dart",
+          "package:powersync/src/sync/stream_utils.dart",
+          "package:powersync/src/sync/sync_status.dart",
+          "package:powersync/src/user_agent/user_agent.dart",
+          "package:powersync/src/user_agent/user_agent_native.dart",
+          "package:powersync/src/user_agent/user_agent_stub.dart",
+          "package:powersync/src/user_agent/user_agent_web.dart",
+          "package:powersync/src/uuid.dart",
+          "package:powersync/src/version.dart",
+          "package:powersync/src/web/worker.dart",
+          "package:powersync/web_worker.dart"
+        ],
+        "methods": [
+          "addBroadcast",
+          "cancelAll",
+          "capitalize",
+          "coreVersionIsInRange",
+          "decodeSqlValue",
+          "deserializeSyncStatus",
+          "downloadFile",
+          "downloadWebAssets",
+          "encodeSqlValue",
+          "friendlyTableName",
+          "getLatestTagsFromRelease",
+          "getPackageFromConfig",
+          "getPubspecVersion",
+          "handleClosed",
+          "handleCreated",
+          "main",
+          "mergeStreams",
+          "openPowerSyncDatabase",
+          "pauseAll",
+          "postEvent",
+          "potentiallySharedMutex",
+          "powerSyncOpenFactory",
+          "powerSyncUpdateNotifications",
+          "powerSyncUserAgent",
+          "powerSyncVersionOrLatest",
+          "resumeAll",
+          "serializeSyncStatus",
+          "sqlite3_powersync_init",
+          "streamFromFutureAwaitInCancellation",
+          "updateSchema",
+          "updateSchemaInIsolate",
+          "userAgentHeaders"
+        ],
+        "types": [
+          "Attachment",
+          "BasePowerSyncDatabase",
+          "ClientToSyncIsolateMessageType",
+          "EncryptionOptions",
+          "PowerSyncDatabase",
+          "Schema",
+          "SyncIsolateToClientMessageType",
+          "SyncStatus"
+        ]
+      },
+      "AbortController": {
+        "fields": [
+          "aborted",
+          "get:onAbort",
+          "get:onCompletion"
+        ],
+        "libraries": [
+          "package:powersync/src/abort_controller.dart"
+        ],
+        "methods": [
+          "abort",
+          "abortError",
+          "completeAbort"
+        ],
+        "types": []
+      },
+      "ActiveDatabaseGroup": {
+        "fields": [
+          "crudMutex",
+          "identifier",
+          "refCount",
+          "syncConnectMutex",
+          "syncMutex"
+        ],
+        "libraries": [
+          "package:powersync/src/database/active_instances.dart"
+        ],
+        "methods": [
+          "close",
+          "referenceDatabase"
+        ],
+        "types": [
+          "ActiveDatabaseGroup"
+        ]
+      },
+      "Attachment": {
+        "fields": [
+          "filename",
+          "hasSynced",
+          "id",
+          "localUri",
+          "mediaType",
+          "metaData",
+          "size",
+          "state",
+          "timestamp"
+        ],
+        "libraries": [
+          "package:powersync/attachments/attachments.dart",
+          "package:powersync/src/attachments/attachment.dart"
+        ],
+        "methods": [
+          "Attachment",
+          "copyWith",
+          "fromRow",
+          "markAsUnavailableLocally",
+          "toString"
+        ],
+        "types": [
+          "Attachment",
+          "AttachmentState"
+        ]
+      },
+      "AttachmentContext": {
+        "fields": [
+          "attachmentsQueueTableName",
+          "db",
+          "get:table",
+          "log",
+          "maxArchivedCount"
+        ],
+        "libraries": [
+          "package:powersync/src/attachments/implementations/attachment_context.dart"
+        ],
+        "methods": [
+          "AttachmentContext",
+          "clearQueue",
+          "deleteArchivedAttachments",
+          "deleteAttachment",
+          "getActiveAttachments",
+          "getAttachment",
+          "getAttachmentIds",
+          "getAttachments",
+          "ignoreAttachment",
+          "saveAttachment",
+          "saveAttachments",
+          "upsertAttachment"
+        ],
+        "types": [
+          "Attachment",
+          "PowerSyncDatabase"
+        ]
+      },
+      "AttachmentErrorHandler": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/attachments/attachments.dart",
+          "package:powersync/src/attachments/sync_error_handler.dart"
+        ],
+        "methods": [
+          "AttachmentErrorHandler",
+          "onDeleteError",
+          "onDownloadError",
+          "onUploadError"
+        ],
+        "types": [
+          "Attachment"
+        ]
+      },
+      "AttachmentQueue": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/attachments/attachments.dart",
+          "package:powersync/src/attachments/attachment_queue_service.dart"
+        ],
+        "methods": [
+          "AttachmentQueue",
+          "clearQueue",
+          "close",
+          "deleteFile",
+          "expireCache",
+          "generateAttachmentId",
+          "resolveNewAttachmentFilename",
+          "saveFile",
+          "startSync",
+          "stopSyncing"
+        ],
+        "types": [
+          "Attachment",
+          "AttachmentErrorHandler",
+          "AttachmentService",
+          "LocalStorage",
+          "PowerSyncDatabase",
+          "RemoteStorage",
+          "SyncingService",
+          "WatchedAttachmentItem"
+        ]
+      },
+      "AttachmentService": {
+        "fields": [
+          "attachmentsQueueTableName",
+          "db",
+          "logger",
+          "maxArchivedCount"
+        ],
+        "libraries": [
+          "package:powersync/src/attachments/implementations/attachment_service.dart"
+        ],
+        "methods": [
+          "AttachmentService",
+          "watchActiveAttachments",
+          "withContext"
+        ],
+        "types": [
+          "AttachmentContext",
+          "PowerSyncDatabase"
+        ]
+      },
+      "AttachmentState": {
+        "fields": [
+          "archived",
+          "queuedDelete",
+          "queuedDownload",
+          "queuedUpload",
+          "synced"
+        ],
+        "libraries": [
+          "package:powersync/attachments/attachments.dart",
+          "package:powersync/src/attachments/attachment.dart"
+        ],
+        "methods": [
+          "fromInt",
+          "toInt"
+        ],
+        "types": [
+          "AttachmentState"
+        ]
+      },
+      "BasePowerSyncDatabase": {
+        "fields": [
+          "database",
+          "isInitialized",
+          "logger",
+          "schema"
+        ],
+        "libraries": [
+          "package:powersync/src/database/powersync_database.dart"
+        ],
+        "methods": [
+          "BasePowerSyncDatabase",
+          "baseInit"
+        ],
+        "types": [
+          "PowerSyncDatabase",
+          "Schema"
+        ]
+      },
+      "BucketStorage": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/sync/bucket_storage.dart"
+        ],
+        "methods": [
+          "BucketStorage",
+          "control",
+          "flushFileSystem",
+          "getClientId",
+          "getCrudBatch",
+          "hasCrud",
+          "nextCrudItem",
+          "select",
+          "updateLocalTarget",
+          "writeTransaction"
+        ],
+        "types": [
+          "CrudBatch",
+          "CrudEntry"
+        ]
+      },
+      "ByteStreamToLines": {
+        "fields": [
+          "get:bsonDocuments",
+          "get:lines"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/stream_utils.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ChannelClosedException": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/web/sync_worker_protocol.dart"
+        ],
+        "methods": [
+          "ChannelClosedException",
+          "toString"
+        ],
+        "types": []
+      },
+      "ClientToSyncIsolateMessageType": {
+        "fields": [
+          "changedSubscriptions",
+          "close",
+          "mutexGranted"
+        ],
+        "libraries": [
+          "package:powersync/src/database/native/sync_isolate_protocol.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CloseSyncStream": {
+        "fields": [
+          "hideDisconnect"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/instruction.dart"
+        ],
+        "methods": [
+          "CloseSyncStream"
+        ],
+        "types": [
+          "Instruction"
+        ]
+      },
+      "Column": {
+        "fields": [
+          "name",
+          "type"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "Column",
+          "integer",
+          "real",
+          "text",
+          "toJson"
+        ],
+        "types": [
+          "ColumnType"
+        ]
+      },
+      "ColumnType": {
+        "fields": [
+          "integer",
+          "real",
+          "sqlite",
+          "text"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "ColumnType",
+          "toString"
+        ],
+        "types": []
+      },
+      "ConnectedClient": {
+        "fields": [
+          "channel"
+        ],
+        "libraries": [
+          "package:powersync/src/web/sync_worker.dart"
+        ],
+        "methods": [
+          "ConnectedClient",
+          "markClosed",
+          "sendSyncStatus"
+        ],
+        "types": [
+          "SyncRunner",
+          "SyncWorker",
+          "WorkerCommunicationChannel"
+        ]
+      },
+      "ConnectionEvent": {
+        "fields": [
+          "end",
+          "established"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/streaming_sync.dart"
+        ],
+        "methods": [],
+        "types": [
+          "SyncEvent"
+        ]
+      },
+      "ConnectionManager": {
+        "fields": [
+          "db",
+          "get:currentStatus",
+          "get:statusStream"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/connection_manager.dart"
+        ],
+        "methods": [
+          "ConnectionManager",
+          "checkNotConnected",
+          "close",
+          "connect",
+          "disconnect",
+          "firstStatusMatching",
+          "manuallyChangeSyncStatus",
+          "resolveOfflineSyncStatus",
+          "subscribe",
+          "syncStream",
+          "unsubscribeAll"
+        ],
+        "types": [
+          "AbortController",
+          "ActiveDatabaseGroup",
+          "PowerSyncBackendConnector",
+          "PowerSyncDatabase",
+          "SyncStatus",
+          "SyncStream"
+        ]
+      },
+      "CoreActiveStreamSubscription": {
+        "fields": [
+          "active",
+          "expiresAt",
+          "get:hasSynced",
+          "hasExplicitSubscription",
+          "isDefault",
+          "lastSyncedAt",
+          "name",
+          "parameters",
+          "priority",
+          "progress"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/stream.dart"
+        ],
+        "methods": [
+          "fromJson",
+          "toJson"
+        ],
+        "types": [
+          "SyncSubscriptionDescription"
+        ]
+      },
+      "CoreSyncStatus": {
+        "fields": [
+          "connected",
+          "connecting",
+          "downloading",
+          "priorityStatus",
+          "streams"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/instruction.dart"
+        ],
+        "methods": [
+          "CoreSyncStatus",
+          "fromJson"
+        ],
+        "types": [
+          "CoreActiveStreamSubscription",
+          "DownloadProgress"
+        ]
+      },
+      "CredentialsException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/exceptions.dart"
+        ],
+        "methods": [
+          "CredentialsException",
+          "toString"
+        ],
+        "types": []
+      },
+      "CrudBatch": {
+        "fields": [
+          "complete",
+          "crud",
+          "haveMore"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/crud.dart"
+        ],
+        "methods": [
+          "CrudBatch"
+        ],
+        "types": [
+          "CrudEntry"
+        ]
+      },
+      "CrudEntry": {
+        "fields": [
+          "clientId",
+          "get:hashCode",
+          "id",
+          "metadata",
+          "op",
+          "opData",
+          "previousValues",
+          "table",
+          "transactionId"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/crud.dart"
+        ],
+        "methods": [
+          "==",
+          "CrudEntry",
+          "fromRow",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "UpdateType"
+        ]
+      },
+      "CrudTransaction": {
+        "fields": [
+          "complete",
+          "crud",
+          "transactionId"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/crud.dart"
+        ],
+        "methods": [
+          "CrudTransaction",
+          "toString"
+        ],
+        "types": [
+          "CrudEntry"
+        ]
+      },
+      "DevConnector": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/connector.dart"
+        ],
+        "methods": [
+          "clearDevToken",
+          "devLogin",
+          "fetchCredentials",
+          "getEndpoint",
+          "getUserId",
+          "hasCredentials",
+          "loadDevCredentials",
+          "storeDevCredentials",
+          "uploadData"
+        ],
+        "types": [
+          "DevCredentials",
+          "PowerSyncBackendConnector",
+          "PowerSyncCredentials",
+          "PowerSyncDatabase"
+        ]
+      },
+      "DevCredentials": {
+        "fields": [
+          "endpoint",
+          "token",
+          "userId"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/connector.dart"
+        ],
+        "methods": [
+          "DevCredentials",
+          "fromJson",
+          "fromOptionalString",
+          "fromString",
+          "toJson"
+        ],
+        "types": [
+          "DevCredentials"
+        ]
+      },
+      "DidCompleteSync": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/sync/instruction.dart"
+        ],
+        "methods": [
+          "DidCompleteSync"
+        ],
+        "types": [
+          "NonInterruptingInstruction"
+        ]
+      },
+      "DownloadProgress": {
+        "fields": [
+          "buckets"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/instruction.dart"
+        ],
+        "methods": [
+          "DownloadProgress",
+          "fromJson",
+          "toJson"
+        ],
+        "types": []
+      },
+      "EncryptedSqliteVariant": {
+        "fields": [
+          "sqlcipher",
+          "sqlite3MultipleCiphers"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/database/encryption_options.dart"
+        ],
+        "methods": [
+          "resolveOnDatabase"
+        ],
+        "types": [
+          "EncryptedSqliteVariant"
+        ]
+      },
+      "EncryptionOptions": {
+        "fields": [
+          "key",
+          "sqlcipherCompatibility"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/database/encryption_options.dart"
+        ],
+        "methods": [
+          "EncryptionOptions",
+          "checkHasCipherPragma",
+          "pragmaStatements"
+        ],
+        "types": [
+          "EncryptedSqliteVariant"
+        ]
+      },
+      "EstablishSyncStream": {
+        "fields": [
+          "request"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/instruction.dart"
+        ],
+        "methods": [
+          "EstablishSyncStream",
+          "fromJson"
+        ],
+        "types": [
+          "Instruction"
+        ]
+      },
+      "ExposeCredentialsConnector": {
+        "fields": [
+          "database",
+          "inner"
+        ],
+        "libraries": [
+          "package:powersync/src/devtools/expose_credentials_connector.dart"
+        ],
+        "methods": [
+          "ExposeCredentialsConnector",
+          "fetchCredentials",
+          "uploadData"
+        ],
+        "types": [
+          "PowerSyncBackendConnector",
+          "PowerSyncCredentials",
+          "PowerSyncDatabase"
+        ]
+      },
+      "ExposedPowerSyncDatabase": {
+        "fields": [
+          "byDatabase",
+          "byId",
+          "database",
+          "id",
+          "lastCredentials"
+        ],
+        "libraries": [
+          "package:powersync/src/devtools/devtools.dart"
+        ],
+        "methods": [
+          "ExposedPowerSyncDatabase",
+          "postChangeEvent"
+        ],
+        "types": [
+          "ExposedPowerSyncDatabase",
+          "PowerSyncCredentials",
+          "PowerSyncDatabase"
+        ]
+      },
+      "FetchCredentials": {
+        "fields": [
+          "didExpire"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/instruction.dart"
+        ],
+        "methods": [
+          "FetchCredentials",
+          "fromJson"
+        ],
+        "types": [
+          "NonInterruptingInstruction"
+        ]
+      },
+      "FlushFileSystem": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/sync/instruction.dart"
+        ],
+        "methods": [
+          "FlushFileSystem"
+        ],
+        "types": [
+          "NonInterruptingInstruction"
+        ]
+      },
+      "GrantedRemoteMutex": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/database/native/sync_isolate_protocol.dart"
+        ],
+        "methods": [
+          "release"
+        ],
+        "types": [
+          "RemoteMutexes"
+        ]
+      },
+      "HandleChangedSubscriptions": {
+        "fields": [
+          "currentSubscriptions"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/streaming_sync.dart"
+        ],
+        "methods": [
+          "HandleChangedSubscriptions"
+        ],
+        "types": [
+          "SyncEvent"
+        ]
+      },
+      "IOLocalStorage": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/attachments/io.dart",
+          "package:powersync/src/attachments/io_local_storage.dart"
+        ],
+        "methods": [
+          "IOLocalStorage",
+          "clear",
+          "deleteFile",
+          "fileExists",
+          "initialize",
+          "readFile",
+          "saveFile"
+        ],
+        "types": [
+          "LocalStorage"
+        ]
+      },
+      "Index": {
+        "fields": [
+          "columns",
+          "name"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "Index",
+          "ascending",
+          "fullName",
+          "toJson"
+        ],
+        "types": [
+          "IndexedColumn",
+          "Table"
+        ]
+      },
+      "IndexedColumn": {
+        "fields": [
+          "ascending",
+          "column"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "IndexedColumn",
+          "ascending",
+          "descending",
+          "toJson"
+        ],
+        "types": [
+          "Table"
+        ]
+      },
+      "Instruction": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/sync/instruction.dart"
+        ],
+        "methods": [
+          "fromJson"
+        ],
+        "types": []
+      },
+      "InternalConnector": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/sync/internal_connector.dart"
+        ],
+        "methods": [
+          "InternalConnector",
+          "getCredentialsCached",
+          "prefetchCredentials",
+          "uploadCrud",
+          "wrap"
+        ],
+        "types": [
+          "PowerSyncBackendConnector",
+          "PowerSyncCredentials",
+          "PowerSyncDatabase"
+        ]
+      },
+      "InternalSyncDownloadProgress": {
+        "fields": [
+          "buckets",
+          "get:asSyncDownloadProgress",
+          "get:hashCode"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/sync_status.dart"
+        ],
+        "methods": [
+          "==",
+          "InternalSyncDownloadProgress",
+          "ofPublic",
+          "toString",
+          "untilPriority"
+        ],
+        "types": [
+          "InternalSyncDownloadProgress",
+          "ProgressWithOperations"
+        ]
+      },
+      "InternalSyncStatusAccess": {
+        "fields": [
+          "get:internalSubscriptions"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/sync_status.dart"
+        ],
+        "methods": [],
+        "types": [
+          "CoreActiveStreamSubscription",
+          "SyncStatus"
+        ]
+      },
+      "IsolateResult": {
+        "fields": [
+          "get:completer",
+          "get:future",
+          "receivePort"
+        ],
+        "libraries": [
+          "package:powersync/src/isolate_completer.dart"
+        ],
+        "methods": [
+          "close"
+        ],
+        "types": [
+          "PortCompleter"
+        ]
+      },
+      "IsolateResultCollection": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/isolate_completer.dart"
+        ],
+        "methods": [
+          "close",
+          "createPending"
+        ],
+        "types": [
+          "IsolateResult"
+        ]
+      },
+      "IsolateTerminatedError": {
+        "fields": [
+          "get:stackTrace"
+        ],
+        "libraries": [
+          "package:powersync/src/isolate_completer.dart"
+        ],
+        "methods": [
+          "IsolateTerminatedError"
+        ],
+        "types": []
+      },
+      "LocalStorage": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/attachments/attachments.dart",
+          "package:powersync/src/attachments/local_storage.dart"
+        ],
+        "methods": [
+          "clear",
+          "deleteFile",
+          "fileExists",
+          "inMemory",
+          "initialize",
+          "readFile",
+          "saveFile"
+        ],
+        "types": []
+      },
+      "LogLine": {
+        "fields": [
+          "line",
+          "severity"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/instruction.dart"
+        ],
+        "methods": [
+          "LogLine",
+          "fromJson"
+        ],
+        "types": [
+          "NonInterruptingInstruction"
+        ]
+      },
+      "MutableSyncStatus": {
+        "fields": [
+          "connected",
+          "connecting",
+          "downloadError",
+          "downloadProgress",
+          "downloading",
+          "lastSyncedAt",
+          "priorityStatusEntries",
+          "streams",
+          "uploadError",
+          "uploading"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/mutable_sync_status.dart"
+        ],
+        "methods": [
+          "applyDownloadError",
+          "applyFromCore",
+          "applyUploadError",
+          "immutableSnapshot"
+        ],
+        "types": [
+          "CoreActiveStreamSubscription",
+          "CoreSyncStatus",
+          "InternalSyncDownloadProgress",
+          "SyncStatus"
+        ]
+      },
+      "MutexServer": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/database/native/sync_isolate_protocol.dart"
+        ],
+        "methods": [
+          "MutexServer",
+          "acquireRequest",
+          "handleChildIsolateExit",
+          "releaseRequest"
+        ],
+        "types": []
+      },
+      "NativePowerSyncDatabase": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/database/native/native_powersync_database.dart"
+        ],
+        "methods": [
+          "NativePowerSyncDatabase",
+          "connectInternal"
+        ],
+        "types": [
+          "AbortController",
+          "BasePowerSyncDatabase",
+          "PowerSyncBackendConnector"
+        ]
+      },
+      "NativePowerSyncOpenFactory": {
+        "fields": [
+          "encryptionOptions"
+        ],
+        "libraries": [
+          "package:powersync/native.dart",
+          "package:powersync/src/open_factory/native/native_open_factory.dart"
+        ],
+        "methods": [
+          "NativePowerSyncOpenFactory",
+          "configureConnection",
+          "enableExtension",
+          "openConnectionAttempt",
+          "openNativeConnection",
+          "pragmaStatements"
+        ],
+        "types": [
+          "EncryptionOptions"
+        ]
+      },
+      "NonInterruptingInstruction": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/sync/instruction.dart"
+        ],
+        "methods": [],
+        "types": [
+          "Instruction"
+        ]
+      },
+      "PendingStatement": {
+        "fields": [
+          "params",
+          "sql"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "PendingStatement",
+          "toJson"
+        ],
+        "types": [
+          "PendingStatementValue"
+        ]
+      },
+      "PendingStatementValue": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "column",
+          "id",
+          "rest",
+          "toJson"
+        ],
+        "types": []
+      },
+      "PortCompleter": {
+        "fields": [
+          "sendPort"
+        ],
+        "libraries": [
+          "package:powersync/src/isolate_completer.dart"
+        ],
+        "methods": [
+          "PortCompleter",
+          "complete",
+          "completeError",
+          "handle"
+        ],
+        "types": []
+      },
+      "PortResult": {
+        "fields": [
+          "stackTrace",
+          "success"
+        ],
+        "libraries": [
+          "package:powersync/src/isolate_completer.dart"
+        ],
+        "methods": [
+          "error",
+          "success"
+        ],
+        "types": []
+      },
+      "PowerSyncAsyncSqliteController": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/web/worker_utils.dart"
+        ],
+        "methods": [
+          "openUnderlying"
+        ],
+        "types": []
+      },
+      "PowerSyncBackendConnector": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/connector.dart"
+        ],
+        "methods": [
+          "fetchCredentials",
+          "getCredentialsCached",
+          "invalidateCredentials",
+          "prefetchCredentials",
+          "uploadData"
+        ],
+        "types": [
+          "PowerSyncCredentials",
+          "PowerSyncDatabase"
+        ]
+      },
+      "PowerSyncCredentials": {
+        "fields": [
+          "endpoint",
+          "expiresAt",
+          "token",
+          "userId"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/connector.dart"
+        ],
+        "methods": [
+          "PowerSyncCredentials",
+          "endpointUri",
+          "fromJson",
+          "getExpiryDate",
+          "toString"
+        ],
+        "types": []
+      },
+      "PowerSyncDatabase": {
+        "fields": [
+          "clientParams",
+          "get:closed",
+          "get:connected",
+          "get:currentStatus",
+          "get:database",
+          "get:group",
+          "get:isInitialized",
+          "get:logger",
+          "get:schema",
+          "get:statusStream",
+          "get:updates",
+          "retryDelay",
+          "set:schema"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/database/powersync_database.dart"
+        ],
+        "methods": [
+          "PowerSyncDatabase",
+          "abortableReadLock",
+          "abortableWriteLock",
+          "close",
+          "connect",
+          "connectInternal",
+          "disconnect",
+          "disconnectAndClear",
+          "disconnectedAndClear",
+          "getAutoCommit",
+          "getClientId",
+          "getCrudBatch",
+          "getCrudTransactions",
+          "getNextCrudTransaction",
+          "getUploadQueueStats",
+          "initialize",
+          "openFactory",
+          "readTransaction",
+          "refreshSchema",
+          "setStatus",
+          "syncStream",
+          "updateSchema",
+          "waitForFirstSync",
+          "watch",
+          "withDatabase",
+          "withFactory"
+        ],
+        "types": [
+          "AbortController",
+          "ActiveDatabaseGroup",
+          "ConnectionManager",
+          "CrudBatch",
+          "CrudTransaction",
+          "EncryptionOptions",
+          "PowerSyncBackendConnector",
+          "Schema",
+          "SyncOptions",
+          "SyncStatus",
+          "SyncStream",
+          "UploadQueueStats"
+        ]
+      },
+      "PowerSyncDevToolsExtension": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/devtools/extension.dart"
+        ],
+        "methods": [
+          "registerIfNeeded"
+        ],
+        "types": []
+      },
+      "PowerSyncProtocolException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/exceptions.dart"
+        ],
+        "methods": [
+          "PowerSyncProtocolException",
+          "toString"
+        ],
+        "types": []
+      },
+      "PowerSyncUpdateNotification": {
+        "fields": [
+          "get:isEmpty",
+          "get:isNotEmpty"
+        ],
+        "libraries": [
+          "package:powersync/src/powersync_update_notification.dart"
+        ],
+        "methods": [
+          "PowerSyncUpdateNotification",
+          "containsAny",
+          "empty",
+          "fromRawTables",
+          "fromUpdateNotification",
+          "union"
+        ],
+        "types": [
+          "PowerSyncUpdateNotification"
+        ]
+      },
+      "PowerSyncWorkerConnector": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/web/worker_utils.dart"
+        ],
+        "methods": [
+          "PowerSyncWorkerConnector",
+          "spawnDedicatedWorker",
+          "spawnSharedWorker"
+        ],
+        "types": []
+      },
+      "PowersyncNotReadyException": {
+        "fields": [
+          "message"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/exceptions.dart"
+        ],
+        "methods": [
+          "PowersyncNotReadyException"
+        ],
+        "types": []
+      },
+      "ProgressWithOperations": {
+        "fields": [
+          "downloadedOperations",
+          "get:downloadedFraction",
+          "totalOperations"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/sync/sync_status.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "RawTable": {
+        "fields": [
+          "clear",
+          "delete",
+          "name",
+          "put",
+          "schema"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "RawTable",
+          "inferred",
+          "toJson"
+        ],
+        "types": [
+          "PendingStatement",
+          "RawTableSchema"
+        ]
+      },
+      "RawTableSchema": {
+        "fields": [
+          "options",
+          "syncedColumns",
+          "tableName"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "RawTableSchema"
+        ],
+        "types": [
+          "TableOptions"
+        ]
+      },
+      "ReceivedLine": {
+        "fields": [
+          "line"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/streaming_sync.dart"
+        ],
+        "methods": [
+          "ReceivedLine"
+        ],
+        "types": [
+          "SyncEvent"
+        ]
+      },
+      "RemoteHttpClient": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/web/http/client.dart"
+        ],
+        "methods": [
+          "RemoteHttpClient",
+          "send",
+          "sendAbort"
+        ],
+        "types": [
+          "WorkerCommunicationChannel"
+        ]
+      },
+      "RemoteHttpServer": {
+        "fields": [
+          "client"
+        ],
+        "libraries": [
+          "package:powersync/src/web/http/server.dart"
+        ],
+        "methods": [
+          "RemoteHttpServer",
+          "abort",
+          "forceClose",
+          "handle",
+          "readResponse"
+        ],
+        "types": []
+      },
+      "RemoteMutexes": {
+        "fields": [
+          "sendPort"
+        ],
+        "libraries": [
+          "package:powersync/src/database/native/sync_isolate_protocol.dart"
+        ],
+        "methods": [
+          "RemoteMutexes",
+          "acquire",
+          "markGranted",
+          "mutex"
+        ],
+        "types": [
+          "GrantedRemoteMutex"
+        ]
+      },
+      "RemoteStorage": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/attachments/attachments.dart",
+          "package:powersync/src/attachments/remote_storage.dart"
+        ],
+        "methods": [
+          "deleteFile",
+          "downloadFile",
+          "uploadFile"
+        ],
+        "types": [
+          "Attachment"
+        ]
+      },
+      "Schema": {
+        "fields": [
+          "rawTables",
+          "tables"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "Schema",
+          "toJson",
+          "validate"
+        ],
+        "types": [
+          "RawTable",
+          "Table"
+        ]
+      },
+      "StreamToJson": {
+        "fields": [
+          "get:parseJson"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/stream_utils.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "StreamingSync": {
+        "fields": [
+          "get:statusStream"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/streaming_sync.dart"
+        ],
+        "methods": [
+          "abort",
+          "streamingSync",
+          "updateSubscriptions"
+        ],
+        "types": [
+          "SyncStatus"
+        ]
+      },
+      "StreamingSyncImplementation": {
+        "fields": [
+          "adapter",
+          "clientId",
+          "connector",
+          "crudMutex",
+          "crudUpdateTriggerStream",
+          "get:aborted",
+          "get:statusStream",
+          "logger",
+          "options",
+          "schemaJson",
+          "syncMutex"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/streaming_sync.dart"
+        ],
+        "methods": [
+          "StreamingSyncImplementation",
+          "abort",
+          "getWriteCheckpoint",
+          "streamingSync",
+          "updateSubscriptions"
+        ],
+        "types": [
+          "AbortController",
+          "BucketStorage",
+          "InternalConnector",
+          "StreamingSync",
+          "SyncEvent",
+          "SyncStatus",
+          "SyncStatusStateStream"
+        ]
+      },
+      "SyncClientImplementation": {
+        "fields": [
+          "defaultClient",
+          "rust"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/sync/options.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SyncEvent": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/sync/streaming_sync.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SyncIsolateToClientMessageType": {
+        "fields": [
+          "getCredentialsCached",
+          "init",
+          "log",
+          "mutexAcquire",
+          "mutexRelease",
+          "prefetchCredentials",
+          "status",
+          "uploadCrud"
+        ],
+        "libraries": [
+          "package:powersync/src/database/native/sync_isolate_protocol.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SyncOptions": {
+        "fields": [
+          "appMetadata",
+          "crudThrottleTime",
+          "httpClient",
+          "includeDefaultStreams",
+          "params",
+          "retryDelay",
+          "syncImplementation"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/sync/options.dart"
+        ],
+        "methods": [
+          "SyncOptions"
+        ],
+        "types": [
+          "SyncClientImplementation"
+        ]
+      },
+      "SyncResponseException": {
+        "fields": [
+          "description",
+          "statusCode"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/exceptions.dart"
+        ],
+        "methods": [
+          "SyncResponseException",
+          "fromResponse",
+          "fromStreamedResponse",
+          "toString"
+        ],
+        "types": [
+          "SyncResponseException"
+        ]
+      },
+      "SyncRunner": {
+        "fields": [
+          "connections",
+          "currentStreams",
+          "databaseHost",
+          "identifier",
+          "options",
+          "schemaJson",
+          "sync"
+        ],
+        "libraries": [
+          "package:powersync/src/web/sync_worker.dart"
+        ],
+        "methods": [
+          "SyncRunner",
+          "disconnectClient",
+          "registerClient",
+          "reindexSubscriptions",
+          "unregisterClient",
+          "updateClientSubscriptions"
+        ],
+        "types": [
+          "ConnectedClient",
+          "StreamingSyncImplementation",
+          "SyncOptions",
+          "SyncStatus"
+        ]
+      },
+      "SyncStatus": {
+        "fields": [
+          "connected",
+          "connecting",
+          "downloadError",
+          "downloadProgress",
+          "downloading",
+          "get:anyError",
+          "get:hashCode",
+          "get:syncStreams",
+          "hasSynced",
+          "lastSyncedAt",
+          "priorityStatusEntries",
+          "uploadError",
+          "uploading"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/sync/sync_status.dart"
+        ],
+        "methods": [
+          "==",
+          "SyncStatus",
+          "copyWith",
+          "forStream",
+          "statusForPriority",
+          "toString",
+          "uninitialized"
+        ],
+        "types": [
+          "CoreActiveStreamSubscription",
+          "SyncStatus",
+          "SyncStreamDescription",
+          "SyncStreamStatus"
+        ]
+      },
+      "SyncStatusStateStream": {
+        "fields": [
+          "get:statusStream",
+          "status"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/mutable_sync_status.dart"
+        ],
+        "methods": [
+          "close",
+          "updateStatus"
+        ],
+        "types": [
+          "MutableSyncStatus",
+          "SyncStatus"
+        ]
+      },
+      "SyncStream": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/sync/stream.dart"
+        ],
+        "methods": [
+          "subscribe",
+          "unsubscribeAll"
+        ],
+        "types": [
+          "SyncStreamDescription",
+          "SyncStreamSubscription"
+        ]
+      },
+      "SyncStreamDescription": {
+        "fields": [
+          "get:name",
+          "get:parameters"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/sync/stream.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SyncStreamStatus": {
+        "fields": [
+          "get:priority",
+          "get:subscription",
+          "progress"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/sync/sync_status.dart"
+        ],
+        "methods": [],
+        "types": [
+          "CoreActiveStreamSubscription",
+          "ProgressWithOperations",
+          "SyncSubscriptionDescription"
+        ]
+      },
+      "SyncStreamSubscription": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/sync/stream.dart"
+        ],
+        "methods": [
+          "unsubscribe",
+          "waitForFirstSync"
+        ],
+        "types": [
+          "SyncStreamDescription"
+        ]
+      },
+      "SyncSubscriptionDescription": {
+        "fields": [
+          "get:active",
+          "get:expiresAt",
+          "get:hasExplicitSubscription",
+          "get:hasSynced",
+          "get:isDefault",
+          "get:lastSyncedAt"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/sync/stream.dart"
+        ],
+        "methods": [],
+        "types": [
+          "SyncStreamDescription"
+        ]
+      },
+      "SyncWorker": {
+        "fields": [
+          "requestedSyncTasks"
+        ],
+        "libraries": [
+          "package:powersync/src/web/sync_worker.dart"
+        ],
+        "methods": [
+          "trackPort"
+        ],
+        "types": [
+          "SyncRunner"
+        ]
+      },
+      "SyncWorkerHandle": {
+        "fields": [
+          "connector",
+          "database",
+          "get:statusStream",
+          "options",
+          "subscriptions"
+        ],
+        "libraries": [
+          "package:powersync/src/web/sync_controller.dart"
+        ],
+        "methods": [
+          "SyncWorkerHandle",
+          "abort",
+          "close",
+          "closeChannel",
+          "start",
+          "streamingSync",
+          "updateSubscriptions"
+        ],
+        "types": [
+          "PowerSyncBackendConnector",
+          "PowerSyncDatabase",
+          "StreamingSync",
+          "SyncOptions",
+          "SyncStatus",
+          "SyncWorkerHandle",
+          "WorkerCommunicationChannel"
+        ]
+      },
+      "SyncWorkerMessageType": {
+        "fields": [
+          "abortHttpRequest",
+          "abortSynchronization",
+          "credentialsCallback",
+          "errorResponse",
+          "invalidCredentialsCallback",
+          "logEvent",
+          "notifySyncStatus",
+          "okResponse",
+          "ping",
+          "readResponseChunk",
+          "requestEndpoint",
+          "sendHttpRequest",
+          "startSynchronization",
+          "updateSubscriptions",
+          "uploadCrud"
+        ],
+        "libraries": [
+          "package:powersync/src/web/sync_worker_protocol.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "SyncingService": {
+        "fields": [
+          "attachmentsService",
+          "errorHandler",
+          "localStorage",
+          "logger",
+          "period",
+          "remoteStorage",
+          "syncThrottle"
+        ],
+        "libraries": [
+          "package:powersync/src/attachments/sync/syncing_service.dart"
+        ],
+        "methods": [
+          "SyncingService",
+          "close",
+          "deleteArchivedAttachments",
+          "deleteAttachment",
+          "downloadAttachment",
+          "handleSync",
+          "startSync",
+          "stopSync",
+          "triggerSync",
+          "uploadAttachment"
+        ],
+        "types": [
+          "Attachment",
+          "AttachmentContext",
+          "AttachmentErrorHandler",
+          "AttachmentService",
+          "LocalStorage",
+          "RemoteStorage"
+        ]
+      },
+      "Table": {
+        "fields": [
+          "columns",
+          "get:internalName",
+          "get:validName",
+          "get:viewName",
+          "indexes",
+          "maxNumberOfColumns",
+          "name"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "Table",
+          "[]",
+          "insertOnly",
+          "localOnly",
+          "toJson",
+          "validate"
+        ],
+        "types": [
+          "Column",
+          "Index",
+          "TableOptions"
+        ]
+      },
+      "TableOptions": {
+        "fields": [
+          "ignoreEmptyUpdates",
+          "insertOnly",
+          "localOnly",
+          "trackMetadata",
+          "trackPreviousValues"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "TableOptions"
+        ],
+        "types": [
+          "TrackPreviousValuesOptions"
+        ]
+      },
+      "TokenRefreshComplete": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/sync/streaming_sync.dart"
+        ],
+        "methods": [
+          "TokenRefreshComplete"
+        ],
+        "types": [
+          "SyncEvent"
+        ]
+      },
+      "TrackPreviousValuesOptions": {
+        "fields": [
+          "columnFilter",
+          "onlyWhenChanged"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/schema.dart"
+        ],
+        "methods": [
+          "TrackPreviousValuesOptions"
+        ],
+        "types": []
+      },
+      "UnknownSyncInstruction": {
+        "fields": [
+          "source"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/instruction.dart"
+        ],
+        "methods": [
+          "UnknownSyncInstruction"
+        ],
+        "types": [
+          "NonInterruptingInstruction"
+        ]
+      },
+      "UpdateSyncStatus": {
+        "fields": [
+          "status"
+        ],
+        "libraries": [
+          "package:powersync/src/sync/instruction.dart"
+        ],
+        "methods": [
+          "UpdateSyncStatus",
+          "fromJson"
+        ],
+        "types": [
+          "CoreSyncStatus",
+          "NonInterruptingInstruction"
+        ]
+      },
+      "UpdateType": {
+        "fields": [
+          "delete",
+          "json",
+          "patch",
+          "put"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/crud.dart"
+        ],
+        "methods": [
+          "UpdateType",
+          "fromJson",
+          "fromJsonChecked",
+          "toJson"
+        ],
+        "types": [
+          "UpdateType"
+        ]
+      },
+      "UploadCompleted": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/sync/streaming_sync.dart"
+        ],
+        "methods": [
+          "UploadCompleted"
+        ],
+        "types": [
+          "SyncEvent"
+        ]
+      },
+      "UploadQueueStats": {
+        "fields": [
+          "count",
+          "size"
+        ],
+        "libraries": [
+          "package:powersync/powersync.dart",
+          "package:powersync/src/sync/sync_status.dart"
+        ],
+        "methods": [
+          "UploadQueueStats",
+          "toString"
+        ],
+        "types": []
+      },
+      "WatchedAttachmentItem": {
+        "fields": [
+          "fileExtension",
+          "filename",
+          "id",
+          "metaData"
+        ],
+        "libraries": [
+          "package:powersync/attachments/attachments.dart",
+          "package:powersync/src/attachments/attachment_queue_service.dart"
+        ],
+        "methods": [
+          "WatchedAttachmentItem"
+        ],
+        "types": []
+      },
+      "WebBucketStorage": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/web/web_bucket_storage.dart"
+        ],
+        "methods": [
+          "WebBucketStorage",
+          "flushFileSystem",
+          "writeTransaction"
+        ],
+        "types": [
+          "BucketStorage"
+        ]
+      },
+      "WebPowerSyncDatabase": {
+        "fields": [],
+        "libraries": [
+          "package:powersync/src/database/web/web_powersync_database.dart"
+        ],
+        "methods": [
+          "WebPowerSyncDatabase",
+          "connectInternal",
+          "readLock",
+          "readTransaction",
+          "writeLock",
+          "writeTransaction"
+        ],
+        "types": [
+          "AbortController",
+          "BasePowerSyncDatabase",
+          "PowerSyncBackendConnector"
+        ]
+      },
+      "WebPowerSyncOpenFactory": {
+        "fields": [
+          "encryptionOptions"
+        ],
+        "libraries": [
+          "package:powersync/src/open_factory/web/web_open_factory.dart",
+          "package:powersync/web.dart"
+        ],
+        "methods": [
+          "WebPowerSyncOpenFactory",
+          "connectToWorker",
+          "openWebSqlite",
+          "pragmaStatements"
+        ],
+        "types": [
+          "EncryptionOptions"
+        ]
+      },
+      "WorkerCommunicationChannel": {
+        "fields": [
+          "get:closed",
+          "get:events",
+          "lockName",
+          "port",
+          "requestHandler"
+        ],
+        "libraries": [
+          "package:powersync/src/web/sync_worker_protocol.dart"
+        ],
+        "methods": [
+          "WorkerCommunicationChannel",
+          "abortSynchronization",
+          "close",
+          "credentialsCallback",
+          "invalidCredentialsCallback",
+          "notify",
+          "observeRemoteLockName",
+          "ping",
+          "readHttpResponseChunk",
+          "requestDatabase",
+          "sendHttpRequest",
+          "startSynchronization",
+          "updateSubscriptions",
+          "uploadCrud"
+        ],
+        "types": [
+          "PowerSyncCredentials",
+          "RemoteHttpServer",
+          "Schema",
+          "SyncWorkerMessageType"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-07-23T20:28:41Z",
+  "package": "powersync",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "Attachment",
+      "AttachmentErrorHandler",
+      "ChannelClosedException",
+      "CloseSyncStream",
+      "Column",
+      "DidCompleteSync",
+      "EncryptionOptions",
+      "FlushFileSystem",
+      "IOLocalStorage",
+      "Index",
+      "IndexedColumn",
+      "InternalConnector",
+      "IsolateTerminatedError",
+      "PendingStatement",
+      "PendingStatementValue",
+      "PortResult",
+      "RawTable",
+      "RawTableSchema",
+      "ReceivedLine",
+      "Schema",
+      "SyncOptions",
+      "SyncStatus",
+      "Table",
+      "TableOptions",
+      "TokenRefreshComplete",
+      "TrackPreviousValuesOptions",
+      "UploadCompleted",
+      "WatchedAttachmentItem",
+      "_CallbackConnector",
+      "_FunctionBasedErrorHandler",
+      "_PendingStmtValueColumn",
+      "_PendingStmtValueId",
+      "_PendingStmtValueRest"
+    ],
+    "digest": "90fa53655e9e4f3dcca7d5a02a591131c2df3f90a4fd1acf0c94c559978f0295",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "672b70b586a008877255e85208154e0f7ed62f40e43ef6ed054479f1a88cd11a",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\nTry downloading the updated assets: https://docs.powersync.com/client-sdk-references/flutter/flutter-web-support#assets",
+      " ",
+      ", ",
+      "-",
+      ".",
+      "../../connector.dart",
+      "../../database/encryption_options.dart",
+      "../../isolate_completer.dart",
+      "../../sync/options.dart",
+      "../../sync/streaming_sync.dart",
+      "../../sync/sync_status.dart",
+      "../../web/sync_controller.dart",
+      "../../web/worker_utils.dart",
+      "../abort_controller.dart",
+      "../attachment.dart",
+      "../connector.dart",
+      "../crud.dart",
+      "../database/encryption_options.dart",
+      "../database/native/native_powersync_database.dart",
+      "../database/powersync_database.dart",
+      "../database/web/web_powersync_database.dart",
+      "../devtools/devtools.dart",
+      "../devtools/expose_credentials_connector.dart",
+      "../exceptions.dart",
+      "../implementations/attachment_context.dart",
+      "../implementations/attachment_service.dart",
+      "../local_storage.dart",
+      "../log.dart",
+      "../open_factory/native/native_open_factory.dart",
+      "../open_factory/web/web_open_factory.dart",
+      "../platform_specific/platform_specific.dart",
+      "../platform_specific/web.dart",
+      "../powersync_update_notification.dart",
+      "../remote_storage.dart",
+      "../schema.dart",
+      "../schema_logic.dart",
+      "../src/attachments/attachment.dart",
+      "../src/attachments/attachment_queue_service.dart",
+      "../src/attachments/io_local_storage.dart",
+      "../src/attachments/local_storage.dart",
+      "../src/attachments/remote_storage.dart",
+      "../src/attachments/sync_error_handler.dart",
+      "../sync/connection_manager.dart",
+      "../sync/instruction.dart",
+      "../sync/options.dart",
+      "../sync/stream.dart",
+      "../sync/streaming_sync.dart",
+      "../sync/sync_status.dart",
+      "../sync_error_handler.dart",
+      "../sync_worker_protocol.dart",
+      "../version.dart",
+      "./user_agent_native.dart",
+      "./user_agent_stub.dart",
+      "./user_agent_web.dart",
+      "0012a0926d4edae848d9175604f1c2fd7e038165a4a0adc4da4ba789b2cdb3a1",
+      "072422965be81440b4517fe5f6fc2d5d64c22aa19f8ee91ec6e522356a7e4777",
+      "0735f1eadeaa6b44a0979863248c8c31ff2ac7ebf3e37a91922ea4552aeda841",
+      "074ab6886d919d8339bc30545bca9473a83ea6fb36f2b6bf1a948f2dfd9bc555",
+      "2.3.2",
+      "21b3805d487896ebdde899ea358f80b4da7762462cd0acb15e8587a19047214b",
+      "2935366f4cd9ffd6624a56498c266029bd846390413e14935be14d02759c3e33",
+      "2c705e7d01b5c4e0fb89b3659b831adefacf6e83f5598ed66dfe059378499c0a",
+      "53a4250821a317705a864e3b4dc2e4cdaacc24ebc1cfe37bdf99148b024c9144",
+      "716b9916a0e014b19b5d6ce3f61914b2e666ebc46f7fa5c35f945bb14c0963c6",
+      "79cd65d02b38fd60248eaa6b2f11c2e4b0b0ae49ac93dafb957aff26e48655a7",
+      "8151b637facb6fd0db19ac3aa2eb4bceb215beba3217b39b9fe3d205b9e94f82",
+      "861829b7a209d20620ab9e9742c65324ff720e345da5a8e24c2550ab92459943",
+      "9223372036854775807",
+      ": ",
+      ">",
+      ">=0.3.10 <0.4.0",
+      "Accept",
+      "Attachment queue has been closed",
+      "AttachmentQueue closed.",
+      "AttachmentQueue started syncing.",
+      "AttachmentQueue stopped syncing.",
+      "Authorization",
+      "Authorization error",
+      "Avoid extending table, create an instance or extension type around it instead.",
+      "Cannot reach this point",
+      "Cannot update schema while connected",
+      "Caught exception when uploading. Upload will retry after a delay",
+      "Channel has error, cannot send new requests",
+      "Clearing attachment queue...",
+      "CloseSyncStream",
+      "Closed before receiving response",
+      "Column",
+      "Configuration error",
+      "Content-Type",
+      "Could not prefetch credentials",
+      "Could not use shared worker for synchronization, falling back to locks.",
+      "Credentials error",
+      "DEBUG",
+      "DELETE",
+      "DELETE FROM ps_crud WHERE id <= ?",
+      "Dart",
+      "Data upload error",
+      "DedicatedWorkerGlobalScope",
+      "Delaying due to previously encountered CRUD item.",
+      "Deleted powersync_sync.worker.js. Going forward, powersync_db.worker.js is the only worker required.",
+      "Detected closed client",
+      "DidCompleteSync",
+      "Download a sqlite3.wasm with encryption support.",
+      "Either fileExtension or filename must be provided.",
+      "Error in crud upload loop",
+      "EstablishSyncStream",
+      "Failed due to server error.",
+      "Failed to fetch GitHub releases and tags",
+      "Falling back to local sync client instead of using blob worker.",
+      "FetchCredentials",
+      "File does not exist",
+      "FlushFileSystem",
+      "INFO",
+      "INTEGER",
+      "IS_IN_POWERSYNC_CI",
+      "IS_IN_POWERSYNC_CI env variable is set, copying from local build",
+      "Id",
+      "Import 'package:sqlite3/common.dart' directly",
+      "Import 'package:sqlite3/sqlite3.dart' directly",
+      "Import 'package:sqlite_async/sqlite_async.dart' directly",
+      "Invalid .dart_tool/package_config.json",
+      "IsolateResultCollection is closed!",
+      "Local-only tables can't track metadata",
+      "Local-only tables can't track old values",
+      "LogLine",
+      "Missing .dart_tool/package_config.json",
+      "Multiple instances for the same database have been detected. This can cause unexpected results, please check your PowerSync client instantiation logic if this is not intentional",
+      "No attachments to save.",
+      "No client remains",
+      "Not logged in",
+      "Only included for backwards compatibility",
+      "PATCH",
+      "POST",
+      "PRAGMA cipher = 'sqlcipher'",
+      "PRAGMA legacy = 4",
+      "PRAGMA recursive_triggers = TRUE",
+      "PUT",
+      "Pending data when stream was closed",
+      "Periodically syncing attachments",
+      "Potentially previously uploaded CRUD entries are still present in the upload queue. \n                Make sure to handle uploads and complete CRUD transactions or batches by calling and awaiting their [.complete()] method.\n                The next upload iteration will be delayed.",
+      "PowerSync",
+      "PowerSync endpoint must be a valid URL",
+      "Protocol error",
+      "REAL",
+      "Raw tables are only supported by the Rust client.",
+      "Received EstablishSyncStream connection while already connected.",
+      "Refreshing credentials",
+      "Remote database closed, finding a new client",
+      "Request failed",
+      "Rest",
+      "Run `flutter pub get` first.",
+      "SELECT * FROM ps_crud ORDER BY id ASC LIMIT 1",
+      "SELECT * FROM ps_crud ORDER BY id ASC LIMIT ?",
+      "SELECT 1 FROM ps_crud LIMIT 1",
+      "SELECT SUM(cast(data as blob) + 20) as size, count(*) as count FROM ps_crud",
+      "SELECT count(*) as count FROM ps_crud",
+      "SELECT id, tx_id, data FROM ps_crud ORDER BY id ASC LIMIT ?",
+      "SELECT powersync_client_id() as client_id",
+      "SELECT powersync_control(?, ?)",
+      "SELECT powersync_init()",
+      "SELECT powersync_offline_sync_status() AS r;",
+      "SELECT powersync_replace_schema(?)",
+      "SELECT powersync_rs_version() as version",
+      "SELECT seq FROM main.sqlite_sequence WHERE name = 'ps_crud'",
+      "SELECT uuid() as id",
+      "Set option when calling connect() instead",
+      "SharedWorkerGlobalScope",
+      "Should not be used in user code",
+      "Starting Rust sync iteration",
+      "Subscriptions across tabs have changed, checking whether a reconnect is necessary",
+      "Sync Isolate error",
+      "Sync Isolate exit",
+      "Sync cancelled; stopping iteration early",
+      "Sync client failed, retrying...",
+      "Sync service error",
+      "Sync setup: Connecting to endpoint",
+      "Sync setup: Has database, starting sync!",
+      "Sync setup: Requesting database",
+      "SyncStatus<",
+      "TEXT",
+      "This argument is not used, set it on the factory instead",
+      "This field is unused, pass params to connect() instead",
+      "Tried to use encryption, but SQLite3MultipleCiphers is not available. Consult the documentation on EncryptionOptions on how to resolve this.",
+      "Tried to use encryption, but neither SQLCipher or SQLite3MultipleCiphers is available. Consult the documentation on EncryptionOptions on how to resolve this.",
+      "UPDATE ps_buckets SET target_op = CAST(? as INTEGER) WHERE name='$local'",
+      "Unknown",
+      "Unsupported platform for PowerSync SDK",
+      "Unused in PowerSync SDK, check EncryptedSqliteVariant.resolveOnDatabase instead",
+      "UpdateSyncStatus",
+      "Use StreamPriority instead",
+      "Use SyncOptions.crudThrottleTime instead",
+      "Use [disconnectAndClear] instead.",
+      "Use [logger] instead",
+      "User-Agent",
+      "User-Id",
+      "WITH RECURSIVE crud_entries AS (\n  SELECT id, tx_id, data FROM ps_crud WHERE id = (SELECT min(id) FROM ps_crud WHERE id > ?)\n  UNION ALL\n  SELECT ps_crud.id, ps_crud.tx_id, ps_crud.data FROM ps_crud\n    INNER JOIN crud_entries ON crud_entries.id + 1 = rowid\n  WHERE crud_entries.tx_id = ps_crud.tx_id\n)\nSELECT * FROM crud_entries;\n",
+      "Watching attachments...",
+      "We will be removing this in version 2.",
+      "Worker communication channel closed",
+      "X-User-Agent",
+      "[\"'%,\\.#\\s\\[\\]]",
+      "[./]",
+      "[\\w.]+",
+      "a54858b939f871013ca39ef1993b14f58648dcc11b9b16388812ccab450cea70",
+      "aborted",
+      "active",
+      "active_instances.dart",
+      "active_streams",
+      "app_metadata",
+      "application/json",
+      "application/vnd.powersync.bson-stream",
+      "application/x-ndjson",
+      "ascending",
+      "at_last",
+      "attachment.dart",
+      "attachment_context.dart",
+      "attachments_queue",
+      "b",
+      "b7a264412aaecab86cfc42c29debea160bca334a409239e05b978540b20fd0d2",
+      "b9885eb188ee827453bd94100b657cda76e23722610abf2e33170ca15d2c0de3",
+      "binary",
+      "blob",
+      "bucket_storage.dart",
+      "buckets",
+      "caf23e1e15b5859fc2eb061e9cdf08b0b01684f496956bf188562476597fe938",
+      "clear",
+      "client_id",
+      "code",
+      "columnNames",
+      "columns",
+      "command",
+      "completed_upload",
+      "connected",
+      "connecting",
+      "connection",
+      "content-type",
+      "core_version.dart",
+      "count",
+      "crud",
+      "crud.dart",
+      "crud.json",
+      "crypto",
+      "current",
+      "dart.library.js_interop",
+      "dart.library.js_util",
+      "dart.tool.dart2wasm",
+      "dart.vm.product",
+      "dart.vm.profile",
+      "dart:async",
+      "dart:convert",
+      "dart:developer",
+      "dart:ffi",
+      "dart:io",
+      "dart:isolate",
+      "dart:js_interop",
+      "dart:js_interop_unsafe",
+      "dart:math",
+      "dart:typed_data",
+      "dat",
+      "data",
+      "database/powersync_database.dart",
+      "databases",
+      "databases-changed",
+      "db",
+      "delete",
+      "description",
+      "details",
+      "dev/auth.json",
+      "dev/token.json",
+      "devtools.dart",
+      "did_expire",
+      "downloadError",
+      "downloadProgress",
+      "downloaded",
+      "downloading",
+      "e43118524dc0954e40bf12cc0a5d97f89415ffe0ba2cfe55f28481e7dafe3cc6",
+      "e85fd1219a3bcbfde24dd22769da13403c43f736dee9640137332e34436d60b0",
+      "ef568b6c43dff7fec9d400408c8a56bcb83b4ed20e131b6b992c9a057e64e5b5",
+      "encryption",
+      "encryption_options.dart",
+      "endpoint",
+      "error",
+      "execute",
+      "exp",
+      "expires_at",
+      "ext.powersync.database",
+      "ext.powersync.list",
+      "ext.powersync.version",
+      "extension.dart",
+      "fa60a92cefb9961ba590aee01f0e42cd416e6486e3845083100b7d3308e30af0",
+      "filename",
+      "h",
+      "hasSynced",
+      "has_explicit_subscription",
+      "has_synced",
+      "hide_disconnect",
+      "http",
+      "http/client.dart",
+      "http/protocol.dart",
+      "http/server.dart",
+      "https",
+      "i",
+      "id",
+      "ignore_empty_update",
+      "implementations/attachment_context.dart",
+      "implementations/attachment_service.dart",
+      "include_defaults",
+      "include_metadata",
+      "include_old",
+      "include_old_only_when_changed",
+      "indexes",
+      "insert_only",
+      "instruction.dart",
+      "internalSubscriptions",
+      "internal_connector.dart",
+      "is_default",
+      "lastCredentials",
+      "lastSyncedAt",
+      "last_synced_at",
+      "libpowersync_aarch64.android.so",
+      "libpowersync_aarch64.ios-sim.dylib",
+      "libpowersync_aarch64.ios.dylib",
+      "libpowersync_aarch64.linux.so",
+      "libpowersync_aarch64.macos.dylib",
+      "libpowersync_aarch64.tvos-sim.dylib",
+      "libpowersync_aarch64.tvos.dylib",
+      "libpowersync_armv7.android.so",
+      "libpowersync_armv7.linux.so",
+      "libpowersync_riscv64gc.linux.so",
+      "libpowersync_x64.android.so",
+      "libpowersync_x64.ios-sim.dylib",
+      "libpowersync_x64.linux.so",
+      "libpowersync_x64.macos.dylib",
+      "libpowersync_x64.tvos-sim.dylib",
+      "libpowersync_x86.android.so",
+      "libpowersync_x86.linux.so",
+      "line",
+      "line_binary",
+      "line_text",
+      "local_only",
+      "local_storage.dart",
+      "local_uri",
+      "m",
+      "media_type",
+      "memory",
+      "message",
+      "meta_data",
+      "metadata",
+      "mutable_sync_status.dart",
+      "name",
+      "native.dart",
+      "o",
+      "offline (not connecting)",
+      "ok",
+      "old",
+      "op",
+      "op_id",
+      "output-dir",
+      "package:args/args.dart",
+      "package:async/async.dart",
+      "package:collection/collection.dart",
+      "package:http/http.dart",
+      "package:logging/logging.dart",
+      "package:meta/meta.dart",
+      "package:path/path.dart",
+      "package:powersync/powersync.dart",
+      "package:powersync/src/abort_controller.dart",
+      "package:powersync/src/connector.dart",
+      "package:powersync/src/database/active_instances.dart",
+      "package:powersync/src/database/powersync_database.dart",
+      "package:powersync/src/exceptions.dart",
+      "package:powersync/src/isolate_completer.dart",
+      "package:powersync/src/log_internal.dart",
+      "package:powersync/src/schema.dart",
+      "package:powersync/src/sync/bucket_storage.dart",
+      "package:powersync/src/sync/internal_connector.dart",
+      "package:powersync/src/sync/options.dart",
+      "package:powersync/src/sync/stream.dart",
+      "package:powersync/src/sync/streaming_sync.dart",
+      "package:powersync/src/sync/sync_status.dart",
+      "package:powersync/src/user_agent/user_agent.dart",
+      "package:powersync/src/version.dart",
+      "package:powersync/src/web/worker_utils.dart",
+      "package:pub_semver/pub_semver.dart",
+      "package:pubspec_parse/pubspec_parse.dart",
+      "package:sqlite3/common.dart",
+      "package:sqlite3/sqlite3.dart",
+      "package:sqlite3/wasm.dart",
+      "package:sqlite3_web/sqlite3_web.dart",
+      "package:sqlite_async/native.dart",
+      "package:sqlite_async/sqlite3_web_worker.dart",
+      "package:sqlite_async/sqlite_async.dart",
+      "package:sqlite_async/src/web/web_mutex.dart",
+      "package:sqlite_async/utils.dart",
+      "package:sqlite_async/web.dart",
+      "package:typed_data/typed_buffers.dart",
+      "package:uuid/data.dart",
+      "package:uuid/rng.dart",
+      "package:uuid/uuid.dart",
+      "package:web/web.dart",
+      "packages",
+      "parameters",
+      "params",
+      "password",
+      "path",
+      "pending IsolateResult",
+      "powersync",
+      "powersync-v",
+      "powersync.dart",
+      "powersync_aarch64.dll",
+      "powersync_db.worker.js",
+      "powersync_x64.dll",
+      "powersync_x86.dll",
+      "pragma cipher",
+      "pragma cipher_version",
+      "priority",
+      "priorityStatusEntries",
+      "priority_status",
+      "progress",
+      "protocol.dart",
+      "ps_",
+      "ps_crud",
+      "ps_data__",
+      "ps_data_local__",
+      "put",
+      "r",
+      "raw_tables",
+      "refreshed_token",
+      "remote_storage.dart",
+      "request",
+      "rootUri",
+      "rows",
+      "s",
+      "schema",
+      "schema.dart",
+      "schema_logic.dart",
+      "select",
+      "select powersync_clear(?)",
+      "seq",
+      "severity",
+      "since_last",
+      "size",
+      "sql",
+      "sqlite3",
+      "sqlite3.dart",
+      "sqlite3.wasm",
+      "sqlite3_powersync_init.dart",
+      "sqlite3mc.wasm",
+      "src/connector.dart",
+      "src/crud.dart",
+      "src/database/encryption_options.dart",
+      "src/database/powersync_database.dart",
+      "src/exceptions.dart",
+      "src/log.dart",
+      "src/open_factory/native/native_open_factory.dart",
+      "src/open_factory/web/web_open_factory.dart",
+      "src/schema.dart",
+      "src/sync/options.dart",
+      "src/sync/stream.dart",
+      "src/sync/sync_status.dart",
+      "src/uuid.dart",
+      "src/web/worker.dart",
+      "src/web/worker_utils.dart",
+      "start",
+      "state",
+      "status",
+      "status-listen",
+      "status-updates",
+      "stop",
+      "stream",
+      "stream.dart",
+      "stream_utils.dart",
+      "streaming_sync.dart",
+      "streams",
+      "subscribe",
+      "subscription",
+      "subscriptions",
+      "sync",
+      "sync/stream",
+      "sync/syncing_service.dart",
+      "sync_error_handler.dart",
+      "sync_isolate_protocol.dart",
+      "sync_status.dart",
+      "sync_worker.dart",
+      "sync_worker_protocol.dart",
+      "synced_columns",
+      "table-updates",
+      "table-updates-listen",
+      "table_name",
+      "tables",
+      "tag_name",
+      "target_count",
+      "timestamp",
+      "token",
+      "total",
+      "trace",
+      "ttl",
+      "tx_id",
+      "type",
+      "u",
+      "unknown",
+      "unsubscribe",
+      "unsupported.dart",
+      "update_subscriptions",
+      "uploadError",
+      "uploading",
+      "user",
+      "user_id",
+      "v0.4.13",
+      "version",
+      "view_name",
+      "web",
+      "web.dart",
+      "web_bucket_storage.dart",
+      "worker",
+      "worker_utils.dart",
+      "write_checkpoint",
+      "{}"
+    ]
+  },
+  "version": "2.3.2"
+}
