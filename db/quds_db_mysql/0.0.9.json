@@ -1,0 +1,365 @@
+{
+  "api_surface": {
+    "classes": {
+      "MysqlAggregateQueryBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:quds_db_mysql/quds_db_mysql.dart",
+          "package:quds_db_mysql/src/builders/mysql_query_builder.dart",
+          "package:quds_db_mysql/src/quds_db_mysql_base.dart"
+        ],
+        "methods": [
+          "MysqlAggregateQueryBuilder",
+          "buildQuery",
+          "execute",
+          "getParameters"
+        ],
+        "types": [
+          "MysqlSelectQueryBuilder"
+        ]
+      },
+      "MysqlDatabaseAdapter": {
+        "fields": [],
+        "libraries": [
+          "package:quds_db_mysql/quds_db_mysql.dart",
+          "package:quds_db_mysql/src/adapters/mysql_database_adapter.dart",
+          "package:quds_db_mysql/src/quds_db_mysql_base.dart"
+        ],
+        "methods": [
+          "close",
+          "getConnection",
+          "initialize",
+          "rawExecute",
+          "rawQuery"
+        ],
+        "types": [
+          "MysqlDatabaseSettings"
+        ]
+      },
+      "MysqlDatabaseConnection": {
+        "fields": [
+          "get:isOpen",
+          "migration",
+          "migrations",
+          "schema"
+        ],
+        "libraries": [
+          "package:quds_db_mysql/quds_db_mysql.dart",
+          "package:quds_db_mysql/src/adapters/mysql_database_connection.dart",
+          "package:quds_db_mysql/src/quds_db_mysql_base.dart"
+        ],
+        "methods": [
+          "MysqlDatabaseConnection",
+          "close",
+          "delete",
+          "execute",
+          "insert",
+          "query",
+          "transaction",
+          "update"
+        ],
+        "types": [
+          "MysqlSchemaInspector",
+          "MysqlSchemaMigrator"
+        ]
+      },
+      "MysqlDatabaseSettings": {
+        "fields": [
+          "dbName",
+          "host",
+          "password",
+          "port",
+          "userName",
+          "version"
+        ],
+        "libraries": [
+          "package:quds_db_mysql/quds_db_mysql.dart",
+          "package:quds_db_mysql/src/adapters/mysql_database_adapter.dart",
+          "package:quds_db_mysql/src/quds_db_mysql_base.dart"
+        ],
+        "methods": [
+          "MysqlDatabaseSettings"
+        ],
+        "types": []
+      },
+      "MysqlMigrationContext": {
+        "fields": [
+          "connection",
+          "get:inspector",
+          "get:migrator"
+        ],
+        "libraries": [
+          "package:quds_db_mysql/quds_db_mysql.dart",
+          "package:quds_db_mysql/src/migration/mysql_migration_context.dart",
+          "package:quds_db_mysql/src/quds_db_mysql_base.dart"
+        ],
+        "methods": [
+          "MysqlMigrationContext",
+          "addColumn",
+          "createIndex",
+          "createTable",
+          "dropColumn",
+          "dropIndex",
+          "dropTable",
+          "ensureField",
+          "ensureJournalTable",
+          "rawSql",
+          "renameColumn",
+          "renameTable",
+          "updateRows"
+        ],
+        "types": [
+          "MysqlDatabaseConnection"
+        ]
+      },
+      "MysqlSchemaInspector": {
+        "fields": [
+          "connection"
+        ],
+        "libraries": [
+          "package:quds_db_mysql/quds_db_mysql.dart",
+          "package:quds_db_mysql/src/quds_db_mysql_base.dart",
+          "package:quds_db_mysql/src/schema/mysql_schema_inspector.dart"
+        ],
+        "methods": [
+          "MysqlSchemaInspector",
+          "columnExists",
+          "columnNativeType",
+          "listColumns",
+          "tableExists"
+        ],
+        "types": [
+          "MysqlDatabaseConnection"
+        ]
+      },
+      "MysqlSchemaMigrator": {
+        "fields": [
+          "connection",
+          "get:inspector"
+        ],
+        "libraries": [
+          "package:quds_db_mysql/quds_db_mysql.dart",
+          "package:quds_db_mysql/src/quds_db_mysql_base.dart",
+          "package:quds_db_mysql/src/schema/mysql_schema_migrator.dart"
+        ],
+        "methods": [
+          "MysqlSchemaMigrator",
+          "ensureBooleanNotNull",
+          "ensureField"
+        ],
+        "types": [
+          "MysqlDatabaseConnection",
+          "MysqlSchemaInspector"
+        ]
+      },
+      "MysqlSchemaUtils": {
+        "fields": [],
+        "libraries": [
+          "package:quds_db_mysql/src/schema/mysql_schema_utils.dart"
+        ],
+        "methods": [
+          "booleanCoerceExpression",
+          "isBooleanType",
+          "mapBoolColumnDef",
+          "mapToColumnDef"
+        ],
+        "types": []
+      },
+      "MysqlSelectQueryBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:quds_db_mysql/quds_db_mysql.dart",
+          "package:quds_db_mysql/src/builders/mysql_query_builder.dart",
+          "package:quds_db_mysql/src/quds_db_mysql_base.dart"
+        ],
+        "methods": [
+          "MysqlSelectQueryBuilder",
+          "buildQuery",
+          "crossJoin",
+          "distinct",
+          "execute",
+          "executeRaw",
+          "from",
+          "fullJoin",
+          "getParameters",
+          "groupBy",
+          "having",
+          "innerJoin",
+          "leftJoin",
+          "limit",
+          "orderBy",
+          "rightJoin",
+          "select",
+          "toRawSql",
+          "where"
+        ],
+        "types": [
+          "MysqlDatabaseConnection"
+        ]
+      },
+      "MysqlStandardTableProvider": {
+        "fields": [
+          "get:idColumnName"
+        ],
+        "libraries": [
+          "package:quds_db_mysql/quds_db_mysql.dart",
+          "package:quds_db_mysql/src/providers/mysql_table_provider.dart",
+          "package:quds_db_mysql/src/quds_db_mysql_base.dart"
+        ],
+        "methods": [
+          "MysqlStandardTableProvider",
+          "deleteById",
+          "exists",
+          "getById"
+        ],
+        "types": [
+          "MysqlTableProvider"
+        ]
+      },
+      "MysqlTableProvider": {
+        "fields": [
+          "connection",
+          "get:modelInstance",
+          "get:tableName",
+          "modelFactory"
+        ],
+        "libraries": [
+          "package:quds_db_mysql/quds_db_mysql.dart",
+          "package:quds_db_mysql/src/providers/mysql_table_provider.dart",
+          "package:quds_db_mysql/src/quds_db_mysql_base.dart"
+        ],
+        "methods": [
+          "MysqlTableProvider",
+          "addEntryChangeListener",
+          "aggregateQuery",
+          "clear",
+          "closeDB",
+          "complexQuery",
+          "count",
+          "countWhere",
+          "deleteEntry",
+          "deleteWhere",
+          "drop",
+          "ensureBooleanNotNull",
+          "ensureField",
+          "initialize",
+          "insertCollection",
+          "insertEntry",
+          "loadAllEntriesByPaging",
+          "query",
+          "removeEntryChangeListener",
+          "select",
+          "updateEntry"
+        ],
+        "types": [
+          "MysqlDatabaseConnection"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-07-23T13:26:27Z",
+  "package": "quds_db_mysql",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [],
+    "digest": "136f6f064af1dd571c248e56ae7761a5be5c98ed200039fc365b78bcf7eef25e",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "d3533f9ca3cce69fecba96296a6bdb81ad4320a3929247a93c7abe2043bcb829",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      " ",
+      " DEFAULT ",
+      "'",
+      "''",
+      ")",
+      "*",
+      ", ",
+      "../adapters/mysql_database_connection.dart",
+      "../builders/mysql_query_builder.dart",
+      "../migration/mysql_migration_context.dart",
+      "../schema/mysql_schema_inspector.dart",
+      "../schema/mysql_schema_migrator.dart",
+      "../schema/mysql_schema_utils.dart",
+      "0",
+      "1",
+      "127.0.0.1",
+      "1=1",
+      "=",
+      "?",
+      "AUTOINCREMENT",
+      "AUTO_INCREMENT",
+      "BIGINT",
+      "BOOLEAN",
+      "DISTINCT ",
+      "DOUBLE",
+      "Execute mapping requires TableProvider full context. Use executeRaw() for now.",
+      "IF EXISTS ",
+      "IF NOT EXISTS ",
+      "INT PRIMARY KEY AUTO_INCREMENT",
+      "INTEGER",
+      "INTEGER PRIMARY KEY AUTOINCREMENT",
+      "Must call from() before join()",
+      "MySQL dropIndex requires the table name.",
+      "NOT NULL",
+      "NULL",
+      "Not initialized",
+      "REAL",
+      "SELECT\n  column_name,\n  column_type,\n  is_nullable,\n  column_default\nFROM information_schema.columns\nWHERE table_schema = COALESCE(?, DATABASE())\n  AND table_name = ?\nORDER BY ordinal_position\n",
+      "SELECT ",
+      "SELECT 1\nFROM information_schema.columns\nWHERE table_schema = COALESCE(?, DATABASE())\n  AND table_name = ?\n  AND column_name = ?\nLIMIT 1\n",
+      "SELECT 1\nFROM information_schema.tables\nWHERE table_schema = COALESCE(?, DATABASE())\n  AND table_name = ?\nLIMIT 1\n",
+      "SELECT COLUMN_TYPE AS native_type\nFROM information_schema.columns\nWHERE table_schema = COALESCE(?, DATABASE())\n  AND table_name = ?\n  AND column_name = ?\n",
+      "TEXT",
+      "UNIQUE ",
+      "YES",
+      "^[A-Za-z_][A-Za-z0-9_]*$",
+      "adapters/mysql_database_adapter.dart",
+      "adapters/mysql_database_connection.dart",
+      "addColumn requires field.columnName.",
+      "bool",
+      "boolean",
+      "builders/mysql_query_builder.dart",
+      "char",
+      "column",
+      "column_default",
+      "column_name",
+      "column_type",
+      "dart:async",
+      "decimal",
+      "double",
+      "float",
+      "from() table is not set",
+      "id",
+      "id = ?",
+      "index",
+      "int",
+      "is_nullable",
+      "migration/mysql_migration_context.dart",
+      "mysql_database_connection.dart",
+      "mysql_schema_inspector.dart",
+      "mysql_schema_utils.dart",
+      "native_type",
+      "numeric",
+      "package:mysql_client/mysql_client.dart",
+      "package:quds_db_interface/quds_db_interface.dart",
+      "primaryKey",
+      "providers/mysql_table_provider.dart",
+      "real",
+      "root",
+      "schema/mysql_schema_inspector.dart",
+      "schema/mysql_schema_migrator.dart",
+      "src/quds_db_mysql_base.dart",
+      "table",
+      "text",
+      "tinyint",
+      "tinyint(1)",
+      "true",
+      "unknown"
+    ]
+  },
+  "version": "0.0.9"
+}
