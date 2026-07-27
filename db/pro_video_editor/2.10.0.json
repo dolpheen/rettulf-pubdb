@@ -115,6 +115,95 @@
         ],
         "types": []
       },
+      "AudioMergeConfigs": {
+        "fields": [
+          "channels",
+          "format",
+          "get:hasExplicitFormat",
+          "id",
+          "sampleRate",
+          "segments"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/audio/audio_merge_configs_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "AudioMergeConfigs",
+          "copyWith",
+          "toMap",
+          "toString"
+        ],
+        "types": [
+          "AudioFormat",
+          "AudioMergeConfigs",
+          "AudioMergeSegment"
+        ]
+      },
+      "AudioMergeResult": {
+        "fields": [
+          "outputPath",
+          "segments",
+          "totalDuration"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/audio/audio_merge_result_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "AudioMergeResult",
+          "fromMap",
+          "toString"
+        ],
+        "types": [
+          "AudioMergeSegmentOffset"
+        ]
+      },
+      "AudioMergeSegment": {
+        "fields": [
+          "endTime",
+          "get:hashCode",
+          "get:outputDuration",
+          "get:trimmedDuration",
+          "speed",
+          "startTime",
+          "video"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/audio/audio_merge_configs_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "==",
+          "AudioMergeSegment",
+          "copyWith",
+          "toMap",
+          "toString"
+        ],
+        "types": [
+          "AudioMergeSegment",
+          "EditorVideo"
+        ]
+      },
+      "AudioMergeSegmentOffset": {
+        "fields": [
+          "get:hashCode",
+          "get:outputEnd",
+          "outputDuration",
+          "outputStart"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/audio/audio_merge_result_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "==",
+          "AudioMergeSegmentOffset",
+          "fromMap",
+          "toString"
+        ],
+        "types": []
+      },
       "AudioNoTrackException": {
         "fields": [],
         "libraries": [
@@ -534,6 +623,7 @@
       },
       "MethodChannelProVideoEditor": {
         "fields": [
+          "codecResourceExhaustedErrorCode",
           "encoderNotSupportedErrorCode",
           "methodChannel",
           "noAudioErrorCode",
@@ -555,18 +645,23 @@
           "getWaveformStream",
           "hasAudioTrack",
           "initializeStream",
+          "mergeAudioToFile",
           "renderStopMotion",
           "renderStopMotionToFile",
           "renderVideo",
-          "renderVideoToFile"
+          "renderVideoToFile",
+          "splitVideo"
         ],
         "types": [
           "AudioExtractConfigs",
+          "AudioMergeConfigs",
+          "AudioMergeResult",
           "EditorVideo",
           "KeyFramesConfigs",
           "NativeLogLevel",
           "ProVideoEditor",
           "SingleThumbnailConfigs",
+          "SplitVideoModel",
           "StopMotionRenderData",
           "ThumbnailConfigs",
           "VideoMetadata",
@@ -664,14 +759,18 @@
           "getWaveformStream",
           "hasAudioTrack",
           "initializeStream",
+          "mergeAudioToFile",
           "progressStreamById",
           "renderStopMotion",
           "renderStopMotionToFile",
           "renderVideo",
-          "renderVideoToFile"
+          "renderVideoToFile",
+          "splitVideo"
         ],
         "types": [
           "AudioExtractConfigs",
+          "AudioMergeConfigs",
+          "AudioMergeResult",
           "EditorVideo",
           "KeyFramesConfigs",
           "NativeLogEntry",
@@ -679,6 +778,7 @@
           "ProVideoEditor",
           "ProgressModel",
           "SingleThumbnailConfigs",
+          "SplitVideoModel",
           "StopMotionRenderData",
           "ThumbnailConfigs",
           "VideoMetadata",
@@ -709,7 +809,8 @@
           "renderStopMotion",
           "renderStopMotionToFile",
           "renderVideo",
-          "renderVideoToFile"
+          "renderVideoToFile",
+          "splitVideo"
         ],
         "types": [
           "AudioExtractConfigs",
@@ -718,6 +819,7 @@
           "NativeLogLevel",
           "ProVideoEditor",
           "SingleThumbnailConfigs",
+          "SplitVideoModel",
           "StopMotionRenderData",
           "ThumbnailConfigs",
           "VideoMetadata",
@@ -754,6 +856,7 @@
       },
       "RenderEncoderException": {
         "fields": [
+          "isTransient",
           "message"
         ],
         "libraries": [
@@ -762,7 +865,8 @@
         ],
         "methods": [
           "RenderEncoderException",
-          "toString"
+          "toString",
+          "transient"
         ],
         "types": []
       },
@@ -836,6 +940,36 @@
         ],
         "methods": [],
         "types": []
+      },
+      "SplitVideoModel": {
+        "fields": [
+          "bitrate",
+          "enableAudio",
+          "endOutputPath",
+          "exportTimeout",
+          "get:effectiveBitrate",
+          "get:progressStream",
+          "id",
+          "outputFormat",
+          "qualityConfig",
+          "splitPosition",
+          "stallTimeout",
+          "startOutputPath",
+          "video"
+        ],
+        "libraries": [
+          "package:pro_video_editor/core/models/video/split_video_model.dart",
+          "package:pro_video_editor/pro_video_editor.dart"
+        ],
+        "methods": [
+          "SplitVideoModel"
+        ],
+        "types": [
+          "EditorVideo",
+          "ProgressModel",
+          "VideoOutputFormat",
+          "VideoQualityConfig"
+        ]
       },
       "StopMotionFit": {
         "fields": [
@@ -1225,6 +1359,7 @@
           "shouldOptimizeForNetworkUse",
           "startTime",
           "transform",
+          "trimToCommonTrackEnd",
           "videoSegments"
         ],
         "libraries": [
@@ -1488,6 +1623,8 @@
   "source_fingerprint": {
     "basic_message_channels": [],
     "const_classes": [
+      "AudioMergeResult",
+      "AudioMergeSegmentOffset",
       "AudioNoTrackException",
       "AudioWaveform",
       "ClipTransition",
@@ -1513,14 +1650,14 @@
       "WaveformStyle",
       "_AnimatedWaveformBar"
     ],
-    "digest": "585188fa0193ff9da2dfaeb19b18a678c2d6952121c3d8e8c8be0a537279418f",
+    "digest": "93b9912d9671fc01f4ba8da981c2dd55f1f4ffb48c972e8a11cd1236ae19bc6a",
     "event_channels": [
       "pro_video_editor_logs",
       "pro_video_editor_progress",
       "pro_video_editor_waveform_stream"
     ],
     "ffi_symbols": [],
-    "hierarchy_hash": "e7d49f974374529e0ec020c32deb96bfbec70550d5e22a707e9ccf0a371f05f5",
+    "hierarchy_hash": "55251a494f25491022e683c4ab0bfaf84ded0cb8fecb4755f64f08c642b293af",
     "method_channels": [
       "pro_video_editor"
     ],
@@ -1541,6 +1678,8 @@
       "/",
       "/core/models/audio/audio_extract_configs_model.dart",
       "/core/models/audio/audio_format_model.dart",
+      "/core/models/audio/audio_merge_configs_model.dart",
+      "/core/models/audio/audio_merge_result_model.dart",
       "/core/models/audio/audio_track_model.dart",
       "/core/models/audio/waveform_chunk_model.dart",
       "/core/models/audio/waveform_configs_model.dart",
@@ -1554,6 +1693,7 @@
       "/core/models/thumbnail/thumbnail_configs_model.dart",
       "/core/models/video/editor_video_model.dart",
       "/core/models/video/progress_model.dart",
+      "/core/models/video/split_video_model.dart",
       "/core/models/video/video_metadata_model.dart",
       "/core/platform/io/io_helper.dart",
       "/core/platform/path/path_provider_helper.dart",
@@ -1575,13 +1715,16 @@
       "AudioNoTrackException",
       "Blob",
       "CANCELED",
+      "CODEC_RESOURCE_EXHAUSTED",
       "Custom",
       "ENCODER_NOT_SUPPORTED",
+      "Expected one resolved path per segment",
       "Failed to export the stop-motion video",
       "Failed to export the video",
       "Failed to extract audio from video",
       "Failed to generate waveform data",
       "Failed to load video metadata",
+      "Failed to merge audio",
       "Failed to read blob data",
       "Full HD (1920x1080, 8 Mbps)",
       "Full HD High (1920x1080, 16 Mbps)",
@@ -1600,12 +1743,15 @@
       "You must provide exactly one of videoSegments or composition",
       "[bitrate] must be greater than 0",
       "[blur] must be greater than or equal to 0",
+      "[channels] must be > 0",
       "[duration] must be greater than zero",
+      "[endTime] must be after [startTime]",
       "[frameRate] must be greater than 0",
       "[initializeStream()] has not been implemented.",
       "[maxFrameRate] must be greater than 0",
       "[opacity] must be between 0 and 1",
       "[playbackSpeed] must be greater than 0",
+      "[sampleRate] must be greater than 0",
       "[speed] must be greater than 0",
       "[volume] must be greater than or equal to 0",
       "^[a-z0-9]+$",
@@ -1644,6 +1790,7 @@
       "canvasHeight",
       "canvasSize",
       "canvasWidth",
+      "channels",
       "checkStreamingOptimization",
       "chromebook",
       "chunkSize",
@@ -1666,6 +1813,7 @@
       "core/models/video/export_transform_model.dart",
       "core/models/video/progress_model.dart",
       "core/models/video/segment_transform_model.dart",
+      "core/models/video/split_video_model.dart",
       "core/models/video/stop_motion_render_data_model.dart",
       "core/models/video/video_composition_model.dart",
       "core/models/video/video_layer_model.dart",
@@ -1698,10 +1846,13 @@
       "dy",
       "editor_layer_image_model.dart",
       "enableAudio",
+      "endOutputPath",
       "endTime",
       "endUs",
       "error",
       "errorCode",
+      "exportTimeout must be greater than zero",
+      "exportTimeoutMs",
       "extension",
       "extractAudio",
       "extractAudio() has not been implemented on web.",
@@ -1768,10 +1919,13 @@
       "matrix",
       "maxFrameRate",
       "maxOutputFrames",
+      "mergeAudio",
+      "mergeAudioToFile() has not been implemented.",
       "message",
       "metadata",
       "mp3",
       "mp4",
+      "must contain at least one segment",
       "nativeLogLevel",
       "native_log_level.dart",
       "native_method_channel.dart",
@@ -1779,9 +1933,11 @@
       "none",
       "offset",
       "opacity",
+      "outputDurationUs",
       "outputFormat",
       "outputHeight",
       "outputPath",
+      "outputStartUs",
       "outputWidth",
       "package:flutter/foundation.dart",
       "package:flutter/material.dart",
@@ -1840,6 +1996,7 @@
       "scaleFrom",
       "scaleX",
       "scaleY",
+      "segments",
       "shared/models/time_range_mixin.dart",
       "shared/utils/converters.dart",
       "shouldOptimizeForNetworkUse",
@@ -1847,8 +2004,18 @@
       "slideDirection",
       "slideDirection is required for slide animations",
       "speed",
+      "splitPosition must be greater than zero",
+      "splitUs",
+      "splitVideo",
+      "splitVideo() has not been implemented.",
+      "splitVideo() is not supported on web.",
       "stackTrace",
+      "stallTimeout must be greater than zero",
+      "stallTimeout must be less than exportTimeout, otherwise the hard bound always fires first and stall detection has no effect",
+      "stallTimeoutMs",
       "startIndex",
+      "startOutputPath",
+      "startOutputPath and endOutputPath must differ",
       "startTime",
       "startTime must be before endTime",
       "startUs",
@@ -1865,8 +2032,10 @@
       "title",
       "toBlob failed",
       "totalDuration",
+      "totalDurationUs",
       "transform",
       "transition",
+      "trimToCommonTrackEnd",
       "type",
       "unknown",
       "verbose",
@@ -1888,5 +2057,5 @@
       "y"
     ]
   },
-  "version": "2.1.0"
+  "version": "2.10.0"
 }
