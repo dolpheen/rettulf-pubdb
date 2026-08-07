@@ -1,0 +1,1266 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:device_preview/src/model/json_utils.dart",
+          "package:device_preview/src/model/pointer_rewrite.dart",
+          "package:device_preview/src/service/extensions.dart",
+          "package:device_preview/src/service/protocol.dart",
+          "package:device_preview/src/svg/svg_drawing.dart",
+          "package:device_preview/src/svg/svg_path_data.dart",
+          "package:device_preview/src/svg/svg_xml.dart",
+          "package:device_preview/svg.dart"
+        ],
+        "methods": [
+          "decodeBool",
+          "decodeDouble",
+          "decodeEdgeInsets",
+          "decodeEnum",
+          "decodeInt",
+          "decodeList",
+          "decodeLocale",
+          "decodeMap",
+          "decodeOffset",
+          "decodeRect",
+          "decodeSize",
+          "decodeString",
+          "decodeStringOrLines",
+          "encodeEdgeInsets",
+          "encodeLocale",
+          "encodeOffset",
+          "encodeRect",
+          "encodeSize",
+          "parseSvgPathData",
+          "parseXmlDocument",
+          "postPresetsChangedEvent",
+          "postStateChangedEvent",
+          "registerDevicePreviewServiceExtensions",
+          "retargetPointerKind",
+          "rewritePointerData"
+        ],
+        "types": [
+          "DevicePreviewProtocol",
+          "DevicePreviewScreenshot",
+          "FitTransform",
+          "XmlElement"
+        ]
+      },
+      "DeviceFrame": {
+        "fields": [
+          "body",
+          "get:hashCode",
+          "get:isEmpty",
+          "screenOffset",
+          "screenPath",
+          "size"
+        ],
+        "libraries": [
+          "package:device_preview/device_preview.dart",
+          "package:device_preview/src/model/device_frame.dart"
+        ],
+        "methods": [
+          "==",
+          "DeviceFrame",
+          "bodyBounds",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "DeviceFramePainter": {
+        "fields": [
+          "frame",
+          "get:body",
+          "get:screenPath"
+        ],
+        "libraries": [
+          "package:device_preview/src/widgets/device_frame_painter.dart"
+        ],
+        "methods": [
+          "DeviceFramePainter",
+          "paintBody",
+          "screenClip"
+        ],
+        "types": [
+          "DeviceFrame",
+          "SvgDrawing"
+        ]
+      },
+      "DeviceKind": {
+        "fields": [
+          "desktop",
+          "foldable",
+          "phone",
+          "tablet"
+        ],
+        "libraries": [
+          "package:device_preview/device_preview.dart",
+          "package:device_preview/presets.dart",
+          "package:device_preview/src/model/device_kind.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "DevicePreset": {
+        "fields": [
+          "brand",
+          "devicePixelRatio",
+          "displayFeatures",
+          "frame",
+          "get:hashCode",
+          "id",
+          "kind",
+          "landscapePadding",
+          "landscapeViewPadding",
+          "name",
+          "platform",
+          "portraitPadding",
+          "portraitSize",
+          "portraitViewPadding",
+          "systemGestureInsets",
+          "systemUi",
+          "year"
+        ],
+        "libraries": [
+          "package:device_preview/presets.dart"
+        ],
+        "methods": [
+          "==",
+          "DevicePreset",
+          "fromJson",
+          "resolve",
+          "rotateToLandscape",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "DeviceFrame",
+          "DeviceKind",
+          "DeviceSimulation",
+          "SimulatedDisplayFeature",
+          "SystemUiSimulation"
+        ]
+      },
+      "DevicePresets": {
+        "fields": [
+          "all",
+          "galaxyS24",
+          "galaxyS25",
+          "galaxyTabS10Plus",
+          "galaxyTabS11",
+          "iPadAir11",
+          "iPadAir13",
+          "iPadMini",
+          "iPadPro11",
+          "iPadPro13",
+          "iPhone16",
+          "iPhone16Plus",
+          "iPhone16Pro",
+          "iPhone16ProMax",
+          "iPhone16e",
+          "iPhone17",
+          "iPhone17Pro",
+          "iPhone17e",
+          "iPhoneAir",
+          "largeDesktopWindow",
+          "pixel10",
+          "pixel9",
+          "smallDesktopWindow"
+        ],
+        "libraries": [
+          "package:device_preview/presets.dart"
+        ],
+        "methods": [
+          "byId"
+        ],
+        "types": [
+          "DevicePreset"
+        ]
+      },
+      "DevicePreview": {
+        "fields": [
+          "get:controller",
+          "get:maybeController",
+          "get:platformDispatcher"
+        ],
+        "libraries": [
+          "package:device_preview/device_preview.dart",
+          "package:device_preview/src/binding/binding.dart"
+        ],
+        "methods": [
+          "enable",
+          "initInstances"
+        ],
+        "types": [
+          "DevicePreview",
+          "DevicePreviewBindingMixin",
+          "DevicePreviewController"
+        ]
+      },
+      "DevicePreviewBindingMixin": {
+        "fields": [
+          "get:devicePreview",
+          "get:previewImplicitView",
+          "get:previewPlatformDispatcher",
+          "get:systemOverlayStyle",
+          "simulationEnabled"
+        ],
+        "libraries": [
+          "package:device_preview/device_preview.dart",
+          "package:device_preview/src/binding/binding.dart"
+        ],
+        "methods": [
+          "createViewConfigurationFor",
+          "debugInjectPointerData",
+          "drawFrame",
+          "initInstances",
+          "initServiceExtensions",
+          "latchConfiguration",
+          "wrapWithDefaultView"
+        ],
+        "types": [
+          "DevicePreviewController",
+          "DevicePreviewControllerImpl",
+          "DeviceSimulation",
+          "PreviewPlatformDispatcher",
+          "PreviewState"
+        ]
+      },
+      "DevicePreviewController": {
+        "fields": [
+          "get:fitTransform",
+          "get:presets",
+          "get:realDevice",
+          "get:simulation",
+          "get:simulationListenable"
+        ],
+        "libraries": [
+          "package:device_preview/device_preview.dart",
+          "package:device_preview/src/controller/controller.dart"
+        ],
+        "methods": [
+          "apply",
+          "applyPreset",
+          "registerPreset",
+          "reset",
+          "setOrientation",
+          "update"
+        ],
+        "types": [
+          "DevicePreset",
+          "DeviceSimulation",
+          "FitTransform",
+          "RealDeviceInfo"
+        ]
+      },
+      "DevicePreviewControllerImpl": {
+        "fields": [
+          "get:fitTransform",
+          "get:presets",
+          "get:realDevice",
+          "get:simulation",
+          "get:simulationListenable",
+          "hostDispatcher",
+          "hostView",
+          "onPresetsChanged",
+          "onStateChanged",
+          "state"
+        ],
+        "libraries": [
+          "package:device_preview/src/controller/controller.dart"
+        ],
+        "methods": [
+          "DevicePreviewControllerImpl",
+          "addListener",
+          "apply",
+          "applyPreset",
+          "applyTagged",
+          "dispose",
+          "handleHostMetricsChanged",
+          "recomputeFit",
+          "registerPreset",
+          "removeListener",
+          "reset",
+          "setOrientation",
+          "update"
+        ],
+        "types": [
+          "DevicePreset",
+          "DevicePreviewController",
+          "DeviceSimulation",
+          "FitTransform",
+          "PreviewState",
+          "RealDeviceInfo"
+        ]
+      },
+      "DevicePreviewFrame": {
+        "fields": [
+          "overlayStyle",
+          "simulation"
+        ],
+        "libraries": [
+          "package:device_preview/device_preview.dart",
+          "package:device_preview/src/widgets/device_preview_frame.dart"
+        ],
+        "methods": [
+          "DevicePreviewFrame",
+          "createRenderObject",
+          "updateRenderObject"
+        ],
+        "types": [
+          "DeviceSimulation",
+          "RenderDevicePreviewFrame"
+        ]
+      },
+      "DevicePreviewProtocol": {
+        "fields": [
+          "applyTagged",
+          "capabilities",
+          "controller",
+          "protocolVersion"
+        ],
+        "libraries": [
+          "package:device_preview/src/service/protocol.dart"
+        ],
+        "methods": [
+          "DevicePreviewProtocol",
+          "getState",
+          "listPresets",
+          "reset",
+          "setSimulation",
+          "stateShape"
+        ],
+        "types": [
+          "DevicePreviewController",
+          "DeviceSimulation"
+        ]
+      },
+      "DevicePreviewScreenshot": {
+        "fields": [
+          "findHostView",
+          "findRenderView",
+          "state"
+        ],
+        "libraries": [
+          "package:device_preview/src/service/screenshot.dart"
+        ],
+        "methods": [
+          "DevicePreviewScreenshot",
+          "capture"
+        ],
+        "types": [
+          "PreviewState"
+        ]
+      },
+      "DeviceSimulation": {
+        "fields": [
+          "accessibility",
+          "alwaysUse24HourFormat",
+          "deviceKind",
+          "devicePixelRatio",
+          "displayFeatures",
+          "frame",
+          "get:contentBounds",
+          "get:effectivePointerKind",
+          "get:hashCode",
+          "get:isEmpty",
+          "get:simulatesMetrics",
+          "get:simulatesTouch",
+          "locales",
+          "orientation",
+          "padding",
+          "platformBrightness",
+          "presetId",
+          "screenSize",
+          "showSystemUi",
+          "systemGestureInsets",
+          "systemUi",
+          "targetPlatform",
+          "textScaleFactor",
+          "touchInput",
+          "viewPadding"
+        ],
+        "libraries": [
+          "package:device_preview/device_preview.dart",
+          "package:device_preview/src/model/simulation.dart"
+        ],
+        "methods": [
+          "==",
+          "DeviceSimulation",
+          "copyWith",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "DeviceFrame",
+          "DeviceKind",
+          "DeviceSimulation",
+          "SimulatedAccessibilityFeatures",
+          "SimulatedDisplayFeature",
+          "SystemUiSimulation"
+        ]
+      },
+      "FitTransform": {
+        "fields": [
+          "get:hashCode",
+          "identity",
+          "offset",
+          "scale"
+        ],
+        "libraries": [
+          "package:device_preview/device_preview.dart",
+          "package:device_preview/src/model/fit_transform.dart"
+        ],
+        "methods": [
+          "==",
+          "FitTransform",
+          "compute",
+          "toJson",
+          "toRealLogical",
+          "toSimulatedLogical",
+          "toString"
+        ],
+        "types": [
+          "FitTransform"
+        ]
+      },
+      "PreviewAccessibilityFeatures": {
+        "fields": [
+          "get:accessibleNavigation",
+          "get:autoPlayAnimatedImages",
+          "get:autoPlayVideos",
+          "get:boldText",
+          "get:deterministicCursor",
+          "get:disableAnimations",
+          "get:hashCode",
+          "get:highContrast",
+          "get:invertColors",
+          "get:onOffSwitchLabels",
+          "get:reduceMotion",
+          "get:supportsAnnounce",
+          "host",
+          "simulated"
+        ],
+        "libraries": [
+          "package:device_preview/src/binding/preview_values.dart"
+        ],
+        "methods": [
+          "==",
+          "PreviewAccessibilityFeatures",
+          "toString"
+        ],
+        "types": [
+          "SimulatedAccessibilityFeatures"
+        ]
+      },
+      "PreviewFlutterView": {
+        "fields": [
+          "get:devicePixelRatio",
+          "get:display",
+          "get:displayCornerRadii",
+          "get:displayFeatures",
+          "get:gestureSettings",
+          "get:padding",
+          "get:physicalConstraints",
+          "get:physicalSize",
+          "get:platformDispatcher",
+          "get:systemGestureInsets",
+          "get:viewId",
+          "get:viewInsets",
+          "get:viewPadding",
+          "hostView",
+          "state"
+        ],
+        "libraries": [
+          "package:device_preview/src/binding/preview_flutter_view.dart"
+        ],
+        "methods": [
+          "PreviewFlutterView",
+          "render",
+          "toString",
+          "updateSemantics"
+        ],
+        "types": [
+          "PreviewState"
+        ]
+      },
+      "PreviewPlatformDispatcher": {
+        "fields": [
+          "get:accessibilityFeatures",
+          "get:alwaysUse24HourFormat",
+          "get:brieflyShowPassword",
+          "get:defaultRouteName",
+          "get:displays",
+          "get:engineId",
+          "get:frameData",
+          "get:implicitView",
+          "get:initialLifecycleState",
+          "get:letterSpacingOverride",
+          "get:lineHeightScaleFactorOverride",
+          "get:locale",
+          "get:locales",
+          "get:nativeSpellCheckServiceDefined",
+          "get:onAccessibilityFeaturesChanged",
+          "get:onBeginFrame",
+          "get:onDrawFrame",
+          "get:onError",
+          "get:onFrameDataChanged",
+          "get:onKeyData",
+          "get:onLocaleChanged",
+          "get:onMetricsChanged",
+          "get:onPlatformBrightnessChanged",
+          "get:onPlatformConfigurationChanged",
+          "get:onPlatformMessage",
+          "get:onPointerDataPacket",
+          "get:onReportTimings",
+          "get:onSemanticsActionEvent",
+          "get:onSemanticsEnabledChanged",
+          "get:onSystemFontFamilyChanged",
+          "get:onTextScaleFactorChanged",
+          "get:onViewFocusChange",
+          "get:paragraphSpacingOverride",
+          "get:platformBrightness",
+          "get:previewImplicitView",
+          "get:semanticsEnabled",
+          "get:supportsShowingSystemContextMenu",
+          "get:systemFontFamily",
+          "get:textScaleFactor",
+          "get:views",
+          "get:wordSpacingOverride",
+          "host",
+          "set:onAccessibilityFeaturesChanged",
+          "set:onBeginFrame",
+          "set:onDrawFrame",
+          "set:onError",
+          "set:onFrameDataChanged",
+          "set:onKeyData",
+          "set:onLocaleChanged",
+          "set:onMetricsChanged",
+          "set:onPlatformBrightnessChanged",
+          "set:onPlatformConfigurationChanged",
+          "set:onPlatformMessage",
+          "set:onPointerDataPacket",
+          "set:onReportTimings",
+          "set:onSemanticsActionEvent",
+          "set:onSemanticsEnabledChanged",
+          "set:onSystemFontFamilyChanged",
+          "set:onTextScaleFactorChanged",
+          "set:onViewFocusChange",
+          "state"
+        ],
+        "libraries": [
+          "package:device_preview/src/binding/preview_platform_dispatcher.dart"
+        ],
+        "methods": [
+          "PreviewPlatformDispatcher",
+          "computePlatformResolvedLocale",
+          "debugReceiveHostPointerDataPacket",
+          "getPersistentIsolateData",
+          "registerBackgroundIsolate",
+          "requestDartPerformanceMode",
+          "requestViewFocusChange",
+          "rewritePointerDataPacket",
+          "scaleFontSize",
+          "scheduleFrame",
+          "scheduleWarmUpFrame",
+          "sendPlatformMessage",
+          "sendPortPlatformMessage",
+          "setApplicationLocale",
+          "setIsolateDebugName",
+          "setSemanticsTreeEnabled",
+          "toString",
+          "updateSemantics",
+          "view"
+        ],
+        "types": [
+          "PreviewFlutterView",
+          "PreviewState"
+        ]
+      },
+      "PreviewState": {
+        "fields": [
+          "fit",
+          "get:simulatesMetrics",
+          "hostMouseDevices",
+          "lastPointerTimeStamp",
+          "onHostMetricsChanged",
+          "onPointerKindChanged",
+          "simulation"
+        ],
+        "libraries": [
+          "package:device_preview/src/binding/preview_state.dart"
+        ],
+        "methods": [
+          "observeHostPointers"
+        ],
+        "types": [
+          "DeviceSimulation",
+          "FitTransform"
+        ]
+      },
+      "PreviewViewConfiguration": {
+        "fields": [
+          "fit",
+          "get:hashCode",
+          "realDevicePixelRatio",
+          "realPhysicalSize",
+          "simulatedLogicalSize"
+        ],
+        "libraries": [
+          "package:device_preview/src/binding/preview_view_configuration.dart"
+        ],
+        "methods": [
+          "==",
+          "PreviewViewConfiguration",
+          "shouldUpdateMatrix",
+          "toMatrix",
+          "toPhysicalSize",
+          "toString"
+        ],
+        "types": [
+          "FitTransform"
+        ]
+      },
+      "PreviewViewPadding": {
+        "fields": [
+          "bottom",
+          "get:hashCode",
+          "left",
+          "right",
+          "top",
+          "zero"
+        ],
+        "libraries": [
+          "package:device_preview/src/binding/preview_values.dart"
+        ],
+        "methods": [
+          "==",
+          "PreviewViewPadding",
+          "fromEdgeInsets",
+          "toString"
+        ],
+        "types": [
+          "PreviewViewPadding"
+        ]
+      },
+      "RealDeviceInfo": {
+        "fields": [
+          "devicePixelRatio",
+          "get:hashCode",
+          "locales",
+          "logicalSize",
+          "padding",
+          "physicalSize",
+          "platformBrightness",
+          "targetPlatform",
+          "textScaleFactor"
+        ],
+        "libraries": [
+          "package:device_preview/device_preview.dart",
+          "package:device_preview/src/model/real_device_info.dart"
+        ],
+        "methods": [
+          "==",
+          "RealDeviceInfo",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "RenderDevicePreviewFrame": {
+        "fields": [
+          "get:overlayStyle",
+          "get:simulation",
+          "get:textDirection",
+          "set:overlayStyle",
+          "set:simulation",
+          "set:textDirection"
+        ],
+        "libraries": [
+          "package:device_preview/device_preview.dart",
+          "package:device_preview/src/widgets/device_preview_frame.dart"
+        ],
+        "methods": [
+          "RenderDevicePreviewFrame",
+          "attach",
+          "debugFillProperties",
+          "detach",
+          "dispose",
+          "paint"
+        ],
+        "types": [
+          "DeviceFramePainter",
+          "DeviceSimulation",
+          "SystemUiPainter"
+        ]
+      },
+      "SimulatedAccessibilityFeatures": {
+        "fields": [
+          "accessibleNavigation",
+          "boldText",
+          "disableAnimations",
+          "get:hashCode",
+          "highContrast",
+          "invertColors",
+          "onOffSwitchLabels",
+          "reduceMotion"
+        ],
+        "libraries": [
+          "package:device_preview/device_preview.dart",
+          "package:device_preview/src/model/simulation.dart"
+        ],
+        "methods": [
+          "==",
+          "SimulatedAccessibilityFeatures",
+          "copyWith",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "SimulatedAccessibilityFeatures"
+        ]
+      },
+      "SimulatedDisplayFeature": {
+        "fields": [
+          "bounds",
+          "get:hashCode",
+          "state",
+          "type"
+        ],
+        "libraries": [
+          "package:device_preview/device_preview.dart",
+          "package:device_preview/src/model/simulation.dart"
+        ],
+        "methods": [
+          "==",
+          "SimulatedDisplayFeature",
+          "fromJson",
+          "rotatedToLandscape",
+          "rotatedToPortrait",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "SimulatedDisplayFeature"
+        ]
+      },
+      "SvgDrawing": {
+        "fields": [
+          "empty",
+          "get:isEmpty",
+          "get:size",
+          "shapes",
+          "viewBox"
+        ],
+        "libraries": [
+          "package:device_preview/src/svg/svg_drawing.dart",
+          "package:device_preview/svg.dart"
+        ],
+        "methods": [
+          "SvgDrawing",
+          "paint",
+          "paintInto",
+          "parse"
+        ],
+        "types": [
+          "SvgDrawing",
+          "SvgShape"
+        ]
+      },
+      "SvgShape": {
+        "fields": [
+          "clips",
+          "color",
+          "followsCurrentColor",
+          "path"
+        ],
+        "libraries": [
+          "package:device_preview/src/svg/svg_drawing.dart",
+          "package:device_preview/svg.dart"
+        ],
+        "methods": [
+          "SvgShape"
+        ],
+        "types": []
+      },
+      "SystemUiBar": {
+        "fields": [
+          "bottomInset",
+          "center",
+          "get:hashCode",
+          "get:isEmpty",
+          "inset",
+          "leading",
+          "trailing"
+        ],
+        "libraries": [
+          "package:device_preview/device_preview.dart",
+          "package:device_preview/src/model/system_ui.dart"
+        ],
+        "methods": [
+          "==",
+          "SystemUiBar",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": []
+      },
+      "SystemUiColors": {
+        "fields": [
+          "get:hashCode",
+          "navigationBarBackground",
+          "navigationBarDivider",
+          "navigationBarIcons",
+          "statusBarBackground",
+          "statusBarIcons"
+        ],
+        "libraries": [
+          "package:device_preview/device_preview.dart",
+          "package:device_preview/src/model/system_ui.dart"
+        ],
+        "methods": [
+          "==",
+          "SystemUiColors",
+          "resolve",
+          "toString"
+        ],
+        "types": []
+      },
+      "SystemUiPainter": {
+        "fields": [
+          "systemUi"
+        ],
+        "libraries": [
+          "package:device_preview/src/widgets/system_ui_painter.dart"
+        ],
+        "methods": [
+          "SystemUiPainter",
+          "paint"
+        ],
+        "types": [
+          "SvgDrawing",
+          "SystemUiColors",
+          "SystemUiSimulation"
+        ]
+      },
+      "SystemUiSimulation": {
+        "fields": [
+          "get:hashCode",
+          "get:isEmpty",
+          "navigationBar",
+          "statusBar"
+        ],
+        "libraries": [
+          "package:device_preview/device_preview.dart",
+          "package:device_preview/src/model/system_ui.dart"
+        ],
+        "methods": [
+          "==",
+          "SystemUiSimulation",
+          "fromJson",
+          "toJson",
+          "toString"
+        ],
+        "types": [
+          "SystemUiBar"
+        ]
+      },
+      "XmlElement": {
+        "fields": [
+          "attributes",
+          "children",
+          "name"
+        ],
+        "libraries": [
+          "package:device_preview/src/svg/svg_xml.dart",
+          "package:device_preview/svg.dart"
+        ],
+        "methods": [
+          "XmlElement",
+          "attribute",
+          "toString"
+        ],
+        "types": [
+          "XmlElement"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-08-07T20:08:50Z",
+  "package": "device_preview",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "DeviceFrame",
+      "DevicePreset",
+      "DevicePreviewFrame",
+      "DeviceSimulation",
+      "FitTransform",
+      "PreviewAccessibilityFeatures",
+      "PreviewViewPadding",
+      "RealDeviceInfo",
+      "SimulatedAccessibilityFeatures",
+      "SimulatedDisplayFeature",
+      "SvgDrawing",
+      "SvgShape",
+      "SystemUiBar",
+      "SystemUiColors",
+      "SystemUiSimulation",
+      "XmlElement",
+      "_InheritedStyle",
+      "_Unset"
+    ],
+    "digest": "b7b96fc28fa7e613e78d1f4844c14fd4b5797cd7f10fe3644ae6b97b3d76ceff",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "6af32cd0850519bfb17b71a7a45e2b43b015dc2973a7fd44dded94d8a2481963",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      " ",
+      "\"",
+      "#",
+      "#X",
+      "#x",
+      "&",
+      "&([a-zA-Z]+|#[xX]?[0-9a-fA-F]+);",
+      "'",
+      "(\\w+)\\s*\\(([^)]*)\\)",
+      ", ",
+      "-",
+      "-->",
+      "../../presets.dart",
+      "../binding/preview_state.dart",
+      "../controller/controller.dart",
+      "../model/device_frame.dart",
+      "../model/fit_transform.dart",
+      "../model/pointer_rewrite.dart",
+      "../model/real_device_info.dart",
+      "../model/simulation.dart",
+      "../model/system_ui.dart",
+      "../service/extensions.dart",
+      "../service/protocol.dart",
+      "../service/screenshot.dart",
+      "../svg/svg_drawing.dart",
+      "../svg/svg_path_data.dart",
+      "../widgets/device_preview_frame.dart",
+      "/>",
+      ":",
+      ";",
+      "<",
+      "<!",
+      "<!--",
+      "<![CDATA[",
+      "</",
+      "<?",
+      "=",
+      ">",
+      "?>",
+      "A",
+      "A device_preview brightness simulation was applied while debugBrightnessOverride is set.\nThe two silently compete: MediaQuery prefers debugBrightnessOverride when there is no ancestor MediaQuery. Consider clearing debugBrightnessOverride while simulating brightness with device_preview.",
+      "Apple",
+      "Attribute values must be quoted",
+      "C",
+      "Device preview simulation is disabled.",
+      "DevicePreview.controller is unavailable: either DevicePreview.enable() was never called, another binding is installed, or simulation is disabled.",
+      "DeviceSimulation.targetPlatform is only supported in debug builds.\ndefaultTargetPlatform is const-folded by the compiler in profile and release builds, so there is no mechanism to override it. The field is reported as unsupported in the protocol capabilities.",
+      "Expected a name",
+      "Expected a number",
+      "Expected an SVG path command",
+      "Expected an arc flag",
+      "Expected an arc flag (\"0\" or \"1\")",
+      "Expected an attribute value",
+      "Expected an element",
+      "Galaxy S24",
+      "Galaxy S25",
+      "Galaxy Tab S10+",
+      "Galaxy Tab S11",
+      "Generic",
+      "Google",
+      "H",
+      "L",
+      "Large Desktop Window",
+      "M",
+      "Missing required parameter \"simulation\".",
+      "MmZzLlHhVvCcSsQqTtAa",
+      "No XML element found",
+      "No render view is mounted.",
+      "PNG encoding returned no data.",
+      "Pixel 10",
+      "Pixel 9",
+      "Q",
+      "S",
+      "Samsung",
+      "Small Desktop Window",
+      "T",
+      "The root <svg> element needs a viewBox or width/height attributes",
+      "Unexpected argument after a \"close\" command",
+      "Unterminated attribute value",
+      "Unterminated declaration",
+      "V",
+      "Z",
+      "[-+]?(\\d*\\.\\d+|\\d+\\.?)([eE][-+]?\\d+)?",
+      "]",
+      "]]>",
+      "_",
+      "a",
+      "accessibility",
+      "accessibleNavigation",
+      "alwaysUse24HourFormat",
+      "amp",
+      "apos",
+      "apple-ipad-air-11",
+      "apple-ipad-air-13",
+      "apple-ipad-mini",
+      "apple-ipad-pro-11",
+      "apple-ipad-pro-13",
+      "apple-iphone-16",
+      "apple-iphone-16-plus",
+      "apple-iphone-16-pro",
+      "apple-iphone-16-pro-max",
+      "apple-iphone-16e",
+      "apple-iphone-17",
+      "apple-iphone-17-pro",
+      "apple-iphone-17e",
+      "apple-iphone-air",
+      "black",
+      "blue",
+      "body",
+      "body artwork",
+      "boldText",
+      "bottom",
+      "bottomInset",
+      "bounds",
+      "brand",
+      "bytesBase64",
+      "capabilities",
+      "center",
+      "circle",
+      "clip-path",
+      "clipPath",
+      "code",
+      "count",
+      "currentColor",
+      "cx",
+      "cy",
+      "d",
+      "dart:async",
+      "dart:convert",
+      "dart:developer",
+      "dart:math",
+      "dart:typed_data",
+      "dart:ui",
+      "defs",
+      "desc",
+      "desktop-large",
+      "desktop-small",
+      "deviceKind",
+      "devicePixelRatio",
+      "device_frame.dart",
+      "device_frame_painter.dart",
+      "device_kind.dart",
+      "device_preview",
+      "device_preview.presetsChanged",
+      "device_preview.ready",
+      "device_preview.stateChanged",
+      "devtools",
+      "disableAnimations",
+      "disabled",
+      "displayFeatures",
+      "displayFeatures[]",
+      "ellipse",
+      "enabled",
+      "encoding",
+      "error",
+      "evenodd",
+      "ext.device_preview.getState",
+      "ext.device_preview.listPresets",
+      "ext.device_preview.reset",
+      "ext.device_preview.screenshot",
+      "ext.device_preview.setSimulation",
+      "fill",
+      "fill-opacity",
+      "fill-rule",
+      "filter",
+      "fit",
+      "fit_transform.dart",
+      "format",
+      "frame",
+      "g",
+      "google-pixel-10",
+      "google-pixel-9",
+      "gray",
+      "green",
+      "grey",
+      "gt",
+      "height",
+      "highContrast",
+      "iPad Air 11\"",
+      "iPad Air 13\"",
+      "iPad Pro 11\"",
+      "iPad Pro 13\"",
+      "iPad mini",
+      "iPhone 16",
+      "iPhone 16 Plus",
+      "iPhone 16 Pro",
+      "iPhone 16 Pro Max",
+      "iPhone 16e",
+      "iPhone 17",
+      "iPhone 17 Pro",
+      "iPhone 17e",
+      "iPhone Air",
+      "id",
+      "inset",
+      "internal",
+      "invalidParams",
+      "invertColors",
+      "json_utils.dart",
+      "kind",
+      "l",
+      "landscapePadding",
+      "landscapeViewPadding",
+      "leading",
+      "left",
+      "linearGradient",
+      "locales",
+      "locales[]",
+      "logicalSize",
+      "lt",
+      "m",
+      "mask",
+      "matrix",
+      "message",
+      "metadata",
+      "name",
+      "navigationBar",
+      "navy",
+      "none",
+      "offset",
+      "onOffSwitchLabels",
+      "opacity",
+      "orange",
+      "orientation",
+      "package:flutter/foundation.dart",
+      "package:flutter/gestures.dart",
+      "package:flutter/painting.dart",
+      "package:flutter/rendering.dart",
+      "package:flutter/scheduler.dart",
+      "package:flutter/services.dart",
+      "package:flutter/widgets.dart",
+      "padding",
+      "path",
+      "pixelRatio",
+      "platform",
+      "platformBrightness",
+      "png",
+      "points",
+      "polygon",
+      "portraitPadding",
+      "portraitSize",
+      "portraitViewPadding",
+      "presetId",
+      "presets",
+      "preview_flutter_view.dart",
+      "preview_platform_dispatcher.dart",
+      "preview_state.dart",
+      "preview_values.dart",
+      "preview_view_configuration.dart",
+      "programmatic",
+      "protocol.dart",
+      "protocolVersion",
+      "px",
+      "quot",
+      "r",
+      "radialGradient",
+      "realDevice",
+      "rect",
+      "red",
+      "reduceMotion",
+      "requestId",
+      "rgba?\\(([^)]*)\\)",
+      "right",
+      "rotate",
+      "rx",
+      "ry",
+      "samsung-galaxy-s24",
+      "samsung-galaxy-s25",
+      "samsung-galaxy-tab-s10-plus",
+      "samsung-galaxy-tab-s11",
+      "scale",
+      "screen outline",
+      "screenOffset",
+      "screenPath",
+      "screenSize",
+      "screenshot",
+      "screenshot.dart",
+      "screenshotFailed",
+      "showSystemUi",
+      "showSystemUi: false",
+      "silver",
+      "simulation",
+      "size",
+      "skewX",
+      "skewY",
+      "source",
+      "src/binding/binding.dart",
+      "src/controller/controller.dart",
+      "src/model/device_frame.dart",
+      "src/model/device_kind.dart",
+      "src/model/fit_transform.dart",
+      "src/model/json_utils.dart",
+      "src/model/real_device_info.dart",
+      "src/model/simulation.dart",
+      "src/model/system_ui.dart",
+      "src/svg/svg_drawing.dart",
+      "src/svg/svg_path_data.dart",
+      "src/svg/svg_xml.dart",
+      "src/widgets/device_preview_frame.dart",
+      "state",
+      "statusBar",
+      "style",
+      "supportsAnnounce",
+      "svg",
+      "svg_path_data.dart",
+      "svg_xml.dart",
+      "switch",
+      "symbol",
+      "systemGestureInsets",
+      "systemUi",
+      "system_ui.dart",
+      "system_ui_painter.dart",
+      "targetPlatform",
+      "textScaleFactor",
+      "title",
+      "top",
+      "touchInput",
+      "trailing",
+      "transform",
+      "translate",
+      "transparent",
+      "type",
+      "unavailable",
+      "url\\(\\s*#([^)\\s]+)\\s*\\)",
+      "viewBox",
+      "viewPadding",
+      "while applying a device simulation",
+      "while parsing simulated system UI",
+      "white",
+      "width",
+      "x",
+      "y",
+      "year",
+      "yellow",
+      "z"
+    ]
+  },
+  "version": "3.0.0-prerelease2"
+}
