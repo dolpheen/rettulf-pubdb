@@ -62,17 +62,17 @@
       },
       "AndroidConfig": {
         "fields": [
-          "allowIdenticalLocations",
-          "deferTime",
-          "fastestLocationUpdateInterval",
           "foregroundService",
-          "geofenceModeHighAccuracy",
+          "get:allowIdenticalLocations",
+          "get:deferTime",
+          "get:fastestLocationUpdateInterval",
+          "get:geofenceModeHighAccuracy",
           "get:hashCode",
-          "locationUpdateInterval",
-          "periodicUseExactAlarms",
-          "periodicUseForegroundService",
-          "releaseWakelockWhenStationary",
-          "scheduleUseAlarmManager"
+          "get:locationUpdateInterval",
+          "get:periodicUseExactAlarms",
+          "get:periodicUseForegroundService",
+          "get:releaseWakelockWhenStationary",
+          "get:scheduleUseAlarmManager"
         ],
         "libraries": [
           "package:tracelet/src/models/android_config.dart",
@@ -84,6 +84,8 @@
           "AndroidConfig",
           "copyWith",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toString",
           "toTlConfig"
@@ -96,14 +98,14 @@
       "AppConfig": {
         "fields": [
           "get:hashCode",
-          "heartbeatInterval",
+          "get:heartbeatInterval",
+          "get:remoteConfigRefreshInterval",
+          "get:remoteConfigTimeout",
+          "get:schedule",
+          "get:startOnBoot",
+          "get:stopOnTerminate",
           "remoteConfigHeaders",
-          "remoteConfigRefreshInterval",
-          "remoteConfigTimeout",
-          "remoteConfigUrl",
-          "schedule",
-          "startOnBoot",
-          "stopOnTerminate"
+          "remoteConfigUrl"
         ],
         "libraries": [
           "package:tracelet/src/models/config.dart",
@@ -114,6 +116,8 @@
           "AppConfig",
           "copyWith",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toTlConfig"
         ],
@@ -123,9 +127,9 @@
       },
       "AttestationConfig": {
         "fields": [
-          "enabled",
+          "get:enabled",
           "get:hashCode",
-          "refreshInterval",
+          "get:refreshInterval",
           "verificationUrl"
         ],
         "libraries": [
@@ -136,11 +140,15 @@
           "==",
           "AttestationConfig",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toString",
           "toTlConfig"
         ],
-        "types": []
+        "types": [
+          "AttestationConfig"
+        ]
       },
       "AttestationToken": {
         "fields": [
@@ -165,10 +173,10 @@
       },
       "AuditConfig": {
         "fields": [
-          "enabled",
+          "get:enabled",
+          "get:hashAlgorithm",
           "get:hashCode",
-          "hashAlgorithm",
-          "includeExtrasInHash"
+          "get:includeExtrasInHash"
         ],
         "libraries": [
           "package:tracelet/src/models/audit_config.dart",
@@ -178,11 +186,15 @@
           "==",
           "AuditConfig",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toString",
           "toTlConfig"
         ],
-        "types": []
+        "types": [
+          "AuditConfig"
+        ]
       },
       "AuditProof": {
         "fields": [
@@ -251,11 +263,12 @@
       },
       "ClassifierConfig": {
         "fields": [
-          "enableFusedClassifier",
-          "fusedClassifierAuthoritative",
+          "get:autoTuneFromTransportMode",
+          "get:enableFusedClassifier",
+          "get:fusedClassifierAuthoritative",
           "get:hashCode",
-          "minModeConfidence",
-          "modeSwitchDwellMs"
+          "get:minModeConfidence",
+          "get:modeSwitchDwellMs"
         ],
         "libraries": [
           "package:tracelet/src/models/driving_config.dart",
@@ -265,10 +278,14 @@
           "==",
           "ClassifierConfig",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toTlConfig"
         ],
-        "types": []
+        "types": [
+          "ClassifierConfig"
+        ]
       },
       "ComplianceReport": {
         "fields": [
@@ -340,6 +357,9 @@
           "fromMap",
           "highAccuracy",
           "lowPower",
+          "mergedWith",
+          "passive",
+          "resolved",
           "toMap",
           "toString",
           "toTlConfig"
@@ -411,6 +431,41 @@
         ],
         "types": []
       },
+      "CrashModelStatus": {
+        "fields": [
+          "decrypting",
+          "disabled",
+          "downloading",
+          "failed",
+          "ready",
+          "unknown",
+          "unlocking"
+        ],
+        "libraries": [
+          "package:tracelet/src/models/driving_event.dart",
+          "package:tracelet/tracelet.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CrashModelStatusEvent": {
+        "fields": [
+          "detail",
+          "status"
+        ],
+        "libraries": [
+          "package:tracelet/src/models/driving_event.dart",
+          "package:tracelet/tracelet.dart"
+        ],
+        "methods": [
+          "CrashModelStatusEvent",
+          "fromTl",
+          "toString"
+        ],
+        "types": [
+          "CrashModelStatus"
+        ]
+      },
       "DeviceInfo": {
         "fields": [
           "framework",
@@ -456,19 +511,23 @@
       },
       "ForegroundServiceConfig": {
         "fields": [
-          "actions",
-          "channelId",
-          "channelName",
-          "enabled",
+          "get:actions",
+          "get:channelId",
+          "get:channelName",
+          "get:enabled",
+          "get:hasExplicitValues",
           "get:hashCode",
+          "get:notificationOngoing",
+          "get:notificationOnlyAlertOnce",
+          "get:notificationPriority",
+          "get:notificationShowTimer",
+          "get:notificationText",
+          "get:notificationTitle",
+          "get:showNotificationOnPauseOnly",
           "notificationColor",
           "notificationLargeIcon",
-          "notificationOngoing",
-          "notificationPriority",
           "notificationSmallIcon",
-          "notificationText",
-          "notificationTitle",
-          "showNotificationOnPauseOnly"
+          "notificationStartedAt"
         ],
         "libraries": [
           "package:tracelet/src/models/android_config.dart",
@@ -480,6 +539,8 @@
           "ForegroundServiceConfig",
           "copyWith",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toTlConfig"
         ],
@@ -489,28 +550,28 @@
       },
       "GeoConfig": {
         "fields": [
-          "batteryBudgetPerHour",
-          "deadReckoningActivationDelay",
-          "deadReckoningMaxDuration",
-          "desiredAccuracy",
-          "disableElasticity",
-          "distanceFilter",
-          "elasticityMultiplier",
-          "enableAdaptiveMode",
-          "enableDeadReckoning",
-          "enableSparseUpdates",
-          "enableTimestampMeta",
-          "filter",
+          "get:batteryBudgetPerHour",
+          "get:deadReckoningActivationDelay",
+          "get:deadReckoningMaxDuration",
+          "get:desiredAccuracy",
+          "get:disableElasticity",
+          "get:distanceFilter",
+          "get:elasticityMultiplier",
+          "get:enableAdaptiveMode",
+          "get:enableDeadReckoning",
+          "get:enableSparseUpdates",
+          "get:enableTimestampMeta",
+          "get:filter",
           "get:hashCode",
-          "locationTimeout",
-          "maxMonitoredGeofences",
-          "periodicDesiredAccuracy",
-          "periodicLocationInterval",
-          "resolveAddress",
-          "sparseDistanceThreshold",
-          "sparseMaxIdleSeconds",
-          "stationaryRadius",
-          "stopAfterElapsedMinutes"
+          "get:locationTimeout",
+          "get:maxMonitoredGeofences",
+          "get:periodicDesiredAccuracy",
+          "get:periodicLocationInterval",
+          "get:resolveAddress",
+          "get:sparseDistanceThreshold",
+          "get:sparseMaxIdleSeconds",
+          "get:stationaryRadius",
+          "get:stopAfterElapsedMinutes"
         ],
         "libraries": [
           "package:tracelet/src/models/config.dart",
@@ -521,6 +582,8 @@
           "GeoConfig",
           "copyWith",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toTlConfig"
         ],
@@ -553,16 +616,18 @@
           "fromMap",
           "toJson",
           "toMap",
-          "toString"
+          "toString",
+          "toTlGeofence"
         ],
         "types": []
       },
       "GeofenceConfig": {
         "fields": [
-          "geofenceInitialTrigger",
-          "geofenceInitialTriggerEntry",
-          "geofenceModeHighAccuracy",
-          "geofenceProximityRadius",
+          "get:geofenceExitAccuracyMax",
+          "get:geofenceInitialTrigger",
+          "get:geofenceInitialTriggerEntry",
+          "get:geofenceModeHighAccuracy",
+          "get:geofenceProximityRadius",
           "get:hashCode"
         ],
         "libraries": [
@@ -573,10 +638,14 @@
           "==",
           "GeofenceConfig",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toTlConfig"
         ],
-        "types": []
+        "types": [
+          "GeofenceConfig"
+        ]
       },
       "GeofenceEvent": {
         "fields": [
@@ -649,6 +718,7 @@
           "get:hasWarnings",
           "get:hashCode",
           "get:isHealthy",
+          "get:motionAuthorization",
           "get:warningCount",
           "gpsEnabled",
           "hasAccelerometer",
@@ -747,29 +817,29 @@
       },
       "HttpConfig": {
         "fields": [
-          "autoSync",
-          "autoSyncDelay",
-          "autoSyncThreshold",
-          "batchSync",
-          "deltaCoordinatePrecision",
-          "disableAutoSyncOnCellular",
-          "enableDeltaCompression",
           "extras",
+          "get:autoSync",
+          "get:autoSyncDelay",
+          "get:autoSyncThreshold",
+          "get:batchSync",
+          "get:deltaCoordinatePrecision",
+          "get:disableAutoSyncOnCellular",
+          "get:enableDeltaCompression",
           "get:hashCode",
+          "get:httpTimeout",
+          "get:locationsOrderDirection",
+          "get:maxBatchSize",
+          "get:maxRetries",
+          "get:method",
+          "get:retryBackoffBase",
+          "get:retryBackoffCap",
+          "get:syncInterval",
+          "get:syncTelematics",
           "headers",
           "httpRootProperty",
-          "httpTimeout",
-          "locationsOrderDirection",
-          "maxBatchSize",
-          "maxRetries",
-          "method",
           "params",
-          "retryBackoffBase",
-          "retryBackoffCap",
           "sslPinningCertificates",
           "sslPinningFingerprints",
-          "syncInterval",
-          "syncTelematics",
           "telematicsUrl",
           "url"
         ],
@@ -782,6 +852,8 @@
           "HttpConfig",
           "copyWith",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toTlConfig"
         ],
@@ -813,14 +885,19 @@
       },
       "ImpactConfig": {
         "fields": [
-          "confirmWindowMs",
-          "crashGThreshold",
-          "crashMinSpeedKmh",
-          "enableCrashDetection",
-          "enableFallDetection",
-          "fallGThreshold",
+          "crashModelLicenseKey",
+          "crashModelSha256",
+          "crashModelUnlockUrl",
+          "crashModelUrl",
+          "get:confirmWindowMs",
+          "get:crashGThreshold",
+          "get:crashMinSpeedKmh",
+          "get:crashModelThreshold",
+          "get:enableCrashDetection",
+          "get:enableFallDetection",
+          "get:fallGThreshold",
           "get:hashCode",
-          "minImpactConfidence"
+          "get:minImpactConfidence"
         ],
         "libraries": [
           "package:tracelet/src/models/driving_config.dart",
@@ -830,10 +907,14 @@
           "==",
           "ImpactConfig",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toTlConfig"
         ],
-        "types": []
+        "types": [
+          "ImpactConfig"
+        ]
       },
       "ImpactEvent": {
         "fields": [
@@ -861,14 +942,16 @@
       },
       "IosConfig": {
         "fields": [
-          "activityType",
-          "disableLocationAuthorizationAlert",
+          "get:activityType",
+          "get:disableLocationAuthorizationAlert",
           "get:hashCode",
-          "locationAuthorizationRequest",
-          "pausesLocationUpdatesAutomatically",
-          "preventSuspend",
-          "showsBackgroundLocationIndicator",
-          "useSignificantChangesOnly"
+          "get:locationAuthorizationRequest",
+          "get:pausesLocationUpdatesAutomatically",
+          "get:preventSuspend",
+          "get:showsBackgroundLocationIndicator",
+          "get:useBackgroundActivitySession",
+          "get:useSignificantChangesOnly",
+          "liveActivityConfig"
         ],
         "libraries": [
           "package:tracelet/src/models/config.dart",
@@ -878,9 +961,37 @@
         "methods": [
           "==",
           "IosConfig",
+          "copyWith",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toString",
+          "toTlConfig"
+        ],
+        "types": [
+          "IosConfig",
+          "LiveActivityConfig"
+        ]
+      },
+      "LiveActivityConfig": {
+        "fields": [
+          "body",
+          "get:hashCode",
+          "showTimer",
+          "startedAt",
+          "title"
+        ],
+        "libraries": [
+          "package:tracelet/src/models/config.dart",
+          "package:tracelet/src/models/ios_config.dart",
+          "package:tracelet/tracelet.dart"
+        ],
+        "methods": [
+          "==",
+          "LiveActivityConfig",
+          "fromMap",
+          "toMap",
           "toTlConfig"
         ],
         "types": []
@@ -944,6 +1055,7 @@
           "LocationActivity",
           "fromMap",
           "fromTl",
+          "parseActivityType",
           "toJson",
           "toMap",
           "toString"
@@ -973,13 +1085,13 @@
       "LocationFilter": {
         "fields": [
           "get:hashCode",
-          "maxImpliedSpeed",
-          "mockDetectionLevel",
-          "odometerAccuracyThreshold",
-          "policy",
-          "rejectMockLocations",
-          "trackingAccuracyThreshold",
-          "useKalmanFilter"
+          "get:maxImpliedSpeed",
+          "get:mockDetectionLevel",
+          "get:odometerAccuracyThreshold",
+          "get:policy",
+          "get:rejectMockLocations",
+          "get:trackingAccuracyThreshold",
+          "get:useKalmanFilter"
         ],
         "libraries": [
           "package:tracelet/src/models/config.dart",
@@ -989,8 +1101,32 @@
           "==",
           "LocationFilter",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toTlConfig"
+        ],
+        "types": [
+          "LocationFilter"
+        ]
+      },
+      "LocationTuning": {
+        "fields": [
+          "distanceFilter",
+          "get:hashCode",
+          "maxImpliedSpeed",
+          "odometerAccuracyThreshold",
+          "trackingAccuracyThreshold"
+        ],
+        "libraries": [
+          "package:tracelet/src/models/driving_event.dart",
+          "package:tracelet/tracelet.dart"
+        ],
+        "methods": [
+          "==",
+          "LocationTuning",
+          "fromTl",
+          "toString"
         ],
         "types": []
       },
@@ -1013,10 +1149,10 @@
       },
       "LoggerConfig": {
         "fields": [
-          "debug",
+          "get:debug",
           "get:hashCode",
-          "logLevel",
-          "logMaxDays"
+          "get:logLevel",
+          "get:logMaxDays"
         ],
         "libraries": [
           "package:tracelet/src/models/config.dart",
@@ -1027,6 +1163,8 @@
           "LoggerConfig",
           "copyWith",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toTlConfig"
         ],
@@ -1058,6 +1196,7 @@
       },
       "ModeChangeEvent": {
         "fields": [
+          "appliedTuning",
           "confidence",
           "mode"
         ],
@@ -1070,33 +1209,38 @@
           "fromTl",
           "toString"
         ],
-        "types": []
+        "types": [
+          "LocationTuning"
+        ]
       },
       "MotionConfig": {
         "fields": [
-          "activityRecognitionInterval",
           "activityTypes",
-          "disableMotionActivityUpdates",
-          "disableStopDetection",
+          "get:activityRecognitionInterval",
+          "get:disableMotionActivityUpdates",
+          "get:disableStopDetection",
+          "get:hasExplicitShakeThreshold",
+          "get:hasExplicitStillSampleCount",
+          "get:hasExplicitStillThreshold",
           "get:hashCode",
-          "isMoving",
-          "minimumActivityRecognitionConfidence",
-          "motionDetectionMode",
-          "motionTriggerDelay",
-          "shakeThreshold",
-          "speedMovingThreshold",
-          "speedStationaryDelay",
-          "speedWakeConfirmCount",
-          "stationaryPeriodicAccuracy",
-          "stationaryPeriodicInterval",
-          "stationaryRadius",
-          "stationaryTrackingMode",
-          "stillSampleCount",
-          "stillThreshold",
-          "stopDetectionDelay",
-          "stopOnStationary",
-          "stopTimeout",
-          "useSignificantChangesOnly"
+          "get:isMoving",
+          "get:minimumActivityRecognitionConfidence",
+          "get:motionDetectionMode",
+          "get:motionTriggerDelay",
+          "get:shakeThreshold",
+          "get:speedMovingThreshold",
+          "get:speedStationaryDelay",
+          "get:speedWakeConfirmCount",
+          "get:stationaryPeriodicAccuracy",
+          "get:stationaryPeriodicInterval",
+          "get:stationaryRadius",
+          "get:stationaryTrackingMode",
+          "get:stillSampleCount",
+          "get:stillThreshold",
+          "get:stopDetectionDelay",
+          "get:stopOnStationary",
+          "get:stopTimeout",
+          "get:useSignificantChangesOnly"
         ],
         "libraries": [
           "package:tracelet/src/models/config.dart",
@@ -1106,11 +1250,14 @@
           "==",
           "MotionConfig",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toString",
           "toTlConfig"
         ],
         "types": [
+          "MotionConfig",
           "MotionDetectionMode",
           "StationaryTrackingMode"
         ]
@@ -1130,11 +1277,11 @@
       },
       "PersistenceConfig": {
         "fields": [
-          "disableProviderChangeRecord",
+          "get:disableProviderChangeRecord",
           "get:hashCode",
-          "maxDaysToPersist",
-          "maxRecordsToPersist",
-          "persistMode"
+          "get:maxDaysToPersist",
+          "get:maxRecordsToPersist",
+          "get:persistMode"
         ],
         "libraries": [
           "package:tracelet/src/models/config.dart",
@@ -1144,10 +1291,14 @@
           "==",
           "PersistenceConfig",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toTlConfig"
         ],
-        "types": []
+        "types": [
+          "PersistenceConfig"
+        ]
       },
       "PrivacyZone": {
         "fields": [
@@ -1189,7 +1340,7 @@
       },
       "PrivacyZoneConfig": {
         "fields": [
-          "enabled",
+          "get:enabled",
           "get:hashCode"
         ],
         "libraries": [
@@ -1200,11 +1351,15 @@
           "==",
           "PrivacyZoneConfig",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toString",
           "toTlConfig"
         ],
-        "types": []
+        "types": [
+          "PrivacyZoneConfig"
+        ]
       },
       "ProviderChangeEvent": {
         "fields": [
@@ -1275,8 +1430,8 @@
       },
       "SecurityConfig": {
         "fields": [
-          "encryptDatabase",
           "encryptionKey",
+          "get:encryptDatabase",
           "get:hashCode"
         ],
         "libraries": [
@@ -1287,11 +1442,15 @@
           "==",
           "SecurityConfig",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toString",
           "toTlConfig"
         ],
-        "types": []
+        "types": [
+          "SecurityConfig"
+        ]
       },
       "Sensors": {
         "fields": [
@@ -1406,7 +1565,8 @@
       },
       "SyncBodyContext": {
         "fields": [
-          "locations"
+          "locations",
+          "telematics"
         ],
         "libraries": [
           "package:tracelet/src/models/sync_body_context.dart",
@@ -1415,22 +1575,23 @@
         "methods": [
           "SyncBodyContext",
           "fromMap",
+          "fromPlatform",
           "toMap"
         ],
         "types": []
       },
       "TelematicsConfig": {
         "fields": [
-          "enableDrivingEvents",
-          "eventDebounceMs",
+          "get:enableDrivingEvents",
+          "get:eventDebounceMs",
+          "get:harshAccelerationG",
+          "get:harshBrakingG",
+          "get:harshCorneringG",
           "get:hashCode",
-          "harshAccelerationG",
-          "harshBrakingG",
-          "harshCorneringG",
-          "minSpeedForEventsKmh",
-          "speedLimitKmh",
-          "speedingMinDurationMs",
-          "speedingToleranceKmh"
+          "get:minSpeedForEventsKmh",
+          "get:speedLimitKmh",
+          "get:speedingMinDurationMs",
+          "get:speedingToleranceKmh"
         ],
         "libraries": [
           "package:tracelet/src/models/driving_config.dart",
@@ -1440,10 +1601,14 @@
           "==",
           "TelematicsConfig",
           "fromMap",
+          "mergedWith",
+          "resolved",
           "toMap",
           "toTlConfig"
         ],
-        "types": []
+        "types": [
+          "TelematicsConfig"
+        ]
       },
       "TelematicsRecord": {
         "fields": [
@@ -1452,8 +1617,10 @@
           "latitude",
           "longitude",
           "severity",
+          "speed",
           "synced",
-          "timestamp"
+          "timestamp",
+          "value"
         ],
         "libraries": [
           "package:tracelet/src/models/telematics_record.dart",
@@ -1470,6 +1637,7 @@
           "get:activeConfig",
           "get:activityChangeStream",
           "get:connectivityChangeStream",
+          "get:crashModelStatusStream",
           "get:drivingEventStream",
           "get:enabledChangeStream",
           "get:geofenceStream",
@@ -1487,6 +1655,7 @@
           "get:notificationActionStream",
           "get:powerSaveChangeStream",
           "get:providerChangeStream",
+          "get:remoteConfigStream",
           "get:scheduleStream"
         ],
         "libraries": [
@@ -1504,6 +1673,7 @@
           "clearLogs",
           "clearRouteContext",
           "confirmImpact",
+          "debugRunCrashModelInference",
           "destroyLocation",
           "destroyLocations",
           "destroyLog",
@@ -1517,9 +1687,11 @@
           "getAuditProof",
           "getCarbonReport",
           "getCount",
+          "getCurrentLocationTuning",
           "getCurrentPosition",
           "getDeadReckoningState",
           "getDeviceInfo",
+          "getForegroundServiceHealth",
           "getGeofence",
           "getGeofences",
           "getHealth",
@@ -1560,6 +1732,7 @@
           "onNotificationAction",
           "onPowerSaveChange",
           "onProviderChange",
+          "onRemoteConfig",
           "onSchedule",
           "onSpeedMotionChange",
           "onTrip",
@@ -1585,6 +1758,7 @@
           "requestSettings",
           "requestTemporaryFullAccuracy",
           "requestTemporaryFullAccuracyAuthorization",
+          "requestTermination",
           "reset",
           "setConfig",
           "setDynamicHeaders",
@@ -1607,6 +1781,8 @@
           "stopSchedule",
           "stopWatchPosition",
           "sync",
+          "updateLocationProviderOptions",
+          "updateNotification",
           "verifyAuditTrail",
           "watchPosition"
         ],
@@ -1619,6 +1795,7 @@
           "ComplianceReport",
           "Config",
           "ConnectivityChangeEvent",
+          "CrashModelStatusEvent",
           "DeviceInfo",
           "DrivingEvent",
           "Geofence",
@@ -1630,6 +1807,7 @@
           "HttpEvent",
           "ImpactEvent",
           "Location",
+          "LocationTuning",
           "LogEntry",
           "ModeChangeEvent",
           "PrivacyZone",
@@ -1648,7 +1826,8 @@
         "fields": [
           "balanced",
           "highAccuracy",
-          "lowPower"
+          "lowPower",
+          "passive"
         ],
         "libraries": [
           "package:tracelet/src/models/config.dart",
@@ -1685,7 +1864,7 @@
       }
     }
   },
-  "collected_at": "2026-08-13T15:46:15Z",
+  "collected_at": "2026-08-13T15:46:08Z",
   "package": "tracelet",
   "pubdb_schema_version": 1,
   "source_fingerprint": {
@@ -1706,6 +1885,7 @@
       "Config",
       "ConnectivityChangeEvent",
       "Coords",
+      "CrashModelStatusEvent",
       "DeviceInfo",
       "DrivingEvent",
       "ForegroundServiceConfig",
@@ -1722,10 +1902,12 @@
       "ImpactConfig",
       "ImpactEvent",
       "IosConfig",
+      "LiveActivityConfig",
       "Location",
       "LocationActivity",
       "LocationBattery",
       "LocationFilter",
+      "LocationTuning",
       "LogEntry",
       "LoggerConfig",
       "MockHeuristics",
@@ -1746,10 +1928,10 @@
       "TelematicsRecord",
       "TripEvent"
     ],
-    "digest": "202682e773a5c6c39a4ae202bb5aa294f290ac090393963c699695d44dddb07c",
+    "digest": "3362a16cca19f19c582a93bd4f5bb4d1434fad37723405598a4de5d805be1836",
     "event_channels": [],
     "ffi_symbols": [],
-    "hierarchy_hash": "047db934dc41a0b68f809e3b52cbcfaefa6176c6d57770b10e5ad9db7527241d",
+    "hierarchy_hash": "4425a9c8f5173569e8da97a2ff045e6090747766db57ceb606d42391a3e9be94",
     "method_channels": [
       "com.tracelet/headless",
       "com.tracelet/methods",
@@ -1784,7 +1966,10 @@
       "Location permission permanently denied — enable in Settings",
       "Mock/spoofed locations detected",
       "Motion/activity recognition permission denied",
+      "Must be finite and non-negative",
       "N/A",
+      "Never implemented — no platform reads this value and the token is not sent anywhere for verification. Verify it on your backend instead. Will be removed in a future major version (#304).",
+      "Never implemented — the audit chain always hashes core location fields only, so this flag changes nothing. Enabling it needs a versioned chain migration. Will be removed in a future major version (#304).",
       "No",
       "No accelerometer — motion detection unavailable",
       "No significant-motion sensor — wake-from-stationary degraded",
@@ -1795,10 +1980,13 @@
       "SHA-384",
       "SHA-512",
       "Tracelet",
+      "Tracking Location",
       "Tracking location in background",
+      "Use GeofenceConfig.geofenceModeHighAccuracy (cross-platform) instead. Still honored for now; will be removed in a future major version.",
       "Use requestTemporaryFullAccuracyAuthorization() — will be removed in 2.0.0",
       "WhenInUse",
       "Yes",
+      "Your location is being updated in the background.",
       "Z",
       "__tracelet_no_sync_body_builder__",
       "accelerometer",
@@ -1838,9 +2026,11 @@
       "autoSyncDelay",
       "autoSyncEnabled",
       "autoSyncThreshold",
+      "autoTuneFromTransportMode",
       "batchSync",
       "battery",
       "batteryBudgetPerHour",
+      "body",
       "brokenAtIndex",
       "brokenAtUuid",
       "broken_at_index",
@@ -1864,6 +2054,11 @@
       "country",
       "crashGThreshold",
       "crashMinSpeedKmh",
+      "crashModelLicenseKey",
+      "crashModelSha256",
+      "crashModelThreshold",
+      "crashModelUnlockUrl",
+      "crashModelUrl",
       "custom",
       "dart:async",
       "dart:convert",
@@ -1874,6 +2069,7 @@
       "deadReckoningActivationDelay",
       "deadReckoningMaxDuration",
       "debug",
+      "decrypting",
       "deferTime",
       "degrade",
       "degradedAccuracyMeters",
@@ -1889,9 +2085,11 @@
       "disableMotionActivityUpdates",
       "disableProviderChangeRecord",
       "disableStopDetection",
+      "disabled",
       "dispatchId",
       "distance",
       "distanceFilter",
+      "downloading",
       "driverId",
       "duration",
       "elapsedRealtimeDriftMs",
@@ -1917,6 +2115,7 @@
       "event_only",
       "exclude",
       "extras",
+      "failed",
       "fallGThreshold",
       "fastestLocationUpdateInterval",
       "filter",
@@ -1927,6 +2126,7 @@
       "generatedAt",
       "geo",
       "geofence",
+      "geofenceExitAccuracyMax",
       "geofenceInitialTrigger",
       "geofenceInitialTriggerEntry",
       "geofenceModeHighAccuracy",
@@ -1957,11 +2157,11 @@
       "identifier",
       "ignoreOptimizations",
       "impact",
+      "in_vehicle",
       "includeExtrasInHash",
       "initialize",
       "initialize flutter_rust_bridge twice",
       "initialized",
-      "interval",
       "ios",
       "ios_config.dart",
       "isAggressiveOem",
@@ -1981,6 +2181,7 @@
       "latitude",
       "level",
       "limit",
+      "liveActivityConfig",
       "location",
       "locationAuthorizationRequest",
       "locationCount",
@@ -2006,7 +2207,6 @@
       "maxMonitoredGeofences",
       "maxRecordsToPersist",
       "maxRetries",
-      "maximumAge",
       "method",
       "minImpactConfidence",
       "minModeConfidence",
@@ -2031,8 +2231,11 @@
       "notificationColor",
       "notificationLargeIcon",
       "notificationOngoing",
+      "notificationOnlyAlertOnce",
       "notificationPriority",
+      "notificationShowTimer",
       "notificationSmallIcon",
+      "notificationStartedAt",
       "notificationText",
       "notificationTitle",
       "notifyOnDwell",
@@ -2044,6 +2247,8 @@
       "offset",
       "oldestRecord",
       "on",
+      "on_bicycle",
+      "on_foot",
       "order",
       "osVersion",
       "ownerId",
@@ -2095,7 +2300,6 @@
       "periodicLocationInterval",
       "periodicUseExactAlarms",
       "periodicUseForegroundService",
-      "persist",
       "persistMode",
       "persistence",
       "platform",
@@ -2114,6 +2318,7 @@
       "privacyZoneIdentifiers",
       "provider",
       "radius",
+      "ready",
       "reducedAccuracy",
       "reduced_accuracy",
       "refreshInterval",
@@ -2127,6 +2332,7 @@
       "remoteConfigTimeout",
       "remoteConfigUrl",
       "requestFreshHeaders",
+      "requestTermination",
       "requestTokenRefresh",
       "resolveAddress",
       "response",
@@ -2135,7 +2341,6 @@
       "retryBackoffBase",
       "retryBackoffCap",
       "retryCount",
-      "samples",
       "satellites",
       "schedule",
       "scheduleUseAlarmManager",
@@ -2145,6 +2350,7 @@
       "setSyncBodyResponse",
       "shakeThreshold",
       "showNotificationOnPauseOnly",
+      "showTimer",
       "showsBackgroundLocationIndicator",
       "significantMotion",
       "sparseDistanceThreshold",
@@ -2222,9 +2428,9 @@
       "taskId",
       "telematics",
       "telematicsUrl",
-      "timeout",
       "timestamp",
       "timestampDriftMs",
+      "title",
       "token",
       "totalLocationsStored",
       "totalLocationsSynced",
@@ -2239,7 +2445,9 @@
       "trackingState",
       "type",
       "unknown",
+      "unlocking",
       "url",
+      "useBackgroundActivitySession",
       "useKalmanFilter",
       "useSignificantChangesOnly",
       "uuid",
@@ -2253,12 +2461,13 @@
       "vm:entry-point",
       "warnings",
       "waypoints",
-      "{\"geo\":{\"desiredAccuracy\":0,\"distanceFilter\":5.0,\"stationaryRadius\":25.0,\"enableAdaptiveMode\":false,\"disableElasticity\":true,\"enableDeadReckoning\":true,\"filter\":{\"useKalmanFilter\":true,\"rejectMockLocations\":true}},\"motion\":{\"motionDetectionMode\":0,\"stationaryTrackingMode\":0,\"stopTimeout\":3},\"android\":{\"geofenceModeHighAccuracy\":true,\"locationUpdateInterval\":1000,\"fastestLocationUpdateInterval\":500}}",
-      "{\"geo\":{\"desiredAccuracy\":1,\"distanceFilter\":20.0,\"stationaryRadius\":50.0,\"enableAdaptiveMode\":true,\"disableElasticity\":false,\"elasticityMultiplier\":1.0,\"filter\":{\"useKalmanFilter\":false}},\"motion\":{\"motionDetectionMode\":2,\"stationaryTrackingMode\":1,\"stopTimeout\":5},\"android\":{\"geofenceModeHighAccuracy\":false,\"locationUpdateInterval\":5000}}",
-      "{\"geo\":{\"desiredAccuracy\":2,\"distanceFilter\":50.0,\"stationaryRadius\":100.0,\"enableAdaptiveMode\":true,\"disableElasticity\":false,\"elasticityMultiplier\":2.0,\"enableSparseUpdates\":true,\"sparseDistanceThreshold\":100.0},\"motion\":{\"motionDetectionMode\":1,\"stationaryTrackingMode\":1,\"stopTimeout\":2},\"android\":{\"geofenceModeHighAccuracy\":false,\"locationUpdateInterval\":10000}}",
+      "{\"geo\":{\"desiredAccuracy\":0,\"distanceFilter\":5.0,\"stationaryRadius\":25.0,\"enableAdaptiveMode\":false,\"disableElasticity\":true,\"enableDeadReckoning\":true,\"filter\":{\"useKalmanFilter\":true,\"rejectMockLocations\":true}},\"motion\":{\"motionDetectionMode\":0,\"stationaryTrackingMode\":0,\"stopTimeout\":3},\"geofence\":{\"geofenceModeHighAccuracy\":true},\"android\":{\"locationUpdateInterval\":1000,\"fastestLocationUpdateInterval\":500}}",
+      "{\"geo\":{\"desiredAccuracy\":1,\"distanceFilter\":20.0,\"stationaryRadius\":50.0,\"enableAdaptiveMode\":true,\"disableElasticity\":false,\"elasticityMultiplier\":1.0,\"filter\":{\"useKalmanFilter\":false}},\"motion\":{\"motionDetectionMode\":2,\"stationaryTrackingMode\":1,\"stopTimeout\":5},\"geofence\":{\"geofenceModeHighAccuracy\":false},\"android\":{\"locationUpdateInterval\":5000}}",
+      "{\"geo\":{\"desiredAccuracy\":2,\"distanceFilter\":50.0,\"stationaryRadius\":100.0,\"enableAdaptiveMode\":true,\"disableElasticity\":false,\"elasticityMultiplier\":2.0,\"enableSparseUpdates\":true,\"sparseDistanceThreshold\":100.0},\"motion\":{\"motionDetectionMode\":1,\"stationaryTrackingMode\":1,\"stopTimeout\":2},\"geofence\":{\"geofenceModeHighAccuracy\":false},\"android\":{\"locationUpdateInterval\":10000}}",
+      "{\"geo\":{\"desiredAccuracy\":4,\"distanceFilter\":0.0,\"stationaryRadius\":500.0,\"enableAdaptiveMode\":false,\"enableSparseUpdates\":true,\"sparseDistanceThreshold\":50.0},\"motion\":{\"motionDetectionMode\":1,\"stationaryTrackingMode\":1,\"stopTimeout\":2},\"geofence\":{\"geofenceModeHighAccuracy\":false},\"android\":{\"locationUpdateInterval\":60000}}",
       "| Metric | Value |",
       "|--------|-------|"
     ]
   },
-  "version": "3.3.0"
+  "version": "3.8.4"
 }
