@@ -1,0 +1,498 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:rtmp_streaming/rtmp_streaming.dart"
+        ],
+        "methods": [
+          "availableCameras",
+          "isMultiStreamingProtocolSupported",
+          "isStreamingProtocolSupported",
+          "serializeOverlayPosition",
+          "serializeResolutionPreset",
+          "serializeStreamingProtocol"
+        ],
+        "types": [
+          "CameraDescription",
+          "OverlayPosition",
+          "ResolutionPreset",
+          "StreamingProtocol"
+        ]
+      },
+      "CameraController": {
+        "fields": [
+          "androidUseOpenGL",
+          "enableAudio",
+          "resolutionPreset"
+        ],
+        "libraries": [
+          "package:rtmp_streaming/rtmp_streaming.dart"
+        ],
+        "methods": [
+          "CameraController",
+          "clearOverlay",
+          "dispose",
+          "getHasAudio",
+          "getHasVideo",
+          "getStreamStatistics",
+          "initialize",
+          "isExposureLocked",
+          "lockExposure",
+          "pauseVideoRecording",
+          "pauseVideoStreamPlay",
+          "prepareForVideoStreaming",
+          "removeFilter",
+          "resumeVideoRecording",
+          "resumeVideoStreamPlay",
+          "setAudioSettings",
+          "setFilter",
+          "setForceBt709Color",
+          "setFrameRate",
+          "setHasAudio",
+          "setHasVideo",
+          "setMultitaskingCameraAccessEnabled",
+          "setOverlayImage",
+          "setOverlayText",
+          "setPitchShift",
+          "setRtmpShouldSendPings",
+          "setScreenSettings",
+          "setSessionPreset",
+          "setVideoSettings",
+          "startMultiStreaming",
+          "startVideoRecording",
+          "startVideoRecordingAndStreaming",
+          "startVideoStreaming",
+          "stopMultiStreaming",
+          "stopRecordingOrStreaming",
+          "stopStreamingDestination",
+          "stopVideoRecording",
+          "stopVideoStreaming",
+          "switchAudio",
+          "switchCamera",
+          "switchFlashLight",
+          "takePicture",
+          "unlockExposure"
+        ],
+        "types": [
+          "CameraDescription",
+          "CameraValue",
+          "OverlayPosition",
+          "ResolutionPreset",
+          "StreamDestination",
+          "StreamStatistics",
+          "StreamingProtocol"
+        ]
+      },
+      "CameraDescription": {
+        "fields": [
+          "get:hashCode",
+          "lensDirection",
+          "name",
+          "sensorOrientation"
+        ],
+        "libraries": [
+          "package:rtmp_streaming/rtmp_streaming.dart"
+        ],
+        "methods": [
+          "==",
+          "CameraDescription",
+          "toString"
+        ],
+        "types": [
+          "CameraLensDirection"
+        ]
+      },
+      "CameraException": {
+        "fields": [
+          "code",
+          "description"
+        ],
+        "libraries": [
+          "package:rtmp_streaming/rtmp_streaming.dart"
+        ],
+        "methods": [
+          "CameraException",
+          "toString"
+        ],
+        "types": []
+      },
+      "CameraLensDirection": {
+        "fields": [
+          "back",
+          "external",
+          "front"
+        ],
+        "libraries": [
+          "package:rtmp_streaming/rtmp_streaming.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "CameraPreview": {
+        "fields": [
+          "controller"
+        ],
+        "libraries": [
+          "package:rtmp_streaming/rtmp_streaming.dart"
+        ],
+        "methods": [
+          "CameraPreview",
+          "build"
+        ],
+        "types": [
+          "CameraController"
+        ]
+      },
+      "CameraValue": {
+        "fields": [
+          "errorDescription",
+          "event",
+          "get:aspectRatio",
+          "get:isRecordingPaused",
+          "get:isStreamingPaused",
+          "isInitialized",
+          "isRecordingVideo",
+          "isStreamingVideoRtmp",
+          "isTakingPicture",
+          "previewQuarterTurns",
+          "previewSize",
+          "streamingProtocol"
+        ],
+        "libraries": [
+          "package:rtmp_streaming/rtmp_streaming.dart"
+        ],
+        "methods": [
+          "CameraValue",
+          "copyWith",
+          "toString",
+          "uninitialized"
+        ],
+        "types": [
+          "CameraValue",
+          "StreamingProtocol"
+        ]
+      },
+      "OverlayPosition": {
+        "fields": [
+          "bottomLeft",
+          "bottomRight",
+          "center",
+          "topLeft",
+          "topRight"
+        ],
+        "libraries": [
+          "package:rtmp_streaming/rtmp_streaming.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ResolutionPreset": {
+        "fields": [
+          "high",
+          "low",
+          "max",
+          "medium",
+          "ultraHigh",
+          "veryHigh"
+        ],
+        "libraries": [
+          "package:rtmp_streaming/rtmp_streaming.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "StreamDestination": {
+        "fields": [
+          "id",
+          "protocol",
+          "url"
+        ],
+        "libraries": [
+          "package:rtmp_streaming/rtmp_streaming.dart"
+        ],
+        "methods": [
+          "StreamDestination",
+          "toMap"
+        ],
+        "types": [
+          "StreamingProtocol"
+        ]
+      },
+      "StreamStatistics": {
+        "fields": [
+          "bitrate",
+          "bytesSend",
+          "cacheSize",
+          "droppedAudioFrames",
+          "droppedVideoFrames",
+          "fps",
+          "height",
+          "isAudioMuted",
+          "isVideoMuted",
+          "rttMicros",
+          "sentAudioFrames",
+          "sentVideoFrames",
+          "width"
+        ],
+        "libraries": [
+          "package:rtmp_streaming/rtmp_streaming.dart"
+        ],
+        "methods": [
+          "StreamStatistics",
+          "toString"
+        ],
+        "types": []
+      },
+      "StreamingProtocol": {
+        "fields": [
+          "rtmp",
+          "rtsp",
+          "srt",
+          "udp",
+          "whep",
+          "whip"
+        ],
+        "libraries": [
+          "package:rtmp_streaming/rtmp_streaming.dart"
+        ],
+        "methods": [],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-08-13T01:42:27Z",
+  "package": "rtmp_streaming",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "CameraPreview",
+      "CameraValue",
+      "StreamDestination"
+    ],
+    "digest": "a9490781bc16957830cc00b6fe213000e08b7ea5326d00a8bb06d0a29fea8bb3",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "ccd7d07f2c4744e3df6b6eadc3fadc7c4e076bf366ed4d3e19c715d3191a078f",
+    "method_channels": [
+      "com.rtmp_streaming"
+    ],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "A video recording is already started.",
+      "A video streaming is already started.",
+      "No camera is streaming images",
+      "No video is Paused",
+      "No video is Streaming",
+      "No video is pause",
+      "No video is recording",
+      "No video is resume",
+      "No video is streaming",
+      "Previous capture has not returned yet.",
+      "Uninitialized CameraController",
+      "Uninitialized CameraController.",
+      "Unknown CameraLensDirection value",
+      "Unsupported platforms.",
+      "availableCameras",
+      "back",
+      "bitRateMode",
+      "bitrate",
+      "bottomLeft",
+      "bottomRight",
+      "bytesSend",
+      "cacheSize",
+      "cameraName",
+      "camera_closing",
+      "center",
+      "clearOverlay",
+      "clearOverlay was called on uninitialized CameraController",
+      "colorArgb",
+      "com.rtmp_streaming",
+      "dart:async",
+      "dart:io",
+      "destinations",
+      "dispose",
+      "droppedAudioFrames",
+      "droppedVideoFrames",
+      "enableAndroidOpenGL",
+      "enableAudio",
+      "enabled",
+      "error",
+      "errorDescription",
+      "event",
+      "eventId",
+      "eventType",
+      "expectedFrameRate",
+      "external",
+      "filePath",
+      "fontSize",
+      "fps",
+      "frameInterval",
+      "frameRate",
+      "front",
+      "getHasAudio",
+      "getHasAudio was called on uninitialized CameraController",
+      "getHasVideo",
+      "getHasVideo was called on uninitialized CameraController",
+      "getStreamStatistics",
+      "height",
+      "high",
+      "hybrid-view-type",
+      "id",
+      "initialize",
+      "invalidArgument",
+      "isAudioMuted",
+      "isEnable",
+      "isExposureLocked",
+      "isExposureLocked is only supported on Android.",
+      "isExposureLocked was called on uninitialized CameraController",
+      "isVideoMuted",
+      "lensFacing",
+      "lockExposure",
+      "lockExposure is only supported on Android.",
+      "lockExposure was called on uninitialized CameraController",
+      "low",
+      "max",
+      "medium",
+      "name",
+      "package:flutter/services.dart",
+      "package:flutter/widgets.dart",
+      "path",
+      "pauseStream",
+      "pauseVideoRecording",
+      "pauseVideoRecording Only supports Android.",
+      "pauseVideoRecording was called on uninitialized CameraController",
+      "pauseVideoRecording was called when no video is recording.",
+      "pauseVideoStream Only supports Ios.",
+      "pauseVideoStream was called on uninitialized CameraController",
+      "pauseVideoStream was called when no video is Streaming.",
+      "pitch",
+      "position",
+      "prepareForVideoStreaming",
+      "previewHeight",
+      "previewQuarterTurns",
+      "previewWidth",
+      "profileLevel",
+      "protocol",
+      "removeFilter",
+      "removeFilter supported android.",
+      "removeFilter was called on uninitialized CameraController",
+      "resolutionPreset",
+      "resumeStream",
+      "resumeVideoRecording",
+      "resumeVideoRecording Only supports Android.",
+      "resumeVideoRecording was called on uninitialized CameraController",
+      "resumeVideoRecording was called when no video is recording.",
+      "resumeVideoStream Only supports Ios.",
+      "resumeVideoStream was called on uninitialized CameraController",
+      "resumeVideoStream was called when no video is Streaming.",
+      "resumeVideoStreaming was called when no video is streaming.",
+      "rtmp",
+      "rtmp_retry",
+      "rtmp_stopped",
+      "rtsp",
+      "rttMicros",
+      "scale",
+      "sensorOrientation",
+      "sentAudioFrames",
+      "sentVideoFrames",
+      "sessionPreset",
+      "setAudioSettings",
+      "setAudioSettings was called on uninitialized CameraController",
+      "setFilter",
+      "setFilter supported android.",
+      "setFilter was called on uninitialized CameraController",
+      "setForceBt709Color",
+      "setForceBt709Color is only supported on Android.",
+      "setForceBt709Color was called on uninitialized CameraController",
+      "setFrameRate",
+      "setFrameRate was called on uninitialized CameraController",
+      "setHasAudio",
+      "setHasAudio was called on uninitialized CameraController",
+      "setHasVideo",
+      "setHasVideo was called on uninitialized CameraController",
+      "setMultitaskingCameraAccessEnabled",
+      "setMultitaskingCameraAccessEnabled is only supported on iOS.",
+      "setMultitaskingCameraAccessEnabled was called on uninitialized CameraController",
+      "setOverlayImage",
+      "setOverlayImage was called on uninitialized CameraController",
+      "setOverlayText",
+      "setOverlayText was called on uninitialized CameraController",
+      "setPitchShift",
+      "setPitchShift is only supported on Android.",
+      "setPitchShift was called on uninitialized CameraController",
+      "setRtmpShouldSendPings",
+      "setRtmpShouldSendPings is only supported on Android.",
+      "setRtmpShouldSendPings was called on uninitialized CameraController",
+      "setScreenSettings",
+      "setScreenSettings Only supports Ios.",
+      "setScreenSettings was called on uninitialized CameraController",
+      "setSessionPreset",
+      "setSessionPreset Only supports Ios.",
+      "setSessionPreset was called on uninitialized CameraController",
+      "setVideoSettings",
+      "setVideoSettings was called on uninitialized CameraController",
+      "srt",
+      "startMultiStreaming",
+      "startMultiStreaming is only supported on iOS.",
+      "startMultiStreaming requires at least one destination.",
+      "startMultiStreaming was called on uninitialized CameraController",
+      "startVideoRecording",
+      "startVideoRecording was called on uninitialized CameraController",
+      "startVideoRecording was called when a recording is already started.",
+      "startVideoRecordingAndStreaming",
+      "startVideoStreaming",
+      "startVideoStreaming was called on uninitialized CameraController",
+      "startVideoStreaming was called when a recording is already started.",
+      "stop existing streaming before startMultiStreaming.",
+      "stopImageStream was called on uninitialized CameraController.",
+      "stopImageStream was called when no camera is streaming images.",
+      "stopMultiStreaming is only supported on iOS.",
+      "stopRecording",
+      "stopRecording was called on uninitialized CameraController",
+      "stopRecording was called when no video is recording.",
+      "stopRecordingOrStreaming",
+      "stopRecordingOrStreaming was called on uninitialized CameraController",
+      "stopRecordingOrStreaming was called when no video is streaming.",
+      "stopStreaming",
+      "stopStreamingDestination",
+      "stopStreamingDestination is only supported on iOS.",
+      "stopStreamingDestination was called on uninitialized CameraController",
+      "stopVideoStreaming was called on uninitialized CameraController",
+      "stopVideoStreaming was called when no video is streaming.",
+      "success",
+      "switchAudio",
+      "switchAudio was called on uninitialized CameraController",
+      "switchAudio was called when no video is streaming.",
+      "switchCamera",
+      "switchCamera was called on uninitialized CameraController",
+      "switchFlashLight",
+      "takePicture",
+      "takePicture was called before the previous capture returned.",
+      "takePicture was called on uninitialized CameraController",
+      "text",
+      "textureId",
+      "topLeft",
+      "topRight",
+      "type",
+      "udp",
+      "ultraHigh",
+      "unlockExposure",
+      "unlockExposure is only supported on Android.",
+      "unlockExposure was called on uninitialized CameraController",
+      "unspecified",
+      "unsupportedPlatform",
+      "unsupportedProtocol",
+      "url",
+      "veryHigh",
+      "wait",
+      "whep",
+      "whip",
+      "whipToken",
+      "width"
+    ]
+  },
+  "version": "2.0.1"
+}
