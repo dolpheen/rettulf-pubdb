@@ -685,6 +685,7 @@
           "stopSchedule",
           "stopWatchPosition",
           "sync",
+          "updateNotification",
           "verifyAuditTrail",
           "watchPosition"
         ],
@@ -820,6 +821,7 @@
           "get:notificationActionEvents",
           "get:powerSaveChangeEvents",
           "get:providerChangeEvents",
+          "get:remoteConfigEvents",
           "get:scheduleEvents",
           "get:watchPositionEvents"
         ],
@@ -847,6 +849,7 @@
           "onNotificationAction",
           "onPowerSaveChange",
           "onProviderChange",
+          "onRemoteConfig",
           "onSchedule",
           "onWatchPosition"
         ],
@@ -889,6 +892,7 @@
           "get:notificationActionEvents",
           "get:powerSaveChangeEvents",
           "get:providerChangeEvents",
+          "get:remoteConfigEvents",
           "get:scheduleEvents",
           "get:watchPositionEvents"
         ],
@@ -921,9 +925,11 @@
           "getAuditProof",
           "getCarbonReport",
           "getCount",
+          "getCurrentLocationTuning",
           "getCurrentPosition",
           "getDeadReckoningState",
           "getDeviceInfo",
+          "getForegroundServiceHealth",
           "getGeofence",
           "getGeofences",
           "getLastKnownLocation",
@@ -980,6 +986,7 @@
           "stopWatchPosition",
           "sync",
           "updateLocationProviderOptions",
+          "updateNotification",
           "verifyAuditTrail",
           "watchPosition"
         ],
@@ -1003,6 +1010,7 @@
           "TlHttpEvent",
           "TlImpactEvent",
           "TlLocation",
+          "TlLocationTuning",
           "TlLogEntry",
           "TlModeChangeEvent",
           "TlProviderChangeEvent",
@@ -2250,6 +2258,7 @@
       },
       "TlClassifierConfig": {
         "fields": [
+          "autoTuneFromTransportMode",
           "enableFusedClassifier",
           "fusedClassifierAuthoritative",
           "get:hashCode",
@@ -2463,8 +2472,11 @@
           "notificationColor",
           "notificationLargeIcon",
           "notificationOngoing",
+          "notificationOnlyAlertOnce",
           "notificationPriority",
+          "notificationShowTimer",
           "notificationSmallIcon",
+          "notificationStartedAt",
           "notificationText",
           "notificationTitle",
           "showNotificationOnPauseOnly"
@@ -2568,6 +2580,7 @@
       },
       "TlGeofenceConfig": {
         "fields": [
+          "geofenceExitAccuracyMax",
           "geofenceInitialTrigger",
           "geofenceInitialTriggerEntry",
           "geofenceModeHighAccuracy",
@@ -2847,6 +2860,8 @@
         "fields": [
           "body",
           "get:hashCode",
+          "showTimer",
+          "startedAt",
           "title"
         ],
         "libraries": [
@@ -2963,6 +2978,28 @@
         "methods": [],
         "types": []
       },
+      "TlLocationTuning": {
+        "fields": [
+          "distanceFilter",
+          "get:hashCode",
+          "maxImpliedSpeed",
+          "odometerAccuracyThreshold",
+          "trackingAccuracyThreshold"
+        ],
+        "libraries": [
+          "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
+          "package:tracelet_platform_interface/tracelet_platform_interface.dart"
+        ],
+        "methods": [
+          "==",
+          "TlLocationTuning",
+          "decode",
+          "encode"
+        ],
+        "types": [
+          "TlLocationTuning"
+        ]
+      },
       "TlLogEntry": {
         "fields": [
           "get:hashCode",
@@ -3025,6 +3062,7 @@
       },
       "TlModeChangeEvent": {
         "fields": [
+          "appliedTuning",
           "confidence",
           "get:hashCode",
           "mode"
@@ -3040,6 +3078,7 @@
           "encode"
         ],
         "types": [
+          "TlLocationTuning",
           "TlModeChangeEvent"
         ]
       },
@@ -3352,8 +3391,10 @@
           "latitude",
           "longitude",
           "severity",
+          "speed",
           "synced",
-          "timestamp"
+          "timestamp",
+          "value"
         ],
         "libraries": [
           "package:tracelet_platform_interface/src/generated/tracelet_api.g.dart",
@@ -3409,6 +3450,7 @@
           "onNotificationAction",
           "onPowerSaveChange",
           "onProviderChange",
+          "onRemoteConfig",
           "onSchedule",
           "onWatchPosition",
           "setUp"
@@ -3510,9 +3552,11 @@
           "getAuditProof",
           "getCarbonReport",
           "getCount",
+          "getCurrentLocationTuning",
           "getCurrentPosition",
           "getDeadReckoningState",
           "getDeviceInfo",
+          "getForegroundServiceHealth",
           "getGeofence",
           "getGeofences",
           "getLastKnownLocation",
@@ -3570,6 +3614,7 @@
           "stopWatchPosition",
           "sync",
           "updateLocationProviderOptions",
+          "updateNotification",
           "verifyAuditTrail",
           "watchPosition"
         ],
@@ -3580,6 +3625,7 @@
           "TlDesiredAccuracy",
           "TlGeofence",
           "TlLocation",
+          "TlLocationTuning",
           "TlLogEntry",
           "TlMotionAuthorizationStatus",
           "TlNotificationAuthorizationStatus",
@@ -3609,6 +3655,7 @@
           "get:notificationActionEvents",
           "get:powerSaveChangeEvents",
           "get:providerChangeEvents",
+          "get:remoteConfigEvents",
           "get:scheduleEvents",
           "get:watchPositionEvents",
           "methodChannelName",
@@ -3644,9 +3691,11 @@
           "getAuditProof",
           "getCarbonReport",
           "getCount",
+          "getCurrentLocationTuning",
           "getCurrentPosition",
           "getDeadReckoningState",
           "getDeviceInfo",
+          "getForegroundServiceHealth",
           "getGeofence",
           "getGeofences",
           "getLastKnownLocation",
@@ -3704,6 +3753,7 @@
           "stopWatchPosition",
           "sync",
           "updateLocationProviderOptions",
+          "updateNotification",
           "verifyAuditTrail",
           "watchPosition"
         ],
@@ -3727,6 +3777,7 @@
           "TlHttpEvent",
           "TlImpactEvent",
           "TlLocation",
+          "TlLocationTuning",
           "TlLogEntry",
           "TlModeChangeEvent",
           "TlProviderChangeEvent",
@@ -3935,7 +3986,7 @@
       }
     }
   },
-  "collected_at": "2026-08-15T14:57:26Z",
+  "collected_at": "2026-08-15T14:57:24Z",
   "package": "tracelet_platform_interface",
   "pubdb_schema_version": 1,
   "source_fingerprint": {
@@ -3960,10 +4011,10 @@
       "TripWaypointDart",
       "_PigeonCodec"
     ],
-    "digest": "8a5e37e9abcac2ae3bd45016966ac58ba6da31897d8a8affbaaf2bccaf6c3cec",
+    "digest": "ef177a39192b0e1a825669e0eddc88e97897b3e3cb2ce0f65e4c9b926482bf3d",
     "event_channels": [],
     "ffi_symbols": [],
-    "hierarchy_hash": "668371ad071dedc85de5234506bffc956ed250e8507490bb577b9132ba91ba04",
+    "hierarchy_hash": "c0360567b6740a4ccd455e3d712f98a4c1e792779c83c56d0ddd33f401cd90e1",
     "method_channels": [
       "com.tracelet/methods"
     ],
@@ -4082,6 +4133,7 @@
       "battery",
       "batteryBudgetPerHour",
       "battery_budget_engine.dart",
+      "body",
       "bus",
       "canScheduleExactAlarms",
       "canScheduleExactAlarms() has not been implemented.",
@@ -4190,6 +4242,8 @@
       "geofenceEvents has not been implemented.",
       "geofenceExists",
       "geofenceExists() has not been implemented.",
+      "geofenceExitAccuracyMax",
+      "geofenceInitialTrigger",
       "geofenceInitialTriggerEntry",
       "geofenceModeHighAccuracy",
       "geofenceProximityRadius",
@@ -4203,12 +4257,14 @@
       "getCarbonReport() has not been implemented.",
       "getCount",
       "getCount() has not been implemented.",
+      "getCurrentLocationTuning() has not been implemented.",
       "getCurrentPosition",
       "getCurrentPosition() has not been implemented.",
       "getDeadReckoningState",
       "getDeadReckoningState() has not been implemented.",
       "getDeviceInfo",
       "getDeviceInfo() has not been implemented.",
+      "getForegroundServiceHealth() has not been implemented.",
       "getGeofence",
       "getGeofence() has not been implemented.",
       "getGeofences",
@@ -4275,6 +4331,7 @@
       "latitude",
       "level",
       "libtracelet_core.so",
+      "liveActivityConfig",
       "lng",
       "lo",
       "locationAuthorizationRequest",
@@ -4309,8 +4366,11 @@
       "notificationColor",
       "notificationLargeIcon",
       "notificationOngoing",
+      "notificationOnlyAlertOnce",
       "notificationPriority",
+      "notificationShowTimer",
       "notificationSmallIcon",
+      "notificationStartedAt",
       "notificationText",
       "notificationTitle",
       "notifyOnDwell",
@@ -4382,6 +4442,7 @@
       "registerHeadlessSyncBodyBuilder() has not been implemented.",
       "registerHeadlessTask",
       "registerHeadlessTask() has not been implemented.",
+      "remoteConfigEvents has not been implemented.",
       "remoteConfigHeaders",
       "remoteConfigRefreshInterval",
       "remoteConfigTimeout",
@@ -4427,9 +4488,11 @@
       "setOdometer() has not been implemented.",
       "setRouteContext",
       "setRouteContext() has not been implemented.",
+      "showNotificationOnPauseOnly",
       "showPowerManager() has not been implemented.",
       "showSettings",
       "showSettings() has not been implemented.",
+      "showTimer",
       "showsBackgroundLocationIndicator",
       "simulateTelematicsEvent() has not been implemented.",
       "sparseDistanceThreshold",
@@ -4463,6 +4526,7 @@
       "startPeriodic() has not been implemented.",
       "startSchedule",
       "startSchedule() has not been implemented.",
+      "startedAt",
       "state",
       "state/battery_budget.dart",
       "stationaryRadius",
@@ -4491,6 +4555,7 @@
       "timeout",
       "timestamp",
       "timestampMs",
+      "title",
       "totalCarbonGrams",
       "totalDistanceMeters",
       "totalTrips",
@@ -4503,6 +4568,8 @@
       "tzOffsetSeconds",
       "u",
       "unknown",
+      "updateNotification",
+      "updateNotification() has not been implemented.",
       "url",
       "useSignificantChangesOnly",
       "uuid",
@@ -4521,5 +4588,5 @@
       "z"
     ]
   },
-  "version": "3.6.0"
+  "version": "3.8.6-alpha.1"
 }
