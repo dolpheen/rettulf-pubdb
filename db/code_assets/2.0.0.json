@@ -1,0 +1,1502 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/native_library_validation.dart",
+          "package:code_assets/src/code_assets/syntax.g.dart",
+          "package:code_assets/src/code_assets/testing.dart",
+          "package:code_assets/src/code_assets/validation.dart"
+        ],
+        "methods": [
+          "setOrRemove",
+          "sortOnKey",
+          "testCodeBuildHook",
+          "toJson",
+          "validateCodeAssetBuildInput",
+          "validateCodeAssetBuildOutput",
+          "validateCodeAssetInApplication",
+          "validateCodeAssetLinkInput",
+          "validateCodeAssetLinkOutput",
+          "validateNativeLibrary"
+        ],
+        "types": [
+          "Architecture",
+          "CCompilerConfig",
+          "IOSSdk",
+          "LinkModePreference",
+          "NativeLibraryValidationContext",
+          "OS"
+        ]
+      },
+      "AndroidCodeConfig": {
+        "fields": [
+          "get:targetNdkApi"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [
+          "AndroidCodeConfig"
+        ],
+        "types": [
+          "AndroidCodeConfigSyntax"
+        ]
+      },
+      "AndroidCodeConfigSyntax": {
+        "fields": [
+          "get:targetNdkApi"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "AndroidCodeConfigSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "JsonObjectSyntax"
+        ]
+      },
+      "AndroidCodeConfigSyntaxExtension": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [
+          "toSyntax"
+        ],
+        "types": [
+          "AndroidCodeConfig",
+          "AndroidCodeConfigSyntax"
+        ]
+      },
+      "Architecture": {
+        "fields": [
+          "arm",
+          "arm64",
+          "current",
+          "get:hashCode",
+          "ia32",
+          "name",
+          "riscv32",
+          "riscv64",
+          "values",
+          "x64"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/architecture.dart"
+        ],
+        "methods": [
+          "==",
+          "fromAbi",
+          "fromString",
+          "toString"
+        ],
+        "types": [
+          "Architecture"
+        ]
+      },
+      "ArchitectureSyntax": {
+        "fields": [
+          "arm",
+          "arm64",
+          "get:isKnown",
+          "ia32",
+          "name",
+          "riscv32",
+          "riscv64",
+          "values",
+          "x64"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "fromJson",
+          "toString",
+          "unknown"
+        ],
+        "types": [
+          "ArchitectureSyntax"
+        ]
+      },
+      "ArchitectureSyntaxExtension": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/architecture.dart"
+        ],
+        "methods": [
+          "fromSyntax",
+          "toSyntax"
+        ],
+        "types": [
+          "Architecture",
+          "ArchitectureSyntax"
+        ]
+      },
+      "AssetSyntax": {
+        "fields": [
+          "get:type"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "AssetSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "JsonObjectSyntax"
+        ]
+      },
+      "BuildOutputAssetsBuilderCode": {
+        "fields": [
+          "get:code"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "BuildOutputCodeAssetBuilder"
+        ]
+      },
+      "BuildOutputCodeAssetBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [
+          "add",
+          "addAll"
+        ],
+        "types": [
+          "CodeAsset"
+        ]
+      },
+      "BuildOutputCodeAssets": {
+        "fields": [
+          "get:code"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "CodeAsset"
+        ]
+      },
+      "CCompilerConfig": {
+        "fields": [
+          "archiver",
+          "compiler",
+          "get:hashCode",
+          "get:windows",
+          "linker"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/c_compiler_config.dart"
+        ],
+        "methods": [
+          "==",
+          "CCompilerConfig"
+        ],
+        "types": [
+          "WindowsCCompilerConfig"
+        ]
+      },
+      "CCompilerConfigSyntax": {
+        "fields": [
+          "get:ar",
+          "get:cc",
+          "get:ld",
+          "get:windows"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "CCompilerConfigSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "JsonObjectSyntax",
+          "WindowsSyntax"
+        ]
+      },
+      "CCompilerConfigSyntaxExtension": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/c_compiler_config.dart"
+        ],
+        "methods": [
+          "fromSyntax",
+          "toSyntax"
+        ],
+        "types": [
+          "CCompilerConfig",
+          "CCompilerConfigSyntax"
+        ]
+      },
+      "CodeAsset": {
+        "fields": [
+          "file",
+          "get:hashCode",
+          "id",
+          "linkMode"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/code_asset.dart"
+        ],
+        "methods": [
+          "==",
+          "CodeAsset",
+          "copyWith",
+          "encode",
+          "fromEncoded"
+        ],
+        "types": [
+          "CodeAsset",
+          "LinkMode"
+        ]
+      },
+      "CodeAssetBuildInputBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [
+          "setupCode"
+        ],
+        "types": [
+          "AndroidCodeConfig",
+          "Architecture",
+          "CCompilerConfig",
+          "IOSCodeConfig",
+          "LinkModePreference",
+          "MacOSCodeConfig",
+          "OS",
+          "Sanitizer"
+        ]
+      },
+      "CodeAssetExtension": {
+        "fields": [
+          "android",
+          "cCompiler",
+          "iOS",
+          "linkModePreference",
+          "macOS",
+          "sanitizer",
+          "targetArchitecture",
+          "targetOS"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/extension.dart"
+        ],
+        "methods": [
+          "CodeAssetExtension",
+          "outputFiles",
+          "setupBuildInput",
+          "setupLinkInput",
+          "validateApplicationAssets",
+          "validateBuildInput",
+          "validateBuildOutput",
+          "validateLinkInput",
+          "validateLinkOutput"
+        ],
+        "types": [
+          "AndroidCodeConfig",
+          "Architecture",
+          "CCompilerConfig",
+          "IOSCodeConfig",
+          "LinkModePreference",
+          "MacOSCodeConfig",
+          "OS",
+          "Sanitizer"
+        ]
+      },
+      "CodeAssetType": {
+        "fields": [
+          "type"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/code_asset.dart"
+        ],
+        "methods": [],
+        "types": [
+          "CodeAsset"
+        ]
+      },
+      "CodeConfig": {
+        "fields": [
+          "get:android",
+          "get:cCompiler",
+          "get:iOS",
+          "get:linkModePreference",
+          "get:macOS",
+          "get:sanitizer",
+          "get:targetArchitecture",
+          "get:targetOS"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "AndroidCodeConfig",
+          "Architecture",
+          "CCompilerConfig",
+          "CodeConfigSyntax",
+          "IOSCodeConfig",
+          "LinkModePreference",
+          "MacOSCodeConfig",
+          "OS",
+          "Sanitizer"
+        ]
+      },
+      "CodeConfigSyntax": {
+        "fields": [
+          "get:android",
+          "get:cCompiler",
+          "get:iOS",
+          "get:linkModePreference",
+          "get:macOS",
+          "get:sanitizer",
+          "get:targetArchitecture",
+          "get:targetOs"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "CodeConfigSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "AndroidCodeConfigSyntax",
+          "ArchitectureSyntax",
+          "CCompilerConfigSyntax",
+          "IOSCodeConfigSyntax",
+          "JsonObjectSyntax",
+          "LinkModePreferenceSyntax",
+          "MacOSCodeConfigSyntax",
+          "OSSyntax",
+          "SanitizerSyntax"
+        ]
+      },
+      "ConfigExtensionsSyntax": {
+        "fields": [
+          "get:codeAssets",
+          "set:codeAssets"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "ConfigExtensionsSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "CodeConfigSyntax",
+          "JsonObjectSyntax"
+        ]
+      },
+      "ConfigSyntax": {
+        "fields": [
+          "get:extensions",
+          "set:extensions"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "ConfigSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "ConfigExtensionsSyntax",
+          "JsonObjectSyntax"
+        ]
+      },
+      "DeveloperCommandPrompt": {
+        "fields": [
+          "arguments",
+          "script"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/c_compiler_config.dart"
+        ],
+        "methods": [
+          "DeveloperCommandPrompt"
+        ],
+        "types": []
+      },
+      "DeveloperCommandPromptSyntax": {
+        "fields": [
+          "get:arguments",
+          "get:script"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "DeveloperCommandPromptSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "JsonObjectSyntax"
+        ]
+      },
+      "DeveloperCommandPromptSyntaxExtension": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/c_compiler_config.dart"
+        ],
+        "methods": [
+          "fromSyntax",
+          "toSyntax"
+        ],
+        "types": [
+          "DeveloperCommandPrompt",
+          "DeveloperCommandPromptSyntax"
+        ]
+      },
+      "DynamicLoading": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/link_mode.dart"
+        ],
+        "methods": [],
+        "types": [
+          "LinkMode"
+        ]
+      },
+      "DynamicLoadingBundleLinkModeSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "DynamicLoadingBundleLinkModeSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "LinkModeSyntax"
+        ]
+      },
+      "DynamicLoadingBundleLinkModeSyntaxExtension": {
+        "fields": [
+          "get:asDynamicLoadingBundleLinkMode",
+          "get:isDynamicLoadingBundleLinkMode"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [],
+        "types": [
+          "DynamicLoadingBundleLinkModeSyntax",
+          "LinkModeSyntax"
+        ]
+      },
+      "DynamicLoadingBundled": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/link_mode.dart"
+        ],
+        "methods": [
+          "DynamicLoadingBundled",
+          "toString"
+        ],
+        "types": [
+          "DynamicLoading",
+          "DynamicLoadingBundled"
+        ]
+      },
+      "DynamicLoadingExecutableLinkModeSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "DynamicLoadingExecutableLinkModeSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "LinkModeSyntax"
+        ]
+      },
+      "DynamicLoadingExecutableLinkModeSyntaxExtension": {
+        "fields": [
+          "get:asDynamicLoadingExecutableLinkMode",
+          "get:isDynamicLoadingExecutableLinkMode"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [],
+        "types": [
+          "DynamicLoadingExecutableLinkModeSyntax",
+          "LinkModeSyntax"
+        ]
+      },
+      "DynamicLoadingProcessLinkModeSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "DynamicLoadingProcessLinkModeSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "LinkModeSyntax"
+        ]
+      },
+      "DynamicLoadingProcessLinkModeSyntaxExtension": {
+        "fields": [
+          "get:asDynamicLoadingProcessLinkMode",
+          "get:isDynamicLoadingProcessLinkMode"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [],
+        "types": [
+          "DynamicLoadingProcessLinkModeSyntax",
+          "LinkModeSyntax"
+        ]
+      },
+      "DynamicLoadingSystem": {
+        "fields": [
+          "get:hashCode",
+          "uri"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/link_mode.dart"
+        ],
+        "methods": [
+          "==",
+          "DynamicLoadingSystem",
+          "toString"
+        ],
+        "types": [
+          "DynamicLoading"
+        ]
+      },
+      "DynamicLoadingSystemLinkModeSyntax": {
+        "fields": [
+          "get:uri"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "DynamicLoadingSystemLinkModeSyntax",
+          "fromJson",
+          "setup",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "LinkModeSyntax"
+        ]
+      },
+      "DynamicLoadingSystemLinkModeSyntaxExtension": {
+        "fields": [
+          "get:asDynamicLoadingSystemLinkMode",
+          "get:isDynamicLoadingSystemLinkMode"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [],
+        "types": [
+          "DynamicLoadingSystemLinkModeSyntax",
+          "LinkModeSyntax"
+        ]
+      },
+      "ElfValidator": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/elf_validator.dart"
+        ],
+        "methods": [
+          "ElfValidator",
+          "validate"
+        ],
+        "types": [
+          "NativeLibraryValidation",
+          "NativeLibraryValidationContext",
+          "NativeLibraryValidator"
+        ]
+      },
+      "EncodedCodeAsset": {
+        "fields": [
+          "get:asCodeAsset",
+          "get:isCodeAsset"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/code_asset.dart"
+        ],
+        "methods": [],
+        "types": [
+          "CodeAsset"
+        ]
+      },
+      "HookConfigCodeConfig": {
+        "fields": [
+          "get:buildCodeAssets",
+          "get:code"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "CodeConfig"
+        ]
+      },
+      "IOSCodeConfig": {
+        "fields": [
+          "get:targetSdk",
+          "get:targetVersion"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [
+          "IOSCodeConfig"
+        ],
+        "types": [
+          "IOSCodeConfigSyntax",
+          "IOSSdk"
+        ]
+      },
+      "IOSCodeConfigSyntax": {
+        "fields": [
+          "get:targetSdk",
+          "get:targetVersion"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "IOSCodeConfigSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "JsonObjectSyntax"
+        ]
+      },
+      "IOSCodeConfigSyntaxExtension": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [
+          "toSyntax"
+        ],
+        "types": [
+          "IOSCodeConfig",
+          "IOSCodeConfigSyntax"
+        ]
+      },
+      "IOSSdk": {
+        "fields": [
+          "iPhoneOS",
+          "iPhoneSimulator",
+          "type",
+          "values"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/ios_sdk.dart"
+        ],
+        "methods": [
+          "fromString",
+          "toString"
+        ],
+        "types": []
+      },
+      "JsonObjectSyntax": {
+        "fields": [
+          "json",
+          "path"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "JsonObjectSyntax",
+          "fromJson",
+          "validate"
+        ],
+        "types": []
+      },
+      "LinkInputCodeAssets": {
+        "fields": [
+          "get:code"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "CodeAsset"
+        ]
+      },
+      "LinkMode": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/link_mode.dart"
+        ],
+        "methods": [
+          "fromJson",
+          "toJson"
+        ],
+        "types": []
+      },
+      "LinkModePreference": {
+        "fields": [
+          "dynamic",
+          "name",
+          "preferDynamic",
+          "preferStatic",
+          "static",
+          "values"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/link_mode_preference.dart"
+        ],
+        "methods": [
+          "fromString",
+          "toString"
+        ],
+        "types": []
+      },
+      "LinkModePreferenceSyntax": {
+        "fields": [
+          "dynamic",
+          "get:isKnown",
+          "name",
+          "preferDynamic",
+          "preferStatic",
+          "static",
+          "values"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "fromJson",
+          "toString"
+        ],
+        "types": [
+          "LinkModePreferenceSyntax"
+        ]
+      },
+      "LinkModePreferenceSyntaxExtension": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/link_mode_preference.dart"
+        ],
+        "methods": [
+          "fromSyntax",
+          "toSyntax"
+        ],
+        "types": [
+          "LinkModePreference",
+          "LinkModePreferenceSyntax"
+        ]
+      },
+      "LinkModeSyntax": {
+        "fields": [
+          "get:type"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "LinkModeSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "JsonObjectSyntax"
+        ]
+      },
+      "LinkModeSyntaxExtension": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/link_mode.dart"
+        ],
+        "methods": [
+          "fromSyntax",
+          "toSyntax"
+        ],
+        "types": [
+          "LinkMode",
+          "LinkModeSyntax"
+        ]
+      },
+      "LinkOutputAssetsBuilderCode": {
+        "fields": [
+          "get:code"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "LinkOutputCodeAssetBuilder"
+        ]
+      },
+      "LinkOutputCodeAssetBuilder": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [
+          "add",
+          "addAll"
+        ],
+        "types": [
+          "CodeAsset"
+        ]
+      },
+      "LinkOutputCodeAssets": {
+        "fields": [
+          "get:code"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [],
+        "types": [
+          "CodeAsset"
+        ]
+      },
+      "LookupInExecutable": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/link_mode.dart"
+        ],
+        "methods": [
+          "LookupInExecutable",
+          "toString"
+        ],
+        "types": [
+          "DynamicLoading",
+          "LookupInExecutable"
+        ]
+      },
+      "LookupInProcess": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/link_mode.dart"
+        ],
+        "methods": [
+          "LookupInProcess",
+          "toString"
+        ],
+        "types": [
+          "DynamicLoading",
+          "LookupInProcess"
+        ]
+      },
+      "MacOSCodeConfig": {
+        "fields": [
+          "get:targetVersion"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [
+          "MacOSCodeConfig"
+        ],
+        "types": [
+          "MacOSCodeConfigSyntax"
+        ]
+      },
+      "MacOSCodeConfigSyntax": {
+        "fields": [
+          "get:targetVersion"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "MacOSCodeConfigSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "JsonObjectSyntax"
+        ]
+      },
+      "MacOSCodeConfigSyntaxExtension": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/config.dart"
+        ],
+        "methods": [
+          "toSyntax"
+        ],
+        "types": [
+          "MacOSCodeConfig",
+          "MacOSCodeConfigSyntax"
+        ]
+      },
+      "MachOValidator": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/mach_o_validator.dart"
+        ],
+        "methods": [
+          "MachOValidator",
+          "validate"
+        ],
+        "types": [
+          "NativeLibraryValidation",
+          "NativeLibraryValidationContext",
+          "NativeLibraryValidator"
+        ]
+      },
+      "NativeCodeAssetEncodingSyntax": {
+        "fields": [
+          "get:file",
+          "get:id",
+          "get:linkMode"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "NativeCodeAssetEncodingSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "JsonObjectSyntax",
+          "LinkModeSyntax"
+        ]
+      },
+      "NativeCodeAssetNewSyntax": {
+        "fields": [
+          "get:encoding",
+          "typeValue"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "NativeCodeAssetNewSyntax",
+          "fromJson",
+          "setup",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "AssetSyntax",
+          "NativeCodeAssetEncodingSyntax"
+        ]
+      },
+      "NativeCodeAssetNewSyntaxExtension": {
+        "fields": [
+          "get:asNativeCodeAssetNew",
+          "get:isNativeCodeAssetNew"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [],
+        "types": [
+          "AssetSyntax",
+          "NativeCodeAssetNewSyntax"
+        ]
+      },
+      "NativeLibraryValidation": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/native_library_validation.dart"
+        ],
+        "methods": [
+          "inconclusive",
+          "matched",
+          "notRecognized",
+          "rejected"
+        ],
+        "types": []
+      },
+      "NativeLibraryValidationContext": {
+        "fields": [
+          "config",
+          "file"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/native_library_validation.dart"
+        ],
+        "methods": [
+          "NativeLibraryValidationContext"
+        ],
+        "types": [
+          "CodeConfig"
+        ]
+      },
+      "NativeLibraryValidator": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/native_library_validation.dart"
+        ],
+        "methods": [
+          "validate"
+        ],
+        "types": [
+          "NativeLibraryValidation",
+          "NativeLibraryValidationContext"
+        ]
+      },
+      "OS": {
+        "fields": [
+          "android",
+          "current",
+          "fuchsia",
+          "get:hashCode",
+          "iOS",
+          "linux",
+          "macOS",
+          "name",
+          "osCrossCompilationDefault",
+          "values",
+          "windows"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/os.dart"
+        ],
+        "methods": [
+          "==",
+          "fromString",
+          "toString"
+        ],
+        "types": [
+          "OS"
+        ]
+      },
+      "OSLibraryNaming": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/code_asset.dart"
+        ],
+        "methods": [
+          "dylibFileName",
+          "executableFileName",
+          "libraryFileName",
+          "staticlibFileName"
+        ],
+        "types": [
+          "LinkMode",
+          "OS"
+        ]
+      },
+      "OSSyntax": {
+        "fields": [
+          "android",
+          "get:isKnown",
+          "iOS",
+          "linux",
+          "macOS",
+          "name",
+          "values",
+          "windows"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "fromJson",
+          "toString",
+          "unknown"
+        ],
+        "types": [
+          "OSSyntax"
+        ]
+      },
+      "OSSyntaxExtension": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/os.dart"
+        ],
+        "methods": [
+          "fromSyntax",
+          "toSyntax"
+        ],
+        "types": [
+          "OS",
+          "OSSyntax"
+        ]
+      },
+      "PortableExecutableValidator": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/portable_executable_validator.dart"
+        ],
+        "methods": [
+          "PortableExecutableValidator",
+          "validate"
+        ],
+        "types": [
+          "NativeLibraryValidation",
+          "NativeLibraryValidationContext",
+          "NativeLibraryValidator"
+        ]
+      },
+      "Sanitizer": {
+        "fields": [
+          "asan",
+          "get:hashCode",
+          "msan",
+          "name",
+          "tsan",
+          "values"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/sanitizer.dart"
+        ],
+        "methods": [
+          "==",
+          "fromString",
+          "toString"
+        ],
+        "types": [
+          "Sanitizer"
+        ]
+      },
+      "SanitizerSyntax": {
+        "fields": [
+          "asan",
+          "get:isKnown",
+          "msan",
+          "name",
+          "tsan",
+          "values"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "fromJson",
+          "toString",
+          "unknown"
+        ],
+        "types": [
+          "SanitizerSyntax"
+        ]
+      },
+      "SanitizerSyntaxExtension": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/sanitizer.dart"
+        ],
+        "methods": [
+          "fromSyntax",
+          "toSyntax"
+        ],
+        "types": [
+          "Sanitizer",
+          "SanitizerSyntax"
+        ]
+      },
+      "StaticLinkModeSyntax": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "StaticLinkModeSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "LinkModeSyntax"
+        ]
+      },
+      "StaticLinkModeSyntaxExtension": {
+        "fields": [
+          "get:asStaticLinkMode",
+          "get:isStaticLinkMode"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [],
+        "types": [
+          "LinkModeSyntax",
+          "StaticLinkModeSyntax"
+        ]
+      },
+      "StaticLinking": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/link_mode.dart"
+        ],
+        "methods": [
+          "StaticLinking",
+          "toString"
+        ],
+        "types": [
+          "LinkMode",
+          "StaticLinking"
+        ]
+      },
+      "WindowsCCompilerConfig": {
+        "fields": [
+          "developerCommandPrompt"
+        ],
+        "libraries": [
+          "package:code_assets/code_assets.dart",
+          "package:code_assets/src/code_assets/c_compiler_config.dart"
+        ],
+        "methods": [
+          "WindowsCCompilerConfig"
+        ],
+        "types": [
+          "DeveloperCommandPrompt"
+        ]
+      },
+      "WindowsCCompilerConfigSyntaxExtension": {
+        "fields": [],
+        "libraries": [
+          "package:code_assets/src/code_assets/c_compiler_config.dart"
+        ],
+        "methods": [
+          "fromSyntax",
+          "toSyntax"
+        ],
+        "types": [
+          "WindowsCCompilerConfig",
+          "WindowsSyntax"
+        ]
+      },
+      "WindowsSyntax": {
+        "fields": [
+          "get:developerCommandPrompt"
+        ],
+        "libraries": [
+          "package:code_assets/src/code_assets/syntax.g.dart"
+        ],
+        "methods": [
+          "WindowsSyntax",
+          "fromJson",
+          "toString",
+          "validate"
+        ],
+        "types": [
+          "DeveloperCommandPromptSyntax",
+          "JsonObjectSyntax"
+        ]
+      }
+    }
+  },
+  "collected_at": "2026-08-18T08:12:33Z",
+  "package": "code_assets",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "Architecture",
+      "ArchitectureSyntax",
+      "ElfValidator",
+      "IOSSdk",
+      "LinkMode",
+      "LinkModePreference",
+      "LinkModePreferenceSyntax",
+      "MachOValidator",
+      "NativeLibraryValidation",
+      "NativeLibraryValidationContext",
+      "OS",
+      "OSSyntax",
+      "PortableExecutableValidator",
+      "Sanitizer",
+      "SanitizerSyntax",
+      "StaticLinking",
+      "_Inconclusive",
+      "_Matched",
+      "_NotRecognized",
+      "_Rejected"
+    ],
+    "digest": "4d9c68a40aed3fa5a6d3350a33a9df19f4fd19a8a3f4ce5065d6ecf99db433bd",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "369d044045a48ab61d8428658eab5bfda7f603bcfb63980f3ac2a044c1b622e4",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      ", ",
+      ".",
+      "BuildInput.config.code",
+      "Cannot access androidConfig if targetOS is not android.",
+      "Cannot access iOSConfig if targetOS is not iOS.",
+      "Cannot access macOSConfig if targetOS is not MacOS.",
+      "Cannot access windows if CodeConfig.targetOS is not Windows",
+      "HookConfig.code should only be accessed when building code assets. Check HookConfig.buildCodeAssets (e.g. `input.config.buildCodeAssets`) before accessing HookConfig.code.",
+      "LinkInput.config.code",
+      "Must contain only non-empty errors.",
+      "Must not be empty.",
+      "No registered validator recognized the file and target.",
+      "a",
+      "android",
+      "ar",
+      "architecture.dart",
+      "arguments",
+      "arm",
+      "arm64",
+      "asan",
+      "bundled",
+      "c_compiler",
+      "c_compiler_config.dart",
+      "cc",
+      "code_asset.dart",
+      "code_assets",
+      "code_assets/code",
+      "config.dart",
+      "dart:async",
+      "dart:ffi",
+      "dart:io",
+      "dart:typed_data",
+      "developer_command_prompt",
+      "dll",
+      "dylib",
+      "dynamic",
+      "dynamic_loading_bundle",
+      "dynamic_loading_executable",
+      "dynamic_loading_process",
+      "dynamic_loading_system",
+      "elf_validator.dart",
+      "encoding",
+      "errors",
+      "exe",
+      "executable",
+      "extension.dart",
+      "extensions",
+      "file",
+      "fuchsia",
+      "ia32",
+      "id",
+      "ios",
+      "ios_sdk.dart",
+      "iphoneos",
+      "iphonesimulator",
+      "is a multi-architecture Mach-O binary. Hooks run once per target architecture and must output a thin Mach-O binary.",
+      "ld",
+      "lib",
+      "link_mode",
+      "link_mode.dart",
+      "link_mode_preference",
+      "link_mode_preference.dart",
+      "linux",
+      "mach_o_validator.dart",
+      "macos",
+      "msan",
+      "native_library_validation.dart",
+      "os.dart",
+      "package:collection/collection.dart",
+      "package:hooks/hooks.dart",
+      "package:logging/logging.dart",
+      "portable_executable_validator.dart",
+      "prefer_dynamic",
+      "prefer_static",
+      "process",
+      "reason",
+      "riscv32",
+      "riscv64",
+      "sanitizer",
+      "sanitizer.dart",
+      "script",
+      "so",
+      "src/code_assets/architecture.dart",
+      "src/code_assets/c_compiler_config.dart",
+      "src/code_assets/code_asset.dart",
+      "src/code_assets/config.dart",
+      "src/code_assets/extension.dart",
+      "src/code_assets/ios_sdk.dart",
+      "src/code_assets/link_mode.dart",
+      "src/code_assets/link_mode_preference.dart",
+      "src/code_assets/os.dart",
+      "src/code_assets/sanitizer.dart",
+      "src/code_assets/testing.dart",
+      "static",
+      "syntax.g.dart",
+      "target_architecture",
+      "target_ndk_api",
+      "target_os",
+      "target_sdk",
+      "target_version",
+      "tsan",
+      "type",
+      "uri",
+      "validation.dart",
+      "windows",
+      "x64"
+    ]
+  },
+  "version": "2.0.0"
+}
