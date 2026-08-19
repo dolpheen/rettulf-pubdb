@@ -1,0 +1,2201 @@
+{
+  "api_surface": {
+    "classes": {
+      "::": {
+        "fields": [
+          "paxRecordRegexp",
+          "platformGZipDecoder",
+          "platformGZipEncoder",
+          "platformZLibDecoder",
+          "platformZLibEncoder"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/archive/archive_file.dart",
+          "package:archive/src/codecs/tar_decoder.dart",
+          "package:archive/src/codecs/zlib/_gzip_decoder.dart",
+          "package:archive/src/codecs/zlib/_gzip_decoder_io.dart",
+          "package:archive/src/codecs/zlib/_gzip_decoder_web.dart",
+          "package:archive/src/codecs/zlib/_gzip_encoder.dart",
+          "package:archive/src/codecs/zlib/_gzip_encoder_io.dart",
+          "package:archive/src/codecs/zlib/_gzip_encoder_web.dart",
+          "package:archive/src/codecs/zlib/_inflate_buffer_io.dart",
+          "package:archive/src/codecs/zlib/_inflate_buffer_web.dart",
+          "package:archive/src/codecs/zlib/_zlib_decoder.dart",
+          "package:archive/src/codecs/zlib/_zlib_decoder_io.dart",
+          "package:archive/src/codecs/zlib/_zlib_decoder_web.dart",
+          "package:archive/src/codecs/zlib/_zlib_encoder.dart",
+          "package:archive/src/codecs/zlib/_zlib_encoder_io.dart",
+          "package:archive/src/codecs/zlib/_zlib_encoder_web.dart",
+          "package:archive/src/codecs/zlib/inflate_buffer.dart",
+          "package:archive/src/io/create_archive_from_directory.dart",
+          "package:archive/src/io/extract_archive_to_disk.dart",
+          "package:archive/src/io/posix.dart",
+          "package:archive/src/io/posix_html.dart",
+          "package:archive/src/io/posix_io.dart",
+          "package:archive/src/io/posix_stub.dart",
+          "package:archive/src/io/tar_command.dart",
+          "package:archive/src/io/zip_file_progress.dart",
+          "package:archive/src/util/_cast.dart",
+          "package:archive/src/util/_crc64_html.dart",
+          "package:archive/src/util/_crc64_io.dart",
+          "package:archive/src/util/adler32.dart",
+          "package:archive/src/util/crc32.dart",
+          "package:archive/src/util/crc64.dart",
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "arrayCopy",
+          "byteDataView",
+          "castToUint8List",
+          "chmod",
+          "clip32",
+          "clip8",
+          "createArchiveFromDirectory",
+          "createTarFile",
+          "extractArchiveToDisk",
+          "extractArchiveToDiskSync",
+          "extractFileToDisk",
+          "extractTarFiles",
+          "getAdler32",
+          "getAdler32Stream",
+          "getCrc32",
+          "getCrc32Byte",
+          "getCrc64",
+          "getCrc64_",
+          "getInputExtension",
+          "inflateBuffer",
+          "inflateBuffer_",
+          "isCrc64Supported",
+          "isCrc64Supported_",
+          "isPosixSupported",
+          "listTarFiles",
+          "pack32",
+          "rotl32",
+          "rotr32",
+          "shiftDown64",
+          "shiftl32",
+          "shiftr32",
+          "unpack32"
+        ],
+        "types": [
+          "Archive",
+          "ArchiveFile",
+          "InputStream",
+          "ZipFileOperation"
+        ]
+      },
+      "AbstractFileHandle": {
+        "fields": [
+          "get:isOpen",
+          "get:length",
+          "get:position",
+          "set:position"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/abstract_file_handle.dart"
+        ],
+        "methods": [
+          "close",
+          "closeSync",
+          "open",
+          "readInto",
+          "writeFromSync"
+        ],
+        "types": [
+          "FileAccess"
+        ]
+      },
+      "Aes": {
+        "fields": [
+          "aesEngine",
+          "aesKeyStrength",
+          "counterBlock",
+          "derivedKey",
+          "encrypt",
+          "iv",
+          "mac",
+          "nonce"
+        ],
+        "libraries": [
+          "package:archive/src/util/aes.dart"
+        ],
+        "methods": [
+          "Aes",
+          "processData"
+        ],
+        "types": [
+          "PcAESEngine",
+          "PcHMac"
+        ]
+      },
+      "AesCipherUtil": {
+        "fields": [],
+        "libraries": [
+          "package:archive/src/util/aes.dart"
+        ],
+        "methods": [
+          "getMacBasedPRF",
+          "prepareBuffAESIVBytes"
+        ],
+        "types": [
+          "PcHMac"
+        ]
+      },
+      "AesDecrypt": {
+        "fields": [
+          "aes128",
+          "aes192",
+          "aes256",
+          "iv",
+          "key",
+          "mode"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/aes_decrypt.dart"
+        ],
+        "methods": [
+          "AesDecrypt",
+          "decryptCrt"
+        ],
+        "types": []
+      },
+      "Archive": {
+        "fields": [
+          "comment",
+          "get:files",
+          "get:first",
+          "get:isEmpty",
+          "get:isNotEmpty",
+          "get:iterator",
+          "get:last",
+          "get:length"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/archive/archive.dart"
+        ],
+        "methods": [
+          "[]",
+          "[]=",
+          "add",
+          "addFile",
+          "clear",
+          "clearSync",
+          "fileData",
+          "fileName",
+          "fileSize",
+          "find",
+          "findFile",
+          "modifyAtIndex",
+          "numberOfFiles",
+          "removeAt",
+          "removeFile"
+        ],
+        "types": [
+          "ArchiveFile"
+        ]
+      },
+      "ArchiveException": {
+        "fields": [],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/archive_exception.dart"
+        ],
+        "methods": [
+          "ArchiveException"
+        ],
+        "types": []
+      },
+      "ArchiveFile": {
+        "fields": [
+          "comment",
+          "compression",
+          "compressionLevel",
+          "crc32",
+          "creationTime",
+          "get:content",
+          "get:isCompressed",
+          "get:isDirectory",
+          "get:isSymbolicLink",
+          "get:lastModDateTime",
+          "get:rawContent",
+          "get:unixPermissions",
+          "groupId",
+          "isFile",
+          "lastModTime",
+          "mode",
+          "name",
+          "ownerId",
+          "size",
+          "symbolicLink"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/archive/archive_file.dart"
+        ],
+        "methods": [
+          "ArchiveFile",
+          "bytes",
+          "clear",
+          "close",
+          "closeSync",
+          "decompress",
+          "directory",
+          "file",
+          "getContent",
+          "noCompress",
+          "noData",
+          "readBytes",
+          "stream",
+          "string",
+          "symlink",
+          "typedData",
+          "writeContent"
+        ],
+        "types": [
+          "CompressionType",
+          "FileContent",
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "BZip2": {
+        "fields": [
+          "bzhSignature",
+          "compressedMagic",
+          "emptyInt32List",
+          "emptyUint32List",
+          "emptyUint8List",
+          "eosMagic",
+          "hdr0",
+          "initialCrc"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/bzip2/bzip2.dart"
+        ],
+        "methods": [
+          "finalizeCrc",
+          "updateCrc"
+        ],
+        "types": []
+      },
+      "BZip2Decoder": {
+        "fields": [
+          "blockCompressed",
+          "blockEos",
+          "bz2RNums",
+          "bzGSize",
+          "bzMaxAlphaSize",
+          "bzMaxCodeLen",
+          "bzMaxSelectors",
+          "bzNGroups",
+          "bzNIters",
+          "bzRunA",
+          "bzRunB",
+          "mtfaSize",
+          "mtflSize"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/bzip2_decoder.dart"
+        ],
+        "methods": [
+          "decodeBytes",
+          "decodeStream"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "BZip2Encoder": {
+        "fields": [
+          "bw",
+          "input"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/bzip2_encoder.dart"
+        ],
+        "methods": [
+          "encode",
+          "encodeBytes",
+          "encodeStream"
+        ],
+        "types": [
+          "Bz2BitWriter",
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "ByteOrder": {
+        "fields": [
+          "bigEndian",
+          "littleEndian"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/byte_order.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Bz2BitReader": {
+        "fields": [
+          "input"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/bzip2/bz2_bit_reader.dart"
+        ],
+        "methods": [
+          "Bz2BitReader",
+          "readBits",
+          "readByte"
+        ],
+        "types": [
+          "InputStream"
+        ]
+      },
+      "Bz2BitWriter": {
+        "fields": [
+          "output"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/bzip2/bz2_bit_writer.dart"
+        ],
+        "methods": [
+          "Bz2BitWriter",
+          "flush",
+          "writeBits",
+          "writeByte",
+          "writeBytes",
+          "writeUint16",
+          "writeUint24",
+          "writeUint32"
+        ],
+        "types": [
+          "OutputStream"
+        ]
+      },
+      "CompressionType": {
+        "fields": [
+          "bzip2",
+          "deflate",
+          "none"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/archive/compression_type.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "Deflate": {
+        "fields": [
+          "blCodes",
+          "blockDone",
+          "bufferSize",
+          "busyState",
+          "crc32",
+          "dCodes",
+          "defMemLevel",
+          "dynamicTrees",
+          "endBlock",
+          "fast",
+          "finishDone",
+          "finishStarted",
+          "finishState",
+          "get:level",
+          "heapSize",
+          "initState",
+          "lCodes",
+          "lengthCodes",
+          "literals",
+          "maxBits",
+          "maxMatch",
+          "maxMemLevel",
+          "maxWindowBits",
+          "minLookAhead",
+          "minMatch",
+          "needMore",
+          "rep3_6",
+          "repz11_138",
+          "repz3_10",
+          "slow",
+          "staticTrees",
+          "stored",
+          "storedBlock",
+          "total",
+          "zAscii",
+          "zBinary",
+          "zBufError",
+          "zDataError",
+          "zDefaultStrategy",
+          "zDeflated",
+          "zErrNo",
+          "zFiltered",
+          "zHuffmanOnly",
+          "zMemError",
+          "zNeedDict",
+          "zOk",
+          "zStreamEnd",
+          "zStreamError",
+          "zUnknown",
+          "zVersionError"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zlib/deflate.dart"
+        ],
+        "methods": [
+          "Deflate",
+          "addBytes",
+          "addStream",
+          "biFlush",
+          "finish",
+          "getBytes",
+          "setDataType",
+          "stream",
+          "takeBytes"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "DeflateLevel": {
+        "fields": [
+          "bestCompression",
+          "bestSpeed",
+          "defaultCompression",
+          "none",
+          "value"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zlib/deflate.dart"
+        ],
+        "methods": [
+          "DeflateLevel"
+        ],
+        "types": []
+      },
+      "EncryptionType": {
+        "fields": [
+          "aes",
+          "none",
+          "zipCrypto"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/archive/encryption_type.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "FileAccess": {
+        "fields": [
+          "closed",
+          "read",
+          "write"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/file_access.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "FileBuffer": {
+        "fields": [
+          "byteOrder",
+          "file",
+          "get:buffer",
+          "get:isOpen",
+          "get:length",
+          "kDefaultBufferSize",
+          "kMinBufferSize"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/file_buffer.dart"
+        ],
+        "methods": [
+          "FileBuffer",
+          "close",
+          "closeSync",
+          "from",
+          "open",
+          "readBytes",
+          "readUint16",
+          "readUint24",
+          "readUint32",
+          "readUint64",
+          "readUint8",
+          "reset"
+        ],
+        "types": [
+          "AbstractFileHandle",
+          "ByteOrder",
+          "FileBuffer"
+        ]
+      },
+      "FileContent": {
+        "fields": [
+          "get:isCompressed",
+          "get:length"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/file_content.dart"
+        ],
+        "methods": [
+          "close",
+          "closeSync",
+          "decompress",
+          "getStream",
+          "readBytes",
+          "write"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "FileContentMemory": {
+        "fields": [
+          "bytes",
+          "get:length"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/file_content.dart"
+        ],
+        "methods": [
+          "FileContentMemory",
+          "close",
+          "closeSync",
+          "getStream",
+          "write"
+        ],
+        "types": [
+          "FileContent",
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "FileContentStream": {
+        "fields": [
+          "get:length",
+          "stream"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/file_content.dart"
+        ],
+        "methods": [
+          "FileContentStream",
+          "close",
+          "closeSync",
+          "getStream",
+          "write"
+        ],
+        "types": [
+          "FileContent",
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "FileHandle": {
+        "fields": [
+          "get:isOpen",
+          "get:length",
+          "get:path",
+          "get:position",
+          "set:position"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/_file_handle_html.dart",
+          "package:archive/src/util/_file_handle_io.dart",
+          "package:archive/src/util/file_handle.dart"
+        ],
+        "methods": [
+          "FileHandle",
+          "close",
+          "closeSync",
+          "open",
+          "readInto",
+          "writeFromSync"
+        ],
+        "types": [
+          "AbstractFileHandle",
+          "FileAccess"
+        ]
+      },
+      "GZipDecoder": {
+        "fields": [],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/gzip_decoder.dart"
+        ],
+        "methods": [
+          "GZipDecoder",
+          "decodeBytes",
+          "decodeStream"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "GZipDecoderWeb": {
+        "fields": [],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zlib/gzip_decoder_web.dart"
+        ],
+        "methods": [
+          "GZipDecoderWeb",
+          "decodeBytes",
+          "decodeStream"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream",
+          "ZLibDecoderBase"
+        ]
+      },
+      "GZipEncoder": {
+        "fields": [],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/gzip_encoder.dart"
+        ],
+        "methods": [
+          "GZipEncoder",
+          "encode",
+          "encodeBytes",
+          "encodeStream"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "GZipEncoderWeb": {
+        "fields": [],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zlib/gzip_encoder_web.dart"
+        ],
+        "methods": [
+          "GZipEncoderWeb",
+          "encodeBytes",
+          "encodeStream"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream",
+          "ZLibEncoderBase"
+        ]
+      },
+      "GZipFlag": {
+        "fields": [
+          "comment",
+          "deflate",
+          "extra",
+          "hcrc",
+          "name",
+          "osAcornRiscOS",
+          "osAmiga",
+          "osAtariTos",
+          "osCpM",
+          "osFat",
+          "osHpfs",
+          "osMacintosh",
+          "osNtfs",
+          "osQDos",
+          "osTops20",
+          "osUnix",
+          "osUnknown",
+          "osVMS",
+          "osVmCms",
+          "osZSystem",
+          "signature",
+          "text"
+        ],
+        "libraries": [
+          "package:archive/src/codecs/zlib/gzip_flag.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "HuffmanTable": {
+        "fields": [
+          "maxCodeLength",
+          "minCodeLength",
+          "table"
+        ],
+        "libraries": [
+          "package:archive/src/codecs/zlib/_huffman_table.dart"
+        ],
+        "methods": [
+          "HuffmanTable"
+        ],
+        "types": []
+      },
+      "Inflate": {
+        "fields": [],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zlib/inflate.dart"
+        ],
+        "methods": [
+          "Inflate",
+          "addBytes",
+          "addStream",
+          "getBytes",
+          "stream"
+        ],
+        "types": [
+          "HuffmanTable",
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "InputFileStream": {
+        "fields": [
+          "get:file",
+          "get:fileRemaining",
+          "get:isEOS",
+          "get:length",
+          "get:position",
+          "set:position"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/input_file_stream.dart"
+        ],
+        "methods": [
+          "InputFileStream",
+          "asRamFile",
+          "close",
+          "closeSync",
+          "fromFileStream",
+          "open",
+          "readByte",
+          "readBytes",
+          "readUint16",
+          "readUint24",
+          "readUint32",
+          "readUint64",
+          "reset",
+          "rewind",
+          "setPosition",
+          "skip",
+          "subset",
+          "toUint8List",
+          "withFileBuffer",
+          "withFileHandle"
+        ],
+        "types": [
+          "AbstractFileHandle",
+          "ByteOrder",
+          "FileBuffer",
+          "InputFileStream",
+          "InputStream"
+        ]
+      },
+      "InputMemoryStream": {
+        "fields": [
+          "buffer",
+          "get:isEOS",
+          "get:length",
+          "get:position",
+          "set:position"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/input_memory_stream.dart"
+        ],
+        "methods": [
+          "InputMemoryStream",
+          "[]",
+          "close",
+          "closeSync",
+          "empty",
+          "from",
+          "fromList",
+          "open",
+          "readByte",
+          "reset",
+          "rewind",
+          "setPosition",
+          "skip",
+          "subset",
+          "toUint8List"
+        ],
+        "types": [
+          "InputMemoryStream",
+          "InputStream"
+        ]
+      },
+      "InputStream": {
+        "fields": [
+          "byteOrder",
+          "get:isEOS",
+          "get:length",
+          "get:position",
+          "set:position"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/input_stream.dart"
+        ],
+        "methods": [
+          "InputStream",
+          "close",
+          "closeSync",
+          "open",
+          "peekBytes",
+          "readByte",
+          "readBytes",
+          "readString",
+          "readUint16",
+          "readUint24",
+          "readUint32",
+          "readUint64",
+          "readUint8",
+          "reset",
+          "rewind",
+          "setPosition",
+          "skip",
+          "subset",
+          "toUint8List"
+        ],
+        "types": [
+          "ByteOrder",
+          "InputStream"
+        ]
+      },
+      "LzmaDecoder": {
+        "fields": [
+          "state"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/lzma/lzma_decoder.dart"
+        ],
+        "methods": [
+          "LzmaDecoder",
+          "decode",
+          "decodeUncompressed",
+          "reset"
+        ],
+        "types": [
+          "InputStream",
+          "RangeDecoderTable"
+        ]
+      },
+      "OutputFileStream": {
+        "fields": [
+          "get:isOpen",
+          "get:length",
+          "kDefaultBufferSize"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/output_file_stream.dart"
+        ],
+        "methods": [
+          "OutputFileStream",
+          "clear",
+          "close",
+          "closeSync",
+          "flush",
+          "subset",
+          "toRamFile",
+          "withFileHandle",
+          "writeByte",
+          "writeBytes",
+          "writeStream",
+          "writeUint16",
+          "writeUint32",
+          "writeUint64"
+        ],
+        "types": [
+          "AbstractFileHandle",
+          "ByteOrder",
+          "InputStream",
+          "OutputStream",
+          "RamFileHandle"
+        ]
+      },
+      "OutputMemoryStream": {
+        "fields": [
+          "defaultBufferSize",
+          "length"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/output_memory_stream.dart"
+        ],
+        "methods": [
+          "OutputMemoryStream",
+          "clear",
+          "flush",
+          "getBytes",
+          "reset",
+          "subset",
+          "writeBackReference",
+          "writeByte",
+          "writeBytes",
+          "writeStream"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "OutputStream": {
+        "fields": [
+          "byteOrder",
+          "get:isOpen",
+          "get:length"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/output_stream.dart"
+        ],
+        "methods": [
+          "OutputStream",
+          "clear",
+          "close",
+          "closeSync",
+          "flush",
+          "getBytes",
+          "open",
+          "subset",
+          "writeBackReference",
+          "writeByte",
+          "writeBytes",
+          "writeStream",
+          "writeUint16",
+          "writeUint32",
+          "writeUint64"
+        ],
+        "types": [
+          "ByteOrder",
+          "InputStream"
+        ]
+      },
+      "PcAESEngine": {
+        "fields": [
+          "get:blockSize"
+        ],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "generateWorkingKey",
+          "init",
+          "processBlock",
+          "reset"
+        ],
+        "types": [
+          "PcBaseBlockCipher",
+          "PcKeyParameter"
+        ]
+      },
+      "PcBaseBlockCipher": {
+        "fields": [],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "process"
+        ],
+        "types": [
+          "PcBlockCipher"
+        ]
+      },
+      "PcBaseDigest": {
+        "fields": [],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "process"
+        ],
+        "types": [
+          "PcDigest"
+        ]
+      },
+      "PcBaseKeyDerivator": {
+        "fields": [],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "process"
+        ],
+        "types": [
+          "PcKeyDerivator"
+        ]
+      },
+      "PcBaseMac": {
+        "fields": [],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "process"
+        ],
+        "types": [
+          "PcMac"
+        ]
+      },
+      "PcBlockCipher": {
+        "fields": [
+          "get:blockSize"
+        ],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "init",
+          "process",
+          "processBlock",
+          "reset"
+        ],
+        "types": [
+          "PcCipherParameters"
+        ]
+      },
+      "PcCipherParameters": {
+        "fields": [],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "PcDigest": {
+        "fields": [
+          "get:byteLength",
+          "get:digestSize"
+        ],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "doFinal",
+          "process",
+          "reset",
+          "update",
+          "updateByte"
+        ],
+        "types": []
+      },
+      "PcHMac": {
+        "fields": [
+          "get:macSize"
+        ],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "PcHMac",
+          "doFinal",
+          "init",
+          "reset",
+          "update",
+          "updateByte",
+          "withDigest"
+        ],
+        "types": [
+          "PcBaseMac",
+          "PcDigest",
+          "PcKeyParameter"
+        ]
+      },
+      "PcKeyDerivator": {
+        "fields": [
+          "get:keySize"
+        ],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "deriveKey",
+          "init",
+          "process"
+        ],
+        "types": [
+          "PcCipherParameters"
+        ]
+      },
+      "PcKeyParameter": {
+        "fields": [
+          "key"
+        ],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "PcKeyParameter",
+          "offset"
+        ],
+        "types": [
+          "PcCipherParameters"
+        ]
+      },
+      "PcMD4FamilyDigest": {
+        "fields": [
+          "buffer",
+          "bufferOffset",
+          "state"
+        ],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "PcMD4FamilyDigest",
+          "doFinal",
+          "processBlock",
+          "reset",
+          "resetState",
+          "update",
+          "updateByte"
+        ],
+        "types": [
+          "PcBaseDigest"
+        ]
+      },
+      "PcMac": {
+        "fields": [
+          "get:macSize"
+        ],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "doFinal",
+          "init",
+          "process",
+          "reset",
+          "update",
+          "updateByte"
+        ],
+        "types": [
+          "PcCipherParameters"
+        ]
+      },
+      "PcPBKDF2KeyDerivator": {
+        "fields": [
+          "get:keySize"
+        ],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "PcPBKDF2KeyDerivator",
+          "deriveKey",
+          "init",
+          "reset"
+        ],
+        "types": [
+          "PcBaseKeyDerivator",
+          "PcMac",
+          "PcPbkdf2Parameters"
+        ]
+      },
+      "PcPbkdf2Parameters": {
+        "fields": [
+          "desiredKeyLength",
+          "iterationCount",
+          "salt"
+        ],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "PcPbkdf2Parameters"
+        ],
+        "types": [
+          "PcCipherParameters"
+        ]
+      },
+      "PcRegister64": {
+        "fields": [
+          "get:hashCode",
+          "get:hi32",
+          "get:lo32"
+        ],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "<",
+          "<=",
+          "==",
+          ">",
+          ">=",
+          "PcRegister64",
+          "and",
+          "mod",
+          "mul",
+          "or",
+          "pack",
+          "rotl",
+          "rotr",
+          "set",
+          "setInt",
+          "shiftl",
+          "shiftr",
+          "sum",
+          "sumReg",
+          "toString",
+          "unpack",
+          "xor"
+        ],
+        "types": [
+          "PcRegister64"
+        ]
+      },
+      "PcSHA1Digest": {
+        "fields": [
+          "digestSize",
+          "get:byteLength"
+        ],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "PcSHA1Digest",
+          "processBlock",
+          "resetState"
+        ],
+        "types": [
+          "PcDigest",
+          "PcMD4FamilyDigest"
+        ]
+      },
+      "PcSHA256Digest": {
+        "fields": [
+          "digestSize",
+          "get:byteLength"
+        ],
+        "libraries": [
+          "package:archive/src/util/encryption.dart"
+        ],
+        "methods": [
+          "PcSHA256Digest",
+          "processBlock",
+          "resetState"
+        ],
+        "types": [
+          "PcDigest",
+          "PcMD4FamilyDigest"
+        ]
+      },
+      "RamFileData": {
+        "fields": [
+          "get:content",
+          "get:length"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/ram_file_handle.dart"
+        ],
+        "methods": [
+          "clear",
+          "fromBytes",
+          "fromStream",
+          "outputBuffer",
+          "readAsBytes",
+          "readIntoSync",
+          "writeFromSync"
+        ],
+        "types": [
+          "RamFileData"
+        ]
+      },
+      "RamFileHandle": {
+        "fields": [
+          "get:isOpen",
+          "get:length",
+          "get:position",
+          "set:position"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/util/ram_file_handle.dart"
+        ],
+        "methods": [
+          "asWritableRamBuffer",
+          "close",
+          "closeSync",
+          "fromRamFileData",
+          "fromStream",
+          "readInto",
+          "writeFromSync"
+        ],
+        "types": [
+          "AbstractFileHandle",
+          "RamFileData",
+          "RamFileHandle"
+        ]
+      },
+      "RangeDecoder": {
+        "fields": [
+          "code",
+          "range",
+          "set:input"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/lzma/range_decoder.dart"
+        ],
+        "methods": [
+          "initialize",
+          "readBit",
+          "readBittree",
+          "readBittreeReverse",
+          "readDirect",
+          "reset"
+        ],
+        "types": [
+          "InputStream",
+          "RangeDecoderTable"
+        ]
+      },
+      "RangeDecoderTable": {
+        "fields": [
+          "table"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/lzma/range_decoder.dart"
+        ],
+        "methods": [
+          "RangeDecoderTable",
+          "reset"
+        ],
+        "types": []
+      },
+      "TarDecoder": {
+        "fields": [
+          "filenameEncoding",
+          "files"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/tar_decoder.dart"
+        ],
+        "methods": [
+          "TarDecoder",
+          "decodeBytes",
+          "decodeStream"
+        ],
+        "types": [
+          "Archive",
+          "InputStream",
+          "TarFile"
+        ]
+      },
+      "TarEncoder": {
+        "fields": [
+          "filenameEncoding"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/tar_encoder.dart"
+        ],
+        "methods": [
+          "TarEncoder",
+          "add",
+          "encode",
+          "encodeBytes",
+          "encodeStream",
+          "finish",
+          "start"
+        ],
+        "types": [
+          "Archive",
+          "ArchiveFile",
+          "OutputStream"
+        ]
+      },
+      "TarFile": {
+        "fields": [
+          "blockSpec",
+          "charSpec",
+          "checksum",
+          "contFile",
+          "deviceMajorNumber",
+          "deviceMinorNumber",
+          "directory",
+          "exHeader",
+          "exHeader2",
+          "fifo",
+          "fileSize",
+          "filename",
+          "filenamePrefix",
+          "gExHeader",
+          "gExHeader2",
+          "get:content",
+          "get:contentBytes",
+          "get:isFile",
+          "get:isSymLink",
+          "get:rawContent",
+          "get:size",
+          "groupId",
+          "hardLink",
+          "lastModTime",
+          "mode",
+          "nameOfLinkedFile",
+          "normalFile",
+          "ownerGroupName",
+          "ownerId",
+          "ownerUserName",
+          "set:contentBytes",
+          "symbolicLink",
+          "typeFlag",
+          "ustarIndicator",
+          "ustarVersion"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/tar/tar_file.dart"
+        ],
+        "methods": [
+          "TarFile",
+          "read",
+          "toString",
+          "write"
+        ],
+        "types": [
+          "FileContent",
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "TarFileEncoder": {
+        "fields": [
+          "gzip",
+          "store",
+          "tarPath"
+        ],
+        "libraries": [
+          "package:archive/archive_io.dart",
+          "package:archive/src/io/tar_file_encoder.dart"
+        ],
+        "methods": [
+          "addDirectory",
+          "addFile",
+          "close",
+          "create",
+          "open",
+          "tarDirectory"
+        ],
+        "types": [
+          "OutputFileStream",
+          "TarEncoder"
+        ]
+      },
+      "Uint8ListEquality": {
+        "fields": [],
+        "libraries": [
+          "package:archive/src/util/aes.dart"
+        ],
+        "methods": [
+          "equals"
+        ],
+        "types": []
+      },
+      "XZCheck": {
+        "fields": [
+          "crc32",
+          "crc64",
+          "none",
+          "sha256"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/xz_encoder.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "XZDecoder": {
+        "fields": [],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/xz_decoder.dart"
+        ],
+        "methods": [
+          "decodeBytes",
+          "decodeStream"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "XZEncoder": {
+        "fields": [],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/xz_encoder.dart"
+        ],
+        "methods": [
+          "encode",
+          "encodeBytes",
+          "encodeStream"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream",
+          "XZCheck"
+        ]
+      },
+      "ZLibDecoder": {
+        "fields": [],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zlib_decoder.dart"
+        ],
+        "methods": [
+          "ZLibDecoder",
+          "decodeBytes",
+          "decodeStream"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "ZLibDecoderBase": {
+        "fields": [],
+        "libraries": [
+          "package:archive/src/codecs/zlib/_zlib_decoder_base.dart"
+        ],
+        "methods": [
+          "ZLibDecoderBase",
+          "decodeBytes",
+          "decodeStream"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "ZLibDecoderWeb": {
+        "fields": [],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zlib/zlib_decoder_web.dart"
+        ],
+        "methods": [
+          "ZLibDecoderWeb",
+          "decodeBytes",
+          "decodeStream"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream",
+          "ZLibDecoderBase"
+        ]
+      },
+      "ZLibEncoder": {
+        "fields": [
+          "maxWindowBits"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zlib_encoder.dart"
+        ],
+        "methods": [
+          "ZLibEncoder",
+          "encode",
+          "encodeBytes",
+          "encodeStream"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "ZLibEncoderBase": {
+        "fields": [],
+        "libraries": [
+          "package:archive/src/codecs/zlib/_zlib_encoder_base.dart"
+        ],
+        "methods": [
+          "ZLibEncoderBase",
+          "encodeBytes",
+          "encodeStream"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream"
+        ]
+      },
+      "ZLibEncoderWeb": {
+        "fields": [],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zlib/zlib_encoder_web.dart"
+        ],
+        "methods": [
+          "ZLibEncoderWeb",
+          "encodeBytes",
+          "encodeStream"
+        ],
+        "types": [
+          "InputStream",
+          "OutputStream",
+          "ZLibEncoderBase"
+        ]
+      },
+      "ZipAesHeader": {
+        "fields": [
+          "compressionMethod",
+          "encryptionStrength",
+          "signature",
+          "vendorId",
+          "vendorVersion"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zip/zip_file.dart"
+        ],
+        "methods": [
+          "ZipAesHeader"
+        ],
+        "types": []
+      },
+      "ZipDecoder": {
+        "fields": [
+          "directory"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zip_decoder.dart"
+        ],
+        "methods": [
+          "decodeBytes",
+          "decodeStream"
+        ],
+        "types": [
+          "Archive",
+          "InputStream",
+          "ZipDirectory"
+        ]
+      },
+      "ZipDirectory": {
+        "fields": [
+          "centralDirectoryOffset",
+          "centralDirectorySize",
+          "diskWithTheStartOfTheCentralDirectory",
+          "eocdSignature",
+          "fileHeaders",
+          "filePosition",
+          "numberOfThisDisk",
+          "totalCentralDirectoryEntries",
+          "totalCentralDirectoryEntriesOnThisDisk",
+          "zip64EocdLocatorSignature",
+          "zip64EocdLocatorSize",
+          "zip64EocdSignature",
+          "zip64EocdSize",
+          "zipFileComment"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zip/zip_directory.dart"
+        ],
+        "methods": [
+          "read"
+        ],
+        "types": [
+          "InputStream"
+        ]
+      },
+      "ZipEncoder": {
+        "fields": [
+          "fileEncryptionBit",
+          "filenameEncoding",
+          "languageEncodingBitUtf8",
+          "password",
+          "version"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zip_encoder.dart"
+        ],
+        "methods": [
+          "ZipEncoder",
+          "add",
+          "encode",
+          "encodeBytes",
+          "encodeStream",
+          "endEncode",
+          "getFileCrc32",
+          "startEncode"
+        ],
+        "types": [
+          "Archive",
+          "ArchiveFile",
+          "OutputStream"
+        ]
+      },
+      "ZipEncryptionMode": {
+        "fields": [
+          "aes",
+          "none",
+          "zipCrypto"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zip/zip_file.dart"
+        ],
+        "methods": [],
+        "types": []
+      },
+      "ZipFile": {
+        "fields": [
+          "compressedSize",
+          "compressionMethod",
+          "crc32",
+          "extraField",
+          "filename",
+          "flags",
+          "get:isCompressed",
+          "get:length",
+          "header",
+          "lastModFileDate",
+          "lastModFileTime",
+          "uncompressedSize",
+          "version",
+          "zipCompressionAexEncryption",
+          "zipCompressionBZip2",
+          "zipCompressionDeflate",
+          "zipCompressionStore",
+          "zipSignature"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zip/zip_file.dart"
+        ],
+        "methods": [
+          "ZipFile",
+          "close",
+          "closeSync",
+          "decompress",
+          "deriveKey",
+          "getRawContent",
+          "getStream",
+          "read",
+          "toString",
+          "verifyCrc32",
+          "write"
+        ],
+        "types": [
+          "CompressionType",
+          "FileContent",
+          "InputStream",
+          "OutputStream",
+          "ZipAesHeader",
+          "ZipEncryptionMode",
+          "ZipFileHeader"
+        ]
+      },
+      "ZipFileEncoder": {
+        "fields": [
+          "gzip",
+          "password",
+          "store"
+        ],
+        "libraries": [
+          "package:archive/archive_io.dart",
+          "package:archive/src/io/zip_file_encoder.dart"
+        ],
+        "methods": [
+          "ZipFileEncoder",
+          "addArchiveFile",
+          "addDirectory",
+          "addDirectorySync",
+          "addFile",
+          "addFileSync",
+          "close",
+          "closeSync",
+          "create",
+          "createWithStream",
+          "open",
+          "zipDirectory"
+        ],
+        "types": [
+          "ArchiveFile",
+          "OutputFileStream",
+          "ZipEncoder"
+        ]
+      },
+      "ZipFileHeader": {
+        "fields": [
+          "compressedSize",
+          "compressionMethod",
+          "crc32",
+          "diskNumberStart",
+          "externalFileAttributes",
+          "extraField",
+          "file",
+          "fileComment",
+          "filename",
+          "generalPurposeBitFlag",
+          "internalFileAttributes",
+          "lastModifiedFileDate",
+          "lastModifiedFileTime",
+          "localHeaderOffset",
+          "signature",
+          "uncompressedSize",
+          "versionMadeBy",
+          "versionNeededToExtract"
+        ],
+        "libraries": [
+          "package:archive/archive.dart",
+          "package:archive/archive_io.dart",
+          "package:archive/src/codecs/zip/zip_file_header.dart"
+        ],
+        "methods": [
+          "read",
+          "toString"
+        ],
+        "types": [
+          "InputStream",
+          "ZipFile"
+        ]
+      },
+      "ZipFileOperation": {
+        "fields": [
+          "cancel",
+          "include",
+          "skip"
+        ],
+        "libraries": [
+          "package:archive/archive_io.dart",
+          "package:archive/src/io/zip_file_progress.dart"
+        ],
+        "methods": [],
+        "types": []
+      }
+    }
+  },
+  "collected_at": "2026-08-19T03:17:09Z",
+  "package": "archive",
+  "pubdb_schema_version": 1,
+  "source_fingerprint": {
+    "basic_message_channels": [],
+    "const_classes": [
+      "DeflateLevel",
+      "GZipDecoder",
+      "GZipDecoderWeb",
+      "GZipEncoder",
+      "GZipEncoderWeb",
+      "ZLibDecoder",
+      "ZLibDecoderBase",
+      "ZLibDecoderWeb",
+      "ZLibEncoder",
+      "ZLibEncoderBase",
+      "ZLibEncoderWeb",
+      "_GZipDecoder",
+      "_GZipEncoder",
+      "_XZBlockSize",
+      "_ZLibDecoder",
+      "_ZLibEncoder"
+    ],
+    "digest": "15c1e7bca06acb027d21e3c48a09127d0ccf2e0f9f3b0e1350593499d04cb049",
+    "event_channels": [],
+    "ffi_symbols": [],
+    "hierarchy_hash": "bbef8f6fc908a01b4c91230d591407c6f6f6853f6e33d7be181df78eb4aac588",
+    "method_channels": [],
+    "strategy": "source-structural-v1",
+    "string_literals": [
+      "",
+      "\n",
+      "        ",
+      "(\\d+) (\\w+)=(.*)",
+      "../../archive/compression_type.dart",
+      "../../archive_io.dart",
+      "../../util/adler32.dart",
+      "../../util/aes.dart",
+      "../../util/byte_order.dart",
+      "../../util/crc32.dart",
+      "../../util/encryption.dart",
+      "../../util/file_content.dart",
+      "../../util/input_memory_stream.dart",
+      "../../util/input_stream.dart",
+      "../../util/output_memory_stream.dart",
+      "../../util/output_stream.dart",
+      "../archive/archive.dart",
+      "../archive/archive_file.dart",
+      "../archive/compression_type.dart",
+      "../bzip2_decoder.dart",
+      "../codecs/bzip2_decoder.dart",
+      "../codecs/gzip_decoder.dart",
+      "../codecs/gzip_encoder.dart",
+      "../codecs/tar_decoder.dart",
+      "../codecs/tar_encoder.dart",
+      "../codecs/xz_decoder.dart",
+      "../codecs/zip_decoder.dart",
+      "../codecs/zip_encoder.dart",
+      "../util/_cast.dart",
+      "../util/aes.dart",
+      "../util/byte_order.dart",
+      "../util/crc32.dart",
+      "../util/crc64.dart",
+      "../util/encryption.dart",
+      "../util/file_content.dart",
+      "../util/input_file_stream.dart",
+      "../util/input_memory_stream.dart",
+      "../util/input_stream.dart",
+      "../util/output_file_stream.dart",
+      "../util/output_memory_stream.dart",
+      "../util/output_stream.dart",
+      "../zlib_decoder.dart",
+      "././@LongLink",
+      "./compression_type.dart",
+      ".tar",
+      ".tar.bz2",
+      ".tar.gz",
+      ".tar.gz, .tgz, .tar.bz2, .tbz, .tar.xz, .txz, .tar or .zip",
+      ".tar.xz",
+      ".tbz",
+      ".tgz",
+      ".txz",
+      ".zip",
+      "/",
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "AE",
+      "Cannot write to read-only RAM file data",
+      "Crc64 is not support on html",
+      "G",
+      "Input buffer too short",
+      "Iteration count must be at least 1.",
+      "Key length not 128/192/256 bits.",
+      "Output buffer too short",
+      "RamFileData.fromStream: an entry of the stream had a larger size than its predecessors",
+      "RamFileData.fromStream: an non-ending entry of the stream has a different size from its predecessors.",
+      "RamFileData.fromStream: usedSubListSize is null",
+      "Should never get here",
+      "Visible for testing only",
+      "X",
+      "\\",
+      "_crc64_html.dart",
+      "_crc64_io.dart",
+      "_file_handle_html.dart",
+      "_file_handle_io.dart",
+      "_gzip_decoder_io.dart",
+      "_gzip_decoder_web.dart",
+      "_gzip_encoder_io.dart",
+      "_gzip_encoder_web.dart",
+      "_huffman_table.dart",
+      "_inflate_buffer_io.dart",
+      "_inflate_buffer_web.dart",
+      "_zlib_decoder_base.dart",
+      "_zlib_decoder_io.dart",
+      "_zlib_decoder_web.dart",
+      "_zlib_encoder_base.dart",
+      "_zlib_encoder_io.dart",
+      "_zlib_encoder_web.dart",
+      "abstract_file_handle.dart",
+      "archive.dart",
+      "archive_file.dart",
+      "byte_order.dart",
+      "bzip2/bz2_bit_reader.dart",
+      "bzip2/bz2_bit_writer.dart",
+      "bzip2/bzip2.dart",
+      "bzip2_encoder.dart",
+      "dart:async",
+      "dart:collection",
+      "dart:convert",
+      "dart:io",
+      "dart:math",
+      "dart:typed_data",
+      "dart_archive",
+      "deflate.dart",
+      "encryption.dart",
+      "file_access.dart",
+      "file_buffer.dart",
+      "file_handle.dart",
+      "filename must not be within the directory being zipped",
+      "foo",
+      "g",
+      "gzip_flag.dart",
+      "inflate.dart",
+      "inputPath",
+      "input_memory_stream.dart",
+      "input_stream.dart",
+      "linkpath",
+      "lzma/lzma_decoder.dart",
+      "macs don't match",
+      "output_stream.dart",
+      "package:archive/src/util/output_memory_stream.dart",
+      "package:path/path.dart",
+      "package:posix/posix.dart",
+      "password error",
+      "path",
+      "posix.dart",
+      "posix_html.dart",
+      "posix_io.dart",
+      "ram_file_handle.dart",
+      "range_decoder.dart",
+      "src/archive/archive.dart",
+      "src/archive/archive_file.dart",
+      "src/archive/compression_type.dart",
+      "src/archive/encryption_type.dart",
+      "src/codecs/bzip2/bz2_bit_reader.dart",
+      "src/codecs/bzip2/bz2_bit_writer.dart",
+      "src/codecs/bzip2/bzip2.dart",
+      "src/codecs/bzip2_decoder.dart",
+      "src/codecs/bzip2_encoder.dart",
+      "src/codecs/gzip_decoder.dart",
+      "src/codecs/gzip_encoder.dart",
+      "src/codecs/lzma/lzma_decoder.dart",
+      "src/codecs/lzma/range_decoder.dart",
+      "src/codecs/tar/tar_file.dart",
+      "src/codecs/tar_decoder.dart",
+      "src/codecs/tar_encoder.dart",
+      "src/codecs/xz_decoder.dart",
+      "src/codecs/xz_encoder.dart",
+      "src/codecs/zip/zip_directory.dart",
+      "src/codecs/zip/zip_file.dart",
+      "src/codecs/zip/zip_file_header.dart",
+      "src/codecs/zip_decoder.dart",
+      "src/codecs/zip_encoder.dart",
+      "src/codecs/zlib/_zlib_decoder.dart",
+      "src/codecs/zlib/deflate.dart",
+      "src/codecs/zlib/gzip_decoder_web.dart",
+      "src/codecs/zlib/gzip_encoder_web.dart",
+      "src/codecs/zlib/inflate.dart",
+      "src/codecs/zlib/inflate_buffer.dart",
+      "src/codecs/zlib/zlib_decoder_web.dart",
+      "src/codecs/zlib/zlib_encoder_web.dart",
+      "src/codecs/zlib_decoder.dart",
+      "src/codecs/zlib_encoder.dart",
+      "src/io/create_archive_from_directory.dart",
+      "src/io/extract_archive_to_disk.dart",
+      "src/io/tar_command.dart",
+      "src/io/tar_file_encoder.dart",
+      "src/io/zip_file_encoder.dart",
+      "src/io/zip_file_progress.dart",
+      "src/util/abstract_file_handle.dart",
+      "src/util/adler32.dart",
+      "src/util/aes_decrypt.dart",
+      "src/util/archive_exception.dart",
+      "src/util/byte_order.dart",
+      "src/util/crc32.dart",
+      "src/util/crc64.dart",
+      "src/util/file_access.dart",
+      "src/util/file_buffer.dart",
+      "src/util/file_content.dart",
+      "src/util/file_handle.dart",
+      "src/util/input_file_stream.dart",
+      "src/util/input_memory_stream.dart",
+      "src/util/input_stream.dart",
+      "src/util/output_file_stream.dart",
+      "src/util/output_memory_stream.dart",
+      "src/util/output_stream.dart",
+      "src/util/ram_file_handle.dart",
+      "tar.bz2",
+      "tar.gz",
+      "tar/tar_file.dart",
+      "tbz",
+      "temp.tar",
+      "tgz",
+      "ustar",
+      "utf-8",
+      "x",
+      "zip/zip_directory.dart",
+      "zip/zip_file.dart",
+      "zip/zip_file_header.dart",
+      "zip_file.dart",
+      "zip_file_header.dart",
+      "zip_file_progress.dart",
+      "zlib/_gzip_decoder.dart",
+      "zlib/_gzip_encoder.dart",
+      "zlib/_zlib_decoder.dart",
+      "zlib/_zlib_encoder.dart",
+      "zlib/deflate.dart"
+    ]
+  },
+  "version": "4.1.0"
+}
